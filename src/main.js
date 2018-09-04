@@ -5,8 +5,8 @@ import FastClick from 'fastclick'
 import VueRouter from 'vue-router'
 import App from './App'
 import User from './components/user/User'
-import Events from '@/components/events/Events'
-import Lending from '@/components/lending/Lending'
+import Events from './components/events/Events'
+import Lending from './components/lending/Lending'
 
 Vue.use(VueRouter)
 
