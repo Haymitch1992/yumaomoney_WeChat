@@ -4,14 +4,30 @@ import Vue from 'vue'
 import FastClick from 'fastclick'
 import VueRouter from 'vue-router'
 import App from './App'
-import Home from './components/HelloFromVux'
+import User from './components/user/User'
+import Events from '@/components/events/Events'
+import Lending from '@/components/lending/Lending'
 
 Vue.use(VueRouter)
 
-const routes = [{
-  path: '/',
-  component: Home
-}]
+const routes = [
+  {
+    path: '/',
+    redirect: '/User'
+  },
+  {
+    path: '/User',
+    component: User
+  },
+  {
+    path: '/Lending',
+    component: Lending
+  },
+  {
+    path: '/Events',
+    component: Events
+  }
+]
 
 const router = new VueRouter({
   routes
