@@ -1,4 +1,4 @@
-# yumaomoney_WeChat
+# 鱼猫投融WeChat
 
 > WeChat端项目
 
