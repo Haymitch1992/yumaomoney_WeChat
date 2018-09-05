@@ -13,35 +13,32 @@
 </template>
 
 <script>
-import { Group, Cell } from 'vux'
+  import { Group, Cell } from 'vux'
 
-export default {
-  name: 'User',
-  components: {
-    Group,
-    Cell
-  },
-  data () {
-    return {
-      // note: changing this line won't causes changes
-      // with hot-reload because the reloaded component
-      // preserves its current state and we are modifying
-      // its initial state.
-      msg: 'Hello World!'
+  export default {
+    name: 'User',
+    components: {
+      Group,
+      Cell
+    },
+    data () {
+      return {
+        // note: changing this line won't causes changes
+        // with hot-reload because the reloaded component
+        // preserves its current state and we are modifying
+        // its initial state.
+        msg: 'Hello World!'
+      }
     }
-  },
-  created () {
-    this.GLOBAL.token = 'User'
   }
-}
 </script>
 
 <style>
-.vux-demo {
-  text-align: center;
-}
-.logo {
-  width: 100px;
-  height: 100px
-}
+  .vux-demo {
+    text-align: center;
+  }
+  .logo {
+    width: 100px;
+    height: 100px
+  }
 </style>

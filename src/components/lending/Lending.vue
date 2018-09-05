@@ -9,24 +9,21 @@
 </template>
 
 <script>
-import { Group, Cell, XHeader } from 'vux'
+  import { Group, Cell, XHeader } from 'vux'
 
-export default {
-  name: 'Lending',
-  components: {
-    Group,
-    Cell,
-    XHeader
-  },
-  data () {
-    return {
-      msg: 'Hello World!'
+  export default {
+    name: 'Lending',
+    components: {
+      Group,
+      Cell,
+      XHeader
+    },
+    data () {
+      return {
+        msg: 'Hello World!'
+      }
     }
-  },
-  created () {
-    this.GLOBAL.token = 'Lending'
   }
-}
 </script>
 
 <style>

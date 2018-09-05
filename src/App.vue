@@ -5,7 +5,6 @@
     <div class="content-box">
       <router-view></router-view>
     </div>
-    {{GLOBAL.token}}
     <tabbar class="footer-fixed">
       <tabbar-item link="Events" :selected="$route.path === '/Events'">
         <img slot="icon" src="./assets/foot-xx.png">
@@ -27,53 +26,34 @@
 </template>
 
 <script>
-import { Tabbar, TabbarItem, XHeader } from 'vux'
-export default {
-  name: 'app',
-  components: {
-    Tabbar,
-    TabbarItem,
-    XHeader
-  },
-  data () {
-    return {
-      // note: changing this line won't causes changes
-      // with hot-reload because the reloaded component
-      // preserves its current state and we are modifying
-      // its initial state.
-      msg: this.GLOBAL.token
+  import { Tabbar, TabbarItem, XHeader } from 'vux'
+  export default {
+    name: 'app',
+    components: {
+      Tabbar,
+      TabbarItem,
+      XHeader
     }
-  },
-  methods: {
-    fetchDate () {
-      // 使用 axios获取数据
-      console.log(this.GLOBAL.token)
-    }
-  },
-  watch: {
-    // 如果路由有变化，会再次执行该方法
-    '$route': 'fetchDate'
   }
-}
 </script>
 
 <style lang="less">
-@import '~vux/src/styles/reset.less';
+  @import '~vux/src/styles/reset.less';
 
-body {
-  background-color: #fbf9fe;
-}
-#app .header-fixed{
-  position: fixed;
-  top: 0;
-  z-index: 500;
-  width: 100%;
-}
-#app .footer-fixed{
-  position: fixed;
-  bottom: 0;
-}
-.content-box{
-  padding: 46px 0 53px;
-}
+  body {
+    background-color: #fbf9fe;
+  }
+  #app .header-fixed{
+    position: fixed;
+    top: 0;
+    z-index: 500;
+    width: 100%;
+  }
+  #app .footer-fixed{
+    position: fixed;
+    bottom: 0;
+  }
+  .content-box{
+    padding: 46px 0 53px;
+  }
 </style>
