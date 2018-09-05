@@ -1,7 +1,11 @@
 <template>
   <div id="app">
-    <router-view></router-view>
-    <tabbar>
+    <x-header :left-options='{showBack: false}' v-show="$route.path === '/Events'" class="header-fixed">在线活动</x-header>
+    <x-header :left-options='{showBack: false}' v-show="$route.path === '/Lending'" class="header-fixed">出借投资</x-header>
+    <div class="content-box">
+      <router-view></router-view>
+    </div>
+    <tabbar class="footer-fixed">
       <tabbar-item link="Events" :selected="$route.path === '/Events'">
         <img slot="icon" src="./assets/foot-xx.png">
         <img slot="icon-active" src="./assets/foot-xx-active.png">
@@ -22,12 +26,13 @@
 </template>
 
 <script>
-import { Tabbar, TabbarItem } from 'vux'
+import { Tabbar, TabbarItem, XHeader } from 'vux'
 export default {
   name: 'app',
   components: {
     Tabbar,
-    TabbarItem
+    TabbarItem,
+    XHeader
   }
 }
 </script>
@@ -37,5 +42,18 @@ export default {
 
 body {
   background-color: #fbf9fe;
+}
+#app .header-fixed{
+  position: fixed;
+  top: 0;
+  z-index: 500;
+  width: 100%;
+}
+#app .footer-fixed{
+  position: fixed;
+  bottom: 0;
+}
+.content-box{
+  padding: 46px 0 53px;
 }
 </style>

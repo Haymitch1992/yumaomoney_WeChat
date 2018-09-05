@@ -1,6 +1,5 @@
 <template>
   <div>
-    <x-header>出借投资</x-header>
     <group title="cell demo">
       <cell title="第一" value="cool" is-link></cell>
       <cell title="第二" value="cool" is-link></cell>

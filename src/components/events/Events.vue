@@ -1,17 +1,14 @@
 <template>
   <div>
-    <x-header>在线活动</x-header>
-    <div>
-      <div style="margin: 10px;overflow: hidden;" v-for="item in list">
-        <masker style="border-radius: 2px;">
-          <div class="m-img" :style="{backgroundImage: 'url(' + item.img + ')'}"></div>
-          <div slot="content" class="m-title">
-            {{item.title}}
+    <div style="margin: 10px;overflow: hidden;" v-for="item in list">
+      <masker style="border-radius: 2px;">
+        <div class="m-img" :style="{backgroundImage: 'url(' + item.img + ')'}"></div>
+        <div slot="content" class="m-title">
+          {{item.title}}
           <br/>
-            <span class="m-time">2016-03-18</span>
-          </div>
-        </masker>
-      </div>
+          <span class="m-time">2016-03-18</span>
+        </div>
+      </masker>
     </div>
   </div>
 </template>
