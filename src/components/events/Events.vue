@@ -1,5 +1,8 @@
 <template>
   <div>
+    <div class="header-box">
+      <x-header :left-options='{showBack: false}' class="header-fixed">在线活动</x-header>
+    </div>
     <div style="margin: 10px;overflow: hidden;" v-for="item in list">
       <masker style="border-radius: 2px;">
         <div class="m-img" :style="{backgroundImage: 'url(' + item.img + ')'}"></div>

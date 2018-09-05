@@ -1,27 +1,25 @@
 <template>
   <div id="app">
-    <x-header :left-options='{showBack: false}' v-show="$route.path === '/events'" class="header-fixed">在线活动</x-header>
-    <x-header :left-options='{showBack: false}' v-show="$route.path === '/lending'" class="header-fixed">出借列表</x-header>
-    <div class="content-box">
-      <router-view></router-view>
+    <router-view></router-view>
+    <div class="footer-box">
+      <tabbar class="footer-fixed">
+        <tabbar-item link="events" :selected="$route.path === '/events'">
+          <img slot="icon" src="./assets/foot-xx.png">
+          <img slot="icon-active" src="./assets/foot-xx-active.png">
+          <span slot="label">活动</span>
+        </tabbar-item>
+        <tabbar-item link="lending" :selected="$route.path === '/lending'">
+          <img slot="icon" src="./assets/foot-tz.png">
+          <img slot="icon-active" src="./assets/foot-tz-active.png">
+          <span slot="label">出借</span>
+        </tabbar-item>
+        <tabbar-item link="user" :selected="$route.path === '/user'">
+          <img slot="icon" src="./assets/foot-wd.png">
+          <img slot="icon-active" src="./assets/foot-wd-active.png">
+          <span slot="label">我的</span>
+        </tabbar-item>
+      </tabbar>
     </div>
-    <tabbar class="footer-fixed">
-      <tabbar-item link="events" :selected="$route.path === '/events'">
-        <img slot="icon" src="./assets/foot-xx.png">
-        <img slot="icon-active" src="./assets/foot-xx-active.png">
-        <span slot="label">活动</span>
-      </tabbar-item>
-      <tabbar-item link="lending" :selected="$route.path === '/lending'">
-        <img slot="icon" src="./assets/foot-tz.png">
-        <img slot="icon-active" src="./assets/foot-tz-active.png">
-        <span slot="label">出借</span>
-      </tabbar-item>
-      <tabbar-item link="user" :selected="$route.path === '/user'">
-        <img slot="icon" src="./assets/foot-wd.png">
-        <img slot="icon-active" src="./assets/foot-wd-active.png">
-        <span slot="label">我的</span>
-      </tabbar-item>
-    </tabbar>
   </div>
 </template>
 
@@ -53,7 +51,10 @@
     position: fixed;
     bottom: 0;
   }
-  .content-box{
-    padding: 46px 0 53px;
+  .header-box{
+    padding-top: 46px;
+  }
+  .footer-box{
+    padding-bottom: 53px;
   }
 </style>
