@@ -29,6 +29,7 @@ npm test
 
 ## 参考资料
 
+* [x-header、tabbar固定位置](https://github.com/airyland/vux/issues/285)
 * [下拉加载更多](https://www.jb51.net/article/132455.htm)
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
