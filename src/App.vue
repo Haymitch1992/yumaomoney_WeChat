@@ -1,22 +1,22 @@
 <template>
   <div id="app">
-    <x-header :left-options='{showBack: false}' v-show="$route.path === '/Events'" class="header-fixed">在线活动</x-header>
-    <x-header :left-options='{showBack: false}' v-show="$route.path === '/Lending'" class="header-fixed">出借投资</x-header>
+    <x-header :left-options='{showBack: false}' v-show="$route.path === '/events'" class="header-fixed">在线活动</x-header>
+    <x-header :left-options='{showBack: false}' v-show="$route.path === '/lending'" class="header-fixed">出借列表</x-header>
     <div class="content-box">
       <router-view></router-view>
     </div>
     <tabbar class="footer-fixed">
-      <tabbar-item link="Events" :selected="$route.path === '/Events'">
+      <tabbar-item link="events" :selected="$route.path === '/events'">
         <img slot="icon" src="./assets/foot-xx.png">
         <img slot="icon-active" src="./assets/foot-xx-active.png">
         <span slot="label">活动</span>
       </tabbar-item>
-      <tabbar-item link="Lending" :selected="$route.path === '/Lending'">
+      <tabbar-item link="lending" :selected="$route.path === '/lending'">
         <img slot="icon" src="./assets/foot-tz.png">
         <img slot="icon-active" src="./assets/foot-tz-active.png">
         <span slot="label">出借</span>
       </tabbar-item>
-      <tabbar-item link="User" :selected="$route.path === '/User'">
+      <tabbar-item link="user" :selected="$route.path === '/user'">
         <img slot="icon" src="./assets/foot-wd.png">
         <img slot="icon-active" src="./assets/foot-wd-active.png">
         <span slot="label">我的</span>

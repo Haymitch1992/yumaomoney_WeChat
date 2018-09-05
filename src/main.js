@@ -13,18 +13,18 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    redirect: '/User'
+    redirect: '/user'
   },
   {
-    path: '/User',
+    path: '/user',
     component: User
   },
   {
-    path: '/Lending',
+    path: '/lending',
     component: Lending
   },
   {
-    path: '/Events',
+    path: '/events',
     component: Events
   }
 ]
