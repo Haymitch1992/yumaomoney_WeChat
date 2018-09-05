@@ -1,9 +1,6 @@
 <template>
   <div>
-    <div class="vux-demo">
-      <img class="logo" src="../../assets/vux_logo.png">
-      <h1>出借</h1>
-    </div>
+    <x-header>出借投资</x-header>
     <group title="cell demo">
       <cell title="第一" value="cool" is-link></cell>
       <cell title="第二" value="cool" is-link></cell>
@@ -13,20 +10,17 @@
 </template>
 
 <script>
-import { Group, Cell } from 'vux'
+import { Group, Cell, XHeader } from 'vux'
 
 export default {
   name: 'Lending',
   components: {
     Group,
-    Cell
+    Cell,
+    XHeader
   },
   data () {
     return {
-      // note: changing this line won't causes changes
-      // with hot-reload because the reloaded component
-      // preserves its current state and we are modifying
-      // its initial state.
       msg: 'Hello World!'
     }
   }
@@ -34,11 +28,4 @@ export default {
 </script>
 
 <style>
-.vux-demo {
-  text-align: center;
-}
-.logo {
-  width: 100px;
-  height: 100px
-}
 </style>

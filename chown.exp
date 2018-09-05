@@ -1,0 +1,5 @@
+# 修改用户组权限 chown -R www:ftp 20180824
+spawn ssh root@39.107.59.233 "
+cd /yjdata/www/www/ROOT/refactoring;
+chown -R www:ftp wechat"
+expect eof
