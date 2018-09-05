@@ -5,6 +5,7 @@
     <div class="content-box">
       <router-view></router-view>
     </div>
+    {{GLOBAL.token}}
     <tabbar class="footer-fixed">
       <tabbar-item link="Events" :selected="$route.path === '/Events'">
         <img slot="icon" src="./assets/foot-xx.png">
@@ -33,6 +34,25 @@ export default {
     Tabbar,
     TabbarItem,
     XHeader
+  },
+  data () {
+    return {
+      // note: changing this line won't causes changes
+      // with hot-reload because the reloaded component
+      // preserves its current state and we are modifying
+      // its initial state.
+      msg: this.GLOBAL.token
+    }
+  },
+  methods: {
+    fetchDate () {
+      // 使用 axios获取数据
+      console.log(this.GLOBAL.token)
+    }
+  },
+  watch: {
+    // 如果路由有变化，会再次执行该方法
+    '$route': 'fetchDate'
   }
 }
 </script>

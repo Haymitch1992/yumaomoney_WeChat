@@ -22,6 +22,9 @@ export default {
     return {
       msg: 'Hello World!'
     }
+  },
+  created () {
+    this.GLOBAL.token = 'Lending'
   }
 }
 </script>

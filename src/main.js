@@ -7,8 +7,10 @@ import App from './App'
 import User from './components/user/User'
 import Events from './components/events/Events'
 import Lending from './components/lending/Lending'
+import global_ from './components/Global'
 
 Vue.use(VueRouter)
+Vue.prototype.GLOBAL = global_ // 挂载到Vue实例上面
 
 const routes = [
   {

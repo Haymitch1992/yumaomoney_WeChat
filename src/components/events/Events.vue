@@ -42,6 +42,9 @@ export default {
         img: 'http://39.107.59.233/activity/banner-wechat-003.jpg'
       }]
     }
+  },
+  created () {
+    this.GLOBAL.token = 'Events'
   }
 }
 </script>

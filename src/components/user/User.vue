@@ -29,6 +29,9 @@ export default {
       // its initial state.
       msg: 'Hello World!'
     }
+  },
+  created () {
+    this.GLOBAL.token = 'User'
   }
 }
 </script>
