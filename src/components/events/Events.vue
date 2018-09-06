@@ -29,35 +29,37 @@
     },
     data () {
       return {
-        list: [{
-          title: '抢标有礼 标标返现',
-          img: 'http://39.107.59.233/activity/banner-wechat-003.jpg',
-          time: '2018-05-18'
-        }, {
-          title: '用户交易总额 突破7亿元',
-          img: 'http://39.107.59.233/activity/banner-wechat-004.png',
-          time: '2018-06-18'
-        }, {
-          title: '传统二十四节气 & 小暑',
-          img: 'http://39.107.59.233/activity/banner-wechat-001.png',
-          time: '2018-07-07'
-        }, {
-          title: '七七事变 81周年',
-          img: 'http://39.107.59.233/activity/banner-wechat-002.png',
-          time: '2018-07-07'
-        }, {
-          title: '八一建军 91周年',
-          img: 'http://39.107.59.233/activity/banner-wechat-006.png',
-          time: '2018-08-01'
-        }, {
-          title: '传统二十四节气 & 立秋',
-          img: 'http://39.107.59.233/activity/banner-wechat-007.png',
-          time: '2018-08-07'
-        }, {
-          title: '新版APP 亮点',
-          img: 'http://39.107.59.233/activity/banner-wechat-008.png',
-          time: '2018-09-01'
-        }]
+        list: [
+          {
+            title: '抢标有礼 标标返现',
+            img: 'http://39.107.59.233/activity/banner-wechat-003.jpg',
+            time: '2018-05-18'
+          }, {
+            title: '用户交易总额 突破7亿元',
+            img: 'http://39.107.59.233/activity/banner-wechat-004.png',
+            time: '2018-06-18'
+          }, {
+            title: '传统二十四节气 & 小暑',
+            img: 'http://39.107.59.233/activity/banner-wechat-001.png',
+            time: '2018-07-07'
+          }, {
+            title: '七七事变 81周年',
+            img: 'http://39.107.59.233/activity/banner-wechat-002.png',
+            time: '2018-07-07'
+          }, {
+            title: '八一建军 91周年',
+            img: 'http://39.107.59.233/activity/banner-wechat-006.png',
+            time: '2018-08-01'
+          }, {
+            title: '传统二十四节气 & 立秋',
+            img: 'http://39.107.59.233/activity/banner-wechat-007.png',
+            time: '2018-08-07'
+          }, {
+            title: '新版APP 亮点',
+            img: 'http://39.107.59.233/activity/banner-wechat-008.png',
+            time: '2018-09-01'
+          }
+        ]
       }
     }
   }

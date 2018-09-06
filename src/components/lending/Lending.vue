@@ -33,6 +33,8 @@
 </template>
 
 <script>
+  import axios from 'axios'
+  import _ from 'lodash'
   import { XHeader, Swiper, Grid, GridItem, Group, Card, Panel, XProgress, Scroller } from 'vux'
 
   const pulldownDefaultConfig = {
@@ -68,43 +70,6 @@
       XProgress,
       Scroller
     },
-    methods: {
-      swiper_onIndexChange (index) {
-        this.swiper_index = index
-      },
-      onImgError (item, $event) {
-        console.log(item, $event)
-      },
-      refresh () {
-        console.log('refresh')
-      },
-      loadMore () {
-        var self = this
-        console.log('loadMore')
-        self.$refs.scrollerBottom.donePullup()
-        self.list.push(
-          {
-            panel: [
-              {
-                src: 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
-                fallbackSrc: 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
-                title: 'YM01-B-07' + (10 + self.list.length),
-                desc: '融资额度:100.00万元 期限：2个月',
-                url: '/financeDetail?id=' + (140 + self.list.length),
-                meta: {
-                  source: '年利率',
-                  date: '7% + 5%',
-                  other: '完成比例： 30%'
-                }
-              }
-            ],
-            type: '4',
-            key: self.list.length,
-            progress: 30
-          }
-        )
-      }
-    },
     data () {
       return {
         swiper_list: [
@@ -123,157 +88,74 @@
             fallbackImg: 'https://ww1.sinaimg.cn/large/663d3650gy1fq66vw50iwj20ff0aaaci.jpg'
           }
         ],
-        list: [
-          {
-            panel: [
-              {
-                src: 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
-                fallbackSrc: 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
-                title: 'YM01-B-0702',
-                desc: '融资额度:100.00万元 期限：2个月',
-                url: '/financeDetail?id=149',
-                meta: {
-                  source: '年利率',
-                  date: '7% + 5%',
-                  other: '完成比例： 30%'
-                }
-              }
-            ],
-            type: '4',
-            key: '0',
-            progress: 30
-          },
-          {
-            panel: [
-              {
-                src: 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
-                title: 'YM01-A-0902',
-                desc: '融资额度:50.00万元 期限：1个月',
-                url: {
-                  path: '/financeDetail?id=148',
-                  replace: false
-                },
-                meta: {
-                  source: '年利率',
-                  date: '7% + 3%',
-                  other: '完成比例： 60%'
-                }
-              }
-            ],
-            type: '4',
-            key: '1',
-            progress: 60
-          },
-          {
-            panel: [
-              {
-                src: 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
-                title: 'YM01-B-0701',
-                desc: '融资额度:50.00万元 期限：75天',
-                url: {
-                  path: '/financeDetail?id=147',
-                  replace: false
-                },
-                meta: {
-                  source: '年利率',
-                  date: '7% + 3%',
-                  other: '完成比例： 40%'
-                }
-              }
-            ],
-            type: '4',
-            key: '2',
-            progress: 40
-          },
-          {
-            panel: [
-              {
-                src: 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
-                title: 'YM01-A-0901',
-                desc: '融资额度:100.00万元 期限：45天',
-                url: {
-                  path: '/financeDetail?id=146',
-                  replace: false
-                },
-                meta: {
-                  source: '年利率',
-                  date: '7% + 3%',
-                  other: '完成比例： 80%'
-                }
-              }
-            ],
-            type: '4',
-            key: '3',
-            progress: 80
-          },
-          {
-            panel: [
-              {
-                src: 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
-                title: 'YM01-A-0900',
-                desc: '融资额度:80.00万元 期限：1个月',
-                url: {
-                  path: '/financeDetail?id=145',
-                  replace: false
-                },
-                meta: {
-                  source: '年利率',
-                  date: '7% + 3%',
-                  other: '完成比例： 100%'
-                }
-              }
-            ],
-            type: '4',
-            key: '4',
-            progress: 100
-          },
-          {
-            panel: [
-              {
-                src: 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
-                title: 'YM01-B-0701',
-                desc: '融资额度:50.00万元 期限：75天',
-                url: {
-                  path: '/financeDetail?id=147',
-                  replace: false
-                },
-                meta: {
-                  source: '年利率',
-                  date: '7% + 3%',
-                  other: '完成比例： 40%'
-                }
-              }
-            ],
-            type: '4',
-            key: '5',
-            progress: 40
-          },
-          {
-            panel: [
-              {
-                src: 'http://placeholder.qiniudn.com/60x60/3cc51f/ffffff',
-                title: 'YM01-A-0901',
-                desc: '融资额度:100.00万元 期限：45天',
-                url: {
-                  path: '/financeDetail?id=146',
-                  replace: false
-                },
-                meta: {
-                  source: '年利率',
-                  date: '7% + 3%',
-                  other: '完成比例： 80%'
-                }
-              }
-            ],
-            type: '4',
-            key: '6',
-            progress: 80
-          }
-        ],
+        list: [],
+        curPage: 1,
         swiper_index: 1,
         pullupDefaultConfig: pullupDefaultConfig,
         pulldownDefaultConfig: pulldownDefaultConfig
       }
+    },
+    methods: {
+      swiper_onIndexChange (index) {
+        this.swiper_index = index
+      },
+      onImgError (item, $event) {
+        console.log(item, $event)
+      },
+      /**
+       * 刷新页面
+       */
+      refresh () {
+        console.log('refresh')
+      },
+      /**
+       * 加载更多列表
+       */
+      loadMore () {
+        var self = this
+        console.log('加载更多')
+        self.$refs.scrollerBottom.donePullup()
+        self.curPage++
+        self.getList()
+      },
+      /**
+       * 获取列表
+       */
+      getList () {
+        var self = this
+        axios.get(process.env.BASE_API + '/financeJson.do', {params: { 'curPage': self.curPage }})
+          .then(function (res) {
+            res.data = eval(res.data)
+            _.each(res.data, function (v, k) {
+              console.log(v)
+              var item = {
+                key: v.id,
+                type: '4',
+                progress: parseInt(v.progress),
+                panel: [
+                  {
+                    title: v.borrowTitle,
+                    desc: '融资额度:' + v.borrowAmount + ' 期限：' + v.deadline,
+                    url: '/financeDetail?id=149',
+                    meta: {
+                      source: '年利率',
+                      date: '7% + ' + (parseInt(v.annualRate) - 7) + '%',
+                      other: '完成比例： ' + parseInt(v.progress) + '%'
+                    }
+                  }
+                ]
+              }
+              self.list.push(item)
+            })
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+      }
+    },
+    created () {
+      var self = this
+      self.getList()
     }
   }
 </script>
