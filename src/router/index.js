@@ -24,5 +24,6 @@ export default new Router({
       path: '/events',
       component: Events
     }
-  ]
+  ],
+  mode: 'history'
 })
