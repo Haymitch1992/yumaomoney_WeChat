@@ -2,36 +2,8 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import FastClick from 'fastclick'
-import VueRouter from 'vue-router'
 import App from './App'
-import User from './components/user/User'
-import Events from './components/events/Events'
-import Lending from './components/lending/Lending'
-
-Vue.use(VueRouter)
-
-const routes = [
-  {
-    path: '/',
-    redirect: '/user'
-  },
-  {
-    path: '/user',
-    component: User
-  },
-  {
-    path: '/lending',
-    component: Lending
-  },
-  {
-    path: '/events',
-    component: Events
-  }
-]
-
-const router = new VueRouter({
-  routes
-})
+import router from './router/index'
 
 FastClick.attach(document.body)
 
