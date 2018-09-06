@@ -18,7 +18,7 @@
         <img slot="icon" src="../../assets/aboutMe.png">
       </grid-item>
     </grid>
-    <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in list">
+    <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in list" :key="item.key">
       <panel :list="item.panel" :type="item.type" @on-img-error="onImgError"></panel>
       <x-progress :percent="item.progress" :show-cancel="false"></x-progress>
     </group>
@@ -83,6 +83,7 @@
               }
             ],
             type: '4',
+            key: '0',
             progress: 30
           },
           {
@@ -103,6 +104,7 @@
               }
             ],
             type: '4',
+            key: '1',
             progress: 60
           },
           {
@@ -123,6 +125,7 @@
               }
             ],
             type: '4',
+            key: '2',
             progress: 40
           },
           {
@@ -143,6 +146,7 @@
               }
             ],
             type: '4',
+            key: '3',
             progress: 80
           },
           {
@@ -163,6 +167,7 @@
               }
             ],
             type: '4',
+            key: '4',
             progress: 100
           }
         ],
