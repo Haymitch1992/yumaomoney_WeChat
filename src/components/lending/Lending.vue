@@ -1,8 +1,5 @@
 <template>
   <div>
-    <div class="header-box">
-      <x-header :left-options='{showBack: false}' class="header-fixed">出借列表</x-header>
-    </div>
     <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore"
               use-pulldown :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
               lock-x ref="scrollerBottom" height="-48">
@@ -37,7 +34,7 @@
   const pulldownDefaultConfig = {
     content: '下拉刷新',
     height: 40,
-    autoRefresh: false,
+    autoRefresh: true,
     downContent: '下拉刷新',
     upContent: '释放后刷新',
     loadingContent: '正在刷新...',
