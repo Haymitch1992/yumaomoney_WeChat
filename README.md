@@ -34,5 +34,6 @@ npm test
 * [打包报错处理：Failed to load resource: net::ERR_FILE_NOT_FOUND](https://blog.csdn.net/lhb_11/article/details/79455015)
 * [x-header、tabbar固定位置](https://github.com/airyland/vux/issues/285)
 * [下拉加载更多](https://www.jb51.net/article/132455.htm)
+* [运行警告处理：warning：component lists rendered with v-for should have explicit keys](https://blog.csdn.net/twinkle2star/article/details/73741120)
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
