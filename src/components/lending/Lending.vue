@@ -10,16 +10,16 @@
       <div>
         <swiper loop auto :list="swiper_list" v-model="swiper_index" @on-index-change="swiper_onIndexChange"></swiper>
         <grid :show-lr-borders="false" >
-          <grid-item label="关于我们" key="0">
+          <grid-item link="/lending/aboutMe" label="关于我们" key="0">
             <img slot="icon" src="../../assets/linkme.png">
           </grid-item>
           <grid-item label="在线活动" key="1">
             <img slot="icon" src="../../assets/appDown.png">
           </grid-item>
-          <grid-item label="app下载" key="2">
+          <grid-item link="http://a.app.qq.com/o/simple.jsp?pkgname=com.ionicframework.yumao958693" label="app下载" key="2">
             <img slot="icon" src="../../assets/active.png">
           </grid-item>
-          <grid-item label="联系我们" key="3">
+          <grid-item link="/lending/contactUs" label="联系我们" key="3">
             <img slot="icon" src="../../assets/aboutMe.png">
           </grid-item>
         </grid>
@@ -125,9 +125,7 @@
         var self = this
         axios.get(process.env.BASE_API + '/financeJson.do', {params: { 'curPage': self.curPage }})
           .then(function (res) {
-            res.data = eval(res.data)
             _.each(res.data, function (v, k) {
-              console.log(v)
               var item = {
                 key: v.id,
                 type: '4',

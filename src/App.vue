@@ -1,19 +1,19 @@
 <template>
   <div id="app">
     <router-view></router-view>
-    <div class="footer-box">
+    <div class="footer-box" v-if="$route.path === '/events' || $route.path === '/lending' || $route.path === '/user'">
       <tabbar class="footer-fixed">
-        <tabbar-item link="events" :selected="$route.path === '/events'">
+        <tabbar-item link="/events" :selected="$route.path === '/events'">
           <img slot="icon" src="./assets/foot-xx.png">
           <img slot="icon-active" src="./assets/foot-xx-active.png">
           <span slot="label">活动</span>
         </tabbar-item>
-        <tabbar-item link="lending" :selected="$route.path === '/lending'">
+        <tabbar-item link="/lending" :selected="$route.path === '/lending'">
           <img slot="icon" src="./assets/foot-tz.png">
           <img slot="icon-active" src="./assets/foot-tz-active.png">
           <span slot="label">出借</span>
         </tabbar-item>
-        <tabbar-item link="user" :selected="$route.path === '/user'">
+        <tabbar-item link="/user" :selected="$route.path === '/user'">
           <img slot="icon" src="./assets/foot-wd.png">
           <img slot="icon-active" src="./assets/foot-wd-active.png">
           <span slot="label">我的</span>
