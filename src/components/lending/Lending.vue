@@ -18,15 +18,39 @@
         <img slot="icon" src="../../assets/aboutMe.png">
       </grid-item>
     </grid>
-    <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in list" :key="item.key">
-      <panel :list="item.panel" :type="item.type" @on-img-error="onImgError"></panel>
-      <x-progress :percent="item.progress" :show-cancel="false"></x-progress>
-    </group>
+    <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore"
+              use-pulldown :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
+              lock-x ref="scrollerBottom" height="-48">
+      <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in list" :key="item.key">
+        <panel :list="item.panel" :type="item.type" @on-img-error="onImgError"></panel>
+        <x-progress :percent="item.progress" :show-cancel="false"></x-progress>
+      </group>
+    </scroller>
   </div>
 </template>
 
 <script>
-  import { XHeader, Swiper, Grid, GridItem, Group, Card, Panel, XProgress } from 'vux'
+  import { XHeader, Swiper, Grid, GridItem, Group, Card, Panel, XProgress, Scroller } from 'vux'
+
+  const pulldownDefaultConfig = {
+    content: '下拉刷新',
+    height: 40,
+    autoRefresh: false,
+    downContent: '下拉刷新',
+    upContent: '释放后刷新',
+    loadingContent: '正在刷新...',
+    clsPrefix: 'xs-plugin-pulldown-'
+  }
+  const pullupDefaultConfig = {
+    content: '上拉加载更多',
+    pullUpHeight: 60,
+    height: 40,
+    autoRefresh: false,
+    downContent: '释放后加载',
+    upContent: '上拉加载更多',
+    loadingContent: '加载中...',
+    clsPrefix: 'xs-plugin-pullup-'
+  }
 
   export default {
     name: 'Lending',
@@ -38,7 +62,8 @@
       Group,
       Card,
       Panel,
-      XProgress
+      XProgress,
+      Scroller
     },
     methods: {
       swiper_onIndexChange (index) {
@@ -46,6 +71,12 @@
       },
       onImgError (item, $event) {
         console.log(item, $event)
+      },
+      refresh () {
+        console.log('refresh')
+      },
+      loadMore () {
+        console.log('loadMore')
       }
     },
     data () {
@@ -171,7 +202,9 @@
             progress: 100
           }
         ],
-        swiper_index: 1
+        swiper_index: 1,
+        pullupDefaultConfig: pullupDefaultConfig,
+        pulldownDefaultConfig: pulldownDefaultConfig
       }
     }
   }
