@@ -10,19 +10,40 @@
           <span class="m-time">"鱼猫金服"在线融资平台隶属于鱼猫投融（北京）网络科技有限公司，是一家提供专业的供应链金融信息服务的互联网平台，面向个人和企业提供安全，透明，便捷，高收益的投融资服务。</span>
         </div>
       </masker>
+
+      <group label-width="4.5em" label-margin-right="2em" label-align="right" :key="1">
+        <grid :show-lr-borders="false" >
+          <grid-item label="运营时间" key="0">
+            <span class="grid-center">3年8个月</span>
+          </grid-item>
+          <grid-item label="用户投资总额" key="1">
+            <span class="grid-center">7.76亿元</span>
+          </grid-item>
+        </grid>
+        <grid :show-lr-borders="false" >
+          <grid-item label="完美兑付率" key="0">
+            <span class="grid-center">100%</span>
+          </grid-item>
+          <grid-item label="年化收益率" key="1">
+            <span class="grid-center">9%-14%</span>
+          </grid-item>
+        </grid>
+      </group>
     </div>
   </div>
 </template>
 
 <script>
-  import { Group, Cell, XHeader, Masker } from 'vux'
+  import { Group, Cell, XHeader, Masker, Grid, GridItem } from 'vux'
   export default {
     name: 'aboutMe',
     components: {
       Group,
       Cell,
       XHeader,
-      Masker
+      Masker,
+      Grid,
+      GridItem
     },
     data () {
       return {
@@ -73,5 +94,13 @@
     padding-top: 4px;
     display: inline-block;
     margin-top: 5px;
+  }
+
+  .grid-center {
+    display: block;
+    text-align: center;
+    color: #FF465D;
+    font-weight: 700;
+    font-size: 1.2em;
   }
 </style>
