@@ -35,5 +35,6 @@ npm test
 * [x-header、tabbar固定位置](https://github.com/airyland/vux/issues/285)
 * [下拉加载更多](https://www.jb51.net/article/132455.htm)
 * [运行警告处理：warning：component lists rendered with v-for should have explicit keys](https://blog.csdn.net/twinkle2star/article/details/73741120)
+* [Vue下路由History模式打包后页面空白](https://blog.csdn.net/sky2714/article/details/80887081)
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
