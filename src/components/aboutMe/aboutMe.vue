@@ -1,13 +1,13 @@
 <template>
   <div>
     <x-header>关于我们</x-header>
-    <div style="margin: 10px;overflow: hidden;" v-for="item in list">
+    <div style="overflow: hidden;" v-for="item in list">
       <masker style="border-radius: 2px;">
-        <div class="m-img" :style="{backgroundImage: 'url(' + item.img + ')'}"></div>
+        <div class="m-img"></div>
         <div slot="content" class="m-title">
-          {{item.title}}
+          基本介绍
           <br/>
-          <span class="m-time">{{item.time}}</span>
+          <span class="m-time">"鱼猫金服"在线融资平台隶属于鱼猫投融（北京）网络科技有限公司，是一家提供专业的供应链金融信息服务的互联网平台，面向个人和企业提供安全，透明，便捷，高收益的投融资服务。</span>
         </div>
       </masker>
     </div>
@@ -28,33 +28,9 @@
       return {
         list: [
           {
-            title: '抢标有礼 标标返现',
+            title: '"鱼猫金服"在线融资平台隶属于鱼猫投融（北京）网络科技有限公司，是一家提供专业的供应链金融信息服务的互联网平台，面向个人和企业提供安全，透明，便捷，高收益的投融资服务。',
             img: 'http://39.107.59.233/activity/banner-wechat-003.jpg',
             time: '2018-05-18'
-          }, {
-            title: '用户交易总额 突破7亿元',
-            img: 'http://39.107.59.233/activity/banner-wechat-004.png',
-            time: '2018-06-18'
-          }, {
-            title: '传统二十四节气 & 小暑',
-            img: 'http://39.107.59.233/activity/banner-wechat-001.png',
-            time: '2018-07-07'
-          }, {
-            title: '七七事变 81周年',
-            img: 'http://39.107.59.233/activity/banner-wechat-002.png',
-            time: '2018-07-07'
-          }, {
-            title: '八一建军 91周年',
-            img: 'http://39.107.59.233/activity/banner-wechat-006.png',
-            time: '2018-08-01'
-          }, {
-            title: '传统二十四节气 & 立秋',
-            img: 'http://39.107.59.233/activity/banner-wechat-007.png',
-            time: '2018-08-07'
-          }, {
-            title: '新版APP 亮点',
-            img: 'http://39.107.59.233/activity/banner-wechat-008.png',
-            time: '2018-09-01'
           }
         ]
       }
@@ -69,6 +45,7 @@
     display: block;
     position: relative;
     max-width: 100%;
+    background: url('../../assets/aboutMebg1.png') no-repeat;
     background-size: cover;
     background-position: center center;
     cursor: pointer;
@@ -84,16 +61,16 @@
     position: absolute;
     left: 0;
     right: 0;
-    width: 100%;
+    width: 80%;
     text-align: center;
     top: 50%;
     transform: translateY(-50%);
+    margin: 0 auto;
   }
 
   .m-time {
     font-size: 12px;
     padding-top: 4px;
-    border-top: 1px solid #f0f0f0;
     display: inline-block;
     margin-top: 5px;
   }
