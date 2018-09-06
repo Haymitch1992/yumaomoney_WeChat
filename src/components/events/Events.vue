@@ -10,7 +10,7 @@
         <div slot="content" class="m-title">
           {{item.title}}
           <br/>
-          <span class="m-time">2016-03-18</span>
+          <span class="m-time">{{item.time}}</span>
         </div>
       </masker>
     </div>
@@ -30,20 +30,33 @@
     data () {
       return {
         list: [{
-          title: '洗颜新潮流！人气洁面皂排行榜',
-          img: 'http://39.107.59.233/activity/banner-wechat-003.jpg'
+          title: '抢标有礼 标标返现',
+          img: 'http://39.107.59.233/activity/banner-wechat-003.jpg',
+          time: '2018-05-18'
         }, {
-          title: '美容用品 & 日用品（上）',
-          img: 'http://39.107.59.233/activity/banner-wechat-003.jpg'
+          title: '用户交易总额 突破7亿元',
+          img: 'http://39.107.59.233/activity/banner-wechat-004.png',
+          time: '2018-06-18'
         }, {
-          title: '远离车内毒气，日本车载空气净化器精选',
-          img: 'http://39.107.59.233/activity/banner-wechat-003.jpg'
+          title: '传统二十四节气 & 小暑',
+          img: 'http://39.107.59.233/activity/banner-wechat-001.png',
+          time: '2018-07-07'
         }, {
-          title: '美容用品 & 日用品（上）',
-          img: 'http://39.107.59.233/activity/banner-wechat-003.jpg'
+          title: '七七事变 81周年',
+          img: 'http://39.107.59.233/activity/banner-wechat-002.png',
+          time: '2018-07-07'
         }, {
-          title: '远离车内毒气，日本车载空气净化器精选',
-          img: 'http://39.107.59.233/activity/banner-wechat-003.jpg'
+          title: '八一建军 91周年',
+          img: 'http://39.107.59.233/activity/banner-wechat-006.png',
+          time: '2018-08-01'
+        }, {
+          title: '传统二十四节气 & 立秋',
+          img: 'http://39.107.59.233/activity/banner-wechat-007.png',
+          time: '2018-08-07'
+        }, {
+          title: '新版APP 亮点',
+          img: 'http://39.107.59.233/activity/banner-wechat-008.png',
+          time: '2018-09-01'
         }]
       }
     }
