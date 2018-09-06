@@ -110,16 +110,16 @@
         swiper_list: [
           {
             url: 'javascript:',
-            img: 'https://ww1.sinaimg.cn/large/663d3650gy1fq66vw50iwj20ff0aaaci.jpg',
-            title: '邀好友享现金'
+            img: 'http://39.107.59.233/activity/banner-wechat-008.png',
+            title: '新版APP 亮点'
           }, {
             url: 'javascript:',
-            img: 'https://ww1.sinaimg.cn/large/663d3650gy1fq66vw1k2wj20p00goq7n.jpg',
+            img: 'http://39.107.59.233/activity/banner-wechat-003.jpg',
             title: '鱼猫新手专享'
           }, {
             url: 'javascript:',
-            img: 'http://39.107.59.233/activity/banner-wechat-003.jpg', // 404
-            title: '抢标有礼，标标返现',
+            img: 'http://39.107.59.233/activity/banner-wechat-004.png', // 404
+            title: '用户交易总额 突破7亿元',
             fallbackImg: 'https://ww1.sinaimg.cn/large/663d3650gy1fq66vw50iwj20ff0aaaci.jpg'
           }
         ],
