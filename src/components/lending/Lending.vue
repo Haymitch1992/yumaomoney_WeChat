@@ -1,5 +1,9 @@
 <template>
   <div>
+    <!--微信端不显示头部-->
+    <!--<div class="header-box">-->
+      <!--<x-header :left-options='{showBack: false}' class="header-fixed">出借列表</x-header>-->
+    <!--</div>-->
     <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore"
               use-pulldown :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
               lock-x ref="scrollerBottom" height="-48">
