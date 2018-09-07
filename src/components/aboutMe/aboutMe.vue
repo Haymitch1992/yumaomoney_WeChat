@@ -140,7 +140,7 @@
     display: block;
     position: relative;
     max-width: 100%;
-    background: url('../../assets/aboutMebg1.png') no-repeat;
+    background: url('../../assets/images/aboutMebg1.png') no-repeat;
     background-size: cover;
     background-position: center center;
     cursor: pointer;
@@ -148,7 +148,7 @@
   }
 
   .m-img2 {
-    background-image: url('../../assets/aboutMebg3.png');
+    background-image: url('../../assets/images/aboutMebg3.png');
   }
 
   .m-title {

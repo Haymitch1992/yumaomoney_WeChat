@@ -11,16 +11,16 @@
         <swiper loop auto :list="swiper_list" v-model="swiper_index" @on-index-change="swiper_onIndexChange"></swiper>
         <grid :show-lr-borders="false" >
           <grid-item link="/lending/aboutMe" label="关于我们" key="0">
-            <img slot="icon" src="../../assets/aboutMe.png">
+            <img slot="icon" src="../../assets/images/aboutMe.png">
           </grid-item>
           <grid-item label="在线活动" key="1">
-            <img slot="icon" src="../../assets/active.png">
+            <img slot="icon" src="../../assets/images/active.png">
           </grid-item>
           <grid-item link="http://a.app.qq.com/o/simple.jsp?pkgname=com.ionicframework.yumao958693" label="app下载" key="2">
-            <img slot="icon" src="../../assets/appDown.png">
+            <img slot="icon" src="../../assets/images/appDown.png">
           </grid-item>
           <grid-item link="/lending/contactUs" label="联系我们" key="3">
-            <img slot="icon" src="../../assets/linkme.png">
+            <img slot="icon" src="../../assets/images/linkme.png">
           </grid-item>
         </grid>
         <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in list" :key="item.key">

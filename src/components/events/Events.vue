@@ -32,36 +32,36 @@
         list: [
           {
             title: '新手闯关 步步生金',
-            img: require('@/assets/banner-wechat-002.jpg'),
+            img: require('@/assets/images/banner/banner-wechat-002.jpg'),
             time: '2018-05-01'
           },
           {
             title: '抢标有礼 标标返现',
-            img: require('@/assets/banner-wechat-003.jpg'),
+            img: require('@/assets/images/banner/banner-wechat-003.jpg'),
             time: '2018-05-18'
           }, {
             title: '用户交易总额 突破7亿元',
-            img: require('@/assets/banner-wechat-004.png'),
+            img: require('@/assets/images/banner/banner-wechat-004.png'),
             time: '2018-06-18'
           }, {
             title: '传统二十四节气 & 小暑',
-            img: require('@/assets/banner-wechat-001.png'),
+            img: require('@/assets/images/banner/banner-wechat-001.png'),
             time: '2018-07-07'
           }, {
             title: '七七事变 81周年',
-            img: require('@/assets/banner-wechat-002.png'),
+            img: require('@/assets/images/banner/banner-wechat-002.png'),
             time: '2018-07-07'
           }, {
             title: '八一建军 91周年',
-            img: require('@/assets/banner-wechat-006.png'),
+            img: require('@/assets/images/banner/banner-wechat-006.png'),
             time: '2018-08-01'
           }, {
             title: '传统二十四节气 & 立秋',
-            img: require('@/assets/banner-wechat-007.png'),
+            img: require('@/assets/images/banner/banner-wechat-007.png'),
             time: '2018-08-07'
           }, {
             title: '新版APP 亮点',
-            img: require('@/assets/banner-wechat-008.png'),
+            img: require('@/assets/images/banner/banner-wechat-008.png'),
             time: '2018-09-01'
           }
         ]

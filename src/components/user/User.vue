@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="vux-demo">
-      <img class="logo" src="../../assets/vux_logo.png">
+      <img class="logo" src="../../assets/images/vux_logo.png">
       <h1>我的</h1>
     </div>
     <group title="cell demo">
