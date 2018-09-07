@@ -231,7 +231,7 @@
   }
   .msg_box{
     background: #fff;
-    padding: 1.5em;
+    padding: 1.2em;
   }
   .msg_item{
     border-bottom: 1px solid #F2F2F2;
