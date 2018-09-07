@@ -38,5 +38,6 @@ npm test
 * [Vue下路由History模式打包后页面空白](https://blog.csdn.net/sky2714/article/details/80887081)
 * [scroller下拉失败回弹](https://blog.csdn.net/hh_liweihong/article/details/77066023)
 * [打包后css引用图片资源找不到](https://blog.csdn.net/gdut_luoyifei/article/details/79001397)
+* [打包后js引用图片资源找不到](https://blog.csdn.net/github_37533433/article/details/78937645)
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
