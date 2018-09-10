@@ -13,7 +13,7 @@
 </template>
 
 <script>
-  import { Group, Cell, XHeader} from 'vux'
+  import { Group, Cell, XHeader } from 'vux'
 
   export default {
     name: 'Feedback',
