@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header>我的</x-header>
+    <x-header>帮助中心</x-header>
     <div class="vux-demo">
       <img class="logo" src="../../assets/images/logo.png">
     </div>
@@ -16,7 +16,7 @@
   import { Group, Cell, XHeader } from 'vux'
 
   export default {
-    name: 'User',
+    name: 'Help',
     components: {
       Group,
       Cell,

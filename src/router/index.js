@@ -5,6 +5,8 @@ import Events from '../components/events/Events'
 import Lending from '../components/lending/Lending'
 import AboutMe from '../components/aboutMe/aboutMe'
 import ContactUs from '../components/contactUs/contactUs'
+import Help from '../components/help/Help'
+import Feedback from '../components/feedback/Feedback'
 
 Vue.use(Router)
 
@@ -27,12 +29,20 @@ export default new Router({
       component: Events
     },
     {
-      path: '/lending/aboutMe',
+      path: '/user/aboutMe',
       component: AboutMe
     },
     {
-      path: '/lending/contactUs',
+      path: '/user/contactUs',
       component: ContactUs
+    },
+    {
+      path: '/user/help',
+      component: Help
+    },
+    {
+      path: '/user/feedback',
+      component: Feedback
     }
   ]
 })

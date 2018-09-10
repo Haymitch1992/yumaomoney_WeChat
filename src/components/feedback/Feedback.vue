@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header>我的</x-header>
+    <x-header>意见反馈</x-header>
     <div class="vux-demo">
       <img class="logo" src="../../assets/images/logo.png">
     </div>
@@ -13,10 +13,10 @@
 </template>
 
 <script>
-  import { Group, Cell, XHeader } from 'vux'
+  import { Group, Cell, XHeader} from 'vux'
 
   export default {
-    name: 'User',
+    name: 'Feedback',
     components: {
       Group,
       Cell,
