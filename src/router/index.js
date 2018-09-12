@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Containers from '../components/container/Container'
+import Container from '../components/container/Container'
 import User from '../components/user/User'
 import AboutMe from '../components/user/aboutMe/aboutMe'
 import ContactUs from '../components/user/contactUs/contactUs'
@@ -28,7 +28,7 @@ export default new Router({
     },
     {
       path: '/user',
-      component: Containers,
+      component: Container,
       children: [
         {
           path: '/',
