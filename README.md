@@ -39,5 +39,8 @@ npm test
 * [scroller下拉失败回弹](https://blog.csdn.net/hh_liweihong/article/details/77066023)
 * [打包后css引用图片资源找不到](https://blog.csdn.net/gdut_luoyifei/article/details/79001397)
 * [打包后js引用图片资源找不到](https://blog.csdn.net/github_37533433/article/details/78937645)
+* [上传图片组件](https://www.npmjs.com/package/vux-uploader)
+* [上传图片组件引入报错](https://blog.csdn.net/wandoumm/article/details/80167708)
+* [报错处理：exports is not defined](https://segmentfault.com/q/1010000011817644/a-1020000011818193)
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
