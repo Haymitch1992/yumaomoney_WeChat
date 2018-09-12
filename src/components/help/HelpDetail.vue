@@ -5,8 +5,8 @@
       <div class="helpTitle">问：{{title}}</div>
     </group>
     <group>
-      <div class="helpDetail" v-html="datas">
-        {{datas}}
+      <div class="helpDetail" v-html="detail">
+        {{detail}}
       </div>
     </group>
   </div>
@@ -27,22 +27,25 @@
       return {
         id: '',
         title: '',
-        detail: '',
-        datas: ''
+        detail: ''
       }
     },
     methods: {
-      init () {
+      getDetail () {
         var self = this
-        self.id = self.$route.params.id
-        self.title = self.$route.params.title
         axios.post(process.env.BASE_API + '/callcenterAnswer.do?shoveDate' + new Date().getTime(), qs.stringify({ 'id': self.id }))
           .then(function (res) {
-            self.datas = res.data
+            self.detail = res.data
           })
           .catch(function (error) {
             console.log(error)
           })
+      },
+      init () {
+        var self = this
+        self.id = self.$route.params.id
+        self.title = self.$route.params.title
+        self.getDetail()
       }
     },
     created () {
