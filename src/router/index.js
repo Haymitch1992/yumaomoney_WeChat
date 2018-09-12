@@ -6,6 +6,7 @@ import Lending from '../components/lending/Lending'
 import AboutMe from '../components/aboutMe/aboutMe'
 import ContactUs from '../components/contactUs/contactUs'
 import Help from '../components/help/Help'
+import HelpDetail from '../components/help/HelpDetail'
 import Feedback from '../components/feedback/Feedback'
 
 Vue.use(Router)
@@ -39,6 +40,11 @@ export default new Router({
     {
       path: '/user/help',
       component: Help
+    },
+    {
+      path: '/user/helpDetail',
+      name: 'helpDetail',
+      component: HelpDetail
     },
     {
       path: '/user/feedback',

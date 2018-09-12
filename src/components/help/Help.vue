@@ -14,7 +14,7 @@
       @on-submit="onSubmit"
       ref="search"></search>
     <group>
-      <cell :title="item.title" is-link :key="item.id" v-for="item in list"></cell>
+      <cell :title="item.title" is-link :key="item.id" v-for="item in list" @click.native="goHelpDetail(item.id, item.title)"></cell>
     </group>
   </div>
 </template>
@@ -31,57 +31,42 @@
     },
     data () {
       return {
-        msg: 'Hello World!',
         list: [
           {
-            id: '001',
-            title: '银行资金存管上线对我们有什么影响？',
-            link: '/feedback'
+            id: '75',
+            title: '为什么要开通银行存管账户？'
           },
           {
-            id: '002',
-            title: '什么是鱼猫福利根据地？',
-            link: ''
+            id: '76',
+            title: '如何开通银行存管账户？'
           },
           {
-            id: '003',
-            title: '充值是否有手续费？充值有上限吗？',
-            link: ''
+            id: '77',
+            title: '为什么我的存管账户开通失败？'
           },
           {
-            id: '004',
-            title: '注册/登录',
-            link: ''
+            id: '116',
+            title: '开户成功后，身份证号码可以更换吗？'
           },
           {
-            id: '005',
-            title: '账户安全',
-            link: ''
+            id: '117',
+            title: '一个账户可以绑定几张卡？'
           },
           {
-            id: '006',
-            title: '充值/提现',
-            link: ''
+            id: '118',
+            title: '如何设置交易密码？'
           },
           {
-            id: '007',
-            title: '投资相关',
-            link: ''
+            id: '119',
+            title: '交易密码设置规则？'
           },
           {
-            id: '008',
-            title: '积分/红包',
-            link: ''
+            id: '120',
+            title: '如何修改交易密码？'
           },
           {
-            id: '009',
-            title: '鱼猫根据地',
-            link: ''
-          },
-          {
-            id: '010',
-            title: '资金存管',
-            link: ''
+            id: '121',
+            title: '如何更新银行预留手机号？'
           }
         ],
         value: '',
@@ -90,6 +75,15 @@
     },
 
     methods: {
+      goHelpDetail (id, title) {
+        this.$router.push({
+          name: `helpDetail`,
+          params: {
+            id: id,
+            title: title
+          }
+        })
+      },
       setFocus () {
         this.$refs.search.setFocus()
       },
