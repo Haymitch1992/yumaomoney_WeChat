@@ -42,5 +42,7 @@ npm test
 * [上传图片组件](https://www.npmjs.com/package/vux-uploader)
 * [上传图片组件引入报错](https://blog.csdn.net/wandoumm/article/details/80167708)
 * [报错处理：exports is not defined](https://segmentfault.com/q/1010000011817644/a-1020000011818193)
+* [报错处理：Default export is not declared in imported module](https://segmentfault.com/q/1010000004664827)
+* 上一个问题可参考yumaomoney_WeChat/src/components/container/Container.vue，export default为必要内容。
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

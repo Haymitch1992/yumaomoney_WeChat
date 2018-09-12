@@ -16,7 +16,7 @@
   import { Group, Cell, XHeader } from 'vux'
 
   export default {
-    name: 'User',
+    name: 'UserHome',
     components: {
       Group,
       Cell,

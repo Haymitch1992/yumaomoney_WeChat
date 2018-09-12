@@ -62,7 +62,7 @@
   }
 
   .m-img {
-    background: url('../../assets/images/phone.png') no-repeat;
+    background: url('../../../assets/images/phone.png') no-repeat;
     background-position: center center;
     width: 64px;
     height: 64px;
