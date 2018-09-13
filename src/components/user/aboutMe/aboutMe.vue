@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header>关于我们</x-header>
+    <x-header>了解鱼猫</x-header>
     <div style="overflow: hidden;">
       <masker style="border-radius: 2px;">
         <div class="m-img"></div>
