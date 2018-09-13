@@ -1,44 +1,62 @@
 <template>
   <div>
     <x-header>安全保障</x-header>
-    <div class="vux-demo">
-      <img class="logo" src="../../../assets/images/logo.png">
+    <div class="box1-item" v-for="i in 10 ">{{i}}</div>
+    <div>
+      <divider>scrollTop: {{scrollTop}}</divider>
+      <scroller lock-x height="650px" @on-scroll="onScroll" ref="scrollerEvent">
+        <div class="box2">
+          <div class="box1-item" v-for="i in 10 ">{{i}}</div>
+        </div>
+      </scroller>
     </div>
-    <group title="cell demo">
-      <cell title="第一" value="cool" is-link></cell>
-      <cell title="第二" value="cool" is-link></cell>
-      <cell title="第三" value="cool" is-link></cell>
-    </group>
   </div>
 </template>
 
 <script>
-  import { Group, Cell, XHeader } from 'vux'
+  import { Group, Cell, XHeader, Scroller, Divider } from 'vux'
 
   export default {
     name: 'Safety',
     components: {
       Group,
       Cell,
-      XHeader
+      XHeader,
+      Divider,
+      Scroller
     },
     data () {
       return {
-        // note: changing this line won't causes changes
-        // with hot-reload because the reloaded component
-        // preserves its current state and we are modifying
-        // its initial state.
-        msg: 'Hello World!'
+        scrollTop: 0
       }
+    },
+    methods: {
+      onScroll (pos) {
+        this.scrollTop = pos.top
+      },
+      handleScroll () {
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+        console.log(scrollTop)
+      }
+    },
+    created () {
+      window.addEventListener('scroll', this.handleScroll)
     }
   }
 </script>
 
 <style>
-  .vux-demo {
+  .box1-item {
+    width: 90%;
+    height: 650px;
+    background-color: #ccc;
+    display:inline-block;
+    margin-left: 5%;
+    float: left;
     text-align: center;
+    line-height: 650px;
   }
-  .logo {
-    width: 100px;
+  .box2 {
+    height: 3000px;
   }
 </style>
