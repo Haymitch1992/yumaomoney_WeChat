@@ -4,6 +4,9 @@ import Vue from 'vue'
 import FastClick from 'fastclick'
 import App from './App'
 import router from './router/index'
+import 'vue-fullpage/vue-fullpage.css'
+import VueFullpage from 'vue-fullpage'
+Vue.use(VueFullpage)
 
 FastClick.attach(document.body)
 
