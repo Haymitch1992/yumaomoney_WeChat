@@ -3,15 +3,15 @@
     <router-view></router-view>
     <div class="footer-box" v-if="$route.path === '/events' || $route.path === '/lending' || $route.path === '/user'">
       <tabbar class="footer-fixed">
+        <tabbar-item link="/lending" :selected="$route.path === '/lending'">
+          <img slot="icon" src="./assets/images/foot-tz.png">
+          <img slot="icon-active" src="./assets/images/foot-tz-active.png">
+          <span slot="label">首页</span>
+        </tabbar-item>
         <tabbar-item link="/events" :selected="$route.path === '/events'">
           <img slot="icon" src="./assets/images/foot-xx.png">
           <img slot="icon-active" src="./assets/images/foot-xx-active.png">
           <span slot="label">活动</span>
-        </tabbar-item>
-        <tabbar-item link="/lending" :selected="$route.path === '/lending'">
-          <img slot="icon" src="./assets/images/foot-tz.png">
-          <img slot="icon-active" src="./assets/images/foot-tz-active.png">
-          <span slot="label">出借</span>
         </tabbar-item>
         <tabbar-item link="/user" :selected="$route.path === '/user'">
           <img slot="icon" src="./assets/images/foot-wd.png">
