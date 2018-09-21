@@ -76,12 +76,4 @@
   .m-title a{
     color: #fff;
   }
-
-  .m-time {
-    font-size: 12px;
-    padding-top: 4px;
-    border-top: 1px solid #f0f0f0;
-    display: inline-block;
-    margin-top: 5px;
-  }
 </style>
