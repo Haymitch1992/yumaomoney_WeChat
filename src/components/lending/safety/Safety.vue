@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header>安全保障</x-header>
+    <x-header class="z-index">安全保障</x-header>
     <div class="page-container">
       <div class="fullpage-container">
         <div class="fullpage-wp" v-fullpage="opts">
@@ -73,13 +73,11 @@
 </template>
 
 <script>
-  import { Group, Cell, XHeader } from 'vux'
+  import { XHeader } from 'vux'
 
   export default {
     name: 'Safety',
     components: {
-      Group,
-      Cell,
       XHeader
     },
     data () {
@@ -100,6 +98,9 @@
 </script>
 
 <style>
+  .z-index{
+    z-index: 10;
+  }
   .page-container {
     position: absolute;
     left: 0;

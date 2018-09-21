@@ -18,7 +18,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/user'
+      redirect: '/lending'
     },
     {
       path: '/lending',
