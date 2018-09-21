@@ -11,6 +11,11 @@ import Events from '../components/events/Events'
 import Lending from '../components/lending/Lending'
 import Safety from '../components/lending/safety/Safety'
 import Disclosure from '../components/lending/disclosure/Disclosure'
+import SakeInligting from '../components/lending/sakeInligting/SakeInligting'
+import TanKantore from '../components/lending/tanKantore/TanKantore'
+import Memorabilia from '../components/lending/memorabilia/Memorabilia'
+import Ouditverslag from '../components/lending/ouditverslag/Ouditverslag'
+import Kwalifikasie from '../components/lending/kwalifikasie/Kwalifikasie'
 
 Vue.use(Router)
 
@@ -34,7 +39,33 @@ export default new Router({
         },
         {
           path: 'disclosure',
-          component: Disclosure
+          component: Container,
+          children: [
+            {
+              path: '/',
+              component: Disclosure
+            },
+            {
+              path: 'sakeInligting',
+              component: SakeInligting
+            },
+            {
+              path: 'tanKantore',
+              component: TanKantore
+            },
+            {
+              path: 'memorabilia',
+              component: Memorabilia
+            },
+            {
+              path: 'ouditverslag',
+              component: Ouditverslag
+            },
+            {
+              path: 'kwalifikasie',
+              component: Kwalifikasie
+            }
+          ]
         }
       ]
     },
