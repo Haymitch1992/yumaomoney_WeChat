@@ -1,11 +1,11 @@
 <template>
   <div>
-    <x-header class="header-fixed">安全保障</x-header>
+    <x-header>安全保障</x-header>
     <div class="page-container">
       <div class="fullpage-container">
         <div class="fullpage-wp" v-fullpage="opts">
           <div class="page-1 page">
-            <div class="part-1 part">
+            <div class="part-1 part" v-animate="{value: 'bounceInRight'}">
               <div class="title">存管上线</div>
               <div class="content-box">
                 <div class="item">
@@ -39,17 +39,26 @@
             </div>
           </div>
           <div class="page-4 page">
-            <div class="part-3 part" v-animate="{value: 'bounceInRight'}">
-              <div class="title">ICP经营许可</div>
+            <div class="part-4 part" v-animate="{value: 'bounceInRight'}">
+              <div class="title">行业认证</div>
               <div class="content-box"></div>
-              <div class="foot">2017年7月18日，鱼猫金服获得<br>《中华人民共和国增值电信业务运营许可证》</div>
+              <div class="foot">2016年3月10日，<br>鱼猫金服成为安全"联盟信誉企业"</div>
             </div>
           </div>
           <div class="page-5 page">
-            <div class="part-3 part" v-animate="{value: 'bounceInRight'}">
-              <div class="title">ICP经营许可</div>
-              <div class="content-box"></div>
-              <div class="foot">2017年7月18日，鱼猫金服获得<br>《中华人民共和国增值电信业务运营许可证》</div>
+            <div class="part-5 part" v-animate="{value: 'bounceInRight'}">
+              <div class="title">专业风控</div>
+              <div class="content-box">
+                <ul>
+                  <li type="circle">核心企业准入制</li>
+                  <li type="circle">融资企业审核制</li>
+                  <li type="circle">应收账款基本要求</li>
+                  <li type="circle">项目管理</li>
+                  <li type="circle">尽职调查</li>
+                  <li type="circle">信用审核</li>
+                </ul>
+              </div>
+              <div class="foot">风控体系完善，项目风险分散，实地尽职调查，<br>大数据系统识别，风险预警管理，催收方式。<br>标准化流程，大数据风控，<br>对每个项目进行严格把控。</div>
             </div>
           </div>
           <!--<div class="page-3 page">-->
@@ -100,7 +109,7 @@
     height: 100%;
   }
   .title {
-    margin: 20px 30px;
+    margin: 10px 30px 30px;
     color: #fff;
     font-size: 30px;
     text-align: center;
@@ -108,7 +117,6 @@
   .content-box {
     margin: 10px 30px;
     padding: 10px 20px;
-    background: #fff;
   }
   .item {
     margin: 10px 0;
@@ -133,6 +141,9 @@
   .page {
     background: url('../../../assets/images/safety_bg.png') no-repeat 100%;
   }
+  .part-1 .content-box {
+    background: #fff;
+  }
   .part-2 .content-box {
     width: 320px;
     height: 190px;
@@ -151,5 +162,26 @@
   }
   .part-3 .foot {
     margin: 30px 15px 20px;
+  }
+  .part-4 .content-box {
+    width: 230px;
+    height: 333px;
+    margin: 30px auto;
+    padding: 0;
+    background: url('../../../assets/images/mCertificate-2.png') no-repeat center center;
+    background-size: cover;
+  }
+  .part-5 .content-box {
+    width: 150px;
+    margin: 30px auto;
+    padding: 0 0 0 20px;
+    font-size: 18px;
+    color: #fff;
+  }
+  .part-5 li {
+    margin: 10px 0;
+  }
+  .part-5 .foot {
+    margin: 30px 10px 20px;
   }
 </style>
