@@ -1,7 +1,7 @@
 <template>
   <div>
     <x-header class="header-fixed">企业资质</x-header>
-    <div style="padding-top: 50px">
+    <div style="padding-top: 80px">
       <div v-for="src in list" style="text-align:center">
         <span style="font-size:20px;">Loading</span>
         <x-img :src="src" :webp-src="`${src}?type=webp`" @on-success="success" @on-error="error" class="ximg-demo" error-class="ximg-error" :offset="-100" container="#vux_view_box_body"></x-img>
