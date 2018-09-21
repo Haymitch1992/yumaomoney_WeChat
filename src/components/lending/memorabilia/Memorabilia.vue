@@ -1,44 +1,68 @@
 <template>
   <div>
     <x-header>重大事项</x-header>
-    <div class="vux-demo">
-      <img class="logo" src="../../../assets/images/logo.png">
-    </div>
-    <group title="cell demo">
-      <cell title="第一" value="cool" is-link></cell>
-      <cell title="第二" value="cool" is-link></cell>
-      <cell title="第三" value="cool" is-link></cell>
+    <group>
+      <div class="table-box">
+        <x-table full-bordered>
+          <tbody>
+          <tr>
+            <td>合并、分立、解散或者申请破产</td>
+            <td>无</td>
+          </tr>
+          <tr>
+            <td>从业机构受到刑事处罚</td>
+            <td>无</td>
+          </tr>
+          <tr>
+            <td>从业机构受到重大行政处罚</td>
+            <td>无</td>
+          </tr>
+          <tr>
+            <td>重大诉讼或者仲裁事项</td>
+            <td>无</td>
+          </tr>
+          <tr>
+            <td class="more-text">实际控制人与持股 5%以上的股东、董事、监事、高级管理 人员的变更信息</td>
+            <td>无</td>
+          </tr>
+          <tr>
+            <td class="more-text">实际控制人与持股 5%以上的 股东、董事、监事、高级管理 人员涉及的重大诉讼或者仲裁事项或重大行政处罚</td>
+            <td>无</td>
+          </tr>
+          </tbody>
+        </x-table>
+      </div>
     </group>
   </div>
 </template>
 
 <script>
-  import { Group, Cell, XHeader } from 'vux'
+  import { Group, XHeader, XTable } from 'vux'
 
   export default {
     name: 'Memorabilia',
     components: {
       Group,
-      Cell,
-      XHeader
+      XHeader,
+      XTable
     },
     data () {
-      return {
-        // note: changing this line won't causes changes
-        // with hot-reload because the reloaded component
-        // preserves its current state and we are modifying
-        // its initial state.
-        msg: 'Hello World!'
-      }
+      return {}
     }
   }
 </script>
 
 <style>
-  .vux-demo {
-    text-align: center;
+  .table-box{
+    padding: 15px;
+    font-size: 12px;
   }
-  .logo {
-    width: 100px;
+  .table-box table tbody tr td{
+    text-align: left;
+    padding: 0 10px;
+  }
+  .table-box table tbody tr .more-text {
+    padding: 10px;
+    line-height: 20px;
   }
 </style>
