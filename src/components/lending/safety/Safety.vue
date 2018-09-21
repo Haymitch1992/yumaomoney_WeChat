@@ -5,7 +5,7 @@
       <div class="fullpage-container">
         <div class="fullpage-wp" v-fullpage="opts">
           <div class="page-1 page">
-            <div class="part-1">
+            <div class="part-1 part">
               <div class="title">存管上线</div>
               <div class="content-box">
                 <div class="item">
@@ -25,10 +25,32 @@
             </div>
           </div>
           <div class="page-2 page">
-            <p class="part-2" v-animate="{value: 'bounceInRight'}">第二页</p>
+            <div class="part-2 part" v-animate="{value: 'bounceInRight'}">
+              <div class="title">等保三级</div>
+              <div class="content-box"></div>
+              <div class="foot">2017年7月3日，鱼猫金服正式通过<br>国家公安监制的信息安全等级保护三级备案</div>
+            </div>
           </div>
           <div class="page-3 page">
-            <p class="part-3" v-animate="{value: 'bounceInRight'}">第三页</p>
+            <div class="part-3 part" v-animate="{value: 'bounceInRight'}">
+              <div class="title">ICP经营许可</div>
+              <div class="content-box"></div>
+              <div class="foot">2017年7月18日，鱼猫金服获得<br>《中华人民共和国增值电信业务运营许可证》</div>
+            </div>
+          </div>
+          <div class="page-4 page">
+            <div class="part-3 part" v-animate="{value: 'bounceInRight'}">
+              <div class="title">ICP经营许可</div>
+              <div class="content-box"></div>
+              <div class="foot">2017年7月18日，鱼猫金服获得<br>《中华人民共和国增值电信业务运营许可证》</div>
+            </div>
+          </div>
+          <div class="page-5 page">
+            <div class="part-3 part" v-animate="{value: 'bounceInRight'}">
+              <div class="title">ICP经营许可</div>
+              <div class="content-box"></div>
+              <div class="foot">2017年7月18日，鱼猫金服获得<br>《中华人民共和国增值电信业务运营许可证》</div>
+            </div>
           </div>
           <!--<div class="page-3 page">-->
             <!--<p class="part-3" v-animate="{value: 'bounceInLeft', delay: 0}">第三页1</p>-->
@@ -108,14 +130,26 @@
     margin: 30px 30px 20px;
     color: #fff;
   }
-  .page-1 {
-    background: url('../../../assets/images/safety_bg.png') no-repeat;
-    background-size: 100%;
+  .page {
+    background: url('../../../assets/images/safety_bg.png') no-repeat 100%;
   }
-  .page-2 {
-    background: #10aeff;
+  .part-2 .content-box {
+    width: 320px;
+    height: 190px;
+    margin: 100px auto;
+    padding: 0;
+    background: url('../../../assets/images/mCertificate-3.png') no-repeat center center;
+    background-size: cover;
   }
-  .page-3 {
-    background: #ce3c39;
+  .part-3 .content-box {
+    width: 230px;
+    height: 333px;
+    margin: 30px auto;
+    padding: 0;
+    background: url('../../../assets/images/mCertificate-1.png') no-repeat center center;
+    background-size: cover;
+  }
+  .part-3 .foot {
+    margin: 30px 15px 20px;
   }
 </style>
