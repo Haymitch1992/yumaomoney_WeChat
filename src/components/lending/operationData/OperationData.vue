@@ -53,9 +53,11 @@
     </group>
 
     <group title="平台用户数据" label-width="4.5em" label-margin-right="2em" label-align="right">
+
     </group>
 
     <group title="出借总额排行" label-width="4.5em" label-margin-right="2em" label-align="right">
+      <panel :list="rankingData" type="1" @on-img-error="onImgError"></panel>
     </group>
   </div>
 </template>
@@ -63,7 +65,7 @@
 <script>
   import axios from 'axios'
   import moment from 'moment'
-  import { Group, GroupTitle, XHeader, Grid, GridItem, VChart, VScale, VTooltip, VArea, VLine } from 'vux'
+  import { Group, GroupTitle, XHeader, Grid, GridItem, VChart, VScale, VTooltip, VArea, VLine, Panel } from 'vux'
 
   export default {
     name: 'OperationData',
@@ -77,7 +79,8 @@
       VScale,
       VTooltip,
       VArea,
-      VLine
+      VLine,
+      Panel
     },
     data () {
       return {
@@ -127,10 +130,27 @@
           { date: '2018-06', value: 571015200 },
           { date: '2018-07', value: 572103400 },
           { date: '2018-08', value: 595919000 }
+        ],
+        rankingData: [
+          {
+            src: 'http://39.107.59.233/images/wechat/p5-01.png',
+            title: '1'
+          },
+          {
+            src: 'http://39.107.59.233/images/wechat/p5-02.png',
+            title: '2'
+          },
+          {
+            src: 'http://39.107.59.233/images/wechat/p5-03.png',
+            title: '3'
+          }
         ]
       }
     },
     methods: {
+      onImgError (item, $event) {
+        console.log(item, $event)
+      },
       getData () {
         var self = this
         axios.post(process.env.BASE_API + '/operationalDataInit.do?t=' + new Date().getTime(), null)
@@ -139,6 +159,9 @@
             self.data.time = moment(self.data.saveDate).format('YYYY-MM-DD')
             self.data.timeRelative = moment(self.data.saveDate).diff('2015-01-28', 'days')
             self.lendingData.push({ date: moment(self.data.saveDate).format('YYYY-MM'), value: self.data.investAmount })
+            self.rankingData[0].title = self.data.rankingOne
+            self.rankingData[1].title = self.data.rankingTwo
+            self.rankingData[2].title = self.data.rankingThree
           })
           .catch(function (error) {
             console.log(error)
