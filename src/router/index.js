@@ -16,6 +16,15 @@ import TanKantore from '../components/lending/tanKantore/TanKantore'
 import Memorabilia from '../components/lending/memorabilia/Memorabilia'
 import Ouditverslag from '../components/lending/ouditverslag/Ouditverslag'
 import Kwalifikasie from '../components/lending/kwalifikasie/Kwalifikasie'
+import ExecsTeam from '../components/lending/execsTeam/ExecsTeam'
+import GroupArchitecture from '../components/lending/groupArchitecture/GroupArchitecture'
+import Employees from '../components/lending/employees/Employees'
+import OperationData from '../components/lending/operationData/OperationData'
+import OperationReport from '../components/lending/operationReport/OperationReport'
+import WebsiteNotice from '../components/lending/websiteNotice/WebsiteNotice'
+import Repayment from '../components/lending/repayment/Repayment'
+import PayNotice from '../components/lending/payNotice/PayNotice'
+import MediaReport from '../components/lending/mediaReport/MediaReport'
 
 Vue.use(Router)
 
@@ -64,6 +73,42 @@ export default new Router({
             {
               path: 'kwalifikasie',
               component: Kwalifikasie
+            },
+            {
+              path: 'execsTeam',
+              component: ExecsTeam
+            },
+            {
+              path: 'groupArchitecture',
+              component: GroupArchitecture
+            },
+            {
+              path: 'employees',
+              component: Employees
+            },
+            {
+              path: 'operationData',
+              component: OperationData
+            },
+            {
+              path: 'operationReport',
+              component: OperationReport
+            },
+            {
+              path: 'websiteNotice',
+              component: WebsiteNotice
+            },
+            {
+              path: 'repayment',
+              component: Repayment
+            },
+            {
+              path: 'payNotice',
+              component: PayNotice
+            },
+            {
+              path: 'mediaReport',
+              component: MediaReport
             }
           ]
         }
