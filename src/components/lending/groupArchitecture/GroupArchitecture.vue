@@ -27,6 +27,7 @@
 <style>
   .box {
     text-align: center;
+    padding: 20px 10px;
   }
   .group {
     width: 100%;

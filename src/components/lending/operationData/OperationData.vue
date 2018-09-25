@@ -1,88 +1,167 @@
 <template>
   <div>
-    <x-header>工商信息</x-header>
-    <group>
-      <div class="table-box">
-        <x-table full-bordered>
-          <tbody>
-          <tr>
-            <td style="width: 100px">公司全称</td>
-            <td>鱼猫投融（北京）网络科技有限公司</td>
-          </tr>
-          <tr>
-            <td>平台名称</td>
-            <td>鱼猫金服</td>
-          </tr>
-          <tr>
-            <td>注册/经营地址</td>
-            <td class="more-text">北京市朝阳区高碑店乡半壁店村南街1131号4005-1室</td>
-          </tr>
-          <tr>
-            <td>统一社会信用代码</td>
-            <td>91110105317952261C</td>
-          </tr>
-          <tr>
-            <td>注册资本</td>
-            <td>5000万元人民币</td>
-          </tr>
-          <tr>
-            <td>实缴注册资本</td>
-            <td>5000万元人民币</td>
-          </tr>
-          <tr>
-            <td>成立时间</td>
-            <td>2014年09月28日</td>
-          </tr>
-          <tr>
-            <td>经营期限至</td>
-            <td>2034年09月28日</td>
-          </tr>
-          <tr>
-            <td>股东股权占比</td>
-            <td class="more-text">王明澈（92%）<br>周江华（8%）</td>
-          </tr>
-          <tr>
-            <td>经营状态</td>
-            <td>开业</td>
-          </tr>
-          <tr>
-            <td>经营范围</td>
-            <td class="more-text">技术推广服务；计算机系统服务；数据处理；经济贸易咨询；投资管理；会议服务；市场调查；软件开发。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</td>
-          </tr>
-          </tbody>
-        </x-table>
-      </div>
+    <x-header>运营数据</x-header>
+    <group label-width="4.5em" label-margin-right="2em" label-align="right">
+      <group-title slot="title">平台运营情况<span style="float:right;">截止日期：{{data.time}}</span></group-title>
+      <grid :show-lr-borders="false" >
+        <grid-item label="累计出借总额" key="0">
+          <span class="grid-center">{{data.investAmount}}元</span>
+        </grid-item>
+        <grid-item label="累计出借次数" key="1">
+          <span class="grid-center">{{data.investNumber}}次</span>
+        </grid-item>
+      </grid>
+      <grid :show-lr-borders="false" >
+        <grid-item label="上线项目数" key="0">
+          <span class="grid-center">{{data.lineNumber}}个</span>
+        </grid-item>
+        <grid-item label="借款企业数" key="1">
+          <span class="grid-center">{{data.businessTotal}}个</span>
+        </grid-item>
+      </grid>
+      <grid :show-lr-borders="false" :cols="2">
+        <grid-item label="平台安全运营" key="0">
+          <span class="grid-center">{{data.timeRelative}}天</span>
+        </grid-item>
+      </grid>
+    </group>
+
+    <group title="累积出借金额" label-width="4.5em" label-margin-right="2em" label-align="right">
+      <v-chart :data="lendingData" prevent-default>
+        <v-scale x :tick-count="3" />
+        <v-scale y :min="0" />
+        <v-tooltip :show-item-marker="false" show-x-value />
+        <v-area />
+        <v-line />
+      </v-chart>
+    </group>
+
+    <group title="平台兑付数据" label-width="4.5em" label-margin-right="2em" label-align="right">
+      <grid :show-lr-borders="false" >
+        <grid-item label="已支付用户本金" key="0">
+          <span class="grid-center">{{data.userPrincipal}}元</span>
+        </grid-item>
+        <grid-item label="已支付用户利息" key="1">
+          <span class="grid-center">{{data.userInterest}}元</span>
+        </grid-item>
+      </grid>
+      <grid :show-lr-borders="false" :cols="2">
+        <grid-item label="到期兑付项目数" key="0">
+          <span class="grid-center">{{data.cashNumber}}个</span>
+        </grid-item>
+      </grid>
+    </group>
+
+    <group title="平台用户数据" label-width="4.5em" label-margin-right="2em" label-align="right">
+    </group>
+
+    <group title="出借总额排行" label-width="4.5em" label-margin-right="2em" label-align="right">
     </group>
   </div>
 </template>
 
 <script>
-  import { Group, XHeader, XTable } from 'vux'
+  import axios from 'axios'
+  import moment from 'moment'
+  import { Group, GroupTitle, XHeader, Grid, GridItem, VChart, VScale, VTooltip, VArea, VLine } from 'vux'
 
   export default {
-    name: 'SakeInligting',
+    name: 'OperationData',
     components: {
       Group,
+      GroupTitle,
       XHeader,
-      XTable
+      Grid,
+      GridItem,
+      VChart,
+      VScale,
+      VTooltip,
+      VArea,
+      VLine
     },
     data () {
-      return {}
+      return {
+        data: {},
+        lendingData: [
+          { date: '2015-01', value: 901500 },
+          { date: '2015-02', value: 4719200 },
+          { date: '2015-03', value: 12287800 },
+          { date: '2015-04', value: 20450000 },
+          { date: '2015-05', value: 28463000 },
+          { date: '2015-06', value: 39466500 },
+          { date: '2015-07', value: 42161900 },
+          { date: '2015-08', value: 45779000 },
+          { date: '2015-09', value: 49052700 },
+          { date: '2015-10', value: 52543300 },
+          { date: '2015-11', value: 57820800 },
+          { date: '2015-12', value: 63169400 },
+          { date: '2016-01', value: 73544800 },
+          { date: '2016-02', value: 78511500 },
+          { date: '2016-03', value: 88971000 },
+          { date: '2016-04', value: 102918870 },
+          { date: '2016-05', value: 112051000 },
+          { date: '2016-06', value: 124931000 },
+          { date: '2016-07', value: 135031000 },
+          { date: '2016-08', value: 149417700 },
+          { date: '2016-09', value: 164301700 },
+          { date: '2016-10', value: 178730800 },
+          { date: '2016-11', value: 191741000 },
+          { date: '2016-12', value: 216824200 },
+          { date: '2017-01', value: 242580800 },
+          { date: '2017-02', value: 255752200 },
+          { date: '2017-03', value: 281131200 },
+          { date: '2017-04', value: 300796200 },
+          { date: '2017-05', value: 327798600 },
+          { date: '2017-06', value: 354265400 },
+          { date: '2017-07', value: 380612900 },
+          { date: '2017-08', value: 406118700 },
+          { date: '2017-09', value: 430463700 },
+          { date: '2017-10', value: 449874700 },
+          { date: '2017-11', value: 476861700 },
+          { date: '2017-12', value: 495016300 },
+          { date: '2018-01', value: 516424000 },
+          { date: '2018-02', value: 523515000 },
+          { date: '2018-03', value: 532494000 },
+          { date: '2018-04', value: 546451200 },
+          { date: '2018-05', value: 561953000 },
+          { date: '2018-06', value: 571015200 },
+          { date: '2018-07', value: 572103400 },
+          { date: '2018-08', value: 595919000 }
+        ]
+      }
+    },
+    methods: {
+      getData () {
+        var self = this
+        axios.post(process.env.BASE_API + '/operationalDataInit.do?t=' + new Date().getTime(), null)
+          .then(function (res) {
+            self.data = res.data
+            self.data.time = moment(self.data.saveDate).format('YYYY-MM-DD')
+            self.data.timeRelative = moment(self.data.saveDate).diff('2015-01-28', 'days')
+            self.lendingData.push({ date: moment(self.data.saveDate).format('YYYY-MM'), value: self.data.investAmount })
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+      },
+      init () {
+        var self = this
+        self.getData()
+      }
+    },
+    created () {
+      var self = this
+      self.init()
     }
   }
 </script>
 
 <style>
-  .table-box{
-    padding: 15px;
-    font-size: 12px;
-  }
-  .table-box table tbody tr td{
-    text-align: left;
-    padding: 0 10px;
-  }
-  .table-box table tbody tr .more-text {
-    padding: 10px;
-    line-height: 20px;
+  .grid-center {
+    display: block;
+    text-align: center;
+    color: #FF465D;
+    font-weight: 700;
+    font-size: 1.2em;
   }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header>工商信息</x-header>
+    <x-header>运营报告</x-header>
     <group>
       <div class="table-box">
         <x-table full-bordered>
@@ -60,7 +60,7 @@
   import { Group, XHeader, XTable } from 'vux'
 
   export default {
-    name: 'SakeInligting',
+    name: 'OperationReport',
     components: {
       Group,
       XHeader,
