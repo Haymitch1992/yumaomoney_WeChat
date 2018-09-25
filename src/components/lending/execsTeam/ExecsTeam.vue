@@ -55,6 +55,7 @@
   }
 
   .title{
+    color: #000;
     text-align: center;
   }
 
