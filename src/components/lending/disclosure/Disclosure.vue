@@ -49,7 +49,25 @@
         listType: 1
       }
     },
+//    beforeRouteEnter (to, from, next) {
+//      console.log(vm)
+//      self.fromPath = from.path
+//      console.log(self.fromPath)
+//      console.log(self.listType)
+//      next()
+//    },
     methods: {
+      getFrom () {
+        console.log(this.$router.history)
+      },
+      init () {
+        var self = this
+        self.getFrom()
+      }
+    },
+    created () {
+      var self = this
+      self.init()
     }
   }
 </script>

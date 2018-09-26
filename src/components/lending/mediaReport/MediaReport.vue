@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header>工商信息</x-header>
+    <x-header>媒体公告</x-header>
     <group>
       <div class="table-box">
         <x-table full-bordered>
