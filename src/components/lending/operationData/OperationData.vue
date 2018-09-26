@@ -52,8 +52,60 @@
       </grid>
     </group>
 
-    <group title="平台用户数据" label-width="4.5em" label-margin-right="2em" label-align="right">
+    <group title="产品收益" label-width="4.5em" label-margin-right="2em" label-align="right">
+      <v-chart
+        ref="demo"
+        :data="incomeData">
+        <v-bar />
+        <v-tooltip :show-item-marker="false" />
+      </v-chart>
+    </group>
 
+    <group title="出借产品周期" label-width="4.5em" label-margin-right="2em" label-align="right">
+      <v-chart :data="cycleData">
+        <v-scale y :options="yOptions" />
+        <v-tooltip disabled />
+        <v-pie :radius="0.85" series-field="name" />
+        <v-legend :options="cycleOptions" />
+      </v-chart>
+    </group>
+
+    <group title="出借平台分布" label-width="4.5em" label-margin-right="2em" label-align="right">
+      <v-chart :data="platformData">
+        <v-scale y :options="yOptions" />
+        <v-tooltip disabled />
+        <v-pie :radius="0.85" series-field="name" />
+        <v-legend :options="platformOptions" />
+      </v-chart>
+    </group>
+
+    <group title="用户总数" label-width="4.5em" label-margin-right="2em" label-align="right">
+      <v-chart
+        ref="demo"
+        :data="userData">
+        <v-bar />
+        <v-tooltip :show-item-marker="false" />
+      </v-chart>
+    </group>
+
+    <group title="年龄有多少" label-width="4.5em" label-margin-right="2em" label-align="right">
+      <v-chart
+        ref="demo"
+        :data="ageData">
+        <v-bar />
+        <v-tooltip :show-item-marker="false" />
+      </v-chart>
+    </group>
+
+    <group title="性别比例" label-width="4.5em" label-margin-right="2em" label-align="right">
+      <v-chart
+        :data="genderData"
+        :padding="[20, 'auto']">
+        <v-tooltip disabled />
+        <v-scale y :options="yOptions" />
+        <v-pie :radius="0.85" :inner-radius="0.7" series-field="name" :colors="['#FE5D4D','#3BA4FF','#737DDE']" />
+        <v-legend :options="genderOptions" />
+      </v-chart>
     </group>
 
     <group title="出借总额排行" label-width="4.5em" label-margin-right="2em" label-align="right">
@@ -65,7 +117,11 @@
 <script>
   import axios from 'axios'
   import moment from 'moment'
-  import { Group, GroupTitle, XHeader, Grid, GridItem, VChart, VScale, VTooltip, VArea, VLine, Panel } from 'vux'
+  import { Group, GroupTitle, XHeader, Grid, GridItem, VChart, VScale, VTooltip, VArea, VLine, VBar, VPie, VLegend, VGuide, Panel } from 'vux'
+
+  const cycleMap = {}
+  const platformMap = {}
+  const genderMap = {}
 
   export default {
     name: 'OperationData',
@@ -80,6 +136,10 @@
       VTooltip,
       VArea,
       VLine,
+      VBar,
+      VPie,
+      VLegend,
+      VGuide,
       Panel
     },
     data () {
@@ -131,6 +191,65 @@
           { date: '2018-07', value: 572103400 },
           { date: '2018-08', value: 595919000 }
         ],
+        incomeData: [
+          { year: '活期', sales: 0.3 },
+          { year: '定期', sales: 1.5 },
+          { year: '宝宝们', sales: 4 },
+          { year: '鱼猫', sales: 12 }
+        ],
+        yOptions: {
+          formatter (val) {
+            return val * 100 + '%'
+          }
+        },
+        cycleOptions: {
+          position: 'right',
+          itemFormatter (val) {
+            return val + '  ' + cycleMap[val]
+          }
+        },
+        cycleMap,
+        cycleData: [
+          { name: '1个月', percent: 0.2345, a: '1' },
+          { name: '2个月', percent: 0.2974, a: '1' },
+          { name: '3个月', percent: 0.2664, a: '1' },
+          { name: '4个月', percent: 0.2017, a: '1' }
+        ],
+        platformOptions: {
+          position: 'right',
+          itemFormatter (val) {
+            return val + '  ' + platformMap[val]
+          }
+        },
+        platformMap,
+        platformData: [
+          { name: '移动端出借额', percent: 0.4, a: '1' },
+          { name: 'PC端出借额', percent: 0.6, a: '1' }
+        ],
+        userData: [
+          { year: '2015-1', sales: 0 },
+          { year: '2015-5', sales: 30000 },
+          { year: '2015-12', sales: 200000 },
+          { year: '2016-12', sales: 300000 },
+          { year: '2017-3', sales: 320000 }
+        ],
+        ageData: [
+          { year: '18-25岁', sales: 12.7 },
+          { year: '25-35岁', sales: 47.62 },
+          { year: '35-45岁', sales: 36.51 },
+          { year: '45岁以上', sales: 3.17 }
+        ],
+        genderMap,
+        genderOptions: {
+          position: 'right',
+          itemFormatter (val) {
+            return val + '  ' + genderMap[val]
+          }
+        },
+        genderData: [
+          { name: '男性出借人', percent: 64.39, a: '1' },
+          { name: '女性出借人', percent: 35.61, a: '1' }
+        ],
         rankingData: [
           {
             src: 'http://39.107.59.233/images/wechat/p5-01.png',
@@ -159,9 +278,10 @@
             self.data.time = moment(self.data.saveDate).format('YYYY-MM-DD')
             self.data.timeRelative = moment(self.data.saveDate).diff('2015-01-28', 'days')
             self.lendingData.push({ date: moment(self.data.saveDate).format('YYYY-MM'), value: self.data.investAmount })
-            self.rankingData[0].title = self.data.rankingOne
-            self.rankingData[1].title = self.data.rankingTwo
-            self.rankingData[2].title = self.data.rankingThree
+            self.userData.push({ year: moment(self.data.saveDate).format('YYYY-MM'), sales: self.data.userTotal })
+            self.rankingData[0].title = self.data.rankingOne + '元'
+            self.rankingData[1].title = self.data.rankingTwo + '元'
+            self.rankingData[2].title = self.data.rankingThree + '元'
           })
           .catch(function (error) {
             console.log(error)
@@ -170,6 +290,15 @@
       init () {
         var self = this
         self.getData()
+        self.cycleData.map(obj => {
+          cycleMap[obj.name] = obj.percent + '%'
+        })
+        self.platformData.map(obj => {
+          platformMap[obj.name] = obj.percent + '%'
+        })
+        self.genderData.map(obj => {
+          genderMap[obj.name] = obj.percent + '%'
+        })
       }
     },
     created () {
