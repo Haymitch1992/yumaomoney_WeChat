@@ -1,88 +1,118 @@
 <template>
   <div>
     <x-header>运营报告</x-header>
-    <group>
-      <div class="table-box">
-        <x-table full-bordered>
-          <tbody>
-          <tr>
-            <td style="width: 100px">公司全称</td>
-            <td>鱼猫投融（北京）网络科技有限公司</td>
-          </tr>
-          <tr>
-            <td>平台名称</td>
-            <td>鱼猫金服</td>
-          </tr>
-          <tr>
-            <td>注册/经营地址</td>
-            <td class="more-text">北京市朝阳区高碑店乡半壁店村南街1131号4005-1室</td>
-          </tr>
-          <tr>
-            <td>统一社会信用代码</td>
-            <td>91110105317952261C</td>
-          </tr>
-          <tr>
-            <td>注册资本</td>
-            <td>5000万元人民币</td>
-          </tr>
-          <tr>
-            <td>实缴注册资本</td>
-            <td>5000万元人民币</td>
-          </tr>
-          <tr>
-            <td>成立时间</td>
-            <td>2014年09月28日</td>
-          </tr>
-          <tr>
-            <td>经营期限至</td>
-            <td>2034年09月28日</td>
-          </tr>
-          <tr>
-            <td>股东股权占比</td>
-            <td class="more-text">王明澈（92%）<br>周江华（8%）</td>
-          </tr>
-          <tr>
-            <td>经营状态</td>
-            <td>开业</td>
-          </tr>
-          <tr>
-            <td>经营范围</td>
-            <td class="more-text">技术推广服务；计算机系统服务；数据处理；经济贸易咨询；投资管理；会议服务；市场调查；软件开发。（企业依法自主选择经营项目，开展经营活动；依法须经批准的项目，经相关部门批准后依批准的内容开展经营活动；不得从事本市产业政策禁止和限制类项目的经营活动。）</td>
-          </tr>
-          </tbody>
-        </x-table>
-      </div>
-    </group>
+    <div style="margin: 10px;overflow: hidden;" v-for="item in list">
+      <masker style="border-radius: 2px;" :opacity="0">
+        <div class="m-img" :style="{backgroundImage: 'url(' + item.img + ')'}"></div>
+        <div slot="content" class="m-title">
+          <a :href="item.link">{{item.title}}</a>
+        </div>
+      </masker>
+    </div>
   </div>
 </template>
 
 <script>
-  import { Group, XHeader, XTable } from 'vux'
+  import { Group, XHeader, Masker } from 'vux'
 
   export default {
     name: 'OperationReport',
     components: {
       Group,
       XHeader,
-      XTable
+      Masker
     },
     data () {
-      return {}
+      return {
+        list: [
+          {
+            title: '查看详情',
+            img: require('@/assets/images/operationReport/yybg-2018-08.png'),
+            link: 'https://www.yumaomoney.com/integrated/report_2017.pdf'
+          },
+          {
+            title: '查看详情',
+            img: require('@/assets/images/operationReport/yybg-2018-07.png'),
+            link: 'https://www.yumaomoney.com/integrated/report_2016.pdf'
+          }, {
+            title: '查看详情',
+            img: require('@/assets/images/operationReport/yybg-2018-06.png'),
+            link: 'https://www.yumaomoney.com/integrated/report_2015.pdf'
+          }, {
+            title: '查看详情',
+            img: require('@/assets/images/operationReport/yybg-2018-05.png'),
+            link: 'https://www.yumaomoney.com/integrated/report_2015.pdf'
+          }, {
+            title: '查看详情',
+            img: require('@/assets/images/operationReport/yybg-2018-04.png'),
+            link: 'https://www.yumaomoney.com/integrated/report_2015.pdf'
+          }, {
+            title: '查看详情',
+            img: require('@/assets/images/operationReport/yybg-2018-03.png'),
+            link: 'https://www.yumaomoney.com/integrated/report_2015.pdf'
+          }, {
+            title: '查看详情',
+            img: require('@/assets/images/operationReport/yybg-2018-02.png'),
+            link: 'https://www.yumaomoney.com/integrated/report_2015.pdf'
+          }, {
+            title: '查看详情',
+            img: require('@/assets/images/operationReport/yybg-2018-01.png'),
+            link: 'https://www.yumaomoney.com/integrated/report_2015.pdf'
+          }, {
+            title: '查看详情',
+            img: require('@/assets/images/operationReport/yybg-2017-12.png'),
+            link: 'https://www.yumaomoney.com/integrated/report_2015.pdf'
+          }, {
+            title: '查看详情',
+            img: require('@/assets/images/operationReport/yybg-2017-11.png'),
+            link: 'https://www.yumaomoney.com/integrated/report_2015.pdf'
+          }, {
+            title: '查看详情',
+            img: require('@/assets/images/operationReport/yybg-2017-10.png'),
+            link: 'https://www.yumaomoney.com/integrated/report_2015.pdf'
+          }, {
+            title: '查看详情',
+            img: require('@/assets/images/operationReport/yybg-2017-09.png'),
+            link: 'https://www.yumaomoney.com/integrated/report_2015.pdf'
+          }, {
+            title: '查看详情',
+            img: require('@/assets/images/operationReport/yybg-2017-08.png'),
+            link: 'https://www.yumaomoney.com/integrated/report_2015.pdf'
+          }
+        ]
+      }
     }
   }
 </script>
 
 <style>
-  .table-box{
-    padding: 15px;
-    font-size: 12px;
+  .m-img {
+    padding-bottom: 42%;
+    display: block;
+    position: relative;
+    max-width: 100%;
+    background-size: cover;
+    background-position: center center;
+    cursor: pointer;
+    border-radius: 2px;
   }
-  .table-box table tbody tr td{
-    text-align: left;
-    padding: 0 10px;
+
+  .m-title {
+    color: #fff;
+    text-align: center;
+    text-shadow: 0 0 2px rgba(0, 0, 0, .5);
+    font-weight: 500;
+    font-size: 16px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 100%;
+    text-align: center;
+    top: 85%;
+    transform: translateY(-50%);
   }
-  .table-box table tbody tr .more-text {
-    padding: 10px;
-    line-height: 20px;
+
+  .m-title a{
+    color: #fff;
   }
 </style>
