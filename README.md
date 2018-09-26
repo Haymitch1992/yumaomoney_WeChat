@@ -45,5 +45,6 @@ npm test
 * [报错处理：Default export is not declared in imported module](https://segmentfault.com/q/1010000004664827)
 * 上一个问题可参考yumaomoney_WeChat/src/components/container/Container.vue，export default为必要内容。
 * [vux中fullpage的使用](https://www.jb51.net/article/108893.htm)
+* VChart异步加载表格数据时，tooltip在初始化、请求后需要渲染两次，否则无法加载具体比例。
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

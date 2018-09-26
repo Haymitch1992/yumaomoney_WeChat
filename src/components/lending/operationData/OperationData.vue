@@ -279,7 +279,7 @@
           { name: '2个月', percent: parseInt(self.data.periodTwo), a: '1' },
           { name: '3个月', percent: parseInt(self.data.periodThree), a: '1' },
           { name: '4个月', percent: parseInt(self.data.periodFour), a: '1' }
-        ],
+        ]
         self.userData.push({ year: moment(self.data.saveDate).format('YYYY-MM'), sales: self.data.userTotal })
         self.ageData = [
           { year: '18-25岁', sales: parseInt(self.data.age1825) },
