@@ -5,7 +5,7 @@
       <v-chart :data="data.age">
         <v-scale y :options="yOptions" />
         <v-tooltip disabled />
-        <v-pie :radius="0.85" series-field="name" />
+        <v-pie :radius="0.85" series-field="name" :colors="['#3aacf2','#86d9f3','#aee7ff','#ccefff']" />
         <v-legend :options="ageOptions" />
       </v-chart>
     </group>
@@ -13,7 +13,7 @@
       <v-chart :data="data.degree">
         <v-scale y :options="yOptions" />
         <v-tooltip disabled />
-        <v-pie :radius="0.85" series-field="name" />
+        <v-pie :radius="0.85" series-field="name" :colors="['#3aacf2','#86d9f3','#aee7ff','#ccefff']" />
         <v-legend :options="degreeOptions" />
       </v-chart>
     </group>
@@ -21,7 +21,7 @@
       <v-chart :data="data.workingLife">
         <v-scale y :options="yOptions" />
         <v-tooltip disabled />
-        <v-pie :radius="0.85" series-field="name" />
+        <v-pie :radius="0.85" series-field="name" :colors="['#3aacf2','#86d9f3','#aee7ff','#ccefff']" />
         <v-legend :options="workingLifeOptions" />
       </v-chart>
     </group>
