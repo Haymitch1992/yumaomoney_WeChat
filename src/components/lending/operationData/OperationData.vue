@@ -62,10 +62,11 @@
     </group>
 
     <group title="出借产品周期" label-width="4.5em" label-margin-right="2em" label-align="right">
-      <v-chart :data="cycleData">
-        <v-scale y :options="yOptions" />
+      <v-chart :data="cycleData"
+               :padding="[20, 'auto']">
         <v-tooltip disabled />
-        <v-pie :radius="0.85" series-field="name" />
+        <v-scale y :options="yOptions" />
+        <v-pie :radius="0.85":inner-radius="0.7" series-field="name" :colors="['#3aacf2','#86d9f3','#aee7ff','#ccefff']" />
         <v-legend :options="cycleOptions" />
       </v-chart>
     </group>
@@ -74,7 +75,7 @@
       <v-chart :data="platformData">
         <v-scale y :options="yOptions" />
         <v-tooltip disabled />
-        <v-pie :radius="0.85" series-field="name" />
+        <v-pie :radius="0.85" series-field="name" :colors="['#3aacf2','#aee7ff']" />
         <v-legend :options="platformOptions" />
       </v-chart>
     </group>
@@ -103,7 +104,7 @@
         :padding="[20, 'auto']">
         <v-tooltip disabled />
         <v-scale y :options="yOptions" />
-        <v-pie :radius="0.85" :inner-radius="0.7" series-field="name" :colors="['#FE5D4D','#3BA4FF','#737DDE']" />
+        <v-pie :radius="0.85" :inner-radius="0.7" series-field="name" :colors="['#3aacf2','#aee7ff']" />
         <v-legend :options="genderOptions" />
       </v-chart>
     </group>
@@ -210,10 +211,10 @@
         },
         cycleMap,
         cycleData: [
-          { name: '1个月', percent: 0.2345, a: '1' },
-          { name: '2个月', percent: 0.2974, a: '1' },
-          { name: '3个月', percent: 0.2664, a: '1' },
-          { name: '4个月', percent: 0.2017, a: '1' }
+          { name: '1个月', percent: 0, a: '1' },
+          { name: '2个月', percent: 0, a: '1' },
+          { name: '3个月', percent: 0, a: '1' },
+          { name: '4个月', percent: 0, a: '1' }
         ],
         platformOptions: {
           position: 'right',
@@ -223,8 +224,8 @@
         },
         platformMap,
         platformData: [
-          { name: '移动端出借额', percent: 0.4, a: '1' },
-          { name: 'PC端出借额', percent: 0.6, a: '1' }
+          { name: '移动端出借额', percent: 40, a: '1' },
+          { name: 'PC端出借额', percent: 60, a: '1' }
         ],
         userData: [
           { year: '2015-1', sales: 0 },
@@ -234,10 +235,10 @@
           { year: '2017-3', sales: 320000 }
         ],
         ageData: [
-          { year: '18-25岁', sales: 12.7 },
-          { year: '25-35岁', sales: 47.62 },
-          { year: '35-45岁', sales: 36.51 },
-          { year: '45岁以上', sales: 3.17 }
+          { year: '18-25岁', sales: 0 },
+          { year: '25-35岁', sales: 0 },
+          { year: '35-45岁', sales: 0 },
+          { year: '45岁以上', sales: 0 }
         ],
         genderMap,
         genderOptions: {
@@ -247,21 +248,21 @@
           }
         },
         genderData: [
-          { name: '男性出借人', percent: 64.39, a: '1' },
-          { name: '女性出借人', percent: 35.61, a: '1' }
+          { name: '男性出借人', percent: 0, a: '1' },
+          { name: '女性出借人', percent: 0, a: '1' }
         ],
         rankingData: [
           {
             src: 'http://39.107.59.233/images/wechat/p5-01.png',
-            title: '1'
+            title: '第一名'
           },
           {
             src: 'http://39.107.59.233/images/wechat/p5-02.png',
-            title: '2'
+            title: '第二名'
           },
           {
             src: 'http://39.107.59.233/images/wechat/p5-03.png',
-            title: '3'
+            title: '第三名'
           }
         ]
       }
@@ -270,26 +271,44 @@
       onImgError (item, $event) {
         console.log(item, $event)
       },
-      getData () {
+      initChart () {
         var self = this
-        axios.post(process.env.BASE_API + '/operationalDataInit.do?t=' + new Date().getTime(), null)
-          .then(function (res) {
-            self.data = res.data
-            self.data.time = moment(self.data.saveDate).format('YYYY-MM-DD')
-            self.data.timeRelative = moment(self.data.saveDate).diff('2015-01-28', 'days')
-            self.lendingData.push({ date: moment(self.data.saveDate).format('YYYY-MM'), value: self.data.investAmount })
-            self.userData.push({ year: moment(self.data.saveDate).format('YYYY-MM'), sales: self.data.userTotal })
-            self.rankingData[0].title = self.data.rankingOne + '元'
-            self.rankingData[1].title = self.data.rankingTwo + '元'
-            self.rankingData[2].title = self.data.rankingThree + '元'
-          })
-          .catch(function (error) {
-            console.log(error)
-          })
+        self.lendingData.push({ date: moment(self.data.saveDate).format('YYYY-MM'), value: self.data.investAmount })
+        self.cycleData = [
+          { name: '1个月', percent: parseInt(self.data.periodOne), a: '1' },
+          { name: '2个月', percent: parseInt(self.data.periodTwo), a: '1' },
+          { name: '3个月', percent: parseInt(self.data.periodThree), a: '1' },
+          { name: '4个月', percent: parseInt(self.data.periodFour), a: '1' }
+        ],
+        self.userData.push({ year: moment(self.data.saveDate).format('YYYY-MM'), sales: self.data.userTotal })
+        self.ageData = [
+          { year: '18-25岁', sales: parseInt(self.data.age1825) },
+          { year: '25-35岁', sales: parseInt(self.data.age2535) },
+          { year: '35-45岁', sales: parseInt(self.data.age3545) },
+          { year: '45岁以上', sales: parseInt(self.data.age45) }
+        ]
+        self.genderData = [
+          { name: '男性出借人', percent: parseInt(self.data.sexBoy), a: '1' },
+          { name: '女性出借人', percent: parseInt(self.data.sexGirl), a: '1' }
+        ]
+        self.rankingData = [
+          {
+            src: 'http://39.107.59.233/images/wechat/p5-01.png',
+            title: self.data.rankingOne + '元'
+          },
+          {
+            src: 'http://39.107.59.233/images/wechat/p5-02.png',
+            title: self.data.rankingTwo + '元'
+          },
+          {
+            src: 'http://39.107.59.233/images/wechat/p5-03.png',
+            title: self.data.rankingThree + '元'
+          }
+        ]
+        self.initMap()
       },
-      init () {
+      initMap () {
         var self = this
-        self.getData()
         self.cycleData.map(obj => {
           cycleMap[obj.name] = obj.percent + '%'
         })
@@ -299,6 +318,24 @@
         self.genderData.map(obj => {
           genderMap[obj.name] = obj.percent + '%'
         })
+      },
+      getData () {
+        var self = this
+        axios.post(process.env.BASE_API + '/operationalDataInit.do?t=' + new Date().getTime(), null)
+          .then(function (res) {
+            self.data = res.data
+            self.data.time = moment(self.data.saveDate).format('YYYY-MM-DD')
+            self.data.timeRelative = moment(self.data.saveDate).diff('2015-01-28', 'days')
+            self.initChart()
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+      },
+      init () {
+        var self = this
+        self.getData()
+        self.initMap()
       }
     },
     created () {
