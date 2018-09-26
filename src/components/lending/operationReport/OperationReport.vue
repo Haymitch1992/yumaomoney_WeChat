@@ -28,56 +28,56 @@
           {
             title: '查看详情',
             img: require('@/assets/images/operationReport/yybg-2018-08.png'),
-            link: 'https://www.yumaomoney.com/integrated/report_2017.pdf'
+            link: 'https://www.yumaomoney.com/activity/report/img/report_n8/yybg-2018-08-detail.png'
           },
           {
             title: '查看详情',
             img: require('@/assets/images/operationReport/yybg-2018-07.png'),
-            link: 'https://www.yumaomoney.com/integrated/report_2016.pdf'
+            link: 'https://www.yumaomoney.com/moblieNewPage/pdf/yybg-2018-07-detail.jpg'
           }, {
             title: '查看详情',
             img: require('@/assets/images/operationReport/yybg-2018-06.png'),
-            link: 'https://www.yumaomoney.com/integrated/report_2015.pdf'
+            link: 'https://www.yumaomoney.com/moblieNewPage/pdf/yybg-2018-06-detail.jpg'
           }, {
             title: '查看详情',
             img: require('@/assets/images/operationReport/yybg-2018-05.png'),
-            link: 'https://www.yumaomoney.com/integrated/report_2015.pdf'
+            link: 'https://www.yumaomoney.com/moblieNewPage/pdf/yybg-2018-05-detail.jpg'
           }, {
             title: '查看详情',
             img: require('@/assets/images/operationReport/yybg-2018-04.png'),
-            link: 'https://www.yumaomoney.com/integrated/report_2015.pdf'
+            link: 'https://www.yumaomoney.com/moblieNewPage/pdf/yybg-2018-04-detail.jpg'
           }, {
             title: '查看详情',
             img: require('@/assets/images/operationReport/yybg-2018-03.png'),
-            link: 'https://www.yumaomoney.com/integrated/report_2015.pdf'
+            link: 'https://www.yumaomoney.com/moblieNewPage/pdf/yybg-2018-03-detail.jpg'
           }, {
             title: '查看详情',
             img: require('@/assets/images/operationReport/yybg-2018-02.png'),
-            link: 'https://www.yumaomoney.com/integrated/report_2015.pdf'
+            link: 'https://www.yumaomoney.com/moblieNewPage/pdf/yybg-2018-02-detail.jpg'
           }, {
             title: '查看详情',
             img: require('@/assets/images/operationReport/yybg-2018-01.png'),
-            link: 'https://www.yumaomoney.com/integrated/report_2015.pdf'
+            link: 'https://www.yumaomoney.com/moblieNewPage/pdf/yybg-2018-01-detail.jpg'
           }, {
             title: '查看详情',
             img: require('@/assets/images/operationReport/yybg-2017-12.png'),
-            link: 'https://www.yumaomoney.com/integrated/report_2015.pdf'
+            link: 'https://www.yumaomoney.com/moblieNewPage/pdf/yybg-2017-12-detail.jpg'
           }, {
             title: '查看详情',
             img: require('@/assets/images/operationReport/yybg-2017-11.png'),
-            link: 'https://www.yumaomoney.com/integrated/report_2015.pdf'
+            link: 'https://www.yumaomoney.com/moblieNewPage/pdf/yybg-2017-11-detail.jpg'
           }, {
             title: '查看详情',
             img: require('@/assets/images/operationReport/yybg-2017-10.png'),
-            link: 'https://www.yumaomoney.com/integrated/report_2015.pdf'
+            link: 'https://www.yumaomoney.com/moblieNewPage/pdf/yybg-2017-10-detail.jpg'
           }, {
             title: '查看详情',
             img: require('@/assets/images/operationReport/yybg-2017-09.png'),
-            link: 'https://www.yumaomoney.com/integrated/report_2015.pdf'
+            link: 'https://www.yumaomoney.com/moblieNewPage/pdf/yybg-2017-09-detail.jpg'
           }, {
             title: '查看详情',
             img: require('@/assets/images/operationReport/yybg-2017-08.png'),
-            link: 'https://www.yumaomoney.com/integrated/report_2015.pdf'
+            link: 'https://www.yumaomoney.com/moblieNewPage/pdf/yybg-2017-08-detail.jpg'
           }
         ]
       }
