@@ -12,7 +12,7 @@
   import { Group, XHeader, Cell } from 'vux'
 
   export default {
-    name: 'SakeInligting',
+    name: 'WebsiteNotice',
     components: {
       Group,
       XHeader,

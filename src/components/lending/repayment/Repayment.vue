@@ -28,7 +28,7 @@
   }
 
   export default {
-    name: 'SakeInligting',
+    name: 'Repayment',
     components: {
       Group,
       XHeader,
@@ -115,16 +115,4 @@
 </script>
 
 <style>
-  .table-box{
-    padding: 15px;
-    font-size: 12px;
-  }
-  .table-box table tbody tr td{
-    text-align: left;
-    padding: 0 10px;
-  }
-  .table-box table tbody tr .more-text {
-    padding: 10px;
-    line-height: 20px;
-  }
 </style>

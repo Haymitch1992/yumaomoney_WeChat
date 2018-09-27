@@ -1,28 +1,59 @@
 <template>
   <div>
     <x-header :left-options="leftOptions" @on-click-back="goBack()">支付公告</x-header>
-    <group>
-      <cell title="【邀请好友】必读手册" value="2018-02-02" link="https://www.yumaomoney.com/moblieNewPage/public_detail.html?typeId=10&aid=1175" is-link></cell>
-    </group>
+    <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore"
+              lock-x ref="scrollerBottom" height="-48">
+      <group>
+        <cell primary="title" v-for="item in data" :title="item.title" :value="item.pubdate" :link="item.url" :key="item.id" is-link></cell>
+      </group>
+      <divider v-show="(parmes.pageNum === parmes.pageNext)">没有更多了</divider>
+    </scroller>
   </div>
 </template>
 
 <script>
-  import axios from 'axios'
-  import { Group, XHeader, Cell } from 'vux'
+  import _ from 'lodash'
+  import $ from 'jquery'
+  import { Group, XHeader, Cell, Scroller, Divider } from 'vux'
+
+  const pullupDefaultConfig = {
+    content: '上拉加载更多',
+    pullUpHeight: 60,
+    height: 40,
+    autoRefresh: false,
+    downContent: '释放后加载',
+    upContent: '上拉加载更多',
+    loadingContent: '加载中...',
+    clsPrefix: 'xs-plugin-pullup-'
+  }
 
   export default {
-    name: 'SakeInligting',
+    name: 'PayNotice',
     components: {
       Group,
       XHeader,
-      Cell
+      Cell,
+      Scroller,
+      Divider
     },
     data () {
       return {
+        parmes: {
+          type: true,
+          ac: 'list',
+          id: 10,
+          pageSize: 20,
+          pageNum: 1,
+          pageNext: null,
+          pagePre: null,
+          pageTotal: null,
+          total: null
+        },
+        data: [],
         leftOptions: {
           preventGoBack: true
-        }
+        },
+        pullupDefaultConfig: pullupDefaultConfig
       }
     },
     methods: {
@@ -31,19 +62,30 @@
       },
       getList () {
         var self = this
-        self.parmes = {
-          ac: 'list',
-          id: 10,
-          pageSize: 10,
-          pageNum: 1
+        if (!self.parmes.type || (self.parmes.pageNum === self.parmes.pageNext)) {
+          return
         }
-        axios.get(process.env.INFO_API + '/api/jsonPage.php', {params: self.parmes})
-          .then(function (res) {
-            console.log(res.data)
+        self.parmes.type = false
+        $.getJSON('https://yumaomoney.com/api/jsonPage.php?ac=list&id=' + self.parmes.id + '&pageNum=' + (self.parmes.pageNext ? self.parmes.pageNext : self.parmes.pageNum) + '&pageSize=' + self.parmes.pageSize + '&jsoncallback=?', function (data) {
+          self.parmes.pageNum = data.pageNum
+          self.parmes.pageNext = data.pageNext
+          self.parmes.pagePre = data.pagePre
+          self.parmes.pageTotal = data.pageTotal
+          self.parmes.total = data.total
+          _.each(data.data, function (v) {
+            v.title = v.title.replace(/^【\d{4}-\d{2}-\d{2}】/g, '')
+            self.data.push(v)
           })
-          .catch(function (error) {
-            console.log(error)
-          })
+          self.parmes.type = true
+        })
+      },
+      /**
+       * 加载更多列表
+       */
+      loadMore () {
+        var self = this
+        self.$refs.scrollerBottom.donePullup()
+        self.getList()
       },
       init () {
         var self = this
@@ -58,16 +100,4 @@
 </script>
 
 <style>
-  .table-box{
-    padding: 15px;
-    font-size: 12px;
-  }
-  .table-box table tbody tr td{
-    text-align: left;
-    padding: 0 10px;
-  }
-  .table-box table tbody tr .more-text {
-    padding: 10px;
-    line-height: 20px;
-  }
 </style>
