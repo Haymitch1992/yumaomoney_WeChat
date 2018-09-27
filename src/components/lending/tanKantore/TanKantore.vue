@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header>分支机构</x-header>
+    <x-header :left-options="leftOptions" @on-click-back="goBack()">分支机构</x-header>
     <group>
       <div class="table-box">
         <x-table full-bordered>
@@ -55,7 +55,16 @@
       XTable
     },
     data () {
-      return {}
+      return {
+        leftOptions: {
+          preventGoBack: true
+        }
+      }
+    },
+    methods: {
+      goBack () {
+        this.$router.push({name: 'disclosure', params: {listType: 1}})
+      }
     }
   }
 </script>

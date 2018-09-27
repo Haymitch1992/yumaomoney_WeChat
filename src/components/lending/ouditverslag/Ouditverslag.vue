@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header>审计报告</x-header>
+    <x-header :left-options="leftOptions" @on-click-back="goBack()">审计报告</x-header>
     <div style="margin: 10px;overflow: hidden;" v-for="item in list">
       <masker style="border-radius: 2px;" :opacity="0">
         <div class="m-img" :style="{backgroundImage: 'url(' + item.img + ')'}"></div>
@@ -25,6 +25,9 @@
     },
     data () {
       return {
+        leftOptions: {
+          preventGoBack: true
+        },
         list: [
           {
             title: '查看详情',
@@ -41,6 +44,11 @@
             link: 'https://www.yumaomoney.com/integrated/report_2015.pdf'
           }
         ]
+      }
+    },
+    methods: {
+      goBack () {
+        this.$router.push({name: 'disclosure', params: {listType: 1}})
       }
     }
   }

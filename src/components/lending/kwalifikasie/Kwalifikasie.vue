@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header class="header-fixed">企业资质</x-header>
+    <x-header class="header-fixed" :left-options="leftOptions" @on-click-back="goBack()">企业资质</x-header>
     <div style="padding-top: 80px">
       <div v-for="src in list" style="text-align:center">
         <span style="font-size:20px;">Loading</span>
@@ -23,6 +23,9 @@
     },
     data () {
       return {
+        leftOptions: {
+          preventGoBack: true
+        },
         list: [
           'https://www.yumaomoney.com/activity/20170810/img/mCertificate-4.jpg',
           'https://www.yumaomoney.com/activity/20170810/img/mCertificate-1.jpg',
@@ -31,6 +34,9 @@
       }
     },
     methods: {
+      goBack () {
+        this.$router.push({name: 'disclosure', params: {listType: 1}})
+      },
       success (src, ele) {
         console.log('success load', src)
         const span = ele.parentNode.querySelector('span')
