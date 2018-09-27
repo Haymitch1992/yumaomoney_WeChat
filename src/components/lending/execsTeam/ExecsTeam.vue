@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header>高管团队</x-header>
+    <x-header :left-options="leftOptions" @on-click-back="goBack()">高管团队</x-header>
     <group>
       <div class="p20">
         <h2 class="title">周江华<span>董事长兼CEO</span></h2>
@@ -44,7 +44,16 @@
       XHeader
     },
     data () {
-      return {}
+      return {
+        leftOptions: {
+          preventGoBack: true
+        }
+      }
+    },
+    methods: {
+      goBack () {
+        this.$router.push({name: 'disclosure', params: {listType: 2}})
+      }
     }
   }
 </script>

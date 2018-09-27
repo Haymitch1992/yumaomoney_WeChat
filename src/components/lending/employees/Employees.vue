@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header>员工信息分布</x-header>
+    <x-header :left-options="leftOptions" @on-click-back="goBack()">员工信息分布</x-header>
     <group title="年龄分布">
       <v-chart :data="data.age">
         <v-scale y :options="yOptions" />
@@ -62,6 +62,9 @@
     },
     data () {
       return {
+        leftOptions: {
+          preventGoBack: true
+        },
         ageOptions: {
           position: 'right',
           itemFormatter (val) {
@@ -105,6 +108,11 @@
             { name: '3年以上', percent: 0.57, a: '1' }
           ]
         }
+      }
+    },
+    methods: {
+      goBack () {
+        this.$router.push({name: 'disclosure', params: {listType: 2}})
       }
     }
   }

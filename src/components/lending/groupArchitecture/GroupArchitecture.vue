@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header>组织架构</x-header>
+    <x-header :left-options="leftOptions" @on-click-back="goBack()">组织架构</x-header>
     <group>
       <div class="box">
         <img class="group" src="../../../assets/images/groupArchitecture.png">
@@ -19,7 +19,16 @@
       XHeader
     },
     data () {
-      return {}
+      return {
+        leftOptions: {
+          preventGoBack: true
+        }
+      }
+    },
+    methods: {
+      goBack () {
+        this.$router.push({name: 'disclosure', params: {listType: 2}})
+      }
     }
   }
 </script>

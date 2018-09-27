@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header>运营报告</x-header>
+    <x-header :left-options="leftOptions" @on-click-back="goBack()">运营报告</x-header>
     <tab>
       <tab-item :selected="listType === '2018'" @on-item-click="listType = '2018'">2018</tab-item>
       <tab-item :selected="listType === '2017'" @on-item-click="listType = '2017'">2017</tab-item>
@@ -30,6 +30,9 @@
     },
     data () {
       return {
+        leftOptions: {
+          preventGoBack: true
+        },
         list: {
           '2018': [
             {
@@ -92,6 +95,11 @@
           ]
         },
         listType: '2018'
+      }
+    },
+    methods: {
+      goBack () {
+        this.$router.push({name: 'disclosure', params: {listType: 3}})
       }
     }
   }
