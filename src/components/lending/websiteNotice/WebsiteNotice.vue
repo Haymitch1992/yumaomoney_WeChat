@@ -2,13 +2,15 @@
   <div>
     <x-header :left-options="leftOptions" @on-click-back="goBack()">官网公告</x-header>
     <group>
-      <cell title="【邀请好友】必读手册" value="2018-02-02" link="https://www.yumaomoney.com/moblieNewPage/public_detail.html?typeId=10&aid=1175" is-link></cell>
+      <cell primary="title" v-for="item in data" :title="item.title" :value="item.publishTime" :link="'/frontNewsDetails.do?id='+item.id" :key="item.id" is-link></cell>
     </group>
   </div>
 </template>
 
 <script>
   import axios from 'axios'
+  import _ from 'lodash'
+  import moment from 'moment'
   import { Group, XHeader, Cell } from 'vux'
 
   export default {
@@ -22,7 +24,8 @@
       return {
         leftOptions: {
           preventGoBack: true
-        }
+        },
+        data: []
       }
     },
     methods: {
@@ -32,14 +35,16 @@
       getList () {
         var self = this
         self.parmes = {
-          ac: 'list',
-          id: 11,
-          pageSize: 10,
-          pageNum: 1
+          PageNum: 1,
+          PageSize: 10
         }
-        axios.get(process.env.INFO_API + '/api/jsonPage.php', {params: self.parmes})
+        axios.get(process.env.BASE_API + '/queryNewsListPage.do', {params: { 'paramMap.PageNum': self.parmes.PageNum, 'paramMap.PageSize': self.parmes.PageSize }})
           .then(function (res) {
-            console.log(res.data)
+            _.each(res.data, function (v) {
+              console.log(v)
+              v.publishTime = moment(v.publishTime).format('YYYY-MM-DD')
+              self.data.push(v)
+            })
           })
           .catch(function (error) {
             console.log(error)
