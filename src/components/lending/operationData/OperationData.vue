@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header>运营数据</x-header>
+    <x-header :left-options="leftOptions" @on-click-back="goBack()">运营数据</x-header>
     <group label-width="4.5em" label-margin-right="2em" label-align="right">
       <group-title slot="title">平台运营情况<span style="float:right;">截止日期：{{data.time}}</span></group-title>
       <grid :show-lr-borders="false" >
@@ -145,6 +145,9 @@
     },
     data () {
       return {
+        leftOptions: {
+          preventGoBack: true
+        },
         data: {},
         lendingData: [
           { date: '2015-01', value: 901500 },
@@ -268,6 +271,9 @@
       }
     },
     methods: {
+      goBack () {
+        this.$router.push({name: 'disclosure', params: {listType: 3}})
+      },
       onImgError (item, $event) {
         console.log(item, $event)
       },

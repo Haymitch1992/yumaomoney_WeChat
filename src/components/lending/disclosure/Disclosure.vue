@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header>信息披露</x-header>
+    <x-header :left-options="leftOptions" @on-click-back="goBack()">信息披露</x-header>
     <tab>
       <tab-item :selected="listType === 1" @on-item-click="listType = 1">基本信息</tab-item>
       <tab-item :selected="listType === 2" @on-item-click="listType = 2">公司架构</tab-item>
@@ -46,19 +46,19 @@
     },
     data () {
       return {
+        leftOptions: {
+          preventGoBack: true
+        },
         listType: 1
       }
     },
-//    beforeRouteEnter (to, from, next) {
-//      console.log(vm)
-//      self.fromPath = from.path
-//      console.log(self.fromPath)
-//      console.log(self.listType)
-//      next()
-//    },
     methods: {
+      goBack () {
+        this.$router.push({path: '/lending'})
+      },
       getFrom () {
-        console.log(this.$router.history)
+        var self = this
+        self.listType = self.$route.params.listType ? self.$route.params.listType : 1
       },
       init () {
         var self = this

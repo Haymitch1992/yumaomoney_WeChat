@@ -52,10 +52,8 @@ export default new Router({
           children: [
             {
               path: '/',
+              name: 'disclosure',
               component: Disclosure
-              // meta: {
-              //   keepAlive: true // 需要被缓存
-              // }
             },
             {
               path: 'sakeInligting',
