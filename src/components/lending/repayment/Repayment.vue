@@ -2,14 +2,14 @@
   <div>
     <x-header :left-options="leftOptions" @on-click-back="goBack()">到期还款</x-header>
     <group>
-      <cell primary="title" v-for="item in data" :title="item.title" :value="item.senddate" :link="item.url" :key="item.id" is-link></cell>
+      <cell primary="title" v-for="item in data" :title="item.title" :value="item.pubdate" :link="item.url" :key="item.id" is-link></cell>
     </group>
   </div>
 </template>
 
 <script>
-  import axios from 'axios'
   import _ from 'lodash'
+  import $ from 'jquery'
   import { Group, XHeader, Cell } from 'vux'
 
   export default {
@@ -39,19 +39,14 @@
           pageSize: 20,
           pageNum: 1
         }
-        axios.get(process.env.INFO_API + '/api/jsonPage.php', {params: self.parmes})
-          .then(function (res) {
-            console.log(res.data)
-            _.each(res.data.data, function (v) {
-//              console.log(v)
-              v.title = v.title.replace(/^【\d{4}-\d{2}-\d{2}】/g, '')
-            })
-            self.data = res.data.data
-            console.log(self.data)
+        $.getJSON('https://yumaomoney.com/api/jsonPage.php?ac=list&id=' + 11 + '&pageNum=' + 1 + '&pageSize=' + 20 + '&jsoncallback=?', function (data) {
+          console.log(data)
+          _.each(data.data, function (v) {
+            v.title = v.title.replace(/^【\d{4}-\d{2}-\d{2}】/g, '')
           })
-          .catch(function (error) {
-            console.log(error)
-          })
+          self.data = data.data
+          console.log(self.data)
+        })
       },
       init () {
         var self = this
