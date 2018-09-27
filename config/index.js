@@ -18,11 +18,18 @@ module.exports = {
           '^/api': '/'  // 替换target中的请求地址，也就是说以后你在请求http://api.jisuapi.com/XXXXX这个地址的时候直接写成/api即可。
         }
       },
-      '/yumaomoney': {
+      '/www': {
         target:'https://www.yumaomoney.com',
         changeOrigin:true,
         pathRewrite:{
-          '^/api': '/'
+          '^/www': '/'
+        }
+      },
+      '/info': {
+        target:'https://yumaomoney.com',
+        changeOrigin:true,
+        pathRewrite:{
+          '^/info': '/'
         }
       }
     },

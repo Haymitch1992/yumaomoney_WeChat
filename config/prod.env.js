@@ -1,5 +1,6 @@
 'use strict'
 module.exports = {
   NODE_ENV: '"production"',
-  BASE_API: '"/yumaomoney"'
+  INFO_API: '"/info"',
+  BASE_API: '"/www"',
 }
