@@ -47,6 +47,21 @@
           self.data = data.data
           console.log(self.data)
         })
+        /**
+         * 虽然本地可以请求到数据但部署后跨域
+         */
+//        axios.get(process.env.INFO_API + '/api/jsonPage.php', {params: self.parmes})
+//          .then(function (res) {
+//            console.log(res.data)
+//            _.each(res.data.data, function (v) {
+//              v.title = v.title.replace(/^【\d{4}-\d{2}-\d{2}】/g, '')
+//            })
+//            self.data = res.data.data
+//            console.log(self.data)
+//          })
+//          .catch(function (error) {
+//            console.log(error)
+//          })
       },
       init () {
         var self = this
