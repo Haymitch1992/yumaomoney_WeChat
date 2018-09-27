@@ -2,13 +2,14 @@
   <div>
     <x-header :left-options="leftOptions" @on-click-back="goBack()">到期还款</x-header>
     <group>
-      <cell title="【邀请好友】必读手册" value="2018-02-02" link="https://www.yumaomoney.com/moblieNewPage/public_detail.html?typeId=10&aid=1175" is-link></cell>
+      <cell primary="title" v-for="item in data" :title="item.title" :value="item.senddate" :link="item.url" :key="item.id" is-link></cell>
     </group>
   </div>
 </template>
 
 <script>
   import axios from 'axios'
+  import _ from 'lodash'
   import { Group, XHeader, Cell } from 'vux'
 
   export default {
@@ -20,6 +21,7 @@
     },
     data () {
       return {
+        data: {},
         leftOptions: {
           preventGoBack: true
         }
@@ -34,12 +36,18 @@
         self.parmes = {
           ac: 'list',
           id: 11,
-          pageSize: 10,
+          pageSize: 20,
           pageNum: 1
         }
         axios.get(process.env.INFO_API + '/api/jsonPage.php', {params: self.parmes})
           .then(function (res) {
             console.log(res.data)
+            _.each(res.data.data, function (v) {
+//              console.log(v)
+              v.title = v.title.replace(/^【\d{4}-\d{2}-\d{2}】/g, '')
+            })
+            self.data = res.data.data
+            console.log(self.data)
           })
           .catch(function (error) {
             console.log(error)
