@@ -5,11 +5,12 @@
       <div class="title">{{item.title}}</div>
       <div><span class="pr10">上传时间：{{item.senddate}}</span><span>浏览次数：{{item.click}}</span></div>
     </div>
+    <div id="content"></div>
   </div>
 </template>
 
 <script>
-  import _ from 'lodash'
+//  import _ from 'lodash'
   import $ from 'jquery'
   import { Group, XHeader, Cell, Divider } from 'vux'
 
@@ -47,27 +48,15 @@
       },
       getList () {
         var self = this
-        if (!self.parmes.type || (self.parmes.pageNum === self.parmes.pageNext)) {
-          return
-        }
-        self.parmes.type = false
-        $.getJSON('https://yumaomoney.com/api/jsonPage.php?ac=list&id=' + self.parmes.id + '&pageNum=' + (self.parmes.pageNext ? self.parmes.pageNext : self.parmes.pageNum) + '&pageSize=' + self.parmes.pageSize + '&jsoncallback=?', function (data) {
-          self.parmes.pageNum = data.pageNum
-          self.parmes.pageNext = data.pageNext
-          self.parmes.pagePre = data.pagePre
-          self.parmes.pageTotal = data.pageTotal
-          self.parmes.total = data.total
-          _.each(data.data, function (v) {
-            v.title = v.title.replace(/^【\d{4}-\d{2}-\d{2}】/g, '')
-            self.data.push(v)
-          })
-          self.parmes.type = true
+        $.getJSON('https://yumaomoney.com/api/json.php?ac=article&id=' + self.item.id + '&jsoncallback=?', function (data) {
+          console.log(data[0].body)
+          $('#content').append(data[0].body)
         })
       },
       init () {
         var self = this
         self.item = self.$route.params.item
-        console.log(self.item)
+        self.getList()
       }
     },
     created () {
@@ -89,5 +78,12 @@
   }
   .pr10 {
     padding-right: 10px;
+  }
+  #content {
+    padding: 10px 20px;
+  }
+  #content img {
+    width: 100% !important;
+    height: auto !important;
   }
 </style>
