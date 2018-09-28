@@ -20,21 +20,21 @@
       </div>
       <flexbox :gutter="0">
         <flexbox-item>
-          <div class="p10" @click="jump('/user/fundDetail')">
+          <div class="p10" @click="jump('/user/assets')">
             <div class="center" v-show="active">2132.63</div>
             <div class="center" v-show="!active">****</div>
             <div class="center f14">昨日收益</div>
           </div>
         </flexbox-item>
         <flexbox-item>
-          <div class="p10" @click="jump('/user/fundDetail')">
+          <div class="p10" @click="jump('/user/assets')">
             <div class="center" v-show="active">315.01</div>
             <div class="center" v-show="!active">****</div>
             <div class="center f14">累计收益</div>
           </div>
         </flexbox-item>
         <flexbox-item>
-          <div class="p10" @click="jump('/user/fundDetail')">
+          <div class="p10" @click="jump('/user/assets')">
             <div class="center" v-show="active">2132.63</div>
             <div class="center" v-show="!active">****</div>
             <div class="center f14">当前总资产</div>

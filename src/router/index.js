@@ -2,8 +2,21 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Container from '../components/container/Container'
 import User from '../components/user/User'
-import AboutMe from '../components/user/aboutMe/aboutMe'
-import ContactUs from '../components/user/contactUs/contactUs'
+import AboutMe from '../components/user/aboutMe/AboutMe'
+import Center from '../components/user/center/Center'
+import Setting from '../components/user/setting/Setting'
+import Assets from '../components/user/assets/Assets'
+import Cash from '../components/user/cash/Cash'
+import Recharge from '../components/user/recharge/Recharge'
+import Investment from '../components/user/investment/Investment'
+import Calendar from '../components/user/calendar/Calendar'
+import Note from '../components/user/note/Note'
+import Preferential from '../components/user/preferential/Preferential'
+import Experience from '../components/user/experience/Experience'
+import Message from '../components/user/message/Message'
+import Auto from '../components/user/auto/Auto'
+import Invited from '../components/user/invited/Invited'
+import ContactUs from '../components/user/contactUs/ContactUs'
 import Help from '../components/user/help/Help'
 import HelpDetail from '../components/user/help/HelpDetail'
 import Feedback from '../components/user/feedback/Feedback'
@@ -130,6 +143,62 @@ export default new Router({
         {
           path: 'aboutMe',
           component: AboutMe
+        },
+        {
+          path: 'center',
+          component: Center
+        },
+        {
+          path: 'setting',
+          component: Setting
+        },
+        {
+          path: 'assets',
+          component: Assets
+        },
+        {
+          path: 'cash',
+          component: Cash
+        },
+        {
+          path: 'recharge',
+          component: Recharge
+        },
+        {
+          path: 'investment',
+          component: Investment
+        },
+        {
+          path: 'calendar',
+          component: Calendar
+        },
+        {
+          path: 'note',
+          component: Note
+        },
+        {
+          path: 'calendar',
+          component: Calendar
+        },
+        {
+          path: 'preferential',
+          component: Preferential
+        },
+        {
+          path: 'experience',
+          component: Experience
+        },
+        {
+          path: 'message',
+          component: Message
+        },
+        {
+          path: 'auto',
+          component: Auto
+        },
+        {
+          path: 'invited',
+          component: Invited
         },
         {
           path: 'contactUs',
