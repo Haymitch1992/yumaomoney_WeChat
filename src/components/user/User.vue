@@ -1,44 +1,175 @@
 <template>
   <div>
-    <x-header>我的</x-header>
-    <div class="vux-demo">
-      <img class="logo" src="../../assets/images/logo.png">
-    </div>
-    <group title="cell demo">
-      <cell title="客服与反馈" value="cool" is-link link="/user/contactUs"></cell>
-      <cell title="第二" value="cool" is-link></cell>
-      <cell title="第三" value="cool" is-link></cell>
+    <group gutter="0">
+      <div class="header">
+        <div class="fl">
+          <div class="user" @click="jump('/user/center')"></div>
+        </div>
+        <div class="content fl">
+          <div class="top">188****6369</div>
+          <div class="bottom">未开户</div>
+        </div>
+        <div class="fr">
+          <div class="top">
+            <div class="cog" @click="jump('/user/setting')"></div>
+          </div>
+          <div class="bottom">
+            <div :class="[ active ? 'eye' : 'eye-off' ]" @click="active = !active"></div>
+          </div>
+        </div>
+      </div>
+      <flexbox :gutter="0">
+        <flexbox-item>
+          <div class="p10" @click="jump('/user/fundDetail')">
+            <div class="center" v-show="active">2132.63</div>
+            <div class="center" v-show="!active">****</div>
+            <div class="center f14">昨日收益</div>
+          </div>
+        </flexbox-item>
+        <flexbox-item>
+          <div class="p10" @click="jump('/user/fundDetail')">
+            <div class="center" v-show="active">315.01</div>
+            <div class="center" v-show="!active">****</div>
+            <div class="center f14">累计收益</div>
+          </div>
+        </flexbox-item>
+        <flexbox-item>
+          <div class="p10" @click="jump('/user/fundDetail')">
+            <div class="center" v-show="active">2132.63</div>
+            <div class="center" v-show="!active">****</div>
+            <div class="center f14">当前总资产</div>
+          </div>
+        </flexbox-item>
+      </flexbox>
+    </group>
+    <group>
+      <grid :show-lr-borders="false" >
+        <div class="m10 f14 fl">账户余额：<span v-show="active">2000000.23</span><span v-show="!active">****</span>元</div>
+        <div class="m10 f14 fr" @click="jump('/user/recharge')">充值</div>
+        <div class="splitLine fr"></div>
+        <div class="m10 f14 fr" @click="jump('/user/cash')">提现</div>
+      </grid>
+      <grid :show-lr-borders="false" >
+        <grid-item link="/user/investment" label="我的投资" key="0">
+          <img slot="icon" src="../../assets/images/aboutMe.png">
+        </grid-item>
+        <grid-item link="/user/calendar" label="回款日历" key="1">
+          <img slot="icon" src="../../assets/images/active.png">
+        </grid-item>
+        <grid-item link="/user/note" label="资金记录" key="3">
+          <img slot="icon" src="../../assets/images/linkme.png">
+        </grid-item>
+      </grid>
+      <grid :show-lr-borders="false" >
+        <grid-item link="/user/preferential" label="优惠券" key="0">
+          <img slot="icon" src="../../assets/images/aboutMe.png">
+        </grid-item>
+        <grid-item link="/user/experience" label="体验金" key="1">
+          <img slot="icon" src="../../assets/images/active.png">
+        </grid-item>
+        <grid-item link="/user/message" label="我的消息" key="3">
+          <img slot="icon" src="../../assets/images/linkme.png">
+        </grid-item>
+      </grid>
+      <grid :show-lr-borders="false" >
+        <grid-item link="/user/auto" label="自动投标" key="0">
+          <img slot="icon" src="../../assets/images/aboutMe.png">
+        </grid-item>
+        <grid-item link="/user/invited" label="邀请好友" key="1">
+          <img slot="icon" src="../../assets/images/active.png">
+        </grid-item>
+        <grid-item link="/user/contactUs" label="客服与反馈" key="3">
+          <img slot="icon" src="../../assets/images/linkme.png">
+        </grid-item>
+      </grid>
     </group>
   </div>
 </template>
 
 <script>
-  import { Group, Cell, XHeader } from 'vux'
+  import { Group, Grid, GridItem, Cell, XHeader, Flexbox, FlexboxItem } from 'vux'
 
   export default {
     name: 'UserHome',
     components: {
       Group,
+      Grid,
+      GridItem,
       Cell,
-      XHeader
+      XHeader,
+      Flexbox,
+      FlexboxItem
     },
     data () {
       return {
-        // note: changing this line won't causes changes
-        // with hot-reload because the reloaded component
-        // preserves its current state and we are modifying
-        // its initial state.
-        msg: 'Hello World!'
+        active: false
+      }
+    },
+    methods: {
+      jump (path) {
+        this.$router.push({path: path})
       }
     }
   }
 </script>
 
 <style>
-  .vux-demo {
+  .f14 {
+    font-size: 14px;
+  }
+  .m10 {
+    margin: 10px;
+  }
+  .p10 {
+    padding: 10px;
+  }
+  .center {
     text-align: center;
   }
-  .logo {
-    width: 100px;
+  .splitLine {
+    margin: 5px 0 5px;
+    border-left: 1px solid #D9D9D9;
+    height: 29px;
+  }
+  .header {
+    padding: 10px;
+    height: 50px;
+    margin-bottom: 50px;
+  }
+  .content {
+    margin-left: 10px;
+  }
+  .user {
+    background: url("../../assets/images/user.png") no-repeat;
+    background-size: cover;
+    width: 50px;
+    height: 50px;
+    border: 1px solid #707070;
+    border-radius: 25px;
+    box-sizing: border-box;
+  }
+  .cog {
+    background: url("../../assets/images/cog.png") no-repeat;
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+  }
+  .eye {
+    background: url("../../assets/images/eye.png") no-repeat;
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+  }
+  .eye-off {
+    background: url("../../assets/images/eye-off.png") no-repeat;
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+  }
+  .fl {
+    float: left;
+  }
+  .fr {
+    float: right;
   }
 </style>
