@@ -4,7 +4,7 @@
     <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore"
               lock-x ref="scrollerBottom" height="-48">
       <group>
-        <cell primary="title" v-for="item in data" :title="item.title" :value="item.publishTime" :link="'/frontNewsDetails.do?id='+item.id" :key="item.id" is-link></cell>
+        <cell primary="title" v-for="item in data" :title="item.title" :value="item.publishTime" :link="href+'/frontNewsDetails.do?id='+item.id" :key="item.id" is-link></cell>
       </group>
       <divider v-show="(parmes.pageNum === parmes.pageTotal)">没有更多了</divider>
     </scroller>
@@ -40,6 +40,7 @@
     data () {
       return {
         data: [],
+        href: '',
         parmes: {
           type: true,
           ac: 'list',
@@ -71,7 +72,6 @@
           .then(function (res) {
             self.parmes.pageNum++
             _.each(res.data, function (v) {
-              console.log(v)
               v.publishTime = moment(v.publishTime).format('YYYY-MM-DD')
               self.data.push(v)
             })
@@ -92,6 +92,7 @@
       init () {
         var self = this
         self.getList()
+        self.href = window.location.origin
       }
     },
     created () {
