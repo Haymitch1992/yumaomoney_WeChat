@@ -5,15 +5,15 @@
         <div class="fl">
           <div class="user" @click="jump('/user/center')"></div>
         </div>
-        <div class="content fl">
-          <div class="top">188****6369</div>
-          <div class="bottom">未开户</div>
+        <div class="userContent fl">
+          <div class="h30">188****6369</div>
+          <div class="h30 pt10">未开户</div>
         </div>
         <div class="fr">
-          <div class="top">
+          <div>
             <div class="cog" @click="jump('/user/setting')"></div>
           </div>
-          <div class="bottom">
+          <div class="pt10">
             <div :class="[ active ? 'eye' : 'eye-off' ]" @click="active = !active"></div>
           </div>
         </div>
@@ -120,8 +120,15 @@
   .m10 {
     margin: 10px;
   }
+  .h30 {
+    height: 30px;
+    line-height: 30px;
+  }
   .p10 {
     padding: 10px;
+  }
+  .pt10 {
+    padding-top: 10px;
   }
   .center {
     text-align: center;
@@ -132,20 +139,21 @@
     height: 29px;
   }
   .header {
-    padding: 10px;
-    height: 50px;
-    margin-bottom: 50px;
+    padding: 20px;
+    height: 70px;
+    margin-bottom: 20px;
   }
-  .content {
+  .userContent {
     margin-left: 10px;
+    height: 50px;
   }
   .user {
     background: url("../../assets/images/user.png") no-repeat;
     background-size: cover;
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
     border: 1px solid #707070;
-    border-radius: 25px;
+    border-radius: 35px;
     box-sizing: border-box;
   }
   .cog {
