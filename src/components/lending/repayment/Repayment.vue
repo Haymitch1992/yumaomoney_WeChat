@@ -4,7 +4,8 @@
     <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore"
               lock-x ref="scrollerBottom" height="-48">
       <group>
-        <cell primary="title" v-for="item in data" :title="item.title" :value="item.pubdate" :link="item.url" :key="item.id" is-link></cell>
+        <cell primary="title" v-for="item in data" :title="item.title" :value="item.pubdate"
+              :link="href+'/moblieNewPage/public_detail.html?typeId='+item.typeid+'&aid='+item.id" :key="item.id" is-link></cell>
       </group>
       <divider v-show="(parmes.pageNum === parmes.pageNext)">没有更多了</divider>
     </scroller>
@@ -50,6 +51,7 @@
           total: null
         },
         data: [],
+        href: '',
         leftOptions: {
           preventGoBack: true
         },
@@ -105,6 +107,7 @@
       init () {
         var self = this
         self.getList()
+        self.href = window.location.origin
       }
     },
     created () {

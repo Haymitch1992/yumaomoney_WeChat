@@ -67,5 +67,6 @@
     width: 64px;
     height: 64px;
     margin: 0 auto 20px;
+    padding-bottom: 0;
   }
 </style>
