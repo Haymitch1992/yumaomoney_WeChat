@@ -38,6 +38,7 @@ import WebsiteNotice from '../components/lending/websiteNotice/WebsiteNotice'
 import Repayment from '../components/lending/repayment/Repayment'
 import PayNotice from '../components/lending/payNotice/PayNotice'
 import MediaReport from '../components/lending/mediaReport/MediaReport'
+import NoticeDetail from '../components/lending/noticeDetail/NoticeDetail'
 
 Vue.use(Router)
 
@@ -123,6 +124,11 @@ export default new Router({
             {
               path: 'mediaReport',
               component: MediaReport
+            },
+            {
+              path: 'noticeDetail',
+              name: 'noticeDetail',
+              component: NoticeDetail
             }
           ]
         }

@@ -4,8 +4,7 @@
     <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore"
               lock-x ref="scrollerBottom" height="-48">
       <group>
-        <cell primary="title" v-for="item in data" :title="item.title" :value="item.pubdate"
-              :link="href+'/moblieNewPage/public_detail.html?typeId='+item.typeid+'&aid='+item.id" :key="item.id" is-link></cell>
+        <cell primary="title" v-for="item in data" :title="item.titleBak" :value="item.pubdate" :key="item.id" @click.native="jump(item)" is-link></cell>
       </group>
       <divider v-show="(parmes.pageNum === parmes.pageNext)">没有更多了</divider>
     </scroller>
@@ -59,6 +58,9 @@
       }
     },
     methods: {
+      jump (item) {
+        this.$router.push({name: 'noticeDetail', params: {item: item}})
+      },
       goBack () {
         this.$router.push({name: 'disclosure', params: {listType: 4}})
       },
@@ -75,7 +77,7 @@
           self.parmes.pageTotal = data.pageTotal
           self.parmes.total = data.total
           _.each(data.data, function (v) {
-            v.title = v.title.replace(/^【\d{4}-\d{2}-\d{2}】/g, '')
+            v.titleBak = v.title.replace(/^【\d{4}-\d{2}-\d{2}】/g, '')
             self.data.push(v)
           })
           self.parmes.type = true

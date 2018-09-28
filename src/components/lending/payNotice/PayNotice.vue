@@ -4,7 +4,7 @@
     <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore"
               lock-x ref="scrollerBottom" height="-48">
       <group>
-        <cell primary="title" v-for="item in data" :title="item.title" :value="item.pubdate" :link="item.url" :key="item.id" is-link></cell>
+        <cell primary="title" v-for="item in data" :title="item.title" :value="item.pubdate" @click.native="jump(item)" :key="item.id" is-link></cell>
       </group>
       <divider v-show="(parmes.pageNum === parmes.pageNext)">没有更多了</divider>
     </scroller>
@@ -57,6 +57,9 @@
       }
     },
     methods: {
+      jump (item) {
+        this.$router.push({name: 'noticeDetail', params: {item: item}})
+      },
       goBack () {
         this.$router.push({name: 'disclosure', params: {listType: 4}})
       },
