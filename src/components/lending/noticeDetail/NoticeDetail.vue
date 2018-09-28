@@ -1,11 +1,12 @@
 <template>
   <div>
     <x-header :left-options="leftOptions" @on-click-back="goBack()">公告详情</x-header>
-    <div class="header">
-      <div class="title">{{item.title}}</div>
+    <div class="notice-header">
+      <div class="notice-title">{{item.title}}</div>
       <div><span class="pr10">上传时间：{{item.senddate}}</span><span>浏览次数：{{item.click}}</span></div>
     </div>
-    <div id="content"></div>
+    <div class="notice-line"></div>
+    <div id="notice-content"></div>
   </div>
 </template>
 
@@ -34,27 +35,25 @@
     methods: {
       goBack () {
         var self = this
-        if (self.item === undefined) {
-          this.$router.push({name: 'disclosure', params: {listType: 4}})
-        } else {
-          if (self.item.typeid === '11') {
-            self.$router.push({path: '/lending/disclosure/repayment'})
-          } else if (self.item.typeid === '10') {
-            self.$router.push({path: '/lending/disclosure/payNotice'})
-          } else if (self.item.typeid === '8') {
-            self.$router.push({path: '/lending/disclosure/mediaReport'})
-          }
+        if (self.item.typeid === '11') {
+          self.$router.push({path: '/lending/disclosure/repayment'})
+        } else if (self.item.typeid === '10') {
+          self.$router.push({path: '/lending/disclosure/payNotice'})
+        } else if (self.item.typeid === '8') {
+          self.$router.push({path: '/lending/disclosure/mediaReport'})
         }
       },
       getList () {
         var self = this
         $.getJSON('https://yumaomoney.com/api/json.php?ac=article&id=' + self.item.id + '&jsoncallback=?', function (data) {
-          console.log(data[0].body)
-          $('#content').append(data[0].body)
+          $('#notice-content').append(data[0].body)
         })
       },
       init () {
         var self = this
+        if (self.$route.params.item === undefined) {
+          this.$router.push({name: 'disclosure', params: {listType: 4}})
+        }
         self.item = self.$route.params.item
         self.getList()
       }
@@ -67,22 +66,29 @@
 </script>
 
 <style>
-  .header {
+  .notice-header {
     text-align: center;
-    margin: 10px 0;
+    margin-top: 10px;
     color: #888;
+    height: 60px;
+    font-size: 12px;
   }
-  .title {
+  .notice-title {
     color: #555;
     margin-bottom: 10px;
+    font-size: 16px;
+  }
+  .notice-line {
+    margin: 10px 20px;
+    border-bottom: 1px solid #ddd;
   }
   .pr10 {
     padding-right: 10px;
   }
-  #content {
+  #notice-content {
     padding: 10px 20px;
   }
-  #content img {
+  #notice-content img {
     width: 100% !important;
     height: auto !important;
   }
