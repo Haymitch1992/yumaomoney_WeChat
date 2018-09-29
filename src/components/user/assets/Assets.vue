@@ -6,7 +6,7 @@
       <tab-item :selected="listType === 2" @on-item-click="listType = 2">昨日收益</tab-item>
       <tab-item :selected="listType === 3" @on-item-click="listType = 3">累计收益</tab-item>
     </tab>
-    <group  v-show="listType === 1">
+    <group v-show="listType === 1">
       <group label-width="4.5em" label-margin-right="2em" label-align="right">
         <v-chart
           :data="genderData"
@@ -57,6 +57,7 @@
     },
     data () {
       return {
+        listType: 1,
         yOptions: {
           formatter (val) {
             return val * 100
@@ -96,6 +97,7 @@
       getFrom () {
         var self = this
         self.listType = self.$route.params.listType ? self.$route.params.listType : 1
+        console.log(123)
       },
       /**
        * 初始化label
