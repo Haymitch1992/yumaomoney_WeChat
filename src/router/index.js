@@ -160,6 +160,7 @@ export default new Router({
         },
         {
           path: 'assets',
+          name: 'assets',
           component: Assets
         },
         {

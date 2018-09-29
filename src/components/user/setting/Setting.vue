@@ -1,13 +1,12 @@
 <template>
   <div>
     <x-header>设置</x-header>
-    <div class="vux-demo">
-      <img class="logo" src="../../../assets/images/logo.png">
-    </div>
-    <group title="cell demo">
-      <cell title="第一" value="cool" is-link></cell>
-      <cell title="第二" value="cool" is-link></cell>
-      <cell title="第三" value="cool" is-link></cell>
+    <group>
+      <cell title="密码管理" is-link></cell>
+      <cell title="三方账号管理" is-link></cell>
+      <cell title="地址管理" is-link></cell>
+      <cell title="关于" is-link></cell>
+      <cell title="清除缓存"></cell>
     </group>
   </div>
 </template>
@@ -23,22 +22,10 @@
       XHeader
     },
     data () {
-      return {
-        // note: changing this line won't causes changes
-        // with hot-reload because the reloaded component
-        // preserves its current state and we are modifying
-        // its initial state.
-        msg: 'Hello World!'
-      }
+      return {}
     }
   }
 </script>
 
 <style>
-  .vux-demo {
-    text-align: center;
-  }
-  .logo {
-    width: 100px;
-  }
 </style>

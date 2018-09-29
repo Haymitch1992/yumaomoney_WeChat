@@ -281,21 +281,21 @@
         var self = this
         self.lendingData.push({ date: moment(self.data.saveDate).format('YYYY-MM'), value: self.data.investAmount })
         self.cycleData = [
-          { name: '1个月', percent: parseInt(self.data.periodOne), a: '1' },
-          { name: '2个月', percent: parseInt(self.data.periodTwo), a: '1' },
-          { name: '3个月', percent: parseInt(self.data.periodThree), a: '1' },
-          { name: '4个月', percent: parseInt(self.data.periodFour), a: '1' }
+          { name: '1个月', percent: self.data.periodOne, a: '1' },
+          { name: '2个月', percent: self.data.periodTwo, a: '1' },
+          { name: '3个月', percent: self.data.periodThree, a: '1' },
+          { name: '4个月', percent: self.data.periodFour, a: '1' }
         ]
         self.userData.push({ year: moment(self.data.saveDate).format('YYYY-MM'), sales: self.data.userTotal })
         self.ageData = [
-          { year: '18-25岁', sales: parseInt(self.data.age1825) },
-          { year: '25-35岁', sales: parseInt(self.data.age2535) },
-          { year: '35-45岁', sales: parseInt(self.data.age3545) },
-          { year: '45岁以上', sales: parseInt(self.data.age45) }
+          { year: '18-25岁', sales: self.data.age1825 },
+          { year: '25-35岁', sales: self.data.age2535 },
+          { year: '35-45岁', sales: self.data.age3545 },
+          { year: '45岁以上', sales: self.data.age45 }
         ]
         self.genderData = [
-          { name: '男性出借人', percent: parseInt(self.data.sexBoy), a: '1' },
-          { name: '女性出借人', percent: parseInt(self.data.sexGirl), a: '1' }
+          { name: '男性出借人', percent: self.data.sexBoy, a: '1' },
+          { name: '女性出借人', percent: self.data.sexGirl, a: '1' }
         ]
         self.rankingData = [
           {
@@ -316,13 +316,13 @@
       initMap () {
         var self = this
         self.cycleData.map(obj => {
-          cycleMap[obj.name] = obj.percent + '%'
+          cycleMap[obj.name] = obj.percent.toFixed(2) + '%'
         })
         self.platformData.map(obj => {
-          platformMap[obj.name] = obj.percent + '%'
+          platformMap[obj.name] = obj.percent.toFixed(2) + '%'
         })
         self.genderData.map(obj => {
-          genderMap[obj.name] = obj.percent + '%'
+          genderMap[obj.name] = obj.percent.toFixed(2) + '%'
         })
       },
       getData () {
@@ -332,6 +332,16 @@
             self.data = res.data
             self.data.time = moment(self.data.saveDate).format('YYYY-MM-DD')
             self.data.timeRelative = moment(self.data.saveDate).diff('2015-01-28', 'days')
+            self.data.periodOne = parseFloat(self.data.periodOne)
+            self.data.periodTwo = parseFloat(self.data.periodTwo)
+            self.data.periodThree = parseFloat(self.data.periodThree)
+            self.data.periodFour = parseFloat(self.data.periodFour)
+            self.data.age1825 = parseFloat(self.data.age1825)
+            self.data.age2535 = parseFloat(self.data.age2535)
+            self.data.age3545 = parseFloat(self.data.age3545)
+            self.data.age45 = parseFloat(self.data.age45)
+            self.data.sexBoy = parseFloat(self.data.sexBoy)
+            self.data.sexGirl = parseFloat(self.data.sexGirl)
             self.initChart()
           })
           .catch(function (error) {
