@@ -2,11 +2,11 @@
   <div>
     <x-header>资产明细</x-header>
     <tab>
-      <tab-item :selected="listType === 1" @on-item-click="listType = 1">总资产</tab-item>
-      <tab-item :selected="listType === 2" @on-item-click="listType = 2">昨日收益</tab-item>
-      <tab-item :selected="listType === 3" @on-item-click="listType = 3">累计收益</tab-item>
+      <tab-item :selected="list.listType === 1" @on-item-click="list.listType = 1">总资产</tab-item>
+      <tab-item :selected="list.listType === 2" @on-item-click="list.listType = 2">昨日收益</tab-item>
+      <tab-item :selected="list.listType === 3" @on-item-click="list.listType = 3">累计收益</tab-item>
     </tab>
-    <group v-show="listType === 1">
+    <group v-show="list.listType === 1">
       <group label-width="4.5em" label-margin-right="2em" label-align="right">
         <v-chart
           :data="genderData"
@@ -17,14 +17,18 @@
           <v-legend :options="genderOptions" />
           <v-guide type="html" :options="htmlOptions" ref="child"/>
         </v-chart>
+
       </group>
     </group>
-    <group  v-show="listType === 2">
-      <cell title="第一" value="cool" is-link></cell>
-      <cell title="第二" value="cool" is-link></cell>
-      <cell title="第三" value="cool" is-link></cell>
+    <group v-show="list.listType === 2">
+      <div class="assetsBox">
+        <div>昨日预估收益(元)</div>
+        <div class="title">{{list.assetsAll}}</div>
+      </div>
+      <cell title="标的" :value="list.subject"></cell>
+      <cell title="体验金" :value="list.experience"></cell>
     </group>
-    <group  v-show="listType === 3">
+    <group  v-show="list.listType === 3">
       <cell title="第一" value="cool" is-link></cell>
       <cell title="第二" value="cool" is-link></cell>
       <cell title="第三" value="cool" is-link></cell>
@@ -57,7 +61,14 @@
     },
     data () {
       return {
-        listType: 1,
+        data: {},
+        list: {
+          assetsAll: '1023.15',
+          subject: '1011.20',
+          experience: '11.20',
+          totalAssets: null,
+          listType: 1
+        },
         yOptions: {
           formatter (val) {
             return val * 100
@@ -65,7 +76,7 @@
         },
         genderMap,
         genderOptions: {
-          position: 'left',
+          position: 'right',
           itemFormatter (val) {
             return val + '  ' + genderMap[val]
           }
@@ -77,15 +88,12 @@
           { name: '代收奖励', percent: 0, a: '1' },
           { name: '冻结金额', percent: 0, a: '1' }
         ],
-        data: {
-          totalAssets: null
-        },
         htmlOptions: {
           position: [ '50%', '45%' ],
           html: `
           <div style="width: 250px;height: 40px;text-align: center;">
-            <div style="font-size: 16px">总资产</div>
-            <div style="font-size: 24px"><span id="totalAssets">***</span>元</div>
+            <div style="font-size: 16px">总资产(元)</div>
+            <div id="totalAssets" style="font-size: 24px">****</div>
           </div>`
         }
       }
@@ -96,8 +104,7 @@
        */
       getFrom () {
         var self = this
-        self.listType = self.$route.params.listType ? self.$route.params.listType : 1
-        console.log(123)
+        self.list.listType = self.$route.params.listType ? self.$route.params.listType : 1
       },
       /**
        * 初始化label
@@ -123,7 +130,8 @@
           genderMap[obj.name] = obj.percent.toFixed(2) + '元'
         })
         setTimeout(function () {
-          $('#totalAssets').html(self.data.totalAssets)
+//          $('#totalAssets').html(self.data.totalAssets)
+          $('#totalAssets').html(99999999.99)
         }, 1)
       },
       /**
@@ -136,10 +144,10 @@
             self.data = res.data
             self.data.time = moment(self.data.saveDate).format('YYYY-MM-DD')
             self.data.timeRelative = moment(self.data.saveDate).diff('2015-01-28', 'days')
-            self.data.periodOne = parseFloat(self.data.periodOne) + 1000
-            self.data.periodTwo = parseFloat(self.data.periodTwo) + 500
-            self.data.periodThree = parseFloat(self.data.periodThree) + 300
-            self.data.periodFour = parseFloat(self.data.periodFour) + 100
+            self.data.periodOne = parseFloat(self.data.periodOne) + 1000000
+            self.data.periodTwo = parseFloat(self.data.periodTwo) + 222500
+            self.data.periodThree = parseFloat(self.data.periodThree) + 22300
+            self.data.periodFour = parseFloat(self.data.periodFour) + 5100
             self.data.totalAssets = self.data.periodOne + self.data.periodTwo + self.data.periodThree * 2 + self.data.periodFour
             self.data.totalAssets = parseFloat(self.data.totalAssets).toFixed(2)
             self.initChart()
@@ -166,4 +174,10 @@
 </script>
 
 <style>
+  .assetsBox {
+    padding: 10px 15px;
+  }
+  .assetsBox .title {
+    font-size: 24px;
+  }
 </style>
