@@ -26,20 +26,38 @@
       </div>
       <cell title="标的" :value="list.subject"></cell>
       <cell title="体验金" :value="list.experience"></cell>
+
+      <group title="近7天收益走势(元/天)" label-width="4.5em" label-margin-right="2em" label-align="right">
+        <v-chart :data="trendData" prevent-default>
+          <v-scale x :tick-count="3" />
+          <v-scale y :min="0" />
+          <v-tooltip :show-item-marker="false" show-x-value />
+          <v-area />
+          <v-line />
+        </v-chart>
+      </group>
     </group>
-    <group  v-show="list.listType === 3">
-      <cell title="第一" value="cool" is-link></cell>
-      <cell title="第二" value="cool" is-link></cell>
-      <cell title="第三" value="cool" is-link></cell>
-    </group>
+    <div v-show="list.listType === 3">
+      <group>
+        <div class="assetsBox">
+          <div>累计收益(元)</div>
+          <div class="title">{{list.assetsAll}}</div>
+        </div>
+        <cell title="标的" :value="list.subject"></cell>
+        <cell title="体验金" :value="list.experience"></cell>
+      </group>
+      <group  v-show="list.listType === 3">
+        <cell title="累计投资" :value="list.experience"></cell>
+      </group>
+    </div>
   </div>
 </template>
 
 <script>
   import axios from 'axios'
   import moment from 'moment'
-  import $ from 'jquery'
-  import { Group, Cell, XHeader, Tab, TabItem, VChart, VTooltip, VScale, VPie, VLegend, VGuide } from 'vux'
+//  import $ from 'jquery'
+  import { Group, Cell, XHeader, Tab, TabItem, VChart, VTooltip, VScale, VPie, VLine, VArea, VLegend, VGuide } from 'vux'
 
   const genderMap = {}
 
@@ -55,6 +73,8 @@
       VTooltip,
       VScale,
       VPie,
+      VLine,
+      VArea,
       VLegend,
       VGuide
     },
@@ -95,7 +115,16 @@
              <div style="width: 250px;text-align: center">
               <div>资产比例</div>
              </div>`
-        }
+        },
+        trendData: [
+          { date: '08-02', value: 12 },
+          { date: '08-03', value: 13 },
+          { date: '08-04', value: 14 },
+          { date: '08-05', value: 16 },
+          { date: '08-06', value: 17 },
+          { date: '08-07', value: 17 },
+          { date: '08-08', value: 19 }
+        ]
       }
     },
     methods: {
