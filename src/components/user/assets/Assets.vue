@@ -7,9 +7,9 @@
       <tab-item :selected="list.listType === 3" @on-item-click="list.listType = 3">累计收益</tab-item>
     </tab>
     <group  v-show="list.listType === 1" label-width="4.5em" label-margin-right="2em" label-align="right">
-      <div class="assetsBox">
+      <div class="totalAssetsBox">
         <div class="center">总收益</div>
-        <div class="center title">{{data.totalAssets}}元</div>
+        <div class="center totalAssetTitle">{{data.totalAssets}}元</div>
       </div>
       <v-chart :data="genderData">
         <v-tooltip disabled/>
@@ -193,6 +193,15 @@
 </script>
 
 <style>
+  .totalAssetsBox {
+    padding: 0 20px;
+    position: relative;
+    z-index: 10;
+    top: 20px;
+  }
+  .totalAssetTitle {
+    font-size: 24px
+  }
   .center {
     text-align: center;
   }
