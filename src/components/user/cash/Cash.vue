@@ -4,16 +4,18 @@
     <group label-width="4.5em" label-margin-right="2em" label-align="right">
       <panel :list="bankList" type="1" @on-img-error="onImgError"></panel>
     </group>
-    <group title="cell demo">
-      <cell title="第一" value="cool" is-link></cell>
-      <cell title="第二" value="cool" is-link></cell>
-      <cell title="第三" value="cool" is-link></cell>
+    <group>
+      <div class="cellBox">余额:{{data.balanceBak}}元</div>
+      <x-input title="提现金额(元)" v-model="data.cash" :is-type="moreThan100" placeholder="单笔提现不小于100元"></x-input>
     </group>
+    <div style="padding:15px 50px;">
+      <x-button @click.native="iconType = 'success'" type="primary">提交</x-button>
+    </div>
   </div>
 </template>
 
 <script>
-  import { Group, Cell, XHeader, Panel } from 'vux'
+  import { Group, Cell, XHeader, Panel, XInput, XButton } from 'vux'
 
   export default {
     name: 'Cash',
@@ -21,13 +23,17 @@
       Group,
       Cell,
       XHeader,
-      Panel
+      Panel,
+      XInput,
+      XButton
     },
     data () {
       return {
         data: {
           type: 'BOB',
-          num: '5415'
+          num: '5415',
+          cash: '',
+          balance: 1000
         },
         bankList: [],
         banks: {
@@ -143,6 +149,19 @@
               desc: '单笔限额100万元，单日限额200万元'
             }
           ]
+        },
+        moreThan100: function (value) {
+          if (value < 100) {
+            return {
+              valid: value >= 100,
+              msg: '单笔提现不小于100元'
+            }
+          } else {
+            return {
+              valid: value <= 10000,
+              msg: '提现金额不可大于可提现金额'
+            }
+          }
         }
       }
     },
@@ -155,6 +174,7 @@
         self.bankList.push(self.banks[self.data.type][0])
         var num = ' 尾号' + self.data.num
         self.bankList[0].title += num
+        self.data.balanceBak = self.data.balance.toFixed(2)
       }
     },
     created () {
