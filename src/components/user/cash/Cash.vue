@@ -8,6 +8,11 @@
       <div class="cellBox">余额:{{data.balanceBak}}元</div>
       <x-input title="提现金额(元)" v-model="data.cash" :is-type="moreThan100" placeholder="单笔提现不小于100元"></x-input>
     </group>
+    <group>
+      <div class="cellBox">手续费:1元</div>
+      <div class="cellBox" v-if="(data.cash>=100)&&(data.cash<=data.balance)">到账金额:{{data.cash-1}}元</div>
+      <div class="cellBox" v-if="(data.cash<100)||(data.cash>data.balance)">到账金额:0元</div>
+    </group>
     <div style="padding:15px 50px;">
       <x-button @click.native="iconType = 'success'" type="primary">提交</x-button>
     </div>
@@ -33,7 +38,7 @@
           type: 'BOB',
           num: '5415',
           cash: '',
-          balance: 1000
+          balance: 10000
         },
         bankList: [],
         banks: {
