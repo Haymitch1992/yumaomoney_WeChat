@@ -35,26 +35,7 @@
   }
 </script>
 
+<style src="./assets/style/main.less"></style>
 <style lang="less">
   @import '~vux/src/styles/reset.less';
-
-  body {
-    background-color: #fbf9fe;
-  }
-  #app .header-fixed{
-    position: fixed;
-    top: 0;
-    z-index: 500;
-    width: 100%;
-  }
-  #app .footer-fixed{
-    position: fixed;
-    bottom: 0;
-  }
-  .header-box{
-    padding-top: 46px;
-  }
-  .footer-box{
-    padding-bottom: 53px;
-  }
 </style>
