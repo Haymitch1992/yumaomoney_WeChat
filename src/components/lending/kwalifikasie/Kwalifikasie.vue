@@ -52,6 +52,12 @@
 </script>
 
 <style>
+  .header-fixed{
+    position: fixed;
+    top: 0;
+    z-index: 500;
+    width: 100%;
+  }
   .m-img {
     padding-bottom: 65%;
     display: block;
