@@ -14,6 +14,8 @@
       <x-button @click.native="iconType = 'success'" type="primary">确定</x-button>
     </div>
     <div class="center">充值实时到账，免收手续费</div>
+    <div class="center pt100">新网银行 | 鱼猫金服</div>
+    <div class="center">充值资金将进入新网银行个人账户</div>
   </div>
 </template>
 
