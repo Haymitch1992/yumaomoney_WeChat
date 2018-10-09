@@ -188,6 +188,3 @@
     }
   }
 </script>
-
-<style>
-</style>

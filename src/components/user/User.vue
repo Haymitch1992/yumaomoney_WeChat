@@ -117,25 +117,6 @@
 </script>
 
 <style>
-  .f14 {
-    font-size: 14px;
-  }
-  .m10 {
-    margin: 10px;
-  }
-  .h30 {
-    height: 30px;
-    line-height: 30px;
-  }
-  .p10 {
-    padding: 10px;
-  }
-  .pt10 {
-    padding-top: 10px;
-  }
-  .center {
-    text-align: center;
-  }
   .splitLine {
     margin: 5px 0 5px;
     border-left: 1px solid #D9D9D9;
@@ -176,11 +157,5 @@
     background-size: cover;
     width: 30px;
     height: 30px;
-  }
-  .fl {
-    float: left;
-  }
-  .fr {
-    float: right;
   }
 </style>
