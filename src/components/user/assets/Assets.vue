@@ -231,9 +231,6 @@
   .totalAssetTitle {
     font-size: 24px
   }
-  .center {
-    text-align: center;
-  }
   .assetsBox {
     padding: 10px 15px
   }

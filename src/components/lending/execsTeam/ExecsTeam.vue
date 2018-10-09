@@ -59,10 +59,6 @@
 </script>
 
 <style>
-  .p20{
-    padding: 20px;
-  }
-
   .title{
     color: #000;
     text-align: center;

@@ -8,9 +8,9 @@
       <x-input title="充值金额(元)" v-model="data.cash" :is-type="moreThan100" placeholder="请输入充值金额"></x-input>
     </group>
     <group>
-      <div class="cellBox">充值后余额:{{data.balance+Math.floor(data.cash)}}元</div>
+      <div class="cell-box">充值后余额:{{data.balance+Math.floor(data.cash)}}元</div>
     </group>
-    <div class="submitBox">
+    <div class="submit-box">
       <x-button @click.native="iconType = 'success'" type="primary">确定</x-button>
     </div>
     <div class="center">充值实时到账，免收手续费</div>

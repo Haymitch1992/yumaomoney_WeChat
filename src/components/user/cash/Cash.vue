@@ -5,13 +5,13 @@
       <panel :list="bankList" type="1" @on-img-error="onImgError"></panel>
     </group>
     <group>
-      <div class="cellBox">余额:{{data.balanceBak}}元</div>
+      <div class="cell-box">余额:{{data.balanceBak}}元</div>
       <x-input title="提现金额(元)" v-model="data.cash" :is-type="moreThan100" placeholder="单笔提现不小于100元"></x-input>
     </group>
     <group>
-      <div class="cellBox">手续费:1元</div>
-      <div class="cellBox" v-if="(data.cash>=100)&&(data.cash<=data.balance)">到账金额:{{data.cash-1}}元</div>
-      <div class="cellBox" v-if="(data.cash<100)||(data.cash>data.balance)">到账金额:0元</div>
+      <div class="cell-box">手续费:1元</div>
+      <div class="cell-box" v-if="(data.cash>=100)&&(data.cash<=data.balance)">到账金额:{{data.cash-1}}元</div>
+      <div class="cell-box" v-if="(data.cash<100)||(data.cash>data.balance)">到账金额:0元</div>
     </group>
     <div style="padding:15px 50px;">
       <x-button @click.native="iconType = 'success'" type="primary">提交</x-button>
@@ -188,3 +188,4 @@
     }
   }
 </script>
+

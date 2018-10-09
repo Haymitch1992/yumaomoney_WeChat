@@ -21,7 +21,7 @@
         @remove-image="removeImageMethod"
       ></uploader>
     </group>
-    <div class="submitBox">
+    <div class="submit-box">
       <x-button type="primary">提交</x-button>
     </div>
   </div>
