@@ -1,44 +1,51 @@
 <template>
   <div>
     <x-header>换绑手机</x-header>
-    <div class="vux-demo">
-      <img class="logo" src="../../../assets/images/logo.png">
+    <div v-if="type === 1">
+      <group>
+        <x-input title="手机号" class="weui-vcode">
+          <x-button slot="right" type="primary" mini>获取验证码</x-button>
+        </x-input>
+        <x-input title="验证码" placeholder="请输入验证码"></x-input>
+      </group>
+      <div class="pt20">
+        <div class="submit-box">
+          <x-button @click.native="type = 2" type="primary">验证后绑定新手机号</x-button>
+        </div>
+      </div>
+      <div class="pt100 center">若当前号码已不用或丢失，请联系<a href="https://www.sobot.com/chat/oldh5/index.html?sysNum=e4068d62da3b41e69a8f47a6929a6826">在线客服</a></div>
     </div>
-    <group title="cell demo">
-      <cell title="第一" value="cool" is-link></cell>
-      <cell title="第二" value="cool" is-link></cell>
-      <cell title="第三" value="cool" is-link></cell>
-    </group>
+    <div v-if="type === 2">
+      <group>
+        <x-input title="新手机号" class="weui-vcode">
+          <x-button slot="right" type="primary" mini>获取验证码</x-button>
+        </x-input>
+        <x-input title="验证码" placeholder="请输入验证码"></x-input>
+      </group>
+      <div class="pt20">
+        <div class="submit-box">
+          <x-button @click.native="type = 1" type="primary">确认绑定</x-button>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-  import { Group, Cell, XHeader } from 'vux'
+  import { Group, XHeader, XInput, XButton } from 'vux'
 
   export default {
     name: 'ChangeNumber',
     components: {
       Group,
-      Cell,
-      XHeader
+      XHeader,
+      XInput,
+      XButton
     },
     data () {
       return {
-        // note: changing this line won't causes changes
-        // with hot-reload because the reloaded component
-        // preserves its current state and we are modifying
-        // its initial state.
-        msg: 'Hello World!'
+        type: 1
       }
     }
   }
 </script>
-
-<style>
-  .vux-demo {
-    text-align: center;
-  }
-  .logo {
-    width: 100px;
-  }
-</style>
