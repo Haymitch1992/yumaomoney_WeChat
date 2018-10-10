@@ -4,6 +4,10 @@ import Container from '../components/container/Container'
 import User from '../components/user/User'
 import AboutMe from '../components/user/aboutMe/AboutMe'
 import Center from '../components/user/center/Center'
+import Member from '../components/user/member/Member'
+import ChangeNumber from '../components/user/changeNumber/ChangeNumber'
+import ChangeCard from '../components/user/changeCard/ChangeCard'
+import Question from '../components/user/question/Question'
 import Setting from '../components/user/setting/Setting'
 import Assets from '../components/user/assets/Assets'
 import Cash from '../components/user/cash/Cash'
@@ -152,7 +156,29 @@ export default new Router({
         },
         {
           path: 'center',
-          component: Center
+          component: Container,
+          children: [
+            {
+              path: '/',
+              component: Center
+            },
+            {
+              path: 'member',
+              component: Member
+            },
+            {
+              path: 'changeNumber',
+              component: ChangeNumber
+            },
+            {
+              path: 'changeCard',
+              component: ChangeCard
+            },
+            {
+              path: 'question',
+              component: Question
+            }
+          ]
         },
         {
           path: 'setting',
