@@ -1,6 +1,21 @@
 <template>
   <div>
     <x-header>个人中心</x-header>
+    <group gutter="0">
+      <div class="header">
+        <div class="fl">
+          <div class="user"></div>
+        </div>
+        <div class="userContent fl">
+          <div class="h30">188****6369</div>
+          <div class="h30 pt10">
+            <span class="mini-card">VIP0</span>
+            <span class="mini-card">已实名</span>
+            <span class="mini-card">已开通存管</span>
+          </div>
+        </div>
+      </div>
+    </group>
     <group>
       <cell title="会员中心" is-link></cell>
       <cell title="实名认证" value="王**（110*******0016）"></cell>
@@ -8,8 +23,10 @@
       <cell title="银行卡" value="已绑定" is-link></cell>
       <cell title="风险测评" value="保守型" is-link></cell>
     </group>
-    <div class="submit-box">
-      <x-button @click.native="iconType = 'success'" type="primary">安全退出</x-button>
+    <div class="pt20 ">
+      <div class="submit-box">
+        <x-button @click.native="iconType = 'success'" type="primary">安全退出</x-button>
+      </div>
     </div>
   </div>
 </template>
@@ -27,12 +44,33 @@
     },
     data () {
       return {
-        // note: changing this line won't causes changes
-        // with hot-reload because the reloaded component
-        // preserves its current state and we are modifying
-        // its initial state.
         msg: 'Hello World!'
       }
     }
   }
 </script>
+
+<style>
+  .header {
+    padding: 20px;
+    height: 70px;
+    margin-bottom: 20px;
+  }
+  .userContent {
+    margin-left: 10px;
+    height: 50px;
+  }
+  .user {
+    background: url("../../../assets/images/user.png") no-repeat;
+    background-size: cover;
+    width: 70px;
+    height: 70px;
+    border: 1px solid #707070;
+    border-radius: 35px;
+    box-sizing: border-box;
+  }
+  .mini-card {
+    background: #d7d7d7;
+    padding: 5px;
+  }
+</style>
