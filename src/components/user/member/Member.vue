@@ -32,8 +32,10 @@
           <div class="center pv15 vipList" :class="{ vipActive: (level===6) }" @click="changeLevel(6)">VIP6</div>
         </flexbox-item>
         <flexbox-item>
-          <div class="vipTop">
-            <div class="vipTitle center">{{levelName}}</div>
+          <div style="background: #75c6ac">
+            <div class="vipTop">
+              <div class="vipTitle center">{{levelName}}</div>
+            </div>
           </div>
           <div class="vipBottom">
             <div class="h40">专享礼包</div>
@@ -140,9 +142,8 @@
     color: #09BB07;
   }
   .vipTop {
-    height: 190px;
-    background: url("../../../assets/images/level0.png") no-repeat 100% 100%;
-    background-size: cover;
+    background: url("../../../assets/images/level0.png") no-repeat center center;
+    background-size: contain;
   }
   .vipTitle {
     padding-top: 30px;
