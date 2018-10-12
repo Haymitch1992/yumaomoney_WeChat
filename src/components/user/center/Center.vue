@@ -21,7 +21,7 @@
       <cell title="实名认证" value="王**（110*******0016）"></cell>
       <cell title="手机号" value="136****2672" is-link link="/user/center/changeNumber"></cell>
       <cell title="银行卡" value="已绑定" is-link link="/user/center/changeCard"></cell>
-      <cell title="风险测评" value="保守型" is-link :link="href+'/activity/question/question_m.html'"></cell>
+      <cell title="风险测评" value="保守型" is-link link="/user/center/question"></cell>
     </group>
     <div class="pt20 ">
       <div class="submit-box">
