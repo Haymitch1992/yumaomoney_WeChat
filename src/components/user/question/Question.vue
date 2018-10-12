@@ -12,9 +12,7 @@
         <x-button type="primary">再次评测</x-button>
       </div>
     </div>
-    <div class="footer-fixed w100">
-      <div class="pb20 center">您今年还有{{num}}次机会</div>
-    </div>
+    <div class="p20 center">您今年还有{{num}}次机会</div>
   </div>
 </template>
 
