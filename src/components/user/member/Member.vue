@@ -141,7 +141,7 @@
   }
   .vipTop {
     height: 190px;
-    background: url("../../../assets/images/level0.png") no-repeat 0 0;
+    background: url("../../../assets/images/level0.png") no-repeat 100% 100%;
     background-size: cover;
   }
   .vipTitle {
