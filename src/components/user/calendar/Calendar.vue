@@ -5,7 +5,7 @@
       <img class="logo" src="../../../assets/images/logo.png">
     </div>
     <group title="cell demo">
-      <cell title="第一" value="cool" is-link></cell>
+      <cell title="日历组件" value="cool" is-link link="https://doc.vux.li/zh-CN/components/inline-calendar.html"></cell>
       <cell title="第二" value="cool" is-link></cell>
       <cell title="第三" value="cool" is-link></cell>
     </group>
