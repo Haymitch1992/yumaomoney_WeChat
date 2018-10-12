@@ -8,12 +8,12 @@
         </div>
         <div class="userContent fl">
           <div class="h30">188****6369</div>
-          <div class="h30 pt10">当前等级超过了50%的鱼猫小伙伴</div>
+          <div class="h30 pt10 f14">当前等级超过了50%的鱼猫小伙伴</div>
         </div>
       </div>
       <box gap="10px">
         <div class="fl pv10" style="width: 80%;">
-          <x-progress :percent="percent"></x-progress>
+          <x-progress :percent="percent" :show-cancel="false"></x-progress>
         </div>
         <div class="fl center" style="width: 20%;">
           30%
@@ -23,13 +23,13 @@
     <group title="VIP会员等级">
       <flexbox :gutter="0">
         <flexbox-item :span="3">
-          <div class="center pv20 vipList" :class="{ vipActive: (level===0) }" @click="changeLevel(0)">VIP0</div>
-          <div class="center pv20 vipList" :class="{ vipActive: (level===1) }" @click="changeLevel(1)">VIP1</div>
-          <div class="center pv20 vipList" :class="{ vipActive: (level===2) }" @click="changeLevel(2)">VIP2</div>
-          <div class="center pv20 vipList" :class="{ vipActive: (level===3) }" @click="changeLevel(3)">VIP3</div>
-          <div class="center pv20 vipList" :class="{ vipActive: (level===4) }" @click="changeLevel(4)">VIP4</div>
-          <div class="center pv20 vipList" :class="{ vipActive: (level===5) }" @click="changeLevel(5)">VIP5</div>
-          <div class="center pv20 vipList" :class="{ vipActive: (level===6) }" @click="changeLevel(6)">VIP6</div>
+          <div class="center pv15 vipList" :class="{ vipActive: (level===0) }" @click="changeLevel(0)">VIP0</div>
+          <div class="center pv15 vipList" :class="{ vipActive: (level===1) }" @click="changeLevel(1)">VIP1</div>
+          <div class="center pv15 vipList" :class="{ vipActive: (level===2) }" @click="changeLevel(2)">VIP2</div>
+          <div class="center pv15 vipList" :class="{ vipActive: (level===3) }" @click="changeLevel(3)">VIP3</div>
+          <div class="center pv15 vipList" :class="{ vipActive: (level===4) }" @click="changeLevel(4)">VIP4</div>
+          <div class="center pv15 vipList" :class="{ vipActive: (level===5) }" @click="changeLevel(5)">VIP5</div>
+          <div class="center pv15 vipList" :class="{ vipActive: (level===6) }" @click="changeLevel(6)">VIP6</div>
         </flexbox-item>
         <flexbox-item>
           <div class="vipTop">
@@ -37,7 +37,7 @@
           </div>
           <div class="vipBottom">
             <div class="h40">专享礼包</div>
-            <div style="height: 75px">
+            <div style="height: 70px">
               <div class="fl">
                 <div class="birthdayGift"></div>
               </div>
@@ -46,7 +46,7 @@
                 <div class="h20 pt10">{{birthdayTxt}}</div>
               </div>
             </div>
-            <div style="height: 75px">
+            <div style="height: 70px">
               <div class="fl">
                 <div class="monthGift"></div>
               </div>
@@ -150,7 +150,7 @@
     line-height: 160px;
   }
   .vipBottom {
-    height: 258px;
+    height: 188px;
   }
   .memberHeader {
     padding: 20px;
