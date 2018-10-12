@@ -9,6 +9,8 @@ import ChangeNumber from '../components/user/changeNumber/ChangeNumber'
 import ChangeCard from '../components/user/changeCard/ChangeCard'
 import Question from '../components/user/question/Question'
 import Setting from '../components/user/setting/Setting'
+import Safe from '../components/user/safe/Safe'
+import About from '../components/user/about/About'
 import Assets from '../components/user/assets/Assets'
 import Cash from '../components/user/cash/Cash'
 import Recharge from '../components/user/recharge/Recharge'
@@ -182,7 +184,21 @@ export default new Router({
         },
         {
           path: 'setting',
-          component: Setting
+          component: Container,
+          children: [
+            {
+              path: '/',
+              component: Setting
+            },
+            {
+              path: 'safe',
+              component: Safe
+            },
+            {
+              path: 'about',
+              component: About
+            }
+          ]
         },
         {
           path: 'assets',
