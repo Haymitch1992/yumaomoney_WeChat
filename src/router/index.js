@@ -252,7 +252,29 @@ export default new Router({
             },
             {
               path: 'about',
-              component: About
+              component: Container,
+              children: [
+                {
+                  path: '/',
+                  component: About
+                },
+                {
+                  path: 'introduced',
+                  component: Introduced
+                },
+                {
+                  path: 'score',
+                  component: Score
+                },
+                {
+                  path: 'statement',
+                  component: Statement
+                },
+                {
+                  path: 'agreement',
+                  component: Agreement
+                }
+              ]
             }
           ]
         },
