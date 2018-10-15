@@ -1,6 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Container from '../components/container/Container'
+import Start from '../components/start/Start'
+import Gesture from '../components/start/gesture/Gesture'
+import Guide from '../components/start/guide/Guide'
+import Login from '../components/start/login/Login'
+import Registered from '../components/start/registered/Registered'
+import RegisteredDetail from '../components/start/registered/RegisteredDetail'
+import Forget from '../components/start/forget/Forget'
+import Reset from '../components/start/reset/Reset'
 import User from '../components/user/User'
 import AboutMe from '../components/user/aboutMe/AboutMe'
 import Center from '../components/user/center/Center'
@@ -10,7 +18,7 @@ import ChangeCard from '../components/user/changeCard/ChangeCard'
 import Question from '../components/user/question/Question'
 import Setting from '../components/user/setting/Setting'
 import Safe from '../components/user/safe/Safe'
-import Gesture from '../components/user/gesture/Gesture'
+import SetGesture from '../components/user/setGesture/SetGesture'
 import ReviseGesture from '../components/user/reviseGesture/ReviseGesture'
 import ReviseLogin from '../components/user/reviseLogin/ReviseLogin'
 import ReviseDeal from '../components/user/reviseDeal/ReviseDeal'
@@ -73,7 +81,57 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/lending'
+      redirect: '/start'
+    },
+    {
+      path: '/start',
+      component: Container,
+      children: [
+        {
+          path: '/',
+          component: Start
+        },
+        {
+          path: 'gesture',
+          component: Gesture
+        },
+        {
+          path: 'guide',
+          component: Guide
+        },
+        {
+          path: 'login',
+          component: Login
+        },
+        {
+          path: 'registered',
+          component: Container,
+          children: [
+            {
+              path: '/',
+              component: Registered
+            },
+            {
+              path: 'registeredDetail',
+              component: RegisteredDetail
+            }
+          ]
+        },
+        {
+          path: 'forget',
+          component: Container,
+          children: [
+            {
+              path: '/',
+              component: Forget
+            },
+            {
+              path: 'reset',
+              component: Reset
+            }
+          ]
+        }
+      ]
     },
     {
       path: '/lending',
@@ -242,8 +300,8 @@ export default new Router({
                   component: Safe
                 },
                 {
-                  path: 'gesture',
-                  component: Gesture
+                  path: 'setGesture',
+                  component: SetGesture
                 },
                 {
                   path: 'reviseGesture',

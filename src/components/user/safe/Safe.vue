@@ -2,7 +2,7 @@
   <div>
     <x-header>账户与安全</x-header>
     <group>
-      <cell title="手势密码" is-link link="/user/setting/safe/gesture"></cell>
+      <cell title="手势密码" is-link link="/user/setting/safe/setGesture"></cell>
       <cell title="修改手势密码" is-link link="/user/setting/safe/reviseGesture"></cell>
       <cell title="修改登录密码" is-link link="/user/setting/safe/reviseLogin"></cell>
       <cell title="修改交易密码" is-link link="/user/setting/safe/reviseDeal"></cell>
