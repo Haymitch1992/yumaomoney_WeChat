@@ -1,9 +1,11 @@
 <template>
   <div>
     <x-header>我的投资</x-header>
-    <div class="vux-demo">
-      <img class="logo" src="../../../assets/images/logo.png">
-    </div>
+    <tab>
+      <tab-item :selected="list.listType === 1" @on-item-click="list.listType = 1">融资中</tab-item>
+      <tab-item :selected="list.listType === 2" @on-item-click="list.listType = 2">还款中</tab-item>
+      <tab-item :selected="list.listType === 3" @on-item-click="list.listType = 3">已还清</tab-item>
+    </tab>
     <group title="cell demo">
       <cell title="标的详情" value="cool" is-link link="/user/investment/investmentDetail"></cell>
     </group>
@@ -11,32 +13,23 @@
 </template>
 
 <script>
-  import { Group, Cell, XHeader } from 'vux'
+  import { Group, Cell, XHeader, Tab, TabItem } from 'vux'
 
   export default {
     name: 'Investment',
     components: {
       Group,
       Cell,
-      XHeader
+      XHeader,
+      Tab,
+      TabItem
     },
     data () {
       return {
-        // note: changing this line won't causes changes
-        // with hot-reload because the reloaded component
-        // preserves its current state and we are modifying
-        // its initial state.
-        msg: 'Hello World!'
+        list: {
+          listType: 1
+        }
       }
     }
   }
 </script>
-
-<style>
-  .vux-demo {
-    text-align: center;
-  }
-  .logo {
-    width: 100px;
-  }
-</style>
