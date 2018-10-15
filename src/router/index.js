@@ -34,6 +34,8 @@ import Note from '../components/user/note/Note'
 import Preferential from '../components/user/preferential/Preferential'
 import Experience from '../components/user/experience/Experience'
 import Message from '../components/user/message/Message'
+import MessageDetail from '../components/user/message/MessageDetail'
+import PushSettings from '../components/user/pushSettings/PushSettings'
 import Auto from '../components/user/auto/Auto'
 import Invited from '../components/user/invited/Invited'
 import InvitedDetail from '../components/user/invited/InvitedDetail'
@@ -334,7 +336,21 @@ export default new Router({
         },
         {
           path: 'message',
-          component: Message
+          component: Container,
+          children: [
+            {
+              path: '/',
+              component: Message
+            },
+            {
+              path: 'messageDetail',
+              component: MessageDetail
+            },
+            {
+              path: 'pushSettings',
+              component: PushSettings
+            }
+          ]
         },
         {
           path: 'auto',

@@ -56,7 +56,7 @@
         <grid-item link="/user/calendar" label="回款日历" key="1">
           <img slot="icon" src="../../assets/images/active.png">
         </grid-item>
-        <grid-item link="/user/note" label="资金记录" key="3">
+        <grid-item link="/user/note" label="资金记录" key="2">
           <img slot="icon" src="../../assets/images/linkme.png">
         </grid-item>
       </grid>
@@ -67,18 +67,18 @@
         <grid-item link="/user/experience" label="体验金" key="1">
           <img slot="icon" src="../../assets/images/active.png">
         </grid-item>
-        <grid-item link="/user/message" label="我的消息" key="3">
+        <grid-item link="/user/auto" label="自动投标" key="2">
           <img slot="icon" src="../../assets/images/linkme.png">
         </grid-item>
       </grid>
       <grid :show-lr-borders="false" >
-        <grid-item link="/user/auto" label="自动投标" key="0">
+        <grid-item link="/user/invited" label="邀请好友" key="0">
           <img slot="icon" src="../../assets/images/aboutMe.png">
         </grid-item>
-        <grid-item link="/user/invited" label="邀请好友" key="1">
+        <grid-item link="/user/message" label="通知中心" key="1">
           <img slot="icon" src="../../assets/images/active.png">
         </grid-item>
-        <grid-item link="/user/contactUs" label="客服与反馈" key="3">
+        <grid-item link="/user/contactUs" label="客服与反馈" key="2">
           <img slot="icon" src="../../assets/images/linkme.png">
         </grid-item>
       </grid>

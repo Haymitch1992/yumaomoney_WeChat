@@ -1,12 +1,13 @@
 <template>
   <div>
-    <x-header>通知中心</x-header>
+    <x-header>推送设置</x-header>
     <div class="vux-demo">
       <img class="logo" src="../../../assets/images/logo.png">
     </div>
     <group title="cell demo">
-      <cell title="信息详情" value="cool" is-link link="/user/message/messageDetail"></cell>
-      <cell title="推送设置" value="cool" is-link link="/user/message/pushSettings"></cell>
+      <cell title="第一" value="cool" is-link></cell>
+      <cell title="第二" value="cool" is-link></cell>
+      <cell title="第三" value="cool" is-link></cell>
     </group>
   </div>
 </template>
@@ -15,7 +16,7 @@
   import { Group, Cell, XHeader } from 'vux'
 
   export default {
-    name: 'Message',
+    name: 'PushSettings',
     components: {
       Group,
       Cell,
