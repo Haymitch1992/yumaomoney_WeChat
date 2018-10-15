@@ -14,6 +14,10 @@ import Gesture from '../components/user/gesture/Gesture'
 import ReviseGesture from '../components/user/reviseGesture/ReviseGesture'
 import ReviseLogin from '../components/user/reviseLogin/ReviseLogin'
 import ReviseDeal from '../components/user/reviseDeal/ReviseDeal'
+import ThirdParty from '../components/user/thirdParty/ThirdParty'
+import Address from '../components/user/address/Address'
+import Consignee from '../components/user/consignee/Consignee'
+import ConsigneeEdit from '../components/user/consigneeEdit/ConsigneeEdit'
 import About from '../components/user/about/About'
 import Assets from '../components/user/assets/Assets'
 import Cash from '../components/user/cash/Cash'
@@ -217,6 +221,28 @@ export default new Router({
                 {
                   path: 'reviseDeal',
                   component: ReviseDeal
+                }
+              ]
+            },
+            {
+              path: 'thirdParty',
+              component: ThirdParty
+            },
+            {
+              path: 'address',
+              component: Container,
+              children: [
+                {
+                  path: '/',
+                  component: Address
+                },
+                {
+                  path: 'consignee',
+                  component: Consignee
+                },
+                {
+                  path: 'consigneeEdit',
+                  component: ConsigneeEdit
                 }
               ]
             },
