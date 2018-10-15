@@ -46,6 +46,9 @@ import Feedback from '../components/user/feedback/Feedback'
 import Events from '../components/events/Events'
 import Lending from '../components/lending/Lending'
 import FinanceDetail from '../components/lending/financeDetail/FinanceDetail'
+import Calculator from '../components/lending/calculator/Calculator'
+import CalculatorDetail from '../components/lending/calculator/CalculatorDetail'
+import ConfirmInvestment from '../components/lending/confirmInvestment/ConfirmInvestment'
 import Safety from '../components/lending/safety/Safety'
 import Disclosure from '../components/lending/disclosure/Disclosure'
 import SakeInligting from '../components/lending/sakeInligting/SakeInligting'
@@ -83,6 +86,24 @@ export default new Router({
         {
           path: 'financeDetail',
           component: FinanceDetail
+        },
+        {
+          path: 'calculator',
+          component: Container,
+          children: [
+            {
+              path: '/',
+              component: Calculator
+            },
+            {
+              path: 'calculatorDetail',
+              component: CalculatorDetail
+            }
+          ]
+        },
+        {
+          path: 'confirmInvestment',
+          component: ConfirmInvestment
         },
         {
           path: 'safety',

@@ -1,12 +1,13 @@
 <template>
   <div>
-    <x-header>标的详情</x-header>
+    <x-header>新网投资</x-header>
     <div class="vux-demo">
       <img class="logo" src="../../../assets/images/logo.png">
     </div>
     <group title="cell demo">
-      <cell title="收益计算器" value="cool" is-link link="/lending/calculator"></cell>
-      <cell title="新网投资" value="cool" is-link link="/lending/confirmInvestment"></cell>
+      <cell title="第一" value="cool" is-link></cell>
+      <cell title="第二" value="cool" is-link></cell>
+      <cell title="第三" value="cool" is-link></cell>
     </group>
   </div>
 </template>
@@ -15,7 +16,7 @@
   import { Group, Cell, XHeader } from 'vux'
 
   export default {
-    name: 'FinanceDetail',
+    name: 'ConfirmInvestment',
     components: {
       Group,
       Cell,
