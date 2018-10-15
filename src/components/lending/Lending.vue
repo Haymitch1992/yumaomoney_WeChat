@@ -134,7 +134,7 @@
                   {
                     title: v.borrowTitle,
                     desc: '融资额度:' + v.borrowAmount + ' 期限：' + v.deadline,
-                    url: '/financeDetail?id=149',
+                    url: '/lending/financeDetail?id=149',
                     meta: {
                       source: '年利率',
                       date: '7% + ' + (parseInt(v.annualRate) - 7) + '%',

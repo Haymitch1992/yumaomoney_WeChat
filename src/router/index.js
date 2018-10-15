@@ -45,6 +45,7 @@ import HelpDetail from '../components/user/help/HelpDetail'
 import Feedback from '../components/user/feedback/Feedback'
 import Events from '../components/events/Events'
 import Lending from '../components/lending/Lending'
+import FinanceDetail from '../components/lending/financeDetail/FinanceDetail'
 import Safety from '../components/lending/safety/Safety'
 import Disclosure from '../components/lending/disclosure/Disclosure'
 import SakeInligting from '../components/lending/sakeInligting/SakeInligting'
@@ -78,6 +79,10 @@ export default new Router({
         {
           path: '/',
           component: Lending
+        },
+        {
+          path: 'financeDetail',
+          component: FinanceDetail
         },
         {
           path: 'safety',
