@@ -36,6 +36,7 @@ import Experience from '../components/user/experience/Experience'
 import Message from '../components/user/message/Message'
 import Auto from '../components/user/auto/Auto'
 import Invited from '../components/user/invited/Invited'
+import InvitedDetail from '../components/user/invited/InvitedDetail'
 import ContactUs from '../components/user/contactUs/ContactUs'
 import Help from '../components/user/help/Help'
 import HelpDetail from '../components/user/help/HelpDetail'
@@ -341,7 +342,17 @@ export default new Router({
         },
         {
           path: 'invited',
-          component: Invited
+          component: Container,
+          children: [
+            {
+              path: '/',
+              component: Invited
+            },
+            {
+              path: 'invitedDetail',
+              component: InvitedDetail
+            }
+          ]
         },
         {
           path: 'contactUs',
