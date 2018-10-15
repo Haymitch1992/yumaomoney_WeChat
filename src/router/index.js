@@ -27,6 +27,8 @@ import Assets from '../components/user/assets/Assets'
 import Cash from '../components/user/cash/Cash'
 import Recharge from '../components/user/recharge/Recharge'
 import Investment from '../components/user/investment/Investment'
+import InvestmentDetail from '../components/user/investment/InvestmentDetail'
+import Contract from '../components/user/contract/Contract'
 import Calendar from '../components/user/calendar/Calendar'
 import Note from '../components/user/note/Note'
 import Preferential from '../components/user/preferential/Preferential'
@@ -293,7 +295,21 @@ export default new Router({
         },
         {
           path: 'investment',
-          component: Investment
+          component: Container,
+          children: [
+            {
+              path: '/',
+              component: Investment
+            },
+            {
+              path: 'investmentDetail',
+              component: InvestmentDetail
+            },
+            {
+              path: 'contract',
+              component: Contract
+            }
+          ]
         },
         {
           path: 'calendar',
