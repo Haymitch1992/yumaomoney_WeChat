@@ -10,6 +10,10 @@ import ChangeCard from '../components/user/changeCard/ChangeCard'
 import Question from '../components/user/question/Question'
 import Setting from '../components/user/setting/Setting'
 import Safe from '../components/user/safe/Safe'
+import Gesture from '../components/user/gesture/Gesture'
+import ReviseGesture from '../components/user/reviseGesture/ReviseGesture'
+import ReviseLogin from '../components/user/reviseLogin/ReviseLogin'
+import ReviseDeal from '../components/user/reviseDeal/ReviseDeal'
 import About from '../components/user/about/About'
 import Assets from '../components/user/assets/Assets'
 import Cash from '../components/user/cash/Cash'
@@ -192,7 +196,29 @@ export default new Router({
             },
             {
               path: 'safe',
-              component: Safe
+              component: Container,
+              children: [
+                {
+                  path: '/',
+                  component: Safe
+                },
+                {
+                  path: 'gesture',
+                  component: Gesture
+                },
+                {
+                  path: 'reviseGesture',
+                  component: ReviseGesture
+                },
+                {
+                  path: 'reviseLogin',
+                  component: ReviseLogin
+                },
+                {
+                  path: 'reviseDeal',
+                  component: ReviseDeal
+                }
+              ]
             },
             {
               path: 'about',
