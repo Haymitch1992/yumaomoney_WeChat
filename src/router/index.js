@@ -151,6 +151,7 @@ export default new Router({
           children: [
             {
               path: '/',
+              name: 'calculator',
               component: Calculator
             },
             {
