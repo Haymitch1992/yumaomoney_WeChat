@@ -4,7 +4,9 @@
     <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore"
               lock-x ref="scrollerBottom" height="-48">
       <group>
-        <cell primary="title" v-for="item in data" :title="item.titleBak" :value="item.pubdate" :key="item.id" @click.native="jump(item)" is-link></cell>
+        <cell primary="title" v-for="item in data" :value="item.pubdate" :key="item.id" @click.native="jump(item)" is-link>
+          <span slot="title" class="cell-overflow-xl">{{item.titleBak}}</span>
+        </cell>
       </group>
       <divider v-show="(parmes.pageNum === parmes.pageNext)">没有更多了</divider>
     </scroller>

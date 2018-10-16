@@ -4,7 +4,9 @@
     <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore"
               lock-x ref="scrollerBottom" height="-48">
       <group>
-        <cell primary="title" v-for="item in data" :title="item.title" :value="item.publishTime" :link="href+'/frontNewsDetails.do?id='+item.id" :key="item.id" is-link></cell>
+        <cell primary="title" v-for="item in data" :title="item.title" :value="item.publishTime" :link="href+'/frontNewsDetails.do?id='+item.id" :key="item.id" is-link>
+          <span slot="title" class="cell-overflow-xl">{{item.title}}</span>
+        </cell>
       </group>
       <divider v-show="(parmes.pageNum === parmes.pageTotal)">没有更多了</divider>
     </scroller>

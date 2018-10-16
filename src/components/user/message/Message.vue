@@ -40,16 +40,3 @@
     }
   }
 </script>
-
-<style>
-  .cell-overflow {
-    position: relative;
-    top: 2px;
-    display: block;
-    width: 150px;
-    height: 20px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-</style>
