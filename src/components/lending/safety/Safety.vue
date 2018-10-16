@@ -1,7 +1,7 @@
 <template>
   <div>
     <x-header class="z-index">安全保障</x-header>
-    <div class="page-container">
+    <div class="safety page-container">
       <div class="fullpage-container">
         <div class="fullpage-wp" v-fullpage="opts">
           <div class="page-1 page">
@@ -109,7 +109,7 @@
     width: 100%;
     height: 100%;
   }
-  .title {
+  .safety .title {
     margin: 10px 30px 30px;
     color: #fff;
     font-size: 30px;
