@@ -7,8 +7,8 @@
       <tab-item :selected="list.listType === 3" @on-item-click="list.listType = 3">活动</tab-item>
       <tab-item :selected="list.listType === 4" @on-item-click="list.listType = 4">投资</tab-item>
     </tab>
-    <group title="cell demo">
-      <cell title="信息详情" value="cool" is-link link="/user/message/messageDetail"></cell>
+    <group>
+      <cell title="用户还款资金收入报告" value="2018-10-09 23:23:23" is-link link="/user/message/messageDetail"></cell>
       <cell title="推送设置" value="cool" is-link link="/user/message/pushSettings"></cell>
     </group>
   </div>
