@@ -432,6 +432,7 @@ export default new Router({
             },
             {
               path: 'pushSettings',
+              name: 'pushSettings',
               component: PushSettings
             }
           ]

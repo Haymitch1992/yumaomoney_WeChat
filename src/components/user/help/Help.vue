@@ -73,7 +73,6 @@
         results: []
       }
     },
-
     methods: {
       goHelpDetail (id, title) {
         this.$router.push({
