@@ -1,11 +1,13 @@
 <template>
   <div>
-    <x-header>邀请好友</x-header>
+    <x-header><a slot="right" @click="goTo()">我的好友</a>邀请好友</x-header>
     <div class="vux-demo">
       <img class="logo" src="../../../assets/images/logo.png">
     </div>
     <group title="cell demo">
-      <cell title="我的邀请" value="cool" is-link  link="/user/invited/invitedDetail"></cell>
+      <cell title="第一" value="cool" is-link></cell>
+      <cell title="第二" value="cool" is-link></cell>
+      <cell title="第三" value="cool" is-link></cell>
     </group>
   </div>
 </template>
@@ -27,6 +29,14 @@
         // preserves its current state and we are modifying
         // its initial state.
         msg: 'Hello World!'
+      }
+    },
+    methods: {
+      goTo () {
+        this.$router.push({
+          name: `invitedDetail`,
+          params: {}
+        })
       }
     }
   }

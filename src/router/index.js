@@ -451,6 +451,7 @@ export default new Router({
             },
             {
               path: 'invitedDetail',
+              name: 'invitedDetail',
               component: InvitedDetail
             }
           ]
