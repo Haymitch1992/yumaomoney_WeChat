@@ -8,100 +8,100 @@
     </tab>
     <group v-if="list.listType === 1">
       <div class="coupons-card">
-        <div class="coupons-card-title"></div>
-        <div class="coupons-card-middle">
-          <div class="fl coupons-card-left">
-            <div class="coupons-card-left-title">8888元</div>
+        <div class="card-title"></div>
+        <div class="card-middle">
+          <div class="fl card-left">
+            <div class="left-title">8888元</div>
           </div>
-          <div class="fr coupons-card-right">
-            <div class="coupons-card-right-title">使用范围: 体验标</div>
+          <div class="fr card-right">
+            <div class="right-title">使用范围: 体验标</div>
           </div>
         </div>
-        <div class="coupons-card-bottom">
+        <div class="card-bottom">
           <div class="fl">
-            <div class="coupons-card-left-content">有效期: 2018年08月08日-2018年10月08日</div>
+            <div class="left-content">有效期: 2018年08月08日-2018年10月08日</div>
           </div>
         </div>
       </div>
       <div class="coupons-card">
-        <div class="coupons-card-title"></div>
-        <div class="coupons-card-middle">
-          <div class="fl coupons-card-left">
-            <div class="coupons-card-left-title">8888元</div>
+        <div class="card-title"></div>
+        <div class="card-middle">
+          <div class="fl card-left">
+            <div class="left-title">8888元</div>
           </div>
-          <div class="fr coupons-card-right">
-            <div class="coupons-card-right-title">使用范围: 体验标</div>
+          <div class="fr card-right">
+            <div class="right-title">使用范围: 体验标</div>
           </div>
         </div>
-        <div class="coupons-card-bottom">
+        <div class="card-bottom">
           <div class="fl">
-            <div class="coupons-card-left-content">有效期: 2018年08月08日-2018年10月08日</div>
+            <div class="left-content">有效期: 2018年08月08日-2018年10月08日</div>
           </div>
         </div>
       </div>
       <div class="coupons-card">
-        <div class="coupons-card-title"></div>
-        <div class="coupons-card-middle">
-          <div class="fl coupons-card-left">
-            <div class="coupons-card-left-title">8888元</div>
+        <div class="card-title"></div>
+        <div class="card-middle">
+          <div class="fl card-left">
+            <div class="left-title">8888元</div>
           </div>
-          <div class="fr coupons-card-right">
-            <div class="coupons-card-right-title">使用范围: 体验标</div>
+          <div class="fr card-right">
+            <div class="right-title">使用范围: 体验标</div>
           </div>
         </div>
-        <div class="coupons-card-bottom">
+        <div class="card-bottom">
           <div class="fl">
-            <div class="coupons-card-left-content">有效期: 2018年08月08日-2018年10月08日</div>
+            <div class="left-content">有效期: 2018年08月08日-2018年10月08日</div>
           </div>
         </div>
       </div>
     </group>
     <group v-if="list.listType === 2">
       <div class="coupons-card">
-        <div class="coupons-card-title">已使用</div>
-        <div class="coupons-card-middle">
-          <div class="fl coupons-card-left">
-            <div class="coupons-card-left-title">8888元</div>
+        <div class="card-title">已使用</div>
+        <div class="card-middle">
+          <div class="fl card-left">
+            <div class="left-title">8888元</div>
           </div>
-          <div class="fr coupons-card-right">
-            <div class="coupons-card-right-title">使用范围: 体验标</div>
+          <div class="fr card-right">
+            <div class="right-title">使用范围: 体验标</div>
           </div>
         </div>
-        <div class="coupons-card-bottom">
+        <div class="card-bottom">
           <div class="fl">
-            <div class="coupons-card-left-content">有效期: 2018年08月08日-2018年10月08日</div>
+            <div class="left-content">有效期: 2018年08月08日-2018年10月08日</div>
           </div>
         </div>
       </div>
       <div class="coupons-card">
-        <div class="coupons-card-title">已使用</div>
-        <div class="coupons-card-middle">
-          <div class="fl coupons-card-left">
-            <div class="coupons-card-left-title">8888元</div>
+        <div class="card-title">已使用</div>
+        <div class="card-middle">
+          <div class="fl card-left">
+            <div class="left-title">8888元</div>
           </div>
-          <div class="fr coupons-card-right">
-            <div class="coupons-card-right-title">使用范围: 体验标</div>
+          <div class="fr card-right">
+            <div class="right-title">使用范围: 体验标</div>
           </div>
         </div>
-        <div class="coupons-card-bottom">
+        <div class="card-bottom">
           <div class="fl">
-            <div class="coupons-card-left-content">有效期: 2018年08月08日-2018年10月08日</div>
+            <div class="left-content">有效期: 2018年08月08日-2018年10月08日</div>
           </div>
         </div>
       </div>
       <div class="coupons-card">
-        <div class="coupons-card-title">已使用</div>
-        <div class="coupons-card-middle">
-          <div class="fl coupons-card-left">
-            <div class="coupons-card-left-title">8888元</div>
+        <div class="card-title">已使用</div>
+        <div class="card-middle">
+          <div class="fl card-left">
+            <div class="left-title">8888元</div>
           </div>
-          <div class="fr coupons-card-right">
-            <div class="coupons-card-right-title">使用范围: 体验标</div>
+          <div class="fr card-right">
+            <div class="right-title">使用范围: 体验标</div>
           </div>
         </div>
-        <div class="coupons-card-bottom">
+        <div class="card-bottom">
           <div class="fl">
-            <div class="coupons-card-left-content">有效期: 2018年08月08日-2018年10月08日</div>
+            <div class="left-content">有效期: 2018年08月08日-2018年10月08日</div>
           </div>
         </div>
       </div>
@@ -115,18 +115,18 @@
             <span class="shadow-line"></span>
           </div>
         </div>
-        <div class="coupons-card-title"></div>
-        <div class="coupons-card-middle">
-          <div class="fl coupons-card-left">
-            <div class="coupons-card-left-title">8888元</div>
+        <div class="card-title"></div>
+        <div class="card-middle">
+          <div class="fl card-left">
+            <div class="left-title">8888元</div>
           </div>
-          <div class="fr coupons-card-right">
-            <div class="coupons-card-right-title">使用范围: 体验标</div>
+          <div class="fr card-right">
+            <div class="right-title">使用范围: 体验标</div>
           </div>
         </div>
-        <div class="coupons-card-bottom">
+        <div class="card-bottom">
           <div class="fl">
-            <div class="coupons-card-left-content">有效期: 2018年08月08日-2018年10月08日</div>
+            <div class="left-content">有效期: 2018年08月08日-2018年10月08日</div>
           </div>
         </div>
       </div>
@@ -138,18 +138,18 @@
             <span class="shadow-line"></span>
           </div>
         </div>
-        <div class="coupons-card-title"></div>
-        <div class="coupons-card-middle">
-          <div class="fl coupons-card-left">
-            <div class="coupons-card-left-title">8888元</div>
+        <div class="card-title"></div>
+        <div class="card-middle">
+          <div class="fl card-left">
+            <div class="left-title">8888元</div>
           </div>
-          <div class="fr coupons-card-right">
-            <div class="coupons-card-right-title">使用范围: 体验标</div>
+          <div class="fr card-right">
+            <div class="right-title">使用范围: 体验标</div>
           </div>
         </div>
-        <div class="coupons-card-bottom">
+        <div class="card-bottom">
           <div class="fl">
-            <div class="coupons-card-left-content">有效期: 2018年08月08日-2018年10月08日</div>
+            <div class="left-content">有效期: 2018年08月08日-2018年10月08日</div>
           </div>
         </div>
       </div>
@@ -161,18 +161,18 @@
             <span class="shadow-line"></span>
           </div>
         </div>
-        <div class="coupons-card-title"></div>
-        <div class="coupons-card-middle">
-          <div class="fl coupons-card-left">
-            <div class="coupons-card-left-title">8888元</div>
+        <div class="card-title"></div>
+        <div class="card-middle">
+          <div class="fl card-left">
+            <div class="left-title">8888元</div>
           </div>
-          <div class="fr coupons-card-right">
-            <div class="coupons-card-right-title">使用范围: 体验标</div>
+          <div class="fr card-right">
+            <div class="right-title">使用范围: 体验标</div>
           </div>
         </div>
-        <div class="coupons-card-bottom">
+        <div class="card-bottom">
           <div class="fl">
-            <div class="coupons-card-left-content">有效期: 2018年08月08日-2018年10月08日</div>
+            <div class="left-content">有效期: 2018年08月08日-2018年10月08日</div>
           </div>
         </div>
       </div>
@@ -236,45 +236,40 @@
     top: -5px;
     margin: 0 5px;
   }
-  .coupons-card-title {
+  .coupons-card .card-title {
     padding-left: 60%;
     text-align: center;
     width: 40%;
     height: 50px;
     line-height: 50px;
   }
-  .coupons-card-middle {
+  .coupons-card .card-middle {
     height: 50px;
   }
-  .coupons-card-bottom {
+  .coupons-card .card-bottom {
     height: 50px;
   }
-  .coupons-card-left {
+  .coupons-card .card-left {
     width: 60%;
     height: 50px;
   }
-  .coupons-card-right {
+  .coupons-card .card-right {
     width: 40%;
     height: 50px;
   }
-  .coupons-card-left-title {
+  .coupons-card .left-title {
     height: 50px;
     line-height: 50px;
     padding-left: 15px;
     font-size: 35px;
     font-weight: 700;
   }
-  .coupons-card-left-content {
+  .coupons-card .left-content {
     height: 50px;
     line-height: 50px;
     padding-left: 15px;
   }
-  .coupons-card-right-title {
-    height: 50px;
-    line-height: 50px;
-    padding-right: 15px;
-  }
-  .coupons-card-right-content {
+  .coupons-card .right-title {
     height: 50px;
     line-height: 50px;
     padding-right: 15px;

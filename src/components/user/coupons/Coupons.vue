@@ -8,7 +8,7 @@
     </tab>
     <group title="未使用红包共5个，共计499元" v-if="list.listType === 1">
       <div class="coupons-card">
-        <div class="title"></div>
+        <div class="card-title"></div>
         <div class="card-middle">
           <div class="fl card-left">
             <div class="left-title">50元</div>
@@ -27,7 +27,7 @@
         </div>
       </div>
       <div class="coupons-card">
-        <div class="title"></div>
+        <div class="card-title"></div>
         <div class="card-middle">
           <div class="fl card-left">
             <div class="left-title">50元</div>
@@ -46,7 +46,7 @@
         </div>
       </div>
       <div class="coupons-card">
-        <div class="title"></div>
+        <div class="card-title"></div>
         <div class="card-middle">
           <div class="fl card-left">
             <div class="left-title">50元</div>
@@ -67,7 +67,7 @@
     </group>
     <group v-if="list.listType === 2" :gutter="37">
       <div class="coupons-card">
-        <div class="title">已使用</div>
+        <div class="card-title">已使用</div>
         <div class="card-middle">
           <div class="fl card-left">
             <div class="left-title">50元</div>
@@ -86,7 +86,7 @@
         </div>
       </div>
       <div class="coupons-card">
-        <div class="title">已使用</div>
+        <div class="card-title">已使用</div>
         <div class="card-middle">
           <div class="fl card-left">
             <div class="left-title">50元</div>
@@ -105,7 +105,7 @@
         </div>
       </div>
       <div class="coupons-card">
-        <div class="title">已使用</div>
+        <div class="card-title">已使用</div>
         <div class="card-middle">
           <div class="fl card-left">
             <div class="left-title">50元</div>
@@ -133,7 +133,7 @@
             <span class="shadow-line"></span>
           </div>
         </div>
-        <div class="title"></div>
+        <div class="card-title"></div>
         <div class="card-middle">
           <div class="fl card-left">
             <div class="left-title">50元</div>
@@ -159,7 +159,7 @@
             <span class="shadow-line"></span>
           </div>
         </div>
-        <div class="title"></div>
+        <div class="card-title"></div>
         <div class="card-middle">
           <div class="fl card-left">
             <div class="left-title">50元</div>
@@ -185,7 +185,7 @@
             <span class="shadow-line"></span>
           </div>
         </div>
-        <div class="title"></div>
+        <div class="card-title"></div>
         <div class="card-middle">
           <div class="fl card-left">
             <div class="left-title">50元</div>
@@ -263,7 +263,7 @@
     top: -5px;
     margin: 0 5px;
   }
-  .coupons-card .title {
+  .coupons-card .card-title {
     padding-left: 60%;
     text-align: center;
     width: 40%;

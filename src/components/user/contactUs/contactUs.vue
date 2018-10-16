@@ -53,10 +53,6 @@
     text-align: center;
   }
 
-  .title{
-
-  }
-
   .msg{
     color: #666;
   }
