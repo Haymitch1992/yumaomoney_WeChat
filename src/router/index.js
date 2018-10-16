@@ -39,7 +39,7 @@ import InvestmentDetail from '../components/user/investment/InvestmentDetail'
 import Contract from '../components/user/contract/Contract'
 import Calendar from '../components/user/calendar/Calendar'
 import Note from '../components/user/note/Note'
-import Preferential from '../components/user/preferential/Preferential'
+import Coupons from '../components/user/coupons/Coupons'
 import Experience from '../components/user/experience/Experience'
 import Message from '../components/user/message/Message'
 import MessageDetail from '../components/user/message/MessageDetail'
@@ -411,8 +411,8 @@ export default new Router({
           component: Calendar
         },
         {
-          path: 'preferential',
-          component: Preferential
+          path: 'coupons',
+          component: Coupons
         },
         {
           path: 'experience',
