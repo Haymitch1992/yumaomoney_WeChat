@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header><a slot="right" @click="goTo()">我的好友</a>邀请好友</x-header>
+    <x-header><a slot="right" @click="goTo()">我的邀请</a>邀请好友</x-header>
     <div class="vux-demo">
       <img class="logo" src="../../../assets/images/logo.png">
     </div>
