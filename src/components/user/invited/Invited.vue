@@ -1,11 +1,6 @@
 <template>
   <div class="invited">
     <x-header><a slot="right" @click="goTo()">我的邀请</a>邀请好友</x-header>
-    <group title="cell demo">
-      <cell title="第一" value="cool" is-link></cell>
-      <cell title="第二" value="cool" is-link></cell>
-      <cell title="第三" value="cool" is-link></cell>
-    </group>
     <div class="pt20 ">
       <div class="submit-box">
         <x-button @click.native="shareType = true" type="primary">邀请好友</x-button>
@@ -20,7 +15,7 @@
         <p class="dialog-title">点击复制按钮，分享给好友吧!</p>
         <x-textarea :max="200" name="detail" :show-counter="false" v-model="detail" :height="150"></x-textarea>
         <div>
-          <x-button @click.native="shareType = false" type="primary">复制</x-button>
+          <x-button type="primary" v-clipboard:copy="detail" v-clipboard:success="onCopy" v-clipboard:error="onError">复制</x-button>
         </div>
       </x-dialog>
     </div>
@@ -81,11 +76,13 @@
         </div>
       </popup>
     </div>
+    <toast v-model="copySuccess" type="text" :time="800" is-show-mask text="复制成功" position="middle"></toast>
+    <toast v-model="copyError" type="text" :time="800" is-show-mask text="复制失败" position="middle"></toast>
   </div>
 </template>
 
 <script>
-  import { Group, Cell, XHeader, XButton, XDialog, Popup, XTable, XTextarea } from 'vux'
+  import { Group, Cell, XHeader, XButton, XDialog, Popup, XTable, XTextarea, Toast } from 'vux'
 
   export default {
     name: 'Invited',
@@ -97,22 +94,46 @@
       XDialog,
       Popup,
       XTable,
-      XTextarea
+      XTextarea,
+      Toast
     },
     data () {
       return {
         shareType: false,
         sweepType: false,
         rulesType: false,
+        copySuccess: false,
+        copyError: false,
         detail: '我携手鱼猫金服给你送来104元现金，和我一起乐享钱程！https://www.yumaomoney.com/reg.do?istarget=1&id=13688888888'
       }
     },
     methods: {
+      // 复制成功
+      onCopy (e) {
+        var self = this
+        self.shareType = false
+        self.showPosition('success')
+        console.log(e)
+      },
+      // 复制失败
+      onError (e) {
+        var self = this
+        self.showPosition('error')
+        console.log(e)
+      },
       goTo () {
         this.$router.push({
           name: `invitedDetail`,
           params: {}
         })
+      },
+      showPosition (type) {
+        var self = this
+        if (type === 'success') {
+          self.copySuccess = true
+        } else if (type === 'error') {
+          self.copyError = true
+        }
       }
     }
   }

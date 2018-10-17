@@ -6,7 +6,9 @@ import App from './App'
 import router from './router/index'
 import 'vue-fullpage/vue-fullpage.css'
 import VueFullpage from 'vue-fullpage'
+import VueClipboard from 'vue-clipboard2'
 Vue.use(VueFullpage)
+Vue.use(VueClipboard)
 
 FastClick.attach(document.body)
 
