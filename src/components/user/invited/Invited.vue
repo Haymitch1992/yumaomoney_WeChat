@@ -8,10 +8,21 @@
     </group>
     <div class="pt20 ">
       <div class="submit-box">
-        <x-button @click.native="status = false" type="primary">邀请好友</x-button>
+        <x-button @click.native="shareType = true" type="primary">邀请好友</x-button>
         <x-button @click.native="sweepType = true" type="primary">扫码邀请</x-button>
         <x-button @click.native="rulesType = true" type="primary">活动规则</x-button>
       </div>
+    </div>
+    <div>
+      <x-dialog v-model="shareType" class="dialog-demo">
+        <p class="dialog-title">复制链接邀请好友</p>
+        <span class="dialog-title"></span>
+        <p class="dialog-title">点击复制按钮，分享给好友吧!</p>
+        <x-textarea :max="200" name="detail" :show-counter="false" v-model="detail" :height="150"></x-textarea>
+        <div>
+          <x-button @click.native="shareType = false" type="primary">复制</x-button>
+        </div>
+      </x-dialog>
     </div>
     <div>
       <x-dialog v-model="sweepType" class="dialog-demo" hide-on-blur>
@@ -62,7 +73,7 @@
               <div>5.本次活动所有环节，如有用户通过作弊行为或恶意扰乱活动的正常开展，鱼猫金服将取消用户参与活动的资格并保留进一步追究其责任的权利；法律范围内，本次活动的最终解释权归鱼猫金服所有。如有疑问，请咨询客服400-887-4777。</div>
             </div>
           </group>
-          <div class="pt20 ">
+          <div class="pt20">
             <div class="submit-box">
               <x-button @click.native="rulesType = false" type="primary">关闭</x-button>
             </div>
@@ -74,7 +85,7 @@
 </template>
 
 <script>
-  import { Group, Cell, XHeader, XButton, XDialog, Popup, XTable } from 'vux'
+  import { Group, Cell, XHeader, XButton, XDialog, Popup, XTable, XTextarea } from 'vux'
 
   export default {
     name: 'Invited',
@@ -85,12 +96,15 @@
       XButton,
       XDialog,
       Popup,
-      XTable
+      XTable,
+      XTextarea
     },
     data () {
       return {
+        shareType: false,
         sweepType: false,
-        rulesType: false
+        rulesType: false,
+        detail: '我携手鱼猫金服给你送来104元现金，和我一起乐享钱程！https://www.yumaomoney.com/reg.do?istarget=1&id=13688888888'
       }
     },
     methods: {
