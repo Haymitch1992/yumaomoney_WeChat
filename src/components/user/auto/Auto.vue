@@ -1,29 +1,55 @@
 <template>
   <div>
     <x-header>自动投标</x-header>
-    <group>
-      <cell title="银行授权状态" value="取消授权"></cell>
-    </group>
-    <group>
-      <x-input v-model="data.amount" type="number" title="单笔金额(元)" :is-type="positive" placeholder="请输入投资金额"></x-input>
-      <selector title="年化收益上限" direction="rtl" :options="earnsList" v-model="data.earnsCeiling"></selector>
-      <selector title="年化收益下限" direction="rtl" :options="earnsList" v-model="data.earnsLower"></selector>
-      <selector title="投资期限上限" direction="rtl" :options="termList" v-model="data.termCeiling"></selector>
-      <selector title="投资期限下限" direction="rtl" :options="termList" v-model="data.termLower"></selector>
-      <checklist label-position="left" :options="wayList" v-model="data.wayType"></checklist>
-      <radio :options="saveList" @on-change="saveTypeChange" v-model="data.saveType"></radio>
-      <x-input v-model="data.save" type="number" title="保留金额(元)" :is-type="positive" placeholder="请输入保留金额" :disabled="(data.saveType === '0')"></x-input>
-    </group>
-    <div class="pt20 ">
-      <div class="submit-box">
-        <x-button @click.native="iconType = 'success'" type="primary">开启自动投标</x-button>
+    <div v-if="!status">
+      <group>
+        <cell title="银行授权状态" value="取消授权"></cell>
+      </group>
+      <group>
+        <x-input v-model="data.amount" type="number" title="单笔金额(元)" :is-type="positive" placeholder="请输入投资金额"></x-input>
+        <selector title="年化收益上限" direction="rtl" :options="earnsList" v-model="data.earnsCeiling"></selector>
+        <selector title="年化收益下限" direction="rtl" :options="earnsList" v-model="data.earnsLower"></selector>
+        <selector title="投资期限上限" direction="rtl" :options="termList" v-model="data.termCeiling"></selector>
+        <selector title="投资期限下限" direction="rtl" :options="termList" v-model="data.termLower"></selector>
+        <checklist label-position="left" :options="wayList" v-model="data.wayType"></checklist>
+        <radio :options="saveList" @on-change="saveTypeChange" v-model="data.saveType"></radio>
+        <x-input v-model="data.save" type="number" title="保留金额(元)" :is-type="positive" placeholder="请输入保留金额" :disabled="(data.saveType === '0')"></x-input>
+      </group>
+      <div class="pt20 center">
+        <check-icon :value.sync="data.agreement" type="plain">已阅读并同意《鱼猫金服自动投标协议》</check-icon>
+      </div>
+      <div class="pt20 ">
+        <div class="submit-box">
+          <x-button @click.native="autoCheck" type="primary" :disabled="!data.agreement">开启自动投标</x-button>
+        </div>
+      </div>
+    </div>
+    <div v-if="status">
+      <group>
+        <x-switch title="自动投标状态" v-model="data.autoType"></x-switch>
+      </group>
+      <group>
+        <cell title="单笔投资金额" value="10000.00"></cell>
+        <cell title="保留账户金额" value="10000.00"></cell>
+        <cell title="授权金额" value="10000.00"></cell>
+        <cell title="授权期限" value="2019年08月9日"></cell>
+      </group>
+      <group>
+        <cell title="年化收益" value="10%至15%"></cell>
+        <cell title="投资期限" value="1至5个月"></cell>
+        <cell title="年化收益" value="还本付息，到期还本"></cell>
+      </group>
+      <div class="pt20 ">
+        <div class="submit-box">
+          <x-button @click.native="status = false" type="primary">修改规则</x-button>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-  import { Group, Cell, XHeader, XInput, Selector, Datetime, Checklist, Radio, XButton } from 'vux'
+  import { Group, Cell, XHeader, XInput, Selector, Datetime, Checklist, Radio, XButton, CheckIcon, XSwitch } from 'vux'
 
   export default {
     name: 'Auto',
@@ -36,10 +62,13 @@
       Datetime,
       Checklist,
       Radio,
-      XButton
+      XButton,
+      CheckIcon,
+      XSwitch
     },
     data () {
       return {
+        status: true,
         data: {
           amount: null,
           save: '',
@@ -48,7 +77,9 @@
           termCeiling: '4',
           termLower: '6',
           wayType: [],
-          saveType: '0'
+          saveType: '0',
+          agreement: false,
+          autoType: false
         },
         earnsList: [
           {key: '8', value: '8%'},
@@ -91,6 +122,10 @@
         var self = this
         self.data.save = ''
         console.log('change', val, label)
+      },
+      autoCheck () {
+        var self = this
+        self.status = true
       }
     }
   }
