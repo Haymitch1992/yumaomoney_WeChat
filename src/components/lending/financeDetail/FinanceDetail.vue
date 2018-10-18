@@ -70,8 +70,8 @@
         <tab-item :selected="tab.tabType === 3" @on-item-click="tab.tabType = 3">出借记录</tab-item>
         <tab-item :selected="tab.tabType === 4" @on-item-click="tab.tabType = 4">风险控制</tab-item>
       </tab>
-      <div v-if="tab.tabType === 1">
-        <div class="p15">
+      <div class="p15">
+        <div v-if="tab.tabType === 1">
           <div class="title">产品介绍</div>
           <div>
             核心企业贷是由鱼猫金服推出的供应链金融借贷产品，鱼猫金服挑选资产优秀、商誉良好、背景雄厚的央企、国企、上市公司、新三板企业、
@@ -125,10 +125,146 @@
             <div>包括因政策变化、自然灾害、不可抗力、经济周期因素等产生的税收风险、管理风险、操作风险等。</div>
           </div>
         </div>
+        <div v-if="tab.tabType === 2">
+          <div>核心企业</div>
+          <div>上市公司 高新技术企业 ISO质量体系认证</div>
+          <div class="table-box">
+            <x-table full-bordered>
+              <tbody>
+              <tr>
+                <td style="width: 60px">企业名称</td>
+                <td>深圳*有限公司</td>
+              </tr>
+              <tr>
+                <td>注册资金</td>
+                <td>1亿港元</td>
+              </tr>
+              <tr>
+                <td>成立日期</td>
+                <td>2002-04-11</td>
+              </tr>
+              <tr>
+                <td>所属行业</td>
+                <td>制造业</td>
+              </tr>
+              <tr>
+                <td>总资产</td>
+                <td>9亿人民币</td>
+              </tr>
+              <tr>
+                <td>年营业</td>
+                <td>9.5亿人民币</td>
+              </tr>
+              <tr>
+                <td>公司简介</td>
+                <td class="more-text">
+                  上市公司体系内子公司，与世界多家著名企业保持着紧密的战略合作关系，主要包括：华为、海尔、格力、联想等企业，
+                  先后通IS09001、IS014000、TS16949等体系认证，获得索尼GP认证，是行业中享誉卓著的五金模具及五金零件生产商。
+                </td>
+              </tr>
+              <tr>
+                <td>经营范围</td>
+                <td class="more-text">
+                  1、电子商业汇票<br>2、真实贸易往来<br>3、上游供应商
+                </td>
+              </tr>
+              </tbody>
+            </x-table>
+          </div>
+          <div>借款人信息</div>
+          <div class="table-box">
+            <x-table full-bordered>
+              <tbody>
+              <tr>
+                <td style="width: 80px">企业名称</td>
+                <td>深圳*有限公司</td>
+              </tr>
+              <tr>
+                <td>注册资金</td>
+                <td>500万元</td>
+              </tr>
+              <tr>
+                <td>法定代表人</td>
+                <td>李*</td>
+              </tr>
+              <tr>
+                <td>经营期限</td>
+                <td>长期</td>
+              </tr>
+              <tr>
+                <td>成立日期</td>
+                <td>2007-07-04</td>
+              </tr>
+              <tr>
+                <td>所属行业</td>
+                <td>制造业</td>
+              </tr>
+              <tr>
+                <td>公司简介</td>
+                <td>产销：精密模具及配件；销售；特殊钢。</td>
+              </tr>
+              <tr>
+                <td>资产情况</td>
+                <td>306万元</td>
+              </tr>
+              <tr>
+                <td class="more-text">年收入及负债情况</td>
+                <td>243万元</td>
+              </tr>
+              <tr>
+                <td>资金运用情况</td>
+                <td>未发现实际资金用途与借款合同不符情况</td>
+              </tr>
+              <tr>
+                <td>经营状况</td>
+                <td>企业正常经营，财务状况良好</td>
+              </tr>
+              <tr>
+                <td>还款能力变化</td>
+                <td>无</td>
+              </tr>
+              <tr>
+                <td>资产负债情况</td>
+                <td class="more-text">该企业资产负债表中数据显示，资产为306万元，负债243万元</td>
+              </tr>
+              </tbody>
+            </x-table>
+          </div>
+          <div>信用历史</div>
+          <div class="table-box">
+            <x-table full-bordered>
+              <tbody>
+              <tr>
+                <td>在平台逾期次数</td>
+                <td style="width: 120px">0次</td>
+              </tr>
+              <tr>
+                <td>在平台逾期总金额</td>
+                <td>0.00元</td>
+              </tr>
+              <tr>
+                <td>在其他网络借款平台借款情况</td>
+                <td>无</td>
+              </tr>
+              <tr>
+                <td class="more-text">截至借款前6个月内借款人征信报告中的逾期情况</td>
+                <td>无逾期</td>
+              </tr>
+              <tr>
+                <td>涉诉情况</td>
+                <td>近期无未结被诉讼记录</td>
+              </tr>
+              <tr>
+                <td>受行政处罚情况</td>
+                <td>近期无受行政处罚记录</td>
+              </tr>
+              </tbody>
+            </x-table>
+          </div>
+        </div>
+        <div v-if="tab.tabType === 3">3</div>
+        <div v-if="tab.tabType === 4">4</div>
       </div>
-      <div v-if="tab.tabType === 2">2</div>
-      <div v-if="tab.tabType === 3">3</div>
-      <div v-if="tab.tabType === 4">4</div>
     </group>
     <div class="pt20">
       <div class="submit-box">
@@ -139,7 +275,7 @@
 </template>
 
 <script>
-  import { Group, Cell, XHeader, XButton, XProgress, Box, Flexbox, FlexboxItem, Flow, FlowState, FlowLine, Tab, TabItem } from 'vux'
+  import { Group, Cell, XHeader, XButton, XProgress, Box, Flexbox, FlexboxItem, Flow, FlowState, FlowLine, Tab, TabItem, XTable } from 'vux'
 
   export default {
     name: 'FinanceDetail',
@@ -156,7 +292,8 @@
       FlowState,
       FlowLine,
       Tab,
-      TabItem
+      TabItem,
+      XTable
     },
     data () {
       return {
