@@ -24,7 +24,7 @@
           </grid-item>
         </grid>
         <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in list" :key="item.key">
-          <panel :list="item.panel" :type="item.type" @on-img-error="onImgError"></panel>
+          <panel :list="item.panel" :type="item.type" @on-img-error="onImgError" @click.native="goto(item)"></panel>
           <x-progress :percent="item.progress" :show-cancel="false"></x-progress>
         </group>
       </div>
@@ -127,6 +127,7 @@
           .then(function (res) {
             _.each(res.data, function (v, k) {
               var item = {
+                data: v,
                 key: v.id,
                 type: '4',
                 progress: parseInt(v.progress),
@@ -134,7 +135,6 @@
                   {
                     title: v.borrowTitle,
                     desc: '融资额度:' + v.borrowAmount + ' 期限：' + v.deadline,
-                    url: '/lending/financeDetail?id=149',
                     meta: {
                       source: '年利率',
                       date: '7% + ' + (parseInt(v.annualRate) - 7) + '%',
@@ -149,6 +149,10 @@
           .catch(function (error) {
             console.log(error)
           })
+      },
+      goto (item) {
+        var self = this
+        self.$router.push({name: 'financeDetail', params: {data: item}})
       }
     },
     created () {

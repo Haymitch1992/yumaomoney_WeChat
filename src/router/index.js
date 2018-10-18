@@ -143,6 +143,7 @@ export default new Router({
         },
         {
           path: 'financeDetail',
+          name: 'financeDetail',
           component: FinanceDetail
         },
         {
