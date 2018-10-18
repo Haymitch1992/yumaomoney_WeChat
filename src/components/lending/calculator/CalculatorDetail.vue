@@ -1,44 +1,54 @@
 <template>
   <div>
-    <x-header>收益计算器</x-header>
-    <div class="vux-demo">
-      <img class="logo" src="../../../assets/images/logo.png">
-    </div>
-    <group title="cell demo">
-      <cell title="第一" value="cool" is-link></cell>
-      <cell title="第二" value="cool" is-link></cell>
-      <cell title="第三" value="cool" is-link></cell>
+    <x-header :left-options="leftOptions" @on-click-back="goBack()">收益计算器</x-header>
+    <group>
+      <cell title="计算结果"></cell>
+      <cell-form-preview :list="data.list"></cell-form-preview>
     </group>
   </div>
 </template>
 
 <script>
-  import { Group, Cell, XHeader } from 'vux'
+  import { Group, Cell, XHeader, CellFormPreview } from 'vux'
 
   export default {
     name: 'CalculatorDetail',
     components: {
       Group,
       Cell,
-      XHeader
+      XHeader,
+      CellFormPreview
     },
     data () {
       return {
-        // note: changing this line won't causes changes
-        // with hot-reload because the reloaded component
-        // preserves its current state and we are modifying
-        // its initial state.
-        msg: 'Hello World!'
+        leftOptions: {
+          preventGoBack: true
+        },
+        data: {}
       }
+    },
+    methods: {
+      goBack () {
+        var self = this
+        self.$router.push({
+          name: `calculator`,
+          params: {
+            data: self.data
+          }
+        })
+      },
+      getFrom () {
+        var self = this
+        self.data = self.$route.params.data
+      },
+      init () {
+        var self = this
+        self.getFrom()
+      }
+    },
+    created () {
+      var self = this
+      self.init()
     }
   }
 </script>
-
-<style>
-  .vux-demo {
-    text-align: center;
-  }
-  .logo {
-    width: 100px;
-  }
-</style>

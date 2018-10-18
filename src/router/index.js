@@ -157,6 +157,7 @@ export default new Router({
             },
             {
               path: 'calculatorDetail',
+              name: 'calculatorDetail',
               component: CalculatorDetail
             }
           ]

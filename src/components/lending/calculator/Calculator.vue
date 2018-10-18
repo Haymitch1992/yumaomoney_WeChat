@@ -7,18 +7,9 @@
       <selector title="年化收益" direction="rtl" :options="earnsList" v-model="data.earnsCeiling"></selector>
       <selector title="还款方式" direction="rtl" :options="wayList" v-model="data.way"></selector>
     </group>
-    <group>
-      <cell title="计算结果"></cell>
-      <cell-form-preview :list="list"></cell-form-preview>
-    </group>
     <div class="pt15">
       <div class="submit-box">
-        <x-button type="primary" @click.native="calculating">显示结果</x-button>
-      </div>
-    </div>
-    <div class="pt15">
-      <div class="submit-box">
-        <x-button type="primary" link="/lending/calculator/calculatorDetail">开始计算</x-button>
+        <x-button type="primary" @click.native="calculating">开始计算</x-button>
       </div>
     </div>
     <toast v-model="type.show" type="warn">{{type.msg}}</toast>
@@ -26,7 +17,7 @@
 </template>
 
 <script>
-  import { Group, Cell, XHeader, XButton, XInput, Selector, CellFormPreview, Toast } from 'vux'
+  import { Group, Cell, XHeader, XButton, XInput, Selector, Toast } from 'vux'
 
   export default {
     name: 'Calculator',
@@ -37,7 +28,6 @@
       XButton,
       XInput,
       Selector,
-      CellFormPreview,
       Toast
     },
     data () {
@@ -47,26 +37,26 @@
           term: '1',
           earnsCeiling: '10',
           way: '1',
-          interest: null
+          interest: null,
+          list: [
+            {
+              label: '本息合计:',
+              value: ''
+            },
+            {
+              label: '到期本金:',
+              value: ''
+            },
+            {
+              label: '净利息收入共:',
+              value: ''
+            }
+          ]
         },
         type: {
           show: false,
           msg: ''
         },
-        list: [
-          {
-            label: '本息合计:',
-            value: ''
-          },
-          {
-            label: '到期本金:',
-            value: ''
-          },
-          {
-            label: '净利息收入共:',
-            value: ''
-          }
-        ],
         earnsList: [
           {key: '8', value: '8%'},
           {key: '9', value: '9%'},
@@ -121,11 +111,30 @@
           return
         }
         self.data.interest = (self.data.cash * (self.data.earnsCeiling / 100) / 12).toFixed(2) * self.data.term
-        self.list[0].value = Math.floor(self.data.cash) + self.data.interest + '元'
-        self.list[1].value = Math.floor(self.data.cash) + '元'
-        self.list[2].value = self.data.interest + '元'
-        console.log('123')
+        self.data.list[0].value = Math.floor(self.data.cash) + self.data.interest + '元'
+        self.data.list[1].value = Math.floor(self.data.cash) + '元'
+        self.data.list[2].value = self.data.interest + '元'
+        this.$router.push({
+          name: `calculatorDetail`,
+          params: {
+            data: self.data
+          }
+        })
+      },
+      getFrom () {
+        var self = this
+        if (self.$route.params && self.$route.params.data) {
+          self.data = self.$route.params.data
+        }
+      },
+      init () {
+        var self = this
+        self.getFrom()
       }
+    },
+    created () {
+      var self = this
+      self.init()
     }
   }
 </script>
