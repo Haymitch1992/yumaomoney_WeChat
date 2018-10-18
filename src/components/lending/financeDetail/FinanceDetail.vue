@@ -365,7 +365,8 @@
           </div>
         </div>
     </group>
-    <div class="pt20">
+    <div class="fixBox"></div>
+    <div class="fixBottom">
       <div class="submit-box">
         <x-button type="primary" link="/lending/confirmInvestment">立即投资</x-button>
       </div>
@@ -437,5 +438,13 @@
   }
   .finance .content {
     padding-bottom: 5px;
+  }
+  .finance .fixBox {
+    height: 70px;
+  }
+  .finance .fixBottom {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
   }
 </style>
