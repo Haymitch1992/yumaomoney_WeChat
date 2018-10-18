@@ -37,6 +37,11 @@
           '2018': [
             {
               title: '查看详情',
+              img: require('@/assets/images/operationReport/yybg-2018-09.png'),
+              link: 'https://www.yumaomoney.com/activity/report/img/report_n9/yybg-2018-09-detail.png'
+            },
+            {
+              title: '查看详情',
               img: require('@/assets/images/operationReport/yybg-2018-08.png'),
               link: 'https://www.yumaomoney.com/activity/report/img/report_n8/yybg-2018-08-detail.png'
             },
