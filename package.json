@@ -23,6 +23,7 @@
     "qs": "^6.5.2",
     "vue": "^2.5.2",
     "vue-clipboard2": "^0.2.1",
+    "vue-cookies": "^1.5.7",
     "vue-fullpage": "^2.0.5",
     "vue-router": "^3.0.1",
     "vuex": "^2.1.1",

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header :left-options="leftOptions" @on-click-back="goBack()">收益计算器</x-header>
+    <x-header>收益计算器</x-header>
     <group>
       <cell title="计算结果"></cell>
       <cell-form-preview :list="data.list"></cell-form-preview>
@@ -32,14 +32,11 @@
     },
     data () {
       return {
-        leftOptions: {
-          preventGoBack: true
-        },
         incomeData: [
-          { year: '银行活期', sales: 0.3 },
-          { year: '银行定期', sales: 1.5 },
-          { year: '货币基金', sales: 5 },
-          { year: '鱼猫金服', sales: 12 }
+          { name: '银行活期', 年利率: 0.3 },
+          { name: '银行定期', 年利率: 1.5 },
+          { name: '货币基金', 年利率: 5 },
+          { name: '鱼猫金服', 年利率: 12 }
         ],
         data: {
           list: [
@@ -60,18 +57,10 @@
       }
     },
     methods: {
-      goBack () {
-        var self = this
-        self.$router.push({
-          name: `calculator`,
-          params: {
-            data: self.data
-          }
-        })
-      },
       getFrom () {
         var self = this
         self.data = self.$route.params.data
+        self.$cookies.set('calculatorData', self.data, '1d')
         self.incomeData[3].sales = self.data.earnsCeiling
       },
       init () {

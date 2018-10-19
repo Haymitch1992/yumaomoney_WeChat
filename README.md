@@ -51,5 +51,6 @@ npm test
 * [vux cell title 插槽使用](https://segmentfault.com/q/1010000014234606/a-1020000014653614)
 * vux cell title插槽可添加样式并使得超长文字隐藏。demo在：Message.vue
 * [复制至剪贴板插件](https://www.cnblogs.com/wyhlightstar/p/8950430.html)
+* [vue-cookies](https://www.cnblogs.com/s313139232/p/9341762.html)
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

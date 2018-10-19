@@ -7,8 +7,10 @@ import router from './router/index'
 import 'vue-fullpage/vue-fullpage.css'
 import VueFullpage from 'vue-fullpage'
 import VueClipboard from 'vue-clipboard2'
+import VueCookies from 'vue-cookies'
 Vue.use(VueFullpage)
 Vue.use(VueClipboard)
+Vue.use(VueCookies)
 
 FastClick.attach(document.body)
 

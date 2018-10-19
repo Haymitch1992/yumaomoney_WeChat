@@ -123,8 +123,9 @@
       },
       getFrom () {
         var self = this
-        if (self.$route.params && self.$route.params.data) {
-          self.data = self.$route.params.data
+        if (self.$cookies.get('calculatorData')) {
+          self.data = self.$cookies.get('calculatorData')
+          self.$cookies.remove('calculatorData')
         }
       },
       init () {

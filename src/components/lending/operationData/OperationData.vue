@@ -196,10 +196,10 @@
           { date: '2018-08', value: 595919000 }
         ],
         incomeData: [
-          { year: '银行活期', sales: 0.3 },
-          { year: '银行定期', sales: 1.5 },
-          { year: '货币基金', sales: 5 },
-          { year: '鱼猫金服', sales: 12 }
+          { name: '银行活期', 年利率: 0.3 },
+          { name: '银行定期', 年利率: 1.5 },
+          { name: '货币基金', 年利率: 5 },
+          { name: '鱼猫金服', 年利率: 12 }
         ],
         yOptions: {
           formatter (val) {
