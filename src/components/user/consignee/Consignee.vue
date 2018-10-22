@@ -197,4 +197,7 @@
     transform: scaleY(0.5);
     left: 15px;
   }
+  .mobileSelect .content {
+    text-indent: 0em;
+  }
 </style>
