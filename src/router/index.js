@@ -334,10 +334,12 @@ export default new Router({
                 },
                 {
                   path: 'consignee',
+                  name: 'consignee',
                   component: Consignee
                 },
                 {
                   path: 'consigneeEdit',
+                  name: 'consigneeEdit',
                   component: ConsigneeEdit
                 }
               ]
