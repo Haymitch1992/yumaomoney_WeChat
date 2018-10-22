@@ -5,7 +5,7 @@
       <x-input v-model="data.uName" type="text" :min="1" title="姓名" placeholder="请输入收货人姓名"></x-input>
       <x-input mask="9999 999 9999" :max="13" v-model="data.phone" keyboard="number" title="手机号码" placeholder="请输入手机号码"></x-input>
       <x-input v-model="data.postcode" :min="6" :max="6" type="number" title="邮政编码" placeholder="请输入邮政编码"></x-input>
-      <div id="address">单项选择</div>
+      <div id="address">所在区域</div>
       <x-input v-model="data.detail" type="text" :min="1" title="详细地址" placeholder="街道、楼牌号等详细地址"></x-input>
     </group>
     <div class="p15">
