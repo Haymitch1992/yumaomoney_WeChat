@@ -13,7 +13,7 @@
     </group>
     <div class="pt20 ">
       <div class="submit-box">
-        <x-button @click.native="save" type="primary" :disabled="data.disabled">修改登录密码</x-button>
+        <x-button @click.native="save" type="primary" :disabled="data.disabled">修改交易密码</x-button>
       </div>
     </div>
     <toast v-model="data.toastSame" type="warn" :time="1000" is-show-mask text="新密码与原密码不能相同" position="middle"></toast>
