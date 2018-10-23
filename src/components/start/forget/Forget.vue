@@ -70,8 +70,15 @@
         }
       },
       time () {
+        var self = this
         setTimeout(function () {
-          console.log('1')
+          if (self.data.time === 1) {
+            self.data.time = ''
+            self.data.sendCodeType = false
+          } else if (self.data.time > 1) {
+            self.data.time--
+            self.time()
+          }
         }, 1000)
       }
     }
