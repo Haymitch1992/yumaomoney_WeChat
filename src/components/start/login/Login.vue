@@ -6,7 +6,6 @@
     </div>
     <group title="cell demo">
       <cell title="首页" value="cool" is-link link="/lending"></cell>
-      <cell title="手势密码登录" value="cool" is-link link="/start/guide"></cell>
       <cell title="忘记密码" value="cool" is-link link="/start/forget"></cell>
       <cell title="注册页" value="cool" is-link link="/start/registered"></cell>
     </group>
