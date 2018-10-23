@@ -127,6 +127,7 @@ export default new Router({
             },
             {
               path: 'reset',
+              name: 'reset',
               component: Reset
             }
           ]

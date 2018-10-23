@@ -3,13 +3,13 @@
     <x-header>修改登录密码</x-header>
     <group>
       <x-input v-model="data.code" :min="8" :max="16" type="password" title="原密码 " placeholder="请输入原密码"
-               ref="refcode" @on-change="keyDown('refcode')" required></x-input>
+               ref="refcode" @on-change="keyDown()" required></x-input>
     </group>
     <group>
       <x-input v-model="data.newCode" :min="8" :max="16" type="password" title="新密码 "
-               :is-type="positive" ref="refnewCode" @on-change="keyDown('refnewCode')" placeholder="含字母和数字8-16位字符" required></x-input>
+               :is-type="positive" ref="refnewCode" @on-change="keyDown()" placeholder="含字母和数字8-16位字符" required></x-input>
       <x-input v-model="data.newCodeBak" :min="8" :max="16" type="password" title="确认密码"
-               :is-type="positive" ref="refnewCodeBak" @on-change="keyDown('refnewCodeBak')" placeholder="含字母和数字8-16位字符" required></x-input>
+               :is-type="positive" ref="refnewCodeBak" @on-change="keyDown()" placeholder="含字母和数字8-16位字符" required></x-input>
     </group>
     <div class="pt20 ">
       <div class="submit-box">
