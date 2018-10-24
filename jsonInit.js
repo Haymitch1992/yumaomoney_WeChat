@@ -14036,7 +14036,7 @@ var obj = [{
   "regionName": "澳门特别行政区"
 }]
 _.each(obj,function (v,k) {
-  if(v.pcode === '419000'){
+  if(v.pcode === '429000'){
     v['"id"'] = v.regionCode
     v['"title"'] = v.regionName
     // v['"children"'] = []
