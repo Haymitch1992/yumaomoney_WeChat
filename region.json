@@ -2,7 +2,7 @@
   {
     "id": "110000",
     "title": "北京",
-    "children":[
+    "children": [
       {
         "id": "110100",
         "title": "北京市",
@@ -30,7 +30,7 @@
   {
     "id": "120000",
     "title": "天津",
-    "children":[
+    "children": [
       {
         "id": "120100",
         "title": "天津市",
@@ -106,7 +106,7 @@
   {
     "id": "130000",
     "title": "河北省",
-    "children":[
+    "children": [
       {
         "id": "130100",
         "title": "石家庄市",
@@ -904,7 +904,7 @@
   {
     "id": "140000",
     "title": "山西省",
-    "children":[
+    "children": [
       {
         "id": "140100",
         "title": "太原市",
@@ -1496,7 +1496,7 @@
   {
     "id": "150000",
     "title": "内蒙古自治区",
-    "children":[
+    "children": [
       {
         "id": "150100",
         "title": "呼和浩特市",
@@ -2022,7 +2022,7 @@
   {
     "id": "210000",
     "title": "辽宁省",
-    "children":[
+    "children": [
       {
         "id": "210100",
         "title": "沈阳市",
@@ -2568,141 +2568,197 @@
   {
     "id": "220000",
     "title": "吉林省",
-    "children":[]
+    "children": [
+
+    ]
   },
   {
     "id": "230000",
     "title": "黑龙江省"
-  , "children":[]
+  , "children": [
+
+  ]
   },
   {
     "id": "310000",
     "title": "上海市",
-    "children":[]
+    "children": [
+
+    ]
   },
   {
     "id": "320000",
     "title": "江苏省",
-    "children":[]
+    "children": [
+
+    ]
   },
   {
     "id": "330000",
     "title": "浙江省",
-    "children":[]
+    "children": [
+
+    ]
   },
   {
     "id": "340000",
     "title": "安徽省",
-    "children":[]
+    "children": [
+
+    ]
   },
   {
     "id": "350000",
     "title": "福建省",
-    "children":[]
+    "children": [
+
+    ]
   },
   {
     "id": "360000",
     "title": "江西省",
-    "children":[]
+    "children": [
+
+    ]
   },
   {
     "id": "370000",
     "title": "山东省",
-    "children":[]
+    "children": [
+
+    ]
   },
   {
     "id": "410000",
     "title": "河南省",
-    "children":[]
+    "children": [
+
+    ]
   },
   {
     "id": "420000",
     "title": "湖北省",
-    "children":[]
+    "children": [
+
+    ]
   },
   {
     "id": "430000",
     "title": "湖南省",
-    "children":[]
+    "children": [
+
+    ]
   },
   {
     "id": "440000",
     "title": "广东省",
-    "children":[]
+    "children": [
+
+    ]
   },
   {
     "id": "450000",
     "title": "广西壮族自治区",
-    "children":[]
+    "children": [
+
+    ]
   },
   {
     "id": "460000",
     "title": "海南省",
-    "children":[]
+    "children": [
+
+    ]
   },
   {
     "id": "500000",
     "title": "重庆市",
-    "children":[]
+    "children": [
+
+    ]
   },
   {
     "id": "510000",
     "title": "四川省",
-    "children":[]
+    "children": [
+
+    ]
   },
   {
     "id": "520000",
     "title": "贵州省",
-    "children":[]
+    "children": [
+
+    ]
   },
   {
     "id": "530000",
     "title": "云南省",
-    "children":[]
+    "children": [
+
+    ]
   },
   {
     "id": "540000",
     "title": "西藏自治区",
-    "children":[]
+    "children": [
+
+    ]
   },
   {
     "id": "610000",
     "title": "陕西省",
-    "children":[]
+    "children": [
+
+    ]
   },
   {
     "id": "620000",
     "title": "甘肃省",
-    "children":[]
+    "children": [
+
+    ]
   },
   {
     "id": "630000",
     "title": "青海省",
-    "children":[]
+    "children": [
+
+    ]
   },
   {
     "id": "640000",
     "title": "宁夏回族自治区",
-    "children":[]
+    "children": [
+
+    ]
   },
   {
     "id": "650000",
     "title": "新疆维吾尔自治区",
-    "children":[]
+    "children": [
+
+    ]
   },
   {
     "id": "710000",
     "title": "台湾省",
-    "children":[]
+    "children": [
+
+    ]
   },
   {
     "id": "810000",
     "title": "香港特别行政区",
-    "children":[]
+    "children": [
+
+    ]
   },
   {
     "id": "820000",
     "title": "澳门特别行政区",
-    "children":[]
+    "children": [
+
+    ]
   }
 ]
