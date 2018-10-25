@@ -34,6 +34,7 @@
         data: {
           disabled: true,
           phone: '',
+          phoneBak: '',
           code: '',
           toastMsg: false,
           toastRegMsg: false
@@ -49,6 +50,7 @@
         } else if (!reg.test(self.data.phone)) {
           self.data.toastRegMsg = true
         } else {
+          self.data.phoneBak = self.data.phone.replace(/(\d{3})\d{4}(\d{4})/, '$1****$2')
           self.$router.push({name: 'registeredDetail', params: {data: self.data}})
         }
       },
