@@ -38,6 +38,7 @@
     data () {
       return {
         data: {
+          addressData: this.GLOBAL.getAddressJson,
           uName: '大树',
           phone: '1803261849',
           postcode: '100022',
