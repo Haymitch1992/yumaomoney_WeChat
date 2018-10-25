@@ -113,6 +113,7 @@ export default new Router({
             },
             {
               path: 'registeredDetail',
+              name: 'registeredDetail',
               component: RegisteredDetail
             }
           ]
