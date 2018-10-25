@@ -54,5 +54,7 @@ npm test
 * [vue-cookies](https://www.cnblogs.com/s313139232/p/9341762.html)
 * [级联选择器](https://blog.csdn.net/oulihong123/article/details/58327247/)
 * [输入框验证](https://blog.csdn.net/honnyee/article/details/80691445)
+* [声明公共方法](https://blog.csdn.net/sinat_17775997/article/details/78341907?locationNum=9&fps=1)
+* [声明公共变量](https://www.jianshu.com/p/7547ff8760c3)
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
