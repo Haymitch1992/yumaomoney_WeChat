@@ -49,7 +49,7 @@
         } else if (!reg.test(self.data.phone)) {
           self.data.toastRegMsg = true
         } else {
-          self.$router.push({name: 'registeredDetail'})
+          self.$router.push({name: 'registeredDetail', params: {data: self.data}})
         }
       },
       keyDown () {

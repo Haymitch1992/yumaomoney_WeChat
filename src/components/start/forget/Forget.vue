@@ -2,7 +2,7 @@
   <div>
     <x-header>忘记密码</x-header>
     <group>
-      <x-input mask="9999 999 9999" :max="13" v-model="data.phone" keyboard="number" title="手机号"
+      <x-input :max="11" v-model="data.phone" keyboard="number" title="手机号"
                ref="refPhone" @on-change="keyDown()" laceholder="请输入手机号码"></x-input>
       <x-input v-model="data.code" :min="4" :max="4" type="text" title="验证码" ref="refCode"
                @on-change="keyDown()" placeholder="请输入验证码" required>
