@@ -2,14047 +2,17280 @@
  * Created by gaotianyang on 2018/10/23.
  */
 var _ = require('lodash')
-var obj = [{
-  "regionCode": "110000",
+var obj = [
+  {
+  "id": "110000",
   "pcode": "",
-  "regionName": "北京市"
+  "name": "北京市"
 }, {
-  "regionCode": "110100",
+  "id": "110100",
   "pcode": "110000",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "110101",
+  "id": "110101",
   "pcode": "110100",
-  "regionName": "东城区"
+  "name": "东城区"
 }, {
-  "regionCode": "110102",
+  "id": "110102",
   "pcode": "110100",
-  "regionName": "西城区"
+  "name": "西城区"
 }, {
-  "regionCode": "110105",
+  "id": "110105",
   "pcode": "110100",
-  "regionName": "朝阳区"
+  "name": "朝阳区"
 }, {
-  "regionCode": "110106",
+  "id": "110106",
   "pcode": "110100",
-  "regionName": "丰台区"
+  "name": "丰台区"
 }, {
-  "regionCode": "110107",
+  "id": "110107",
   "pcode": "110100",
-  "regionName": "石景山区"
+  "name": "石景山区"
 }, {
-  "regionCode": "110108",
+  "id": "110108",
   "pcode": "110100",
-  "regionName": "海淀区"
+  "name": "海淀区"
 }, {
-  "regionCode": "110109",
+  "id": "110109",
   "pcode": "110100",
-  "regionName": "门头沟区"
+  "name": "门头沟区"
 }, {
-  "regionCode": "110111",
+  "id": "110111",
   "pcode": "110100",
-  "regionName": "房山区"
+  "name": "房山区"
 }, {
-  "regionCode": "110112",
+  "id": "110112",
   "pcode": "110100",
-  "regionName": "通州区"
+  "name": "通州区"
 }, {
-  "regionCode": "110113",
+  "id": "110113",
   "pcode": "110100",
-  "regionName": "顺义区"
+  "name": "顺义区"
 }, {
-  "regionCode": "110114",
+  "id": "110114",
   "pcode": "110100",
-  "regionName": "昌平区"
+  "name": "昌平区"
 }, {
-  "regionCode": "110115",
+  "id": "110115",
   "pcode": "110100",
-  "regionName": "大兴区"
+  "name": "大兴区"
 }, {
-  "regionCode": "110116",
+  "id": "110116",
   "pcode": "110100",
-  "regionName": "怀柔区"
+  "name": "怀柔区"
 }, {
-  "regionCode": "110117",
+  "id": "110117",
   "pcode": "110100",
-  "regionName": "平谷区"
+  "name": "平谷区"
 }, {
-  "regionCode": "110118",
+  "id": "110118",
   "pcode": "110100",
-  "regionName": "密云区"
+  "name": "密云区"
 }, {
-  "regionCode": "110119",
+  "id": "110119",
   "pcode": "110100",
-  "regionName": "延庆区"
+  "name": "延庆区"
 }, {
-  "regionCode": "120000",
+  "id": "120000",
   "pcode": "",
-  "regionName": "天津市"
+  "name": "天津市"
 }, {
-  "regionCode": "120100",
+  "id": "120100",
   "pcode": "120000",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "120101",
+  "id": "120101",
   "pcode": "120100",
-  "regionName": "和平区"
+  "name": "和平区"
 }, {
-  "regionCode": "120102",
+  "id": "120102",
   "pcode": "120100",
-  "regionName": "河东区"
+  "name": "河东区"
 }, {
-  "regionCode": "120103",
+  "id": "120103",
   "pcode": "120100",
-  "regionName": "河西区"
+  "name": "河西区"
 }, {
-  "regionCode": "120104",
+  "id": "120104",
   "pcode": "120100",
-  "regionName": "南开区"
+  "name": "南开区"
 }, {
-  "regionCode": "120105",
+  "id": "120105",
   "pcode": "120100",
-  "regionName": "河北区"
+  "name": "河北区"
 }, {
-  "regionCode": "120106",
+  "id": "120106",
   "pcode": "120100",
-  "regionName": "红桥区"
+  "name": "红桥区"
 }, {
-  "regionCode": "120110",
+  "id": "120110",
   "pcode": "120100",
-  "regionName": "东丽区"
+  "name": "东丽区"
 }, {
-  "regionCode": "120111",
+  "id": "120111",
   "pcode": "120100",
-  "regionName": "西青区"
+  "name": "西青区"
 }, {
-  "regionCode": "120112",
+  "id": "120112",
   "pcode": "120100",
-  "regionName": "津南区"
+  "name": "津南区"
 }, {
-  "regionCode": "120113",
+  "id": "120113",
   "pcode": "120100",
-  "regionName": "北辰区"
+  "name": "北辰区"
 }, {
-  "regionCode": "120114",
+  "id": "120114",
   "pcode": "120100",
-  "regionName": "武清区"
+  "name": "武清区"
 }, {
-  "regionCode": "120115",
+  "id": "120115",
   "pcode": "120100",
-  "regionName": "宝坻区"
+  "name": "宝坻区"
 }, {
-  "regionCode": "120116",
+  "id": "120116",
   "pcode": "120100",
-  "regionName": "滨海新区"
+  "name": "滨海新区"
 }, {
-  "regionCode": "120117",
+  "id": "120117",
   "pcode": "120100",
-  "regionName": "宁河区"
+  "name": "宁河区"
 }, {
-  "regionCode": "120118",
+  "id": "120118",
   "pcode": "120100",
-  "regionName": "静海区"
+  "name": "静海区"
 }, {
-  "regionCode": "120119",
+  "id": "120119",
   "pcode": "120100",
-  "regionName": "蓟州区"
+  "name": "蓟州区"
 }, {
-  "regionCode": "130000",
+  "id": "130000",
   "pcode": "",
-  "regionName": "河北省"
+  "name": "河北省"
 }, {
-  "regionCode": "130100",
+  "id": "130100",
   "pcode": "130000",
-  "regionName": "石家庄市"
+  "name": "石家庄市"
 }, {
-  "regionCode": "130101",
+  "id": "130101",
   "pcode": "130100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "130102",
+  "id": "130102",
   "pcode": "130100",
-  "regionName": "长安区"
+  "name": "长安区"
 }, {
-  "regionCode": "130104",
+  "id": "130104",
   "pcode": "130100",
-  "regionName": "桥西区"
+  "name": "桥西区"
 }, {
-  "regionCode": "130105",
+  "id": "130105",
   "pcode": "130100",
-  "regionName": "新华区"
+  "name": "新华区"
 }, {
-  "regionCode": "130107",
+  "id": "130107",
   "pcode": "130100",
-  "regionName": "井陉矿区"
+  "name": "井陉矿区"
 }, {
-  "regionCode": "130108",
+  "id": "130108",
   "pcode": "130100",
-  "regionName": "裕华区"
+  "name": "裕华区"
 }, {
-  "regionCode": "130109",
+  "id": "130109",
   "pcode": "130100",
-  "regionName": "藁城区"
+  "name": "藁城区"
 }, {
-  "regionCode": "130110",
+  "id": "130110",
   "pcode": "130100",
-  "regionName": "鹿泉区"
+  "name": "鹿泉区"
 }, {
-  "regionCode": "130111",
+  "id": "130111",
   "pcode": "130100",
-  "regionName": "栾城区"
+  "name": "栾城区"
 }, {
-  "regionCode": "130121",
+  "id": "130121",
   "pcode": "130100",
-  "regionName": "井陉县"
+  "name": "井陉县"
 }, {
-  "regionCode": "130123",
+  "id": "130123",
   "pcode": "130100",
-  "regionName": "正定县"
+  "name": "正定县"
 }, {
-  "regionCode": "130125",
+  "id": "130125",
   "pcode": "130100",
-  "regionName": "行唐县"
+  "name": "行唐县"
 }, {
-  "regionCode": "130126",
+  "id": "130126",
   "pcode": "130100",
-  "regionName": "灵寿县"
+  "name": "灵寿县"
 }, {
-  "regionCode": "130127",
+  "id": "130127",
   "pcode": "130100",
-  "regionName": "高邑县"
+  "name": "高邑县"
 }, {
-  "regionCode": "130128",
+  "id": "130128",
   "pcode": "130100",
-  "regionName": "深泽县"
+  "name": "深泽县"
 }, {
-  "regionCode": "130129",
+  "id": "130129",
   "pcode": "130100",
-  "regionName": "赞皇县"
+  "name": "赞皇县"
 }, {
-  "regionCode": "130130",
+  "id": "130130",
   "pcode": "130100",
-  "regionName": "无极县"
+  "name": "无极县"
 }, {
-  "regionCode": "130131",
+  "id": "130131",
   "pcode": "130100",
-  "regionName": "平山县"
+  "name": "平山县"
 }, {
-  "regionCode": "130132",
+  "id": "130132",
   "pcode": "130100",
-  "regionName": "元氏县"
+  "name": "元氏县"
 }, {
-  "regionCode": "130133",
+  "id": "130133",
   "pcode": "130100",
-  "regionName": "赵县"
+  "name": "赵县"
 }, {
-  "regionCode": "130183",
+  "id": "130183",
   "pcode": "130100",
-  "regionName": "晋州市"
+  "name": "晋州市"
 }, {
-  "regionCode": "130184",
+  "id": "130184",
   "pcode": "130100",
-  "regionName": "新乐市"
+  "name": "新乐市"
 }, {
-  "regionCode": "130200",
+  "id": "130200",
   "pcode": "130000",
-  "regionName": "唐山市"
+  "name": "唐山市"
 }, {
-  "regionCode": "130201",
+  "id": "130201",
   "pcode": "130200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "130202",
+  "id": "130202",
   "pcode": "130200",
-  "regionName": "路南区"
+  "name": "路南区"
 }, {
-  "regionCode": "130203",
+  "id": "130203",
   "pcode": "130200",
-  "regionName": "路北区"
+  "name": "路北区"
 }, {
-  "regionCode": "130204",
+  "id": "130204",
   "pcode": "130200",
-  "regionName": "古冶区"
+  "name": "古冶区"
 }, {
-  "regionCode": "130205",
+  "id": "130205",
   "pcode": "130200",
-  "regionName": "开平区"
+  "name": "开平区"
 }, {
-  "regionCode": "130207",
+  "id": "130207",
   "pcode": "130200",
-  "regionName": "丰南区"
+  "name": "丰南区"
 }, {
-  "regionCode": "130208",
+  "id": "130208",
   "pcode": "130200",
-  "regionName": "丰润区"
+  "name": "丰润区"
 }, {
-  "regionCode": "130209",
+  "id": "130209",
   "pcode": "130200",
-  "regionName": "曹妃甸区"
+  "name": "曹妃甸区"
 }, {
-  "regionCode": "130223",
+  "id": "130223",
   "pcode": "130200",
-  "regionName": "滦县"
+  "name": "滦县"
 }, {
-  "regionCode": "130224",
+  "id": "130224",
   "pcode": "130200",
-  "regionName": "滦南县"
+  "name": "滦南县"
 }, {
-  "regionCode": "130225",
+  "id": "130225",
   "pcode": "130200",
-  "regionName": "乐亭县"
+  "name": "乐亭县"
 }, {
-  "regionCode": "130227",
+  "id": "130227",
   "pcode": "130200",
-  "regionName": "迁西县"
+  "name": "迁西县"
 }, {
-  "regionCode": "130229",
+  "id": "130229",
   "pcode": "130200",
-  "regionName": "玉田县"
+  "name": "玉田县"
 }, {
-  "regionCode": "130281",
+  "id": "130281",
   "pcode": "130200",
-  "regionName": "遵化市"
+  "name": "遵化市"
 }, {
-  "regionCode": "130283",
+  "id": "130283",
   "pcode": "130200",
-  "regionName": "迁安市"
+  "name": "迁安市"
 }, {
-  "regionCode": "130300",
+  "id": "130300",
   "pcode": "130000",
-  "regionName": "秦皇岛市"
+  "name": "秦皇岛市"
 }, {
-  "regionCode": "130301",
+  "id": "130301",
   "pcode": "130300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "130302",
+  "id": "130302",
   "pcode": "130300",
-  "regionName": "海港区"
+  "name": "海港区"
 }, {
-  "regionCode": "130303",
+  "id": "130303",
   "pcode": "130300",
-  "regionName": "山海关区"
+  "name": "山海关区"
 }, {
-  "regionCode": "130304",
+  "id": "130304",
   "pcode": "130300",
-  "regionName": "北戴河区"
+  "name": "北戴河区"
 }, {
-  "regionCode": "130306",
+  "id": "130306",
   "pcode": "130300",
-  "regionName": "抚宁区"
+  "name": "抚宁区"
 }, {
-  "regionCode": "130321",
+  "id": "130321",
   "pcode": "130300",
-  "regionName": "青龙满族自治县"
+  "name": "青龙满族自治县"
 }, {
-  "regionCode": "130322",
+  "id": "130322",
   "pcode": "130300",
-  "regionName": "昌黎县"
+  "name": "昌黎县"
 }, {
-  "regionCode": "130324",
+  "id": "130324",
   "pcode": "130300",
-  "regionName": "卢龙县"
+  "name": "卢龙县"
 }, {
-  "regionCode": "130400",
+  "id": "130400",
   "pcode": "130000",
-  "regionName": "邯郸市"
+  "name": "邯郸市"
 }, {
-  "regionCode": "130401",
+  "id": "130401",
   "pcode": "130400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "130402",
+  "id": "130402",
   "pcode": "130400",
-  "regionName": "邯山区"
+  "name": "邯山区"
 }, {
-  "regionCode": "130403",
+  "id": "130403",
   "pcode": "130400",
-  "regionName": "丛台区"
+  "name": "丛台区"
 }, {
-  "regionCode": "130404",
+  "id": "130404",
   "pcode": "130400",
-  "regionName": "复兴区"
+  "name": "复兴区"
 }, {
-  "regionCode": "130406",
+  "id": "130406",
   "pcode": "130400",
-  "regionName": "峰峰矿区"
+  "name": "峰峰矿区"
 }, {
-  "regionCode": "130421",
+  "id": "130421",
   "pcode": "130400",
-  "regionName": "邯郸县"
+  "name": "邯郸县"
 }, {
-  "regionCode": "130423",
+  "id": "130423",
   "pcode": "130400",
-  "regionName": "临漳县"
+  "name": "临漳县"
 }, {
-  "regionCode": "130424",
+  "id": "130424",
   "pcode": "130400",
-  "regionName": "成安县"
+  "name": "成安县"
 }, {
-  "regionCode": "130425",
+  "id": "130425",
   "pcode": "130400",
-  "regionName": "大名县"
+  "name": "大名县"
 }, {
-  "regionCode": "130426",
+  "id": "130426",
   "pcode": "130400",
-  "regionName": "涉县"
+  "name": "涉县"
 }, {
-  "regionCode": "130427",
+  "id": "130427",
   "pcode": "130400",
-  "regionName": "磁县"
+  "name": "磁县"
 }, {
-  "regionCode": "130428",
+  "id": "130428",
   "pcode": "130400",
-  "regionName": "肥乡县"
+  "name": "肥乡县"
 }, {
-  "regionCode": "130429",
+  "id": "130429",
   "pcode": "130400",
-  "regionName": "永年县"
+  "name": "永年县"
 }, {
-  "regionCode": "130430",
+  "id": "130430",
   "pcode": "130400",
-  "regionName": "邱县"
+  "name": "邱县"
 }, {
-  "regionCode": "130431",
+  "id": "130431",
   "pcode": "130400",
-  "regionName": "鸡泽县"
+  "name": "鸡泽县"
 }, {
-  "regionCode": "130432",
+  "id": "130432",
   "pcode": "130400",
-  "regionName": "广平县"
+  "name": "广平县"
 }, {
-  "regionCode": "130433",
+  "id": "130433",
   "pcode": "130400",
-  "regionName": "馆陶县"
+  "name": "馆陶县"
 }, {
-  "regionCode": "130434",
+  "id": "130434",
   "pcode": "130400",
-  "regionName": "魏县"
+  "name": "魏县"
 }, {
-  "regionCode": "130435",
+  "id": "130435",
   "pcode": "130400",
-  "regionName": "曲周县"
+  "name": "曲周县"
 }, {
-  "regionCode": "130481",
+  "id": "130481",
   "pcode": "130400",
-  "regionName": "武安市"
+  "name": "武安市"
 }, {
-  "regionCode": "130500",
+  "id": "130500",
   "pcode": "130000",
-  "regionName": "邢台市"
+  "name": "邢台市"
 }, {
-  "regionCode": "130501",
+  "id": "130501",
   "pcode": "130500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "130502",
+  "id": "130502",
   "pcode": "130500",
-  "regionName": "桥东区"
+  "name": "桥东区"
 }, {
-  "regionCode": "130503",
+  "id": "130503",
   "pcode": "130500",
-  "regionName": "桥西区"
+  "name": "桥西区"
 }, {
-  "regionCode": "130521",
+  "id": "130521",
   "pcode": "130500",
-  "regionName": "邢台县"
+  "name": "邢台县"
 }, {
-  "regionCode": "130522",
+  "id": "130522",
   "pcode": "130500",
-  "regionName": "临城县"
+  "name": "临城县"
 }, {
-  "regionCode": "130523",
+  "id": "130523",
   "pcode": "130500",
-  "regionName": "内丘县"
+  "name": "内丘县"
 }, {
-  "regionCode": "130524",
+  "id": "130524",
   "pcode": "130500",
-  "regionName": "柏乡县"
+  "name": "柏乡县"
 }, {
-  "regionCode": "130525",
+  "id": "130525",
   "pcode": "130500",
-  "regionName": "隆尧县"
+  "name": "隆尧县"
 }, {
-  "regionCode": "130526",
+  "id": "130526",
   "pcode": "130500",
-  "regionName": "任县"
+  "name": "任县"
 }, {
-  "regionCode": "130527",
+  "id": "130527",
   "pcode": "130500",
-  "regionName": "南和县"
+  "name": "南和县"
 }, {
-  "regionCode": "130528",
+  "id": "130528",
   "pcode": "130500",
-  "regionName": "宁晋县"
+  "name": "宁晋县"
 }, {
-  "regionCode": "130529",
+  "id": "130529",
   "pcode": "130500",
-  "regionName": "巨鹿县"
+  "name": "巨鹿县"
 }, {
-  "regionCode": "130530",
+  "id": "130530",
   "pcode": "130500",
-  "regionName": "新河县"
+  "name": "新河县"
 }, {
-  "regionCode": "130531",
+  "id": "130531",
   "pcode": "130500",
-  "regionName": "广宗县"
+  "name": "广宗县"
 }, {
-  "regionCode": "130532",
+  "id": "130532",
   "pcode": "130500",
-  "regionName": "平乡县"
+  "name": "平乡县"
 }, {
-  "regionCode": "130533",
+  "id": "130533",
   "pcode": "130500",
-  "regionName": "威县"
+  "name": "威县"
 }, {
-  "regionCode": "130534",
+  "id": "130534",
   "pcode": "130500",
-  "regionName": "清河县"
+  "name": "清河县"
 }, {
-  "regionCode": "130535",
+  "id": "130535",
   "pcode": "130500",
-  "regionName": "临西县"
+  "name": "临西县"
 }, {
-  "regionCode": "130581",
+  "id": "130581",
   "pcode": "130500",
-  "regionName": "南宫市"
+  "name": "南宫市"
 }, {
-  "regionCode": "130582",
+  "id": "130582",
   "pcode": "130500",
-  "regionName": "沙河市"
+  "name": "沙河市"
 }, {
-  "regionCode": "130600",
+  "id": "130600",
   "pcode": "130000",
-  "regionName": "保定市"
+  "name": "保定市"
 }, {
-  "regionCode": "130601",
+  "id": "130601",
   "pcode": "130600",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "130602",
+  "id": "130602",
   "pcode": "130600",
-  "regionName": "竞秀区"
+  "name": "竞秀区"
 }, {
-  "regionCode": "130606",
+  "id": "130606",
   "pcode": "130600",
-  "regionName": "莲池区"
+  "name": "莲池区"
 }, {
-  "regionCode": "130607",
+  "id": "130607",
   "pcode": "130600",
-  "regionName": "满城区"
+  "name": "满城区"
 }, {
-  "regionCode": "130608",
+  "id": "130608",
   "pcode": "130600",
-  "regionName": "清苑区"
+  "name": "清苑区"
 }, {
-  "regionCode": "130609",
+  "id": "130609",
   "pcode": "130600",
-  "regionName": "徐水区"
+  "name": "徐水区"
 }, {
-  "regionCode": "130623",
+  "id": "130623",
   "pcode": "130600",
-  "regionName": "涞水县"
+  "name": "涞水县"
 }, {
-  "regionCode": "130624",
+  "id": "130624",
   "pcode": "130600",
-  "regionName": "阜平县"
+  "name": "阜平县"
 }, {
-  "regionCode": "130626",
+  "id": "130626",
   "pcode": "130600",
-  "regionName": "定兴县"
+  "name": "定兴县"
 }, {
-  "regionCode": "130627",
+  "id": "130627",
   "pcode": "130600",
-  "regionName": "唐县"
+  "name": "唐县"
 }, {
-  "regionCode": "130628",
+  "id": "130628",
   "pcode": "130600",
-  "regionName": "高阳县"
+  "name": "高阳县"
 }, {
-  "regionCode": "130629",
+  "id": "130629",
   "pcode": "130600",
-  "regionName": "容城县"
+  "name": "容城县"
 }, {
-  "regionCode": "130630",
+  "id": "130630",
   "pcode": "130600",
-  "regionName": "涞源县"
+  "name": "涞源县"
 }, {
-  "regionCode": "130631",
+  "id": "130631",
   "pcode": "130600",
-  "regionName": "望都县"
+  "name": "望都县"
 }, {
-  "regionCode": "130632",
+  "id": "130632",
   "pcode": "130600",
-  "regionName": "安新县"
+  "name": "安新县"
 }, {
-  "regionCode": "130633",
+  "id": "130633",
   "pcode": "130600",
-  "regionName": "易县"
+  "name": "易县"
 }, {
-  "regionCode": "130634",
+  "id": "130634",
   "pcode": "130600",
-  "regionName": "曲阳县"
+  "name": "曲阳县"
 }, {
-  "regionCode": "130635",
+  "id": "130635",
   "pcode": "130600",
-  "regionName": "蠡县"
+  "name": "蠡县"
 }, {
-  "regionCode": "130636",
+  "id": "130636",
   "pcode": "130600",
-  "regionName": "顺平县"
+  "name": "顺平县"
 }, {
-  "regionCode": "130637",
+  "id": "130637",
   "pcode": "130600",
-  "regionName": "博野县"
+  "name": "博野县"
 }, {
-  "regionCode": "130638",
+  "id": "130638",
   "pcode": "130600",
-  "regionName": "雄县"
+  "name": "雄县"
 }, {
-  "regionCode": "130681",
+  "id": "130681",
   "pcode": "130600",
-  "regionName": "涿州市"
+  "name": "涿州市"
 }, {
-  "regionCode": "130683",
+  "id": "130683",
   "pcode": "130600",
-  "regionName": "安国市"
+  "name": "安国市"
 }, {
-  "regionCode": "130684",
+  "id": "130684",
   "pcode": "130600",
-  "regionName": "高碑店市"
+  "name": "高碑店市"
 }, {
-  "regionCode": "130700",
+  "id": "130700",
   "pcode": "130000",
-  "regionName": "张家口市"
+  "name": "张家口市"
 }, {
-  "regionCode": "130701",
+  "id": "130701",
   "pcode": "130700",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "130702",
+  "id": "130702",
   "pcode": "130700",
-  "regionName": "桥东区"
+  "name": "桥东区"
 }, {
-  "regionCode": "130703",
+  "id": "130703",
   "pcode": "130700",
-  "regionName": "桥西区"
+  "name": "桥西区"
 }, {
-  "regionCode": "130705",
+  "id": "130705",
   "pcode": "130700",
-  "regionName": "宣化区"
+  "name": "宣化区"
 }, {
-  "regionCode": "130706",
+  "id": "130706",
   "pcode": "130700",
-  "regionName": "下花园区"
+  "name": "下花园区"
 }, {
-  "regionCode": "130708",
+  "id": "130708",
   "pcode": "130700",
-  "regionName": "万全区"
+  "name": "万全区"
 }, {
-  "regionCode": "130709",
+  "id": "130709",
   "pcode": "130700",
-  "regionName": "崇礼区"
+  "name": "崇礼区"
 }, {
-  "regionCode": "130722",
+  "id": "130722",
   "pcode": "130700",
-  "regionName": "张北县"
+  "name": "张北县"
 }, {
-  "regionCode": "130723",
+  "id": "130723",
   "pcode": "130700",
-  "regionName": "康保县"
+  "name": "康保县"
 }, {
-  "regionCode": "130724",
+  "id": "130724",
   "pcode": "130700",
-  "regionName": "沽源县"
+  "name": "沽源县"
 }, {
-  "regionCode": "130725",
+  "id": "130725",
   "pcode": "130700",
-  "regionName": "尚义县"
+  "name": "尚义县"
 }, {
-  "regionCode": "130726",
+  "id": "130726",
   "pcode": "130700",
-  "regionName": "蔚县"
+  "name": "蔚县"
 }, {
-  "regionCode": "130727",
+  "id": "130727",
   "pcode": "130700",
-  "regionName": "阳原县"
+  "name": "阳原县"
 }, {
-  "regionCode": "130728",
+  "id": "130728",
   "pcode": "130700",
-  "regionName": "怀安县"
+  "name": "怀安县"
 }, {
-  "regionCode": "130730",
+  "id": "130730",
   "pcode": "130700",
-  "regionName": "怀来县"
+  "name": "怀来县"
 }, {
-  "regionCode": "130731",
+  "id": "130731",
   "pcode": "130700",
-  "regionName": "涿鹿县"
+  "name": "涿鹿县"
 }, {
-  "regionCode": "130732",
+  "id": "130732",
   "pcode": "130700",
-  "regionName": "赤城县"
+  "name": "赤城县"
 }, {
-  "regionCode": "130800",
+  "id": "130800",
   "pcode": "130000",
-  "regionName": "承德市"
+  "name": "承德市"
 }, {
-  "regionCode": "130801",
+  "id": "130801",
   "pcode": "130800",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "130802",
+  "id": "130802",
   "pcode": "130800",
-  "regionName": "双桥区"
+  "name": "双桥区"
 }, {
-  "regionCode": "130803",
+  "id": "130803",
   "pcode": "130800",
-  "regionName": "双滦区"
+  "name": "双滦区"
 }, {
-  "regionCode": "130804",
+  "id": "130804",
   "pcode": "130800",
-  "regionName": "鹰手营子矿区"
+  "name": "鹰手营子矿区"
 }, {
-  "regionCode": "130821",
+  "id": "130821",
   "pcode": "130800",
-  "regionName": "承德县"
+  "name": "承德县"
 }, {
-  "regionCode": "130822",
+  "id": "130822",
   "pcode": "130800",
-  "regionName": "兴隆县"
+  "name": "兴隆县"
 }, {
-  "regionCode": "130823",
+  "id": "130823",
   "pcode": "130800",
-  "regionName": "平泉县"
+  "name": "平泉县"
 }, {
-  "regionCode": "130824",
+  "id": "130824",
   "pcode": "130800",
-  "regionName": "滦平县"
+  "name": "滦平县"
 }, {
-  "regionCode": "130825",
+  "id": "130825",
   "pcode": "130800",
-  "regionName": "隆化县"
+  "name": "隆化县"
 }, {
-  "regionCode": "130826",
+  "id": "130826",
   "pcode": "130800",
-  "regionName": "丰宁满族自治县"
+  "name": "丰宁满族自治县"
 }, {
-  "regionCode": "130827",
+  "id": "130827",
   "pcode": "130800",
-  "regionName": "宽城满族自治县"
+  "name": "宽城满族自治县"
 }, {
-  "regionCode": "130828",
+  "id": "130828",
   "pcode": "130800",
-  "regionName": "围场满族蒙古族自治县"
+  "name": "围场满族蒙古族自治县"
 }, {
-  "regionCode": "130900",
+  "id": "130900",
   "pcode": "130000",
-  "regionName": "沧州市"
+  "name": "沧州市"
 }, {
-  "regionCode": "130901",
+  "id": "130901",
   "pcode": "130900",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "130902",
+  "id": "130902",
   "pcode": "130900",
-  "regionName": "新华区"
+  "name": "新华区"
 }, {
-  "regionCode": "130903",
+  "id": "130903",
   "pcode": "130900",
-  "regionName": "运河区"
+  "name": "运河区"
 }, {
-  "regionCode": "130921",
+  "id": "130921",
   "pcode": "130900",
-  "regionName": "沧县"
+  "name": "沧县"
 }, {
-  "regionCode": "130922",
+  "id": "130922",
   "pcode": "130900",
-  "regionName": "青县"
+  "name": "青县"
 }, {
-  "regionCode": "130923",
+  "id": "130923",
   "pcode": "130900",
-  "regionName": "东光县"
+  "name": "东光县"
 }, {
-  "regionCode": "130924",
+  "id": "130924",
   "pcode": "130900",
-  "regionName": "海兴县"
+  "name": "海兴县"
 }, {
-  "regionCode": "130925",
+  "id": "130925",
   "pcode": "130900",
-  "regionName": "盐山县"
+  "name": "盐山县"
 }, {
-  "regionCode": "130926",
+  "id": "130926",
   "pcode": "130900",
-  "regionName": "肃宁县"
+  "name": "肃宁县"
 }, {
-  "regionCode": "130927",
+  "id": "130927",
   "pcode": "130900",
-  "regionName": "南皮县"
+  "name": "南皮县"
 }, {
-  "regionCode": "130928",
+  "id": "130928",
   "pcode": "130900",
-  "regionName": "吴桥县"
+  "name": "吴桥县"
 }, {
-  "regionCode": "130929",
+  "id": "130929",
   "pcode": "130900",
-  "regionName": "献县"
+  "name": "献县"
 }, {
-  "regionCode": "130930",
+  "id": "130930",
   "pcode": "130900",
-  "regionName": "孟村回族自治县"
+  "name": "孟村回族自治县"
 }, {
-  "regionCode": "130981",
+  "id": "130981",
   "pcode": "130900",
-  "regionName": "泊头市"
+  "name": "泊头市"
 }, {
-  "regionCode": "130982",
+  "id": "130982",
   "pcode": "130900",
-  "regionName": "任丘市"
+  "name": "任丘市"
 }, {
-  "regionCode": "130983",
+  "id": "130983",
   "pcode": "130900",
-  "regionName": "黄骅市"
+  "name": "黄骅市"
 }, {
-  "regionCode": "130984",
+  "id": "130984",
   "pcode": "130900",
-  "regionName": "河间市"
+  "name": "河间市"
 }, {
-  "regionCode": "131000",
+  "id": "131000",
   "pcode": "130000",
-  "regionName": "廊坊市"
+  "name": "廊坊市"
 }, {
-  "regionCode": "131001",
+  "id": "131001",
   "pcode": "131000",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "131002",
+  "id": "131002",
   "pcode": "131000",
-  "regionName": "安次区"
+  "name": "安次区"
 }, {
-  "regionCode": "131003",
+  "id": "131003",
   "pcode": "131000",
-  "regionName": "广阳区"
+  "name": "广阳区"
 }, {
-  "regionCode": "131022",
+  "id": "131022",
   "pcode": "131000",
-  "regionName": "固安县"
+  "name": "固安县"
 }, {
-  "regionCode": "131023",
+  "id": "131023",
   "pcode": "131000",
-  "regionName": "永清县"
+  "name": "永清县"
 }, {
-  "regionCode": "131024",
+  "id": "131024",
   "pcode": "131000",
-  "regionName": "香河县"
+  "name": "香河县"
 }, {
-  "regionCode": "131025",
+  "id": "131025",
   "pcode": "131000",
-  "regionName": "大城县"
+  "name": "大城县"
 }, {
-  "regionCode": "131026",
+  "id": "131026",
   "pcode": "131000",
-  "regionName": "文安县"
+  "name": "文安县"
 }, {
-  "regionCode": "131028",
+  "id": "131028",
   "pcode": "131000",
-  "regionName": "大厂回族自治县"
+  "name": "大厂回族自治县"
 }, {
-  "regionCode": "131081",
+  "id": "131081",
   "pcode": "131000",
-  "regionName": "霸州市"
+  "name": "霸州市"
 }, {
-  "regionCode": "131082",
+  "id": "131082",
   "pcode": "131000",
-  "regionName": "三河市"
+  "name": "三河市"
 }, {
-  "regionCode": "131100",
+  "id": "131100",
   "pcode": "130000",
-  "regionName": "衡水市"
+  "name": "衡水市"
 }, {
-  "regionCode": "131101",
+  "id": "131101",
   "pcode": "131100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "131102",
+  "id": "131102",
   "pcode": "131100",
-  "regionName": "桃城区"
+  "name": "桃城区"
 }, {
-  "regionCode": "131103",
+  "id": "131103",
   "pcode": "131100",
-  "regionName": "冀州区"
+  "name": "冀州区"
 }, {
-  "regionCode": "131121",
+  "id": "131121",
   "pcode": "131100",
-  "regionName": "枣强县"
+  "name": "枣强县"
 }, {
-  "regionCode": "131122",
+  "id": "131122",
   "pcode": "131100",
-  "regionName": "武邑县"
+  "name": "武邑县"
 }, {
-  "regionCode": "131123",
+  "id": "131123",
   "pcode": "131100",
-  "regionName": "武强县"
+  "name": "武强县"
 }, {
-  "regionCode": "131124",
+  "id": "131124",
   "pcode": "131100",
-  "regionName": "饶阳县"
+  "name": "饶阳县"
 }, {
-  "regionCode": "131125",
+  "id": "131125",
   "pcode": "131100",
-  "regionName": "安平县"
+  "name": "安平县"
 }, {
-  "regionCode": "131126",
+  "id": "131126",
   "pcode": "131100",
-  "regionName": "故城县"
+  "name": "故城县"
 }, {
-  "regionCode": "131127",
+  "id": "131127",
   "pcode": "131100",
-  "regionName": "景县"
+  "name": "景县"
 }, {
-  "regionCode": "131128",
+  "id": "131128",
   "pcode": "131100",
-  "regionName": "阜城县"
+  "name": "阜城县"
 }, {
-  "regionCode": "131182",
+  "id": "131182",
   "pcode": "131100",
-  "regionName": "深州市"
+  "name": "深州市"
 }, {
-  "regionCode": "139000",
+  "id": "139000",
   "pcode": "130000",
-  "regionName": "省直辖县级行政区划"
+  "name": "省直辖县级行政区划"
 }, {
-  "regionCode": "139001",
+  "id": "139001",
   "pcode": "139000",
-  "regionName": "定州市"
+  "name": "定州市"
 }, {
-  "regionCode": "139002",
+  "id": "139002",
   "pcode": "139000",
-  "regionName": "辛集市"
+  "name": "辛集市"
 }, {
-  "regionCode": "140000",
+  "id": "140000",
   "pcode": "",
-  "regionName": "山西省"
+  "name": "山西省"
 }, {
-  "regionCode": "140100",
+  "id": "140100",
   "pcode": "140000",
-  "regionName": "太原市"
+  "name": "太原市"
 }, {
-  "regionCode": "140101",
+  "id": "140101",
   "pcode": "140100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "140105",
+  "id": "140105",
   "pcode": "140100",
-  "regionName": "小店区"
+  "name": "小店区"
 }, {
-  "regionCode": "140106",
+  "id": "140106",
   "pcode": "140100",
-  "regionName": "迎泽区"
+  "name": "迎泽区"
 }, {
-  "regionCode": "140107",
+  "id": "140107",
   "pcode": "140100",
-  "regionName": "杏花岭区"
+  "name": "杏花岭区"
 }, {
-  "regionCode": "140108",
+  "id": "140108",
   "pcode": "140100",
-  "regionName": "尖草坪区"
+  "name": "尖草坪区"
 }, {
-  "regionCode": "140109",
+  "id": "140109",
   "pcode": "140100",
-  "regionName": "万柏林区"
+  "name": "万柏林区"
 }, {
-  "regionCode": "140110",
+  "id": "140110",
   "pcode": "140100",
-  "regionName": "晋源区"
+  "name": "晋源区"
 }, {
-  "regionCode": "140121",
+  "id": "140121",
   "pcode": "140100",
-  "regionName": "清徐县"
+  "name": "清徐县"
 }, {
-  "regionCode": "140122",
+  "id": "140122",
   "pcode": "140100",
-  "regionName": "阳曲县"
+  "name": "阳曲县"
 }, {
-  "regionCode": "140123",
+  "id": "140123",
   "pcode": "140100",
-  "regionName": "娄烦县"
+  "name": "娄烦县"
 }, {
-  "regionCode": "140181",
+  "id": "140181",
   "pcode": "140100",
-  "regionName": "古交市"
+  "name": "古交市"
 }, {
-  "regionCode": "140200",
+  "id": "140200",
   "pcode": "140000",
-  "regionName": "大同市"
+  "name": "大同市"
 }, {
-  "regionCode": "140201",
+  "id": "140201",
   "pcode": "140200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "140202",
+  "id": "140202",
   "pcode": "140200",
-  "regionName": "城区"
+  "name": "城区"
 }, {
-  "regionCode": "140203",
+  "id": "140203",
   "pcode": "140200",
-  "regionName": "矿区"
+  "name": "矿区"
 }, {
-  "regionCode": "140211",
+  "id": "140211",
   "pcode": "140200",
-  "regionName": "南郊区"
+  "name": "南郊区"
 }, {
-  "regionCode": "140212",
+  "id": "140212",
   "pcode": "140200",
-  "regionName": "新荣区"
+  "name": "新荣区"
 }, {
-  "regionCode": "140221",
+  "id": "140221",
   "pcode": "140200",
-  "regionName": "阳高县"
+  "name": "阳高县"
 }, {
-  "regionCode": "140222",
+  "id": "140222",
   "pcode": "140200",
-  "regionName": "天镇县"
+  "name": "天镇县"
 }, {
-  "regionCode": "140223",
+  "id": "140223",
   "pcode": "140200",
-  "regionName": "广灵县"
+  "name": "广灵县"
 }, {
-  "regionCode": "140224",
+  "id": "140224",
   "pcode": "140200",
-  "regionName": "灵丘县"
+  "name": "灵丘县"
 }, {
-  "regionCode": "140225",
+  "id": "140225",
   "pcode": "140200",
-  "regionName": "浑源县"
+  "name": "浑源县"
 }, {
-  "regionCode": "140226",
+  "id": "140226",
   "pcode": "140200",
-  "regionName": "左云县"
+  "name": "左云县"
 }, {
-  "regionCode": "140227",
+  "id": "140227",
   "pcode": "140200",
-  "regionName": "大同县"
+  "name": "大同县"
 }, {
-  "regionCode": "140300",
+  "id": "140300",
   "pcode": "140000",
-  "regionName": "阳泉市"
+  "name": "阳泉市"
 }, {
-  "regionCode": "140301",
+  "id": "140301",
   "pcode": "140300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "140302",
+  "id": "140302",
   "pcode": "140300",
-  "regionName": "城区"
+  "name": "城区"
 }, {
-  "regionCode": "140303",
+  "id": "140303",
   "pcode": "140300",
-  "regionName": "矿区"
+  "name": "矿区"
 }, {
-  "regionCode": "140311",
+  "id": "140311",
   "pcode": "140300",
-  "regionName": "郊区"
+  "name": "郊区"
 }, {
-  "regionCode": "140321",
+  "id": "140321",
   "pcode": "140300",
-  "regionName": "平定县"
+  "name": "平定县"
 }, {
-  "regionCode": "140322",
+  "id": "140322",
   "pcode": "140300",
-  "regionName": "盂县"
+  "name": "盂县"
 }, {
-  "regionCode": "140400",
+  "id": "140400",
   "pcode": "140000",
-  "regionName": "长治市"
+  "name": "长治市"
 }, {
-  "regionCode": "140401",
+  "id": "140401",
   "pcode": "140400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "140402",
+  "id": "140402",
   "pcode": "140400",
-  "regionName": "城区"
+  "name": "城区"
 }, {
-  "regionCode": "140411",
+  "id": "140411",
   "pcode": "140400",
-  "regionName": "郊区"
+  "name": "郊区"
 }, {
-  "regionCode": "140421",
+  "id": "140421",
   "pcode": "140400",
-  "regionName": "长治县"
+  "name": "长治县"
 }, {
-  "regionCode": "140423",
+  "id": "140423",
   "pcode": "140400",
-  "regionName": "襄垣县"
+  "name": "襄垣县"
 }, {
-  "regionCode": "140424",
+  "id": "140424",
   "pcode": "140400",
-  "regionName": "屯留县"
+  "name": "屯留县"
 }, {
-  "regionCode": "140425",
+  "id": "140425",
   "pcode": "140400",
-  "regionName": "平顺县"
+  "name": "平顺县"
 }, {
-  "regionCode": "140426",
+  "id": "140426",
   "pcode": "140400",
-  "regionName": "黎城县"
+  "name": "黎城县"
 }, {
-  "regionCode": "140427",
+  "id": "140427",
   "pcode": "140400",
-  "regionName": "壶关县"
+  "name": "壶关县"
 }, {
-  "regionCode": "140428",
+  "id": "140428",
   "pcode": "140400",
-  "regionName": "长子县"
+  "name": "长子县"
 }, {
-  "regionCode": "140429",
+  "id": "140429",
   "pcode": "140400",
-  "regionName": "武乡县"
+  "name": "武乡县"
 }, {
-  "regionCode": "140430",
+  "id": "140430",
   "pcode": "140400",
-  "regionName": "沁县"
+  "name": "沁县"
 }, {
-  "regionCode": "140431",
+  "id": "140431",
   "pcode": "140400",
-  "regionName": "沁源县"
+  "name": "沁源县"
 }, {
-  "regionCode": "140481",
+  "id": "140481",
   "pcode": "140400",
-  "regionName": "潞城市"
+  "name": "潞城市"
 }, {
-  "regionCode": "140500",
+  "id": "140500",
   "pcode": "140000",
-  "regionName": "晋城市"
+  "name": "晋城市"
 }, {
-  "regionCode": "140501",
+  "id": "140501",
   "pcode": "140500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "140502",
+  "id": "140502",
   "pcode": "140500",
-  "regionName": "城区"
+  "name": "城区"
 }, {
-  "regionCode": "140521",
+  "id": "140521",
   "pcode": "140500",
-  "regionName": "沁水县"
+  "name": "沁水县"
 }, {
-  "regionCode": "140522",
+  "id": "140522",
   "pcode": "140500",
-  "regionName": "阳城县"
+  "name": "阳城县"
 }, {
-  "regionCode": "140524",
+  "id": "140524",
   "pcode": "140500",
-  "regionName": "陵川县"
+  "name": "陵川县"
 }, {
-  "regionCode": "140525",
+  "id": "140525",
   "pcode": "140500",
-  "regionName": "泽州县"
+  "name": "泽州县"
 }, {
-  "regionCode": "140581",
+  "id": "140581",
   "pcode": "140500",
-  "regionName": "高平市"
+  "name": "高平市"
 }, {
-  "regionCode": "140600",
+  "id": "140600",
   "pcode": "140000",
-  "regionName": "朔州市"
+  "name": "朔州市"
 }, {
-  "regionCode": "140601",
+  "id": "140601",
   "pcode": "140600",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "140602",
+  "id": "140602",
   "pcode": "140600",
-  "regionName": "朔城区"
+  "name": "朔城区"
 }, {
-  "regionCode": "140603",
+  "id": "140603",
   "pcode": "140600",
-  "regionName": "平鲁区"
+  "name": "平鲁区"
 }, {
-  "regionCode": "140621",
+  "id": "140621",
   "pcode": "140600",
-  "regionName": "山阴县"
+  "name": "山阴县"
 }, {
-  "regionCode": "140622",
+  "id": "140622",
   "pcode": "140600",
-  "regionName": "应县"
+  "name": "应县"
 }, {
-  "regionCode": "140623",
+  "id": "140623",
   "pcode": "140600",
-  "regionName": "右玉县"
+  "name": "右玉县"
 }, {
-  "regionCode": "140624",
+  "id": "140624",
   "pcode": "140600",
-  "regionName": "怀仁县"
+  "name": "怀仁县"
 }, {
-  "regionCode": "140700",
+  "id": "140700",
   "pcode": "140000",
-  "regionName": "晋中市"
+  "name": "晋中市"
 }, {
-  "regionCode": "140701",
+  "id": "140701",
   "pcode": "140700",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "140702",
+  "id": "140702",
   "pcode": "140700",
-  "regionName": "榆次区"
+  "name": "榆次区"
 }, {
-  "regionCode": "140721",
+  "id": "140721",
   "pcode": "140700",
-  "regionName": "榆社县"
+  "name": "榆社县"
 }, {
-  "regionCode": "140722",
+  "id": "140722",
   "pcode": "140700",
-  "regionName": "左权县"
+  "name": "左权县"
 }, {
-  "regionCode": "140723",
+  "id": "140723",
   "pcode": "140700",
-  "regionName": "和顺县"
+  "name": "和顺县"
 }, {
-  "regionCode": "140724",
+  "id": "140724",
   "pcode": "140700",
-  "regionName": "昔阳县"
+  "name": "昔阳县"
 }, {
-  "regionCode": "140725",
+  "id": "140725",
   "pcode": "140700",
-  "regionName": "寿阳县"
+  "name": "寿阳县"
 }, {
-  "regionCode": "140726",
+  "id": "140726",
   "pcode": "140700",
-  "regionName": "太谷县"
+  "name": "太谷县"
 }, {
-  "regionCode": "140727",
+  "id": "140727",
   "pcode": "140700",
-  "regionName": "祁县"
+  "name": "祁县"
 }, {
-  "regionCode": "140728",
+  "id": "140728",
   "pcode": "140700",
-  "regionName": "平遥县"
+  "name": "平遥县"
 }, {
-  "regionCode": "140729",
+  "id": "140729",
   "pcode": "140700",
-  "regionName": "灵石县"
+  "name": "灵石县"
 }, {
-  "regionCode": "140781",
+  "id": "140781",
   "pcode": "140700",
-  "regionName": "介休市"
+  "name": "介休市"
 }, {
-  "regionCode": "140800",
+  "id": "140800",
   "pcode": "140000",
-  "regionName": "运城市"
+  "name": "运城市"
 }, {
-  "regionCode": "140801",
+  "id": "140801",
   "pcode": "140800",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "140802",
+  "id": "140802",
   "pcode": "140800",
-  "regionName": "盐湖区"
+  "name": "盐湖区"
 }, {
-  "regionCode": "140821",
+  "id": "140821",
   "pcode": "140800",
-  "regionName": "临猗县"
+  "name": "临猗县"
 }, {
-  "regionCode": "140822",
+  "id": "140822",
   "pcode": "140800",
-  "regionName": "万荣县"
+  "name": "万荣县"
 }, {
-  "regionCode": "140823",
+  "id": "140823",
   "pcode": "140800",
-  "regionName": "闻喜县"
+  "name": "闻喜县"
 }, {
-  "regionCode": "140824",
+  "id": "140824",
   "pcode": "140800",
-  "regionName": "稷山县"
+  "name": "稷山县"
 }, {
-  "regionCode": "140825",
+  "id": "140825",
   "pcode": "140800",
-  "regionName": "新绛县"
+  "name": "新绛县"
 }, {
-  "regionCode": "140826",
+  "id": "140826",
   "pcode": "140800",
-  "regionName": "绛县"
+  "name": "绛县"
 }, {
-  "regionCode": "140827",
+  "id": "140827",
   "pcode": "140800",
-  "regionName": "垣曲县"
+  "name": "垣曲县"
 }, {
-  "regionCode": "140828",
+  "id": "140828",
   "pcode": "140800",
-  "regionName": "夏县"
+  "name": "夏县"
 }, {
-  "regionCode": "140829",
+  "id": "140829",
   "pcode": "140800",
-  "regionName": "平陆县"
+  "name": "平陆县"
 }, {
-  "regionCode": "140830",
+  "id": "140830",
   "pcode": "140800",
-  "regionName": "芮城县"
+  "name": "芮城县"
 }, {
-  "regionCode": "140881",
+  "id": "140881",
   "pcode": "140800",
-  "regionName": "永济市"
+  "name": "永济市"
 }, {
-  "regionCode": "140882",
+  "id": "140882",
   "pcode": "140800",
-  "regionName": "河津市"
+  "name": "河津市"
 }, {
-  "regionCode": "140900",
+  "id": "140900",
   "pcode": "140000",
-  "regionName": "忻州市"
+  "name": "忻州市"
 }, {
-  "regionCode": "140901",
+  "id": "140901",
   "pcode": "140900",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "140902",
+  "id": "140902",
   "pcode": "140900",
-  "regionName": "忻府区"
+  "name": "忻府区"
 }, {
-  "regionCode": "140921",
+  "id": "140921",
   "pcode": "140900",
-  "regionName": "定襄县"
+  "name": "定襄县"
 }, {
-  "regionCode": "140922",
+  "id": "140922",
   "pcode": "140900",
-  "regionName": "五台县"
+  "name": "五台县"
 }, {
-  "regionCode": "140923",
+  "id": "140923",
   "pcode": "140900",
-  "regionName": "代县"
+  "name": "代县"
 }, {
-  "regionCode": "140924",
+  "id": "140924",
   "pcode": "140900",
-  "regionName": "繁峙县"
+  "name": "繁峙县"
 }, {
-  "regionCode": "140925",
+  "id": "140925",
   "pcode": "140900",
-  "regionName": "宁武县"
+  "name": "宁武县"
 }, {
-  "regionCode": "140926",
+  "id": "140926",
   "pcode": "140900",
-  "regionName": "静乐县"
+  "name": "静乐县"
 }, {
-  "regionCode": "140927",
+  "id": "140927",
   "pcode": "140900",
-  "regionName": "神池县"
+  "name": "神池县"
 }, {
-  "regionCode": "140928",
+  "id": "140928",
   "pcode": "140900",
-  "regionName": "五寨县"
+  "name": "五寨县"
 }, {
-  "regionCode": "140929",
+  "id": "140929",
   "pcode": "140900",
-  "regionName": "岢岚县"
+  "name": "岢岚县"
 }, {
-  "regionCode": "140930",
+  "id": "140930",
   "pcode": "140900",
-  "regionName": "河曲县"
+  "name": "河曲县"
 }, {
-  "regionCode": "140931",
+  "id": "140931",
   "pcode": "140900",
-  "regionName": "保德县"
+  "name": "保德县"
 }, {
-  "regionCode": "140932",
+  "id": "140932",
   "pcode": "140900",
-  "regionName": "偏关县"
+  "name": "偏关县"
 }, {
-  "regionCode": "140981",
+  "id": "140981",
   "pcode": "140900",
-  "regionName": "原平市"
+  "name": "原平市"
 }, {
-  "regionCode": "141000",
+  "id": "141000",
   "pcode": "140000",
-  "regionName": "临汾市"
+  "name": "临汾市"
 }, {
-  "regionCode": "141001",
+  "id": "141001",
   "pcode": "141000",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "141002",
+  "id": "141002",
   "pcode": "141000",
-  "regionName": "尧都区"
+  "name": "尧都区"
 }, {
-  "regionCode": "141021",
+  "id": "141021",
   "pcode": "141000",
-  "regionName": "曲沃县"
+  "name": "曲沃县"
 }, {
-  "regionCode": "141022",
+  "id": "141022",
   "pcode": "141000",
-  "regionName": "翼城县"
+  "name": "翼城县"
 }, {
-  "regionCode": "141023",
+  "id": "141023",
   "pcode": "141000",
-  "regionName": "襄汾县"
+  "name": "襄汾县"
 }, {
-  "regionCode": "141024",
+  "id": "141024",
   "pcode": "141000",
-  "regionName": "洪洞县"
+  "name": "洪洞县"
 }, {
-  "regionCode": "141025",
+  "id": "141025",
   "pcode": "141000",
-  "regionName": "古县"
+  "name": "古县"
 }, {
-  "regionCode": "141026",
+  "id": "141026",
   "pcode": "141000",
-  "regionName": "安泽县"
+  "name": "安泽县"
 }, {
-  "regionCode": "141027",
+  "id": "141027",
   "pcode": "141000",
-  "regionName": "浮山县"
+  "name": "浮山县"
 }, {
-  "regionCode": "141028",
+  "id": "141028",
   "pcode": "141000",
-  "regionName": "吉县"
+  "name": "吉县"
 }, {
-  "regionCode": "141029",
+  "id": "141029",
   "pcode": "141000",
-  "regionName": "乡宁县"
+  "name": "乡宁县"
 }, {
-  "regionCode": "141030",
+  "id": "141030",
   "pcode": "141000",
-  "regionName": "大宁县"
+  "name": "大宁县"
 }, {
-  "regionCode": "141031",
+  "id": "141031",
   "pcode": "141000",
-  "regionName": "隰县"
+  "name": "隰县"
 }, {
-  "regionCode": "141032",
+  "id": "141032",
   "pcode": "141000",
-  "regionName": "永和县"
+  "name": "永和县"
 }, {
-  "regionCode": "141033",
+  "id": "141033",
   "pcode": "141000",
-  "regionName": "蒲县"
+  "name": "蒲县"
 }, {
-  "regionCode": "141034",
+  "id": "141034",
   "pcode": "141000",
-  "regionName": "汾西县"
+  "name": "汾西县"
 }, {
-  "regionCode": "141081",
+  "id": "141081",
   "pcode": "141000",
-  "regionName": "侯马市"
+  "name": "侯马市"
 }, {
-  "regionCode": "141082",
+  "id": "141082",
   "pcode": "141000",
-  "regionName": "霍州市"
+  "name": "霍州市"
 }, {
-  "regionCode": "141100",
+  "id": "141100",
   "pcode": "140000",
-  "regionName": "吕梁市"
+  "name": "吕梁市"
 }, {
-  "regionCode": "141101",
+  "id": "141101",
   "pcode": "141100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "141102",
+  "id": "141102",
   "pcode": "141100",
-  "regionName": "离石区"
+  "name": "离石区"
 }, {
-  "regionCode": "141121",
+  "id": "141121",
   "pcode": "141100",
-  "regionName": "文水县"
+  "name": "文水县"
 }, {
-  "regionCode": "141122",
+  "id": "141122",
   "pcode": "141100",
-  "regionName": "交城县"
+  "name": "交城县"
 }, {
-  "regionCode": "141123",
+  "id": "141123",
   "pcode": "141100",
-  "regionName": "兴县"
+  "name": "兴县"
 }, {
-  "regionCode": "141124",
+  "id": "141124",
   "pcode": "141100",
-  "regionName": "临县"
+  "name": "临县"
 }, {
-  "regionCode": "141125",
+  "id": "141125",
   "pcode": "141100",
-  "regionName": "柳林县"
+  "name": "柳林县"
 }, {
-  "regionCode": "141126",
+  "id": "141126",
   "pcode": "141100",
-  "regionName": "石楼县"
+  "name": "石楼县"
 }, {
-  "regionCode": "141127",
+  "id": "141127",
   "pcode": "141100",
-  "regionName": "岚县"
+  "name": "岚县"
 }, {
-  "regionCode": "141128",
+  "id": "141128",
   "pcode": "141100",
-  "regionName": "方山县"
+  "name": "方山县"
 }, {
-  "regionCode": "141129",
+  "id": "141129",
   "pcode": "141100",
-  "regionName": "中阳县"
+  "name": "中阳县"
 }, {
-  "regionCode": "141130",
+  "id": "141130",
   "pcode": "141100",
-  "regionName": "交口县"
+  "name": "交口县"
 }, {
-  "regionCode": "141181",
+  "id": "141181",
   "pcode": "141100",
-  "regionName": "孝义市"
+  "name": "孝义市"
 }, {
-  "regionCode": "141182",
+  "id": "141182",
   "pcode": "141100",
-  "regionName": "汾阳市"
+  "name": "汾阳市"
 }, {
-  "regionCode": "150000",
+  "id": "150000",
   "pcode": "",
-  "regionName": "内蒙古自治区"
+  "name": "内蒙古自治区"
 }, {
-  "regionCode": "150100",
+  "id": "150100",
   "pcode": "150000",
-  "regionName": "呼和浩特市"
+  "name": "呼和浩特市"
 }, {
-  "regionCode": "150101",
+  "id": "150101",
   "pcode": "150100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "150102",
+  "id": "150102",
   "pcode": "150100",
-  "regionName": "新城区"
+  "name": "新城区"
 }, {
-  "regionCode": "150103",
+  "id": "150103",
   "pcode": "150100",
-  "regionName": "回民区"
+  "name": "回民区"
 }, {
-  "regionCode": "150104",
+  "id": "150104",
   "pcode": "150100",
-  "regionName": "玉泉区"
+  "name": "玉泉区"
 }, {
-  "regionCode": "150105",
+  "id": "150105",
   "pcode": "150100",
-  "regionName": "赛罕区"
+  "name": "赛罕区"
 }, {
-  "regionCode": "150121",
+  "id": "150121",
   "pcode": "150100",
-  "regionName": "土默特左旗"
+  "name": "土默特左旗"
 }, {
-  "regionCode": "150122",
+  "id": "150122",
   "pcode": "150100",
-  "regionName": "托克托县"
+  "name": "托克托县"
 }, {
-  "regionCode": "150123",
+  "id": "150123",
   "pcode": "150100",
-  "regionName": "和林格尔县"
+  "name": "和林格尔县"
 }, {
-  "regionCode": "150124",
+  "id": "150124",
   "pcode": "150100",
-  "regionName": "清水河县"
+  "name": "清水河县"
 }, {
-  "regionCode": "150125",
+  "id": "150125",
   "pcode": "150100",
-  "regionName": "武川县"
+  "name": "武川县"
 }, {
-  "regionCode": "150200",
+  "id": "150200",
   "pcode": "150000",
-  "regionName": "包头市"
+  "name": "包头市"
 }, {
-  "regionCode": "150201",
+  "id": "150201",
   "pcode": "150200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "150202",
+  "id": "150202",
   "pcode": "150200",
-  "regionName": "东河区"
+  "name": "东河区"
 }, {
-  "regionCode": "150203",
+  "id": "150203",
   "pcode": "150200",
-  "regionName": "昆都仑区"
+  "name": "昆都仑区"
 }, {
-  "regionCode": "150204",
+  "id": "150204",
   "pcode": "150200",
-  "regionName": "青山区"
+  "name": "青山区"
 }, {
-  "regionCode": "150205",
+  "id": "150205",
   "pcode": "150200",
-  "regionName": "石拐区"
+  "name": "石拐区"
 }, {
-  "regionCode": "150206",
+  "id": "150206",
   "pcode": "150200",
-  "regionName": "白云鄂博矿区"
+  "name": "白云鄂博矿区"
 }, {
-  "regionCode": "150207",
+  "id": "150207",
   "pcode": "150200",
-  "regionName": "九原区"
+  "name": "九原区"
 }, {
-  "regionCode": "150221",
+  "id": "150221",
   "pcode": "150200",
-  "regionName": "土默特右旗"
+  "name": "土默特右旗"
 }, {
-  "regionCode": "150222",
+  "id": "150222",
   "pcode": "150200",
-  "regionName": "固阳县"
+  "name": "固阳县"
 }, {
-  "regionCode": "150223",
+  "id": "150223",
   "pcode": "150200",
-  "regionName": "达尔罕茂明安联合旗"
+  "name": "达尔罕茂明安联合旗"
 }, {
-  "regionCode": "150300",
+  "id": "150300",
   "pcode": "150000",
-  "regionName": "乌海市"
+  "name": "乌海市"
 }, {
-  "regionCode": "150301",
+  "id": "150301",
   "pcode": "150300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "150302",
+  "id": "150302",
   "pcode": "150300",
-  "regionName": "海勃湾区"
+  "name": "海勃湾区"
 }, {
-  "regionCode": "150303",
+  "id": "150303",
   "pcode": "150300",
-  "regionName": "海南区"
+  "name": "海南区"
 }, {
-  "regionCode": "150304",
+  "id": "150304",
   "pcode": "150300",
-  "regionName": "乌达区"
+  "name": "乌达区"
 }, {
-  "regionCode": "150400",
+  "id": "150400",
   "pcode": "150000",
-  "regionName": "赤峰市"
+  "name": "赤峰市"
 }, {
-  "regionCode": "150401",
+  "id": "150401",
   "pcode": "150400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "150402",
+  "id": "150402",
   "pcode": "150400",
-  "regionName": "红山区"
+  "name": "红山区"
 }, {
-  "regionCode": "150403",
+  "id": "150403",
   "pcode": "150400",
-  "regionName": "元宝山区"
+  "name": "元宝山区"
 }, {
-  "regionCode": "150404",
+  "id": "150404",
   "pcode": "150400",
-  "regionName": "松山区"
+  "name": "松山区"
 }, {
-  "regionCode": "150421",
+  "id": "150421",
   "pcode": "150400",
-  "regionName": "阿鲁科尔沁旗"
+  "name": "阿鲁科尔沁旗"
 }, {
-  "regionCode": "150422",
+  "id": "150422",
   "pcode": "150400",
-  "regionName": "巴林左旗"
+  "name": "巴林左旗"
 }, {
-  "regionCode": "150423",
+  "id": "150423",
   "pcode": "150400",
-  "regionName": "巴林右旗"
+  "name": "巴林右旗"
 }, {
-  "regionCode": "150424",
+  "id": "150424",
   "pcode": "150400",
-  "regionName": "林西县"
+  "name": "林西县"
 }, {
-  "regionCode": "150425",
+  "id": "150425",
   "pcode": "150400",
-  "regionName": "克什克腾旗"
+  "name": "克什克腾旗"
 }, {
-  "regionCode": "150426",
+  "id": "150426",
   "pcode": "150400",
-  "regionName": "翁牛特旗"
+  "name": "翁牛特旗"
 }, {
-  "regionCode": "150428",
+  "id": "150428",
   "pcode": "150400",
-  "regionName": "喀喇沁旗"
+  "name": "喀喇沁旗"
 }, {
-  "regionCode": "150429",
+  "id": "150429",
   "pcode": "150400",
-  "regionName": "宁城县"
+  "name": "宁城县"
 }, {
-  "regionCode": "150430",
+  "id": "150430",
   "pcode": "150400",
-  "regionName": "敖汉旗"
+  "name": "敖汉旗"
 }, {
-  "regionCode": "150500",
+  "id": "150500",
   "pcode": "150000",
-  "regionName": "通辽市"
+  "name": "通辽市"
 }, {
-  "regionCode": "150501",
+  "id": "150501",
   "pcode": "150500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "150502",
+  "id": "150502",
   "pcode": "150500",
-  "regionName": "科尔沁区"
+  "name": "科尔沁区"
 }, {
-  "regionCode": "150521",
+  "id": "150521",
   "pcode": "150500",
-  "regionName": "科尔沁左翼中旗"
+  "name": "科尔沁左翼中旗"
 }, {
-  "regionCode": "150522",
+  "id": "150522",
   "pcode": "150500",
-  "regionName": "科尔沁左翼后旗"
+  "name": "科尔沁左翼后旗"
 }, {
-  "regionCode": "150523",
+  "id": "150523",
   "pcode": "150500",
-  "regionName": "开鲁县"
+  "name": "开鲁县"
 }, {
-  "regionCode": "150524",
+  "id": "150524",
   "pcode": "150500",
-  "regionName": "库伦旗"
+  "name": "库伦旗"
 }, {
-  "regionCode": "150525",
+  "id": "150525",
   "pcode": "150500",
-  "regionName": "奈曼旗"
+  "name": "奈曼旗"
 }, {
-  "regionCode": "150526",
+  "id": "150526",
   "pcode": "150500",
-  "regionName": "扎鲁特旗"
+  "name": "扎鲁特旗"
 }, {
-  "regionCode": "150581",
+  "id": "150581",
   "pcode": "150500",
-  "regionName": "霍林郭勒市"
+  "name": "霍林郭勒市"
 }, {
-  "regionCode": "150600",
+  "id": "150600",
   "pcode": "150000",
-  "regionName": "鄂尔多斯市"
+  "name": "鄂尔多斯市"
 }, {
-  "regionCode": "150601",
+  "id": "150601",
   "pcode": "150600",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "150602",
+  "id": "150602",
   "pcode": "150600",
-  "regionName": "东胜区"
+  "name": "东胜区"
 }, {
-  "regionCode": "150603",
+  "id": "150603",
   "pcode": "150600",
-  "regionName": "康巴什区"
+  "name": "康巴什区"
 }, {
-  "regionCode": "150621",
+  "id": "150621",
   "pcode": "150600",
-  "regionName": "达拉特旗"
+  "name": "达拉特旗"
 }, {
-  "regionCode": "150622",
+  "id": "150622",
   "pcode": "150600",
-  "regionName": "准格尔旗"
+  "name": "准格尔旗"
 }, {
-  "regionCode": "150623",
+  "id": "150623",
   "pcode": "150600",
-  "regionName": "鄂托克前旗"
+  "name": "鄂托克前旗"
 }, {
-  "regionCode": "150624",
+  "id": "150624",
   "pcode": "150600",
-  "regionName": "鄂托克旗"
+  "name": "鄂托克旗"
 }, {
-  "regionCode": "150625",
+  "id": "150625",
   "pcode": "150600",
-  "regionName": "杭锦旗"
+  "name": "杭锦旗"
 }, {
-  "regionCode": "150626",
+  "id": "150626",
   "pcode": "150600",
-  "regionName": "乌审旗"
+  "name": "乌审旗"
 }, {
-  "regionCode": "150627",
+  "id": "150627",
   "pcode": "150600",
-  "regionName": "伊金霍洛旗"
+  "name": "伊金霍洛旗"
 }, {
-  "regionCode": "150700",
+  "id": "150700",
   "pcode": "150000",
-  "regionName": "呼伦贝尔市"
+  "name": "呼伦贝尔市"
 }, {
-  "regionCode": "150701",
+  "id": "150701",
   "pcode": "150700",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "150702",
+  "id": "150702",
   "pcode": "150700",
-  "regionName": "海拉尔区"
+  "name": "海拉尔区"
 }, {
-  "regionCode": "150703",
+  "id": "150703",
   "pcode": "150700",
-  "regionName": "扎赉诺尔区"
+  "name": "扎赉诺尔区"
 }, {
-  "regionCode": "150721",
+  "id": "150721",
   "pcode": "150700",
-  "regionName": "阿荣旗"
+  "name": "阿荣旗"
 }, {
-  "regionCode": "150722",
+  "id": "150722",
   "pcode": "150700",
-  "regionName": "莫力达瓦达斡尔族自治旗"
+  "name": "莫力达瓦达斡尔族自治旗"
 }, {
-  "regionCode": "150723",
+  "id": "150723",
   "pcode": "150700",
-  "regionName": "鄂伦春自治旗"
+  "name": "鄂伦春自治旗"
 }, {
-  "regionCode": "150724",
+  "id": "150724",
   "pcode": "150700",
-  "regionName": "鄂温克族自治旗"
+  "name": "鄂温克族自治旗"
 }, {
-  "regionCode": "150725",
+  "id": "150725",
   "pcode": "150700",
-  "regionName": "陈巴尔虎旗"
+  "name": "陈巴尔虎旗"
 }, {
-  "regionCode": "150726",
+  "id": "150726",
   "pcode": "150700",
-  "regionName": "新巴尔虎左旗"
+  "name": "新巴尔虎左旗"
 }, {
-  "regionCode": "150727",
+  "id": "150727",
   "pcode": "150700",
-  "regionName": "新巴尔虎右旗"
+  "name": "新巴尔虎右旗"
 }, {
-  "regionCode": "150781",
+  "id": "150781",
   "pcode": "150700",
-  "regionName": "满洲里市"
+  "name": "满洲里市"
 }, {
-  "regionCode": "150782",
+  "id": "150782",
   "pcode": "150700",
-  "regionName": "牙克石市"
+  "name": "牙克石市"
 }, {
-  "regionCode": "150783",
+  "id": "150783",
   "pcode": "150700",
-  "regionName": "扎兰屯市"
+  "name": "扎兰屯市"
 }, {
-  "regionCode": "150784",
+  "id": "150784",
   "pcode": "150700",
-  "regionName": "额尔古纳市"
+  "name": "额尔古纳市"
 }, {
-  "regionCode": "150785",
+  "id": "150785",
   "pcode": "150700",
-  "regionName": "根河市"
+  "name": "根河市"
 }, {
-  "regionCode": "150800",
+  "id": "150800",
   "pcode": "150000",
-  "regionName": "巴彦淖尔市"
+  "name": "巴彦淖尔市"
 }, {
-  "regionCode": "150801",
+  "id": "150801",
   "pcode": "150800",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "150802",
+  "id": "150802",
   "pcode": "150800",
-  "regionName": "临河区"
+  "name": "临河区"
 }, {
-  "regionCode": "150821",
+  "id": "150821",
   "pcode": "150800",
-  "regionName": "五原县"
+  "name": "五原县"
 }, {
-  "regionCode": "150822",
+  "id": "150822",
   "pcode": "150800",
-  "regionName": "磴口县"
+  "name": "磴口县"
 }, {
-  "regionCode": "150823",
+  "id": "150823",
   "pcode": "150800",
-  "regionName": "乌拉特前旗"
+  "name": "乌拉特前旗"
 }, {
-  "regionCode": "150824",
+  "id": "150824",
   "pcode": "150800",
-  "regionName": "乌拉特中旗"
+  "name": "乌拉特中旗"
 }, {
-  "regionCode": "150825",
+  "id": "150825",
   "pcode": "150800",
-  "regionName": "乌拉特后旗"
+  "name": "乌拉特后旗"
 }, {
-  "regionCode": "150826",
+  "id": "150826",
   "pcode": "150800",
-  "regionName": "杭锦后旗"
+  "name": "杭锦后旗"
 }, {
-  "regionCode": "150900",
+  "id": "150900",
   "pcode": "150000",
-  "regionName": "乌兰察布市"
+  "name": "乌兰察布市"
 }, {
-  "regionCode": "150901",
+  "id": "150901",
   "pcode": "150900",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "150902",
+  "id": "150902",
   "pcode": "150900",
-  "regionName": "集宁区"
+  "name": "集宁区"
 }, {
-  "regionCode": "150921",
+  "id": "150921",
   "pcode": "150900",
-  "regionName": "卓资县"
+  "name": "卓资县"
 }, {
-  "regionCode": "150922",
+  "id": "150922",
   "pcode": "150900",
-  "regionName": "化德县"
+  "name": "化德县"
 }, {
-  "regionCode": "150923",
+  "id": "150923",
   "pcode": "150900",
-  "regionName": "商都县"
+  "name": "商都县"
 }, {
-  "regionCode": "150924",
+  "id": "150924",
   "pcode": "150900",
-  "regionName": "兴和县"
+  "name": "兴和县"
 }, {
-  "regionCode": "150925",
+  "id": "150925",
   "pcode": "150900",
-  "regionName": "凉城县"
+  "name": "凉城县"
 }, {
-  "regionCode": "150926",
+  "id": "150926",
   "pcode": "150900",
-  "regionName": "察哈尔右翼前旗"
+  "name": "察哈尔右翼前旗"
 }, {
-  "regionCode": "150927",
+  "id": "150927",
   "pcode": "150900",
-  "regionName": "察哈尔右翼中旗"
+  "name": "察哈尔右翼中旗"
 }, {
-  "regionCode": "150928",
+  "id": "150928",
   "pcode": "150900",
-  "regionName": "察哈尔右翼后旗"
+  "name": "察哈尔右翼后旗"
 }, {
-  "regionCode": "150929",
+  "id": "150929",
   "pcode": "150900",
-  "regionName": "四子王旗"
+  "name": "四子王旗"
 }, {
-  "regionCode": "150981",
+  "id": "150981",
   "pcode": "150900",
-  "regionName": "丰镇市"
+  "name": "丰镇市"
 }, {
-  "regionCode": "152200",
+  "id": "152200",
   "pcode": "150000",
-  "regionName": "兴安盟"
+  "name": "兴安盟"
 }, {
-  "regionCode": "152201",
+  "id": "152201",
   "pcode": "152200",
-  "regionName": "乌兰浩特市"
+  "name": "乌兰浩特市"
 }, {
-  "regionCode": "152202",
+  "id": "152202",
   "pcode": "152200",
-  "regionName": "阿尔山市"
+  "name": "阿尔山市"
 }, {
-  "regionCode": "152221",
+  "id": "152221",
   "pcode": "152200",
-  "regionName": "科尔沁右翼前旗"
+  "name": "科尔沁右翼前旗"
 }, {
-  "regionCode": "152222",
+  "id": "152222",
   "pcode": "152200",
-  "regionName": "科尔沁右翼中旗"
+  "name": "科尔沁右翼中旗"
 }, {
-  "regionCode": "152223",
+  "id": "152223",
   "pcode": "152200",
-  "regionName": "扎赉特旗"
+  "name": "扎赉特旗"
 }, {
-  "regionCode": "152224",
+  "id": "152224",
   "pcode": "152200",
-  "regionName": "突泉县"
+  "name": "突泉县"
 }, {
-  "regionCode": "152500",
+  "id": "152500",
   "pcode": "150000",
-  "regionName": "锡林郭勒盟"
+  "name": "锡林郭勒盟"
 }, {
-  "regionCode": "152501",
+  "id": "152501",
   "pcode": "152500",
-  "regionName": "二连浩特市"
+  "name": "二连浩特市"
 }, {
-  "regionCode": "152502",
+  "id": "152502",
   "pcode": "152500",
-  "regionName": "锡林浩特市"
+  "name": "锡林浩特市"
 }, {
-  "regionCode": "152522",
+  "id": "152522",
   "pcode": "152500",
-  "regionName": "阿巴嘎旗"
+  "name": "阿巴嘎旗"
 }, {
-  "regionCode": "152523",
+  "id": "152523",
   "pcode": "152500",
-  "regionName": "苏尼特左旗"
+  "name": "苏尼特左旗"
 }, {
-  "regionCode": "152524",
+  "id": "152524",
   "pcode": "152500",
-  "regionName": "苏尼特右旗"
+  "name": "苏尼特右旗"
 }, {
-  "regionCode": "152525",
+  "id": "152525",
   "pcode": "152500",
-  "regionName": "东乌珠穆沁旗"
+  "name": "东乌珠穆沁旗"
 }, {
-  "regionCode": "152526",
+  "id": "152526",
   "pcode": "152500",
-  "regionName": "西乌珠穆沁旗"
+  "name": "西乌珠穆沁旗"
 }, {
-  "regionCode": "152527",
+  "id": "152527",
   "pcode": "152500",
-  "regionName": "太仆寺旗"
+  "name": "太仆寺旗"
 }, {
-  "regionCode": "152528",
+  "id": "152528",
   "pcode": "152500",
-  "regionName": "镶黄旗"
+  "name": "镶黄旗"
 }, {
-  "regionCode": "152529",
+  "id": "152529",
   "pcode": "152500",
-  "regionName": "正镶白旗"
+  "name": "正镶白旗"
 }, {
-  "regionCode": "152530",
+  "id": "152530",
   "pcode": "152500",
-  "regionName": "正蓝旗"
+  "name": "正蓝旗"
 }, {
-  "regionCode": "152531",
+  "id": "152531",
   "pcode": "152500",
-  "regionName": "多伦县"
+  "name": "多伦县"
 }, {
-  "regionCode": "152900",
+  "id": "152900",
   "pcode": "150000",
-  "regionName": "阿拉善盟"
+  "name": "阿拉善盟"
 }, {
-  "regionCode": "152921",
+  "id": "152921",
   "pcode": "152900",
-  "regionName": "阿拉善左旗"
+  "name": "阿拉善左旗"
 }, {
-  "regionCode": "152922",
+  "id": "152922",
   "pcode": "152900",
-  "regionName": "阿拉善右旗"
+  "name": "阿拉善右旗"
 }, {
-  "regionCode": "152923",
+  "id": "152923",
   "pcode": "152900",
-  "regionName": "额济纳旗"
+  "name": "额济纳旗"
 }, {
-  "regionCode": "210000",
+  "id": "210000",
   "pcode": "",
-  "regionName": "辽宁省"
+  "name": "辽宁省"
 }, {
-  "regionCode": "210100",
+  "id": "210100",
   "pcode": "210000",
-  "regionName": "沈阳市"
+  "name": "沈阳市"
 }, {
-  "regionCode": "210101",
+  "id": "210101",
   "pcode": "210100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "210102",
+  "id": "210102",
   "pcode": "210100",
-  "regionName": "和平区"
+  "name": "和平区"
 }, {
-  "regionCode": "210103",
+  "id": "210103",
   "pcode": "210100",
-  "regionName": "沈河区"
+  "name": "沈河区"
 }, {
-  "regionCode": "210104",
+  "id": "210104",
   "pcode": "210100",
-  "regionName": "大东区"
+  "name": "大东区"
 }, {
-  "regionCode": "210105",
+  "id": "210105",
   "pcode": "210100",
-  "regionName": "皇姑区"
+  "name": "皇姑区"
 }, {
-  "regionCode": "210106",
+  "id": "210106",
   "pcode": "210100",
-  "regionName": "铁西区"
+  "name": "铁西区"
 }, {
-  "regionCode": "210111",
+  "id": "210111",
   "pcode": "210100",
-  "regionName": "苏家屯区"
+  "name": "苏家屯区"
 }, {
-  "regionCode": "210112",
+  "id": "210112",
   "pcode": "210100",
-  "regionName": "浑南区"
+  "name": "浑南区"
 }, {
-  "regionCode": "210113",
+  "id": "210113",
   "pcode": "210100",
-  "regionName": "沈北新区"
+  "name": "沈北新区"
 }, {
-  "regionCode": "210114",
+  "id": "210114",
   "pcode": "210100",
-  "regionName": "于洪区"
+  "name": "于洪区"
 }, {
-  "regionCode": "210115",
+  "id": "210115",
   "pcode": "210100",
-  "regionName": "辽中区"
+  "name": "辽中区"
 }, {
-  "regionCode": "210123",
+  "id": "210123",
   "pcode": "210100",
-  "regionName": "康平县"
+  "name": "康平县"
 }, {
-  "regionCode": "210124",
+  "id": "210124",
   "pcode": "210100",
-  "regionName": "法库县"
+  "name": "法库县"
 }, {
-  "regionCode": "210181",
+  "id": "210181",
   "pcode": "210100",
-  "regionName": "新民市"
+  "name": "新民市"
 }, {
-  "regionCode": "210200",
+  "id": "210200",
   "pcode": "210000",
-  "regionName": "大连市"
+  "name": "大连市"
 }, {
-  "regionCode": "210201",
+  "id": "210201",
   "pcode": "210200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "210202",
+  "id": "210202",
   "pcode": "210200",
-  "regionName": "中山区"
+  "name": "中山区"
 }, {
-  "regionCode": "210203",
+  "id": "210203",
   "pcode": "210200",
-  "regionName": "西岗区"
+  "name": "西岗区"
 }, {
-  "regionCode": "210204",
+  "id": "210204",
   "pcode": "210200",
-  "regionName": "沙河口区"
+  "name": "沙河口区"
 }, {
-  "regionCode": "210211",
+  "id": "210211",
   "pcode": "210200",
-  "regionName": "甘井子区"
+  "name": "甘井子区"
 }, {
-  "regionCode": "210212",
+  "id": "210212",
   "pcode": "210200",
-  "regionName": "旅顺口区"
+  "name": "旅顺口区"
 }, {
-  "regionCode": "210213",
+  "id": "210213",
   "pcode": "210200",
-  "regionName": "金州区"
+  "name": "金州区"
 }, {
-  "regionCode": "210214",
+  "id": "210214",
   "pcode": "210200",
-  "regionName": "普兰店区"
+  "name": "普兰店区"
 }, {
-  "regionCode": "210224",
+  "id": "210224",
   "pcode": "210200",
-  "regionName": "长海县"
+  "name": "长海县"
 }, {
-  "regionCode": "210281",
+  "id": "210281",
   "pcode": "210200",
-  "regionName": "瓦房店市"
+  "name": "瓦房店市"
 }, {
-  "regionCode": "210283",
+  "id": "210283",
   "pcode": "210200",
-  "regionName": "庄河市"
+  "name": "庄河市"
 }, {
-  "regionCode": "210300",
+  "id": "210300",
   "pcode": "210000",
-  "regionName": "鞍山市"
+  "name": "鞍山市"
 }, {
-  "regionCode": "210301",
+  "id": "210301",
   "pcode": "210300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "210302",
+  "id": "210302",
   "pcode": "210300",
-  "regionName": "铁东区"
+  "name": "铁东区"
 }, {
-  "regionCode": "210303",
+  "id": "210303",
   "pcode": "210300",
-  "regionName": "铁西区"
+  "name": "铁西区"
 }, {
-  "regionCode": "210304",
+  "id": "210304",
   "pcode": "210300",
-  "regionName": "立山区"
+  "name": "立山区"
 }, {
-  "regionCode": "210311",
+  "id": "210311",
   "pcode": "210300",
-  "regionName": "千山区"
+  "name": "千山区"
 }, {
-  "regionCode": "210321",
+  "id": "210321",
   "pcode": "210300",
-  "regionName": "台安县"
+  "name": "台安县"
 }, {
-  "regionCode": "210323",
+  "id": "210323",
   "pcode": "210300",
-  "regionName": "岫岩满族自治县"
+  "name": "岫岩满族自治县"
 }, {
-  "regionCode": "210381",
+  "id": "210381",
   "pcode": "210300",
-  "regionName": "海城市"
+  "name": "海城市"
 }, {
-  "regionCode": "210400",
+  "id": "210400",
   "pcode": "210000",
-  "regionName": "抚顺市"
+  "name": "抚顺市"
 }, {
-  "regionCode": "210401",
+  "id": "210401",
   "pcode": "210400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "210402",
+  "id": "210402",
   "pcode": "210400",
-  "regionName": "新抚区"
+  "name": "新抚区"
 }, {
-  "regionCode": "210403",
+  "id": "210403",
   "pcode": "210400",
-  "regionName": "东洲区"
+  "name": "东洲区"
 }, {
-  "regionCode": "210404",
+  "id": "210404",
   "pcode": "210400",
-  "regionName": "望花区"
+  "name": "望花区"
 }, {
-  "regionCode": "210411",
+  "id": "210411",
   "pcode": "210400",
-  "regionName": "顺城区"
+  "name": "顺城区"
 }, {
-  "regionCode": "210421",
+  "id": "210421",
   "pcode": "210400",
-  "regionName": "抚顺县"
+  "name": "抚顺县"
 }, {
-  "regionCode": "210422",
+  "id": "210422",
   "pcode": "210400",
-  "regionName": "新宾满族自治县"
+  "name": "新宾满族自治县"
 }, {
-  "regionCode": "210423",
+  "id": "210423",
   "pcode": "210400",
-  "regionName": "清原满族自治县"
+  "name": "清原满族自治县"
 }, {
-  "regionCode": "210500",
+  "id": "210500",
   "pcode": "210000",
-  "regionName": "本溪市"
+  "name": "本溪市"
 }, {
-  "regionCode": "210501",
+  "id": "210501",
   "pcode": "210500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "210502",
+  "id": "210502",
   "pcode": "210500",
-  "regionName": "平山区"
+  "name": "平山区"
 }, {
-  "regionCode": "210503",
+  "id": "210503",
   "pcode": "210500",
-  "regionName": "溪湖区"
+  "name": "溪湖区"
 }, {
-  "regionCode": "210504",
+  "id": "210504",
   "pcode": "210500",
-  "regionName": "明山区"
+  "name": "明山区"
 }, {
-  "regionCode": "210505",
+  "id": "210505",
   "pcode": "210500",
-  "regionName": "南芬区"
+  "name": "南芬区"
 }, {
-  "regionCode": "210521",
+  "id": "210521",
   "pcode": "210500",
-  "regionName": "本溪满族自治县"
+  "name": "本溪满族自治县"
 }, {
-  "regionCode": "210522",
+  "id": "210522",
   "pcode": "210500",
-  "regionName": "桓仁满族自治县"
+  "name": "桓仁满族自治县"
 }, {
-  "regionCode": "210600",
+  "id": "210600",
   "pcode": "210000",
-  "regionName": "丹东市"
+  "name": "丹东市"
 }, {
-  "regionCode": "210601",
+  "id": "210601",
   "pcode": "210600",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "210602",
+  "id": "210602",
   "pcode": "210600",
-  "regionName": "元宝区"
+  "name": "元宝区"
 }, {
-  "regionCode": "210603",
+  "id": "210603",
   "pcode": "210600",
-  "regionName": "振兴区"
+  "name": "振兴区"
 }, {
-  "regionCode": "210604",
+  "id": "210604",
   "pcode": "210600",
-  "regionName": "振安区"
+  "name": "振安区"
 }, {
-  "regionCode": "210624",
+  "id": "210624",
   "pcode": "210600",
-  "regionName": "宽甸满族自治县"
+  "name": "宽甸满族自治县"
 }, {
-  "regionCode": "210681",
+  "id": "210681",
   "pcode": "210600",
-  "regionName": "东港市"
+  "name": "东港市"
 }, {
-  "regionCode": "210682",
+  "id": "210682",
   "pcode": "210600",
-  "regionName": "凤城市"
+  "name": "凤城市"
 }, {
-  "regionCode": "210700",
+  "id": "210700",
   "pcode": "210000",
-  "regionName": "锦州市"
+  "name": "锦州市"
 }, {
-  "regionCode": "210701",
+  "id": "210701",
   "pcode": "210700",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "210702",
+  "id": "210702",
   "pcode": "210700",
-  "regionName": "古塔区"
+  "name": "古塔区"
 }, {
-  "regionCode": "210703",
+  "id": "210703",
   "pcode": "210700",
-  "regionName": "凌河区"
+  "name": "凌河区"
 }, {
-  "regionCode": "210711",
+  "id": "210711",
   "pcode": "210700",
-  "regionName": "太和区"
+  "name": "太和区"
 }, {
-  "regionCode": "210726",
+  "id": "210726",
   "pcode": "210700",
-  "regionName": "黑山县"
+  "name": "黑山县"
 }, {
-  "regionCode": "210727",
+  "id": "210727",
   "pcode": "210700",
-  "regionName": "义县"
+  "name": "义县"
 }, {
-  "regionCode": "210781",
+  "id": "210781",
   "pcode": "210700",
-  "regionName": "凌海市"
+  "name": "凌海市"
 }, {
-  "regionCode": "210782",
+  "id": "210782",
   "pcode": "210700",
-  "regionName": "北镇市"
+  "name": "北镇市"
 }, {
-  "regionCode": "210800",
+  "id": "210800",
   "pcode": "210000",
-  "regionName": "营口市"
+  "name": "营口市"
 }, {
-  "regionCode": "210801",
+  "id": "210801",
   "pcode": "210800",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "210802",
+  "id": "210802",
   "pcode": "210800",
-  "regionName": "站前区"
+  "name": "站前区"
 }, {
-  "regionCode": "210803",
+  "id": "210803",
   "pcode": "210800",
-  "regionName": "西市区"
+  "name": "西市区"
 }, {
-  "regionCode": "210804",
+  "id": "210804",
   "pcode": "210800",
-  "regionName": "鲅鱼圈区"
+  "name": "鲅鱼圈区"
 }, {
-  "regionCode": "210811",
+  "id": "210811",
   "pcode": "210800",
-  "regionName": "老边区"
+  "name": "老边区"
 }, {
-  "regionCode": "210881",
+  "id": "210881",
   "pcode": "210800",
-  "regionName": "盖州市"
+  "name": "盖州市"
 }, {
-  "regionCode": "210882",
+  "id": "210882",
   "pcode": "210800",
-  "regionName": "大石桥市"
+  "name": "大石桥市"
 }, {
-  "regionCode": "210900",
+  "id": "210900",
   "pcode": "210000",
-  "regionName": "阜新市"
+  "name": "阜新市"
 }, {
-  "regionCode": "210901",
+  "id": "210901",
   "pcode": "210900",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "210902",
+  "id": "210902",
   "pcode": "210900",
-  "regionName": "海州区"
+  "name": "海州区"
 }, {
-  "regionCode": "210903",
+  "id": "210903",
   "pcode": "210900",
-  "regionName": "新邱区"
+  "name": "新邱区"
 }, {
-  "regionCode": "210904",
+  "id": "210904",
   "pcode": "210900",
-  "regionName": "太平区"
+  "name": "太平区"
 }, {
-  "regionCode": "210905",
+  "id": "210905",
   "pcode": "210900",
-  "regionName": "清河门区"
+  "name": "清河门区"
 }, {
-  "regionCode": "210911",
+  "id": "210911",
   "pcode": "210900",
-  "regionName": "细河区"
+  "name": "细河区"
 }, {
-  "regionCode": "210921",
+  "id": "210921",
   "pcode": "210900",
-  "regionName": "阜新蒙古族自治县"
+  "name": "阜新蒙古族自治县"
 }, {
-  "regionCode": "210922",
+  "id": "210922",
   "pcode": "210900",
-  "regionName": "彰武县"
+  "name": "彰武县"
 }, {
-  "regionCode": "211000",
+  "id": "211000",
   "pcode": "210000",
-  "regionName": "辽阳市"
+  "name": "辽阳市"
 }, {
-  "regionCode": "211001",
+  "id": "211001",
   "pcode": "211000",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "211002",
+  "id": "211002",
   "pcode": "211000",
-  "regionName": "白塔区"
+  "name": "白塔区"
 }, {
-  "regionCode": "211003",
+  "id": "211003",
   "pcode": "211000",
-  "regionName": "文圣区"
+  "name": "文圣区"
 }, {
-  "regionCode": "211004",
+  "id": "211004",
   "pcode": "211000",
-  "regionName": "宏伟区"
+  "name": "宏伟区"
 }, {
-  "regionCode": "211005",
+  "id": "211005",
   "pcode": "211000",
-  "regionName": "弓长岭区"
+  "name": "弓长岭区"
 }, {
-  "regionCode": "211011",
+  "id": "211011",
   "pcode": "211000",
-  "regionName": "太子河区"
+  "name": "太子河区"
 }, {
-  "regionCode": "211021",
+  "id": "211021",
   "pcode": "211000",
-  "regionName": "辽阳县"
+  "name": "辽阳县"
 }, {
-  "regionCode": "211081",
+  "id": "211081",
   "pcode": "211000",
-  "regionName": "灯塔市"
+  "name": "灯塔市"
 }, {
-  "regionCode": "211100",
+  "id": "211100",
   "pcode": "210000",
-  "regionName": "盘锦市"
+  "name": "盘锦市"
 }, {
-  "regionCode": "211101",
+  "id": "211101",
   "pcode": "211100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "211102",
+  "id": "211102",
   "pcode": "211100",
-  "regionName": "双台子区"
+  "name": "双台子区"
 }, {
-  "regionCode": "211103",
+  "id": "211103",
   "pcode": "211100",
-  "regionName": "兴隆台区"
+  "name": "兴隆台区"
 }, {
-  "regionCode": "211104",
+  "id": "211104",
   "pcode": "211100",
-  "regionName": "大洼区"
+  "name": "大洼区"
 }, {
-  "regionCode": "211122",
+  "id": "211122",
   "pcode": "211100",
-  "regionName": "盘山县"
+  "name": "盘山县"
 }, {
-  "regionCode": "211200",
+  "id": "211200",
   "pcode": "210000",
-  "regionName": "铁岭市"
+  "name": "铁岭市"
 }, {
-  "regionCode": "211201",
+  "id": "211201",
   "pcode": "211200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "211202",
+  "id": "211202",
   "pcode": "211200",
-  "regionName": "银州区"
+  "name": "银州区"
 }, {
-  "regionCode": "211204",
+  "id": "211204",
   "pcode": "211200",
-  "regionName": "清河区"
+  "name": "清河区"
 }, {
-  "regionCode": "211221",
+  "id": "211221",
   "pcode": "211200",
-  "regionName": "铁岭县"
+  "name": "铁岭县"
 }, {
-  "regionCode": "211223",
+  "id": "211223",
   "pcode": "211200",
-  "regionName": "西丰县"
+  "name": "西丰县"
 }, {
-  "regionCode": "211224",
+  "id": "211224",
   "pcode": "211200",
-  "regionName": "昌图县"
+  "name": "昌图县"
 }, {
-  "regionCode": "211281",
+  "id": "211281",
   "pcode": "211200",
-  "regionName": "调兵山市"
+  "name": "调兵山市"
 }, {
-  "regionCode": "211282",
+  "id": "211282",
   "pcode": "211200",
-  "regionName": "开原市"
+  "name": "开原市"
 }, {
-  "regionCode": "211300",
+  "id": "211300",
   "pcode": "210000",
-  "regionName": "朝阳市"
+  "name": "朝阳市"
 }, {
-  "regionCode": "211301",
+  "id": "211301",
   "pcode": "211300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "211302",
+  "id": "211302",
   "pcode": "211300",
-  "regionName": "双塔区"
+  "name": "双塔区"
 }, {
-  "regionCode": "211303",
+  "id": "211303",
   "pcode": "211300",
-  "regionName": "龙城区"
+  "name": "龙城区"
 }, {
-  "regionCode": "211321",
+  "id": "211321",
   "pcode": "211300",
-  "regionName": "朝阳县"
+  "name": "朝阳县"
 }, {
-  "regionCode": "211322",
+  "id": "211322",
   "pcode": "211300",
-  "regionName": "建平县"
+  "name": "建平县"
 }, {
-  "regionCode": "211324",
+  "id": "211324",
   "pcode": "211300",
-  "regionName": "喀喇沁左翼蒙古族自治县"
+  "name": "喀喇沁左翼蒙古族自治县"
 }, {
-  "regionCode": "211381",
+  "id": "211381",
   "pcode": "211300",
-  "regionName": "北票市"
+  "name": "北票市"
 }, {
-  "regionCode": "211382",
+  "id": "211382",
   "pcode": "211300",
-  "regionName": "凌源市"
+  "name": "凌源市"
 }, {
-  "regionCode": "211400",
+  "id": "211400",
   "pcode": "210000",
-  "regionName": "葫芦岛市"
+  "name": "葫芦岛市"
 }, {
-  "regionCode": "211401",
+  "id": "211401",
   "pcode": "211400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "211402",
+  "id": "211402",
   "pcode": "211400",
-  "regionName": "连山区"
+  "name": "连山区"
 }, {
-  "regionCode": "211403",
+  "id": "211403",
   "pcode": "211400",
-  "regionName": "龙港区"
+  "name": "龙港区"
 }, {
-  "regionCode": "211404",
+  "id": "211404",
   "pcode": "211400",
-  "regionName": "南票区"
+  "name": "南票区"
 }, {
-  "regionCode": "211421",
+  "id": "211421",
   "pcode": "211400",
-  "regionName": "绥中县"
+  "name": "绥中县"
 }, {
-  "regionCode": "211422",
+  "id": "211422",
   "pcode": "211400",
-  "regionName": "建昌县"
+  "name": "建昌县"
 }, {
-  "regionCode": "211481",
+  "id": "211481",
   "pcode": "211400",
-  "regionName": "兴城市"
+  "name": "兴城市"
 }, {
-  "regionCode": "220000",
+  "id": "220000",
   "pcode": "",
-  "regionName": "吉林省"
+  "name": "吉林省"
 }, {
-  "regionCode": "220100",
+  "id": "220100",
   "pcode": "220000",
-  "regionName": "长春市"
+  "name": "长春市"
 }, {
-  "regionCode": "220101",
+  "id": "220101",
   "pcode": "220100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "220102",
+  "id": "220102",
   "pcode": "220100",
-  "regionName": "南关区"
+  "name": "南关区"
 }, {
-  "regionCode": "220103",
+  "id": "220103",
   "pcode": "220100",
-  "regionName": "宽城区"
+  "name": "宽城区"
 }, {
-  "regionCode": "220104",
+  "id": "220104",
   "pcode": "220100",
-  "regionName": "朝阳区"
+  "name": "朝阳区"
 }, {
-  "regionCode": "220105",
+  "id": "220105",
   "pcode": "220100",
-  "regionName": "二道区"
+  "name": "二道区"
 }, {
-  "regionCode": "220106",
+  "id": "220106",
   "pcode": "220100",
-  "regionName": "绿园区"
+  "name": "绿园区"
 }, {
-  "regionCode": "220112",
+  "id": "220112",
   "pcode": "220100",
-  "regionName": "双阳区"
+  "name": "双阳区"
 }, {
-  "regionCode": "220113",
+  "id": "220113",
   "pcode": "220100",
-  "regionName": "九台区"
+  "name": "九台区"
 }, {
-  "regionCode": "220122",
+  "id": "220122",
   "pcode": "220100",
-  "regionName": "农安县"
+  "name": "农安县"
 }, {
-  "regionCode": "220182",
+  "id": "220182",
   "pcode": "220100",
-  "regionName": "榆树市"
+  "name": "榆树市"
 }, {
-  "regionCode": "220183",
+  "id": "220183",
   "pcode": "220100",
-  "regionName": "德惠市"
+  "name": "德惠市"
 }, {
-  "regionCode": "220200",
+  "id": "220200",
   "pcode": "220000",
-  "regionName": "吉林市"
+  "name": "吉林市"
 }, {
-  "regionCode": "220201",
+  "id": "220201",
   "pcode": "220200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "220202",
+  "id": "220202",
   "pcode": "220200",
-  "regionName": "昌邑区"
+  "name": "昌邑区"
 }, {
-  "regionCode": "220203",
+  "id": "220203",
   "pcode": "220200",
-  "regionName": "龙潭区"
+  "name": "龙潭区"
 }, {
-  "regionCode": "220204",
+  "id": "220204",
   "pcode": "220200",
-  "regionName": "船营区"
+  "name": "船营区"
 }, {
-  "regionCode": "220211",
+  "id": "220211",
   "pcode": "220200",
-  "regionName": "丰满区"
+  "name": "丰满区"
 }, {
-  "regionCode": "220221",
+  "id": "220221",
   "pcode": "220200",
-  "regionName": "永吉县"
+  "name": "永吉县"
 }, {
-  "regionCode": "220281",
+  "id": "220281",
   "pcode": "220200",
-  "regionName": "蛟河市"
+  "name": "蛟河市"
 }, {
-  "regionCode": "220282",
+  "id": "220282",
   "pcode": "220200",
-  "regionName": "桦甸市"
+  "name": "桦甸市"
 }, {
-  "regionCode": "220283",
+  "id": "220283",
   "pcode": "220200",
-  "regionName": "舒兰市"
+  "name": "舒兰市"
 }, {
-  "regionCode": "220284",
+  "id": "220284",
   "pcode": "220200",
-  "regionName": "磐石市"
+  "name": "磐石市"
 }, {
-  "regionCode": "220300",
+  "id": "220300",
   "pcode": "220000",
-  "regionName": "四平市"
+  "name": "四平市"
 }, {
-  "regionCode": "220301",
+  "id": "220301",
   "pcode": "220300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "220302",
+  "id": "220302",
   "pcode": "220300",
-  "regionName": "铁西区"
+  "name": "铁西区"
 }, {
-  "regionCode": "220303",
+  "id": "220303",
   "pcode": "220300",
-  "regionName": "铁东区"
+  "name": "铁东区"
 }, {
-  "regionCode": "220322",
+  "id": "220322",
   "pcode": "220300",
-  "regionName": "梨树县"
+  "name": "梨树县"
 }, {
-  "regionCode": "220323",
+  "id": "220323",
   "pcode": "220300",
-  "regionName": "伊通满族自治县"
+  "name": "伊通满族自治县"
 }, {
-  "regionCode": "220381",
+  "id": "220381",
   "pcode": "220300",
-  "regionName": "公主岭市"
+  "name": "公主岭市"
 }, {
-  "regionCode": "220382",
+  "id": "220382",
   "pcode": "220300",
-  "regionName": "双辽市"
+  "name": "双辽市"
 }, {
-  "regionCode": "220400",
+  "id": "220400",
   "pcode": "220000",
-  "regionName": "辽源市"
+  "name": "辽源市"
 }, {
-  "regionCode": "220401",
+  "id": "220401",
   "pcode": "220400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "220402",
+  "id": "220402",
   "pcode": "220400",
-  "regionName": "龙山区"
+  "name": "龙山区"
 }, {
-  "regionCode": "220403",
+  "id": "220403",
   "pcode": "220400",
-  "regionName": "西安区"
+  "name": "西安区"
 }, {
-  "regionCode": "220421",
+  "id": "220421",
   "pcode": "220400",
-  "regionName": "东丰县"
+  "name": "东丰县"
 }, {
-  "regionCode": "220422",
+  "id": "220422",
   "pcode": "220400",
-  "regionName": "东辽县"
+  "name": "东辽县"
 }, {
-  "regionCode": "220500",
+  "id": "220500",
   "pcode": "220000",
-  "regionName": "通化市"
+  "name": "通化市"
 }, {
-  "regionCode": "220501",
+  "id": "220501",
   "pcode": "220500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "220502",
+  "id": "220502",
   "pcode": "220500",
-  "regionName": "东昌区"
+  "name": "东昌区"
 }, {
-  "regionCode": "220503",
+  "id": "220503",
   "pcode": "220500",
-  "regionName": "二道江区"
+  "name": "二道江区"
 }, {
-  "regionCode": "220521",
+  "id": "220521",
   "pcode": "220500",
-  "regionName": "通化县"
+  "name": "通化县"
 }, {
-  "regionCode": "220523",
+  "id": "220523",
   "pcode": "220500",
-  "regionName": "辉南县"
+  "name": "辉南县"
 }, {
-  "regionCode": "220524",
+  "id": "220524",
   "pcode": "220500",
-  "regionName": "柳河县"
+  "name": "柳河县"
 }, {
-  "regionCode": "220581",
+  "id": "220581",
   "pcode": "220500",
-  "regionName": "梅河口市"
+  "name": "梅河口市"
 }, {
-  "regionCode": "220582",
+  "id": "220582",
   "pcode": "220500",
-  "regionName": "集安市"
+  "name": "集安市"
 }, {
-  "regionCode": "220600",
+  "id": "220600",
   "pcode": "220000",
-  "regionName": "白山市"
+  "name": "白山市"
 }, {
-  "regionCode": "220601",
+  "id": "220601",
   "pcode": "220600",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "220602",
+  "id": "220602",
   "pcode": "220600",
-  "regionName": "浑江区"
+  "name": "浑江区"
 }, {
-  "regionCode": "220605",
+  "id": "220605",
   "pcode": "220600",
-  "regionName": "江源区"
+  "name": "江源区"
 }, {
-  "regionCode": "220621",
+  "id": "220621",
   "pcode": "220600",
-  "regionName": "抚松县"
+  "name": "抚松县"
 }, {
-  "regionCode": "220622",
+  "id": "220622",
   "pcode": "220600",
-  "regionName": "靖宇县"
+  "name": "靖宇县"
 }, {
-  "regionCode": "220623",
+  "id": "220623",
   "pcode": "220600",
-  "regionName": "长白朝鲜族自治县"
+  "name": "长白朝鲜族自治县"
 }, {
-  "regionCode": "220681",
+  "id": "220681",
   "pcode": "220600",
-  "regionName": "临江市"
+  "name": "临江市"
 }, {
-  "regionCode": "220700",
+  "id": "220700",
   "pcode": "220000",
-  "regionName": "松原市"
+  "name": "松原市"
 }, {
-  "regionCode": "220701",
+  "id": "220701",
   "pcode": "220700",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "220702",
+  "id": "220702",
   "pcode": "220700",
-  "regionName": "宁江区"
+  "name": "宁江区"
 }, {
-  "regionCode": "220721",
+  "id": "220721",
   "pcode": "220700",
-  "regionName": "前郭尔罗斯蒙古族自治县"
+  "name": "前郭尔罗斯蒙古族自治县"
 }, {
-  "regionCode": "220722",
+  "id": "220722",
   "pcode": "220700",
-  "regionName": "长岭县"
+  "name": "长岭县"
 }, {
-  "regionCode": "220723",
+  "id": "220723",
   "pcode": "220700",
-  "regionName": "乾安县"
+  "name": "乾安县"
 }, {
-  "regionCode": "220781",
+  "id": "220781",
   "pcode": "220700",
-  "regionName": "扶余市"
+  "name": "扶余市"
 }, {
-  "regionCode": "220800",
+  "id": "220800",
   "pcode": "220000",
-  "regionName": "白城市"
+  "name": "白城市"
 }, {
-  "regionCode": "220801",
+  "id": "220801",
   "pcode": "220800",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "220802",
+  "id": "220802",
   "pcode": "220800",
-  "regionName": "洮北区"
+  "name": "洮北区"
 }, {
-  "regionCode": "220821",
+  "id": "220821",
   "pcode": "220800",
-  "regionName": "镇赉县"
+  "name": "镇赉县"
 }, {
-  "regionCode": "220822",
+  "id": "220822",
   "pcode": "220800",
-  "regionName": "通榆县"
+  "name": "通榆县"
 }, {
-  "regionCode": "220881",
+  "id": "220881",
   "pcode": "220800",
-  "regionName": "洮南市"
+  "name": "洮南市"
 }, {
-  "regionCode": "220882",
+  "id": "220882",
   "pcode": "220800",
-  "regionName": "大安市"
+  "name": "大安市"
 }, {
-  "regionCode": "222400",
+  "id": "222400",
   "pcode": "220000",
-  "regionName": "延边朝鲜族自治州"
+  "name": "延边朝鲜族自治州"
 }, {
-  "regionCode": "222401",
+  "id": "222401",
   "pcode": "222400",
-  "regionName": "延吉市"
+  "name": "延吉市"
 }, {
-  "regionCode": "222402",
+  "id": "222402",
   "pcode": "222400",
-  "regionName": "图们市"
+  "name": "图们市"
 }, {
-  "regionCode": "222403",
+  "id": "222403",
   "pcode": "222400",
-  "regionName": "敦化市"
+  "name": "敦化市"
 }, {
-  "regionCode": "222404",
+  "id": "222404",
   "pcode": "222400",
-  "regionName": "珲春市"
+  "name": "珲春市"
 }, {
-  "regionCode": "222405",
+  "id": "222405",
   "pcode": "222400",
-  "regionName": "龙井市"
+  "name": "龙井市"
 }, {
-  "regionCode": "222406",
+  "id": "222406",
   "pcode": "222400",
-  "regionName": "和龙市"
+  "name": "和龙市"
 }, {
-  "regionCode": "222424",
+  "id": "222424",
   "pcode": "222400",
-  "regionName": "汪清县"
+  "name": "汪清县"
 }, {
-  "regionCode": "222426",
+  "id": "222426",
   "pcode": "222400",
-  "regionName": "安图县"
+  "name": "安图县"
 }, {
-  "regionCode": "230000",
+  "id": "230000",
   "pcode": "",
-  "regionName": "黑龙江省"
+  "name": "黑龙江省"
 }, {
-  "regionCode": "230100",
+  "id": "230100",
   "pcode": "230000",
-  "regionName": "哈尔滨市"
+  "name": "哈尔滨市"
 }, {
-  "regionCode": "230101",
+  "id": "230101",
   "pcode": "230100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "230102",
+  "id": "230102",
   "pcode": "230100",
-  "regionName": "道里区"
+  "name": "道里区"
 }, {
-  "regionCode": "230103",
+  "id": "230103",
   "pcode": "230100",
-  "regionName": "南岗区"
+  "name": "南岗区"
 }, {
-  "regionCode": "230104",
+  "id": "230104",
   "pcode": "230100",
-  "regionName": "道外区"
+  "name": "道外区"
 }, {
-  "regionCode": "230108",
+  "id": "230108",
   "pcode": "230100",
-  "regionName": "平房区"
+  "name": "平房区"
 }, {
-  "regionCode": "230109",
+  "id": "230109",
   "pcode": "230100",
-  "regionName": "松北区"
+  "name": "松北区"
 }, {
-  "regionCode": "230110",
+  "id": "230110",
   "pcode": "230100",
-  "regionName": "香坊区"
+  "name": "香坊区"
 }, {
-  "regionCode": "230111",
+  "id": "230111",
   "pcode": "230100",
-  "regionName": "呼兰区"
+  "name": "呼兰区"
 }, {
-  "regionCode": "230112",
+  "id": "230112",
   "pcode": "230100",
-  "regionName": "阿城区"
+  "name": "阿城区"
 }, {
-  "regionCode": "230113",
+  "id": "230113",
   "pcode": "230100",
-  "regionName": "双城区"
+  "name": "双城区"
 }, {
-  "regionCode": "230123",
+  "id": "230123",
   "pcode": "230100",
-  "regionName": "依兰县"
+  "name": "依兰县"
 }, {
-  "regionCode": "230124",
+  "id": "230124",
   "pcode": "230100",
-  "regionName": "方正县"
+  "name": "方正县"
 }, {
-  "regionCode": "230125",
+  "id": "230125",
   "pcode": "230100",
-  "regionName": "宾县"
+  "name": "宾县"
 }, {
-  "regionCode": "230126",
+  "id": "230126",
   "pcode": "230100",
-  "regionName": "巴彦县"
+  "name": "巴彦县"
 }, {
-  "regionCode": "230127",
+  "id": "230127",
   "pcode": "230100",
-  "regionName": "木兰县"
+  "name": "木兰县"
 }, {
-  "regionCode": "230128",
+  "id": "230128",
   "pcode": "230100",
-  "regionName": "通河县"
+  "name": "通河县"
 }, {
-  "regionCode": "230129",
+  "id": "230129",
   "pcode": "230100",
-  "regionName": "延寿县"
+  "name": "延寿县"
 }, {
-  "regionCode": "230183",
+  "id": "230183",
   "pcode": "230100",
-  "regionName": "尚志市"
+  "name": "尚志市"
 }, {
-  "regionCode": "230184",
+  "id": "230184",
   "pcode": "230100",
-  "regionName": "五常市"
+  "name": "五常市"
 }, {
-  "regionCode": "230200",
+  "id": "230200",
   "pcode": "230000",
-  "regionName": "齐齐哈尔市"
+  "name": "齐齐哈尔市"
 }, {
-  "regionCode": "230201",
+  "id": "230201",
   "pcode": "230200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "230202",
+  "id": "230202",
   "pcode": "230200",
-  "regionName": "龙沙区"
+  "name": "龙沙区"
 }, {
-  "regionCode": "230203",
+  "id": "230203",
   "pcode": "230200",
-  "regionName": "建华区"
+  "name": "建华区"
 }, {
-  "regionCode": "230204",
+  "id": "230204",
   "pcode": "230200",
-  "regionName": "铁锋区"
+  "name": "铁锋区"
 }, {
-  "regionCode": "230205",
+  "id": "230205",
   "pcode": "230200",
-  "regionName": "昂昂溪区"
+  "name": "昂昂溪区"
 }, {
-  "regionCode": "230206",
+  "id": "230206",
   "pcode": "230200",
-  "regionName": "富拉尔基区"
+  "name": "富拉尔基区"
 }, {
-  "regionCode": "230207",
+  "id": "230207",
   "pcode": "230200",
-  "regionName": "碾子山区"
+  "name": "碾子山区"
 }, {
-  "regionCode": "230208",
+  "id": "230208",
   "pcode": "230200",
-  "regionName": "梅里斯达斡尔族区"
+  "name": "梅里斯达斡尔族区"
 }, {
-  "regionCode": "230221",
+  "id": "230221",
   "pcode": "230200",
-  "regionName": "龙江县"
+  "name": "龙江县"
 }, {
-  "regionCode": "230223",
+  "id": "230223",
   "pcode": "230200",
-  "regionName": "依安县"
+  "name": "依安县"
 }, {
-  "regionCode": "230224",
+  "id": "230224",
   "pcode": "230200",
-  "regionName": "泰来县"
+  "name": "泰来县"
 }, {
-  "regionCode": "230225",
+  "id": "230225",
   "pcode": "230200",
-  "regionName": "甘南县"
+  "name": "甘南县"
 }, {
-  "regionCode": "230227",
+  "id": "230227",
   "pcode": "230200",
-  "regionName": "富裕县"
+  "name": "富裕县"
 }, {
-  "regionCode": "230229",
+  "id": "230229",
   "pcode": "230200",
-  "regionName": "克山县"
+  "name": "克山县"
 }, {
-  "regionCode": "230230",
+  "id": "230230",
   "pcode": "230200",
-  "regionName": "克东县"
+  "name": "克东县"
 }, {
-  "regionCode": "230231",
+  "id": "230231",
   "pcode": "230200",
-  "regionName": "拜泉县"
+  "name": "拜泉县"
 }, {
-  "regionCode": "230281",
+  "id": "230281",
   "pcode": "230200",
-  "regionName": "讷河市"
+  "name": "讷河市"
 }, {
-  "regionCode": "230300",
+  "id": "230300",
   "pcode": "230000",
-  "regionName": "鸡西市"
+  "name": "鸡西市"
 }, {
-  "regionCode": "230301",
+  "id": "230301",
   "pcode": "230300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "230302",
+  "id": "230302",
   "pcode": "230300",
-  "regionName": "鸡冠区"
+  "name": "鸡冠区"
 }, {
-  "regionCode": "230303",
+  "id": "230303",
   "pcode": "230300",
-  "regionName": "恒山区"
+  "name": "恒山区"
 }, {
-  "regionCode": "230304",
+  "id": "230304",
   "pcode": "230300",
-  "regionName": "滴道区"
+  "name": "滴道区"
 }, {
-  "regionCode": "230305",
+  "id": "230305",
   "pcode": "230300",
-  "regionName": "梨树区"
+  "name": "梨树区"
 }, {
-  "regionCode": "230306",
+  "id": "230306",
   "pcode": "230300",
-  "regionName": "城子河区"
+  "name": "城子河区"
 }, {
-  "regionCode": "230307",
+  "id": "230307",
   "pcode": "230300",
-  "regionName": "麻山区"
+  "name": "麻山区"
 }, {
-  "regionCode": "230321",
+  "id": "230321",
   "pcode": "230300",
-  "regionName": "鸡东县"
+  "name": "鸡东县"
 }, {
-  "regionCode": "230381",
+  "id": "230381",
   "pcode": "230300",
-  "regionName": "虎林市"
+  "name": "虎林市"
 }, {
-  "regionCode": "230382",
+  "id": "230382",
   "pcode": "230300",
-  "regionName": "密山市"
+  "name": "密山市"
 }, {
-  "regionCode": "230400",
+  "id": "230400",
   "pcode": "230000",
-  "regionName": "鹤岗市"
+  "name": "鹤岗市"
 }, {
-  "regionCode": "230401",
+  "id": "230401",
   "pcode": "230400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "230402",
+  "id": "230402",
   "pcode": "230400",
-  "regionName": "向阳区"
+  "name": "向阳区"
 }, {
-  "regionCode": "230403",
+  "id": "230403",
   "pcode": "230400",
-  "regionName": "工农区"
+  "name": "工农区"
 }, {
-  "regionCode": "230404",
+  "id": "230404",
   "pcode": "230400",
-  "regionName": "南山区"
+  "name": "南山区"
 }, {
-  "regionCode": "230405",
+  "id": "230405",
   "pcode": "230400",
-  "regionName": "兴安区"
+  "name": "兴安区"
 }, {
-  "regionCode": "230406",
+  "id": "230406",
   "pcode": "230400",
-  "regionName": "东山区"
+  "name": "东山区"
 }, {
-  "regionCode": "230407",
+  "id": "230407",
   "pcode": "230400",
-  "regionName": "兴山区"
+  "name": "兴山区"
 }, {
-  "regionCode": "230421",
+  "id": "230421",
   "pcode": "230400",
-  "regionName": "萝北县"
+  "name": "萝北县"
 }, {
-  "regionCode": "230422",
+  "id": "230422",
   "pcode": "230400",
-  "regionName": "绥滨县"
+  "name": "绥滨县"
 }, {
-  "regionCode": "230500",
+  "id": "230500",
   "pcode": "230000",
-  "regionName": "双鸭山市"
+  "name": "双鸭山市"
 }, {
-  "regionCode": "230501",
+  "id": "230501",
   "pcode": "230500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "230502",
+  "id": "230502",
   "pcode": "230500",
-  "regionName": "尖山区"
+  "name": "尖山区"
 }, {
-  "regionCode": "230503",
+  "id": "230503",
   "pcode": "230500",
-  "regionName": "岭东区"
+  "name": "岭东区"
 }, {
-  "regionCode": "230505",
+  "id": "230505",
   "pcode": "230500",
-  "regionName": "四方台区"
+  "name": "四方台区"
 }, {
-  "regionCode": "230506",
+  "id": "230506",
   "pcode": "230500",
-  "regionName": "宝山区"
+  "name": "宝山区"
 }, {
-  "regionCode": "230521",
+  "id": "230521",
   "pcode": "230500",
-  "regionName": "集贤县"
+  "name": "集贤县"
 }, {
-  "regionCode": "230522",
+  "id": "230522",
   "pcode": "230500",
-  "regionName": "友谊县"
+  "name": "友谊县"
 }, {
-  "regionCode": "230523",
+  "id": "230523",
   "pcode": "230500",
-  "regionName": "宝清县"
+  "name": "宝清县"
 }, {
-  "regionCode": "230524",
+  "id": "230524",
   "pcode": "230500",
-  "regionName": "饶河县"
+  "name": "饶河县"
 }, {
-  "regionCode": "230600",
+  "id": "230600",
   "pcode": "230000",
-  "regionName": "大庆市"
+  "name": "大庆市"
 }, {
-  "regionCode": "230601",
+  "id": "230601",
   "pcode": "230600",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "230602",
+  "id": "230602",
   "pcode": "230600",
-  "regionName": "萨尔图区"
+  "name": "萨尔图区"
 }, {
-  "regionCode": "230603",
+  "id": "230603",
   "pcode": "230600",
-  "regionName": "龙凤区"
+  "name": "龙凤区"
 }, {
-  "regionCode": "230604",
+  "id": "230604",
   "pcode": "230600",
-  "regionName": "让胡路区"
+  "name": "让胡路区"
 }, {
-  "regionCode": "230605",
+  "id": "230605",
   "pcode": "230600",
-  "regionName": "红岗区"
+  "name": "红岗区"
 }, {
-  "regionCode": "230606",
+  "id": "230606",
   "pcode": "230600",
-  "regionName": "大同区"
+  "name": "大同区"
 }, {
-  "regionCode": "230621",
+  "id": "230621",
   "pcode": "230600",
-  "regionName": "肇州县"
+  "name": "肇州县"
 }, {
-  "regionCode": "230622",
+  "id": "230622",
   "pcode": "230600",
-  "regionName": "肇源县"
+  "name": "肇源县"
 }, {
-  "regionCode": "230623",
+  "id": "230623",
   "pcode": "230600",
-  "regionName": "林甸县"
+  "name": "林甸县"
 }, {
-  "regionCode": "230624",
+  "id": "230624",
   "pcode": "230600",
-  "regionName": "杜尔伯特蒙古族自治县"
+  "name": "杜尔伯特蒙古族自治县"
 }, {
-  "regionCode": "230700",
+  "id": "230700",
   "pcode": "230000",
-  "regionName": "伊春市"
+  "name": "伊春市"
 }, {
-  "regionCode": "230701",
+  "id": "230701",
   "pcode": "230700",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "230702",
+  "id": "230702",
   "pcode": "230700",
-  "regionName": "伊春区"
+  "name": "伊春区"
 }, {
-  "regionCode": "230703",
+  "id": "230703",
   "pcode": "230700",
-  "regionName": "南岔区"
+  "name": "南岔区"
 }, {
-  "regionCode": "230704",
+  "id": "230704",
   "pcode": "230700",
-  "regionName": "友好区"
+  "name": "友好区"
 }, {
-  "regionCode": "230705",
+  "id": "230705",
   "pcode": "230700",
-  "regionName": "西林区"
+  "name": "西林区"
 }, {
-  "regionCode": "230706",
+  "id": "230706",
   "pcode": "230700",
-  "regionName": "翠峦区"
+  "name": "翠峦区"
 }, {
-  "regionCode": "230707",
+  "id": "230707",
   "pcode": "230700",
-  "regionName": "新青区"
+  "name": "新青区"
 }, {
-  "regionCode": "230708",
+  "id": "230708",
   "pcode": "230700",
-  "regionName": "美溪区"
+  "name": "美溪区"
 }, {
-  "regionCode": "230709",
+  "id": "230709",
   "pcode": "230700",
-  "regionName": "金山屯区"
+  "name": "金山屯区"
 }, {
-  "regionCode": "230710",
+  "id": "230710",
   "pcode": "230700",
-  "regionName": "五营区"
+  "name": "五营区"
 }, {
-  "regionCode": "230711",
+  "id": "230711",
   "pcode": "230700",
-  "regionName": "乌马河区"
+  "name": "乌马河区"
 }, {
-  "regionCode": "230712",
+  "id": "230712",
   "pcode": "230700",
-  "regionName": "汤旺河区"
+  "name": "汤旺河区"
 }, {
-  "regionCode": "230713",
+  "id": "230713",
   "pcode": "230700",
-  "regionName": "带岭区"
+  "name": "带岭区"
 }, {
-  "regionCode": "230714",
+  "id": "230714",
   "pcode": "230700",
-  "regionName": "乌伊岭区"
+  "name": "乌伊岭区"
 }, {
-  "regionCode": "230715",
+  "id": "230715",
   "pcode": "230700",
-  "regionName": "红星区"
+  "name": "红星区"
 }, {
-  "regionCode": "230716",
+  "id": "230716",
   "pcode": "230700",
-  "regionName": "上甘岭区"
+  "name": "上甘岭区"
 }, {
-  "regionCode": "230722",
+  "id": "230722",
   "pcode": "230700",
-  "regionName": "嘉荫县"
+  "name": "嘉荫县"
 }, {
-  "regionCode": "230781",
+  "id": "230781",
   "pcode": "230700",
-  "regionName": "铁力市"
+  "name": "铁力市"
 }, {
-  "regionCode": "230800",
+  "id": "230800",
   "pcode": "230000",
-  "regionName": "佳木斯市"
+  "name": "佳木斯市"
 }, {
-  "regionCode": "230801",
+  "id": "230801",
   "pcode": "230800",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "230803",
+  "id": "230803",
   "pcode": "230800",
-  "regionName": "向阳区"
+  "name": "向阳区"
 }, {
-  "regionCode": "230804",
+  "id": "230804",
   "pcode": "230800",
-  "regionName": "前进区"
+  "name": "前进区"
 }, {
-  "regionCode": "230805",
+  "id": "230805",
   "pcode": "230800",
-  "regionName": "东风区"
+  "name": "东风区"
 }, {
-  "regionCode": "230811",
+  "id": "230811",
   "pcode": "230800",
-  "regionName": "郊区"
+  "name": "郊区"
 }, {
-  "regionCode": "230822",
+  "id": "230822",
   "pcode": "230800",
-  "regionName": "桦南县"
+  "name": "桦南县"
 }, {
-  "regionCode": "230826",
+  "id": "230826",
   "pcode": "230800",
-  "regionName": "桦川县"
+  "name": "桦川县"
 }, {
-  "regionCode": "230828",
+  "id": "230828",
   "pcode": "230800",
-  "regionName": "汤原县"
+  "name": "汤原县"
 }, {
-  "regionCode": "230881",
+  "id": "230881",
   "pcode": "230800",
-  "regionName": "同江市"
+  "name": "同江市"
 }, {
-  "regionCode": "230882",
+  "id": "230882",
   "pcode": "230800",
-  "regionName": "富锦市"
+  "name": "富锦市"
 }, {
-  "regionCode": "230883",
+  "id": "230883",
   "pcode": "230800",
-  "regionName": "抚远市"
+  "name": "抚远市"
 }, {
-  "regionCode": "230900",
+  "id": "230900",
   "pcode": "230000",
-  "regionName": "七台河市"
+  "name": "七台河市"
 }, {
-  "regionCode": "230901",
+  "id": "230901",
   "pcode": "230900",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "230902",
+  "id": "230902",
   "pcode": "230900",
-  "regionName": "新兴区"
+  "name": "新兴区"
 }, {
-  "regionCode": "230903",
+  "id": "230903",
   "pcode": "230900",
-  "regionName": "桃山区"
+  "name": "桃山区"
 }, {
-  "regionCode": "230904",
+  "id": "230904",
   "pcode": "230900",
-  "regionName": "茄子河区"
+  "name": "茄子河区"
 }, {
-  "regionCode": "230921",
+  "id": "230921",
   "pcode": "230900",
-  "regionName": "勃利县"
+  "name": "勃利县"
 }, {
-  "regionCode": "231000",
+  "id": "231000",
   "pcode": "230000",
-  "regionName": "牡丹江市"
+  "name": "牡丹江市"
 }, {
-  "regionCode": "231001",
+  "id": "231001",
   "pcode": "231000",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "231002",
+  "id": "231002",
   "pcode": "231000",
-  "regionName": "东安区"
+  "name": "东安区"
 }, {
-  "regionCode": "231003",
+  "id": "231003",
   "pcode": "231000",
-  "regionName": "阳明区"
+  "name": "阳明区"
 }, {
-  "regionCode": "231004",
+  "id": "231004",
   "pcode": "231000",
-  "regionName": "爱民区"
+  "name": "爱民区"
 }, {
-  "regionCode": "231005",
+  "id": "231005",
   "pcode": "231000",
-  "regionName": "西安区"
+  "name": "西安区"
 }, {
-  "regionCode": "231025",
+  "id": "231025",
   "pcode": "231000",
-  "regionName": "林口县"
+  "name": "林口县"
 }, {
-  "regionCode": "231081",
+  "id": "231081",
   "pcode": "231000",
-  "regionName": "绥芬河市"
+  "name": "绥芬河市"
 }, {
-  "regionCode": "231083",
+  "id": "231083",
   "pcode": "231000",
-  "regionName": "海林市"
+  "name": "海林市"
 }, {
-  "regionCode": "231084",
+  "id": "231084",
   "pcode": "231000",
-  "regionName": "宁安市"
+  "name": "宁安市"
 }, {
-  "regionCode": "231085",
+  "id": "231085",
   "pcode": "231000",
-  "regionName": "穆棱市"
+  "name": "穆棱市"
 }, {
-  "regionCode": "231086",
+  "id": "231086",
   "pcode": "231000",
-  "regionName": "东宁市"
+  "name": "东宁市"
 }, {
-  "regionCode": "231100",
+  "id": "231100",
   "pcode": "230000",
-  "regionName": "黑河市"
+  "name": "黑河市"
 }, {
-  "regionCode": "231101",
+  "id": "231101",
   "pcode": "231100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "231102",
+  "id": "231102",
   "pcode": "231100",
-  "regionName": "爱辉区"
+  "name": "爱辉区"
 }, {
-  "regionCode": "231121",
+  "id": "231121",
   "pcode": "231100",
-  "regionName": "嫩江县"
+  "name": "嫩江县"
 }, {
-  "regionCode": "231123",
+  "id": "231123",
   "pcode": "231100",
-  "regionName": "逊克县"
+  "name": "逊克县"
 }, {
-  "regionCode": "231124",
+  "id": "231124",
   "pcode": "231100",
-  "regionName": "孙吴县"
+  "name": "孙吴县"
 }, {
-  "regionCode": "231181",
+  "id": "231181",
   "pcode": "231100",
-  "regionName": "北安市"
+  "name": "北安市"
 }, {
-  "regionCode": "231182",
+  "id": "231182",
   "pcode": "231100",
-  "regionName": "五大连池市"
+  "name": "五大连池市"
 }, {
-  "regionCode": "231200",
+  "id": "231200",
   "pcode": "230000",
-  "regionName": "绥化市"
+  "name": "绥化市"
 }, {
-  "regionCode": "231201",
+  "id": "231201",
   "pcode": "231200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "231202",
+  "id": "231202",
   "pcode": "231200",
-  "regionName": "北林区"
+  "name": "北林区"
 }, {
-  "regionCode": "231221",
+  "id": "231221",
   "pcode": "231200",
-  "regionName": "望奎县"
+  "name": "望奎县"
 }, {
-  "regionCode": "231222",
+  "id": "231222",
   "pcode": "231200",
-  "regionName": "兰西县"
+  "name": "兰西县"
 }, {
-  "regionCode": "231223",
+  "id": "231223",
   "pcode": "231200",
-  "regionName": "青冈县"
+  "name": "青冈县"
 }, {
-  "regionCode": "231224",
+  "id": "231224",
   "pcode": "231200",
-  "regionName": "庆安县"
+  "name": "庆安县"
 }, {
-  "regionCode": "231225",
+  "id": "231225",
   "pcode": "231200",
-  "regionName": "明水县"
+  "name": "明水县"
 }, {
-  "regionCode": "231226",
+  "id": "231226",
   "pcode": "231200",
-  "regionName": "绥棱县"
+  "name": "绥棱县"
 }, {
-  "regionCode": "231281",
+  "id": "231281",
   "pcode": "231200",
-  "regionName": "安达市"
+  "name": "安达市"
 }, {
-  "regionCode": "231282",
+  "id": "231282",
   "pcode": "231200",
-  "regionName": "肇东市"
+  "name": "肇东市"
 }, {
-  "regionCode": "231283",
+  "id": "231283",
   "pcode": "231200",
-  "regionName": "海伦市"
+  "name": "海伦市"
 }, {
-  "regionCode": "232700",
+  "id": "232700",
   "pcode": "230000",
-  "regionName": "大兴安岭地区"
+  "name": "大兴安岭地区"
 }, {
-  "regionCode": "232721",
+  "id": "232721",
   "pcode": "232700",
-  "regionName": "呼玛县"
+  "name": "呼玛县"
 }, {
-  "regionCode": "232722",
+  "id": "232722",
   "pcode": "232700",
-  "regionName": "塔河县"
+  "name": "塔河县"
 }, {
-  "regionCode": "232723",
+  "id": "232723",
   "pcode": "232700",
-  "regionName": "漠河县"
+  "name": "漠河县"
 }, {
-  "regionCode": "310000",
+  "id": "310000",
   "pcode": "",
-  "regionName": "上海市"
+  "name": "上海市"
 }, {
-  "regionCode": "310100",
+  "id": "310100",
   "pcode": "310000",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "310101",
+  "id": "310101",
   "pcode": "310100",
-  "regionName": "黄浦区"
+  "name": "黄浦区"
 }, {
-  "regionCode": "310104",
+  "id": "310104",
   "pcode": "310100",
-  "regionName": "徐汇区"
+  "name": "徐汇区"
 }, {
-  "regionCode": "310105",
+  "id": "310105",
   "pcode": "310100",
-  "regionName": "长宁区"
+  "name": "长宁区"
 }, {
-  "regionCode": "310106",
+  "id": "310106",
   "pcode": "310100",
-  "regionName": "静安区"
+  "name": "静安区"
 }, {
-  "regionCode": "310107",
+  "id": "310107",
   "pcode": "310100",
-  "regionName": "普陀区"
+  "name": "普陀区"
 }, {
-  "regionCode": "310109",
+  "id": "310109",
   "pcode": "310100",
-  "regionName": "虹口区"
+  "name": "虹口区"
 }, {
-  "regionCode": "310110",
+  "id": "310110",
   "pcode": "310100",
-  "regionName": "杨浦区"
+  "name": "杨浦区"
 }, {
-  "regionCode": "310112",
+  "id": "310112",
   "pcode": "310100",
-  "regionName": "闵行区"
+  "name": "闵行区"
 }, {
-  "regionCode": "310113",
+  "id": "310113",
   "pcode": "310100",
-  "regionName": "宝山区"
+  "name": "宝山区"
 }, {
-  "regionCode": "310114",
+  "id": "310114",
   "pcode": "310100",
-  "regionName": "嘉定区"
+  "name": "嘉定区"
 }, {
-  "regionCode": "310115",
+  "id": "310115",
   "pcode": "310100",
-  "regionName": "浦东新区"
+  "name": "浦东新区"
 }, {
-  "regionCode": "310116",
+  "id": "310116",
   "pcode": "310100",
-  "regionName": "金山区"
+  "name": "金山区"
 }, {
-  "regionCode": "310117",
+  "id": "310117",
   "pcode": "310100",
-  "regionName": "松江区"
+  "name": "松江区"
 }, {
-  "regionCode": "310118",
+  "id": "310118",
   "pcode": "310100",
-  "regionName": "青浦区"
+  "name": "青浦区"
 }, {
-  "regionCode": "310120",
+  "id": "310120",
   "pcode": "310100",
-  "regionName": "奉贤区"
+  "name": "奉贤区"
 }, {
-  "regionCode": "310151",
+  "id": "310151",
   "pcode": "310100",
-  "regionName": "崇明区"
+  "name": "崇明区"
 }, {
-  "regionCode": "320000",
+  "id": "320000",
   "pcode": "",
-  "regionName": "江苏省"
+  "name": "江苏省"
 }, {
-  "regionCode": "320100",
+  "id": "320100",
   "pcode": "320000",
-  "regionName": "南京市"
+  "name": "南京市"
 }, {
-  "regionCode": "320101",
+  "id": "320101",
   "pcode": "320100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "320102",
+  "id": "320102",
   "pcode": "320100",
-  "regionName": "玄武区"
+  "name": "玄武区"
 }, {
-  "regionCode": "320104",
+  "id": "320104",
   "pcode": "320100",
-  "regionName": "秦淮区"
+  "name": "秦淮区"
 }, {
-  "regionCode": "320105",
+  "id": "320105",
   "pcode": "320100",
-  "regionName": "建邺区"
+  "name": "建邺区"
 }, {
-  "regionCode": "320106",
+  "id": "320106",
   "pcode": "320100",
-  "regionName": "鼓楼区"
+  "name": "鼓楼区"
 }, {
-  "regionCode": "320111",
+  "id": "320111",
   "pcode": "320100",
-  "regionName": "浦口区"
+  "name": "浦口区"
 }, {
-  "regionCode": "320113",
+  "id": "320113",
   "pcode": "320100",
-  "regionName": "栖霞区"
+  "name": "栖霞区"
 }, {
-  "regionCode": "320114",
+  "id": "320114",
   "pcode": "320100",
-  "regionName": "雨花台区"
+  "name": "雨花台区"
 }, {
-  "regionCode": "320115",
+  "id": "320115",
   "pcode": "320100",
-  "regionName": "江宁区"
+  "name": "江宁区"
 }, {
-  "regionCode": "320116",
+  "id": "320116",
   "pcode": "320100",
-  "regionName": "六合区"
+  "name": "六合区"
 }, {
-  "regionCode": "320117",
+  "id": "320117",
   "pcode": "320100",
-  "regionName": "溧水区"
+  "name": "溧水区"
 }, {
-  "regionCode": "320118",
+  "id": "320118",
   "pcode": "320100",
-  "regionName": "高淳区"
+  "name": "高淳区"
 }, {
-  "regionCode": "320200",
+  "id": "320200",
   "pcode": "320000",
-  "regionName": "无锡市"
+  "name": "无锡市"
 }, {
-  "regionCode": "320201",
+  "id": "320201",
   "pcode": "320200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "320205",
+  "id": "320205",
   "pcode": "320200",
-  "regionName": "锡山区"
+  "name": "锡山区"
 }, {
-  "regionCode": "320206",
+  "id": "320206",
   "pcode": "320200",
-  "regionName": "惠山区"
+  "name": "惠山区"
 }, {
-  "regionCode": "320211",
+  "id": "320211",
   "pcode": "320200",
-  "regionName": "滨湖区"
+  "name": "滨湖区"
 }, {
-  "regionCode": "320213",
+  "id": "320213",
   "pcode": "320200",
-  "regionName": "梁溪区"
+  "name": "梁溪区"
 }, {
-  "regionCode": "320214",
+  "id": "320214",
   "pcode": "320200",
-  "regionName": "新吴区"
+  "name": "新吴区"
 }, {
-  "regionCode": "320281",
+  "id": "320281",
   "pcode": "320200",
-  "regionName": "江阴市"
+  "name": "江阴市"
 }, {
-  "regionCode": "320282",
+  "id": "320282",
   "pcode": "320200",
-  "regionName": "宜兴市"
+  "name": "宜兴市"
 }, {
-  "regionCode": "320300",
+  "id": "320300",
   "pcode": "320000",
-  "regionName": "徐州市"
+  "name": "徐州市"
 }, {
-  "regionCode": "320301",
+  "id": "320301",
   "pcode": "320300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "320302",
+  "id": "320302",
   "pcode": "320300",
-  "regionName": "鼓楼区"
+  "name": "鼓楼区"
 }, {
-  "regionCode": "320303",
+  "id": "320303",
   "pcode": "320300",
-  "regionName": "云龙区"
+  "name": "云龙区"
 }, {
-  "regionCode": "320305",
+  "id": "320305",
   "pcode": "320300",
-  "regionName": "贾汪区"
+  "name": "贾汪区"
 }, {
-  "regionCode": "320311",
+  "id": "320311",
   "pcode": "320300",
-  "regionName": "泉山区"
+  "name": "泉山区"
 }, {
-  "regionCode": "320312",
+  "id": "320312",
   "pcode": "320300",
-  "regionName": "铜山区"
+  "name": "铜山区"
 }, {
-  "regionCode": "320321",
+  "id": "320321",
   "pcode": "320300",
-  "regionName": "丰县"
+  "name": "丰县"
 }, {
-  "regionCode": "320322",
+  "id": "320322",
   "pcode": "320300",
-  "regionName": "沛县"
+  "name": "沛县"
 }, {
-  "regionCode": "320324",
+  "id": "320324",
   "pcode": "320300",
-  "regionName": "睢宁县"
+  "name": "睢宁县"
 }, {
-  "regionCode": "320381",
+  "id": "320381",
   "pcode": "320300",
-  "regionName": "新沂市"
+  "name": "新沂市"
 }, {
-  "regionCode": "320382",
+  "id": "320382",
   "pcode": "320300",
-  "regionName": "邳州市"
+  "name": "邳州市"
 }, {
-  "regionCode": "320400",
+  "id": "320400",
   "pcode": "320000",
-  "regionName": "常州市"
+  "name": "常州市"
 }, {
-  "regionCode": "320401",
+  "id": "320401",
   "pcode": "320400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "320402",
+  "id": "320402",
   "pcode": "320400",
-  "regionName": "天宁区"
+  "name": "天宁区"
 }, {
-  "regionCode": "320404",
+  "id": "320404",
   "pcode": "320400",
-  "regionName": "钟楼区"
+  "name": "钟楼区"
 }, {
-  "regionCode": "320411",
+  "id": "320411",
   "pcode": "320400",
-  "regionName": "新北区"
+  "name": "新北区"
 }, {
-  "regionCode": "320412",
+  "id": "320412",
   "pcode": "320400",
-  "regionName": "武进区"
+  "name": "武进区"
 }, {
-  "regionCode": "320413",
+  "id": "320413",
   "pcode": "320400",
-  "regionName": "金坛区"
+  "name": "金坛区"
 }, {
-  "regionCode": "320481",
+  "id": "320481",
   "pcode": "320400",
-  "regionName": "溧阳市"
+  "name": "溧阳市"
 }, {
-  "regionCode": "320500",
+  "id": "320500",
   "pcode": "320000",
-  "regionName": "苏州市"
+  "name": "苏州市"
 }, {
-  "regionCode": "320501",
+  "id": "320501",
   "pcode": "320500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "320505",
+  "id": "320505",
   "pcode": "320500",
-  "regionName": "虎丘区"
+  "name": "虎丘区"
 }, {
-  "regionCode": "320506",
+  "id": "320506",
   "pcode": "320500",
-  "regionName": "吴中区"
+  "name": "吴中区"
 }, {
-  "regionCode": "320507",
+  "id": "320507",
   "pcode": "320500",
-  "regionName": "相城区"
+  "name": "相城区"
 }, {
-  "regionCode": "320508",
+  "id": "320508",
   "pcode": "320500",
-  "regionName": "姑苏区"
+  "name": "姑苏区"
 }, {
-  "regionCode": "320509",
+  "id": "320509",
   "pcode": "320500",
-  "regionName": "吴江区"
+  "name": "吴江区"
 }, {
-  "regionCode": "320581",
+  "id": "320581",
   "pcode": "320500",
-  "regionName": "常熟市"
+  "name": "常熟市"
 }, {
-  "regionCode": "320582",
+  "id": "320582",
   "pcode": "320500",
-  "regionName": "张家港市"
+  "name": "张家港市"
 }, {
-  "regionCode": "320583",
+  "id": "320583",
   "pcode": "320500",
-  "regionName": "昆山市"
+  "name": "昆山市"
 }, {
-  "regionCode": "320585",
+  "id": "320585",
   "pcode": "320500",
-  "regionName": "太仓市"
+  "name": "太仓市"
 }, {
-  "regionCode": "320600",
+  "id": "320600",
   "pcode": "320000",
-  "regionName": "南通市"
+  "name": "南通市"
 }, {
-  "regionCode": "320601",
+  "id": "320601",
   "pcode": "320600",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "320602",
+  "id": "320602",
   "pcode": "320600",
-  "regionName": "崇川区"
+  "name": "崇川区"
 }, {
-  "regionCode": "320611",
+  "id": "320611",
   "pcode": "320600",
-  "regionName": "港闸区"
+  "name": "港闸区"
 }, {
-  "regionCode": "320612",
+  "id": "320612",
   "pcode": "320600",
-  "regionName": "通州区"
+  "name": "通州区"
 }, {
-  "regionCode": "320621",
+  "id": "320621",
   "pcode": "320600",
-  "regionName": "海安县"
+  "name": "海安县"
 }, {
-  "regionCode": "320623",
+  "id": "320623",
   "pcode": "320600",
-  "regionName": "如东县"
+  "name": "如东县"
 }, {
-  "regionCode": "320681",
+  "id": "320681",
   "pcode": "320600",
-  "regionName": "启东市"
+  "name": "启东市"
 }, {
-  "regionCode": "320682",
+  "id": "320682",
   "pcode": "320600",
-  "regionName": "如皋市"
+  "name": "如皋市"
 }, {
-  "regionCode": "320684",
+  "id": "320684",
   "pcode": "320600",
-  "regionName": "海门市"
+  "name": "海门市"
 }, {
-  "regionCode": "320700",
+  "id": "320700",
   "pcode": "320000",
-  "regionName": "连云港市"
+  "name": "连云港市"
 }, {
-  "regionCode": "320701",
+  "id": "320701",
   "pcode": "320700",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "320703",
+  "id": "320703",
   "pcode": "320700",
-  "regionName": "连云区"
+  "name": "连云区"
 }, {
-  "regionCode": "320706",
+  "id": "320706",
   "pcode": "320700",
-  "regionName": "海州区"
+  "name": "海州区"
 }, {
-  "regionCode": "320707",
+  "id": "320707",
   "pcode": "320700",
-  "regionName": "赣榆区"
+  "name": "赣榆区"
 }, {
-  "regionCode": "320722",
+  "id": "320722",
   "pcode": "320700",
-  "regionName": "东海县"
+  "name": "东海县"
 }, {
-  "regionCode": "320723",
+  "id": "320723",
   "pcode": "320700",
-  "regionName": "灌云县"
+  "name": "灌云县"
 }, {
-  "regionCode": "320724",
+  "id": "320724",
   "pcode": "320700",
-  "regionName": "灌南县"
+  "name": "灌南县"
 }, {
-  "regionCode": "320800",
+  "id": "320800",
   "pcode": "320000",
-  "regionName": "淮安市"
+  "name": "淮安市"
 }, {
-  "regionCode": "320801",
+  "id": "320801",
   "pcode": "320800",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "320803",
+  "id": "320803",
   "pcode": "320800",
-  "regionName": "淮安区"
+  "name": "淮安区"
 }, {
-  "regionCode": "320804",
+  "id": "320804",
   "pcode": "320800",
-  "regionName": "淮阴区"
+  "name": "淮阴区"
 }, {
-  "regionCode": "320812",
+  "id": "320812",
   "pcode": "320800",
-  "regionName": "清江浦区"
+  "name": "清江浦区"
 }, {
-  "regionCode": "320813",
+  "id": "320813",
   "pcode": "320800",
-  "regionName": "洪泽区"
+  "name": "洪泽区"
 }, {
-  "regionCode": "320826",
+  "id": "320826",
   "pcode": "320800",
-  "regionName": "涟水县"
+  "name": "涟水县"
 }, {
-  "regionCode": "320830",
+  "id": "320830",
   "pcode": "320800",
-  "regionName": "盱眙县"
+  "name": "盱眙县"
 }, {
-  "regionCode": "320831",
+  "id": "320831",
   "pcode": "320800",
-  "regionName": "金湖县"
+  "name": "金湖县"
 }, {
-  "regionCode": "320900",
+  "id": "320900",
   "pcode": "320000",
-  "regionName": "盐城市"
+  "name": "盐城市"
 }, {
-  "regionCode": "320901",
+  "id": "320901",
   "pcode": "320900",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "320902",
+  "id": "320902",
   "pcode": "320900",
-  "regionName": "亭湖区"
+  "name": "亭湖区"
 }, {
-  "regionCode": "320903",
+  "id": "320903",
   "pcode": "320900",
-  "regionName": "盐都区"
+  "name": "盐都区"
 }, {
-  "regionCode": "320904",
+  "id": "320904",
   "pcode": "320900",
-  "regionName": "大丰区"
+  "name": "大丰区"
 }, {
-  "regionCode": "320921",
+  "id": "320921",
   "pcode": "320900",
-  "regionName": "响水县"
+  "name": "响水县"
 }, {
-  "regionCode": "320922",
+  "id": "320922",
   "pcode": "320900",
-  "regionName": "滨海县"
+  "name": "滨海县"
 }, {
-  "regionCode": "320923",
+  "id": "320923",
   "pcode": "320900",
-  "regionName": "阜宁县"
+  "name": "阜宁县"
 }, {
-  "regionCode": "320924",
+  "id": "320924",
   "pcode": "320900",
-  "regionName": "射阳县"
+  "name": "射阳县"
 }, {
-  "regionCode": "320925",
+  "id": "320925",
   "pcode": "320900",
-  "regionName": "建湖县"
+  "name": "建湖县"
 }, {
-  "regionCode": "320981",
+  "id": "320981",
   "pcode": "320900",
-  "regionName": "东台市"
+  "name": "东台市"
 }, {
-  "regionCode": "321000",
+  "id": "321000",
   "pcode": "320000",
-  "regionName": "扬州市"
+  "name": "扬州市"
 }, {
-  "regionCode": "321001",
+  "id": "321001",
   "pcode": "321000",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "321002",
+  "id": "321002",
   "pcode": "321000",
-  "regionName": "广陵区"
+  "name": "广陵区"
 }, {
-  "regionCode": "321003",
+  "id": "321003",
   "pcode": "321000",
-  "regionName": "邗江区"
+  "name": "邗江区"
 }, {
-  "regionCode": "321012",
+  "id": "321012",
   "pcode": "321000",
-  "regionName": "江都区"
+  "name": "江都区"
 }, {
-  "regionCode": "321023",
+  "id": "321023",
   "pcode": "321000",
-  "regionName": "宝应县"
+  "name": "宝应县"
 }, {
-  "regionCode": "321081",
+  "id": "321081",
   "pcode": "321000",
-  "regionName": "仪征市"
+  "name": "仪征市"
 }, {
-  "regionCode": "321084",
+  "id": "321084",
   "pcode": "321000",
-  "regionName": "高邮市"
+  "name": "高邮市"
 }, {
-  "regionCode": "321100",
+  "id": "321100",
   "pcode": "320000",
-  "regionName": "镇江市"
+  "name": "镇江市"
 }, {
-  "regionCode": "321101",
+  "id": "321101",
   "pcode": "321100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "321102",
+  "id": "321102",
   "pcode": "321100",
-  "regionName": "京口区"
+  "name": "京口区"
 }, {
-  "regionCode": "321111",
+  "id": "321111",
   "pcode": "321100",
-  "regionName": "润州区"
+  "name": "润州区"
 }, {
-  "regionCode": "321112",
+  "id": "321112",
   "pcode": "321100",
-  "regionName": "丹徒区"
+  "name": "丹徒区"
 }, {
-  "regionCode": "321181",
+  "id": "321181",
   "pcode": "321100",
-  "regionName": "丹阳市"
+  "name": "丹阳市"
 }, {
-  "regionCode": "321182",
+  "id": "321182",
   "pcode": "321100",
-  "regionName": "扬中市"
+  "name": "扬中市"
 }, {
-  "regionCode": "321183",
+  "id": "321183",
   "pcode": "321100",
-  "regionName": "句容市"
+  "name": "句容市"
 }, {
-  "regionCode": "321200",
+  "id": "321200",
   "pcode": "320000",
-  "regionName": "泰州市"
+  "name": "泰州市"
 }, {
-  "regionCode": "321201",
+  "id": "321201",
   "pcode": "321200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "321202",
+  "id": "321202",
   "pcode": "321200",
-  "regionName": "海陵区"
+  "name": "海陵区"
 }, {
-  "regionCode": "321203",
+  "id": "321203",
   "pcode": "321200",
-  "regionName": "高港区"
+  "name": "高港区"
 }, {
-  "regionCode": "321204",
+  "id": "321204",
   "pcode": "321200",
-  "regionName": "姜堰区"
+  "name": "姜堰区"
 }, {
-  "regionCode": "321281",
+  "id": "321281",
   "pcode": "321200",
-  "regionName": "兴化市"
+  "name": "兴化市"
 }, {
-  "regionCode": "321282",
+  "id": "321282",
   "pcode": "321200",
-  "regionName": "靖江市"
+  "name": "靖江市"
 }, {
-  "regionCode": "321283",
+  "id": "321283",
   "pcode": "321200",
-  "regionName": "泰兴市"
+  "name": "泰兴市"
 }, {
-  "regionCode": "321300",
+  "id": "321300",
   "pcode": "320000",
-  "regionName": "宿迁市"
+  "name": "宿迁市"
 }, {
-  "regionCode": "321301",
+  "id": "321301",
   "pcode": "321300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "321302",
+  "id": "321302",
   "pcode": "321300",
-  "regionName": "宿城区"
+  "name": "宿城区"
 }, {
-  "regionCode": "321311",
+  "id": "321311",
   "pcode": "321300",
-  "regionName": "宿豫区"
+  "name": "宿豫区"
 }, {
-  "regionCode": "321322",
+  "id": "321322",
   "pcode": "321300",
-  "regionName": "沭阳县"
+  "name": "沭阳县"
 }, {
-  "regionCode": "321323",
+  "id": "321323",
   "pcode": "321300",
-  "regionName": "泗阳县"
+  "name": "泗阳县"
 }, {
-  "regionCode": "321324",
+  "id": "321324",
   "pcode": "321300",
-  "regionName": "泗洪县"
+  "name": "泗洪县"
 }, {
-  "regionCode": "330000",
+  "id": "330000",
   "pcode": "",
-  "regionName": "浙江省"
+  "name": "浙江省"
 }, {
-  "regionCode": "330100",
+  "id": "330100",
   "pcode": "330000",
-  "regionName": "杭州市"
+  "name": "杭州市"
 }, {
-  "regionCode": "330101",
+  "id": "330101",
   "pcode": "330100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "330102",
+  "id": "330102",
   "pcode": "330100",
-  "regionName": "上城区"
+  "name": "上城区"
 }, {
-  "regionCode": "330103",
+  "id": "330103",
   "pcode": "330100",
-  "regionName": "下城区"
+  "name": "下城区"
 }, {
-  "regionCode": "330104",
+  "id": "330104",
   "pcode": "330100",
-  "regionName": "江干区"
+  "name": "江干区"
 }, {
-  "regionCode": "330105",
+  "id": "330105",
   "pcode": "330100",
-  "regionName": "拱墅区"
+  "name": "拱墅区"
 }, {
-  "regionCode": "330106",
+  "id": "330106",
   "pcode": "330100",
-  "regionName": "西湖区"
+  "name": "西湖区"
 }, {
-  "regionCode": "330108",
+  "id": "330108",
   "pcode": "330100",
-  "regionName": "滨江区"
+  "name": "滨江区"
 }, {
-  "regionCode": "330109",
+  "id": "330109",
   "pcode": "330100",
-  "regionName": "萧山区"
+  "name": "萧山区"
 }, {
-  "regionCode": "330110",
+  "id": "330110",
   "pcode": "330100",
-  "regionName": "余杭区"
+  "name": "余杭区"
 }, {
-  "regionCode": "330111",
+  "id": "330111",
   "pcode": "330100",
-  "regionName": "富阳区"
+  "name": "富阳区"
 }, {
-  "regionCode": "330122",
+  "id": "330122",
   "pcode": "330100",
-  "regionName": "桐庐县"
+  "name": "桐庐县"
 }, {
-  "regionCode": "330127",
+  "id": "330127",
   "pcode": "330100",
-  "regionName": "淳安县"
+  "name": "淳安县"
 }, {
-  "regionCode": "330182",
+  "id": "330182",
   "pcode": "330100",
-  "regionName": "建德市"
+  "name": "建德市"
 }, {
-  "regionCode": "330185",
+  "id": "330185",
   "pcode": "330100",
-  "regionName": "临安市"
+  "name": "临安市"
 }, {
-  "regionCode": "330200",
+  "id": "330200",
   "pcode": "330000",
-  "regionName": "宁波市"
+  "name": "宁波市"
 }, {
-  "regionCode": "330201",
+  "id": "330201",
   "pcode": "330200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "330203",
+  "id": "330203",
   "pcode": "330200",
-  "regionName": "海曙区"
+  "name": "海曙区"
 }, {
-  "regionCode": "330204",
+  "id": "330204",
   "pcode": "330200",
-  "regionName": "江东区"
+  "name": "江东区"
 }, {
-  "regionCode": "330205",
+  "id": "330205",
   "pcode": "330200",
-  "regionName": "江北区"
+  "name": "江北区"
 }, {
-  "regionCode": "330206",
+  "id": "330206",
   "pcode": "330200",
-  "regionName": "北仑区"
+  "name": "北仑区"
 }, {
-  "regionCode": "330211",
+  "id": "330211",
   "pcode": "330200",
-  "regionName": "镇海区"
+  "name": "镇海区"
 }, {
-  "regionCode": "330212",
+  "id": "330212",
   "pcode": "330200",
-  "regionName": "鄞州区"
+  "name": "鄞州区"
 }, {
-  "regionCode": "330225",
+  "id": "330225",
   "pcode": "330200",
-  "regionName": "象山县"
+  "name": "象山县"
 }, {
-  "regionCode": "330226",
+  "id": "330226",
   "pcode": "330200",
-  "regionName": "宁海县"
+  "name": "宁海县"
 }, {
-  "regionCode": "330281",
+  "id": "330281",
   "pcode": "330200",
-  "regionName": "余姚市"
+  "name": "余姚市"
 }, {
-  "regionCode": "330282",
+  "id": "330282",
   "pcode": "330200",
-  "regionName": "慈溪市"
+  "name": "慈溪市"
 }, {
-  "regionCode": "330283",
+  "id": "330283",
   "pcode": "330200",
-  "regionName": "奉化市"
+  "name": "奉化市"
 }, {
-  "regionCode": "330300",
+  "id": "330300",
   "pcode": "330000",
-  "regionName": "温州市"
+  "name": "温州市"
 }, {
-  "regionCode": "330301",
+  "id": "330301",
   "pcode": "330300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "330302",
+  "id": "330302",
   "pcode": "330300",
-  "regionName": "鹿城区"
+  "name": "鹿城区"
 }, {
-  "regionCode": "330303",
+  "id": "330303",
   "pcode": "330300",
-  "regionName": "龙湾区"
+  "name": "龙湾区"
 }, {
-  "regionCode": "330304",
+  "id": "330304",
   "pcode": "330300",
-  "regionName": "瓯海区"
+  "name": "瓯海区"
 }, {
-  "regionCode": "330305",
+  "id": "330305",
   "pcode": "330300",
-  "regionName": "洞头区"
+  "name": "洞头区"
 }, {
-  "regionCode": "330324",
+  "id": "330324",
   "pcode": "330300",
-  "regionName": "永嘉县"
+  "name": "永嘉县"
 }, {
-  "regionCode": "330326",
+  "id": "330326",
   "pcode": "330300",
-  "regionName": "平阳县"
+  "name": "平阳县"
 }, {
-  "regionCode": "330327",
+  "id": "330327",
   "pcode": "330300",
-  "regionName": "苍南县"
+  "name": "苍南县"
 }, {
-  "regionCode": "330328",
+  "id": "330328",
   "pcode": "330300",
-  "regionName": "文成县"
+  "name": "文成县"
 }, {
-  "regionCode": "330329",
+  "id": "330329",
   "pcode": "330300",
-  "regionName": "泰顺县"
+  "name": "泰顺县"
 }, {
-  "regionCode": "330381",
+  "id": "330381",
   "pcode": "330300",
-  "regionName": "瑞安市"
+  "name": "瑞安市"
 }, {
-  "regionCode": "330382",
+  "id": "330382",
   "pcode": "330300",
-  "regionName": "乐清市"
+  "name": "乐清市"
 }, {
-  "regionCode": "330400",
+  "id": "330400",
   "pcode": "330000",
-  "regionName": "嘉兴市"
+  "name": "嘉兴市"
 }, {
-  "regionCode": "330401",
+  "id": "330401",
   "pcode": "330400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "330402",
+  "id": "330402",
   "pcode": "330400",
-  "regionName": "南湖区"
+  "name": "南湖区"
 }, {
-  "regionCode": "330411",
+  "id": "330411",
   "pcode": "330400",
-  "regionName": "秀洲区"
+  "name": "秀洲区"
 }, {
-  "regionCode": "330421",
+  "id": "330421",
   "pcode": "330400",
-  "regionName": "嘉善县"
+  "name": "嘉善县"
 }, {
-  "regionCode": "330424",
+  "id": "330424",
   "pcode": "330400",
-  "regionName": "海盐县"
+  "name": "海盐县"
 }, {
-  "regionCode": "330481",
+  "id": "330481",
   "pcode": "330400",
-  "regionName": "海宁市"
+  "name": "海宁市"
 }, {
-  "regionCode": "330482",
+  "id": "330482",
   "pcode": "330400",
-  "regionName": "平湖市"
+  "name": "平湖市"
 }, {
-  "regionCode": "330483",
+  "id": "330483",
   "pcode": "330400",
-  "regionName": "桐乡市"
+  "name": "桐乡市"
 }, {
-  "regionCode": "330500",
+  "id": "330500",
   "pcode": "330000",
-  "regionName": "湖州市"
+  "name": "湖州市"
 }, {
-  "regionCode": "330501",
+  "id": "330501",
   "pcode": "330500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "330502",
+  "id": "330502",
   "pcode": "330500",
-  "regionName": "吴兴区"
+  "name": "吴兴区"
 }, {
-  "regionCode": "330503",
+  "id": "330503",
   "pcode": "330500",
-  "regionName": "南浔区"
+  "name": "南浔区"
 }, {
-  "regionCode": "330521",
+  "id": "330521",
   "pcode": "330500",
-  "regionName": "德清县"
+  "name": "德清县"
 }, {
-  "regionCode": "330522",
+  "id": "330522",
   "pcode": "330500",
-  "regionName": "长兴县"
+  "name": "长兴县"
 }, {
-  "regionCode": "330523",
+  "id": "330523",
   "pcode": "330500",
-  "regionName": "安吉县"
+  "name": "安吉县"
 }, {
-  "regionCode": "330600",
+  "id": "330600",
   "pcode": "330000",
-  "regionName": "绍兴市"
+  "name": "绍兴市"
 }, {
-  "regionCode": "330601",
+  "id": "330601",
   "pcode": "330600",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "330602",
+  "id": "330602",
   "pcode": "330600",
-  "regionName": "越城区"
+  "name": "越城区"
 }, {
-  "regionCode": "330603",
+  "id": "330603",
   "pcode": "330600",
-  "regionName": "柯桥区"
+  "name": "柯桥区"
 }, {
-  "regionCode": "330604",
+  "id": "330604",
   "pcode": "330600",
-  "regionName": "上虞区"
+  "name": "上虞区"
 }, {
-  "regionCode": "330624",
+  "id": "330624",
   "pcode": "330600",
-  "regionName": "新昌县"
+  "name": "新昌县"
 }, {
-  "regionCode": "330681",
+  "id": "330681",
   "pcode": "330600",
-  "regionName": "诸暨市"
+  "name": "诸暨市"
 }, {
-  "regionCode": "330683",
+  "id": "330683",
   "pcode": "330600",
-  "regionName": "嵊州市"
+  "name": "嵊州市"
 }, {
-  "regionCode": "330700",
+  "id": "330700",
   "pcode": "330000",
-  "regionName": "金华市"
+  "name": "金华市"
 }, {
-  "regionCode": "330701",
+  "id": "330701",
   "pcode": "330700",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "330702",
+  "id": "330702",
   "pcode": "330700",
-  "regionName": "婺城区"
+  "name": "婺城区"
 }, {
-  "regionCode": "330703",
+  "id": "330703",
   "pcode": "330700",
-  "regionName": "金东区"
+  "name": "金东区"
 }, {
-  "regionCode": "330723",
+  "id": "330723",
   "pcode": "330700",
-  "regionName": "武义县"
+  "name": "武义县"
 }, {
-  "regionCode": "330726",
+  "id": "330726",
   "pcode": "330700",
-  "regionName": "浦江县"
+  "name": "浦江县"
 }, {
-  "regionCode": "330727",
+  "id": "330727",
   "pcode": "330700",
-  "regionName": "磐安县"
+  "name": "磐安县"
 }, {
-  "regionCode": "330781",
+  "id": "330781",
   "pcode": "330700",
-  "regionName": "兰溪市"
+  "name": "兰溪市"
 }, {
-  "regionCode": "330782",
+  "id": "330782",
   "pcode": "330700",
-  "regionName": "义乌市"
+  "name": "义乌市"
 }, {
-  "regionCode": "330783",
+  "id": "330783",
   "pcode": "330700",
-  "regionName": "东阳市"
+  "name": "东阳市"
 }, {
-  "regionCode": "330784",
+  "id": "330784",
   "pcode": "330700",
-  "regionName": "永康市"
+  "name": "永康市"
 }, {
-  "regionCode": "330800",
+  "id": "330800",
   "pcode": "330000",
-  "regionName": "衢州市"
+  "name": "衢州市"
 }, {
-  "regionCode": "330801",
+  "id": "330801",
   "pcode": "330800",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "330802",
+  "id": "330802",
   "pcode": "330800",
-  "regionName": "柯城区"
+  "name": "柯城区"
 }, {
-  "regionCode": "330803",
+  "id": "330803",
   "pcode": "330800",
-  "regionName": "衢江区"
+  "name": "衢江区"
 }, {
-  "regionCode": "330822",
+  "id": "330822",
   "pcode": "330800",
-  "regionName": "常山县"
+  "name": "常山县"
 }, {
-  "regionCode": "330824",
+  "id": "330824",
   "pcode": "330800",
-  "regionName": "开化县"
+  "name": "开化县"
 }, {
-  "regionCode": "330825",
+  "id": "330825",
   "pcode": "330800",
-  "regionName": "龙游县"
+  "name": "龙游县"
 }, {
-  "regionCode": "330881",
+  "id": "330881",
   "pcode": "330800",
-  "regionName": "江山市"
+  "name": "江山市"
 }, {
-  "regionCode": "330900",
+  "id": "330900",
   "pcode": "330000",
-  "regionName": "舟山市"
+  "name": "舟山市"
 }, {
-  "regionCode": "330901",
+  "id": "330901",
   "pcode": "330900",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "330902",
+  "id": "330902",
   "pcode": "330900",
-  "regionName": "定海区"
+  "name": "定海区"
 }, {
-  "regionCode": "330903",
+  "id": "330903",
   "pcode": "330900",
-  "regionName": "普陀区"
+  "name": "普陀区"
 }, {
-  "regionCode": "330921",
+  "id": "330921",
   "pcode": "330900",
-  "regionName": "岱山县"
+  "name": "岱山县"
 }, {
-  "regionCode": "330922",
+  "id": "330922",
   "pcode": "330900",
-  "regionName": "嵊泗县"
+  "name": "嵊泗县"
 }, {
-  "regionCode": "331000",
+  "id": "331000",
   "pcode": "330000",
-  "regionName": "台州市"
+  "name": "台州市"
 }, {
-  "regionCode": "331001",
+  "id": "331001",
   "pcode": "331000",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "331002",
+  "id": "331002",
   "pcode": "331000",
-  "regionName": "椒江区"
+  "name": "椒江区"
 }, {
-  "regionCode": "331003",
+  "id": "331003",
   "pcode": "331000",
-  "regionName": "黄岩区"
+  "name": "黄岩区"
 }, {
-  "regionCode": "331004",
+  "id": "331004",
   "pcode": "331000",
-  "regionName": "路桥区"
+  "name": "路桥区"
 }, {
-  "regionCode": "331021",
+  "id": "331021",
   "pcode": "331000",
-  "regionName": "玉环县"
+  "name": "玉环县"
 }, {
-  "regionCode": "331022",
+  "id": "331022",
   "pcode": "331000",
-  "regionName": "三门县"
+  "name": "三门县"
 }, {
-  "regionCode": "331023",
+  "id": "331023",
   "pcode": "331000",
-  "regionName": "天台县"
+  "name": "天台县"
 }, {
-  "regionCode": "331024",
+  "id": "331024",
   "pcode": "331000",
-  "regionName": "仙居县"
+  "name": "仙居县"
 }, {
-  "regionCode": "331081",
+  "id": "331081",
   "pcode": "331000",
-  "regionName": "温岭市"
+  "name": "温岭市"
 }, {
-  "regionCode": "331082",
+  "id": "331082",
   "pcode": "331000",
-  "regionName": "临海市"
+  "name": "临海市"
 }, {
-  "regionCode": "331100",
+  "id": "331100",
   "pcode": "330000",
-  "regionName": "丽水市"
+  "name": "丽水市"
 }, {
-  "regionCode": "331101",
+  "id": "331101",
   "pcode": "331100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "331102",
+  "id": "331102",
   "pcode": "331100",
-  "regionName": "莲都区"
+  "name": "莲都区"
 }, {
-  "regionCode": "331121",
+  "id": "331121",
   "pcode": "331100",
-  "regionName": "青田县"
+  "name": "青田县"
 }, {
-  "regionCode": "331122",
+  "id": "331122",
   "pcode": "331100",
-  "regionName": "缙云县"
+  "name": "缙云县"
 }, {
-  "regionCode": "331123",
+  "id": "331123",
   "pcode": "331100",
-  "regionName": "遂昌县"
+  "name": "遂昌县"
 }, {
-  "regionCode": "331124",
+  "id": "331124",
   "pcode": "331100",
-  "regionName": "松阳县"
+  "name": "松阳县"
 }, {
-  "regionCode": "331125",
+  "id": "331125",
   "pcode": "331100",
-  "regionName": "云和县"
+  "name": "云和县"
 }, {
-  "regionCode": "331126",
+  "id": "331126",
   "pcode": "331100",
-  "regionName": "庆元县"
+  "name": "庆元县"
 }, {
-  "regionCode": "331127",
+  "id": "331127",
   "pcode": "331100",
-  "regionName": "景宁畲族自治县"
+  "name": "景宁畲族自治县"
 }, {
-  "regionCode": "331181",
+  "id": "331181",
   "pcode": "331100",
-  "regionName": "龙泉市"
+  "name": "龙泉市"
 }, {
-  "regionCode": "340000",
+  "id": "340000",
   "pcode": "",
-  "regionName": "安徽省"
+  "name": "安徽省"
 }, {
-  "regionCode": "340100",
+  "id": "340100",
   "pcode": "340000",
-  "regionName": "合肥市"
+  "name": "合肥市"
 }, {
-  "regionCode": "340101",
+  "id": "340101",
   "pcode": "340100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "340102",
+  "id": "340102",
   "pcode": "340100",
-  "regionName": "瑶海区"
+  "name": "瑶海区"
 }, {
-  "regionCode": "340103",
+  "id": "340103",
   "pcode": "340100",
-  "regionName": "庐阳区"
+  "name": "庐阳区"
 }, {
-  "regionCode": "340104",
+  "id": "340104",
   "pcode": "340100",
-  "regionName": "蜀山区"
+  "name": "蜀山区"
 }, {
-  "regionCode": "340111",
+  "id": "340111",
   "pcode": "340100",
-  "regionName": "包河区"
+  "name": "包河区"
 }, {
-  "regionCode": "340121",
+  "id": "340121",
   "pcode": "340100",
-  "regionName": "长丰县"
+  "name": "长丰县"
 }, {
-  "regionCode": "340122",
+  "id": "340122",
   "pcode": "340100",
-  "regionName": "肥东县"
+  "name": "肥东县"
 }, {
-  "regionCode": "340123",
+  "id": "340123",
   "pcode": "340100",
-  "regionName": "肥西县"
+  "name": "肥西县"
 }, {
-  "regionCode": "340124",
+  "id": "340124",
   "pcode": "340100",
-  "regionName": "庐江县"
+  "name": "庐江县"
 }, {
-  "regionCode": "340181",
+  "id": "340181",
   "pcode": "340100",
-  "regionName": "巢湖市"
+  "name": "巢湖市"
 }, {
-  "regionCode": "340200",
+  "id": "340200",
   "pcode": "340000",
-  "regionName": "芜湖市"
+  "name": "芜湖市"
 }, {
-  "regionCode": "340201",
+  "id": "340201",
   "pcode": "340200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "340202",
+  "id": "340202",
   "pcode": "340200",
-  "regionName": "镜湖区"
+  "name": "镜湖区"
 }, {
-  "regionCode": "340203",
+  "id": "340203",
   "pcode": "340200",
-  "regionName": "弋江区"
+  "name": "弋江区"
 }, {
-  "regionCode": "340207",
+  "id": "340207",
   "pcode": "340200",
-  "regionName": "鸠江区"
+  "name": "鸠江区"
 }, {
-  "regionCode": "340208",
+  "id": "340208",
   "pcode": "340200",
-  "regionName": "三山区"
+  "name": "三山区"
 }, {
-  "regionCode": "340221",
+  "id": "340221",
   "pcode": "340200",
-  "regionName": "芜湖县"
+  "name": "芜湖县"
 }, {
-  "regionCode": "340222",
+  "id": "340222",
   "pcode": "340200",
-  "regionName": "繁昌县"
+  "name": "繁昌县"
 }, {
-  "regionCode": "340223",
+  "id": "340223",
   "pcode": "340200",
-  "regionName": "南陵县"
+  "name": "南陵县"
 }, {
-  "regionCode": "340225",
+  "id": "340225",
   "pcode": "340200",
-  "regionName": "无为县"
+  "name": "无为县"
 }, {
-  "regionCode": "340300",
+  "id": "340300",
   "pcode": "340000",
-  "regionName": "蚌埠市"
+  "name": "蚌埠市"
 }, {
-  "regionCode": "340301",
+  "id": "340301",
   "pcode": "340300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "340302",
+  "id": "340302",
   "pcode": "340300",
-  "regionName": "龙子湖区"
+  "name": "龙子湖区"
 }, {
-  "regionCode": "340303",
+  "id": "340303",
   "pcode": "340300",
-  "regionName": "蚌山区"
+  "name": "蚌山区"
 }, {
-  "regionCode": "340304",
+  "id": "340304",
   "pcode": "340300",
-  "regionName": "禹会区"
+  "name": "禹会区"
 }, {
-  "regionCode": "340311",
+  "id": "340311",
   "pcode": "340300",
-  "regionName": "淮上区"
+  "name": "淮上区"
 }, {
-  "regionCode": "340321",
+  "id": "340321",
   "pcode": "340300",
-  "regionName": "怀远县"
+  "name": "怀远县"
 }, {
-  "regionCode": "340322",
+  "id": "340322",
   "pcode": "340300",
-  "regionName": "五河县"
+  "name": "五河县"
 }, {
-  "regionCode": "340323",
+  "id": "340323",
   "pcode": "340300",
-  "regionName": "固镇县"
+  "name": "固镇县"
 }, {
-  "regionCode": "340400",
+  "id": "340400",
   "pcode": "340000",
-  "regionName": "淮南市"
+  "name": "淮南市"
 }, {
-  "regionCode": "340401",
+  "id": "340401",
   "pcode": "340400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "340402",
+  "id": "340402",
   "pcode": "340400",
-  "regionName": "大通区"
+  "name": "大通区"
 }, {
-  "regionCode": "340403",
+  "id": "340403",
   "pcode": "340400",
-  "regionName": "田家庵区"
+  "name": "田家庵区"
 }, {
-  "regionCode": "340404",
+  "id": "340404",
   "pcode": "340400",
-  "regionName": "谢家集区"
+  "name": "谢家集区"
 }, {
-  "regionCode": "340405",
+  "id": "340405",
   "pcode": "340400",
-  "regionName": "八公山区"
+  "name": "八公山区"
 }, {
-  "regionCode": "340406",
+  "id": "340406",
   "pcode": "340400",
-  "regionName": "潘集区"
+  "name": "潘集区"
 }, {
-  "regionCode": "340421",
+  "id": "340421",
   "pcode": "340400",
-  "regionName": "凤台县"
+  "name": "凤台县"
 }, {
-  "regionCode": "340422",
+  "id": "340422",
   "pcode": "340400",
-  "regionName": "寿县"
+  "name": "寿县"
 }, {
-  "regionCode": "340500",
+  "id": "340500",
   "pcode": "340000",
-  "regionName": "马鞍山市"
+  "name": "马鞍山市"
 }, {
-  "regionCode": "340501",
+  "id": "340501",
   "pcode": "340500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "340503",
+  "id": "340503",
   "pcode": "340500",
-  "regionName": "花山区"
+  "name": "花山区"
 }, {
-  "regionCode": "340504",
+  "id": "340504",
   "pcode": "340500",
-  "regionName": "雨山区"
+  "name": "雨山区"
 }, {
-  "regionCode": "340506",
+  "id": "340506",
   "pcode": "340500",
-  "regionName": "博望区"
+  "name": "博望区"
 }, {
-  "regionCode": "340521",
+  "id": "340521",
   "pcode": "340500",
-  "regionName": "当涂县"
+  "name": "当涂县"
 }, {
-  "regionCode": "340522",
+  "id": "340522",
   "pcode": "340500",
-  "regionName": "含山县"
+  "name": "含山县"
 }, {
-  "regionCode": "340523",
+  "id": "340523",
   "pcode": "340500",
-  "regionName": "和县"
+  "name": "和县"
 }, {
-  "regionCode": "340600",
+  "id": "340600",
   "pcode": "340000",
-  "regionName": "淮北市"
+  "name": "淮北市"
 }, {
-  "regionCode": "340601",
+  "id": "340601",
   "pcode": "340600",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "340602",
+  "id": "340602",
   "pcode": "340600",
-  "regionName": "杜集区"
+  "name": "杜集区"
 }, {
-  "regionCode": "340603",
+  "id": "340603",
   "pcode": "340600",
-  "regionName": "相山区"
+  "name": "相山区"
 }, {
-  "regionCode": "340604",
+  "id": "340604",
   "pcode": "340600",
-  "regionName": "烈山区"
+  "name": "烈山区"
 }, {
-  "regionCode": "340621",
+  "id": "340621",
   "pcode": "340600",
-  "regionName": "濉溪县"
+  "name": "濉溪县"
 }, {
-  "regionCode": "340700",
+  "id": "340700",
   "pcode": "340000",
-  "regionName": "铜陵市"
+  "name": "铜陵市"
 }, {
-  "regionCode": "340701",
+  "id": "340701",
   "pcode": "340700",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "340705",
+  "id": "340705",
   "pcode": "340700",
-  "regionName": "铜官区"
+  "name": "铜官区"
 }, {
-  "regionCode": "340706",
+  "id": "340706",
   "pcode": "340700",
-  "regionName": "义安区"
+  "name": "义安区"
 }, {
-  "regionCode": "340711",
+  "id": "340711",
   "pcode": "340700",
-  "regionName": "郊区"
+  "name": "郊区"
 }, {
-  "regionCode": "340722",
+  "id": "340722",
   "pcode": "340700",
-  "regionName": "枞阳县"
+  "name": "枞阳县"
 }, {
-  "regionCode": "340800",
+  "id": "340800",
   "pcode": "340000",
-  "regionName": "安庆市"
+  "name": "安庆市"
 }, {
-  "regionCode": "340801",
+  "id": "340801",
   "pcode": "340800",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "340802",
+  "id": "340802",
   "pcode": "340800",
-  "regionName": "迎江区"
+  "name": "迎江区"
 }, {
-  "regionCode": "340803",
+  "id": "340803",
   "pcode": "340800",
-  "regionName": "大观区"
+  "name": "大观区"
 }, {
-  "regionCode": "340811",
+  "id": "340811",
   "pcode": "340800",
-  "regionName": "宜秀区"
+  "name": "宜秀区"
 }, {
-  "regionCode": "340822",
+  "id": "340822",
   "pcode": "340800",
-  "regionName": "怀宁县"
+  "name": "怀宁县"
 }, {
-  "regionCode": "340824",
+  "id": "340824",
   "pcode": "340800",
-  "regionName": "潜山县"
+  "name": "潜山县"
 }, {
-  "regionCode": "340825",
+  "id": "340825",
   "pcode": "340800",
-  "regionName": "太湖县"
+  "name": "太湖县"
 }, {
-  "regionCode": "340826",
+  "id": "340826",
   "pcode": "340800",
-  "regionName": "宿松县"
+  "name": "宿松县"
 }, {
-  "regionCode": "340827",
+  "id": "340827",
   "pcode": "340800",
-  "regionName": "望江县"
+  "name": "望江县"
 }, {
-  "regionCode": "340828",
+  "id": "340828",
   "pcode": "340800",
-  "regionName": "岳西县"
+  "name": "岳西县"
 }, {
-  "regionCode": "340881",
+  "id": "340881",
   "pcode": "340800",
-  "regionName": "桐城市"
+  "name": "桐城市"
 }, {
-  "regionCode": "341000",
+  "id": "341000",
   "pcode": "340000",
-  "regionName": "黄山市"
+  "name": "黄山市"
 }, {
-  "regionCode": "341001",
+  "id": "341001",
   "pcode": "341000",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "341002",
+  "id": "341002",
   "pcode": "341000",
-  "regionName": "屯溪区"
+  "name": "屯溪区"
 }, {
-  "regionCode": "341003",
+  "id": "341003",
   "pcode": "341000",
-  "regionName": "黄山区"
+  "name": "黄山区"
 }, {
-  "regionCode": "341004",
+  "id": "341004",
   "pcode": "341000",
-  "regionName": "徽州区"
+  "name": "徽州区"
 }, {
-  "regionCode": "341021",
+  "id": "341021",
   "pcode": "341000",
-  "regionName": "歙县"
+  "name": "歙县"
 }, {
-  "regionCode": "341022",
+  "id": "341022",
   "pcode": "341000",
-  "regionName": "休宁县"
+  "name": "休宁县"
 }, {
-  "regionCode": "341023",
+  "id": "341023",
   "pcode": "341000",
-  "regionName": "黟县"
+  "name": "黟县"
 }, {
-  "regionCode": "341024",
+  "id": "341024",
   "pcode": "341000",
-  "regionName": "祁门县"
+  "name": "祁门县"
 }, {
-  "regionCode": "341100",
+  "id": "341100",
   "pcode": "340000",
-  "regionName": "滁州市"
+  "name": "滁州市"
 }, {
-  "regionCode": "341101",
+  "id": "341101",
   "pcode": "341100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "341102",
+  "id": "341102",
   "pcode": "341100",
-  "regionName": "琅琊区"
+  "name": "琅琊区"
 }, {
-  "regionCode": "341103",
+  "id": "341103",
   "pcode": "341100",
-  "regionName": "南谯区"
+  "name": "南谯区"
 }, {
-  "regionCode": "341122",
+  "id": "341122",
   "pcode": "341100",
-  "regionName": "来安县"
+  "name": "来安县"
 }, {
-  "regionCode": "341124",
+  "id": "341124",
   "pcode": "341100",
-  "regionName": "全椒县"
+  "name": "全椒县"
 }, {
-  "regionCode": "341125",
+  "id": "341125",
   "pcode": "341100",
-  "regionName": "定远县"
+  "name": "定远县"
 }, {
-  "regionCode": "341126",
+  "id": "341126",
   "pcode": "341100",
-  "regionName": "凤阳县"
+  "name": "凤阳县"
 }, {
-  "regionCode": "341181",
+  "id": "341181",
   "pcode": "341100",
-  "regionName": "天长市"
+  "name": "天长市"
 }, {
-  "regionCode": "341182",
+  "id": "341182",
   "pcode": "341100",
-  "regionName": "明光市"
+  "name": "明光市"
 }, {
-  "regionCode": "341200",
+  "id": "341200",
   "pcode": "340000",
-  "regionName": "阜阳市"
+  "name": "阜阳市"
 }, {
-  "regionCode": "341201",
+  "id": "341201",
   "pcode": "341200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "341202",
+  "id": "341202",
   "pcode": "341200",
-  "regionName": "颍州区"
+  "name": "颍州区"
 }, {
-  "regionCode": "341203",
+  "id": "341203",
   "pcode": "341200",
-  "regionName": "颍东区"
+  "name": "颍东区"
 }, {
-  "regionCode": "341204",
+  "id": "341204",
   "pcode": "341200",
-  "regionName": "颍泉区"
+  "name": "颍泉区"
 }, {
-  "regionCode": "341221",
+  "id": "341221",
   "pcode": "341200",
-  "regionName": "临泉县"
+  "name": "临泉县"
 }, {
-  "regionCode": "341222",
+  "id": "341222",
   "pcode": "341200",
-  "regionName": "太和县"
+  "name": "太和县"
 }, {
-  "regionCode": "341225",
+  "id": "341225",
   "pcode": "341200",
-  "regionName": "阜南县"
+  "name": "阜南县"
 }, {
-  "regionCode": "341226",
+  "id": "341226",
   "pcode": "341200",
-  "regionName": "颍上县"
+  "name": "颍上县"
 }, {
-  "regionCode": "341282",
+  "id": "341282",
   "pcode": "341200",
-  "regionName": "界首市"
+  "name": "界首市"
 }, {
-  "regionCode": "341300",
+  "id": "341300",
   "pcode": "340000",
-  "regionName": "宿州市"
+  "name": "宿州市"
 }, {
-  "regionCode": "341301",
+  "id": "341301",
   "pcode": "341300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "341302",
+  "id": "341302",
   "pcode": "341300",
-  "regionName": "埇桥区"
+  "name": "埇桥区"
 }, {
-  "regionCode": "341321",
+  "id": "341321",
   "pcode": "341300",
-  "regionName": "砀山县"
+  "name": "砀山县"
 }, {
-  "regionCode": "341322",
+  "id": "341322",
   "pcode": "341300",
-  "regionName": "萧县"
+  "name": "萧县"
 }, {
-  "regionCode": "341323",
+  "id": "341323",
   "pcode": "341300",
-  "regionName": "灵璧县"
+  "name": "灵璧县"
 }, {
-  "regionCode": "341324",
+  "id": "341324",
   "pcode": "341300",
-  "regionName": "泗县"
+  "name": "泗县"
 }, {
-  "regionCode": "341500",
+  "id": "341500",
   "pcode": "340000",
-  "regionName": "六安市"
+  "name": "六安市"
 }, {
-  "regionCode": "341501",
+  "id": "341501",
   "pcode": "341500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "341502",
+  "id": "341502",
   "pcode": "341500",
-  "regionName": "金安区"
+  "name": "金安区"
 }, {
-  "regionCode": "341503",
+  "id": "341503",
   "pcode": "341500",
-  "regionName": "裕安区"
+  "name": "裕安区"
 }, {
-  "regionCode": "341504",
+  "id": "341504",
   "pcode": "341500",
-  "regionName": "叶集区"
+  "name": "叶集区"
 }, {
-  "regionCode": "341522",
+  "id": "341522",
   "pcode": "341500",
-  "regionName": "霍邱县"
+  "name": "霍邱县"
 }, {
-  "regionCode": "341523",
+  "id": "341523",
   "pcode": "341500",
-  "regionName": "舒城县"
+  "name": "舒城县"
 }, {
-  "regionCode": "341524",
+  "id": "341524",
   "pcode": "341500",
-  "regionName": "金寨县"
+  "name": "金寨县"
 }, {
-  "regionCode": "341525",
+  "id": "341525",
   "pcode": "341500",
-  "regionName": "霍山县"
+  "name": "霍山县"
 }, {
-  "regionCode": "341600",
+  "id": "341600",
   "pcode": "340000",
-  "regionName": "亳州市"
+  "name": "亳州市"
 }, {
-  "regionCode": "341601",
+  "id": "341601",
   "pcode": "341600",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "341602",
+  "id": "341602",
   "pcode": "341600",
-  "regionName": "谯城区"
+  "name": "谯城区"
 }, {
-  "regionCode": "341621",
+  "id": "341621",
   "pcode": "341600",
-  "regionName": "涡阳县"
+  "name": "涡阳县"
 }, {
-  "regionCode": "341622",
+  "id": "341622",
   "pcode": "341600",
-  "regionName": "蒙城县"
+  "name": "蒙城县"
 }, {
-  "regionCode": "341623",
+  "id": "341623",
   "pcode": "341600",
-  "regionName": "利辛县"
+  "name": "利辛县"
 }, {
-  "regionCode": "341700",
+  "id": "341700",
   "pcode": "340000",
-  "regionName": "池州市"
+  "name": "池州市"
 }, {
-  "regionCode": "341701",
+  "id": "341701",
   "pcode": "341700",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "341702",
+  "id": "341702",
   "pcode": "341700",
-  "regionName": "贵池区"
+  "name": "贵池区"
 }, {
-  "regionCode": "341721",
+  "id": "341721",
   "pcode": "341700",
-  "regionName": "东至县"
+  "name": "东至县"
 }, {
-  "regionCode": "341722",
+  "id": "341722",
   "pcode": "341700",
-  "regionName": "石台县"
+  "name": "石台县"
 }, {
-  "regionCode": "341723",
+  "id": "341723",
   "pcode": "341700",
-  "regionName": "青阳县"
+  "name": "青阳县"
 }, {
-  "regionCode": "341800",
+  "id": "341800",
   "pcode": "340000",
-  "regionName": "宣城市"
+  "name": "宣城市"
 }, {
-  "regionCode": "341801",
+  "id": "341801",
   "pcode": "341800",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "341802",
+  "id": "341802",
   "pcode": "341800",
-  "regionName": "宣州区"
+  "name": "宣州区"
 }, {
-  "regionCode": "341821",
+  "id": "341821",
   "pcode": "341800",
-  "regionName": "郎溪县"
+  "name": "郎溪县"
 }, {
-  "regionCode": "341822",
+  "id": "341822",
   "pcode": "341800",
-  "regionName": "广德县"
+  "name": "广德县"
 }, {
-  "regionCode": "341823",
+  "id": "341823",
   "pcode": "341800",
-  "regionName": "泾县"
+  "name": "泾县"
 }, {
-  "regionCode": "341824",
+  "id": "341824",
   "pcode": "341800",
-  "regionName": "绩溪县"
+  "name": "绩溪县"
 }, {
-  "regionCode": "341825",
+  "id": "341825",
   "pcode": "341800",
-  "regionName": "旌德县"
+  "name": "旌德县"
 }, {
-  "regionCode": "341881",
+  "id": "341881",
   "pcode": "341800",
-  "regionName": "宁国市"
+  "name": "宁国市"
 }, {
-  "regionCode": "350000",
+  "id": "350000",
   "pcode": "",
-  "regionName": "福建省"
+  "name": "福建省"
 }, {
-  "regionCode": "350100",
+  "id": "350100",
   "pcode": "350000",
-  "regionName": "福州市"
+  "name": "福州市"
 }, {
-  "regionCode": "350101",
+  "id": "350101",
   "pcode": "350100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "350102",
+  "id": "350102",
   "pcode": "350100",
-  "regionName": "鼓楼区"
+  "name": "鼓楼区"
 }, {
-  "regionCode": "350103",
+  "id": "350103",
   "pcode": "350100",
-  "regionName": "台江区"
+  "name": "台江区"
 }, {
-  "regionCode": "350104",
+  "id": "350104",
   "pcode": "350100",
-  "regionName": "仓山区"
+  "name": "仓山区"
 }, {
-  "regionCode": "350105",
+  "id": "350105",
   "pcode": "350100",
-  "regionName": "马尾区"
+  "name": "马尾区"
 }, {
-  "regionCode": "350111",
+  "id": "350111",
   "pcode": "350100",
-  "regionName": "晋安区"
+  "name": "晋安区"
 }, {
-  "regionCode": "350121",
+  "id": "350121",
   "pcode": "350100",
-  "regionName": "闽侯县"
+  "name": "闽侯县"
 }, {
-  "regionCode": "350122",
+  "id": "350122",
   "pcode": "350100",
-  "regionName": "连江县"
+  "name": "连江县"
 }, {
-  "regionCode": "350123",
+  "id": "350123",
   "pcode": "350100",
-  "regionName": "罗源县"
+  "name": "罗源县"
 }, {
-  "regionCode": "350124",
+  "id": "350124",
   "pcode": "350100",
-  "regionName": "闽清县"
+  "name": "闽清县"
 }, {
-  "regionCode": "350125",
+  "id": "350125",
   "pcode": "350100",
-  "regionName": "永泰县"
+  "name": "永泰县"
 }, {
-  "regionCode": "350128",
+  "id": "350128",
   "pcode": "350100",
-  "regionName": "平潭县"
+  "name": "平潭县"
 }, {
-  "regionCode": "350181",
+  "id": "350181",
   "pcode": "350100",
-  "regionName": "福清市"
+  "name": "福清市"
 }, {
-  "regionCode": "350182",
+  "id": "350182",
   "pcode": "350100",
-  "regionName": "长乐市"
+  "name": "长乐市"
 }, {
-  "regionCode": "350200",
+  "id": "350200",
   "pcode": "350000",
-  "regionName": "厦门市"
+  "name": "厦门市"
 }, {
-  "regionCode": "350201",
+  "id": "350201",
   "pcode": "350200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "350203",
+  "id": "350203",
   "pcode": "350200",
-  "regionName": "思明区"
+  "name": "思明区"
 }, {
-  "regionCode": "350205",
+  "id": "350205",
   "pcode": "350200",
-  "regionName": "海沧区"
+  "name": "海沧区"
 }, {
-  "regionCode": "350206",
+  "id": "350206",
   "pcode": "350200",
-  "regionName": "湖里区"
+  "name": "湖里区"
 }, {
-  "regionCode": "350211",
+  "id": "350211",
   "pcode": "350200",
-  "regionName": "集美区"
+  "name": "集美区"
 }, {
-  "regionCode": "350212",
+  "id": "350212",
   "pcode": "350200",
-  "regionName": "同安区"
+  "name": "同安区"
 }, {
-  "regionCode": "350213",
+  "id": "350213",
   "pcode": "350200",
-  "regionName": "翔安区"
+  "name": "翔安区"
 }, {
-  "regionCode": "350300",
+  "id": "350300",
   "pcode": "350000",
-  "regionName": "莆田市"
+  "name": "莆田市"
 }, {
-  "regionCode": "350301",
+  "id": "350301",
   "pcode": "350300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "350302",
+  "id": "350302",
   "pcode": "350300",
-  "regionName": "城厢区"
+  "name": "城厢区"
 }, {
-  "regionCode": "350303",
+  "id": "350303",
   "pcode": "350300",
-  "regionName": "涵江区"
+  "name": "涵江区"
 }, {
-  "regionCode": "350304",
+  "id": "350304",
   "pcode": "350300",
-  "regionName": "荔城区"
+  "name": "荔城区"
 }, {
-  "regionCode": "350305",
+  "id": "350305",
   "pcode": "350300",
-  "regionName": "秀屿区"
+  "name": "秀屿区"
 }, {
-  "regionCode": "350322",
+  "id": "350322",
   "pcode": "350300",
-  "regionName": "仙游县"
+  "name": "仙游县"
 }, {
-  "regionCode": "350400",
+  "id": "350400",
   "pcode": "350000",
-  "regionName": "三明市"
+  "name": "三明市"
 }, {
-  "regionCode": "350401",
+  "id": "350401",
   "pcode": "350400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "350402",
+  "id": "350402",
   "pcode": "350400",
-  "regionName": "梅列区"
+  "name": "梅列区"
 }, {
-  "regionCode": "350403",
+  "id": "350403",
   "pcode": "350400",
-  "regionName": "三元区"
+  "name": "三元区"
 }, {
-  "regionCode": "350421",
+  "id": "350421",
   "pcode": "350400",
-  "regionName": "明溪县"
+  "name": "明溪县"
 }, {
-  "regionCode": "350423",
+  "id": "350423",
   "pcode": "350400",
-  "regionName": "清流县"
+  "name": "清流县"
 }, {
-  "regionCode": "350424",
+  "id": "350424",
   "pcode": "350400",
-  "regionName": "宁化县"
+  "name": "宁化县"
 }, {
-  "regionCode": "350425",
+  "id": "350425",
   "pcode": "350400",
-  "regionName": "大田县"
+  "name": "大田县"
 }, {
-  "regionCode": "350426",
+  "id": "350426",
   "pcode": "350400",
-  "regionName": "尤溪县"
+  "name": "尤溪县"
 }, {
-  "regionCode": "350427",
+  "id": "350427",
   "pcode": "350400",
-  "regionName": "沙县"
+  "name": "沙县"
 }, {
-  "regionCode": "350428",
+  "id": "350428",
   "pcode": "350400",
-  "regionName": "将乐县"
+  "name": "将乐县"
 }, {
-  "regionCode": "350429",
+  "id": "350429",
   "pcode": "350400",
-  "regionName": "泰宁县"
+  "name": "泰宁县"
 }, {
-  "regionCode": "350430",
+  "id": "350430",
   "pcode": "350400",
-  "regionName": "建宁县"
+  "name": "建宁县"
 }, {
-  "regionCode": "350481",
+  "id": "350481",
   "pcode": "350400",
-  "regionName": "永安市"
+  "name": "永安市"
 }, {
-  "regionCode": "350500",
+  "id": "350500",
   "pcode": "350000",
-  "regionName": "泉州市"
+  "name": "泉州市"
 }, {
-  "regionCode": "350501",
+  "id": "350501",
   "pcode": "350500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "350502",
+  "id": "350502",
   "pcode": "350500",
-  "regionName": "鲤城区"
+  "name": "鲤城区"
 }, {
-  "regionCode": "350503",
+  "id": "350503",
   "pcode": "350500",
-  "regionName": "丰泽区"
+  "name": "丰泽区"
 }, {
-  "regionCode": "350504",
+  "id": "350504",
   "pcode": "350500",
-  "regionName": "洛江区"
+  "name": "洛江区"
 }, {
-  "regionCode": "350505",
+  "id": "350505",
   "pcode": "350500",
-  "regionName": "泉港区"
+  "name": "泉港区"
 }, {
-  "regionCode": "350521",
+  "id": "350521",
   "pcode": "350500",
-  "regionName": "惠安县"
+  "name": "惠安县"
 }, {
-  "regionCode": "350524",
+  "id": "350524",
   "pcode": "350500",
-  "regionName": "安溪县"
+  "name": "安溪县"
 }, {
-  "regionCode": "350525",
+  "id": "350525",
   "pcode": "350500",
-  "regionName": "永春县"
+  "name": "永春县"
 }, {
-  "regionCode": "350526",
+  "id": "350526",
   "pcode": "350500",
-  "regionName": "德化县"
+  "name": "德化县"
 }, {
-  "regionCode": "350527",
+  "id": "350527",
   "pcode": "350500",
-  "regionName": "金门县"
+  "name": "金门县"
 }, {
-  "regionCode": "350581",
+  "id": "350581",
   "pcode": "350500",
-  "regionName": "石狮市"
+  "name": "石狮市"
 }, {
-  "regionCode": "350582",
+  "id": "350582",
   "pcode": "350500",
-  "regionName": "晋江市"
+  "name": "晋江市"
 }, {
-  "regionCode": "350583",
+  "id": "350583",
   "pcode": "350500",
-  "regionName": "南安市"
+  "name": "南安市"
 }, {
-  "regionCode": "350600",
+  "id": "350600",
   "pcode": "350000",
-  "regionName": "漳州市"
+  "name": "漳州市"
 }, {
-  "regionCode": "350601",
+  "id": "350601",
   "pcode": "350600",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "350602",
+  "id": "350602",
   "pcode": "350600",
-  "regionName": "芗城区"
+  "name": "芗城区"
 }, {
-  "regionCode": "350603",
+  "id": "350603",
   "pcode": "350600",
-  "regionName": "龙文区"
+  "name": "龙文区"
 }, {
-  "regionCode": "350622",
+  "id": "350622",
   "pcode": "350600",
-  "regionName": "云霄县"
+  "name": "云霄县"
 }, {
-  "regionCode": "350623",
+  "id": "350623",
   "pcode": "350600",
-  "regionName": "漳浦县"
+  "name": "漳浦县"
 }, {
-  "regionCode": "350624",
+  "id": "350624",
   "pcode": "350600",
-  "regionName": "诏安县"
+  "name": "诏安县"
 }, {
-  "regionCode": "350625",
+  "id": "350625",
   "pcode": "350600",
-  "regionName": "长泰县"
+  "name": "长泰县"
 }, {
-  "regionCode": "350626",
+  "id": "350626",
   "pcode": "350600",
-  "regionName": "东山县"
+  "name": "东山县"
 }, {
-  "regionCode": "350627",
+  "id": "350627",
   "pcode": "350600",
-  "regionName": "南靖县"
+  "name": "南靖县"
 }, {
-  "regionCode": "350628",
+  "id": "350628",
   "pcode": "350600",
-  "regionName": "平和县"
+  "name": "平和县"
 }, {
-  "regionCode": "350629",
+  "id": "350629",
   "pcode": "350600",
-  "regionName": "华安县"
+  "name": "华安县"
 }, {
-  "regionCode": "350681",
+  "id": "350681",
   "pcode": "350600",
-  "regionName": "龙海市"
+  "name": "龙海市"
 }, {
-  "regionCode": "350700",
+  "id": "350700",
   "pcode": "350000",
-  "regionName": "南平市"
+  "name": "南平市"
 }, {
-  "regionCode": "350701",
+  "id": "350701",
   "pcode": "350700",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "350702",
+  "id": "350702",
   "pcode": "350700",
-  "regionName": "延平区"
+  "name": "延平区"
 }, {
-  "regionCode": "350703",
+  "id": "350703",
   "pcode": "350700",
-  "regionName": "建阳区"
+  "name": "建阳区"
 }, {
-  "regionCode": "350721",
+  "id": "350721",
   "pcode": "350700",
-  "regionName": "顺昌县"
+  "name": "顺昌县"
 }, {
-  "regionCode": "350722",
+  "id": "350722",
   "pcode": "350700",
-  "regionName": "浦城县"
+  "name": "浦城县"
 }, {
-  "regionCode": "350723",
+  "id": "350723",
   "pcode": "350700",
-  "regionName": "光泽县"
+  "name": "光泽县"
 }, {
-  "regionCode": "350724",
+  "id": "350724",
   "pcode": "350700",
-  "regionName": "松溪县"
+  "name": "松溪县"
 }, {
-  "regionCode": "350725",
+  "id": "350725",
   "pcode": "350700",
-  "regionName": "政和县"
+  "name": "政和县"
 }, {
-  "regionCode": "350781",
+  "id": "350781",
   "pcode": "350700",
-  "regionName": "邵武市"
+  "name": "邵武市"
 }, {
-  "regionCode": "350782",
+  "id": "350782",
   "pcode": "350700",
-  "regionName": "武夷山市"
+  "name": "武夷山市"
 }, {
-  "regionCode": "350783",
+  "id": "350783",
   "pcode": "350700",
-  "regionName": "建瓯市"
+  "name": "建瓯市"
 }, {
-  "regionCode": "350800",
+  "id": "350800",
   "pcode": "350000",
-  "regionName": "龙岩市"
+  "name": "龙岩市"
 }, {
-  "regionCode": "350801",
+  "id": "350801",
   "pcode": "350800",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "350802",
+  "id": "350802",
   "pcode": "350800",
-  "regionName": "新罗区"
+  "name": "新罗区"
 }, {
-  "regionCode": "350803",
+  "id": "350803",
   "pcode": "350800",
-  "regionName": "永定区"
+  "name": "永定区"
 }, {
-  "regionCode": "350821",
+  "id": "350821",
   "pcode": "350800",
-  "regionName": "长汀县"
+  "name": "长汀县"
 }, {
-  "regionCode": "350823",
+  "id": "350823",
   "pcode": "350800",
-  "regionName": "上杭县"
+  "name": "上杭县"
 }, {
-  "regionCode": "350824",
+  "id": "350824",
   "pcode": "350800",
-  "regionName": "武平县"
+  "name": "武平县"
 }, {
-  "regionCode": "350825",
+  "id": "350825",
   "pcode": "350800",
-  "regionName": "连城县"
+  "name": "连城县"
 }, {
-  "regionCode": "350881",
+  "id": "350881",
   "pcode": "350800",
-  "regionName": "漳平市"
+  "name": "漳平市"
 }, {
-  "regionCode": "350900",
+  "id": "350900",
   "pcode": "350000",
-  "regionName": "宁德市"
+  "name": "宁德市"
 }, {
-  "regionCode": "350901",
+  "id": "350901",
   "pcode": "350900",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "350902",
+  "id": "350902",
   "pcode": "350900",
-  "regionName": "蕉城区"
+  "name": "蕉城区"
 }, {
-  "regionCode": "350921",
+  "id": "350921",
   "pcode": "350900",
-  "regionName": "霞浦县"
+  "name": "霞浦县"
 }, {
-  "regionCode": "350922",
+  "id": "350922",
   "pcode": "350900",
-  "regionName": "古田县"
+  "name": "古田县"
 }, {
-  "regionCode": "350923",
+  "id": "350923",
   "pcode": "350900",
-  "regionName": "屏南县"
+  "name": "屏南县"
 }, {
-  "regionCode": "350924",
+  "id": "350924",
   "pcode": "350900",
-  "regionName": "寿宁县"
+  "name": "寿宁县"
 }, {
-  "regionCode": "350925",
+  "id": "350925",
   "pcode": "350900",
-  "regionName": "周宁县"
+  "name": "周宁县"
 }, {
-  "regionCode": "350926",
+  "id": "350926",
   "pcode": "350900",
-  "regionName": "柘荣县"
+  "name": "柘荣县"
 }, {
-  "regionCode": "350981",
+  "id": "350981",
   "pcode": "350900",
-  "regionName": "福安市"
+  "name": "福安市"
 }, {
-  "regionCode": "350982",
+  "id": "350982",
   "pcode": "350900",
-  "regionName": "福鼎市"
+  "name": "福鼎市"
 }, {
-  "regionCode": "360000",
+  "id": "360000",
   "pcode": "",
-  "regionName": "江西省"
+  "name": "江西省"
 }, {
-  "regionCode": "360100",
+  "id": "360100",
   "pcode": "360000",
-  "regionName": "南昌市"
+  "name": "南昌市"
 }, {
-  "regionCode": "360101",
+  "id": "360101",
   "pcode": "360100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "360102",
+  "id": "360102",
   "pcode": "360100",
-  "regionName": "东湖区"
+  "name": "东湖区"
 }, {
-  "regionCode": "360103",
+  "id": "360103",
   "pcode": "360100",
-  "regionName": "西湖区"
+  "name": "西湖区"
 }, {
-  "regionCode": "360104",
+  "id": "360104",
   "pcode": "360100",
-  "regionName": "青云谱区"
+  "name": "青云谱区"
 }, {
-  "regionCode": "360105",
+  "id": "360105",
   "pcode": "360100",
-  "regionName": "湾里区"
+  "name": "湾里区"
 }, {
-  "regionCode": "360111",
+  "id": "360111",
   "pcode": "360100",
-  "regionName": "青山湖区"
+  "name": "青山湖区"
 }, {
-  "regionCode": "360112",
+  "id": "360112",
   "pcode": "360100",
-  "regionName": "新建区"
+  "name": "新建区"
 }, {
-  "regionCode": "360121",
+  "id": "360121",
   "pcode": "360100",
-  "regionName": "南昌县"
+  "name": "南昌县"
 }, {
-  "regionCode": "360123",
+  "id": "360123",
   "pcode": "360100",
-  "regionName": "安义县"
+  "name": "安义县"
 }, {
-  "regionCode": "360124",
+  "id": "360124",
   "pcode": "360100",
-  "regionName": "进贤县"
+  "name": "进贤县"
 }, {
-  "regionCode": "360200",
+  "id": "360200",
   "pcode": "360000",
-  "regionName": "景德镇市"
+  "name": "景德镇市"
 }, {
-  "regionCode": "360201",
+  "id": "360201",
   "pcode": "360200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "360202",
+  "id": "360202",
   "pcode": "360200",
-  "regionName": "昌江区"
+  "name": "昌江区"
 }, {
-  "regionCode": "360203",
+  "id": "360203",
   "pcode": "360200",
-  "regionName": "珠山区"
+  "name": "珠山区"
 }, {
-  "regionCode": "360222",
+  "id": "360222",
   "pcode": "360200",
-  "regionName": "浮梁县"
+  "name": "浮梁县"
 }, {
-  "regionCode": "360281",
+  "id": "360281",
   "pcode": "360200",
-  "regionName": "乐平市"
+  "name": "乐平市"
 }, {
-  "regionCode": "360300",
+  "id": "360300",
   "pcode": "360000",
-  "regionName": "萍乡市"
+  "name": "萍乡市"
 }, {
-  "regionCode": "360301",
+  "id": "360301",
   "pcode": "360300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "360302",
+  "id": "360302",
   "pcode": "360300",
-  "regionName": "安源区"
+  "name": "安源区"
 }, {
-  "regionCode": "360313",
+  "id": "360313",
   "pcode": "360300",
-  "regionName": "湘东区"
+  "name": "湘东区"
 }, {
-  "regionCode": "360321",
+  "id": "360321",
   "pcode": "360300",
-  "regionName": "莲花县"
+  "name": "莲花县"
 }, {
-  "regionCode": "360322",
+  "id": "360322",
   "pcode": "360300",
-  "regionName": "上栗县"
+  "name": "上栗县"
 }, {
-  "regionCode": "360323",
+  "id": "360323",
   "pcode": "360300",
-  "regionName": "芦溪县"
+  "name": "芦溪县"
 }, {
-  "regionCode": "360400",
+  "id": "360400",
   "pcode": "360000",
-  "regionName": "九江市"
+  "name": "九江市"
 }, {
-  "regionCode": "360401",
+  "id": "360401",
   "pcode": "360400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "360402",
+  "id": "360402",
   "pcode": "360400",
-  "regionName": "濂溪区"
+  "name": "濂溪区"
 }, {
-  "regionCode": "360403",
+  "id": "360403",
   "pcode": "360400",
-  "regionName": "浔阳区"
+  "name": "浔阳区"
 }, {
-  "regionCode": "360421",
+  "id": "360421",
   "pcode": "360400",
-  "regionName": "九江县"
+  "name": "九江县"
 }, {
-  "regionCode": "360423",
+  "id": "360423",
   "pcode": "360400",
-  "regionName": "武宁县"
+  "name": "武宁县"
 }, {
-  "regionCode": "360424",
+  "id": "360424",
   "pcode": "360400",
-  "regionName": "修水县"
+  "name": "修水县"
 }, {
-  "regionCode": "360425",
+  "id": "360425",
   "pcode": "360400",
-  "regionName": "永修县"
+  "name": "永修县"
 }, {
-  "regionCode": "360426",
+  "id": "360426",
   "pcode": "360400",
-  "regionName": "德安县"
+  "name": "德安县"
 }, {
-  "regionCode": "360428",
+  "id": "360428",
   "pcode": "360400",
-  "regionName": "都昌县"
+  "name": "都昌县"
 }, {
-  "regionCode": "360429",
+  "id": "360429",
   "pcode": "360400",
-  "regionName": "湖口县"
+  "name": "湖口县"
 }, {
-  "regionCode": "360430",
+  "id": "360430",
   "pcode": "360400",
-  "regionName": "彭泽县"
+  "name": "彭泽县"
 }, {
-  "regionCode": "360481",
+  "id": "360481",
   "pcode": "360400",
-  "regionName": "瑞昌市"
+  "name": "瑞昌市"
 }, {
-  "regionCode": "360482",
+  "id": "360482",
   "pcode": "360400",
-  "regionName": "共青城市"
+  "name": "共青城市"
 }, {
-  "regionCode": "360483",
+  "id": "360483",
   "pcode": "360400",
-  "regionName": "庐山市"
+  "name": "庐山市"
 }, {
-  "regionCode": "360500",
+  "id": "360500",
   "pcode": "360000",
-  "regionName": "新余市"
+  "name": "新余市"
 }, {
-  "regionCode": "360501",
+  "id": "360501",
   "pcode": "360500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "360502",
+  "id": "360502",
   "pcode": "360500",
-  "regionName": "渝水区"
+  "name": "渝水区"
 }, {
-  "regionCode": "360521",
+  "id": "360521",
   "pcode": "360500",
-  "regionName": "分宜县"
+  "name": "分宜县"
 }, {
-  "regionCode": "360600",
+  "id": "360600",
   "pcode": "360000",
-  "regionName": "鹰潭市"
+  "name": "鹰潭市"
 }, {
-  "regionCode": "360601",
+  "id": "360601",
   "pcode": "360600",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "360602",
+  "id": "360602",
   "pcode": "360600",
-  "regionName": "月湖区"
+  "name": "月湖区"
 }, {
-  "regionCode": "360622",
+  "id": "360622",
   "pcode": "360600",
-  "regionName": "余江县"
+  "name": "余江县"
 }, {
-  "regionCode": "360681",
+  "id": "360681",
   "pcode": "360600",
-  "regionName": "贵溪市"
+  "name": "贵溪市"
 }, {
-  "regionCode": "360700",
+  "id": "360700",
   "pcode": "360000",
-  "regionName": "赣州市"
+  "name": "赣州市"
 }, {
-  "regionCode": "360701",
+  "id": "360701",
   "pcode": "360700",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "360702",
+  "id": "360702",
   "pcode": "360700",
-  "regionName": "章贡区"
+  "name": "章贡区"
 }, {
-  "regionCode": "360703",
+  "id": "360703",
   "pcode": "360700",
-  "regionName": "南康区"
+  "name": "南康区"
 }, {
-  "regionCode": "360721",
+  "id": "360721",
   "pcode": "360700",
-  "regionName": "赣县"
+  "name": "赣县"
 }, {
-  "regionCode": "360722",
+  "id": "360722",
   "pcode": "360700",
-  "regionName": "信丰县"
+  "name": "信丰县"
 }, {
-  "regionCode": "360723",
+  "id": "360723",
   "pcode": "360700",
-  "regionName": "大余县"
+  "name": "大余县"
 }, {
-  "regionCode": "360724",
+  "id": "360724",
   "pcode": "360700",
-  "regionName": "上犹县"
+  "name": "上犹县"
 }, {
-  "regionCode": "360725",
+  "id": "360725",
   "pcode": "360700",
-  "regionName": "崇义县"
+  "name": "崇义县"
 }, {
-  "regionCode": "360726",
+  "id": "360726",
   "pcode": "360700",
-  "regionName": "安远县"
+  "name": "安远县"
 }, {
-  "regionCode": "360727",
+  "id": "360727",
   "pcode": "360700",
-  "regionName": "龙南县"
+  "name": "龙南县"
 }, {
-  "regionCode": "360728",
+  "id": "360728",
   "pcode": "360700",
-  "regionName": "定南县"
+  "name": "定南县"
 }, {
-  "regionCode": "360729",
+  "id": "360729",
   "pcode": "360700",
-  "regionName": "全南县"
+  "name": "全南县"
 }, {
-  "regionCode": "360730",
+  "id": "360730",
   "pcode": "360700",
-  "regionName": "宁都县"
+  "name": "宁都县"
 }, {
-  "regionCode": "360731",
+  "id": "360731",
   "pcode": "360700",
-  "regionName": "于都县"
+  "name": "于都县"
 }, {
-  "regionCode": "360732",
+  "id": "360732",
   "pcode": "360700",
-  "regionName": "兴国县"
+  "name": "兴国县"
 }, {
-  "regionCode": "360733",
+  "id": "360733",
   "pcode": "360700",
-  "regionName": "会昌县"
+  "name": "会昌县"
 }, {
-  "regionCode": "360734",
+  "id": "360734",
   "pcode": "360700",
-  "regionName": "寻乌县"
+  "name": "寻乌县"
 }, {
-  "regionCode": "360735",
+  "id": "360735",
   "pcode": "360700",
-  "regionName": "石城县"
+  "name": "石城县"
 }, {
-  "regionCode": "360781",
+  "id": "360781",
   "pcode": "360700",
-  "regionName": "瑞金市"
+  "name": "瑞金市"
 }, {
-  "regionCode": "360800",
+  "id": "360800",
   "pcode": "360000",
-  "regionName": "吉安市"
+  "name": "吉安市"
 }, {
-  "regionCode": "360801",
+  "id": "360801",
   "pcode": "360800",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "360802",
+  "id": "360802",
   "pcode": "360800",
-  "regionName": "吉州区"
+  "name": "吉州区"
 }, {
-  "regionCode": "360803",
+  "id": "360803",
   "pcode": "360800",
-  "regionName": "青原区"
+  "name": "青原区"
 }, {
-  "regionCode": "360821",
+  "id": "360821",
   "pcode": "360800",
-  "regionName": "吉安县"
+  "name": "吉安县"
 }, {
-  "regionCode": "360822",
+  "id": "360822",
   "pcode": "360800",
-  "regionName": "吉水县"
+  "name": "吉水县"
 }, {
-  "regionCode": "360823",
+  "id": "360823",
   "pcode": "360800",
-  "regionName": "峡江县"
+  "name": "峡江县"
 }, {
-  "regionCode": "360824",
+  "id": "360824",
   "pcode": "360800",
-  "regionName": "新干县"
+  "name": "新干县"
 }, {
-  "regionCode": "360825",
+  "id": "360825",
   "pcode": "360800",
-  "regionName": "永丰县"
+  "name": "永丰县"
 }, {
-  "regionCode": "360826",
+  "id": "360826",
   "pcode": "360800",
-  "regionName": "泰和县"
+  "name": "泰和县"
 }, {
-  "regionCode": "360827",
+  "id": "360827",
   "pcode": "360800",
-  "regionName": "遂川县"
+  "name": "遂川县"
 }, {
-  "regionCode": "360828",
+  "id": "360828",
   "pcode": "360800",
-  "regionName": "万安县"
+  "name": "万安县"
 }, {
-  "regionCode": "360829",
+  "id": "360829",
   "pcode": "360800",
-  "regionName": "安福县"
+  "name": "安福县"
 }, {
-  "regionCode": "360830",
+  "id": "360830",
   "pcode": "360800",
-  "regionName": "永新县"
+  "name": "永新县"
 }, {
-  "regionCode": "360881",
+  "id": "360881",
   "pcode": "360800",
-  "regionName": "井冈山市"
+  "name": "井冈山市"
 }, {
-  "regionCode": "360900",
+  "id": "360900",
   "pcode": "360000",
-  "regionName": "宜春市"
+  "name": "宜春市"
 }, {
-  "regionCode": "360901",
+  "id": "360901",
   "pcode": "360900",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "360902",
+  "id": "360902",
   "pcode": "360900",
-  "regionName": "袁州区"
+  "name": "袁州区"
 }, {
-  "regionCode": "360921",
+  "id": "360921",
   "pcode": "360900",
-  "regionName": "奉新县"
+  "name": "奉新县"
 }, {
-  "regionCode": "360922",
+  "id": "360922",
   "pcode": "360900",
-  "regionName": "万载县"
+  "name": "万载县"
 }, {
-  "regionCode": "360923",
+  "id": "360923",
   "pcode": "360900",
-  "regionName": "上高县"
+  "name": "上高县"
 }, {
-  "regionCode": "360924",
+  "id": "360924",
   "pcode": "360900",
-  "regionName": "宜丰县"
+  "name": "宜丰县"
 }, {
-  "regionCode": "360925",
+  "id": "360925",
   "pcode": "360900",
-  "regionName": "靖安县"
+  "name": "靖安县"
 }, {
-  "regionCode": "360926",
+  "id": "360926",
   "pcode": "360900",
-  "regionName": "铜鼓县"
+  "name": "铜鼓县"
 }, {
-  "regionCode": "360981",
+  "id": "360981",
   "pcode": "360900",
-  "regionName": "丰城市"
+  "name": "丰城市"
 }, {
-  "regionCode": "360982",
+  "id": "360982",
   "pcode": "360900",
-  "regionName": "樟树市"
+  "name": "樟树市"
 }, {
-  "regionCode": "360983",
+  "id": "360983",
   "pcode": "360900",
-  "regionName": "高安市"
+  "name": "高安市"
 }, {
-  "regionCode": "361000",
+  "id": "361000",
   "pcode": "360000",
-  "regionName": "抚州市"
+  "name": "抚州市"
 }, {
-  "regionCode": "361001",
+  "id": "361001",
   "pcode": "361000",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "361002",
+  "id": "361002",
   "pcode": "361000",
-  "regionName": "临川区"
+  "name": "临川区"
 }, {
-  "regionCode": "361021",
+  "id": "361021",
   "pcode": "361000",
-  "regionName": "南城县"
+  "name": "南城县"
 }, {
-  "regionCode": "361022",
+  "id": "361022",
   "pcode": "361000",
-  "regionName": "黎川县"
+  "name": "黎川县"
 }, {
-  "regionCode": "361023",
+  "id": "361023",
   "pcode": "361000",
-  "regionName": "南丰县"
+  "name": "南丰县"
 }, {
-  "regionCode": "361024",
+  "id": "361024",
   "pcode": "361000",
-  "regionName": "崇仁县"
+  "name": "崇仁县"
 }, {
-  "regionCode": "361025",
+  "id": "361025",
   "pcode": "361000",
-  "regionName": "乐安县"
+  "name": "乐安县"
 }, {
-  "regionCode": "361026",
+  "id": "361026",
   "pcode": "361000",
-  "regionName": "宜黄县"
+  "name": "宜黄县"
 }, {
-  "regionCode": "361027",
+  "id": "361027",
   "pcode": "361000",
-  "regionName": "金溪县"
+  "name": "金溪县"
 }, {
-  "regionCode": "361028",
+  "id": "361028",
   "pcode": "361000",
-  "regionName": "资溪县"
+  "name": "资溪县"
 }, {
-  "regionCode": "361029",
+  "id": "361029",
   "pcode": "361000",
-  "regionName": "东乡县"
+  "name": "东乡县"
 }, {
-  "regionCode": "361030",
+  "id": "361030",
   "pcode": "361000",
-  "regionName": "广昌县"
+  "name": "广昌县"
 }, {
-  "regionCode": "361100",
+  "id": "361100",
   "pcode": "360000",
-  "regionName": "上饶市"
+  "name": "上饶市"
 }, {
-  "regionCode": "361101",
+  "id": "361101",
   "pcode": "361100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "361102",
+  "id": "361102",
   "pcode": "361100",
-  "regionName": "信州区"
+  "name": "信州区"
 }, {
-  "regionCode": "361103",
+  "id": "361103",
   "pcode": "361100",
-  "regionName": "广丰区"
+  "name": "广丰区"
 }, {
-  "regionCode": "361121",
+  "id": "361121",
   "pcode": "361100",
-  "regionName": "上饶县"
+  "name": "上饶县"
 }, {
-  "regionCode": "361123",
+  "id": "361123",
   "pcode": "361100",
-  "regionName": "玉山县"
+  "name": "玉山县"
 }, {
-  "regionCode": "361124",
+  "id": "361124",
   "pcode": "361100",
-  "regionName": "铅山县"
+  "name": "铅山县"
 }, {
-  "regionCode": "361125",
+  "id": "361125",
   "pcode": "361100",
-  "regionName": "横峰县"
+  "name": "横峰县"
 }, {
-  "regionCode": "361126",
+  "id": "361126",
   "pcode": "361100",
-  "regionName": "弋阳县"
+  "name": "弋阳县"
 }, {
-  "regionCode": "361127",
+  "id": "361127",
   "pcode": "361100",
-  "regionName": "余干县"
+  "name": "余干县"
 }, {
-  "regionCode": "361128",
+  "id": "361128",
   "pcode": "361100",
-  "regionName": "鄱阳县"
+  "name": "鄱阳县"
 }, {
-  "regionCode": "361129",
+  "id": "361129",
   "pcode": "361100",
-  "regionName": "万年县"
+  "name": "万年县"
 }, {
-  "regionCode": "361130",
+  "id": "361130",
   "pcode": "361100",
-  "regionName": "婺源县"
+  "name": "婺源县"
 }, {
-  "regionCode": "361181",
+  "id": "361181",
   "pcode": "361100",
-  "regionName": "德兴市"
+  "name": "德兴市"
 }, {
-  "regionCode": "370000",
+  "id": "370000",
   "pcode": "",
-  "regionName": "山东省"
+  "name": "山东省"
 }, {
-  "regionCode": "370100",
+  "id": "370100",
   "pcode": "370000",
-  "regionName": "济南市"
+  "name": "济南市"
 }, {
-  "regionCode": "370101",
+  "id": "370101",
   "pcode": "370100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "370102",
+  "id": "370102",
   "pcode": "370100",
-  "regionName": "历下区"
+  "name": "历下区"
 }, {
-  "regionCode": "370103",
+  "id": "370103",
   "pcode": "370100",
-  "regionName": "市中区"
+  "name": "市中区"
 }, {
-  "regionCode": "370104",
+  "id": "370104",
   "pcode": "370100",
-  "regionName": "槐荫区"
+  "name": "槐荫区"
 }, {
-  "regionCode": "370105",
+  "id": "370105",
   "pcode": "370100",
-  "regionName": "天桥区"
+  "name": "天桥区"
 }, {
-  "regionCode": "370112",
+  "id": "370112",
   "pcode": "370100",
-  "regionName": "历城区"
+  "name": "历城区"
 }, {
-  "regionCode": "370113",
+  "id": "370113",
   "pcode": "370100",
-  "regionName": "长清区"
+  "name": "长清区"
 }, {
-  "regionCode": "370124",
+  "id": "370124",
   "pcode": "370100",
-  "regionName": "平阴县"
+  "name": "平阴县"
 }, {
-  "regionCode": "370125",
+  "id": "370125",
   "pcode": "370100",
-  "regionName": "济阳县"
+  "name": "济阳县"
 }, {
-  "regionCode": "370126",
+  "id": "370126",
   "pcode": "370100",
-  "regionName": "商河县"
+  "name": "商河县"
 }, {
-  "regionCode": "370181",
+  "id": "370181",
   "pcode": "370100",
-  "regionName": "章丘市"
+  "name": "章丘市"
 }, {
-  "regionCode": "370200",
+  "id": "370200",
   "pcode": "370000",
-  "regionName": "青岛市"
+  "name": "青岛市"
 }, {
-  "regionCode": "370201",
+  "id": "370201",
   "pcode": "370200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "370202",
+  "id": "370202",
   "pcode": "370200",
-  "regionName": "市南区"
+  "name": "市南区"
 }, {
-  "regionCode": "370203",
+  "id": "370203",
   "pcode": "370200",
-  "regionName": "市北区"
+  "name": "市北区"
 }, {
-  "regionCode": "370211",
+  "id": "370211",
   "pcode": "370200",
-  "regionName": "黄岛区"
+  "name": "黄岛区"
 }, {
-  "regionCode": "370212",
+  "id": "370212",
   "pcode": "370200",
-  "regionName": "崂山区"
+  "name": "崂山区"
 }, {
-  "regionCode": "370213",
+  "id": "370213",
   "pcode": "370200",
-  "regionName": "李沧区"
+  "name": "李沧区"
 }, {
-  "regionCode": "370214",
+  "id": "370214",
   "pcode": "370200",
-  "regionName": "城阳区"
+  "name": "城阳区"
 }, {
-  "regionCode": "370281",
+  "id": "370281",
   "pcode": "370200",
-  "regionName": "胶州市"
+  "name": "胶州市"
 }, {
-  "regionCode": "370282",
+  "id": "370282",
   "pcode": "370200",
-  "regionName": "即墨市"
+  "name": "即墨市"
 }, {
-  "regionCode": "370283",
+  "id": "370283",
   "pcode": "370200",
-  "regionName": "平度市"
+  "name": "平度市"
 }, {
-  "regionCode": "370285",
+  "id": "370285",
   "pcode": "370200",
-  "regionName": "莱西市"
+  "name": "莱西市"
 }, {
-  "regionCode": "370300",
+  "id": "370300",
   "pcode": "370000",
-  "regionName": "淄博市"
+  "name": "淄博市"
 }, {
-  "regionCode": "370301",
+  "id": "370301",
   "pcode": "370300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "370302",
+  "id": "370302",
   "pcode": "370300",
-  "regionName": "淄川区"
+  "name": "淄川区"
 }, {
-  "regionCode": "370303",
+  "id": "370303",
   "pcode": "370300",
-  "regionName": "张店区"
+  "name": "张店区"
 }, {
-  "regionCode": "370304",
+  "id": "370304",
   "pcode": "370300",
-  "regionName": "博山区"
+  "name": "博山区"
 }, {
-  "regionCode": "370305",
+  "id": "370305",
   "pcode": "370300",
-  "regionName": "临淄区"
+  "name": "临淄区"
 }, {
-  "regionCode": "370306",
+  "id": "370306",
   "pcode": "370300",
-  "regionName": "周村区"
+  "name": "周村区"
 }, {
-  "regionCode": "370321",
+  "id": "370321",
   "pcode": "370300",
-  "regionName": "桓台县"
+  "name": "桓台县"
 }, {
-  "regionCode": "370322",
+  "id": "370322",
   "pcode": "370300",
-  "regionName": "高青县"
+  "name": "高青县"
 }, {
-  "regionCode": "370323",
+  "id": "370323",
   "pcode": "370300",
-  "regionName": "沂源县"
+  "name": "沂源县"
 }, {
-  "regionCode": "370400",
+  "id": "370400",
   "pcode": "370000",
-  "regionName": "枣庄市"
+  "name": "枣庄市"
 }, {
-  "regionCode": "370401",
+  "id": "370401",
   "pcode": "370400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "370402",
+  "id": "370402",
   "pcode": "370400",
-  "regionName": "市中区"
+  "name": "市中区"
 }, {
-  "regionCode": "370403",
+  "id": "370403",
   "pcode": "370400",
-  "regionName": "薛城区"
+  "name": "薛城区"
 }, {
-  "regionCode": "370404",
+  "id": "370404",
   "pcode": "370400",
-  "regionName": "峄城区"
+  "name": "峄城区"
 }, {
-  "regionCode": "370405",
+  "id": "370405",
   "pcode": "370400",
-  "regionName": "台儿庄区"
+  "name": "台儿庄区"
 }, {
-  "regionCode": "370406",
+  "id": "370406",
   "pcode": "370400",
-  "regionName": "山亭区"
+  "name": "山亭区"
 }, {
-  "regionCode": "370481",
+  "id": "370481",
   "pcode": "370400",
-  "regionName": "滕州市"
+  "name": "滕州市"
 }, {
-  "regionCode": "370500",
+  "id": "370500",
   "pcode": "370000",
-  "regionName": "东营市"
+  "name": "东营市"
 }, {
-  "regionCode": "370501",
+  "id": "370501",
   "pcode": "370500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "370502",
+  "id": "370502",
   "pcode": "370500",
-  "regionName": "东营区"
+  "name": "东营区"
 }, {
-  "regionCode": "370503",
+  "id": "370503",
   "pcode": "370500",
-  "regionName": "河口区"
+  "name": "河口区"
 }, {
-  "regionCode": "370505",
+  "id": "370505",
   "pcode": "370500",
-  "regionName": "垦利区"
+  "name": "垦利区"
 }, {
-  "regionCode": "370522",
+  "id": "370522",
   "pcode": "370500",
-  "regionName": "利津县"
+  "name": "利津县"
 }, {
-  "regionCode": "370523",
+  "id": "370523",
   "pcode": "370500",
-  "regionName": "广饶县"
+  "name": "广饶县"
 }, {
-  "regionCode": "370600",
+  "id": "370600",
   "pcode": "370000",
-  "regionName": "烟台市"
+  "name": "烟台市"
 }, {
-  "regionCode": "370601",
+  "id": "370601",
   "pcode": "370600",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "370602",
+  "id": "370602",
   "pcode": "370600",
-  "regionName": "芝罘区"
+  "name": "芝罘区"
 }, {
-  "regionCode": "370611",
+  "id": "370611",
   "pcode": "370600",
-  "regionName": "福山区"
+  "name": "福山区"
 }, {
-  "regionCode": "370612",
+  "id": "370612",
   "pcode": "370600",
-  "regionName": "牟平区"
+  "name": "牟平区"
 }, {
-  "regionCode": "370613",
+  "id": "370613",
   "pcode": "370600",
-  "regionName": "莱山区"
+  "name": "莱山区"
 }, {
-  "regionCode": "370634",
+  "id": "370634",
   "pcode": "370600",
-  "regionName": "长岛县"
+  "name": "长岛县"
 }, {
-  "regionCode": "370681",
+  "id": "370681",
   "pcode": "370600",
-  "regionName": "龙口市"
+  "name": "龙口市"
 }, {
-  "regionCode": "370682",
+  "id": "370682",
   "pcode": "370600",
-  "regionName": "莱阳市"
+  "name": "莱阳市"
 }, {
-  "regionCode": "370683",
+  "id": "370683",
   "pcode": "370600",
-  "regionName": "莱州市"
+  "name": "莱州市"
 }, {
-  "regionCode": "370684",
+  "id": "370684",
   "pcode": "370600",
-  "regionName": "蓬莱市"
+  "name": "蓬莱市"
 }, {
-  "regionCode": "370685",
+  "id": "370685",
   "pcode": "370600",
-  "regionName": "招远市"
+  "name": "招远市"
 }, {
-  "regionCode": "370686",
+  "id": "370686",
   "pcode": "370600",
-  "regionName": "栖霞市"
+  "name": "栖霞市"
 }, {
-  "regionCode": "370687",
+  "id": "370687",
   "pcode": "370600",
-  "regionName": "海阳市"
+  "name": "海阳市"
 }, {
-  "regionCode": "370700",
+  "id": "370700",
   "pcode": "370000",
-  "regionName": "潍坊市"
+  "name": "潍坊市"
 }, {
-  "regionCode": "370701",
+  "id": "370701",
   "pcode": "370700",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "370702",
+  "id": "370702",
   "pcode": "370700",
-  "regionName": "潍城区"
+  "name": "潍城区"
 }, {
-  "regionCode": "370703",
+  "id": "370703",
   "pcode": "370700",
-  "regionName": "寒亭区"
+  "name": "寒亭区"
 }, {
-  "regionCode": "370704",
+  "id": "370704",
   "pcode": "370700",
-  "regionName": "坊子区"
+  "name": "坊子区"
 }, {
-  "regionCode": "370705",
+  "id": "370705",
   "pcode": "370700",
-  "regionName": "奎文区"
+  "name": "奎文区"
 }, {
-  "regionCode": "370724",
+  "id": "370724",
   "pcode": "370700",
-  "regionName": "临朐县"
+  "name": "临朐县"
 }, {
-  "regionCode": "370725",
+  "id": "370725",
   "pcode": "370700",
-  "regionName": "昌乐县"
+  "name": "昌乐县"
 }, {
-  "regionCode": "370781",
+  "id": "370781",
   "pcode": "370700",
-  "regionName": "青州市"
+  "name": "青州市"
 }, {
-  "regionCode": "370782",
+  "id": "370782",
   "pcode": "370700",
-  "regionName": "诸城市"
+  "name": "诸城市"
 }, {
-  "regionCode": "370783",
+  "id": "370783",
   "pcode": "370700",
-  "regionName": "寿光市"
+  "name": "寿光市"
 }, {
-  "regionCode": "370784",
+  "id": "370784",
   "pcode": "370700",
-  "regionName": "安丘市"
+  "name": "安丘市"
 }, {
-  "regionCode": "370785",
+  "id": "370785",
   "pcode": "370700",
-  "regionName": "高密市"
+  "name": "高密市"
 }, {
-  "regionCode": "370786",
+  "id": "370786",
   "pcode": "370700",
-  "regionName": "昌邑市"
+  "name": "昌邑市"
 }, {
-  "regionCode": "370800",
+  "id": "370800",
   "pcode": "370000",
-  "regionName": "济宁市"
+  "name": "济宁市"
 }, {
-  "regionCode": "370801",
+  "id": "370801",
   "pcode": "370800",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "370811",
+  "id": "370811",
   "pcode": "370800",
-  "regionName": "任城区"
+  "name": "任城区"
 }, {
-  "regionCode": "370812",
+  "id": "370812",
   "pcode": "370800",
-  "regionName": "兖州区"
+  "name": "兖州区"
 }, {
-  "regionCode": "370826",
+  "id": "370826",
   "pcode": "370800",
-  "regionName": "微山县"
+  "name": "微山县"
 }, {
-  "regionCode": "370827",
+  "id": "370827",
   "pcode": "370800",
-  "regionName": "鱼台县"
+  "name": "鱼台县"
 }, {
-  "regionCode": "370828",
+  "id": "370828",
   "pcode": "370800",
-  "regionName": "金乡县"
+  "name": "金乡县"
 }, {
-  "regionCode": "370829",
+  "id": "370829",
   "pcode": "370800",
-  "regionName": "嘉祥县"
+  "name": "嘉祥县"
 }, {
-  "regionCode": "370830",
+  "id": "370830",
   "pcode": "370800",
-  "regionName": "汶上县"
+  "name": "汶上县"
 }, {
-  "regionCode": "370831",
+  "id": "370831",
   "pcode": "370800",
-  "regionName": "泗水县"
+  "name": "泗水县"
 }, {
-  "regionCode": "370832",
+  "id": "370832",
   "pcode": "370800",
-  "regionName": "梁山县"
+  "name": "梁山县"
 }, {
-  "regionCode": "370881",
+  "id": "370881",
   "pcode": "370800",
-  "regionName": "曲阜市"
+  "name": "曲阜市"
 }, {
-  "regionCode": "370883",
+  "id": "370883",
   "pcode": "370800",
-  "regionName": "邹城市"
+  "name": "邹城市"
 }, {
-  "regionCode": "370900",
+  "id": "370900",
   "pcode": "370000",
-  "regionName": "泰安市"
+  "name": "泰安市"
 }, {
-  "regionCode": "370901",
+  "id": "370901",
   "pcode": "370900",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "370902",
+  "id": "370902",
   "pcode": "370900",
-  "regionName": "泰山区"
+  "name": "泰山区"
 }, {
-  "regionCode": "370911",
+  "id": "370911",
   "pcode": "370900",
-  "regionName": "岱岳区"
+  "name": "岱岳区"
 }, {
-  "regionCode": "370921",
+  "id": "370921",
   "pcode": "370900",
-  "regionName": "宁阳县"
+  "name": "宁阳县"
 }, {
-  "regionCode": "370923",
+  "id": "370923",
   "pcode": "370900",
-  "regionName": "东平县"
+  "name": "东平县"
 }, {
-  "regionCode": "370982",
+  "id": "370982",
   "pcode": "370900",
-  "regionName": "新泰市"
+  "name": "新泰市"
 }, {
-  "regionCode": "370983",
+  "id": "370983",
   "pcode": "370900",
-  "regionName": "肥城市"
+  "name": "肥城市"
 }, {
-  "regionCode": "371000",
+  "id": "371000",
   "pcode": "370000",
-  "regionName": "威海市"
+  "name": "威海市"
 }, {
-  "regionCode": "371001",
+  "id": "371001",
   "pcode": "371000",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "371002",
+  "id": "371002",
   "pcode": "371000",
-  "regionName": "环翠区"
+  "name": "环翠区"
 }, {
-  "regionCode": "371003",
+  "id": "371003",
   "pcode": "371000",
-  "regionName": "文登区"
+  "name": "文登区"
 }, {
-  "regionCode": "371082",
+  "id": "371082",
   "pcode": "371000",
-  "regionName": "荣成市"
+  "name": "荣成市"
 }, {
-  "regionCode": "371083",
+  "id": "371083",
   "pcode": "371000",
-  "regionName": "乳山市"
+  "name": "乳山市"
 }, {
-  "regionCode": "371100",
+  "id": "371100",
   "pcode": "370000",
-  "regionName": "日照市"
+  "name": "日照市"
 }, {
-  "regionCode": "371101",
+  "id": "371101",
   "pcode": "371100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "371102",
+  "id": "371102",
   "pcode": "371100",
-  "regionName": "东港区"
+  "name": "东港区"
 }, {
-  "regionCode": "371103",
+  "id": "371103",
   "pcode": "371100",
-  "regionName": "岚山区"
+  "name": "岚山区"
 }, {
-  "regionCode": "371121",
+  "id": "371121",
   "pcode": "371100",
-  "regionName": "五莲县"
+  "name": "五莲县"
 }, {
-  "regionCode": "371122",
+  "id": "371122",
   "pcode": "371100",
-  "regionName": "莒县"
+  "name": "莒县"
 }, {
-  "regionCode": "371200",
+  "id": "371200",
   "pcode": "370000",
-  "regionName": "莱芜市"
+  "name": "莱芜市"
 }, {
-  "regionCode": "371201",
+  "id": "371201",
   "pcode": "371200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "371202",
+  "id": "371202",
   "pcode": "371200",
-  "regionName": "莱城区"
+  "name": "莱城区"
 }, {
-  "regionCode": "371203",
+  "id": "371203",
   "pcode": "371200",
-  "regionName": "钢城区"
+  "name": "钢城区"
 }, {
-  "regionCode": "371300",
+  "id": "371300",
   "pcode": "370000",
-  "regionName": "临沂市"
+  "name": "临沂市"
 }, {
-  "regionCode": "371301",
+  "id": "371301",
   "pcode": "371300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "371302",
+  "id": "371302",
   "pcode": "371300",
-  "regionName": "兰山区"
+  "name": "兰山区"
 }, {
-  "regionCode": "371311",
+  "id": "371311",
   "pcode": "371300",
-  "regionName": "罗庄区"
+  "name": "罗庄区"
 }, {
-  "regionCode": "371312",
+  "id": "371312",
   "pcode": "371300",
-  "regionName": "河东区"
+  "name": "河东区"
 }, {
-  "regionCode": "371321",
+  "id": "371321",
   "pcode": "371300",
-  "regionName": "沂南县"
+  "name": "沂南县"
 }, {
-  "regionCode": "371322",
+  "id": "371322",
   "pcode": "371300",
-  "regionName": "郯城县"
+  "name": "郯城县"
 }, {
-  "regionCode": "371323",
+  "id": "371323",
   "pcode": "371300",
-  "regionName": "沂水县"
+  "name": "沂水县"
 }, {
-  "regionCode": "371324",
+  "id": "371324",
   "pcode": "371300",
-  "regionName": "兰陵县"
+  "name": "兰陵县"
 }, {
-  "regionCode": "371325",
+  "id": "371325",
   "pcode": "371300",
-  "regionName": "费县"
+  "name": "费县"
 }, {
-  "regionCode": "371326",
+  "id": "371326",
   "pcode": "371300",
-  "regionName": "平邑县"
+  "name": "平邑县"
 }, {
-  "regionCode": "371327",
+  "id": "371327",
   "pcode": "371300",
-  "regionName": "莒南县"
+  "name": "莒南县"
 }, {
-  "regionCode": "371328",
+  "id": "371328",
   "pcode": "371300",
-  "regionName": "蒙阴县"
+  "name": "蒙阴县"
 }, {
-  "regionCode": "371329",
+  "id": "371329",
   "pcode": "371300",
-  "regionName": "临沭县"
+  "name": "临沭县"
 }, {
-  "regionCode": "371400",
+  "id": "371400",
   "pcode": "370000",
-  "regionName": "德州市"
+  "name": "德州市"
 }, {
-  "regionCode": "371401",
+  "id": "371401",
   "pcode": "371400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "371402",
+  "id": "371402",
   "pcode": "371400",
-  "regionName": "德城区"
+  "name": "德城区"
 }, {
-  "regionCode": "371403",
+  "id": "371403",
   "pcode": "371400",
-  "regionName": "陵城区"
+  "name": "陵城区"
 }, {
-  "regionCode": "371422",
+  "id": "371422",
   "pcode": "371400",
-  "regionName": "宁津县"
+  "name": "宁津县"
 }, {
-  "regionCode": "371423",
+  "id": "371423",
   "pcode": "371400",
-  "regionName": "庆云县"
+  "name": "庆云县"
 }, {
-  "regionCode": "371424",
+  "id": "371424",
   "pcode": "371400",
-  "regionName": "临邑县"
+  "name": "临邑县"
 }, {
-  "regionCode": "371425",
+  "id": "371425",
   "pcode": "371400",
-  "regionName": "齐河县"
+  "name": "齐河县"
 }, {
-  "regionCode": "371426",
+  "id": "371426",
   "pcode": "371400",
-  "regionName": "平原县"
+  "name": "平原县"
 }, {
-  "regionCode": "371427",
+  "id": "371427",
   "pcode": "371400",
-  "regionName": "夏津县"
+  "name": "夏津县"
 }, {
-  "regionCode": "371428",
+  "id": "371428",
   "pcode": "371400",
-  "regionName": "武城县"
+  "name": "武城县"
 }, {
-  "regionCode": "371481",
+  "id": "371481",
   "pcode": "371400",
-  "regionName": "乐陵市"
+  "name": "乐陵市"
 }, {
-  "regionCode": "371482",
+  "id": "371482",
   "pcode": "371400",
-  "regionName": "禹城市"
+  "name": "禹城市"
 }, {
-  "regionCode": "371500",
+  "id": "371500",
   "pcode": "370000",
-  "regionName": "聊城市"
+  "name": "聊城市"
 }, {
-  "regionCode": "371501",
+  "id": "371501",
   "pcode": "371500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "371502",
+  "id": "371502",
   "pcode": "371500",
-  "regionName": "东昌府区"
+  "name": "东昌府区"
 }, {
-  "regionCode": "371521",
+  "id": "371521",
   "pcode": "371500",
-  "regionName": "阳谷县"
+  "name": "阳谷县"
 }, {
-  "regionCode": "371522",
+  "id": "371522",
   "pcode": "371500",
-  "regionName": "莘县"
+  "name": "莘县"
 }, {
-  "regionCode": "371523",
+  "id": "371523",
   "pcode": "371500",
-  "regionName": "茌平县"
+  "name": "茌平县"
 }, {
-  "regionCode": "371524",
+  "id": "371524",
   "pcode": "371500",
-  "regionName": "东阿县"
+  "name": "东阿县"
 }, {
-  "regionCode": "371525",
+  "id": "371525",
   "pcode": "371500",
-  "regionName": "冠县"
+  "name": "冠县"
 }, {
-  "regionCode": "371526",
+  "id": "371526",
   "pcode": "371500",
-  "regionName": "高唐县"
+  "name": "高唐县"
 }, {
-  "regionCode": "371581",
+  "id": "371581",
   "pcode": "371500",
-  "regionName": "临清市"
+  "name": "临清市"
 }, {
-  "regionCode": "371600",
+  "id": "371600",
   "pcode": "370000",
-  "regionName": "滨州市"
+  "name": "滨州市"
 }, {
-  "regionCode": "371601",
+  "id": "371601",
   "pcode": "371600",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "371602",
+  "id": "371602",
   "pcode": "371600",
-  "regionName": "滨城区"
+  "name": "滨城区"
 }, {
-  "regionCode": "371603",
+  "id": "371603",
   "pcode": "371600",
-  "regionName": "沾化区"
+  "name": "沾化区"
 }, {
-  "regionCode": "371621",
+  "id": "371621",
   "pcode": "371600",
-  "regionName": "惠民县"
+  "name": "惠民县"
 }, {
-  "regionCode": "371622",
+  "id": "371622",
   "pcode": "371600",
-  "regionName": "阳信县"
+  "name": "阳信县"
 }, {
-  "regionCode": "371623",
+  "id": "371623",
   "pcode": "371600",
-  "regionName": "无棣县"
+  "name": "无棣县"
 }, {
-  "regionCode": "371625",
+  "id": "371625",
   "pcode": "371600",
-  "regionName": "博兴县"
+  "name": "博兴县"
 }, {
-  "regionCode": "371626",
+  "id": "371626",
   "pcode": "371600",
-  "regionName": "邹平县"
+  "name": "邹平县"
 }, {
-  "regionCode": "371700",
+  "id": "371700",
   "pcode": "370000",
-  "regionName": "菏泽市"
+  "name": "菏泽市"
 }, {
-  "regionCode": "371701",
+  "id": "371701",
   "pcode": "371700",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "371702",
+  "id": "371702",
   "pcode": "371700",
-  "regionName": "牡丹区"
+  "name": "牡丹区"
 }, {
-  "regionCode": "371703",
+  "id": "371703",
   "pcode": "371700",
-  "regionName": "定陶区"
+  "name": "定陶区"
 }, {
-  "regionCode": "371721",
+  "id": "371721",
   "pcode": "371700",
-  "regionName": "曹县"
+  "name": "曹县"
 }, {
-  "regionCode": "371722",
+  "id": "371722",
   "pcode": "371700",
-  "regionName": "单县"
+  "name": "单县"
 }, {
-  "regionCode": "371723",
+  "id": "371723",
   "pcode": "371700",
-  "regionName": "成武县"
+  "name": "成武县"
 }, {
-  "regionCode": "371724",
+  "id": "371724",
   "pcode": "371700",
-  "regionName": "巨野县"
+  "name": "巨野县"
 }, {
-  "regionCode": "371725",
+  "id": "371725",
   "pcode": "371700",
-  "regionName": "郓城县"
+  "name": "郓城县"
 }, {
-  "regionCode": "371726",
+  "id": "371726",
   "pcode": "371700",
-  "regionName": "鄄城县"
+  "name": "鄄城县"
 }, {
-  "regionCode": "371728",
+  "id": "371728",
   "pcode": "371700",
-  "regionName": "东明县"
+  "name": "东明县"
 }, {
-  "regionCode": "410000",
+  "id": "410000",
   "pcode": "",
-  "regionName": "河南省"
+  "name": "河南省"
 }, {
-  "regionCode": "410100",
+  "id": "410100",
   "pcode": "410000",
-  "regionName": "郑州市"
+  "name": "郑州市"
 }, {
-  "regionCode": "410101",
+  "id": "410101",
   "pcode": "410100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "410102",
+  "id": "410102",
   "pcode": "410100",
-  "regionName": "中原区"
+  "name": "中原区"
 }, {
-  "regionCode": "410103",
+  "id": "410103",
   "pcode": "410100",
-  "regionName": "二七区"
+  "name": "二七区"
 }, {
-  "regionCode": "410104",
+  "id": "410104",
   "pcode": "410100",
-  "regionName": "管城回族区"
+  "name": "管城回族区"
 }, {
-  "regionCode": "410105",
+  "id": "410105",
   "pcode": "410100",
-  "regionName": "金水区"
+  "name": "金水区"
 }, {
-  "regionCode": "410106",
+  "id": "410106",
   "pcode": "410100",
-  "regionName": "上街区"
+  "name": "上街区"
 }, {
-  "regionCode": "410108",
+  "id": "410108",
   "pcode": "410100",
-  "regionName": "惠济区"
+  "name": "惠济区"
 }, {
-  "regionCode": "410122",
+  "id": "410122",
   "pcode": "410100",
-  "regionName": "中牟县"
+  "name": "中牟县"
 }, {
-  "regionCode": "410181",
+  "id": "410181",
   "pcode": "410100",
-  "regionName": "巩义市"
+  "name": "巩义市"
 }, {
-  "regionCode": "410182",
+  "id": "410182",
   "pcode": "410100",
-  "regionName": "荥阳市"
+  "name": "荥阳市"
 }, {
-  "regionCode": "410183",
+  "id": "410183",
   "pcode": "410100",
-  "regionName": "新密市"
+  "name": "新密市"
 }, {
-  "regionCode": "410184",
+  "id": "410184",
   "pcode": "410100",
-  "regionName": "新郑市"
+  "name": "新郑市"
 }, {
-  "regionCode": "410185",
+  "id": "410185",
   "pcode": "410100",
-  "regionName": "登封市"
+  "name": "登封市"
 }, {
-  "regionCode": "410200",
+  "id": "410200",
   "pcode": "410000",
-  "regionName": "开封市"
+  "name": "开封市"
 }, {
-  "regionCode": "410201",
+  "id": "410201",
   "pcode": "410200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "410202",
+  "id": "410202",
   "pcode": "410200",
-  "regionName": "龙亭区"
+  "name": "龙亭区"
 }, {
-  "regionCode": "410203",
+  "id": "410203",
   "pcode": "410200",
-  "regionName": "顺河回族区"
+  "name": "顺河回族区"
 }, {
-  "regionCode": "410204",
+  "id": "410204",
   "pcode": "410200",
-  "regionName": "鼓楼区"
+  "name": "鼓楼区"
 }, {
-  "regionCode": "410205",
+  "id": "410205",
   "pcode": "410200",
-  "regionName": "禹王台区"
+  "name": "禹王台区"
 }, {
-  "regionCode": "410211",
+  "id": "410211",
   "pcode": "410200",
-  "regionName": "金明区"
+  "name": "金明区"
 }, {
-  "regionCode": "410212",
+  "id": "410212",
   "pcode": "410200",
-  "regionName": "祥符区"
+  "name": "祥符区"
 }, {
-  "regionCode": "410221",
+  "id": "410221",
   "pcode": "410200",
-  "regionName": "杞县"
+  "name": "杞县"
 }, {
-  "regionCode": "410222",
+  "id": "410222",
   "pcode": "410200",
-  "regionName": "通许县"
+  "name": "通许县"
 }, {
-  "regionCode": "410223",
+  "id": "410223",
   "pcode": "410200",
-  "regionName": "尉氏县"
+  "name": "尉氏县"
 }, {
-  "regionCode": "410225",
+  "id": "410225",
   "pcode": "410200",
-  "regionName": "兰考县"
+  "name": "兰考县"
 }, {
-  "regionCode": "410300",
+  "id": "410300",
   "pcode": "410000",
-  "regionName": "洛阳市"
+  "name": "洛阳市"
 }, {
-  "regionCode": "410301",
+  "id": "410301",
   "pcode": "410300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "410302",
+  "id": "410302",
   "pcode": "410300",
-  "regionName": "老城区"
+  "name": "老城区"
 }, {
-  "regionCode": "410303",
+  "id": "410303",
   "pcode": "410300",
-  "regionName": "西工区"
+  "name": "西工区"
 }, {
-  "regionCode": "410304",
+  "id": "410304",
   "pcode": "410300",
-  "regionName": "瀍河回族区"
+  "name": "瀍河回族区"
 }, {
-  "regionCode": "410305",
+  "id": "410305",
   "pcode": "410300",
-  "regionName": "涧西区"
+  "name": "涧西区"
 }, {
-  "regionCode": "410306",
+  "id": "410306",
   "pcode": "410300",
-  "regionName": "吉利区"
+  "name": "吉利区"
 }, {
-  "regionCode": "410311",
+  "id": "410311",
   "pcode": "410300",
-  "regionName": "洛龙区"
+  "name": "洛龙区"
 }, {
-  "regionCode": "410322",
+  "id": "410322",
   "pcode": "410300",
-  "regionName": "孟津县"
+  "name": "孟津县"
 }, {
-  "regionCode": "410323",
+  "id": "410323",
   "pcode": "410300",
-  "regionName": "新安县"
+  "name": "新安县"
 }, {
-  "regionCode": "410324",
+  "id": "410324",
   "pcode": "410300",
-  "regionName": "栾川县"
+  "name": "栾川县"
 }, {
-  "regionCode": "410325",
+  "id": "410325",
   "pcode": "410300",
-  "regionName": "嵩县"
+  "name": "嵩县"
 }, {
-  "regionCode": "410326",
+  "id": "410326",
   "pcode": "410300",
-  "regionName": "汝阳县"
+  "name": "汝阳县"
 }, {
-  "regionCode": "410327",
+  "id": "410327",
   "pcode": "410300",
-  "regionName": "宜阳县"
+  "name": "宜阳县"
 }, {
-  "regionCode": "410328",
+  "id": "410328",
   "pcode": "410300",
-  "regionName": "洛宁县"
+  "name": "洛宁县"
 }, {
-  "regionCode": "410329",
+  "id": "410329",
   "pcode": "410300",
-  "regionName": "伊川县"
+  "name": "伊川县"
 }, {
-  "regionCode": "410381",
+  "id": "410381",
   "pcode": "410300",
-  "regionName": "偃师市"
+  "name": "偃师市"
 }, {
-  "regionCode": "410400",
+  "id": "410400",
   "pcode": "410000",
-  "regionName": "平顶山市"
+  "name": "平顶山市"
 }, {
-  "regionCode": "410401",
+  "id": "410401",
   "pcode": "410400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "410402",
+  "id": "410402",
   "pcode": "410400",
-  "regionName": "新华区"
+  "name": "新华区"
 }, {
-  "regionCode": "410403",
+  "id": "410403",
   "pcode": "410400",
-  "regionName": "卫东区"
+  "name": "卫东区"
 }, {
-  "regionCode": "410404",
+  "id": "410404",
   "pcode": "410400",
-  "regionName": "石龙区"
+  "name": "石龙区"
 }, {
-  "regionCode": "410411",
+  "id": "410411",
   "pcode": "410400",
-  "regionName": "湛河区"
+  "name": "湛河区"
 }, {
-  "regionCode": "410421",
+  "id": "410421",
   "pcode": "410400",
-  "regionName": "宝丰县"
+  "name": "宝丰县"
 }, {
-  "regionCode": "410422",
+  "id": "410422",
   "pcode": "410400",
-  "regionName": "叶县"
+  "name": "叶县"
 }, {
-  "regionCode": "410423",
+  "id": "410423",
   "pcode": "410400",
-  "regionName": "鲁山县"
+  "name": "鲁山县"
 }, {
-  "regionCode": "410425",
+  "id": "410425",
   "pcode": "410400",
-  "regionName": "郏县"
+  "name": "郏县"
 }, {
-  "regionCode": "410481",
+  "id": "410481",
   "pcode": "410400",
-  "regionName": "舞钢市"
+  "name": "舞钢市"
 }, {
-  "regionCode": "410482",
+  "id": "410482",
   "pcode": "410400",
-  "regionName": "汝州市"
+  "name": "汝州市"
 }, {
-  "regionCode": "410500",
+  "id": "410500",
   "pcode": "410000",
-  "regionName": "安阳市"
+  "name": "安阳市"
 }, {
-  "regionCode": "410501",
+  "id": "410501",
   "pcode": "410500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "410502",
+  "id": "410502",
   "pcode": "410500",
-  "regionName": "文峰区"
+  "name": "文峰区"
 }, {
-  "regionCode": "410503",
+  "id": "410503",
   "pcode": "410500",
-  "regionName": "北关区"
+  "name": "北关区"
 }, {
-  "regionCode": "410505",
+  "id": "410505",
   "pcode": "410500",
-  "regionName": "殷都区"
+  "name": "殷都区"
 }, {
-  "regionCode": "410506",
+  "id": "410506",
   "pcode": "410500",
-  "regionName": "龙安区"
+  "name": "龙安区"
 }, {
-  "regionCode": "410522",
+  "id": "410522",
   "pcode": "410500",
-  "regionName": "安阳县"
+  "name": "安阳县"
 }, {
-  "regionCode": "410523",
+  "id": "410523",
   "pcode": "410500",
-  "regionName": "汤阴县"
+  "name": "汤阴县"
 }, {
-  "regionCode": "410526",
+  "id": "410526",
   "pcode": "410500",
-  "regionName": "滑县"
+  "name": "滑县"
 }, {
-  "regionCode": "410527",
+  "id": "410527",
   "pcode": "410500",
-  "regionName": "内黄县"
+  "name": "内黄县"
 }, {
-  "regionCode": "410581",
+  "id": "410581",
   "pcode": "410500",
-  "regionName": "林州市"
+  "name": "林州市"
 }, {
-  "regionCode": "410600",
+  "id": "410600",
   "pcode": "410000",
-  "regionName": "鹤壁市"
+  "name": "鹤壁市"
 }, {
-  "regionCode": "410601",
+  "id": "410601",
   "pcode": "410600",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "410602",
+  "id": "410602",
   "pcode": "410600",
-  "regionName": "鹤山区"
+  "name": "鹤山区"
 }, {
-  "regionCode": "410603",
+  "id": "410603",
   "pcode": "410600",
-  "regionName": "山城区"
+  "name": "山城区"
 }, {
-  "regionCode": "410611",
+  "id": "410611",
   "pcode": "410600",
-  "regionName": "淇滨区"
+  "name": "淇滨区"
 }, {
-  "regionCode": "410621",
+  "id": "410621",
   "pcode": "410600",
-  "regionName": "浚县"
+  "name": "浚县"
 }, {
-  "regionCode": "410622",
+  "id": "410622",
   "pcode": "410600",
-  "regionName": "淇县"
+  "name": "淇县"
 }, {
-  "regionCode": "410700",
+  "id": "410700",
   "pcode": "410000",
-  "regionName": "新乡市"
+  "name": "新乡市"
 }, {
-  "regionCode": "410701",
+  "id": "410701",
   "pcode": "410700",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "410702",
+  "id": "410702",
   "pcode": "410700",
-  "regionName": "红旗区"
+  "name": "红旗区"
 }, {
-  "regionCode": "410703",
+  "id": "410703",
   "pcode": "410700",
-  "regionName": "卫滨区"
+  "name": "卫滨区"
 }, {
-  "regionCode": "410704",
+  "id": "410704",
   "pcode": "410700",
-  "regionName": "凤泉区"
+  "name": "凤泉区"
 }, {
-  "regionCode": "410711",
+  "id": "410711",
   "pcode": "410700",
-  "regionName": "牧野区"
+  "name": "牧野区"
 }, {
-  "regionCode": "410721",
+  "id": "410721",
   "pcode": "410700",
-  "regionName": "新乡县"
+  "name": "新乡县"
 }, {
-  "regionCode": "410724",
+  "id": "410724",
   "pcode": "410700",
-  "regionName": "获嘉县"
+  "name": "获嘉县"
 }, {
-  "regionCode": "410725",
+  "id": "410725",
   "pcode": "410700",
-  "regionName": "原阳县"
+  "name": "原阳县"
 }, {
-  "regionCode": "410726",
+  "id": "410726",
   "pcode": "410700",
-  "regionName": "延津县"
+  "name": "延津县"
 }, {
-  "regionCode": "410727",
+  "id": "410727",
   "pcode": "410700",
-  "regionName": "封丘县"
+  "name": "封丘县"
 }, {
-  "regionCode": "410728",
+  "id": "410728",
   "pcode": "410700",
-  "regionName": "长垣县"
+  "name": "长垣县"
 }, {
-  "regionCode": "410781",
+  "id": "410781",
   "pcode": "410700",
-  "regionName": "卫辉市"
+  "name": "卫辉市"
 }, {
-  "regionCode": "410782",
+  "id": "410782",
   "pcode": "410700",
-  "regionName": "辉县市"
+  "name": "辉县市"
 }, {
-  "regionCode": "410800",
+  "id": "410800",
   "pcode": "410000",
-  "regionName": "焦作市"
+  "name": "焦作市"
 }, {
-  "regionCode": "410801",
+  "id": "410801",
   "pcode": "410800",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "410802",
+  "id": "410802",
   "pcode": "410800",
-  "regionName": "解放区"
+  "name": "解放区"
 }, {
-  "regionCode": "410803",
+  "id": "410803",
   "pcode": "410800",
-  "regionName": "中站区"
+  "name": "中站区"
 }, {
-  "regionCode": "410804",
+  "id": "410804",
   "pcode": "410800",
-  "regionName": "马村区"
+  "name": "马村区"
 }, {
-  "regionCode": "410811",
+  "id": "410811",
   "pcode": "410800",
-  "regionName": "山阳区"
+  "name": "山阳区"
 }, {
-  "regionCode": "410821",
+  "id": "410821",
   "pcode": "410800",
-  "regionName": "修武县"
+  "name": "修武县"
 }, {
-  "regionCode": "410822",
+  "id": "410822",
   "pcode": "410800",
-  "regionName": "博爱县"
+  "name": "博爱县"
 }, {
-  "regionCode": "410823",
+  "id": "410823",
   "pcode": "410800",
-  "regionName": "武陟县"
+  "name": "武陟县"
 }, {
-  "regionCode": "410825",
+  "id": "410825",
   "pcode": "410800",
-  "regionName": "温县"
+  "name": "温县"
 }, {
-  "regionCode": "410882",
+  "id": "410882",
   "pcode": "410800",
-  "regionName": "沁阳市"
+  "name": "沁阳市"
 }, {
-  "regionCode": "410883",
+  "id": "410883",
   "pcode": "410800",
-  "regionName": "孟州市"
+  "name": "孟州市"
 }, {
-  "regionCode": "410900",
+  "id": "410900",
   "pcode": "410000",
-  "regionName": "濮阳市"
+  "name": "濮阳市"
 }, {
-  "regionCode": "410901",
+  "id": "410901",
   "pcode": "410900",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "410902",
+  "id": "410902",
   "pcode": "410900",
-  "regionName": "华龙区"
+  "name": "华龙区"
 }, {
-  "regionCode": "410922",
+  "id": "410922",
   "pcode": "410900",
-  "regionName": "清丰县"
+  "name": "清丰县"
 }, {
-  "regionCode": "410923",
+  "id": "410923",
   "pcode": "410900",
-  "regionName": "南乐县"
+  "name": "南乐县"
 }, {
-  "regionCode": "410926",
+  "id": "410926",
   "pcode": "410900",
-  "regionName": "范县"
+  "name": "范县"
 }, {
-  "regionCode": "410927",
+  "id": "410927",
   "pcode": "410900",
-  "regionName": "台前县"
+  "name": "台前县"
 }, {
-  "regionCode": "410928",
+  "id": "410928",
   "pcode": "410900",
-  "regionName": "濮阳县"
+  "name": "濮阳县"
 }, {
-  "regionCode": "411000",
+  "id": "411000",
   "pcode": "410000",
-  "regionName": "许昌市"
+  "name": "许昌市"
 }, {
-  "regionCode": "411001",
+  "id": "411001",
   "pcode": "411000",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "411002",
+  "id": "411002",
   "pcode": "411000",
-  "regionName": "魏都区"
+  "name": "魏都区"
 }, {
-  "regionCode": "411023",
+  "id": "411023",
   "pcode": "411000",
-  "regionName": "许昌县"
+  "name": "许昌县"
 }, {
-  "regionCode": "411024",
+  "id": "411024",
   "pcode": "411000",
-  "regionName": "鄢陵县"
+  "name": "鄢陵县"
 }, {
-  "regionCode": "411025",
+  "id": "411025",
   "pcode": "411000",
-  "regionName": "襄城县"
+  "name": "襄城县"
 }, {
-  "regionCode": "411081",
+  "id": "411081",
   "pcode": "411000",
-  "regionName": "禹州市"
+  "name": "禹州市"
 }, {
-  "regionCode": "411082",
+  "id": "411082",
   "pcode": "411000",
-  "regionName": "长葛市"
+  "name": "长葛市"
 }, {
-  "regionCode": "411100",
+  "id": "411100",
   "pcode": "410000",
-  "regionName": "漯河市"
+  "name": "漯河市"
 }, {
-  "regionCode": "411101",
+  "id": "411101",
   "pcode": "411100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "411102",
+  "id": "411102",
   "pcode": "411100",
-  "regionName": "源汇区"
+  "name": "源汇区"
 }, {
-  "regionCode": "411103",
+  "id": "411103",
   "pcode": "411100",
-  "regionName": "郾城区"
+  "name": "郾城区"
 }, {
-  "regionCode": "411104",
+  "id": "411104",
   "pcode": "411100",
-  "regionName": "召陵区"
+  "name": "召陵区"
 }, {
-  "regionCode": "411121",
+  "id": "411121",
   "pcode": "411100",
-  "regionName": "舞阳县"
+  "name": "舞阳县"
 }, {
-  "regionCode": "411122",
+  "id": "411122",
   "pcode": "411100",
-  "regionName": "临颍县"
+  "name": "临颍县"
 }, {
-  "regionCode": "411200",
+  "id": "411200",
   "pcode": "410000",
-  "regionName": "三门峡市"
+  "name": "三门峡市"
 }, {
-  "regionCode": "411201",
+  "id": "411201",
   "pcode": "411200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "411202",
+  "id": "411202",
   "pcode": "411200",
-  "regionName": "湖滨区"
+  "name": "湖滨区"
 }, {
-  "regionCode": "411203",
+  "id": "411203",
   "pcode": "411200",
-  "regionName": "陕州区"
+  "name": "陕州区"
 }, {
-  "regionCode": "411221",
+  "id": "411221",
   "pcode": "411200",
-  "regionName": "渑池县"
+  "name": "渑池县"
 }, {
-  "regionCode": "411224",
+  "id": "411224",
   "pcode": "411200",
-  "regionName": "卢氏县"
+  "name": "卢氏县"
 }, {
-  "regionCode": "411281",
+  "id": "411281",
   "pcode": "411200",
-  "regionName": "义马市"
+  "name": "义马市"
 }, {
-  "regionCode": "411282",
+  "id": "411282",
   "pcode": "411200",
-  "regionName": "灵宝市"
+  "name": "灵宝市"
 }, {
-  "regionCode": "411300",
+  "id": "411300",
   "pcode": "410000",
-  "regionName": "南阳市"
+  "name": "南阳市"
 }, {
-  "regionCode": "411301",
+  "id": "411301",
   "pcode": "411300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "411302",
+  "id": "411302",
   "pcode": "411300",
-  "regionName": "宛城区"
+  "name": "宛城区"
 }, {
-  "regionCode": "411303",
+  "id": "411303",
   "pcode": "411300",
-  "regionName": "卧龙区"
+  "name": "卧龙区"
 }, {
-  "regionCode": "411321",
+  "id": "411321",
   "pcode": "411300",
-  "regionName": "南召县"
+  "name": "南召县"
 }, {
-  "regionCode": "411322",
+  "id": "411322",
   "pcode": "411300",
-  "regionName": "方城县"
+  "name": "方城县"
 }, {
-  "regionCode": "411323",
+  "id": "411323",
   "pcode": "411300",
-  "regionName": "西峡县"
+  "name": "西峡县"
 }, {
-  "regionCode": "411324",
+  "id": "411324",
   "pcode": "411300",
-  "regionName": "镇平县"
+  "name": "镇平县"
 }, {
-  "regionCode": "411325",
+  "id": "411325",
   "pcode": "411300",
-  "regionName": "内乡县"
+  "name": "内乡县"
 }, {
-  "regionCode": "411326",
+  "id": "411326",
   "pcode": "411300",
-  "regionName": "淅川县"
+  "name": "淅川县"
 }, {
-  "regionCode": "411327",
+  "id": "411327",
   "pcode": "411300",
-  "regionName": "社旗县"
+  "name": "社旗县"
 }, {
-  "regionCode": "411328",
+  "id": "411328",
   "pcode": "411300",
-  "regionName": "唐河县"
+  "name": "唐河县"
 }, {
-  "regionCode": "411329",
+  "id": "411329",
   "pcode": "411300",
-  "regionName": "新野县"
+  "name": "新野县"
 }, {
-  "regionCode": "411330",
+  "id": "411330",
   "pcode": "411300",
-  "regionName": "桐柏县"
+  "name": "桐柏县"
 }, {
-  "regionCode": "411381",
+  "id": "411381",
   "pcode": "411300",
-  "regionName": "邓州市"
+  "name": "邓州市"
 }, {
-  "regionCode": "411400",
+  "id": "411400",
   "pcode": "410000",
-  "regionName": "商丘市"
+  "name": "商丘市"
 }, {
-  "regionCode": "411401",
+  "id": "411401",
   "pcode": "411400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "411402",
+  "id": "411402",
   "pcode": "411400",
-  "regionName": "梁园区"
+  "name": "梁园区"
 }, {
-  "regionCode": "411403",
+  "id": "411403",
   "pcode": "411400",
-  "regionName": "睢阳区"
+  "name": "睢阳区"
 }, {
-  "regionCode": "411421",
+  "id": "411421",
   "pcode": "411400",
-  "regionName": "民权县"
+  "name": "民权县"
 }, {
-  "regionCode": "411422",
+  "id": "411422",
   "pcode": "411400",
-  "regionName": "睢县"
+  "name": "睢县"
 }, {
-  "regionCode": "411423",
+  "id": "411423",
   "pcode": "411400",
-  "regionName": "宁陵县"
+  "name": "宁陵县"
 }, {
-  "regionCode": "411424",
+  "id": "411424",
   "pcode": "411400",
-  "regionName": "柘城县"
+  "name": "柘城县"
 }, {
-  "regionCode": "411425",
+  "id": "411425",
   "pcode": "411400",
-  "regionName": "虞城县"
+  "name": "虞城县"
 }, {
-  "regionCode": "411426",
+  "id": "411426",
   "pcode": "411400",
-  "regionName": "夏邑县"
+  "name": "夏邑县"
 }, {
-  "regionCode": "411481",
+  "id": "411481",
   "pcode": "411400",
-  "regionName": "永城市"
+  "name": "永城市"
 }, {
-  "regionCode": "411500",
+  "id": "411500",
   "pcode": "410000",
-  "regionName": "信阳市"
+  "name": "信阳市"
 }, {
-  "regionCode": "411501",
+  "id": "411501",
   "pcode": "411500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "411502",
+  "id": "411502",
   "pcode": "411500",
-  "regionName": "浉河区"
+  "name": "浉河区"
 }, {
-  "regionCode": "411503",
+  "id": "411503",
   "pcode": "411500",
-  "regionName": "平桥区"
+  "name": "平桥区"
 }, {
-  "regionCode": "411521",
+  "id": "411521",
   "pcode": "411500",
-  "regionName": "罗山县"
+  "name": "罗山县"
 }, {
-  "regionCode": "411522",
+  "id": "411522",
   "pcode": "411500",
-  "regionName": "光山县"
+  "name": "光山县"
 }, {
-  "regionCode": "411523",
+  "id": "411523",
   "pcode": "411500",
-  "regionName": "新县"
+  "name": "新县"
 }, {
-  "regionCode": "411524",
+  "id": "411524",
   "pcode": "411500",
-  "regionName": "商城县"
+  "name": "商城县"
 }, {
-  "regionCode": "411525",
+  "id": "411525",
   "pcode": "411500",
-  "regionName": "固始县"
+  "name": "固始县"
 }, {
-  "regionCode": "411526",
+  "id": "411526",
   "pcode": "411500",
-  "regionName": "潢川县"
+  "name": "潢川县"
 }, {
-  "regionCode": "411527",
+  "id": "411527",
   "pcode": "411500",
-  "regionName": "淮滨县"
+  "name": "淮滨县"
 }, {
-  "regionCode": "411528",
+  "id": "411528",
   "pcode": "411500",
-  "regionName": "息县"
+  "name": "息县"
 }, {
-  "regionCode": "411600",
+  "id": "411600",
   "pcode": "410000",
-  "regionName": "周口市"
+  "name": "周口市"
 }, {
-  "regionCode": "411601",
+  "id": "411601",
   "pcode": "411600",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "411602",
+  "id": "411602",
   "pcode": "411600",
-  "regionName": "川汇区"
+  "name": "川汇区"
 }, {
-  "regionCode": "411621",
+  "id": "411621",
   "pcode": "411600",
-  "regionName": "扶沟县"
+  "name": "扶沟县"
 }, {
-  "regionCode": "411622",
+  "id": "411622",
   "pcode": "411600",
-  "regionName": "西华县"
+  "name": "西华县"
 }, {
-  "regionCode": "411623",
+  "id": "411623",
   "pcode": "411600",
-  "regionName": "商水县"
+  "name": "商水县"
 }, {
-  "regionCode": "411624",
+  "id": "411624",
   "pcode": "411600",
-  "regionName": "沈丘县"
+  "name": "沈丘县"
 }, {
-  "regionCode": "411625",
+  "id": "411625",
   "pcode": "411600",
-  "regionName": "郸城县"
+  "name": "郸城县"
 }, {
-  "regionCode": "411626",
+  "id": "411626",
   "pcode": "411600",
-  "regionName": "淮阳县"
+  "name": "淮阳县"
 }, {
-  "regionCode": "411627",
+  "id": "411627",
   "pcode": "411600",
-  "regionName": "太康县"
+  "name": "太康县"
 }, {
-  "regionCode": "411628",
+  "id": "411628",
   "pcode": "411600",
-  "regionName": "鹿邑县"
+  "name": "鹿邑县"
 }, {
-  "regionCode": "411681",
+  "id": "411681",
   "pcode": "411600",
-  "regionName": "项城市"
+  "name": "项城市"
 }, {
-  "regionCode": "411700",
+  "id": "411700",
   "pcode": "410000",
-  "regionName": "驻马店市"
+  "name": "驻马店市"
 }, {
-  "regionCode": "411701",
+  "id": "411701",
   "pcode": "411700",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "411702",
+  "id": "411702",
   "pcode": "411700",
-  "regionName": "驿城区"
+  "name": "驿城区"
 }, {
-  "regionCode": "411721",
+  "id": "411721",
   "pcode": "411700",
-  "regionName": "西平县"
+  "name": "西平县"
 }, {
-  "regionCode": "411722",
+  "id": "411722",
   "pcode": "411700",
-  "regionName": "上蔡县"
+  "name": "上蔡县"
 }, {
-  "regionCode": "411723",
+  "id": "411723",
   "pcode": "411700",
-  "regionName": "平舆县"
+  "name": "平舆县"
 }, {
-  "regionCode": "411724",
+  "id": "411724",
   "pcode": "411700",
-  "regionName": "正阳县"
+  "name": "正阳县"
 }, {
-  "regionCode": "411725",
+  "id": "411725",
   "pcode": "411700",
-  "regionName": "确山县"
+  "name": "确山县"
 }, {
-  "regionCode": "411726",
+  "id": "411726",
   "pcode": "411700",
-  "regionName": "泌阳县"
+  "name": "泌阳县"
 }, {
-  "regionCode": "411727",
+  "id": "411727",
   "pcode": "411700",
-  "regionName": "汝南县"
+  "name": "汝南县"
 }, {
-  "regionCode": "411728",
+  "id": "411728",
   "pcode": "411700",
-  "regionName": "遂平县"
+  "name": "遂平县"
 }, {
-  "regionCode": "411729",
+  "id": "411729",
   "pcode": "411700",
-  "regionName": "新蔡县"
+  "name": "新蔡县"
 }, {
-  "regionCode": "419000",
+  "id": "419000",
   "pcode": "410000",
-  "regionName": "省直辖县级行政区划"
+  "name": "省直辖县级行政区划"
 }, {
-  "regionCode": "419001",
+  "id": "419001",
   "pcode": "419000",
-  "regionName": "济源市"
+  "name": "济源市"
 }, {
-  "regionCode": "420000",
+  "id": "420000",
   "pcode": "",
-  "regionName": "湖北省"
+  "name": "湖北省"
 }, {
-  "regionCode": "420100",
+  "id": "420100",
   "pcode": "420000",
-  "regionName": "武汉市"
+  "name": "武汉市"
 }, {
-  "regionCode": "420101",
+  "id": "420101",
   "pcode": "420100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "420102",
+  "id": "420102",
   "pcode": "420100",
-  "regionName": "江岸区"
+  "name": "江岸区"
 }, {
-  "regionCode": "420103",
+  "id": "420103",
   "pcode": "420100",
-  "regionName": "江汉区"
+  "name": "江汉区"
 }, {
-  "regionCode": "420104",
+  "id": "420104",
   "pcode": "420100",
-  "regionName": "硚口区"
+  "name": "硚口区"
 }, {
-  "regionCode": "420105",
+  "id": "420105",
   "pcode": "420100",
-  "regionName": "汉阳区"
+  "name": "汉阳区"
 }, {
-  "regionCode": "420106",
+  "id": "420106",
   "pcode": "420100",
-  "regionName": "武昌区"
+  "name": "武昌区"
 }, {
-  "regionCode": "420107",
+  "id": "420107",
   "pcode": "420100",
-  "regionName": "青山区"
+  "name": "青山区"
 }, {
-  "regionCode": "420111",
+  "id": "420111",
   "pcode": "420100",
-  "regionName": "洪山区"
+  "name": "洪山区"
 }, {
-  "regionCode": "420112",
+  "id": "420112",
   "pcode": "420100",
-  "regionName": "东西湖区"
+  "name": "东西湖区"
 }, {
-  "regionCode": "420113",
+  "id": "420113",
   "pcode": "420100",
-  "regionName": "汉南区"
+  "name": "汉南区"
 }, {
-  "regionCode": "420114",
+  "id": "420114",
   "pcode": "420100",
-  "regionName": "蔡甸区"
+  "name": "蔡甸区"
 }, {
-  "regionCode": "420115",
+  "id": "420115",
   "pcode": "420100",
-  "regionName": "江夏区"
+  "name": "江夏区"
 }, {
-  "regionCode": "420116",
+  "id": "420116",
   "pcode": "420100",
-  "regionName": "黄陂区"
+  "name": "黄陂区"
 }, {
-  "regionCode": "420117",
+  "id": "420117",
   "pcode": "420100",
-  "regionName": "新洲区"
+  "name": "新洲区"
 }, {
-  "regionCode": "420200",
+  "id": "420200",
   "pcode": "420000",
-  "regionName": "黄石市"
+  "name": "黄石市"
 }, {
-  "regionCode": "420201",
+  "id": "420201",
   "pcode": "420200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "420202",
+  "id": "420202",
   "pcode": "420200",
-  "regionName": "黄石港区"
+  "name": "黄石港区"
 }, {
-  "regionCode": "420203",
+  "id": "420203",
   "pcode": "420200",
-  "regionName": "西塞山区"
+  "name": "西塞山区"
 }, {
-  "regionCode": "420204",
+  "id": "420204",
   "pcode": "420200",
-  "regionName": "下陆区"
+  "name": "下陆区"
 }, {
-  "regionCode": "420205",
+  "id": "420205",
   "pcode": "420200",
-  "regionName": "铁山区"
+  "name": "铁山区"
 }, {
-  "regionCode": "420222",
+  "id": "420222",
   "pcode": "420200",
-  "regionName": "阳新县"
+  "name": "阳新县"
 }, {
-  "regionCode": "420281",
+  "id": "420281",
   "pcode": "420200",
-  "regionName": "大冶市"
+  "name": "大冶市"
 }, {
-  "regionCode": "420300",
+  "id": "420300",
   "pcode": "420000",
-  "regionName": "十堰市"
+  "name": "十堰市"
 }, {
-  "regionCode": "420301",
+  "id": "420301",
   "pcode": "420300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "420302",
+  "id": "420302",
   "pcode": "420300",
-  "regionName": "茅箭区"
+  "name": "茅箭区"
 }, {
-  "regionCode": "420303",
+  "id": "420303",
   "pcode": "420300",
-  "regionName": "张湾区"
+  "name": "张湾区"
 }, {
-  "regionCode": "420304",
+  "id": "420304",
   "pcode": "420300",
-  "regionName": "郧阳区"
+  "name": "郧阳区"
 }, {
-  "regionCode": "420322",
+  "id": "420322",
   "pcode": "420300",
-  "regionName": "郧西县"
+  "name": "郧西县"
 }, {
-  "regionCode": "420323",
+  "id": "420323",
   "pcode": "420300",
-  "regionName": "竹山县"
+  "name": "竹山县"
 }, {
-  "regionCode": "420324",
+  "id": "420324",
   "pcode": "420300",
-  "regionName": "竹溪县"
+  "name": "竹溪县"
 }, {
-  "regionCode": "420325",
+  "id": "420325",
   "pcode": "420300",
-  "regionName": "房县"
+  "name": "房县"
 }, {
-  "regionCode": "420381",
+  "id": "420381",
   "pcode": "420300",
-  "regionName": "丹江口市"
+  "name": "丹江口市"
 }, {
-  "regionCode": "420500",
+  "id": "420500",
   "pcode": "420000",
-  "regionName": "宜昌市"
+  "name": "宜昌市"
 }, {
-  "regionCode": "420501",
+  "id": "420501",
   "pcode": "420500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "420502",
+  "id": "420502",
   "pcode": "420500",
-  "regionName": "西陵区"
+  "name": "西陵区"
 }, {
-  "regionCode": "420503",
+  "id": "420503",
   "pcode": "420500",
-  "regionName": "伍家岗区"
+  "name": "伍家岗区"
 }, {
-  "regionCode": "420504",
+  "id": "420504",
   "pcode": "420500",
-  "regionName": "点军区"
+  "name": "点军区"
 }, {
-  "regionCode": "420505",
+  "id": "420505",
   "pcode": "420500",
-  "regionName": "猇亭区"
+  "name": "猇亭区"
 }, {
-  "regionCode": "420506",
+  "id": "420506",
   "pcode": "420500",
-  "regionName": "夷陵区"
+  "name": "夷陵区"
 }, {
-  "regionCode": "420525",
+  "id": "420525",
   "pcode": "420500",
-  "regionName": "远安县"
+  "name": "远安县"
 }, {
-  "regionCode": "420526",
+  "id": "420526",
   "pcode": "420500",
-  "regionName": "兴山县"
+  "name": "兴山县"
 }, {
-  "regionCode": "420527",
+  "id": "420527",
   "pcode": "420500",
-  "regionName": "秭归县"
+  "name": "秭归县"
 }, {
-  "regionCode": "420528",
+  "id": "420528",
   "pcode": "420500",
-  "regionName": "长阳土家族自治县"
+  "name": "长阳土家族自治县"
 }, {
-  "regionCode": "420529",
+  "id": "420529",
   "pcode": "420500",
-  "regionName": "五峰土家族自治县"
+  "name": "五峰土家族自治县"
 }, {
-  "regionCode": "420581",
+  "id": "420581",
   "pcode": "420500",
-  "regionName": "宜都市"
+  "name": "宜都市"
 }, {
-  "regionCode": "420582",
+  "id": "420582",
   "pcode": "420500",
-  "regionName": "当阳市"
+  "name": "当阳市"
 }, {
-  "regionCode": "420583",
+  "id": "420583",
   "pcode": "420500",
-  "regionName": "枝江市"
+  "name": "枝江市"
 }, {
-  "regionCode": "420600",
+  "id": "420600",
   "pcode": "420000",
-  "regionName": "襄阳市"
+  "name": "襄阳市"
 }, {
-  "regionCode": "420601",
+  "id": "420601",
   "pcode": "420600",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "420602",
+  "id": "420602",
   "pcode": "420600",
-  "regionName": "襄城区"
+  "name": "襄城区"
 }, {
-  "regionCode": "420606",
+  "id": "420606",
   "pcode": "420600",
-  "regionName": "樊城区"
+  "name": "樊城区"
 }, {
-  "regionCode": "420607",
+  "id": "420607",
   "pcode": "420600",
-  "regionName": "襄州区"
+  "name": "襄州区"
 }, {
-  "regionCode": "420624",
+  "id": "420624",
   "pcode": "420600",
-  "regionName": "南漳县"
+  "name": "南漳县"
 }, {
-  "regionCode": "420625",
+  "id": "420625",
   "pcode": "420600",
-  "regionName": "谷城县"
+  "name": "谷城县"
 }, {
-  "regionCode": "420626",
+  "id": "420626",
   "pcode": "420600",
-  "regionName": "保康县"
+  "name": "保康县"
 }, {
-  "regionCode": "420682",
+  "id": "420682",
   "pcode": "420600",
-  "regionName": "老河口市"
+  "name": "老河口市"
 }, {
-  "regionCode": "420683",
+  "id": "420683",
   "pcode": "420600",
-  "regionName": "枣阳市"
+  "name": "枣阳市"
 }, {
-  "regionCode": "420684",
+  "id": "420684",
   "pcode": "420600",
-  "regionName": "宜城市"
+  "name": "宜城市"
 }, {
-  "regionCode": "420700",
+  "id": "420700",
   "pcode": "420000",
-  "regionName": "鄂州市"
+  "name": "鄂州市"
 }, {
-  "regionCode": "420701",
+  "id": "420701",
   "pcode": "420700",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "420702",
+  "id": "420702",
   "pcode": "420700",
-  "regionName": "梁子湖区"
+  "name": "梁子湖区"
 }, {
-  "regionCode": "420703",
+  "id": "420703",
   "pcode": "420700",
-  "regionName": "华容区"
+  "name": "华容区"
 }, {
-  "regionCode": "420704",
+  "id": "420704",
   "pcode": "420700",
-  "regionName": "鄂城区"
+  "name": "鄂城区"
 }, {
-  "regionCode": "420800",
+  "id": "420800",
   "pcode": "420000",
-  "regionName": "荆门市"
+  "name": "荆门市"
 }, {
-  "regionCode": "420801",
+  "id": "420801",
   "pcode": "420800",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "420802",
+  "id": "420802",
   "pcode": "420800",
-  "regionName": "东宝区"
+  "name": "东宝区"
 }, {
-  "regionCode": "420804",
+  "id": "420804",
   "pcode": "420800",
-  "regionName": "掇刀区"
+  "name": "掇刀区"
 }, {
-  "regionCode": "420821",
+  "id": "420821",
   "pcode": "420800",
-  "regionName": "京山县"
+  "name": "京山县"
 }, {
-  "regionCode": "420822",
+  "id": "420822",
   "pcode": "420800",
-  "regionName": "沙洋县"
+  "name": "沙洋县"
 }, {
-  "regionCode": "420881",
+  "id": "420881",
   "pcode": "420800",
-  "regionName": "钟祥市"
+  "name": "钟祥市"
 }, {
-  "regionCode": "420900",
+  "id": "420900",
   "pcode": "420000",
-  "regionName": "孝感市"
+  "name": "孝感市"
 }, {
-  "regionCode": "420901",
+  "id": "420901",
   "pcode": "420900",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "420902",
+  "id": "420902",
   "pcode": "420900",
-  "regionName": "孝南区"
+  "name": "孝南区"
 }, {
-  "regionCode": "420921",
+  "id": "420921",
   "pcode": "420900",
-  "regionName": "孝昌县"
+  "name": "孝昌县"
 }, {
-  "regionCode": "420922",
+  "id": "420922",
   "pcode": "420900",
-  "regionName": "大悟县"
+  "name": "大悟县"
 }, {
-  "regionCode": "420923",
+  "id": "420923",
   "pcode": "420900",
-  "regionName": "云梦县"
+  "name": "云梦县"
 }, {
-  "regionCode": "420981",
+  "id": "420981",
   "pcode": "420900",
-  "regionName": "应城市"
+  "name": "应城市"
 }, {
-  "regionCode": "420982",
+  "id": "420982",
   "pcode": "420900",
-  "regionName": "安陆市"
+  "name": "安陆市"
 }, {
-  "regionCode": "420984",
+  "id": "420984",
   "pcode": "420900",
-  "regionName": "汉川市"
+  "name": "汉川市"
 }, {
-  "regionCode": "421000",
+  "id": "421000",
   "pcode": "420000",
-  "regionName": "荆州市"
+  "name": "荆州市"
 }, {
-  "regionCode": "421001",
+  "id": "421001",
   "pcode": "421000",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "421002",
+  "id": "421002",
   "pcode": "421000",
-  "regionName": "沙市区"
+  "name": "沙市区"
 }, {
-  "regionCode": "421003",
+  "id": "421003",
   "pcode": "421000",
-  "regionName": "荆州区"
+  "name": "荆州区"
 }, {
-  "regionCode": "421022",
+  "id": "421022",
   "pcode": "421000",
-  "regionName": "公安县"
+  "name": "公安县"
 }, {
-  "regionCode": "421023",
+  "id": "421023",
   "pcode": "421000",
-  "regionName": "监利县"
+  "name": "监利县"
 }, {
-  "regionCode": "421024",
+  "id": "421024",
   "pcode": "421000",
-  "regionName": "江陵县"
+  "name": "江陵县"
 }, {
-  "regionCode": "421081",
+  "id": "421081",
   "pcode": "421000",
-  "regionName": "石首市"
+  "name": "石首市"
 }, {
-  "regionCode": "421083",
+  "id": "421083",
   "pcode": "421000",
-  "regionName": "洪湖市"
+  "name": "洪湖市"
 }, {
-  "regionCode": "421087",
+  "id": "421087",
   "pcode": "421000",
-  "regionName": "松滋市"
+  "name": "松滋市"
 }, {
-  "regionCode": "421100",
+  "id": "421100",
   "pcode": "420000",
-  "regionName": "黄冈市"
+  "name": "黄冈市"
 }, {
-  "regionCode": "421101",
+  "id": "421101",
   "pcode": "421100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "421102",
+  "id": "421102",
   "pcode": "421100",
-  "regionName": "黄州区"
+  "name": "黄州区"
 }, {
-  "regionCode": "421121",
+  "id": "421121",
   "pcode": "421100",
-  "regionName": "团风县"
+  "name": "团风县"
 }, {
-  "regionCode": "421122",
+  "id": "421122",
   "pcode": "421100",
-  "regionName": "红安县"
+  "name": "红安县"
 }, {
-  "regionCode": "421123",
+  "id": "421123",
   "pcode": "421100",
-  "regionName": "罗田县"
+  "name": "罗田县"
 }, {
-  "regionCode": "421124",
+  "id": "421124",
   "pcode": "421100",
-  "regionName": "英山县"
+  "name": "英山县"
 }, {
-  "regionCode": "421125",
+  "id": "421125",
   "pcode": "421100",
-  "regionName": "浠水县"
+  "name": "浠水县"
 }, {
-  "regionCode": "421126",
+  "id": "421126",
   "pcode": "421100",
-  "regionName": "蕲春县"
+  "name": "蕲春县"
 }, {
-  "regionCode": "421127",
+  "id": "421127",
   "pcode": "421100",
-  "regionName": "黄梅县"
+  "name": "黄梅县"
 }, {
-  "regionCode": "421181",
+  "id": "421181",
   "pcode": "421100",
-  "regionName": "麻城市"
+  "name": "麻城市"
 }, {
-  "regionCode": "421182",
+  "id": "421182",
   "pcode": "421100",
-  "regionName": "武穴市"
+  "name": "武穴市"
 }, {
-  "regionCode": "421200",
+  "id": "421200",
   "pcode": "420000",
-  "regionName": "咸宁市"
+  "name": "咸宁市"
 }, {
-  "regionCode": "421201",
+  "id": "421201",
   "pcode": "421200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "421202",
+  "id": "421202",
   "pcode": "421200",
-  "regionName": "咸安区"
+  "name": "咸安区"
 }, {
-  "regionCode": "421221",
+  "id": "421221",
   "pcode": "421200",
-  "regionName": "嘉鱼县"
+  "name": "嘉鱼县"
 }, {
-  "regionCode": "421222",
+  "id": "421222",
   "pcode": "421200",
-  "regionName": "通城县"
+  "name": "通城县"
 }, {
-  "regionCode": "421223",
+  "id": "421223",
   "pcode": "421200",
-  "regionName": "崇阳县"
+  "name": "崇阳县"
 }, {
-  "regionCode": "421224",
+  "id": "421224",
   "pcode": "421200",
-  "regionName": "通山县"
+  "name": "通山县"
 }, {
-  "regionCode": "421281",
+  "id": "421281",
   "pcode": "421200",
-  "regionName": "赤壁市"
+  "name": "赤壁市"
 }, {
-  "regionCode": "421300",
+  "id": "421300",
   "pcode": "420000",
-  "regionName": "随州市"
+  "name": "随州市"
 }, {
-  "regionCode": "421301",
+  "id": "421301",
   "pcode": "421300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "421303",
+  "id": "421303",
   "pcode": "421300",
-  "regionName": "曾都区"
+  "name": "曾都区"
 }, {
-  "regionCode": "421321",
+  "id": "421321",
   "pcode": "421300",
-  "regionName": "随县"
+  "name": "随县"
 }, {
-  "regionCode": "421381",
+  "id": "421381",
   "pcode": "421300",
-  "regionName": "广水市"
+  "name": "广水市"
 }, {
-  "regionCode": "422800",
+  "id": "422800",
   "pcode": "420000",
-  "regionName": "恩施土家族苗族自治州"
+  "name": "恩施土家族苗族自治州"
 }, {
-  "regionCode": "422801",
+  "id": "422801",
   "pcode": "422800",
-  "regionName": "恩施市"
+  "name": "恩施市"
 }, {
-  "regionCode": "422802",
+  "id": "422802",
   "pcode": "422800",
-  "regionName": "利川市"
+  "name": "利川市"
 }, {
-  "regionCode": "422822",
+  "id": "422822",
   "pcode": "422800",
-  "regionName": "建始县"
+  "name": "建始县"
 }, {
-  "regionCode": "422823",
+  "id": "422823",
   "pcode": "422800",
-  "regionName": "巴东县"
+  "name": "巴东县"
 }, {
-  "regionCode": "422825",
+  "id": "422825",
   "pcode": "422800",
-  "regionName": "宣恩县"
+  "name": "宣恩县"
 }, {
-  "regionCode": "422826",
+  "id": "422826",
   "pcode": "422800",
-  "regionName": "咸丰县"
+  "name": "咸丰县"
 }, {
-  "regionCode": "422827",
+  "id": "422827",
   "pcode": "422800",
-  "regionName": "来凤县"
+  "name": "来凤县"
 }, {
-  "regionCode": "422828",
+  "id": "422828",
   "pcode": "422800",
-  "regionName": "鹤峰县"
+  "name": "鹤峰县"
 }, {
-  "regionCode": "429000",
+  "id": "429000",
   "pcode": "420000",
-  "regionName": "省直辖县级行政区划"
+  "name": "省直辖县级行政区划"
 }, {
-  "regionCode": "429004",
+  "id": "429004",
   "pcode": "429000",
-  "regionName": "仙桃市"
+  "name": "仙桃市"
 }, {
-  "regionCode": "429005",
+  "id": "429005",
   "pcode": "429000",
-  "regionName": "潜江市"
+  "name": "潜江市"
 }, {
-  "regionCode": "429006",
+  "id": "429006",
   "pcode": "429000",
-  "regionName": "天门市"
+  "name": "天门市"
 }, {
-  "regionCode": "429021",
+  "id": "429021",
   "pcode": "429000",
-  "regionName": "神农架林区"
+  "name": "神农架林区"
 }, {
-  "regionCode": "430000",
+  "id": "430000",
   "pcode": "",
-  "regionName": "湖南省"
+  "name": "湖南省"
 }, {
-  "regionCode": "430100",
+  "id": "430100",
   "pcode": "430000",
-  "regionName": "长沙市"
+  "name": "长沙市"
 }, {
-  "regionCode": "430101",
+  "id": "430101",
   "pcode": "430100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "430102",
+  "id": "430102",
   "pcode": "430100",
-  "regionName": "芙蓉区"
+  "name": "芙蓉区"
 }, {
-  "regionCode": "430103",
+  "id": "430103",
   "pcode": "430100",
-  "regionName": "天心区"
+  "name": "天心区"
 }, {
-  "regionCode": "430104",
+  "id": "430104",
   "pcode": "430100",
-  "regionName": "岳麓区"
+  "name": "岳麓区"
 }, {
-  "regionCode": "430105",
+  "id": "430105",
   "pcode": "430100",
-  "regionName": "开福区"
+  "name": "开福区"
 }, {
-  "regionCode": "430111",
+  "id": "430111",
   "pcode": "430100",
-  "regionName": "雨花区"
+  "name": "雨花区"
 }, {
-  "regionCode": "430112",
+  "id": "430112",
   "pcode": "430100",
-  "regionName": "望城区"
+  "name": "望城区"
 }, {
-  "regionCode": "430121",
+  "id": "430121",
   "pcode": "430100",
-  "regionName": "长沙县"
+  "name": "长沙县"
 }, {
-  "regionCode": "430124",
+  "id": "430124",
   "pcode": "430100",
-  "regionName": "宁乡县"
+  "name": "宁乡县"
 }, {
-  "regionCode": "430181",
+  "id": "430181",
   "pcode": "430100",
-  "regionName": "浏阳市"
+  "name": "浏阳市"
 }, {
-  "regionCode": "430200",
+  "id": "430200",
   "pcode": "430000",
-  "regionName": "株洲市"
+  "name": "株洲市"
 }, {
-  "regionCode": "430201",
+  "id": "430201",
   "pcode": "430200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "430202",
+  "id": "430202",
   "pcode": "430200",
-  "regionName": "荷塘区"
+  "name": "荷塘区"
 }, {
-  "regionCode": "430203",
+  "id": "430203",
   "pcode": "430200",
-  "regionName": "芦淞区"
+  "name": "芦淞区"
 }, {
-  "regionCode": "430204",
+  "id": "430204",
   "pcode": "430200",
-  "regionName": "石峰区"
+  "name": "石峰区"
 }, {
-  "regionCode": "430211",
+  "id": "430211",
   "pcode": "430200",
-  "regionName": "天元区"
+  "name": "天元区"
 }, {
-  "regionCode": "430221",
+  "id": "430221",
   "pcode": "430200",
-  "regionName": "株洲县"
+  "name": "株洲县"
 }, {
-  "regionCode": "430223",
+  "id": "430223",
   "pcode": "430200",
-  "regionName": "攸县"
+  "name": "攸县"
 }, {
-  "regionCode": "430224",
+  "id": "430224",
   "pcode": "430200",
-  "regionName": "茶陵县"
+  "name": "茶陵县"
 }, {
-  "regionCode": "430225",
+  "id": "430225",
   "pcode": "430200",
-  "regionName": "炎陵县"
+  "name": "炎陵县"
 }, {
-  "regionCode": "430281",
+  "id": "430281",
   "pcode": "430200",
-  "regionName": "醴陵市"
+  "name": "醴陵市"
 }, {
-  "regionCode": "430300",
+  "id": "430300",
   "pcode": "430000",
-  "regionName": "湘潭市"
+  "name": "湘潭市"
 }, {
-  "regionCode": "430301",
+  "id": "430301",
   "pcode": "430300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "430302",
+  "id": "430302",
   "pcode": "430300",
-  "regionName": "雨湖区"
+  "name": "雨湖区"
 }, {
-  "regionCode": "430304",
+  "id": "430304",
   "pcode": "430300",
-  "regionName": "岳塘区"
+  "name": "岳塘区"
 }, {
-  "regionCode": "430321",
+  "id": "430321",
   "pcode": "430300",
-  "regionName": "湘潭县"
+  "name": "湘潭县"
 }, {
-  "regionCode": "430381",
+  "id": "430381",
   "pcode": "430300",
-  "regionName": "湘乡市"
+  "name": "湘乡市"
 }, {
-  "regionCode": "430382",
+  "id": "430382",
   "pcode": "430300",
-  "regionName": "韶山市"
+  "name": "韶山市"
 }, {
-  "regionCode": "430400",
+  "id": "430400",
   "pcode": "430000",
-  "regionName": "衡阳市"
+  "name": "衡阳市"
 }, {
-  "regionCode": "430401",
+  "id": "430401",
   "pcode": "430400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "430405",
+  "id": "430405",
   "pcode": "430400",
-  "regionName": "珠晖区"
+  "name": "珠晖区"
 }, {
-  "regionCode": "430406",
+  "id": "430406",
   "pcode": "430400",
-  "regionName": "雁峰区"
+  "name": "雁峰区"
 }, {
-  "regionCode": "430407",
+  "id": "430407",
   "pcode": "430400",
-  "regionName": "石鼓区"
+  "name": "石鼓区"
 }, {
-  "regionCode": "430408",
+  "id": "430408",
   "pcode": "430400",
-  "regionName": "蒸湘区"
+  "name": "蒸湘区"
 }, {
-  "regionCode": "430412",
+  "id": "430412",
   "pcode": "430400",
-  "regionName": "南岳区"
+  "name": "南岳区"
 }, {
-  "regionCode": "430421",
+  "id": "430421",
   "pcode": "430400",
-  "regionName": "衡阳县"
+  "name": "衡阳县"
 }, {
-  "regionCode": "430422",
+  "id": "430422",
   "pcode": "430400",
-  "regionName": "衡南县"
+  "name": "衡南县"
 }, {
-  "regionCode": "430423",
+  "id": "430423",
   "pcode": "430400",
-  "regionName": "衡山县"
+  "name": "衡山县"
 }, {
-  "regionCode": "430424",
+  "id": "430424",
   "pcode": "430400",
-  "regionName": "衡东县"
+  "name": "衡东县"
 }, {
-  "regionCode": "430426",
+  "id": "430426",
   "pcode": "430400",
-  "regionName": "祁东县"
+  "name": "祁东县"
 }, {
-  "regionCode": "430481",
+  "id": "430481",
   "pcode": "430400",
-  "regionName": "耒阳市"
+  "name": "耒阳市"
 }, {
-  "regionCode": "430482",
+  "id": "430482",
   "pcode": "430400",
-  "regionName": "常宁市"
+  "name": "常宁市"
 }, {
-  "regionCode": "430500",
+  "id": "430500",
   "pcode": "430000",
-  "regionName": "邵阳市"
+  "name": "邵阳市"
 }, {
-  "regionCode": "430501",
+  "id": "430501",
   "pcode": "430500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "430502",
+  "id": "430502",
   "pcode": "430500",
-  "regionName": "双清区"
+  "name": "双清区"
 }, {
-  "regionCode": "430503",
+  "id": "430503",
   "pcode": "430500",
-  "regionName": "大祥区"
+  "name": "大祥区"
 }, {
-  "regionCode": "430511",
+  "id": "430511",
   "pcode": "430500",
-  "regionName": "北塔区"
+  "name": "北塔区"
 }, {
-  "regionCode": "430521",
+  "id": "430521",
   "pcode": "430500",
-  "regionName": "邵东县"
+  "name": "邵东县"
 }, {
-  "regionCode": "430522",
+  "id": "430522",
   "pcode": "430500",
-  "regionName": "新邵县"
+  "name": "新邵县"
 }, {
-  "regionCode": "430523",
+  "id": "430523",
   "pcode": "430500",
-  "regionName": "邵阳县"
+  "name": "邵阳县"
 }, {
-  "regionCode": "430524",
+  "id": "430524",
   "pcode": "430500",
-  "regionName": "隆回县"
+  "name": "隆回县"
 }, {
-  "regionCode": "430525",
+  "id": "430525",
   "pcode": "430500",
-  "regionName": "洞口县"
+  "name": "洞口县"
 }, {
-  "regionCode": "430527",
+  "id": "430527",
   "pcode": "430500",
-  "regionName": "绥宁县"
+  "name": "绥宁县"
 }, {
-  "regionCode": "430528",
+  "id": "430528",
   "pcode": "430500",
-  "regionName": "新宁县"
+  "name": "新宁县"
 }, {
-  "regionCode": "430529",
+  "id": "430529",
   "pcode": "430500",
-  "regionName": "城步苗族自治县"
+  "name": "城步苗族自治县"
 }, {
-  "regionCode": "430581",
+  "id": "430581",
   "pcode": "430500",
-  "regionName": "武冈市"
+  "name": "武冈市"
 }, {
-  "regionCode": "430600",
+  "id": "430600",
   "pcode": "430000",
-  "regionName": "岳阳市"
+  "name": "岳阳市"
 }, {
-  "regionCode": "430601",
+  "id": "430601",
   "pcode": "430600",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "430602",
+  "id": "430602",
   "pcode": "430600",
-  "regionName": "岳阳楼区"
+  "name": "岳阳楼区"
 }, {
-  "regionCode": "430603",
+  "id": "430603",
   "pcode": "430600",
-  "regionName": "云溪区"
+  "name": "云溪区"
 }, {
-  "regionCode": "430611",
+  "id": "430611",
   "pcode": "430600",
-  "regionName": "君山区"
+  "name": "君山区"
 }, {
-  "regionCode": "430621",
+  "id": "430621",
   "pcode": "430600",
-  "regionName": "岳阳县"
+  "name": "岳阳县"
 }, {
-  "regionCode": "430623",
+  "id": "430623",
   "pcode": "430600",
-  "regionName": "华容县"
+  "name": "华容县"
 }, {
-  "regionCode": "430624",
+  "id": "430624",
   "pcode": "430600",
-  "regionName": "湘阴县"
+  "name": "湘阴县"
 }, {
-  "regionCode": "430626",
+  "id": "430626",
   "pcode": "430600",
-  "regionName": "平江县"
+  "name": "平江县"
 }, {
-  "regionCode": "430681",
+  "id": "430681",
   "pcode": "430600",
-  "regionName": "汨罗市"
+  "name": "汨罗市"
 }, {
-  "regionCode": "430682",
+  "id": "430682",
   "pcode": "430600",
-  "regionName": "临湘市"
+  "name": "临湘市"
 }, {
-  "regionCode": "430700",
+  "id": "430700",
   "pcode": "430000",
-  "regionName": "常德市"
+  "name": "常德市"
 }, {
-  "regionCode": "430701",
+  "id": "430701",
   "pcode": "430700",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "430702",
+  "id": "430702",
   "pcode": "430700",
-  "regionName": "武陵区"
+  "name": "武陵区"
 }, {
-  "regionCode": "430703",
+  "id": "430703",
   "pcode": "430700",
-  "regionName": "鼎城区"
+  "name": "鼎城区"
 }, {
-  "regionCode": "430721",
+  "id": "430721",
   "pcode": "430700",
-  "regionName": "安乡县"
+  "name": "安乡县"
 }, {
-  "regionCode": "430722",
+  "id": "430722",
   "pcode": "430700",
-  "regionName": "汉寿县"
+  "name": "汉寿县"
 }, {
-  "regionCode": "430723",
+  "id": "430723",
   "pcode": "430700",
-  "regionName": "澧县"
+  "name": "澧县"
 }, {
-  "regionCode": "430724",
+  "id": "430724",
   "pcode": "430700",
-  "regionName": "临澧县"
+  "name": "临澧县"
 }, {
-  "regionCode": "430725",
+  "id": "430725",
   "pcode": "430700",
-  "regionName": "桃源县"
+  "name": "桃源县"
 }, {
-  "regionCode": "430726",
+  "id": "430726",
   "pcode": "430700",
-  "regionName": "石门县"
+  "name": "石门县"
 }, {
-  "regionCode": "430781",
+  "id": "430781",
   "pcode": "430700",
-  "regionName": "津市市"
+  "name": "津市市"
 }, {
-  "regionCode": "430800",
+  "id": "430800",
   "pcode": "430000",
-  "regionName": "张家界市"
+  "name": "张家界市"
 }, {
-  "regionCode": "430801",
+  "id": "430801",
   "pcode": "430800",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "430802",
+  "id": "430802",
   "pcode": "430800",
-  "regionName": "永定区"
+  "name": "永定区"
 }, {
-  "regionCode": "430811",
+  "id": "430811",
   "pcode": "430800",
-  "regionName": "武陵源区"
+  "name": "武陵源区"
 }, {
-  "regionCode": "430821",
+  "id": "430821",
   "pcode": "430800",
-  "regionName": "慈利县"
+  "name": "慈利县"
 }, {
-  "regionCode": "430822",
+  "id": "430822",
   "pcode": "430800",
-  "regionName": "桑植县"
+  "name": "桑植县"
 }, {
-  "regionCode": "430900",
+  "id": "430900",
   "pcode": "430000",
-  "regionName": "益阳市"
+  "name": "益阳市"
 }, {
-  "regionCode": "430901",
+  "id": "430901",
   "pcode": "430900",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "430902",
+  "id": "430902",
   "pcode": "430900",
-  "regionName": "资阳区"
+  "name": "资阳区"
 }, {
-  "regionCode": "430903",
+  "id": "430903",
   "pcode": "430900",
-  "regionName": "赫山区"
+  "name": "赫山区"
 }, {
-  "regionCode": "430921",
+  "id": "430921",
   "pcode": "430900",
-  "regionName": "南县"
+  "name": "南县"
 }, {
-  "regionCode": "430922",
+  "id": "430922",
   "pcode": "430900",
-  "regionName": "桃江县"
+  "name": "桃江县"
 }, {
-  "regionCode": "430923",
+  "id": "430923",
   "pcode": "430900",
-  "regionName": "安化县"
+  "name": "安化县"
 }, {
-  "regionCode": "430981",
+  "id": "430981",
   "pcode": "430900",
-  "regionName": "沅江市"
+  "name": "沅江市"
 }, {
-  "regionCode": "431000",
+  "id": "431000",
   "pcode": "430000",
-  "regionName": "郴州市"
+  "name": "郴州市"
 }, {
-  "regionCode": "431001",
+  "id": "431001",
   "pcode": "431000",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "431002",
+  "id": "431002",
   "pcode": "431000",
-  "regionName": "北湖区"
+  "name": "北湖区"
 }, {
-  "regionCode": "431003",
+  "id": "431003",
   "pcode": "431000",
-  "regionName": "苏仙区"
+  "name": "苏仙区"
 }, {
-  "regionCode": "431021",
+  "id": "431021",
   "pcode": "431000",
-  "regionName": "桂阳县"
+  "name": "桂阳县"
 }, {
-  "regionCode": "431022",
+  "id": "431022",
   "pcode": "431000",
-  "regionName": "宜章县"
+  "name": "宜章县"
 }, {
-  "regionCode": "431023",
+  "id": "431023",
   "pcode": "431000",
-  "regionName": "永兴县"
+  "name": "永兴县"
 }, {
-  "regionCode": "431024",
+  "id": "431024",
   "pcode": "431000",
-  "regionName": "嘉禾县"
+  "name": "嘉禾县"
 }, {
-  "regionCode": "431025",
+  "id": "431025",
   "pcode": "431000",
-  "regionName": "临武县"
+  "name": "临武县"
 }, {
-  "regionCode": "431026",
+  "id": "431026",
   "pcode": "431000",
-  "regionName": "汝城县"
+  "name": "汝城县"
 }, {
-  "regionCode": "431027",
+  "id": "431027",
   "pcode": "431000",
-  "regionName": "桂东县"
+  "name": "桂东县"
 }, {
-  "regionCode": "431028",
+  "id": "431028",
   "pcode": "431000",
-  "regionName": "安仁县"
+  "name": "安仁县"
 }, {
-  "regionCode": "431081",
+  "id": "431081",
   "pcode": "431000",
-  "regionName": "资兴市"
+  "name": "资兴市"
 }, {
-  "regionCode": "431100",
+  "id": "431100",
   "pcode": "430000",
-  "regionName": "永州市"
+  "name": "永州市"
 }, {
-  "regionCode": "431101",
+  "id": "431101",
   "pcode": "431100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "431102",
+  "id": "431102",
   "pcode": "431100",
-  "regionName": "零陵区"
+  "name": "零陵区"
 }, {
-  "regionCode": "431103",
+  "id": "431103",
   "pcode": "431100",
-  "regionName": "冷水滩区"
+  "name": "冷水滩区"
 }, {
-  "regionCode": "431121",
+  "id": "431121",
   "pcode": "431100",
-  "regionName": "祁阳县"
+  "name": "祁阳县"
 }, {
-  "regionCode": "431122",
+  "id": "431122",
   "pcode": "431100",
-  "regionName": "东安县"
+  "name": "东安县"
 }, {
-  "regionCode": "431123",
+  "id": "431123",
   "pcode": "431100",
-  "regionName": "双牌县"
+  "name": "双牌县"
 }, {
-  "regionCode": "431124",
+  "id": "431124",
   "pcode": "431100",
-  "regionName": "道县"
+  "name": "道县"
 }, {
-  "regionCode": "431125",
+  "id": "431125",
   "pcode": "431100",
-  "regionName": "江永县"
+  "name": "江永县"
 }, {
-  "regionCode": "431126",
+  "id": "431126",
   "pcode": "431100",
-  "regionName": "宁远县"
+  "name": "宁远县"
 }, {
-  "regionCode": "431127",
+  "id": "431127",
   "pcode": "431100",
-  "regionName": "蓝山县"
+  "name": "蓝山县"
 }, {
-  "regionCode": "431128",
+  "id": "431128",
   "pcode": "431100",
-  "regionName": "新田县"
+  "name": "新田县"
 }, {
-  "regionCode": "431129",
+  "id": "431129",
   "pcode": "431100",
-  "regionName": "江华瑶族自治县"
+  "name": "江华瑶族自治县"
 }, {
-  "regionCode": "431200",
+  "id": "431200",
   "pcode": "430000",
-  "regionName": "怀化市"
+  "name": "怀化市"
 }, {
-  "regionCode": "431201",
+  "id": "431201",
   "pcode": "431200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "431202",
+  "id": "431202",
   "pcode": "431200",
-  "regionName": "鹤城区"
+  "name": "鹤城区"
 }, {
-  "regionCode": "431221",
+  "id": "431221",
   "pcode": "431200",
-  "regionName": "中方县"
+  "name": "中方县"
 }, {
-  "regionCode": "431222",
+  "id": "431222",
   "pcode": "431200",
-  "regionName": "沅陵县"
+  "name": "沅陵县"
 }, {
-  "regionCode": "431223",
+  "id": "431223",
   "pcode": "431200",
-  "regionName": "辰溪县"
+  "name": "辰溪县"
 }, {
-  "regionCode": "431224",
+  "id": "431224",
   "pcode": "431200",
-  "regionName": "溆浦县"
+  "name": "溆浦县"
 }, {
-  "regionCode": "431225",
+  "id": "431225",
   "pcode": "431200",
-  "regionName": "会同县"
+  "name": "会同县"
 }, {
-  "regionCode": "431226",
+  "id": "431226",
   "pcode": "431200",
-  "regionName": "麻阳苗族自治县"
+  "name": "麻阳苗族自治县"
 }, {
-  "regionCode": "431227",
+  "id": "431227",
   "pcode": "431200",
-  "regionName": "新晃侗族自治县"
+  "name": "新晃侗族自治县"
 }, {
-  "regionCode": "431228",
+  "id": "431228",
   "pcode": "431200",
-  "regionName": "芷江侗族自治县"
+  "name": "芷江侗族自治县"
 }, {
-  "regionCode": "431229",
+  "id": "431229",
   "pcode": "431200",
-  "regionName": "靖州苗族侗族自治县"
+  "name": "靖州苗族侗族自治县"
 }, {
-  "regionCode": "431230",
+  "id": "431230",
   "pcode": "431200",
-  "regionName": "通道侗族自治县"
+  "name": "通道侗族自治县"
 }, {
-  "regionCode": "431281",
+  "id": "431281",
   "pcode": "431200",
-  "regionName": "洪江市"
+  "name": "洪江市"
 }, {
-  "regionCode": "431300",
+  "id": "431300",
   "pcode": "430000",
-  "regionName": "娄底市"
+  "name": "娄底市"
 }, {
-  "regionCode": "431301",
+  "id": "431301",
   "pcode": "431300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "431302",
+  "id": "431302",
   "pcode": "431300",
-  "regionName": "娄星区"
+  "name": "娄星区"
 }, {
-  "regionCode": "431321",
+  "id": "431321",
   "pcode": "431300",
-  "regionName": "双峰县"
+  "name": "双峰县"
 }, {
-  "regionCode": "431322",
+  "id": "431322",
   "pcode": "431300",
-  "regionName": "新化县"
+  "name": "新化县"
 }, {
-  "regionCode": "431381",
+  "id": "431381",
   "pcode": "431300",
-  "regionName": "冷水江市"
+  "name": "冷水江市"
 }, {
-  "regionCode": "431382",
+  "id": "431382",
   "pcode": "431300",
-  "regionName": "涟源市"
+  "name": "涟源市"
 }, {
-  "regionCode": "433100",
+  "id": "433100",
   "pcode": "430000",
-  "regionName": "湘西土家族苗族自治州"
+  "name": "湘西土家族苗族自治州"
 }, {
-  "regionCode": "433101",
+  "id": "433101",
   "pcode": "433100",
-  "regionName": "吉首市"
+  "name": "吉首市"
 }, {
-  "regionCode": "433122",
+  "id": "433122",
   "pcode": "433100",
-  "regionName": "泸溪县"
+  "name": "泸溪县"
 }, {
-  "regionCode": "433123",
+  "id": "433123",
   "pcode": "433100",
-  "regionName": "凤凰县"
+  "name": "凤凰县"
 }, {
-  "regionCode": "433124",
+  "id": "433124",
   "pcode": "433100",
-  "regionName": "花垣县"
+  "name": "花垣县"
 }, {
-  "regionCode": "433125",
+  "id": "433125",
   "pcode": "433100",
-  "regionName": "保靖县"
+  "name": "保靖县"
 }, {
-  "regionCode": "433126",
+  "id": "433126",
   "pcode": "433100",
-  "regionName": "古丈县"
+  "name": "古丈县"
 }, {
-  "regionCode": "433127",
+  "id": "433127",
   "pcode": "433100",
-  "regionName": "永顺县"
+  "name": "永顺县"
 }, {
-  "regionCode": "433130",
+  "id": "433130",
   "pcode": "433100",
-  "regionName": "龙山县"
+  "name": "龙山县"
 }, {
-  "regionCode": "440000",
+  "id": "440000",
   "pcode": "",
-  "regionName": "广东省"
+  "name": "广东省"
 }, {
-  "regionCode": "440100",
+  "id": "440100",
   "pcode": "440000",
-  "regionName": "广州市"
+  "name": "广州市"
 }, {
-  "regionCode": "440101",
+  "id": "440101",
   "pcode": "440100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "440103",
+  "id": "440103",
   "pcode": "440100",
-  "regionName": "荔湾区"
+  "name": "荔湾区"
 }, {
-  "regionCode": "440104",
+  "id": "440104",
   "pcode": "440100",
-  "regionName": "越秀区"
+  "name": "越秀区"
 }, {
-  "regionCode": "440105",
+  "id": "440105",
   "pcode": "440100",
-  "regionName": "海珠区"
+  "name": "海珠区"
 }, {
-  "regionCode": "440106",
+  "id": "440106",
   "pcode": "440100",
-  "regionName": "天河区"
+  "name": "天河区"
 }, {
-  "regionCode": "440111",
+  "id": "440111",
   "pcode": "440100",
-  "regionName": "白云区"
+  "name": "白云区"
 }, {
-  "regionCode": "440112",
+  "id": "440112",
   "pcode": "440100",
-  "regionName": "黄埔区"
+  "name": "黄埔区"
 }, {
-  "regionCode": "440113",
+  "id": "440113",
   "pcode": "440100",
-  "regionName": "番禺区"
+  "name": "番禺区"
 }, {
-  "regionCode": "440114",
+  "id": "440114",
   "pcode": "440100",
-  "regionName": "花都区"
+  "name": "花都区"
 }, {
-  "regionCode": "440115",
+  "id": "440115",
   "pcode": "440100",
-  "regionName": "南沙区"
+  "name": "南沙区"
 }, {
-  "regionCode": "440117",
+  "id": "440117",
   "pcode": "440100",
-  "regionName": "从化区"
+  "name": "从化区"
 }, {
-  "regionCode": "440118",
+  "id": "440118",
   "pcode": "440100",
-  "regionName": "增城区"
+  "name": "增城区"
 }, {
-  "regionCode": "440200",
+  "id": "440200",
   "pcode": "440000",
-  "regionName": "韶关市"
+  "name": "韶关市"
 }, {
-  "regionCode": "440201",
+  "id": "440201",
   "pcode": "440200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "440203",
+  "id": "440203",
   "pcode": "440200",
-  "regionName": "武江区"
+  "name": "武江区"
 }, {
-  "regionCode": "440204",
+  "id": "440204",
   "pcode": "440200",
-  "regionName": "浈江区"
+  "name": "浈江区"
 }, {
-  "regionCode": "440205",
+  "id": "440205",
   "pcode": "440200",
-  "regionName": "曲江区"
+  "name": "曲江区"
 }, {
-  "regionCode": "440222",
+  "id": "440222",
   "pcode": "440200",
-  "regionName": "始兴县"
+  "name": "始兴县"
 }, {
-  "regionCode": "440224",
+  "id": "440224",
   "pcode": "440200",
-  "regionName": "仁化县"
+  "name": "仁化县"
 }, {
-  "regionCode": "440229",
+  "id": "440229",
   "pcode": "440200",
-  "regionName": "翁源县"
+  "name": "翁源县"
 }, {
-  "regionCode": "440232",
+  "id": "440232",
   "pcode": "440200",
-  "regionName": "乳源瑶族自治县"
+  "name": "乳源瑶族自治县"
 }, {
-  "regionCode": "440233",
+  "id": "440233",
   "pcode": "440200",
-  "regionName": "新丰县"
+  "name": "新丰县"
 }, {
-  "regionCode": "440281",
+  "id": "440281",
   "pcode": "440200",
-  "regionName": "乐昌市"
+  "name": "乐昌市"
 }, {
-  "regionCode": "440282",
+  "id": "440282",
   "pcode": "440200",
-  "regionName": "南雄市"
+  "name": "南雄市"
 }, {
-  "regionCode": "440300",
+  "id": "440300",
   "pcode": "440000",
-  "regionName": "深圳市"
+  "name": "深圳市"
 }, {
-  "regionCode": "440301",
+  "id": "440301",
   "pcode": "440300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "440303",
+  "id": "440303",
   "pcode": "440300",
-  "regionName": "罗湖区"
+  "name": "罗湖区"
 }, {
-  "regionCode": "440304",
+  "id": "440304",
   "pcode": "440300",
-  "regionName": "福田区"
+  "name": "福田区"
 }, {
-  "regionCode": "440305",
+  "id": "440305",
   "pcode": "440300",
-  "regionName": "南山区"
+  "name": "南山区"
 }, {
-  "regionCode": "440306",
+  "id": "440306",
   "pcode": "440300",
-  "regionName": "宝安区"
+  "name": "宝安区"
 }, {
-  "regionCode": "440307",
+  "id": "440307",
   "pcode": "440300",
-  "regionName": "龙岗区"
+  "name": "龙岗区"
 }, {
-  "regionCode": "440308",
+  "id": "440308",
   "pcode": "440300",
-  "regionName": "盐田区"
+  "name": "盐田区"
 }, {
-  "regionCode": "440400",
+  "id": "440400",
   "pcode": "440000",
-  "regionName": "珠海市"
+  "name": "珠海市"
 }, {
-  "regionCode": "440401",
+  "id": "440401",
   "pcode": "440400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "440402",
+  "id": "440402",
   "pcode": "440400",
-  "regionName": "香洲区"
+  "name": "香洲区"
 }, {
-  "regionCode": "440403",
+  "id": "440403",
   "pcode": "440400",
-  "regionName": "斗门区"
+  "name": "斗门区"
 }, {
-  "regionCode": "440404",
+  "id": "440404",
   "pcode": "440400",
-  "regionName": "金湾区"
+  "name": "金湾区"
 }, {
-  "regionCode": "440500",
+  "id": "440500",
   "pcode": "440000",
-  "regionName": "汕头市"
+  "name": "汕头市"
 }, {
-  "regionCode": "440501",
+  "id": "440501",
   "pcode": "440500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "440507",
+  "id": "440507",
   "pcode": "440500",
-  "regionName": "龙湖区"
+  "name": "龙湖区"
 }, {
-  "regionCode": "440511",
+  "id": "440511",
   "pcode": "440500",
-  "regionName": "金平区"
+  "name": "金平区"
 }, {
-  "regionCode": "440512",
+  "id": "440512",
   "pcode": "440500",
-  "regionName": "濠江区"
+  "name": "濠江区"
 }, {
-  "regionCode": "440513",
+  "id": "440513",
   "pcode": "440500",
-  "regionName": "潮阳区"
+  "name": "潮阳区"
 }, {
-  "regionCode": "440514",
+  "id": "440514",
   "pcode": "440500",
-  "regionName": "潮南区"
+  "name": "潮南区"
 }, {
-  "regionCode": "440515",
+  "id": "440515",
   "pcode": "440500",
-  "regionName": "澄海区"
+  "name": "澄海区"
 }, {
-  "regionCode": "440523",
+  "id": "440523",
   "pcode": "440500",
-  "regionName": "南澳县"
+  "name": "南澳县"
 }, {
-  "regionCode": "440600",
+  "id": "440600",
   "pcode": "440000",
-  "regionName": "佛山市"
+  "name": "佛山市"
 }, {
-  "regionCode": "440601",
+  "id": "440601",
   "pcode": "440600",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "440604",
+  "id": "440604",
   "pcode": "440600",
-  "regionName": "禅城区"
+  "name": "禅城区"
 }, {
-  "regionCode": "440605",
+  "id": "440605",
   "pcode": "440600",
-  "regionName": "南海区"
+  "name": "南海区"
 }, {
-  "regionCode": "440606",
+  "id": "440606",
   "pcode": "440600",
-  "regionName": "顺德区"
+  "name": "顺德区"
 }, {
-  "regionCode": "440607",
+  "id": "440607",
   "pcode": "440600",
-  "regionName": "三水区"
+  "name": "三水区"
 }, {
-  "regionCode": "440608",
+  "id": "440608",
   "pcode": "440600",
-  "regionName": "高明区"
+  "name": "高明区"
 }, {
-  "regionCode": "440700",
+  "id": "440700",
   "pcode": "440000",
-  "regionName": "江门市"
+  "name": "江门市"
 }, {
-  "regionCode": "440701",
+  "id": "440701",
   "pcode": "440700",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "440703",
+  "id": "440703",
   "pcode": "440700",
-  "regionName": "蓬江区"
+  "name": "蓬江区"
 }, {
-  "regionCode": "440704",
+  "id": "440704",
   "pcode": "440700",
-  "regionName": "江海区"
+  "name": "江海区"
 }, {
-  "regionCode": "440705",
+  "id": "440705",
   "pcode": "440700",
-  "regionName": "新会区"
+  "name": "新会区"
 }, {
-  "regionCode": "440781",
+  "id": "440781",
   "pcode": "440700",
-  "regionName": "台山市"
+  "name": "台山市"
 }, {
-  "regionCode": "440783",
+  "id": "440783",
   "pcode": "440700",
-  "regionName": "开平市"
+  "name": "开平市"
 }, {
-  "regionCode": "440784",
+  "id": "440784",
   "pcode": "440700",
-  "regionName": "鹤山市"
+  "name": "鹤山市"
 }, {
-  "regionCode": "440785",
+  "id": "440785",
   "pcode": "440700",
-  "regionName": "恩平市"
+  "name": "恩平市"
 }, {
-  "regionCode": "440800",
+  "id": "440800",
   "pcode": "440000",
-  "regionName": "湛江市"
+  "name": "湛江市"
 }, {
-  "regionCode": "440801",
+  "id": "440801",
   "pcode": "440800",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "440802",
+  "id": "440802",
   "pcode": "440800",
-  "regionName": "赤坎区"
+  "name": "赤坎区"
 }, {
-  "regionCode": "440803",
+  "id": "440803",
   "pcode": "440800",
-  "regionName": "霞山区"
+  "name": "霞山区"
 }, {
-  "regionCode": "440804",
+  "id": "440804",
   "pcode": "440800",
-  "regionName": "坡头区"
+  "name": "坡头区"
 }, {
-  "regionCode": "440811",
+  "id": "440811",
   "pcode": "440800",
-  "regionName": "麻章区"
+  "name": "麻章区"
 }, {
-  "regionCode": "440823",
+  "id": "440823",
   "pcode": "440800",
-  "regionName": "遂溪县"
+  "name": "遂溪县"
 }, {
-  "regionCode": "440825",
+  "id": "440825",
   "pcode": "440800",
-  "regionName": "徐闻县"
+  "name": "徐闻县"
 }, {
-  "regionCode": "440881",
+  "id": "440881",
   "pcode": "440800",
-  "regionName": "廉江市"
+  "name": "廉江市"
 }, {
-  "regionCode": "440882",
+  "id": "440882",
   "pcode": "440800",
-  "regionName": "雷州市"
+  "name": "雷州市"
 }, {
-  "regionCode": "440883",
+  "id": "440883",
   "pcode": "440800",
-  "regionName": "吴川市"
+  "name": "吴川市"
 }, {
-  "regionCode": "440900",
+  "id": "440900",
   "pcode": "440000",
-  "regionName": "茂名市"
+  "name": "茂名市"
 }, {
-  "regionCode": "440901",
+  "id": "440901",
   "pcode": "440900",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "440902",
+  "id": "440902",
   "pcode": "440900",
-  "regionName": "茂南区"
+  "name": "茂南区"
 }, {
-  "regionCode": "440904",
+  "id": "440904",
   "pcode": "440900",
-  "regionName": "电白区"
+  "name": "电白区"
 }, {
-  "regionCode": "440981",
+  "id": "440981",
   "pcode": "440900",
-  "regionName": "高州市"
+  "name": "高州市"
 }, {
-  "regionCode": "440982",
+  "id": "440982",
   "pcode": "440900",
-  "regionName": "化州市"
+  "name": "化州市"
 }, {
-  "regionCode": "440983",
+  "id": "440983",
   "pcode": "440900",
-  "regionName": "信宜市"
+  "name": "信宜市"
 }, {
-  "regionCode": "441200",
+  "id": "441200",
   "pcode": "440000",
-  "regionName": "肇庆市"
+  "name": "肇庆市"
 }, {
-  "regionCode": "441201",
+  "id": "441201",
   "pcode": "441200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "441202",
+  "id": "441202",
   "pcode": "441200",
-  "regionName": "端州区"
+  "name": "端州区"
 }, {
-  "regionCode": "441203",
+  "id": "441203",
   "pcode": "441200",
-  "regionName": "鼎湖区"
+  "name": "鼎湖区"
 }, {
-  "regionCode": "441204",
+  "id": "441204",
   "pcode": "441200",
-  "regionName": "高要区"
+  "name": "高要区"
 }, {
-  "regionCode": "441223",
+  "id": "441223",
   "pcode": "441200",
-  "regionName": "广宁县"
+  "name": "广宁县"
 }, {
-  "regionCode": "441224",
+  "id": "441224",
   "pcode": "441200",
-  "regionName": "怀集县"
+  "name": "怀集县"
 }, {
-  "regionCode": "441225",
+  "id": "441225",
   "pcode": "441200",
-  "regionName": "封开县"
+  "name": "封开县"
 }, {
-  "regionCode": "441226",
+  "id": "441226",
   "pcode": "441200",
-  "regionName": "德庆县"
+  "name": "德庆县"
 }, {
-  "regionCode": "441284",
+  "id": "441284",
   "pcode": "441200",
-  "regionName": "四会市"
+  "name": "四会市"
 }, {
-  "regionCode": "441300",
+  "id": "441300",
   "pcode": "440000",
-  "regionName": "惠州市"
+  "name": "惠州市"
 }, {
-  "regionCode": "441301",
+  "id": "441301",
   "pcode": "441300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "441302",
+  "id": "441302",
   "pcode": "441300",
-  "regionName": "惠城区"
+  "name": "惠城区"
 }, {
-  "regionCode": "441303",
+  "id": "441303",
   "pcode": "441300",
-  "regionName": "惠阳区"
+  "name": "惠阳区"
 }, {
-  "regionCode": "441322",
+  "id": "441322",
   "pcode": "441300",
-  "regionName": "博罗县"
+  "name": "博罗县"
 }, {
-  "regionCode": "441323",
+  "id": "441323",
   "pcode": "441300",
-  "regionName": "惠东县"
+  "name": "惠东县"
 }, {
-  "regionCode": "441324",
+  "id": "441324",
   "pcode": "441300",
-  "regionName": "龙门县"
+  "name": "龙门县"
 }, {
-  "regionCode": "441400",
+  "id": "441400",
   "pcode": "440000",
-  "regionName": "梅州市"
+  "name": "梅州市"
 }, {
-  "regionCode": "441401",
+  "id": "441401",
   "pcode": "441400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "441402",
+  "id": "441402",
   "pcode": "441400",
-  "regionName": "梅江区"
+  "name": "梅江区"
 }, {
-  "regionCode": "441403",
+  "id": "441403",
   "pcode": "441400",
-  "regionName": "梅县区"
+  "name": "梅县区"
 }, {
-  "regionCode": "441422",
+  "id": "441422",
   "pcode": "441400",
-  "regionName": "大埔县"
+  "name": "大埔县"
 }, {
-  "regionCode": "441423",
+  "id": "441423",
   "pcode": "441400",
-  "regionName": "丰顺县"
+  "name": "丰顺县"
 }, {
-  "regionCode": "441424",
+  "id": "441424",
   "pcode": "441400",
-  "regionName": "五华县"
+  "name": "五华县"
 }, {
-  "regionCode": "441426",
+  "id": "441426",
   "pcode": "441400",
-  "regionName": "平远县"
+  "name": "平远县"
 }, {
-  "regionCode": "441427",
+  "id": "441427",
   "pcode": "441400",
-  "regionName": "蕉岭县"
+  "name": "蕉岭县"
 }, {
-  "regionCode": "441481",
+  "id": "441481",
   "pcode": "441400",
-  "regionName": "兴宁市"
+  "name": "兴宁市"
 }, {
-  "regionCode": "441500",
+  "id": "441500",
   "pcode": "440000",
-  "regionName": "汕尾市"
+  "name": "汕尾市"
 }, {
-  "regionCode": "441501",
+  "id": "441501",
   "pcode": "441500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "441502",
+  "id": "441502",
   "pcode": "441500",
-  "regionName": "城区"
+  "name": "城区"
 }, {
-  "regionCode": "441521",
+  "id": "441521",
   "pcode": "441500",
-  "regionName": "海丰县"
+  "name": "海丰县"
 }, {
-  "regionCode": "441523",
+  "id": "441523",
   "pcode": "441500",
-  "regionName": "陆河县"
+  "name": "陆河县"
 }, {
-  "regionCode": "441581",
+  "id": "441581",
   "pcode": "441500",
-  "regionName": "陆丰市"
+  "name": "陆丰市"
 }, {
-  "regionCode": "441600",
+  "id": "441600",
   "pcode": "440000",
-  "regionName": "河源市"
+  "name": "河源市"
 }, {
-  "regionCode": "441601",
+  "id": "441601",
   "pcode": "441600",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "441602",
+  "id": "441602",
   "pcode": "441600",
-  "regionName": "源城区"
+  "name": "源城区"
 }, {
-  "regionCode": "441621",
+  "id": "441621",
   "pcode": "441600",
-  "regionName": "紫金县"
+  "name": "紫金县"
 }, {
-  "regionCode": "441622",
+  "id": "441622",
   "pcode": "441600",
-  "regionName": "龙川县"
+  "name": "龙川县"
 }, {
-  "regionCode": "441623",
+  "id": "441623",
   "pcode": "441600",
-  "regionName": "连平县"
+  "name": "连平县"
 }, {
-  "regionCode": "441624",
+  "id": "441624",
   "pcode": "441600",
-  "regionName": "和平县"
+  "name": "和平县"
 }, {
-  "regionCode": "441625",
+  "id": "441625",
   "pcode": "441600",
-  "regionName": "东源县"
+  "name": "东源县"
 }, {
-  "regionCode": "441700",
+  "id": "441700",
   "pcode": "440000",
-  "regionName": "阳江市"
+  "name": "阳江市"
 }, {
-  "regionCode": "441701",
+  "id": "441701",
   "pcode": "441700",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "441702",
+  "id": "441702",
   "pcode": "441700",
-  "regionName": "江城区"
+  "name": "江城区"
 }, {
-  "regionCode": "441704",
+  "id": "441704",
   "pcode": "441700",
-  "regionName": "阳东区"
+  "name": "阳东区"
 }, {
-  "regionCode": "441721",
+  "id": "441721",
   "pcode": "441700",
-  "regionName": "阳西县"
+  "name": "阳西县"
 }, {
-  "regionCode": "441781",
+  "id": "441781",
   "pcode": "441700",
-  "regionName": "阳春市"
+  "name": "阳春市"
 }, {
-  "regionCode": "441800",
+  "id": "441800",
   "pcode": "440000",
-  "regionName": "清远市"
+  "name": "清远市"
 }, {
-  "regionCode": "441801",
+  "id": "441801",
   "pcode": "441800",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "441802",
+  "id": "441802",
   "pcode": "441800",
-  "regionName": "清城区"
+  "name": "清城区"
 }, {
-  "regionCode": "441803",
+  "id": "441803",
   "pcode": "441800",
-  "regionName": "清新区"
+  "name": "清新区"
 }, {
-  "regionCode": "441821",
+  "id": "441821",
   "pcode": "441800",
-  "regionName": "佛冈县"
+  "name": "佛冈县"
 }, {
-  "regionCode": "441823",
+  "id": "441823",
   "pcode": "441800",
-  "regionName": "阳山县"
+  "name": "阳山县"
 }, {
-  "regionCode": "441825",
+  "id": "441825",
   "pcode": "441800",
-  "regionName": "连山壮族瑶族自治县"
+  "name": "连山壮族瑶族自治县"
 }, {
-  "regionCode": "441826",
+  "id": "441826",
   "pcode": "441800",
-  "regionName": "连南瑶族自治县"
+  "name": "连南瑶族自治县"
 }, {
-  "regionCode": "441881",
+  "id": "441881",
   "pcode": "441800",
-  "regionName": "英德市"
+  "name": "英德市"
 }, {
-  "regionCode": "441882",
+  "id": "441882",
   "pcode": "441800",
-  "regionName": "连州市"
+  "name": "连州市"
 }, {
-  "regionCode": "441900",
+  "id": "441900",
   "pcode": "440000",
-  "regionName": "东莞市"
+  "name": "东莞市"
 }, {
-  "regionCode": "442000",
+  "id": "442000",
   "pcode": "440000",
-  "regionName": "中山市"
+  "name": "中山市"
 }, {
-  "regionCode": "445100",
+  "id": "445100",
   "pcode": "440000",
-  "regionName": "潮州市"
+  "name": "潮州市"
 }, {
-  "regionCode": "445101",
+  "id": "445101",
   "pcode": "445100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "445102",
+  "id": "445102",
   "pcode": "445100",
-  "regionName": "湘桥区"
+  "name": "湘桥区"
 }, {
-  "regionCode": "445103",
+  "id": "445103",
   "pcode": "445100",
-  "regionName": "潮安区"
+  "name": "潮安区"
 }, {
-  "regionCode": "445122",
+  "id": "445122",
   "pcode": "445100",
-  "regionName": "饶平县"
+  "name": "饶平县"
 }, {
-  "regionCode": "445200",
+  "id": "445200",
   "pcode": "440000",
-  "regionName": "揭阳市"
+  "name": "揭阳市"
 }, {
-  "regionCode": "445201",
+  "id": "445201",
   "pcode": "445200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "445202",
+  "id": "445202",
   "pcode": "445200",
-  "regionName": "榕城区"
+  "name": "榕城区"
 }, {
-  "regionCode": "445203",
+  "id": "445203",
   "pcode": "445200",
-  "regionName": "揭东区"
+  "name": "揭东区"
 }, {
-  "regionCode": "445222",
+  "id": "445222",
   "pcode": "445200",
-  "regionName": "揭西县"
+  "name": "揭西县"
 }, {
-  "regionCode": "445224",
+  "id": "445224",
   "pcode": "445200",
-  "regionName": "惠来县"
+  "name": "惠来县"
 }, {
-  "regionCode": "445281",
+  "id": "445281",
   "pcode": "445200",
-  "regionName": "普宁市"
+  "name": "普宁市"
 }, {
-  "regionCode": "445300",
+  "id": "445300",
   "pcode": "440000",
-  "regionName": "云浮市"
+  "name": "云浮市"
 }, {
-  "regionCode": "445301",
+  "id": "445301",
   "pcode": "445300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "445302",
+  "id": "445302",
   "pcode": "445300",
-  "regionName": "云城区"
+  "name": "云城区"
 }, {
-  "regionCode": "445303",
+  "id": "445303",
   "pcode": "445300",
-  "regionName": "云安区"
+  "name": "云安区"
 }, {
-  "regionCode": "445321",
+  "id": "445321",
   "pcode": "445300",
-  "regionName": "新兴县"
+  "name": "新兴县"
 }, {
-  "regionCode": "445322",
+  "id": "445322",
   "pcode": "445300",
-  "regionName": "郁南县"
+  "name": "郁南县"
 }, {
-  "regionCode": "445381",
+  "id": "445381",
   "pcode": "445300",
-  "regionName": "罗定市"
+  "name": "罗定市"
 }, {
-  "regionCode": "450000",
+  "id": "450000",
   "pcode": "",
-  "regionName": "广西壮族自治区"
+  "name": "广西壮族自治区"
 }, {
-  "regionCode": "450100",
+  "id": "450100",
   "pcode": "450000",
-  "regionName": "南宁市"
+  "name": "南宁市"
 }, {
-  "regionCode": "450101",
+  "id": "450101",
   "pcode": "450100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "450102",
+  "id": "450102",
   "pcode": "450100",
-  "regionName": "兴宁区"
+  "name": "兴宁区"
 }, {
-  "regionCode": "450103",
+  "id": "450103",
   "pcode": "450100",
-  "regionName": "青秀区"
+  "name": "青秀区"
 }, {
-  "regionCode": "450105",
+  "id": "450105",
   "pcode": "450100",
-  "regionName": "江南区"
+  "name": "江南区"
 }, {
-  "regionCode": "450107",
+  "id": "450107",
   "pcode": "450100",
-  "regionName": "西乡塘区"
+  "name": "西乡塘区"
 }, {
-  "regionCode": "450108",
+  "id": "450108",
   "pcode": "450100",
-  "regionName": "良庆区"
+  "name": "良庆区"
 }, {
-  "regionCode": "450109",
+  "id": "450109",
   "pcode": "450100",
-  "regionName": "邕宁区"
+  "name": "邕宁区"
 }, {
-  "regionCode": "450110",
+  "id": "450110",
   "pcode": "450100",
-  "regionName": "武鸣区"
+  "name": "武鸣区"
 }, {
-  "regionCode": "450123",
+  "id": "450123",
   "pcode": "450100",
-  "regionName": "隆安县"
+  "name": "隆安县"
 }, {
-  "regionCode": "450124",
+  "id": "450124",
   "pcode": "450100",
-  "regionName": "马山县"
+  "name": "马山县"
 }, {
-  "regionCode": "450125",
+  "id": "450125",
   "pcode": "450100",
-  "regionName": "上林县"
+  "name": "上林县"
 }, {
-  "regionCode": "450126",
+  "id": "450126",
   "pcode": "450100",
-  "regionName": "宾阳县"
+  "name": "宾阳县"
 }, {
-  "regionCode": "450127",
+  "id": "450127",
   "pcode": "450100",
-  "regionName": "横县"
+  "name": "横县"
 }, {
-  "regionCode": "450200",
+  "id": "450200",
   "pcode": "450000",
-  "regionName": "柳州市"
+  "name": "柳州市"
 }, {
-  "regionCode": "450201",
+  "id": "450201",
   "pcode": "450200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "450202",
+  "id": "450202",
   "pcode": "450200",
-  "regionName": "城中区"
+  "name": "城中区"
 }, {
-  "regionCode": "450203",
+  "id": "450203",
   "pcode": "450200",
-  "regionName": "鱼峰区"
+  "name": "鱼峰区"
 }, {
-  "regionCode": "450204",
+  "id": "450204",
   "pcode": "450200",
-  "regionName": "柳南区"
+  "name": "柳南区"
 }, {
-  "regionCode": "450205",
+  "id": "450205",
   "pcode": "450200",
-  "regionName": "柳北区"
+  "name": "柳北区"
 }, {
-  "regionCode": "450206",
+  "id": "450206",
   "pcode": "450200",
-  "regionName": "柳江区"
+  "name": "柳江区"
 }, {
-  "regionCode": "450222",
+  "id": "450222",
   "pcode": "450200",
-  "regionName": "柳城县"
+  "name": "柳城县"
 }, {
-  "regionCode": "450223",
+  "id": "450223",
   "pcode": "450200",
-  "regionName": "鹿寨县"
+  "name": "鹿寨县"
 }, {
-  "regionCode": "450224",
+  "id": "450224",
   "pcode": "450200",
-  "regionName": "融安县"
+  "name": "融安县"
 }, {
-  "regionCode": "450225",
+  "id": "450225",
   "pcode": "450200",
-  "regionName": "融水苗族自治县"
+  "name": "融水苗族自治县"
 }, {
-  "regionCode": "450226",
+  "id": "450226",
   "pcode": "450200",
-  "regionName": "三江侗族自治县"
+  "name": "三江侗族自治县"
 }, {
-  "regionCode": "450300",
+  "id": "450300",
   "pcode": "450000",
-  "regionName": "桂林市"
+  "name": "桂林市"
 }, {
-  "regionCode": "450301",
+  "id": "450301",
   "pcode": "450300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "450302",
+  "id": "450302",
   "pcode": "450300",
-  "regionName": "秀峰区"
+  "name": "秀峰区"
 }, {
-  "regionCode": "450303",
+  "id": "450303",
   "pcode": "450300",
-  "regionName": "叠彩区"
+  "name": "叠彩区"
 }, {
-  "regionCode": "450304",
+  "id": "450304",
   "pcode": "450300",
-  "regionName": "象山区"
+  "name": "象山区"
 }, {
-  "regionCode": "450305",
+  "id": "450305",
   "pcode": "450300",
-  "regionName": "七星区"
+  "name": "七星区"
 }, {
-  "regionCode": "450311",
+  "id": "450311",
   "pcode": "450300",
-  "regionName": "雁山区"
+  "name": "雁山区"
 }, {
-  "regionCode": "450312",
+  "id": "450312",
   "pcode": "450300",
-  "regionName": "临桂区"
+  "name": "临桂区"
 }, {
-  "regionCode": "450321",
+  "id": "450321",
   "pcode": "450300",
-  "regionName": "阳朔县"
+  "name": "阳朔县"
 }, {
-  "regionCode": "450323",
+  "id": "450323",
   "pcode": "450300",
-  "regionName": "灵川县"
+  "name": "灵川县"
 }, {
-  "regionCode": "450324",
+  "id": "450324",
   "pcode": "450300",
-  "regionName": "全州县"
+  "name": "全州县"
 }, {
-  "regionCode": "450325",
+  "id": "450325",
   "pcode": "450300",
-  "regionName": "兴安县"
+  "name": "兴安县"
 }, {
-  "regionCode": "450326",
+  "id": "450326",
   "pcode": "450300",
-  "regionName": "永福县"
+  "name": "永福县"
 }, {
-  "regionCode": "450327",
+  "id": "450327",
   "pcode": "450300",
-  "regionName": "灌阳县"
+  "name": "灌阳县"
 }, {
-  "regionCode": "450328",
+  "id": "450328",
   "pcode": "450300",
-  "regionName": "龙胜各族自治县"
+  "name": "龙胜各族自治县"
 }, {
-  "regionCode": "450329",
+  "id": "450329",
   "pcode": "450300",
-  "regionName": "资源县"
+  "name": "资源县"
 }, {
-  "regionCode": "450330",
+  "id": "450330",
   "pcode": "450300",
-  "regionName": "平乐县"
+  "name": "平乐县"
 }, {
-  "regionCode": "450331",
+  "id": "450331",
   "pcode": "450300",
-  "regionName": "荔浦县"
+  "name": "荔浦县"
 }, {
-  "regionCode": "450332",
+  "id": "450332",
   "pcode": "450300",
-  "regionName": "恭城瑶族自治县"
+  "name": "恭城瑶族自治县"
 }, {
-  "regionCode": "450400",
+  "id": "450400",
   "pcode": "450000",
-  "regionName": "梧州市"
+  "name": "梧州市"
 }, {
-  "regionCode": "450401",
+  "id": "450401",
   "pcode": "450400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "450403",
+  "id": "450403",
   "pcode": "450400",
-  "regionName": "万秀区"
+  "name": "万秀区"
 }, {
-  "regionCode": "450405",
+  "id": "450405",
   "pcode": "450400",
-  "regionName": "长洲区"
+  "name": "长洲区"
 }, {
-  "regionCode": "450406",
+  "id": "450406",
   "pcode": "450400",
-  "regionName": "龙圩区"
+  "name": "龙圩区"
 }, {
-  "regionCode": "450421",
+  "id": "450421",
   "pcode": "450400",
-  "regionName": "苍梧县"
+  "name": "苍梧县"
 }, {
-  "regionCode": "450422",
+  "id": "450422",
   "pcode": "450400",
-  "regionName": "藤县"
+  "name": "藤县"
 }, {
-  "regionCode": "450423",
+  "id": "450423",
   "pcode": "450400",
-  "regionName": "蒙山县"
+  "name": "蒙山县"
 }, {
-  "regionCode": "450481",
+  "id": "450481",
   "pcode": "450400",
-  "regionName": "岑溪市"
+  "name": "岑溪市"
 }, {
-  "regionCode": "450500",
+  "id": "450500",
   "pcode": "450000",
-  "regionName": "北海市"
+  "name": "北海市"
 }, {
-  "regionCode": "450501",
+  "id": "450501",
   "pcode": "450500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "450502",
+  "id": "450502",
   "pcode": "450500",
-  "regionName": "海城区"
+  "name": "海城区"
 }, {
-  "regionCode": "450503",
+  "id": "450503",
   "pcode": "450500",
-  "regionName": "银海区"
+  "name": "银海区"
 }, {
-  "regionCode": "450512",
+  "id": "450512",
   "pcode": "450500",
-  "regionName": "铁山港区"
+  "name": "铁山港区"
 }, {
-  "regionCode": "450521",
+  "id": "450521",
   "pcode": "450500",
-  "regionName": "合浦县"
+  "name": "合浦县"
 }, {
-  "regionCode": "450600",
+  "id": "450600",
   "pcode": "450000",
-  "regionName": "防城港市"
+  "name": "防城港市"
 }, {
-  "regionCode": "450601",
+  "id": "450601",
   "pcode": "450600",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "450602",
+  "id": "450602",
   "pcode": "450600",
-  "regionName": "港口区"
+  "name": "港口区"
 }, {
-  "regionCode": "450603",
+  "id": "450603",
   "pcode": "450600",
-  "regionName": "防城区"
+  "name": "防城区"
 }, {
-  "regionCode": "450621",
+  "id": "450621",
   "pcode": "450600",
-  "regionName": "上思县"
+  "name": "上思县"
 }, {
-  "regionCode": "450681",
+  "id": "450681",
   "pcode": "450600",
-  "regionName": "东兴市"
+  "name": "东兴市"
 }, {
-  "regionCode": "450700",
+  "id": "450700",
   "pcode": "450000",
-  "regionName": "钦州市"
+  "name": "钦州市"
 }, {
-  "regionCode": "450701",
+  "id": "450701",
   "pcode": "450700",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "450702",
+  "id": "450702",
   "pcode": "450700",
-  "regionName": "钦南区"
+  "name": "钦南区"
 }, {
-  "regionCode": "450703",
+  "id": "450703",
   "pcode": "450700",
-  "regionName": "钦北区"
+  "name": "钦北区"
 }, {
-  "regionCode": "450721",
+  "id": "450721",
   "pcode": "450700",
-  "regionName": "灵山县"
+  "name": "灵山县"
 }, {
-  "regionCode": "450722",
+  "id": "450722",
   "pcode": "450700",
-  "regionName": "浦北县"
+  "name": "浦北县"
 }, {
-  "regionCode": "450800",
+  "id": "450800",
   "pcode": "450000",
-  "regionName": "贵港市"
+  "name": "贵港市"
 }, {
-  "regionCode": "450801",
+  "id": "450801",
   "pcode": "450800",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "450802",
+  "id": "450802",
   "pcode": "450800",
-  "regionName": "港北区"
+  "name": "港北区"
 }, {
-  "regionCode": "450803",
+  "id": "450803",
   "pcode": "450800",
-  "regionName": "港南区"
+  "name": "港南区"
 }, {
-  "regionCode": "450804",
+  "id": "450804",
   "pcode": "450800",
-  "regionName": "覃塘区"
+  "name": "覃塘区"
 }, {
-  "regionCode": "450821",
+  "id": "450821",
   "pcode": "450800",
-  "regionName": "平南县"
+  "name": "平南县"
 }, {
-  "regionCode": "450881",
+  "id": "450881",
   "pcode": "450800",
-  "regionName": "桂平市"
+  "name": "桂平市"
 }, {
-  "regionCode": "450900",
+  "id": "450900",
   "pcode": "450000",
-  "regionName": "玉林市"
+  "name": "玉林市"
 }, {
-  "regionCode": "450901",
+  "id": "450901",
   "pcode": "450900",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "450902",
+  "id": "450902",
   "pcode": "450900",
-  "regionName": "玉州区"
+  "name": "玉州区"
 }, {
-  "regionCode": "450903",
+  "id": "450903",
   "pcode": "450900",
-  "regionName": "福绵区"
+  "name": "福绵区"
 }, {
-  "regionCode": "450921",
+  "id": "450921",
   "pcode": "450900",
-  "regionName": "容县"
+  "name": "容县"
 }, {
-  "regionCode": "450922",
+  "id": "450922",
   "pcode": "450900",
-  "regionName": "陆川县"
+  "name": "陆川县"
 }, {
-  "regionCode": "450923",
+  "id": "450923",
   "pcode": "450900",
-  "regionName": "博白县"
+  "name": "博白县"
 }, {
-  "regionCode": "450924",
+  "id": "450924",
   "pcode": "450900",
-  "regionName": "兴业县"
+  "name": "兴业县"
 }, {
-  "regionCode": "450981",
+  "id": "450981",
   "pcode": "450900",
-  "regionName": "北流市"
+  "name": "北流市"
 }, {
-  "regionCode": "451000",
+  "id": "451000",
   "pcode": "450000",
-  "regionName": "百色市"
+  "name": "百色市"
 }, {
-  "regionCode": "451001",
+  "id": "451001",
   "pcode": "451000",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "451002",
+  "id": "451002",
   "pcode": "451000",
-  "regionName": "右江区"
+  "name": "右江区"
 }, {
-  "regionCode": "451021",
+  "id": "451021",
   "pcode": "451000",
-  "regionName": "田阳县"
+  "name": "田阳县"
 }, {
-  "regionCode": "451022",
+  "id": "451022",
   "pcode": "451000",
-  "regionName": "田东县"
+  "name": "田东县"
 }, {
-  "regionCode": "451023",
+  "id": "451023",
   "pcode": "451000",
-  "regionName": "平果县"
+  "name": "平果县"
 }, {
-  "regionCode": "451024",
+  "id": "451024",
   "pcode": "451000",
-  "regionName": "德保县"
+  "name": "德保县"
 }, {
-  "regionCode": "451026",
+  "id": "451026",
   "pcode": "451000",
-  "regionName": "那坡县"
+  "name": "那坡县"
 }, {
-  "regionCode": "451027",
+  "id": "451027",
   "pcode": "451000",
-  "regionName": "凌云县"
+  "name": "凌云县"
 }, {
-  "regionCode": "451028",
+  "id": "451028",
   "pcode": "451000",
-  "regionName": "乐业县"
+  "name": "乐业县"
 }, {
-  "regionCode": "451029",
+  "id": "451029",
   "pcode": "451000",
-  "regionName": "田林县"
+  "name": "田林县"
 }, {
-  "regionCode": "451030",
+  "id": "451030",
   "pcode": "451000",
-  "regionName": "西林县"
+  "name": "西林县"
 }, {
-  "regionCode": "451031",
+  "id": "451031",
   "pcode": "451000",
-  "regionName": "隆林各族自治县"
+  "name": "隆林各族自治县"
 }, {
-  "regionCode": "451081",
+  "id": "451081",
   "pcode": "451000",
-  "regionName": "靖西市"
+  "name": "靖西市"
 }, {
-  "regionCode": "451100",
+  "id": "451100",
   "pcode": "450000",
-  "regionName": "贺州市"
+  "name": "贺州市"
 }, {
-  "regionCode": "451101",
+  "id": "451101",
   "pcode": "451100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "451102",
+  "id": "451102",
   "pcode": "451100",
-  "regionName": "八步区"
+  "name": "八步区"
 }, {
-  "regionCode": "451103",
+  "id": "451103",
   "pcode": "451100",
-  "regionName": "平桂区"
+  "name": "平桂区"
 }, {
-  "regionCode": "451121",
+  "id": "451121",
   "pcode": "451100",
-  "regionName": "昭平县"
+  "name": "昭平县"
 }, {
-  "regionCode": "451122",
+  "id": "451122",
   "pcode": "451100",
-  "regionName": "钟山县"
+  "name": "钟山县"
 }, {
-  "regionCode": "451123",
+  "id": "451123",
   "pcode": "451100",
-  "regionName": "富川瑶族自治县"
+  "name": "富川瑶族自治县"
 }, {
-  "regionCode": "451200",
+  "id": "451200",
   "pcode": "450000",
-  "regionName": "河池市"
+  "name": "河池市"
 }, {
-  "regionCode": "451201",
+  "id": "451201",
   "pcode": "451200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "451202",
+  "id": "451202",
   "pcode": "451200",
-  "regionName": "金城江区"
+  "name": "金城江区"
 }, {
-  "regionCode": "451221",
+  "id": "451221",
   "pcode": "451200",
-  "regionName": "南丹县"
+  "name": "南丹县"
 }, {
-  "regionCode": "451222",
+  "id": "451222",
   "pcode": "451200",
-  "regionName": "天峨县"
+  "name": "天峨县"
 }, {
-  "regionCode": "451223",
+  "id": "451223",
   "pcode": "451200",
-  "regionName": "凤山县"
+  "name": "凤山县"
 }, {
-  "regionCode": "451224",
+  "id": "451224",
   "pcode": "451200",
-  "regionName": "东兰县"
+  "name": "东兰县"
 }, {
-  "regionCode": "451225",
+  "id": "451225",
   "pcode": "451200",
-  "regionName": "罗城仫佬族自治县"
+  "name": "罗城仫佬族自治县"
 }, {
-  "regionCode": "451226",
+  "id": "451226",
   "pcode": "451200",
-  "regionName": "环江毛南族自治县"
+  "name": "环江毛南族自治县"
 }, {
-  "regionCode": "451227",
+  "id": "451227",
   "pcode": "451200",
-  "regionName": "巴马瑶族自治县"
+  "name": "巴马瑶族自治县"
 }, {
-  "regionCode": "451228",
+  "id": "451228",
   "pcode": "451200",
-  "regionName": "都安瑶族自治县"
+  "name": "都安瑶族自治县"
 }, {
-  "regionCode": "451229",
+  "id": "451229",
   "pcode": "451200",
-  "regionName": "大化瑶族自治县"
+  "name": "大化瑶族自治县"
 }, {
-  "regionCode": "451281",
+  "id": "451281",
   "pcode": "451200",
-  "regionName": "宜州市"
+  "name": "宜州市"
 }, {
-  "regionCode": "451300",
+  "id": "451300",
   "pcode": "450000",
-  "regionName": "来宾市"
+  "name": "来宾市"
 }, {
-  "regionCode": "451301",
+  "id": "451301",
   "pcode": "451300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "451302",
+  "id": "451302",
   "pcode": "451300",
-  "regionName": "兴宾区"
+  "name": "兴宾区"
 }, {
-  "regionCode": "451321",
+  "id": "451321",
   "pcode": "451300",
-  "regionName": "忻城县"
+  "name": "忻城县"
 }, {
-  "regionCode": "451322",
+  "id": "451322",
   "pcode": "451300",
-  "regionName": "象州县"
+  "name": "象州县"
 }, {
-  "regionCode": "451323",
+  "id": "451323",
   "pcode": "451300",
-  "regionName": "武宣县"
+  "name": "武宣县"
 }, {
-  "regionCode": "451324",
+  "id": "451324",
   "pcode": "451300",
-  "regionName": "金秀瑶族自治县"
+  "name": "金秀瑶族自治县"
 }, {
-  "regionCode": "451381",
+  "id": "451381",
   "pcode": "451300",
-  "regionName": "合山市"
+  "name": "合山市"
 }, {
-  "regionCode": "451400",
+  "id": "451400",
   "pcode": "450000",
-  "regionName": "崇左市"
+  "name": "崇左市"
 }, {
-  "regionCode": "451401",
+  "id": "451401",
   "pcode": "451400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "451402",
+  "id": "451402",
   "pcode": "451400",
-  "regionName": "江州区"
+  "name": "江州区"
 }, {
-  "regionCode": "451421",
+  "id": "451421",
   "pcode": "451400",
-  "regionName": "扶绥县"
+  "name": "扶绥县"
 }, {
-  "regionCode": "451422",
+  "id": "451422",
   "pcode": "451400",
-  "regionName": "宁明县"
+  "name": "宁明县"
 }, {
-  "regionCode": "451423",
+  "id": "451423",
   "pcode": "451400",
-  "regionName": "龙州县"
+  "name": "龙州县"
 }, {
-  "regionCode": "451424",
+  "id": "451424",
   "pcode": "451400",
-  "regionName": "大新县"
+  "name": "大新县"
 }, {
-  "regionCode": "451425",
+  "id": "451425",
   "pcode": "451400",
-  "regionName": "天等县"
+  "name": "天等县"
 }, {
-  "regionCode": "451481",
+  "id": "451481",
   "pcode": "451400",
-  "regionName": "凭祥市"
+  "name": "凭祥市"
 }, {
-  "regionCode": "460000",
+  "id": "460000",
   "pcode": "",
-  "regionName": "海南省"
+  "name": "海南省"
 }, {
-  "regionCode": "460100",
+  "id": "460100",
   "pcode": "460000",
-  "regionName": "海口市"
+  "name": "海口市"
 }, {
-  "regionCode": "460101",
+  "id": "460101",
   "pcode": "460100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "460105",
+  "id": "460105",
   "pcode": "460100",
-  "regionName": "秀英区"
+  "name": "秀英区"
 }, {
-  "regionCode": "460106",
+  "id": "460106",
   "pcode": "460100",
-  "regionName": "龙华区"
+  "name": "龙华区"
 }, {
-  "regionCode": "460107",
+  "id": "460107",
   "pcode": "460100",
-  "regionName": "琼山区"
+  "name": "琼山区"
 }, {
-  "regionCode": "460108",
+  "id": "460108",
   "pcode": "460100",
-  "regionName": "美兰区"
+  "name": "美兰区"
 }, {
-  "regionCode": "460200",
+  "id": "460200",
   "pcode": "460000",
-  "regionName": "三亚市"
+  "name": "三亚市"
 }, {
-  "regionCode": "460201",
+  "id": "460201",
   "pcode": "460200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "460202",
+  "id": "460202",
   "pcode": "460200",
-  "regionName": "海棠区"
+  "name": "海棠区"
 }, {
-  "regionCode": "460203",
+  "id": "460203",
   "pcode": "460200",
-  "regionName": "吉阳区"
+  "name": "吉阳区"
 }, {
-  "regionCode": "460204",
+  "id": "460204",
   "pcode": "460200",
-  "regionName": "天涯区"
+  "name": "天涯区"
 }, {
-  "regionCode": "460205",
+  "id": "460205",
   "pcode": "460200",
-  "regionName": "崖州区"
+  "name": "崖州区"
 }, {
-  "regionCode": "460300",
+  "id": "460300",
   "pcode": "460000",
-  "regionName": "三沙市"
+  "name": "三沙市"
 }, {
-  "regionCode": "460400",
+  "id": "460400",
   "pcode": "460000",
-  "regionName": "儋州市"
+  "name": "儋州市"
 }, {
-  "regionCode": "469000",
+  "id": "469000",
   "pcode": "460000",
-  "regionName": "省直辖县级行政区划"
+  "name": "省直辖县级行政区划"
 }, {
-  "regionCode": "469001",
+  "id": "469001",
   "pcode": "469000",
-  "regionName": "五指山市"
+  "name": "五指山市"
 }, {
-  "regionCode": "469002",
+  "id": "469002",
   "pcode": "469000",
-  "regionName": "琼海市"
+  "name": "琼海市"
 }, {
-  "regionCode": "469005",
+  "id": "469005",
   "pcode": "469000",
-  "regionName": "文昌市"
+  "name": "文昌市"
 }, {
-  "regionCode": "469006",
+  "id": "469006",
   "pcode": "469000",
-  "regionName": "万宁市"
+  "name": "万宁市"
 }, {
-  "regionCode": "469007",
+  "id": "469007",
   "pcode": "469000",
-  "regionName": "东方市"
+  "name": "东方市"
 }, {
-  "regionCode": "469021",
+  "id": "469021",
   "pcode": "469000",
-  "regionName": "定安县"
+  "name": "定安县"
 }, {
-  "regionCode": "469022",
+  "id": "469022",
   "pcode": "469000",
-  "regionName": "屯昌县"
+  "name": "屯昌县"
 }, {
-  "regionCode": "469023",
+  "id": "469023",
   "pcode": "469000",
-  "regionName": "澄迈县"
+  "name": "澄迈县"
 }, {
-  "regionCode": "469024",
+  "id": "469024",
   "pcode": "469000",
-  "regionName": "临高县"
+  "name": "临高县"
 }, {
-  "regionCode": "469025",
+  "id": "469025",
   "pcode": "469000",
-  "regionName": "白沙黎族自治县"
+  "name": "白沙黎族自治县"
 }, {
-  "regionCode": "469026",
+  "id": "469026",
   "pcode": "469000",
-  "regionName": "昌江黎族自治县"
+  "name": "昌江黎族自治县"
 }, {
-  "regionCode": "469027",
+  "id": "469027",
   "pcode": "469000",
-  "regionName": "乐东黎族自治县"
+  "name": "乐东黎族自治县"
 }, {
-  "regionCode": "469028",
+  "id": "469028",
   "pcode": "469000",
-  "regionName": "陵水黎族自治县"
+  "name": "陵水黎族自治县"
 }, {
-  "regionCode": "469029",
+  "id": "469029",
   "pcode": "469000",
-  "regionName": "保亭黎族苗族自治县"
+  "name": "保亭黎族苗族自治县"
 }, {
-  "regionCode": "469030",
+  "id": "469030",
   "pcode": "469000",
-  "regionName": "琼中黎族苗族自治县"
+  "name": "琼中黎族苗族自治县"
 }, {
-  "regionCode": "500000",
+  "id": "500000",
   "pcode": "",
-  "regionName": "重庆市"
+  "name": "重庆市"
 }, {
-  "regionCode": "500100",
+  "id": "500100",
   "pcode": "500000",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "500101",
+  "id": "500101",
   "pcode": "500100",
-  "regionName": "万州区"
+  "name": "万州区"
 }, {
-  "regionCode": "500102",
+  "id": "500102",
   "pcode": "500100",
-  "regionName": "涪陵区"
+  "name": "涪陵区"
 }, {
-  "regionCode": "500103",
+  "id": "500103",
   "pcode": "500100",
-  "regionName": "渝中区"
+  "name": "渝中区"
 }, {
-  "regionCode": "500104",
+  "id": "500104",
   "pcode": "500100",
-  "regionName": "大渡口区"
+  "name": "大渡口区"
 }, {
-  "regionCode": "500105",
+  "id": "500105",
   "pcode": "500100",
-  "regionName": "江北区"
+  "name": "江北区"
 }, {
-  "regionCode": "500106",
+  "id": "500106",
   "pcode": "500100",
-  "regionName": "沙坪坝区"
+  "name": "沙坪坝区"
 }, {
-  "regionCode": "500107",
+  "id": "500107",
   "pcode": "500100",
-  "regionName": "九龙坡区"
+  "name": "九龙坡区"
 }, {
-  "regionCode": "500108",
+  "id": "500108",
   "pcode": "500100",
-  "regionName": "南岸区"
+  "name": "南岸区"
 }, {
-  "regionCode": "500109",
+  "id": "500109",
   "pcode": "500100",
-  "regionName": "北碚区"
+  "name": "北碚区"
 }, {
-  "regionCode": "500110",
+  "id": "500110",
   "pcode": "500100",
-  "regionName": "綦江区"
+  "name": "綦江区"
 }, {
-  "regionCode": "500111",
+  "id": "500111",
   "pcode": "500100",
-  "regionName": "大足区"
+  "name": "大足区"
 }, {
-  "regionCode": "500112",
+  "id": "500112",
   "pcode": "500100",
-  "regionName": "渝北区"
+  "name": "渝北区"
 }, {
-  "regionCode": "500113",
+  "id": "500113",
   "pcode": "500100",
-  "regionName": "巴南区"
+  "name": "巴南区"
 }, {
-  "regionCode": "500114",
+  "id": "500114",
   "pcode": "500100",
-  "regionName": "黔江区"
+  "name": "黔江区"
 }, {
-  "regionCode": "500115",
+  "id": "500115",
   "pcode": "500100",
-  "regionName": "长寿区"
+  "name": "长寿区"
 }, {
-  "regionCode": "500116",
+  "id": "500116",
   "pcode": "500100",
-  "regionName": "江津区"
+  "name": "江津区"
 }, {
-  "regionCode": "500117",
+  "id": "500117",
   "pcode": "500100",
-  "regionName": "合川区"
+  "name": "合川区"
 }, {
-  "regionCode": "500118",
+  "id": "500118",
   "pcode": "500100",
-  "regionName": "永川区"
+  "name": "永川区"
 }, {
-  "regionCode": "500119",
+  "id": "500119",
   "pcode": "500100",
-  "regionName": "南川区"
+  "name": "南川区"
 }, {
-  "regionCode": "500120",
+  "id": "500120",
   "pcode": "500100",
-  "regionName": "璧山区"
+  "name": "璧山区"
 }, {
-  "regionCode": "500151",
+  "id": "500151",
   "pcode": "500100",
-  "regionName": "铜梁区"
+  "name": "铜梁区"
 }, {
-  "regionCode": "500152",
+  "id": "500152",
   "pcode": "500100",
-  "regionName": "潼南区"
+  "name": "潼南区"
 }, {
-  "regionCode": "500153",
+  "id": "500153",
   "pcode": "500100",
-  "regionName": "荣昌区"
+  "name": "荣昌区"
 }, {
-  "regionCode": "500154",
+  "id": "500154",
   "pcode": "500100",
-  "regionName": "开州区"
+  "name": "开州区"
 }, {
-  "regionCode": "500200",
+  "id": "500200",
   "pcode": "500000",
-  "regionName": "县"
+  "name": "县"
 }, {
-  "regionCode": "500228",
+  "id": "500228",
   "pcode": "500200",
-  "regionName": "梁平县"
+  "name": "梁平县"
 }, {
-  "regionCode": "500229",
+  "id": "500229",
   "pcode": "500200",
-  "regionName": "城口县"
+  "name": "城口县"
 }, {
-  "regionCode": "500230",
+  "id": "500230",
   "pcode": "500200",
-  "regionName": "丰都县"
+  "name": "丰都县"
 }, {
-  "regionCode": "500231",
+  "id": "500231",
   "pcode": "500200",
-  "regionName": "垫江县"
+  "name": "垫江县"
 }, {
-  "regionCode": "500232",
+  "id": "500232",
   "pcode": "500200",
-  "regionName": "武隆县"
+  "name": "武隆县"
 }, {
-  "regionCode": "500233",
+  "id": "500233",
   "pcode": "500200",
-  "regionName": "忠县"
+  "name": "忠县"
 }, {
-  "regionCode": "500235",
+  "id": "500235",
   "pcode": "500200",
-  "regionName": "云阳县"
+  "name": "云阳县"
 }, {
-  "regionCode": "500236",
+  "id": "500236",
   "pcode": "500200",
-  "regionName": "奉节县"
+  "name": "奉节县"
 }, {
-  "regionCode": "500237",
+  "id": "500237",
   "pcode": "500200",
-  "regionName": "巫山县"
+  "name": "巫山县"
 }, {
-  "regionCode": "500238",
+  "id": "500238",
   "pcode": "500200",
-  "regionName": "巫溪县"
+  "name": "巫溪县"
 }, {
-  "regionCode": "500240",
+  "id": "500240",
   "pcode": "500200",
-  "regionName": "石柱土家族自治县"
+  "name": "石柱土家族自治县"
 }, {
-  "regionCode": "500241",
+  "id": "500241",
   "pcode": "500200",
-  "regionName": "秀山土家族苗族自治县"
+  "name": "秀山土家族苗族自治县"
 }, {
-  "regionCode": "500242",
+  "id": "500242",
   "pcode": "500200",
-  "regionName": "酉阳土家族苗族自治县"
+  "name": "酉阳土家族苗族自治县"
 }, {
-  "regionCode": "500243",
+  "id": "500243",
   "pcode": "500200",
-  "regionName": "彭水苗族土家族自治县"
+  "name": "彭水苗族土家族自治县"
 }, {
-  "regionCode": "510000",
+  "id": "510000",
   "pcode": "",
-  "regionName": "四川省"
+  "name": "四川省"
 }, {
-  "regionCode": "510100",
+  "id": "510100",
   "pcode": "510000",
-  "regionName": "成都市"
+  "name": "成都市"
 }, {
-  "regionCode": "510101",
+  "id": "510101",
   "pcode": "510100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "510104",
+  "id": "510104",
   "pcode": "510100",
-  "regionName": "锦江区"
+  "name": "锦江区"
 }, {
-  "regionCode": "510105",
+  "id": "510105",
   "pcode": "510100",
-  "regionName": "青羊区"
+  "name": "青羊区"
 }, {
-  "regionCode": "510106",
+  "id": "510106",
   "pcode": "510100",
-  "regionName": "金牛区"
+  "name": "金牛区"
 }, {
-  "regionCode": "510107",
+  "id": "510107",
   "pcode": "510100",
-  "regionName": "武侯区"
+  "name": "武侯区"
 }, {
-  "regionCode": "510108",
+  "id": "510108",
   "pcode": "510100",
-  "regionName": "成华区"
+  "name": "成华区"
 }, {
-  "regionCode": "510112",
+  "id": "510112",
   "pcode": "510100",
-  "regionName": "龙泉驿区"
+  "name": "龙泉驿区"
 }, {
-  "regionCode": "510113",
+  "id": "510113",
   "pcode": "510100",
-  "regionName": "青白江区"
+  "name": "青白江区"
 }, {
-  "regionCode": "510114",
+  "id": "510114",
   "pcode": "510100",
-  "regionName": "新都区"
+  "name": "新都区"
 }, {
-  "regionCode": "510115",
+  "id": "510115",
   "pcode": "510100",
-  "regionName": "温江区"
+  "name": "温江区"
 }, {
-  "regionCode": "510116",
+  "id": "510116",
   "pcode": "510100",
-  "regionName": "双流区"
+  "name": "双流区"
 }, {
-  "regionCode": "510121",
+  "id": "510121",
   "pcode": "510100",
-  "regionName": "金堂县"
+  "name": "金堂县"
 }, {
-  "regionCode": "510124",
+  "id": "510124",
   "pcode": "510100",
-  "regionName": "郫县"
+  "name": "郫县"
 }, {
-  "regionCode": "510129",
+  "id": "510129",
   "pcode": "510100",
-  "regionName": "大邑县"
+  "name": "大邑县"
 }, {
-  "regionCode": "510131",
+  "id": "510131",
   "pcode": "510100",
-  "regionName": "蒲江县"
+  "name": "蒲江县"
 }, {
-  "regionCode": "510132",
+  "id": "510132",
   "pcode": "510100",
-  "regionName": "新津县"
+  "name": "新津县"
 }, {
-  "regionCode": "510181",
+  "id": "510181",
   "pcode": "510100",
-  "regionName": "都江堰市"
+  "name": "都江堰市"
 }, {
-  "regionCode": "510182",
+  "id": "510182",
   "pcode": "510100",
-  "regionName": "彭州市"
+  "name": "彭州市"
 }, {
-  "regionCode": "510183",
+  "id": "510183",
   "pcode": "510100",
-  "regionName": "邛崃市"
+  "name": "邛崃市"
 }, {
-  "regionCode": "510184",
+  "id": "510184",
   "pcode": "510100",
-  "regionName": "崇州市"
+  "name": "崇州市"
 }, {
-  "regionCode": "510185",
+  "id": "510185",
   "pcode": "510100",
-  "regionName": "简阳市"
+  "name": "简阳市"
 }, {
-  "regionCode": "510300",
+  "id": "510300",
   "pcode": "510000",
-  "regionName": "自贡市"
+  "name": "自贡市"
 }, {
-  "regionCode": "510301",
+  "id": "510301",
   "pcode": "510300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "510302",
+  "id": "510302",
   "pcode": "510300",
-  "regionName": "自流井区"
+  "name": "自流井区"
 }, {
-  "regionCode": "510303",
+  "id": "510303",
   "pcode": "510300",
-  "regionName": "贡井区"
+  "name": "贡井区"
 }, {
-  "regionCode": "510304",
+  "id": "510304",
   "pcode": "510300",
-  "regionName": "大安区"
+  "name": "大安区"
 }, {
-  "regionCode": "510311",
+  "id": "510311",
   "pcode": "510300",
-  "regionName": "沿滩区"
+  "name": "沿滩区"
 }, {
-  "regionCode": "510321",
+  "id": "510321",
   "pcode": "510300",
-  "regionName": "荣县"
+  "name": "荣县"
 }, {
-  "regionCode": "510322",
+  "id": "510322",
   "pcode": "510300",
-  "regionName": "富顺县"
+  "name": "富顺县"
 }, {
-  "regionCode": "510400",
+  "id": "510400",
   "pcode": "510000",
-  "regionName": "攀枝花市"
+  "name": "攀枝花市"
 }, {
-  "regionCode": "510401",
+  "id": "510401",
   "pcode": "510400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "510402",
+  "id": "510402",
   "pcode": "510400",
-  "regionName": "东区"
+  "name": "东区"
 }, {
-  "regionCode": "510403",
+  "id": "510403",
   "pcode": "510400",
-  "regionName": "西区"
+  "name": "西区"
 }, {
-  "regionCode": "510411",
+  "id": "510411",
   "pcode": "510400",
-  "regionName": "仁和区"
+  "name": "仁和区"
 }, {
-  "regionCode": "510421",
+  "id": "510421",
   "pcode": "510400",
-  "regionName": "米易县"
+  "name": "米易县"
 }, {
-  "regionCode": "510422",
+  "id": "510422",
   "pcode": "510400",
-  "regionName": "盐边县"
+  "name": "盐边县"
 }, {
-  "regionCode": "510500",
+  "id": "510500",
   "pcode": "510000",
-  "regionName": "泸州市"
+  "name": "泸州市"
 }, {
-  "regionCode": "510501",
+  "id": "510501",
   "pcode": "510500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "510502",
+  "id": "510502",
   "pcode": "510500",
-  "regionName": "江阳区"
+  "name": "江阳区"
 }, {
-  "regionCode": "510503",
+  "id": "510503",
   "pcode": "510500",
-  "regionName": "纳溪区"
+  "name": "纳溪区"
 }, {
-  "regionCode": "510504",
+  "id": "510504",
   "pcode": "510500",
-  "regionName": "龙马潭区"
+  "name": "龙马潭区"
 }, {
-  "regionCode": "510521",
+  "id": "510521",
   "pcode": "510500",
-  "regionName": "泸县"
+  "name": "泸县"
 }, {
-  "regionCode": "510522",
+  "id": "510522",
   "pcode": "510500",
-  "regionName": "合江县"
+  "name": "合江县"
 }, {
-  "regionCode": "510524",
+  "id": "510524",
   "pcode": "510500",
-  "regionName": "叙永县"
+  "name": "叙永县"
 }, {
-  "regionCode": "510525",
+  "id": "510525",
   "pcode": "510500",
-  "regionName": "古蔺县"
+  "name": "古蔺县"
 }, {
-  "regionCode": "510600",
+  "id": "510600",
   "pcode": "510000",
-  "regionName": "德阳市"
+  "name": "德阳市"
 }, {
-  "regionCode": "510601",
+  "id": "510601",
   "pcode": "510600",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "510603",
+  "id": "510603",
   "pcode": "510600",
-  "regionName": "旌阳区"
+  "name": "旌阳区"
 }, {
-  "regionCode": "510623",
+  "id": "510623",
   "pcode": "510600",
-  "regionName": "中江县"
+  "name": "中江县"
 }, {
-  "regionCode": "510626",
+  "id": "510626",
   "pcode": "510600",
-  "regionName": "罗江县"
+  "name": "罗江县"
 }, {
-  "regionCode": "510681",
+  "id": "510681",
   "pcode": "510600",
-  "regionName": "广汉市"
+  "name": "广汉市"
 }, {
-  "regionCode": "510682",
+  "id": "510682",
   "pcode": "510600",
-  "regionName": "什邡市"
+  "name": "什邡市"
 }, {
-  "regionCode": "510683",
+  "id": "510683",
   "pcode": "510600",
-  "regionName": "绵竹市"
+  "name": "绵竹市"
 }, {
-  "regionCode": "510700",
+  "id": "510700",
   "pcode": "510000",
-  "regionName": "绵阳市"
+  "name": "绵阳市"
 }, {
-  "regionCode": "510701",
+  "id": "510701",
   "pcode": "510700",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "510703",
+  "id": "510703",
   "pcode": "510700",
-  "regionName": "涪城区"
+  "name": "涪城区"
 }, {
-  "regionCode": "510704",
+  "id": "510704",
   "pcode": "510700",
-  "regionName": "游仙区"
+  "name": "游仙区"
 }, {
-  "regionCode": "510705",
+  "id": "510705",
   "pcode": "510700",
-  "regionName": "安州区"
+  "name": "安州区"
 }, {
-  "regionCode": "510722",
+  "id": "510722",
   "pcode": "510700",
-  "regionName": "三台县"
+  "name": "三台县"
 }, {
-  "regionCode": "510723",
+  "id": "510723",
   "pcode": "510700",
-  "regionName": "盐亭县"
+  "name": "盐亭县"
 }, {
-  "regionCode": "510725",
+  "id": "510725",
   "pcode": "510700",
-  "regionName": "梓潼县"
+  "name": "梓潼县"
 }, {
-  "regionCode": "510726",
+  "id": "510726",
   "pcode": "510700",
-  "regionName": "北川羌族自治县"
+  "name": "北川羌族自治县"
 }, {
-  "regionCode": "510727",
+  "id": "510727",
   "pcode": "510700",
-  "regionName": "平武县"
+  "name": "平武县"
 }, {
-  "regionCode": "510781",
+  "id": "510781",
   "pcode": "510700",
-  "regionName": "江油市"
+  "name": "江油市"
 }, {
-  "regionCode": "510800",
+  "id": "510800",
   "pcode": "510000",
-  "regionName": "广元市"
+  "name": "广元市"
 }, {
-  "regionCode": "510801",
+  "id": "510801",
   "pcode": "510800",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "510802",
+  "id": "510802",
   "pcode": "510800",
-  "regionName": "利州区"
+  "name": "利州区"
 }, {
-  "regionCode": "510811",
+  "id": "510811",
   "pcode": "510800",
-  "regionName": "昭化区"
+  "name": "昭化区"
 }, {
-  "regionCode": "510812",
+  "id": "510812",
   "pcode": "510800",
-  "regionName": "朝天区"
+  "name": "朝天区"
 }, {
-  "regionCode": "510821",
+  "id": "510821",
   "pcode": "510800",
-  "regionName": "旺苍县"
+  "name": "旺苍县"
 }, {
-  "regionCode": "510822",
+  "id": "510822",
   "pcode": "510800",
-  "regionName": "青川县"
+  "name": "青川县"
 }, {
-  "regionCode": "510823",
+  "id": "510823",
   "pcode": "510800",
-  "regionName": "剑阁县"
+  "name": "剑阁县"
 }, {
-  "regionCode": "510824",
+  "id": "510824",
   "pcode": "510800",
-  "regionName": "苍溪县"
+  "name": "苍溪县"
 }, {
-  "regionCode": "510900",
+  "id": "510900",
   "pcode": "510000",
-  "regionName": "遂宁市"
+  "name": "遂宁市"
 }, {
-  "regionCode": "510901",
+  "id": "510901",
   "pcode": "510900",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "510903",
+  "id": "510903",
   "pcode": "510900",
-  "regionName": "船山区"
+  "name": "船山区"
 }, {
-  "regionCode": "510904",
+  "id": "510904",
   "pcode": "510900",
-  "regionName": "安居区"
+  "name": "安居区"
 }, {
-  "regionCode": "510921",
+  "id": "510921",
   "pcode": "510900",
-  "regionName": "蓬溪县"
+  "name": "蓬溪县"
 }, {
-  "regionCode": "510922",
+  "id": "510922",
   "pcode": "510900",
-  "regionName": "射洪县"
+  "name": "射洪县"
 }, {
-  "regionCode": "510923",
+  "id": "510923",
   "pcode": "510900",
-  "regionName": "大英县"
+  "name": "大英县"
 }, {
-  "regionCode": "511000",
+  "id": "511000",
   "pcode": "510000",
-  "regionName": "内江市"
+  "name": "内江市"
 }, {
-  "regionCode": "511001",
+  "id": "511001",
   "pcode": "511000",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "511002",
+  "id": "511002",
   "pcode": "511000",
-  "regionName": "市中区"
+  "name": "市中区"
 }, {
-  "regionCode": "511011",
+  "id": "511011",
   "pcode": "511000",
-  "regionName": "东兴区"
+  "name": "东兴区"
 }, {
-  "regionCode": "511024",
+  "id": "511024",
   "pcode": "511000",
-  "regionName": "威远县"
+  "name": "威远县"
 }, {
-  "regionCode": "511025",
+  "id": "511025",
   "pcode": "511000",
-  "regionName": "资中县"
+  "name": "资中县"
 }, {
-  "regionCode": "511028",
+  "id": "511028",
   "pcode": "511000",
-  "regionName": "隆昌县"
+  "name": "隆昌县"
 }, {
-  "regionCode": "511100",
+  "id": "511100",
   "pcode": "510000",
-  "regionName": "乐山市"
+  "name": "乐山市"
 }, {
-  "regionCode": "511101",
+  "id": "511101",
   "pcode": "511100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "511102",
+  "id": "511102",
   "pcode": "511100",
-  "regionName": "市中区"
+  "name": "市中区"
 }, {
-  "regionCode": "511111",
+  "id": "511111",
   "pcode": "511100",
-  "regionName": "沙湾区"
+  "name": "沙湾区"
 }, {
-  "regionCode": "511112",
+  "id": "511112",
   "pcode": "511100",
-  "regionName": "五通桥区"
+  "name": "五通桥区"
 }, {
-  "regionCode": "511113",
+  "id": "511113",
   "pcode": "511100",
-  "regionName": "金口河区"
+  "name": "金口河区"
 }, {
-  "regionCode": "511123",
+  "id": "511123",
   "pcode": "511100",
-  "regionName": "犍为县"
+  "name": "犍为县"
 }, {
-  "regionCode": "511124",
+  "id": "511124",
   "pcode": "511100",
-  "regionName": "井研县"
+  "name": "井研县"
 }, {
-  "regionCode": "511126",
+  "id": "511126",
   "pcode": "511100",
-  "regionName": "夹江县"
+  "name": "夹江县"
 }, {
-  "regionCode": "511129",
+  "id": "511129",
   "pcode": "511100",
-  "regionName": "沐川县"
+  "name": "沐川县"
 }, {
-  "regionCode": "511132",
+  "id": "511132",
   "pcode": "511100",
-  "regionName": "峨边彝族自治县"
+  "name": "峨边彝族自治县"
 }, {
-  "regionCode": "511133",
+  "id": "511133",
   "pcode": "511100",
-  "regionName": "马边彝族自治县"
+  "name": "马边彝族自治县"
 }, {
-  "regionCode": "511181",
+  "id": "511181",
   "pcode": "511100",
-  "regionName": "峨眉山市"
+  "name": "峨眉山市"
 }, {
-  "regionCode": "511300",
+  "id": "511300",
   "pcode": "510000",
-  "regionName": "南充市"
+  "name": "南充市"
 }, {
-  "regionCode": "511301",
+  "id": "511301",
   "pcode": "511300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "511302",
+  "id": "511302",
   "pcode": "511300",
-  "regionName": "顺庆区"
+  "name": "顺庆区"
 }, {
-  "regionCode": "511303",
+  "id": "511303",
   "pcode": "511300",
-  "regionName": "高坪区"
+  "name": "高坪区"
 }, {
-  "regionCode": "511304",
+  "id": "511304",
   "pcode": "511300",
-  "regionName": "嘉陵区"
+  "name": "嘉陵区"
 }, {
-  "regionCode": "511321",
+  "id": "511321",
   "pcode": "511300",
-  "regionName": "南部县"
+  "name": "南部县"
 }, {
-  "regionCode": "511322",
+  "id": "511322",
   "pcode": "511300",
-  "regionName": "营山县"
+  "name": "营山县"
 }, {
-  "regionCode": "511323",
+  "id": "511323",
   "pcode": "511300",
-  "regionName": "蓬安县"
+  "name": "蓬安县"
 }, {
-  "regionCode": "511324",
+  "id": "511324",
   "pcode": "511300",
-  "regionName": "仪陇县"
+  "name": "仪陇县"
 }, {
-  "regionCode": "511325",
+  "id": "511325",
   "pcode": "511300",
-  "regionName": "西充县"
+  "name": "西充县"
 }, {
-  "regionCode": "511381",
+  "id": "511381",
   "pcode": "511300",
-  "regionName": "阆中市"
+  "name": "阆中市"
 }, {
-  "regionCode": "511400",
+  "id": "511400",
   "pcode": "510000",
-  "regionName": "眉山市"
+  "name": "眉山市"
 }, {
-  "regionCode": "511401",
+  "id": "511401",
   "pcode": "511400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "511402",
+  "id": "511402",
   "pcode": "511400",
-  "regionName": "东坡区"
+  "name": "东坡区"
 }, {
-  "regionCode": "511403",
+  "id": "511403",
   "pcode": "511400",
-  "regionName": "彭山区"
+  "name": "彭山区"
 }, {
-  "regionCode": "511421",
+  "id": "511421",
   "pcode": "511400",
-  "regionName": "仁寿县"
+  "name": "仁寿县"
 }, {
-  "regionCode": "511423",
+  "id": "511423",
   "pcode": "511400",
-  "regionName": "洪雅县"
+  "name": "洪雅县"
 }, {
-  "regionCode": "511424",
+  "id": "511424",
   "pcode": "511400",
-  "regionName": "丹棱县"
+  "name": "丹棱县"
 }, {
-  "regionCode": "511425",
+  "id": "511425",
   "pcode": "511400",
-  "regionName": "青神县"
+  "name": "青神县"
 }, {
-  "regionCode": "511500",
+  "id": "511500",
   "pcode": "510000",
-  "regionName": "宜宾市"
+  "name": "宜宾市"
 }, {
-  "regionCode": "511501",
+  "id": "511501",
   "pcode": "511500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "511502",
+  "id": "511502",
   "pcode": "511500",
-  "regionName": "翠屏区"
+  "name": "翠屏区"
 }, {
-  "regionCode": "511503",
+  "id": "511503",
   "pcode": "511500",
-  "regionName": "南溪区"
+  "name": "南溪区"
 }, {
-  "regionCode": "511521",
+  "id": "511521",
   "pcode": "511500",
-  "regionName": "宜宾县"
+  "name": "宜宾县"
 }, {
-  "regionCode": "511523",
+  "id": "511523",
   "pcode": "511500",
-  "regionName": "江安县"
+  "name": "江安县"
 }, {
-  "regionCode": "511524",
+  "id": "511524",
   "pcode": "511500",
-  "regionName": "长宁县"
+  "name": "长宁县"
 }, {
-  "regionCode": "511525",
+  "id": "511525",
   "pcode": "511500",
-  "regionName": "高县"
+  "name": "高县"
 }, {
-  "regionCode": "511526",
+  "id": "511526",
   "pcode": "511500",
-  "regionName": "珙县"
+  "name": "珙县"
 }, {
-  "regionCode": "511527",
+  "id": "511527",
   "pcode": "511500",
-  "regionName": "筠连县"
+  "name": "筠连县"
 }, {
-  "regionCode": "511528",
+  "id": "511528",
   "pcode": "511500",
-  "regionName": "兴文县"
+  "name": "兴文县"
 }, {
-  "regionCode": "511529",
+  "id": "511529",
   "pcode": "511500",
-  "regionName": "屏山县"
+  "name": "屏山县"
 }, {
-  "regionCode": "511600",
+  "id": "511600",
   "pcode": "510000",
-  "regionName": "广安市"
+  "name": "广安市"
 }, {
-  "regionCode": "511601",
+  "id": "511601",
   "pcode": "511600",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "511602",
+  "id": "511602",
   "pcode": "511600",
-  "regionName": "广安区"
+  "name": "广安区"
 }, {
-  "regionCode": "511603",
+  "id": "511603",
   "pcode": "511600",
-  "regionName": "前锋区"
+  "name": "前锋区"
 }, {
-  "regionCode": "511621",
+  "id": "511621",
   "pcode": "511600",
-  "regionName": "岳池县"
+  "name": "岳池县"
 }, {
-  "regionCode": "511622",
+  "id": "511622",
   "pcode": "511600",
-  "regionName": "武胜县"
+  "name": "武胜县"
 }, {
-  "regionCode": "511623",
+  "id": "511623",
   "pcode": "511600",
-  "regionName": "邻水县"
+  "name": "邻水县"
 }, {
-  "regionCode": "511681",
+  "id": "511681",
   "pcode": "511600",
-  "regionName": "华蓥市"
+  "name": "华蓥市"
 }, {
-  "regionCode": "511700",
+  "id": "511700",
   "pcode": "510000",
-  "regionName": "达州市"
+  "name": "达州市"
 }, {
-  "regionCode": "511701",
+  "id": "511701",
   "pcode": "511700",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "511702",
+  "id": "511702",
   "pcode": "511700",
-  "regionName": "通川区"
+  "name": "通川区"
 }, {
-  "regionCode": "511703",
+  "id": "511703",
   "pcode": "511700",
-  "regionName": "达川区"
+  "name": "达川区"
 }, {
-  "regionCode": "511722",
+  "id": "511722",
   "pcode": "511700",
-  "regionName": "宣汉县"
+  "name": "宣汉县"
 }, {
-  "regionCode": "511723",
+  "id": "511723",
   "pcode": "511700",
-  "regionName": "开江县"
+  "name": "开江县"
 }, {
-  "regionCode": "511724",
+  "id": "511724",
   "pcode": "511700",
-  "regionName": "大竹县"
+  "name": "大竹县"
 }, {
-  "regionCode": "511725",
+  "id": "511725",
   "pcode": "511700",
-  "regionName": "渠县"
+  "name": "渠县"
 }, {
-  "regionCode": "511781",
+  "id": "511781",
   "pcode": "511700",
-  "regionName": "万源市"
+  "name": "万源市"
 }, {
-  "regionCode": "511800",
+  "id": "511800",
   "pcode": "510000",
-  "regionName": "雅安市"
+  "name": "雅安市"
 }, {
-  "regionCode": "511801",
+  "id": "511801",
   "pcode": "511800",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "511802",
+  "id": "511802",
   "pcode": "511800",
-  "regionName": "雨城区"
+  "name": "雨城区"
 }, {
-  "regionCode": "511803",
+  "id": "511803",
   "pcode": "511800",
-  "regionName": "名山区"
+  "name": "名山区"
 }, {
-  "regionCode": "511822",
+  "id": "511822",
   "pcode": "511800",
-  "regionName": "荥经县"
+  "name": "荥经县"
 }, {
-  "regionCode": "511823",
+  "id": "511823",
   "pcode": "511800",
-  "regionName": "汉源县"
+  "name": "汉源县"
 }, {
-  "regionCode": "511824",
+  "id": "511824",
   "pcode": "511800",
-  "regionName": "石棉县"
+  "name": "石棉县"
 }, {
-  "regionCode": "511825",
+  "id": "511825",
   "pcode": "511800",
-  "regionName": "天全县"
+  "name": "天全县"
 }, {
-  "regionCode": "511826",
+  "id": "511826",
   "pcode": "511800",
-  "regionName": "芦山县"
+  "name": "芦山县"
 }, {
-  "regionCode": "511827",
+  "id": "511827",
   "pcode": "511800",
-  "regionName": "宝兴县"
+  "name": "宝兴县"
 }, {
-  "regionCode": "511900",
+  "id": "511900",
   "pcode": "510000",
-  "regionName": "巴中市"
+  "name": "巴中市"
 }, {
-  "regionCode": "511901",
+  "id": "511901",
   "pcode": "511900",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "511902",
+  "id": "511902",
   "pcode": "511900",
-  "regionName": "巴州区"
+  "name": "巴州区"
 }, {
-  "regionCode": "511903",
+  "id": "511903",
   "pcode": "511900",
-  "regionName": "恩阳区"
+  "name": "恩阳区"
 }, {
-  "regionCode": "511921",
+  "id": "511921",
   "pcode": "511900",
-  "regionName": "通江县"
+  "name": "通江县"
 }, {
-  "regionCode": "511922",
+  "id": "511922",
   "pcode": "511900",
-  "regionName": "南江县"
+  "name": "南江县"
 }, {
-  "regionCode": "511923",
+  "id": "511923",
   "pcode": "511900",
-  "regionName": "平昌县"
+  "name": "平昌县"
 }, {
-  "regionCode": "512000",
+  "id": "512000",
   "pcode": "510000",
-  "regionName": "资阳市"
+  "name": "资阳市"
 }, {
-  "regionCode": "512001",
+  "id": "512001",
   "pcode": "512000",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "512002",
+  "id": "512002",
   "pcode": "512000",
-  "regionName": "雁江区"
+  "name": "雁江区"
 }, {
-  "regionCode": "512021",
+  "id": "512021",
   "pcode": "512000",
-  "regionName": "安岳县"
+  "name": "安岳县"
 }, {
-  "regionCode": "512022",
+  "id": "512022",
   "pcode": "512000",
-  "regionName": "乐至县"
+  "name": "乐至县"
 }, {
-  "regionCode": "513200",
+  "id": "513200",
   "pcode": "510000",
-  "regionName": "阿坝藏族羌族自治州"
+  "name": "阿坝藏族羌族自治州"
 }, {
-  "regionCode": "513201",
+  "id": "513201",
   "pcode": "513200",
-  "regionName": "马尔康市"
+  "name": "马尔康市"
 }, {
-  "regionCode": "513221",
+  "id": "513221",
   "pcode": "513200",
-  "regionName": "汶川县"
+  "name": "汶川县"
 }, {
-  "regionCode": "513222",
+  "id": "513222",
   "pcode": "513200",
-  "regionName": "理县"
+  "name": "理县"
 }, {
-  "regionCode": "513223",
+  "id": "513223",
   "pcode": "513200",
-  "regionName": "茂县"
+  "name": "茂县"
 }, {
-  "regionCode": "513224",
+  "id": "513224",
   "pcode": "513200",
-  "regionName": "松潘县"
+  "name": "松潘县"
 }, {
-  "regionCode": "513225",
+  "id": "513225",
   "pcode": "513200",
-  "regionName": "九寨沟县"
+  "name": "九寨沟县"
 }, {
-  "regionCode": "513226",
+  "id": "513226",
   "pcode": "513200",
-  "regionName": "金川县"
+  "name": "金川县"
 }, {
-  "regionCode": "513227",
+  "id": "513227",
   "pcode": "513200",
-  "regionName": "小金县"
+  "name": "小金县"
 }, {
-  "regionCode": "513228",
+  "id": "513228",
   "pcode": "513200",
-  "regionName": "黑水县"
+  "name": "黑水县"
 }, {
-  "regionCode": "513230",
+  "id": "513230",
   "pcode": "513200",
-  "regionName": "壤塘县"
+  "name": "壤塘县"
 }, {
-  "regionCode": "513231",
+  "id": "513231",
   "pcode": "513200",
-  "regionName": "阿坝县"
+  "name": "阿坝县"
 }, {
-  "regionCode": "513232",
+  "id": "513232",
   "pcode": "513200",
-  "regionName": "若尔盖县"
+  "name": "若尔盖县"
 }, {
-  "regionCode": "513233",
+  "id": "513233",
   "pcode": "513200",
-  "regionName": "红原县"
+  "name": "红原县"
 }, {
-  "regionCode": "513300",
+  "id": "513300",
   "pcode": "510000",
-  "regionName": "甘孜藏族自治州"
+  "name": "甘孜藏族自治州"
 }, {
-  "regionCode": "513301",
+  "id": "513301",
   "pcode": "513300",
-  "regionName": "康定市"
+  "name": "康定市"
 }, {
-  "regionCode": "513322",
+  "id": "513322",
   "pcode": "513300",
-  "regionName": "泸定县"
+  "name": "泸定县"
 }, {
-  "regionCode": "513323",
+  "id": "513323",
   "pcode": "513300",
-  "regionName": "丹巴县"
+  "name": "丹巴县"
 }, {
-  "regionCode": "513324",
+  "id": "513324",
   "pcode": "513300",
-  "regionName": "九龙县"
+  "name": "九龙县"
 }, {
-  "regionCode": "513325",
+  "id": "513325",
   "pcode": "513300",
-  "regionName": "雅江县"
+  "name": "雅江县"
 }, {
-  "regionCode": "513326",
+  "id": "513326",
   "pcode": "513300",
-  "regionName": "道孚县"
+  "name": "道孚县"
 }, {
-  "regionCode": "513327",
+  "id": "513327",
   "pcode": "513300",
-  "regionName": "炉霍县"
+  "name": "炉霍县"
 }, {
-  "regionCode": "513328",
+  "id": "513328",
   "pcode": "513300",
-  "regionName": "甘孜县"
+  "name": "甘孜县"
 }, {
-  "regionCode": "513329",
+  "id": "513329",
   "pcode": "513300",
-  "regionName": "新龙县"
+  "name": "新龙县"
 }, {
-  "regionCode": "513330",
+  "id": "513330",
   "pcode": "513300",
-  "regionName": "德格县"
+  "name": "德格县"
 }, {
-  "regionCode": "513331",
+  "id": "513331",
   "pcode": "513300",
-  "regionName": "白玉县"
+  "name": "白玉县"
 }, {
-  "regionCode": "513332",
+  "id": "513332",
   "pcode": "513300",
-  "regionName": "石渠县"
+  "name": "石渠县"
 }, {
-  "regionCode": "513333",
+  "id": "513333",
   "pcode": "513300",
-  "regionName": "色达县"
+  "name": "色达县"
 }, {
-  "regionCode": "513334",
+  "id": "513334",
   "pcode": "513300",
-  "regionName": "理塘县"
+  "name": "理塘县"
 }, {
-  "regionCode": "513335",
+  "id": "513335",
   "pcode": "513300",
-  "regionName": "巴塘县"
+  "name": "巴塘县"
 }, {
-  "regionCode": "513336",
+  "id": "513336",
   "pcode": "513300",
-  "regionName": "乡城县"
+  "name": "乡城县"
 }, {
-  "regionCode": "513337",
+  "id": "513337",
   "pcode": "513300",
-  "regionName": "稻城县"
+  "name": "稻城县"
 }, {
-  "regionCode": "513338",
+  "id": "513338",
   "pcode": "513300",
-  "regionName": "得荣县"
+  "name": "得荣县"
 }, {
-  "regionCode": "513400",
+  "id": "513400",
   "pcode": "510000",
-  "regionName": "凉山彝族自治州"
+  "name": "凉山彝族自治州"
 }, {
-  "regionCode": "513401",
+  "id": "513401",
   "pcode": "513400",
-  "regionName": "西昌市"
+  "name": "西昌市"
 }, {
-  "regionCode": "513422",
+  "id": "513422",
   "pcode": "513400",
-  "regionName": "木里藏族自治县"
+  "name": "木里藏族自治县"
 }, {
-  "regionCode": "513423",
+  "id": "513423",
   "pcode": "513400",
-  "regionName": "盐源县"
+  "name": "盐源县"
 }, {
-  "regionCode": "513424",
+  "id": "513424",
   "pcode": "513400",
-  "regionName": "德昌县"
+  "name": "德昌县"
 }, {
-  "regionCode": "513425",
+  "id": "513425",
   "pcode": "513400",
-  "regionName": "会理县"
+  "name": "会理县"
 }, {
-  "regionCode": "513426",
+  "id": "513426",
   "pcode": "513400",
-  "regionName": "会东县"
+  "name": "会东县"
 }, {
-  "regionCode": "513427",
+  "id": "513427",
   "pcode": "513400",
-  "regionName": "宁南县"
+  "name": "宁南县"
 }, {
-  "regionCode": "513428",
+  "id": "513428",
   "pcode": "513400",
-  "regionName": "普格县"
+  "name": "普格县"
 }, {
-  "regionCode": "513429",
+  "id": "513429",
   "pcode": "513400",
-  "regionName": "布拖县"
+  "name": "布拖县"
 }, {
-  "regionCode": "513430",
+  "id": "513430",
   "pcode": "513400",
-  "regionName": "金阳县"
+  "name": "金阳县"
 }, {
-  "regionCode": "513431",
+  "id": "513431",
   "pcode": "513400",
-  "regionName": "昭觉县"
+  "name": "昭觉县"
 }, {
-  "regionCode": "513432",
+  "id": "513432",
   "pcode": "513400",
-  "regionName": "喜德县"
+  "name": "喜德县"
 }, {
-  "regionCode": "513433",
+  "id": "513433",
   "pcode": "513400",
-  "regionName": "冕宁县"
+  "name": "冕宁县"
 }, {
-  "regionCode": "513434",
+  "id": "513434",
   "pcode": "513400",
-  "regionName": "越西县"
+  "name": "越西县"
 }, {
-  "regionCode": "513435",
+  "id": "513435",
   "pcode": "513400",
-  "regionName": "甘洛县"
+  "name": "甘洛县"
 }, {
-  "regionCode": "513436",
+  "id": "513436",
   "pcode": "513400",
-  "regionName": "美姑县"
+  "name": "美姑县"
 }, {
-  "regionCode": "513437",
+  "id": "513437",
   "pcode": "513400",
-  "regionName": "雷波县"
+  "name": "雷波县"
 }, {
-  "regionCode": "520000",
+  "id": "520000",
   "pcode": "",
-  "regionName": "贵州省"
+  "name": "贵州省"
 }, {
-  "regionCode": "520100",
+  "id": "520100",
   "pcode": "520000",
-  "regionName": "贵阳市"
+  "name": "贵阳市"
 }, {
-  "regionCode": "520101",
+  "id": "520101",
   "pcode": "520100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "520102",
+  "id": "520102",
   "pcode": "520100",
-  "regionName": "南明区"
+  "name": "南明区"
 }, {
-  "regionCode": "520103",
+  "id": "520103",
   "pcode": "520100",
-  "regionName": "云岩区"
+  "name": "云岩区"
 }, {
-  "regionCode": "520111",
+  "id": "520111",
   "pcode": "520100",
-  "regionName": "花溪区"
+  "name": "花溪区"
 }, {
-  "regionCode": "520112",
+  "id": "520112",
   "pcode": "520100",
-  "regionName": "乌当区"
+  "name": "乌当区"
 }, {
-  "regionCode": "520113",
+  "id": "520113",
   "pcode": "520100",
-  "regionName": "白云区"
+  "name": "白云区"
 }, {
-  "regionCode": "520115",
+  "id": "520115",
   "pcode": "520100",
-  "regionName": "观山湖区"
+  "name": "观山湖区"
 }, {
-  "regionCode": "520121",
+  "id": "520121",
   "pcode": "520100",
-  "regionName": "开阳县"
+  "name": "开阳县"
 }, {
-  "regionCode": "520122",
+  "id": "520122",
   "pcode": "520100",
-  "regionName": "息烽县"
+  "name": "息烽县"
 }, {
-  "regionCode": "520123",
+  "id": "520123",
   "pcode": "520100",
-  "regionName": "修文县"
+  "name": "修文县"
 }, {
-  "regionCode": "520181",
+  "id": "520181",
   "pcode": "520100",
-  "regionName": "清镇市"
+  "name": "清镇市"
 }, {
-  "regionCode": "520200",
+  "id": "520200",
   "pcode": "520000",
-  "regionName": "六盘水市"
+  "name": "六盘水市"
 }, {
-  "regionCode": "520201",
+  "id": "520201",
   "pcode": "520200",
-  "regionName": "钟山区"
+  "name": "钟山区"
 }, {
-  "regionCode": "520203",
+  "id": "520203",
   "pcode": "520200",
-  "regionName": "六枝特区"
+  "name": "六枝特区"
 }, {
-  "regionCode": "520221",
+  "id": "520221",
   "pcode": "520200",
-  "regionName": "水城县"
+  "name": "水城县"
 }, {
-  "regionCode": "520222",
+  "id": "520222",
   "pcode": "520200",
-  "regionName": "盘县"
+  "name": "盘县"
 }, {
-  "regionCode": "520300",
+  "id": "520300",
   "pcode": "520000",
-  "regionName": "遵义市"
+  "name": "遵义市"
 }, {
-  "regionCode": "520301",
+  "id": "520301",
   "pcode": "520300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "520302",
+  "id": "520302",
   "pcode": "520300",
-  "regionName": "红花岗区"
+  "name": "红花岗区"
 }, {
-  "regionCode": "520303",
+  "id": "520303",
   "pcode": "520300",
-  "regionName": "汇川区"
+  "name": "汇川区"
 }, {
-  "regionCode": "520304",
+  "id": "520304",
   "pcode": "520300",
-  "regionName": "播州区"
+  "name": "播州区"
 }, {
-  "regionCode": "520322",
+  "id": "520322",
   "pcode": "520300",
-  "regionName": "桐梓县"
+  "name": "桐梓县"
 }, {
-  "regionCode": "520323",
+  "id": "520323",
   "pcode": "520300",
-  "regionName": "绥阳县"
+  "name": "绥阳县"
 }, {
-  "regionCode": "520324",
+  "id": "520324",
   "pcode": "520300",
-  "regionName": "正安县"
+  "name": "正安县"
 }, {
-  "regionCode": "520325",
+  "id": "520325",
   "pcode": "520300",
-  "regionName": "道真仡佬族苗族自治县"
+  "name": "道真仡佬族苗族自治县"
 }, {
-  "regionCode": "520326",
+  "id": "520326",
   "pcode": "520300",
-  "regionName": "务川仡佬族苗族自治县"
+  "name": "务川仡佬族苗族自治县"
 }, {
-  "regionCode": "520327",
+  "id": "520327",
   "pcode": "520300",
-  "regionName": "凤冈县"
+  "name": "凤冈县"
 }, {
-  "regionCode": "520328",
+  "id": "520328",
   "pcode": "520300",
-  "regionName": "湄潭县"
+  "name": "湄潭县"
 }, {
-  "regionCode": "520329",
+  "id": "520329",
   "pcode": "520300",
-  "regionName": "余庆县"
+  "name": "余庆县"
 }, {
-  "regionCode": "520330",
+  "id": "520330",
   "pcode": "520300",
-  "regionName": "习水县"
+  "name": "习水县"
 }, {
-  "regionCode": "520381",
+  "id": "520381",
   "pcode": "520300",
-  "regionName": "赤水市"
+  "name": "赤水市"
 }, {
-  "regionCode": "520382",
+  "id": "520382",
   "pcode": "520300",
-  "regionName": "仁怀市"
+  "name": "仁怀市"
 }, {
-  "regionCode": "520400",
+  "id": "520400",
   "pcode": "520000",
-  "regionName": "安顺市"
+  "name": "安顺市"
 }, {
-  "regionCode": "520401",
+  "id": "520401",
   "pcode": "520400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "520402",
+  "id": "520402",
   "pcode": "520400",
-  "regionName": "西秀区"
+  "name": "西秀区"
 }, {
-  "regionCode": "520403",
+  "id": "520403",
   "pcode": "520400",
-  "regionName": "平坝区"
+  "name": "平坝区"
 }, {
-  "regionCode": "520422",
+  "id": "520422",
   "pcode": "520400",
-  "regionName": "普定县"
+  "name": "普定县"
 }, {
-  "regionCode": "520423",
+  "id": "520423",
   "pcode": "520400",
-  "regionName": "镇宁布依族苗族自治县"
+  "name": "镇宁布依族苗族自治县"
 }, {
-  "regionCode": "520424",
+  "id": "520424",
   "pcode": "520400",
-  "regionName": "关岭布依族苗族自治县"
+  "name": "关岭布依族苗族自治县"
 }, {
-  "regionCode": "520425",
+  "id": "520425",
   "pcode": "520400",
-  "regionName": "紫云苗族布依族自治县"
+  "name": "紫云苗族布依族自治县"
 }, {
-  "regionCode": "520500",
+  "id": "520500",
   "pcode": "520000",
-  "regionName": "毕节市"
+  "name": "毕节市"
 }, {
-  "regionCode": "520501",
+  "id": "520501",
   "pcode": "520500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "520502",
+  "id": "520502",
   "pcode": "520500",
-  "regionName": "七星关区"
+  "name": "七星关区"
 }, {
-  "regionCode": "520521",
+  "id": "520521",
   "pcode": "520500",
-  "regionName": "大方县"
+  "name": "大方县"
 }, {
-  "regionCode": "520522",
+  "id": "520522",
   "pcode": "520500",
-  "regionName": "黔西县"
+  "name": "黔西县"
 }, {
-  "regionCode": "520523",
+  "id": "520523",
   "pcode": "520500",
-  "regionName": "金沙县"
+  "name": "金沙县"
 }, {
-  "regionCode": "520524",
+  "id": "520524",
   "pcode": "520500",
-  "regionName": "织金县"
+  "name": "织金县"
 }, {
-  "regionCode": "520525",
+  "id": "520525",
   "pcode": "520500",
-  "regionName": "纳雍县"
+  "name": "纳雍县"
 }, {
-  "regionCode": "520526",
+  "id": "520526",
   "pcode": "520500",
-  "regionName": "威宁彝族回族苗族自治县"
+  "name": "威宁彝族回族苗族自治县"
 }, {
-  "regionCode": "520527",
+  "id": "520527",
   "pcode": "520500",
-  "regionName": "赫章县"
+  "name": "赫章县"
 }, {
-  "regionCode": "520600",
+  "id": "520600",
   "pcode": "520000",
-  "regionName": "铜仁市"
+  "name": "铜仁市"
 }, {
-  "regionCode": "520601",
+  "id": "520601",
   "pcode": "520600",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "520602",
+  "id": "520602",
   "pcode": "520600",
-  "regionName": "碧江区"
+  "name": "碧江区"
 }, {
-  "regionCode": "520603",
+  "id": "520603",
   "pcode": "520600",
-  "regionName": "万山区"
+  "name": "万山区"
 }, {
-  "regionCode": "520621",
+  "id": "520621",
   "pcode": "520600",
-  "regionName": "江口县"
+  "name": "江口县"
 }, {
-  "regionCode": "520622",
+  "id": "520622",
   "pcode": "520600",
-  "regionName": "玉屏侗族自治县"
+  "name": "玉屏侗族自治县"
 }, {
-  "regionCode": "520623",
+  "id": "520623",
   "pcode": "520600",
-  "regionName": "石阡县"
+  "name": "石阡县"
 }, {
-  "regionCode": "520624",
+  "id": "520624",
   "pcode": "520600",
-  "regionName": "思南县"
+  "name": "思南县"
 }, {
-  "regionCode": "520625",
+  "id": "520625",
   "pcode": "520600",
-  "regionName": "印江土家族苗族自治县"
+  "name": "印江土家族苗族自治县"
 }, {
-  "regionCode": "520626",
+  "id": "520626",
   "pcode": "520600",
-  "regionName": "德江县"
+  "name": "德江县"
 }, {
-  "regionCode": "520627",
+  "id": "520627",
   "pcode": "520600",
-  "regionName": "沿河土家族自治县"
+  "name": "沿河土家族自治县"
 }, {
-  "regionCode": "520628",
+  "id": "520628",
   "pcode": "520600",
-  "regionName": "松桃苗族自治县"
+  "name": "松桃苗族自治县"
 }, {
-  "regionCode": "522300",
+  "id": "522300",
   "pcode": "520000",
-  "regionName": "黔西南布依族苗族自治州"
+  "name": "黔西南布依族苗族自治州"
 }, {
-  "regionCode": "522301",
+  "id": "522301",
   "pcode": "522300",
-  "regionName": "兴义市"
+  "name": "兴义市"
 }, {
-  "regionCode": "522322",
+  "id": "522322",
   "pcode": "522300",
-  "regionName": "兴仁县"
+  "name": "兴仁县"
 }, {
-  "regionCode": "522323",
+  "id": "522323",
   "pcode": "522300",
-  "regionName": "普安县"
+  "name": "普安县"
 }, {
-  "regionCode": "522324",
+  "id": "522324",
   "pcode": "522300",
-  "regionName": "晴隆县"
+  "name": "晴隆县"
 }, {
-  "regionCode": "522325",
+  "id": "522325",
   "pcode": "522300",
-  "regionName": "贞丰县"
+  "name": "贞丰县"
 }, {
-  "regionCode": "522326",
+  "id": "522326",
   "pcode": "522300",
-  "regionName": "望谟县"
+  "name": "望谟县"
 }, {
-  "regionCode": "522327",
+  "id": "522327",
   "pcode": "522300",
-  "regionName": "册亨县"
+  "name": "册亨县"
 }, {
-  "regionCode": "522328",
+  "id": "522328",
   "pcode": "522300",
-  "regionName": "安龙县"
+  "name": "安龙县"
 }, {
-  "regionCode": "522600",
+  "id": "522600",
   "pcode": "520000",
-  "regionName": "黔东南苗族侗族自治州"
+  "name": "黔东南苗族侗族自治州"
 }, {
-  "regionCode": "522601",
+  "id": "522601",
   "pcode": "522600",
-  "regionName": "凯里市"
+  "name": "凯里市"
 }, {
-  "regionCode": "522622",
+  "id": "522622",
   "pcode": "522600",
-  "regionName": "黄平县"
+  "name": "黄平县"
 }, {
-  "regionCode": "522623",
+  "id": "522623",
   "pcode": "522600",
-  "regionName": "施秉县"
+  "name": "施秉县"
 }, {
-  "regionCode": "522624",
+  "id": "522624",
   "pcode": "522600",
-  "regionName": "三穗县"
+  "name": "三穗县"
 }, {
-  "regionCode": "522625",
+  "id": "522625",
   "pcode": "522600",
-  "regionName": "镇远县"
+  "name": "镇远县"
 }, {
-  "regionCode": "522626",
+  "id": "522626",
   "pcode": "522600",
-  "regionName": "岑巩县"
+  "name": "岑巩县"
 }, {
-  "regionCode": "522627",
+  "id": "522627",
   "pcode": "522600",
-  "regionName": "天柱县"
+  "name": "天柱县"
 }, {
-  "regionCode": "522628",
+  "id": "522628",
   "pcode": "522600",
-  "regionName": "锦屏县"
+  "name": "锦屏县"
 }, {
-  "regionCode": "522629",
+  "id": "522629",
   "pcode": "522600",
-  "regionName": "剑河县"
+  "name": "剑河县"
 }, {
-  "regionCode": "522630",
+  "id": "522630",
   "pcode": "522600",
-  "regionName": "台江县"
+  "name": "台江县"
 }, {
-  "regionCode": "522631",
+  "id": "522631",
   "pcode": "522600",
-  "regionName": "黎平县"
+  "name": "黎平县"
 }, {
-  "regionCode": "522632",
+  "id": "522632",
   "pcode": "522600",
-  "regionName": "榕江县"
+  "name": "榕江县"
 }, {
-  "regionCode": "522633",
+  "id": "522633",
   "pcode": "522600",
-  "regionName": "从江县"
+  "name": "从江县"
 }, {
-  "regionCode": "522634",
+  "id": "522634",
   "pcode": "522600",
-  "regionName": "雷山县"
+  "name": "雷山县"
 }, {
-  "regionCode": "522635",
+  "id": "522635",
   "pcode": "522600",
-  "regionName": "麻江县"
+  "name": "麻江县"
 }, {
-  "regionCode": "522636",
+  "id": "522636",
   "pcode": "522600",
-  "regionName": "丹寨县"
+  "name": "丹寨县"
 }, {
-  "regionCode": "522700",
+  "id": "522700",
   "pcode": "520000",
-  "regionName": "黔南布依族苗族自治州"
+  "name": "黔南布依族苗族自治州"
 }, {
-  "regionCode": "522701",
+  "id": "522701",
   "pcode": "522700",
-  "regionName": "都匀市"
+  "name": "都匀市"
 }, {
-  "regionCode": "522702",
+  "id": "522702",
   "pcode": "522700",
-  "regionName": "福泉市"
+  "name": "福泉市"
 }, {
-  "regionCode": "522722",
+  "id": "522722",
   "pcode": "522700",
-  "regionName": "荔波县"
+  "name": "荔波县"
 }, {
-  "regionCode": "522723",
+  "id": "522723",
   "pcode": "522700",
-  "regionName": "贵定县"
+  "name": "贵定县"
 }, {
-  "regionCode": "522725",
+  "id": "522725",
   "pcode": "522700",
-  "regionName": "瓮安县"
+  "name": "瓮安县"
 }, {
-  "regionCode": "522726",
+  "id": "522726",
   "pcode": "522700",
-  "regionName": "独山县"
+  "name": "独山县"
 }, {
-  "regionCode": "522727",
+  "id": "522727",
   "pcode": "522700",
-  "regionName": "平塘县"
+  "name": "平塘县"
 }, {
-  "regionCode": "522728",
+  "id": "522728",
   "pcode": "522700",
-  "regionName": "罗甸县"
+  "name": "罗甸县"
 }, {
-  "regionCode": "522729",
+  "id": "522729",
   "pcode": "522700",
-  "regionName": "长顺县"
+  "name": "长顺县"
 }, {
-  "regionCode": "522730",
+  "id": "522730",
   "pcode": "522700",
-  "regionName": "龙里县"
+  "name": "龙里县"
 }, {
-  "regionCode": "522731",
+  "id": "522731",
   "pcode": "522700",
-  "regionName": "惠水县"
+  "name": "惠水县"
 }, {
-  "regionCode": "522732",
+  "id": "522732",
   "pcode": "522700",
-  "regionName": "三都水族自治县"
+  "name": "三都水族自治县"
 }, {
-  "regionCode": "530000",
+  "id": "530000",
   "pcode": "",
-  "regionName": "云南省"
+  "name": "云南省"
 }, {
-  "regionCode": "530100",
+  "id": "530100",
   "pcode": "530000",
-  "regionName": "昆明市"
+  "name": "昆明市"
 }, {
-  "regionCode": "530101",
+  "id": "530101",
   "pcode": "530100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "530102",
+  "id": "530102",
   "pcode": "530100",
-  "regionName": "五华区"
+  "name": "五华区"
 }, {
-  "regionCode": "530103",
+  "id": "530103",
   "pcode": "530100",
-  "regionName": "盘龙区"
+  "name": "盘龙区"
 }, {
-  "regionCode": "530111",
+  "id": "530111",
   "pcode": "530100",
-  "regionName": "官渡区"
+  "name": "官渡区"
 }, {
-  "regionCode": "530112",
+  "id": "530112",
   "pcode": "530100",
-  "regionName": "西山区"
+  "name": "西山区"
 }, {
-  "regionCode": "530113",
+  "id": "530113",
   "pcode": "530100",
-  "regionName": "东川区"
+  "name": "东川区"
 }, {
-  "regionCode": "530114",
+  "id": "530114",
   "pcode": "530100",
-  "regionName": "呈贡区"
+  "name": "呈贡区"
 }, {
-  "regionCode": "530122",
+  "id": "530122",
   "pcode": "530100",
-  "regionName": "晋宁县"
+  "name": "晋宁县"
 }, {
-  "regionCode": "530124",
+  "id": "530124",
   "pcode": "530100",
-  "regionName": "富民县"
+  "name": "富民县"
 }, {
-  "regionCode": "530125",
+  "id": "530125",
   "pcode": "530100",
-  "regionName": "宜良县"
+  "name": "宜良县"
 }, {
-  "regionCode": "530126",
+  "id": "530126",
   "pcode": "530100",
-  "regionName": "石林彝族自治县"
+  "name": "石林彝族自治县"
 }, {
-  "regionCode": "530127",
+  "id": "530127",
   "pcode": "530100",
-  "regionName": "嵩明县"
+  "name": "嵩明县"
 }, {
-  "regionCode": "530128",
+  "id": "530128",
   "pcode": "530100",
-  "regionName": "禄劝彝族苗族自治县"
+  "name": "禄劝彝族苗族自治县"
 }, {
-  "regionCode": "530129",
+  "id": "530129",
   "pcode": "530100",
-  "regionName": "寻甸回族彝族自治县"
+  "name": "寻甸回族彝族自治县"
 }, {
-  "regionCode": "530181",
+  "id": "530181",
   "pcode": "530100",
-  "regionName": "安宁市"
+  "name": "安宁市"
 }, {
-  "regionCode": "530300",
+  "id": "530300",
   "pcode": "530000",
-  "regionName": "曲靖市"
+  "name": "曲靖市"
 }, {
-  "regionCode": "530301",
+  "id": "530301",
   "pcode": "530300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "530302",
+  "id": "530302",
   "pcode": "530300",
-  "regionName": "麒麟区"
+  "name": "麒麟区"
 }, {
-  "regionCode": "530303",
+  "id": "530303",
   "pcode": "530300",
-  "regionName": "沾益区"
+  "name": "沾益区"
 }, {
-  "regionCode": "530321",
+  "id": "530321",
   "pcode": "530300",
-  "regionName": "马龙县"
+  "name": "马龙县"
 }, {
-  "regionCode": "530322",
+  "id": "530322",
   "pcode": "530300",
-  "regionName": "陆良县"
+  "name": "陆良县"
 }, {
-  "regionCode": "530323",
+  "id": "530323",
   "pcode": "530300",
-  "regionName": "师宗县"
+  "name": "师宗县"
 }, {
-  "regionCode": "530324",
+  "id": "530324",
   "pcode": "530300",
-  "regionName": "罗平县"
+  "name": "罗平县"
 }, {
-  "regionCode": "530325",
+  "id": "530325",
   "pcode": "530300",
-  "regionName": "富源县"
+  "name": "富源县"
 }, {
-  "regionCode": "530326",
+  "id": "530326",
   "pcode": "530300",
-  "regionName": "会泽县"
+  "name": "会泽县"
 }, {
-  "regionCode": "530381",
+  "id": "530381",
   "pcode": "530300",
-  "regionName": "宣威市"
+  "name": "宣威市"
 }, {
-  "regionCode": "530400",
+  "id": "530400",
   "pcode": "530000",
-  "regionName": "玉溪市"
+  "name": "玉溪市"
 }, {
-  "regionCode": "530401",
+  "id": "530401",
   "pcode": "530400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "530402",
+  "id": "530402",
   "pcode": "530400",
-  "regionName": "红塔区"
+  "name": "红塔区"
 }, {
-  "regionCode": "530403",
+  "id": "530403",
   "pcode": "530400",
-  "regionName": "江川区"
+  "name": "江川区"
 }, {
-  "regionCode": "530422",
+  "id": "530422",
   "pcode": "530400",
-  "regionName": "澄江县"
+  "name": "澄江县"
 }, {
-  "regionCode": "530423",
+  "id": "530423",
   "pcode": "530400",
-  "regionName": "通海县"
+  "name": "通海县"
 }, {
-  "regionCode": "530424",
+  "id": "530424",
   "pcode": "530400",
-  "regionName": "华宁县"
+  "name": "华宁县"
 }, {
-  "regionCode": "530425",
+  "id": "530425",
   "pcode": "530400",
-  "regionName": "易门县"
+  "name": "易门县"
 }, {
-  "regionCode": "530426",
+  "id": "530426",
   "pcode": "530400",
-  "regionName": "峨山彝族自治县"
+  "name": "峨山彝族自治县"
 }, {
-  "regionCode": "530427",
+  "id": "530427",
   "pcode": "530400",
-  "regionName": "新平彝族傣族自治县"
+  "name": "新平彝族傣族自治县"
 }, {
-  "regionCode": "530428",
+  "id": "530428",
   "pcode": "530400",
-  "regionName": "元江哈尼族彝族傣族自治县"
+  "name": "元江哈尼族彝族傣族自治县"
 }, {
-  "regionCode": "530500",
+  "id": "530500",
   "pcode": "530000",
-  "regionName": "保山市"
+  "name": "保山市"
 }, {
-  "regionCode": "530501",
+  "id": "530501",
   "pcode": "530500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "530502",
+  "id": "530502",
   "pcode": "530500",
-  "regionName": "隆阳区"
+  "name": "隆阳区"
 }, {
-  "regionCode": "530521",
+  "id": "530521",
   "pcode": "530500",
-  "regionName": "施甸县"
+  "name": "施甸县"
 }, {
-  "regionCode": "530523",
+  "id": "530523",
   "pcode": "530500",
-  "regionName": "龙陵县"
+  "name": "龙陵县"
 }, {
-  "regionCode": "530524",
+  "id": "530524",
   "pcode": "530500",
-  "regionName": "昌宁县"
+  "name": "昌宁县"
 }, {
-  "regionCode": "530581",
+  "id": "530581",
   "pcode": "530500",
-  "regionName": "腾冲市"
+  "name": "腾冲市"
 }, {
-  "regionCode": "530600",
+  "id": "530600",
   "pcode": "530000",
-  "regionName": "昭通市"
+  "name": "昭通市"
 }, {
-  "regionCode": "530601",
+  "id": "530601",
   "pcode": "530600",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "530602",
+  "id": "530602",
   "pcode": "530600",
-  "regionName": "昭阳区"
+  "name": "昭阳区"
 }, {
-  "regionCode": "530621",
+  "id": "530621",
   "pcode": "530600",
-  "regionName": "鲁甸县"
+  "name": "鲁甸县"
 }, {
-  "regionCode": "530622",
+  "id": "530622",
   "pcode": "530600",
-  "regionName": "巧家县"
+  "name": "巧家县"
 }, {
-  "regionCode": "530623",
+  "id": "530623",
   "pcode": "530600",
-  "regionName": "盐津县"
+  "name": "盐津县"
 }, {
-  "regionCode": "530624",
+  "id": "530624",
   "pcode": "530600",
-  "regionName": "大关县"
+  "name": "大关县"
 }, {
-  "regionCode": "530625",
+  "id": "530625",
   "pcode": "530600",
-  "regionName": "永善县"
+  "name": "永善县"
 }, {
-  "regionCode": "530626",
+  "id": "530626",
   "pcode": "530600",
-  "regionName": "绥江县"
+  "name": "绥江县"
 }, {
-  "regionCode": "530627",
+  "id": "530627",
   "pcode": "530600",
-  "regionName": "镇雄县"
+  "name": "镇雄县"
 }, {
-  "regionCode": "530628",
+  "id": "530628",
   "pcode": "530600",
-  "regionName": "彝良县"
+  "name": "彝良县"
 }, {
-  "regionCode": "530629",
+  "id": "530629",
   "pcode": "530600",
-  "regionName": "威信县"
+  "name": "威信县"
 }, {
-  "regionCode": "530630",
+  "id": "530630",
   "pcode": "530600",
-  "regionName": "水富县"
+  "name": "水富县"
 }, {
-  "regionCode": "530700",
+  "id": "530700",
   "pcode": "530000",
-  "regionName": "丽江市"
+  "name": "丽江市"
 }, {
-  "regionCode": "530701",
+  "id": "530701",
   "pcode": "530700",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "530702",
+  "id": "530702",
   "pcode": "530700",
-  "regionName": "古城区"
+  "name": "古城区"
 }, {
-  "regionCode": "530721",
+  "id": "530721",
   "pcode": "530700",
-  "regionName": "玉龙纳西族自治县"
+  "name": "玉龙纳西族自治县"
 }, {
-  "regionCode": "530722",
+  "id": "530722",
   "pcode": "530700",
-  "regionName": "永胜县"
+  "name": "永胜县"
 }, {
-  "regionCode": "530723",
+  "id": "530723",
   "pcode": "530700",
-  "regionName": "华坪县"
+  "name": "华坪县"
 }, {
-  "regionCode": "530724",
+  "id": "530724",
   "pcode": "530700",
-  "regionName": "宁蒗彝族自治县"
+  "name": "宁蒗彝族自治县"
 }, {
-  "regionCode": "530800",
+  "id": "530800",
   "pcode": "530000",
-  "regionName": "普洱市"
+  "name": "普洱市"
 }, {
-  "regionCode": "530801",
+  "id": "530801",
   "pcode": "530800",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "530802",
+  "id": "530802",
   "pcode": "530800",
-  "regionName": "思茅区"
+  "name": "思茅区"
 }, {
-  "regionCode": "530821",
+  "id": "530821",
   "pcode": "530800",
-  "regionName": "宁洱哈尼族彝族自治县"
+  "name": "宁洱哈尼族彝族自治县"
 }, {
-  "regionCode": "530822",
+  "id": "530822",
   "pcode": "530800",
-  "regionName": "墨江哈尼族自治县"
+  "name": "墨江哈尼族自治县"
 }, {
-  "regionCode": "530823",
+  "id": "530823",
   "pcode": "530800",
-  "regionName": "景东彝族自治县"
+  "name": "景东彝族自治县"
 }, {
-  "regionCode": "530824",
+  "id": "530824",
   "pcode": "530800",
-  "regionName": "景谷傣族彝族自治县"
+  "name": "景谷傣族彝族自治县"
 }, {
-  "regionCode": "530825",
+  "id": "530825",
   "pcode": "530800",
-  "regionName": "镇沅彝族哈尼族拉祜族自治县"
+  "name": "镇沅彝族哈尼族拉祜族自治县"
 }, {
-  "regionCode": "530826",
+  "id": "530826",
   "pcode": "530800",
-  "regionName": "江城哈尼族彝族自治县"
+  "name": "江城哈尼族彝族自治县"
 }, {
-  "regionCode": "530827",
+  "id": "530827",
   "pcode": "530800",
-  "regionName": "孟连傣族拉祜族佤族自治县"
+  "name": "孟连傣族拉祜族佤族自治县"
 }, {
-  "regionCode": "530828",
+  "id": "530828",
   "pcode": "530800",
-  "regionName": "澜沧拉祜族自治县"
+  "name": "澜沧拉祜族自治县"
 }, {
-  "regionCode": "530829",
+  "id": "530829",
   "pcode": "530800",
-  "regionName": "西盟佤族自治县"
+  "name": "西盟佤族自治县"
 }, {
-  "regionCode": "530900",
+  "id": "530900",
   "pcode": "530000",
-  "regionName": "临沧市"
+  "name": "临沧市"
 }, {
-  "regionCode": "530901",
+  "id": "530901",
   "pcode": "530900",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "530902",
+  "id": "530902",
   "pcode": "530900",
-  "regionName": "临翔区"
+  "name": "临翔区"
 }, {
-  "regionCode": "530921",
+  "id": "530921",
   "pcode": "530900",
-  "regionName": "凤庆县"
+  "name": "凤庆县"
 }, {
-  "regionCode": "530922",
+  "id": "530922",
   "pcode": "530900",
-  "regionName": "云县"
+  "name": "云县"
 }, {
-  "regionCode": "530923",
+  "id": "530923",
   "pcode": "530900",
-  "regionName": "永德县"
+  "name": "永德县"
 }, {
-  "regionCode": "530924",
+  "id": "530924",
   "pcode": "530900",
-  "regionName": "镇康县"
+  "name": "镇康县"
 }, {
-  "regionCode": "530925",
+  "id": "530925",
   "pcode": "530900",
-  "regionName": "双江拉祜族佤族布朗族傣族自治县"
+  "name": "双江拉祜族佤族布朗族傣族自治县"
 }, {
-  "regionCode": "530926",
+  "id": "530926",
   "pcode": "530900",
-  "regionName": "耿马傣族佤族自治县"
+  "name": "耿马傣族佤族自治县"
 }, {
-  "regionCode": "530927",
+  "id": "530927",
   "pcode": "530900",
-  "regionName": "沧源佤族自治县"
+  "name": "沧源佤族自治县"
 }, {
-  "regionCode": "532300",
+  "id": "532300",
   "pcode": "530000",
-  "regionName": "楚雄彝族自治州"
+  "name": "楚雄彝族自治州"
 }, {
-  "regionCode": "532301",
+  "id": "532301",
   "pcode": "532300",
-  "regionName": "楚雄市"
+  "name": "楚雄市"
 }, {
-  "regionCode": "532322",
+  "id": "532322",
   "pcode": "532300",
-  "regionName": "双柏县"
+  "name": "双柏县"
 }, {
-  "regionCode": "532323",
+  "id": "532323",
   "pcode": "532300",
-  "regionName": "牟定县"
+  "name": "牟定县"
 }, {
-  "regionCode": "532324",
+  "id": "532324",
   "pcode": "532300",
-  "regionName": "南华县"
+  "name": "南华县"
 }, {
-  "regionCode": "532325",
+  "id": "532325",
   "pcode": "532300",
-  "regionName": "姚安县"
+  "name": "姚安县"
 }, {
-  "regionCode": "532326",
+  "id": "532326",
   "pcode": "532300",
-  "regionName": "大姚县"
+  "name": "大姚县"
 }, {
-  "regionCode": "532327",
+  "id": "532327",
   "pcode": "532300",
-  "regionName": "永仁县"
+  "name": "永仁县"
 }, {
-  "regionCode": "532328",
+  "id": "532328",
   "pcode": "532300",
-  "regionName": "元谋县"
+  "name": "元谋县"
 }, {
-  "regionCode": "532329",
+  "id": "532329",
   "pcode": "532300",
-  "regionName": "武定县"
+  "name": "武定县"
 }, {
-  "regionCode": "532331",
+  "id": "532331",
   "pcode": "532300",
-  "regionName": "禄丰县"
+  "name": "禄丰县"
 }, {
-  "regionCode": "532500",
+  "id": "532500",
   "pcode": "530000",
-  "regionName": "红河哈尼族彝族自治州"
+  "name": "红河哈尼族彝族自治州"
 }, {
-  "regionCode": "532501",
+  "id": "532501",
   "pcode": "532500",
-  "regionName": "个旧市"
+  "name": "个旧市"
 }, {
-  "regionCode": "532502",
+  "id": "532502",
   "pcode": "532500",
-  "regionName": "开远市"
+  "name": "开远市"
 }, {
-  "regionCode": "532503",
+  "id": "532503",
   "pcode": "532500",
-  "regionName": "蒙自市"
+  "name": "蒙自市"
 }, {
-  "regionCode": "532504",
+  "id": "532504",
   "pcode": "532500",
-  "regionName": "弥勒市"
+  "name": "弥勒市"
 }, {
-  "regionCode": "532523",
+  "id": "532523",
   "pcode": "532500",
-  "regionName": "屏边苗族自治县"
+  "name": "屏边苗族自治县"
 }, {
-  "regionCode": "532524",
+  "id": "532524",
   "pcode": "532500",
-  "regionName": "建水县"
+  "name": "建水县"
 }, {
-  "regionCode": "532525",
+  "id": "532525",
   "pcode": "532500",
-  "regionName": "石屏县"
+  "name": "石屏县"
 }, {
-  "regionCode": "532527",
+  "id": "532527",
   "pcode": "532500",
-  "regionName": "泸西县"
+  "name": "泸西县"
 }, {
-  "regionCode": "532528",
+  "id": "532528",
   "pcode": "532500",
-  "regionName": "元阳县"
+  "name": "元阳县"
 }, {
-  "regionCode": "532529",
+  "id": "532529",
   "pcode": "532500",
-  "regionName": "红河县"
+  "name": "红河县"
 }, {
-  "regionCode": "532530",
+  "id": "532530",
   "pcode": "532500",
-  "regionName": "金平苗族瑶族傣族自治县"
+  "name": "金平苗族瑶族傣族自治县"
 }, {
-  "regionCode": "532531",
+  "id": "532531",
   "pcode": "532500",
-  "regionName": "绿春县"
+  "name": "绿春县"
 }, {
-  "regionCode": "532532",
+  "id": "532532",
   "pcode": "532500",
-  "regionName": "河口瑶族自治县"
+  "name": "河口瑶族自治县"
 }, {
-  "regionCode": "532600",
+  "id": "532600",
   "pcode": "530000",
-  "regionName": "文山壮族苗族自治州"
+  "name": "文山壮族苗族自治州"
 }, {
-  "regionCode": "532601",
+  "id": "532601",
   "pcode": "532600",
-  "regionName": "文山市"
+  "name": "文山市"
 }, {
-  "regionCode": "532622",
+  "id": "532622",
   "pcode": "532600",
-  "regionName": "砚山县"
+  "name": "砚山县"
 }, {
-  "regionCode": "532623",
+  "id": "532623",
   "pcode": "532600",
-  "regionName": "西畴县"
+  "name": "西畴县"
 }, {
-  "regionCode": "532624",
+  "id": "532624",
   "pcode": "532600",
-  "regionName": "麻栗坡县"
+  "name": "麻栗坡县"
 }, {
-  "regionCode": "532625",
+  "id": "532625",
   "pcode": "532600",
-  "regionName": "马关县"
+  "name": "马关县"
 }, {
-  "regionCode": "532626",
+  "id": "532626",
   "pcode": "532600",
-  "regionName": "丘北县"
+  "name": "丘北县"
 }, {
-  "regionCode": "532627",
+  "id": "532627",
   "pcode": "532600",
-  "regionName": "广南县"
+  "name": "广南县"
 }, {
-  "regionCode": "532628",
+  "id": "532628",
   "pcode": "532600",
-  "regionName": "富宁县"
+  "name": "富宁县"
 }, {
-  "regionCode": "532800",
+  "id": "532800",
   "pcode": "530000",
-  "regionName": "西双版纳傣族自治州"
+  "name": "西双版纳傣族自治州"
 }, {
-  "regionCode": "532801",
+  "id": "532801",
   "pcode": "532800",
-  "regionName": "景洪市"
+  "name": "景洪市"
 }, {
-  "regionCode": "532822",
+  "id": "532822",
   "pcode": "532800",
-  "regionName": "勐海县"
+  "name": "勐海县"
 }, {
-  "regionCode": "532823",
+  "id": "532823",
   "pcode": "532800",
-  "regionName": "勐腊县"
+  "name": "勐腊县"
 }, {
-  "regionCode": "532900",
+  "id": "532900",
   "pcode": "530000",
-  "regionName": "大理白族自治州"
+  "name": "大理白族自治州"
 }, {
-  "regionCode": "532901",
+  "id": "532901",
   "pcode": "532900",
-  "regionName": "大理市"
+  "name": "大理市"
 }, {
-  "regionCode": "532922",
+  "id": "532922",
   "pcode": "532900",
-  "regionName": "漾濞彝族自治县"
+  "name": "漾濞彝族自治县"
 }, {
-  "regionCode": "532923",
+  "id": "532923",
   "pcode": "532900",
-  "regionName": "祥云县"
+  "name": "祥云县"
 }, {
-  "regionCode": "532924",
+  "id": "532924",
   "pcode": "532900",
-  "regionName": "宾川县"
+  "name": "宾川县"
 }, {
-  "regionCode": "532925",
+  "id": "532925",
   "pcode": "532900",
-  "regionName": "弥渡县"
+  "name": "弥渡县"
 }, {
-  "regionCode": "532926",
+  "id": "532926",
   "pcode": "532900",
-  "regionName": "南涧彝族自治县"
+  "name": "南涧彝族自治县"
 }, {
-  "regionCode": "532927",
+  "id": "532927",
   "pcode": "532900",
-  "regionName": "巍山彝族回族自治县"
+  "name": "巍山彝族回族自治县"
 }, {
-  "regionCode": "532928",
+  "id": "532928",
   "pcode": "532900",
-  "regionName": "永平县"
+  "name": "永平县"
 }, {
-  "regionCode": "532929",
+  "id": "532929",
   "pcode": "532900",
-  "regionName": "云龙县"
+  "name": "云龙县"
 }, {
-  "regionCode": "532930",
+  "id": "532930",
   "pcode": "532900",
-  "regionName": "洱源县"
+  "name": "洱源县"
 }, {
-  "regionCode": "532931",
+  "id": "532931",
   "pcode": "532900",
-  "regionName": "剑川县"
+  "name": "剑川县"
 }, {
-  "regionCode": "532932",
+  "id": "532932",
   "pcode": "532900",
-  "regionName": "鹤庆县"
+  "name": "鹤庆县"
 }, {
-  "regionCode": "533100",
+  "id": "533100",
   "pcode": "530000",
-  "regionName": "德宏傣族景颇族自治州"
+  "name": "德宏傣族景颇族自治州"
 }, {
-  "regionCode": "533102",
+  "id": "533102",
   "pcode": "533100",
-  "regionName": "瑞丽市"
+  "name": "瑞丽市"
 }, {
-  "regionCode": "533103",
+  "id": "533103",
   "pcode": "533100",
-  "regionName": "芒市"
+  "name": "芒市"
 }, {
-  "regionCode": "533122",
+  "id": "533122",
   "pcode": "533100",
-  "regionName": "梁河县"
+  "name": "梁河县"
 }, {
-  "regionCode": "533123",
+  "id": "533123",
   "pcode": "533100",
-  "regionName": "盈江县"
+  "name": "盈江县"
 }, {
-  "regionCode": "533124",
+  "id": "533124",
   "pcode": "533100",
-  "regionName": "陇川县"
+  "name": "陇川县"
 }, {
-  "regionCode": "533300",
+  "id": "533300",
   "pcode": "530000",
-  "regionName": "怒江傈僳族自治州"
+  "name": "怒江傈僳族自治州"
 }, {
-  "regionCode": "533301",
+  "id": "533301",
   "pcode": "533300",
-  "regionName": "泸水市"
+  "name": "泸水市"
 }, {
-  "regionCode": "533323",
+  "id": "533323",
   "pcode": "533300",
-  "regionName": "福贡县"
+  "name": "福贡县"
 }, {
-  "regionCode": "533324",
+  "id": "533324",
   "pcode": "533300",
-  "regionName": "贡山独龙族怒族自治县"
+  "name": "贡山独龙族怒族自治县"
 }, {
-  "regionCode": "533325",
+  "id": "533325",
   "pcode": "533300",
-  "regionName": "兰坪白族普米族自治县"
+  "name": "兰坪白族普米族自治县"
 }, {
-  "regionCode": "533400",
+  "id": "533400",
   "pcode": "530000",
-  "regionName": "迪庆藏族自治州"
+  "name": "迪庆藏族自治州"
 }, {
-  "regionCode": "533401",
+  "id": "533401",
   "pcode": "533400",
-  "regionName": "香格里拉市"
+  "name": "香格里拉市"
 }, {
-  "regionCode": "533422",
+  "id": "533422",
   "pcode": "533400",
-  "regionName": "德钦县"
+  "name": "德钦县"
 }, {
-  "regionCode": "533423",
+  "id": "533423",
   "pcode": "533400",
-  "regionName": "维西傈僳族自治县"
+  "name": "维西傈僳族自治县"
 }, {
-  "regionCode": "540000",
+  "id": "540000",
   "pcode": "",
-  "regionName": "西藏自治区"
+  "name": "西藏自治区"
 }, {
-  "regionCode": "540100",
+  "id": "540100",
   "pcode": "540000",
-  "regionName": "拉萨市"
+  "name": "拉萨市"
 }, {
-  "regionCode": "540101",
+  "id": "540101",
   "pcode": "540100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "540102",
+  "id": "540102",
   "pcode": "540100",
-  "regionName": "城关区"
+  "name": "城关区"
 }, {
-  "regionCode": "540103",
+  "id": "540103",
   "pcode": "540100",
-  "regionName": "堆龙德庆区"
+  "name": "堆龙德庆区"
 }, {
-  "regionCode": "540121",
+  "id": "540121",
   "pcode": "540100",
-  "regionName": "林周县"
+  "name": "林周县"
 }, {
-  "regionCode": "540122",
+  "id": "540122",
   "pcode": "540100",
-  "regionName": "当雄县"
+  "name": "当雄县"
 }, {
-  "regionCode": "540123",
+  "id": "540123",
   "pcode": "540100",
-  "regionName": "尼木县"
+  "name": "尼木县"
 }, {
-  "regionCode": "540124",
+  "id": "540124",
   "pcode": "540100",
-  "regionName": "曲水县"
+  "name": "曲水县"
 }, {
-  "regionCode": "540126",
+  "id": "540126",
   "pcode": "540100",
-  "regionName": "达孜县"
+  "name": "达孜县"
 }, {
-  "regionCode": "540127",
+  "id": "540127",
   "pcode": "540100",
-  "regionName": "墨竹工卡县"
+  "name": "墨竹工卡县"
 }, {
-  "regionCode": "540200",
+  "id": "540200",
   "pcode": "540000",
-  "regionName": "日喀则市"
+  "name": "日喀则市"
 }, {
-  "regionCode": "540202",
+  "id": "540202",
   "pcode": "540200",
-  "regionName": "桑珠孜区"
+  "name": "桑珠孜区"
 }, {
-  "regionCode": "540221",
+  "id": "540221",
   "pcode": "540200",
-  "regionName": "南木林县"
+  "name": "南木林县"
 }, {
-  "regionCode": "540222",
+  "id": "540222",
   "pcode": "540200",
-  "regionName": "江孜县"
+  "name": "江孜县"
 }, {
-  "regionCode": "540223",
+  "id": "540223",
   "pcode": "540200",
-  "regionName": "定日县"
+  "name": "定日县"
 }, {
-  "regionCode": "540224",
+  "id": "540224",
   "pcode": "540200",
-  "regionName": "萨迦县"
+  "name": "萨迦县"
 }, {
-  "regionCode": "540225",
+  "id": "540225",
   "pcode": "540200",
-  "regionName": "拉孜县"
+  "name": "拉孜县"
 }, {
-  "regionCode": "540226",
+  "id": "540226",
   "pcode": "540200",
-  "regionName": "昂仁县"
+  "name": "昂仁县"
 }, {
-  "regionCode": "540227",
+  "id": "540227",
   "pcode": "540200",
-  "regionName": "谢通门县"
+  "name": "谢通门县"
 }, {
-  "regionCode": "540228",
+  "id": "540228",
   "pcode": "540200",
-  "regionName": "白朗县"
+  "name": "白朗县"
 }, {
-  "regionCode": "540229",
+  "id": "540229",
   "pcode": "540200",
-  "regionName": "仁布县"
+  "name": "仁布县"
 }, {
-  "regionCode": "540230",
+  "id": "540230",
   "pcode": "540200",
-  "regionName": "康马县"
+  "name": "康马县"
 }, {
-  "regionCode": "540231",
+  "id": "540231",
   "pcode": "540200",
-  "regionName": "定结县"
+  "name": "定结县"
 }, {
-  "regionCode": "540232",
+  "id": "540232",
   "pcode": "540200",
-  "regionName": "仲巴县"
+  "name": "仲巴县"
 }, {
-  "regionCode": "540233",
+  "id": "540233",
   "pcode": "540200",
-  "regionName": "亚东县"
+  "name": "亚东县"
 }, {
-  "regionCode": "540234",
+  "id": "540234",
   "pcode": "540200",
-  "regionName": "吉隆县"
+  "name": "吉隆县"
 }, {
-  "regionCode": "540235",
+  "id": "540235",
   "pcode": "540200",
-  "regionName": "聂拉木县"
+  "name": "聂拉木县"
 }, {
-  "regionCode": "540236",
+  "id": "540236",
   "pcode": "540200",
-  "regionName": "萨嘎县"
+  "name": "萨嘎县"
 }, {
-  "regionCode": "540237",
+  "id": "540237",
   "pcode": "540200",
-  "regionName": "岗巴县"
+  "name": "岗巴县"
 }, {
-  "regionCode": "540300",
+  "id": "540300",
   "pcode": "540000",
-  "regionName": "昌都市"
+  "name": "昌都市"
 }, {
-  "regionCode": "540302",
+  "id": "540302",
   "pcode": "540300",
-  "regionName": "卡若区"
+  "name": "卡若区"
 }, {
-  "regionCode": "540321",
+  "id": "540321",
   "pcode": "540300",
-  "regionName": "江达县"
+  "name": "江达县"
 }, {
-  "regionCode": "540322",
+  "id": "540322",
   "pcode": "540300",
-  "regionName": "贡觉县"
+  "name": "贡觉县"
 }, {
-  "regionCode": "540323",
+  "id": "540323",
   "pcode": "540300",
-  "regionName": "类乌齐县"
+  "name": "类乌齐县"
 }, {
-  "regionCode": "540324",
+  "id": "540324",
   "pcode": "540300",
-  "regionName": "丁青县"
+  "name": "丁青县"
 }, {
-  "regionCode": "540325",
+  "id": "540325",
   "pcode": "540300",
-  "regionName": "察雅县"
+  "name": "察雅县"
 }, {
-  "regionCode": "540326",
+  "id": "540326",
   "pcode": "540300",
-  "regionName": "八宿县"
+  "name": "八宿县"
 }, {
-  "regionCode": "540327",
+  "id": "540327",
   "pcode": "540300",
-  "regionName": "左贡县"
+  "name": "左贡县"
 }, {
-  "regionCode": "540328",
+  "id": "540328",
   "pcode": "540300",
-  "regionName": "芒康县"
+  "name": "芒康县"
 }, {
-  "regionCode": "540329",
+  "id": "540329",
   "pcode": "540300",
-  "regionName": "洛隆县"
+  "name": "洛隆县"
 }, {
-  "regionCode": "540330",
+  "id": "540330",
   "pcode": "540300",
-  "regionName": "边坝县"
+  "name": "边坝县"
 }, {
-  "regionCode": "540400",
+  "id": "540400",
   "pcode": "540000",
-  "regionName": "林芝市"
+  "name": "林芝市"
 }, {
-  "regionCode": "540402",
+  "id": "540402",
   "pcode": "540400",
-  "regionName": "巴宜区"
+  "name": "巴宜区"
 }, {
-  "regionCode": "540421",
+  "id": "540421",
   "pcode": "540400",
-  "regionName": "工布江达县"
+  "name": "工布江达县"
 }, {
-  "regionCode": "540422",
+  "id": "540422",
   "pcode": "540400",
-  "regionName": "米林县"
+  "name": "米林县"
 }, {
-  "regionCode": "540423",
+  "id": "540423",
   "pcode": "540400",
-  "regionName": "墨脱县"
+  "name": "墨脱县"
 }, {
-  "regionCode": "540424",
+  "id": "540424",
   "pcode": "540400",
-  "regionName": "波密县"
+  "name": "波密县"
 }, {
-  "regionCode": "540425",
+  "id": "540425",
   "pcode": "540400",
-  "regionName": "察隅县"
+  "name": "察隅县"
 }, {
-  "regionCode": "540426",
+  "id": "540426",
   "pcode": "540400",
-  "regionName": "朗县"
+  "name": "朗县"
 }, {
-  "regionCode": "540500",
+  "id": "540500",
   "pcode": "540000",
-  "regionName": "山南市"
+  "name": "山南市"
 }, {
-  "regionCode": "540501",
+  "id": "540501",
   "pcode": "540500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "540502",
+  "id": "540502",
   "pcode": "540500",
-  "regionName": "乃东区"
+  "name": "乃东区"
 }, {
-  "regionCode": "540521",
+  "id": "540521",
   "pcode": "540500",
-  "regionName": "扎囊县"
+  "name": "扎囊县"
 }, {
-  "regionCode": "540522",
+  "id": "540522",
   "pcode": "540500",
-  "regionName": "贡嘎县"
+  "name": "贡嘎县"
 }, {
-  "regionCode": "540523",
+  "id": "540523",
   "pcode": "540500",
-  "regionName": "桑日县"
+  "name": "桑日县"
 }, {
-  "regionCode": "540524",
+  "id": "540524",
   "pcode": "540500",
-  "regionName": "琼结县"
+  "name": "琼结县"
 }, {
-  "regionCode": "540525",
+  "id": "540525",
   "pcode": "540500",
-  "regionName": "曲松县"
+  "name": "曲松县"
 }, {
-  "regionCode": "540526",
+  "id": "540526",
   "pcode": "540500",
-  "regionName": "措美县"
+  "name": "措美县"
 }, {
-  "regionCode": "540527",
+  "id": "540527",
   "pcode": "540500",
-  "regionName": "洛扎县"
+  "name": "洛扎县"
 }, {
-  "regionCode": "540528",
+  "id": "540528",
   "pcode": "540500",
-  "regionName": "加查县"
+  "name": "加查县"
 }, {
-  "regionCode": "540529",
+  "id": "540529",
   "pcode": "540500",
-  "regionName": "隆子县"
+  "name": "隆子县"
 }, {
-  "regionCode": "540530",
+  "id": "540530",
   "pcode": "540500",
-  "regionName": "错那县"
+  "name": "错那县"
 }, {
-  "regionCode": "540531",
+  "id": "540531",
   "pcode": "540500",
-  "regionName": "浪卡子县"
+  "name": "浪卡子县"
 }, {
-  "regionCode": "542400",
+  "id": "542400",
   "pcode": "540000",
-  "regionName": "那曲地区"
+  "name": "那曲地区"
 }, {
-  "regionCode": "542421",
+  "id": "542421",
   "pcode": "542400",
-  "regionName": "那曲县"
+  "name": "那曲县"
 }, {
-  "regionCode": "542422",
+  "id": "542422",
   "pcode": "542400",
-  "regionName": "嘉黎县"
+  "name": "嘉黎县"
 }, {
-  "regionCode": "542423",
+  "id": "542423",
   "pcode": "542400",
-  "regionName": "比如县"
+  "name": "比如县"
 }, {
-  "regionCode": "542424",
+  "id": "542424",
   "pcode": "542400",
-  "regionName": "聂荣县"
+  "name": "聂荣县"
 }, {
-  "regionCode": "542425",
+  "id": "542425",
   "pcode": "542400",
-  "regionName": "安多县"
+  "name": "安多县"
 }, {
-  "regionCode": "542426",
+  "id": "542426",
   "pcode": "542400",
-  "regionName": "申扎县"
+  "name": "申扎县"
 }, {
-  "regionCode": "542427",
+  "id": "542427",
   "pcode": "542400",
-  "regionName": "索县"
+  "name": "索县"
 }, {
-  "regionCode": "542428",
+  "id": "542428",
   "pcode": "542400",
-  "regionName": "班戈县"
+  "name": "班戈县"
 }, {
-  "regionCode": "542429",
+  "id": "542429",
   "pcode": "542400",
-  "regionName": "巴青县"
+  "name": "巴青县"
 }, {
-  "regionCode": "542430",
+  "id": "542430",
   "pcode": "542400",
-  "regionName": "尼玛县"
+  "name": "尼玛县"
 }, {
-  "regionCode": "542431",
+  "id": "542431",
   "pcode": "542400",
-  "regionName": "双湖县"
+  "name": "双湖县"
 }, {
-  "regionCode": "542500",
+  "id": "542500",
   "pcode": "540000",
-  "regionName": "阿里地区"
+  "name": "阿里地区"
 }, {
-  "regionCode": "542521",
+  "id": "542521",
   "pcode": "542500",
-  "regionName": "普兰县"
+  "name": "普兰县"
 }, {
-  "regionCode": "542522",
+  "id": "542522",
   "pcode": "542500",
-  "regionName": "札达县"
+  "name": "札达县"
 }, {
-  "regionCode": "542523",
+  "id": "542523",
   "pcode": "542500",
-  "regionName": "噶尔县"
+  "name": "噶尔县"
 }, {
-  "regionCode": "542524",
+  "id": "542524",
   "pcode": "542500",
-  "regionName": "日土县"
+  "name": "日土县"
 }, {
-  "regionCode": "542525",
+  "id": "542525",
   "pcode": "542500",
-  "regionName": "革吉县"
+  "name": "革吉县"
 }, {
-  "regionCode": "542526",
+  "id": "542526",
   "pcode": "542500",
-  "regionName": "改则县"
+  "name": "改则县"
 }, {
-  "regionCode": "542527",
+  "id": "542527",
   "pcode": "542500",
-  "regionName": "措勤县"
+  "name": "措勤县"
 }, {
-  "regionCode": "610000",
+  "id": "610000",
   "pcode": "",
-  "regionName": "陕西省"
+  "name": "陕西省"
 }, {
-  "regionCode": "610100",
+  "id": "610100",
   "pcode": "610000",
-  "regionName": "西安市"
+  "name": "西安市"
 }, {
-  "regionCode": "610101",
+  "id": "610101",
   "pcode": "610100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "610102",
+  "id": "610102",
   "pcode": "610100",
-  "regionName": "新城区"
+  "name": "新城区"
 }, {
-  "regionCode": "610103",
+  "id": "610103",
   "pcode": "610100",
-  "regionName": "碑林区"
+  "name": "碑林区"
 }, {
-  "regionCode": "610104",
+  "id": "610104",
   "pcode": "610100",
-  "regionName": "莲湖区"
+  "name": "莲湖区"
 }, {
-  "regionCode": "610111",
+  "id": "610111",
   "pcode": "610100",
-  "regionName": "灞桥区"
+  "name": "灞桥区"
 }, {
-  "regionCode": "610112",
+  "id": "610112",
   "pcode": "610100",
-  "regionName": "未央区"
+  "name": "未央区"
 }, {
-  "regionCode": "610113",
+  "id": "610113",
   "pcode": "610100",
-  "regionName": "雁塔区"
+  "name": "雁塔区"
 }, {
-  "regionCode": "610114",
+  "id": "610114",
   "pcode": "610100",
-  "regionName": "阎良区"
+  "name": "阎良区"
 }, {
-  "regionCode": "610115",
+  "id": "610115",
   "pcode": "610100",
-  "regionName": "临潼区"
+  "name": "临潼区"
 }, {
-  "regionCode": "610116",
+  "id": "610116",
   "pcode": "610100",
-  "regionName": "长安区"
+  "name": "长安区"
 }, {
-  "regionCode": "610117",
+  "id": "610117",
   "pcode": "610100",
-  "regionName": "高陵区"
+  "name": "高陵区"
 }, {
-  "regionCode": "610122",
+  "id": "610122",
   "pcode": "610100",
-  "regionName": "蓝田县"
+  "name": "蓝田县"
 }, {
-  "regionCode": "610124",
+  "id": "610124",
   "pcode": "610100",
-  "regionName": "周至县"
+  "name": "周至县"
 }, {
-  "regionCode": "610125",
+  "id": "610125",
   "pcode": "610100",
-  "regionName": "户县"
+  "name": "户县"
 }, {
-  "regionCode": "610200",
+  "id": "610200",
   "pcode": "610000",
-  "regionName": "铜川市"
+  "name": "铜川市"
 }, {
-  "regionCode": "610201",
+  "id": "610201",
   "pcode": "610200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "610202",
+  "id": "610202",
   "pcode": "610200",
-  "regionName": "王益区"
+  "name": "王益区"
 }, {
-  "regionCode": "610203",
+  "id": "610203",
   "pcode": "610200",
-  "regionName": "印台区"
+  "name": "印台区"
 }, {
-  "regionCode": "610204",
+  "id": "610204",
   "pcode": "610200",
-  "regionName": "耀州区"
+  "name": "耀州区"
 }, {
-  "regionCode": "610222",
+  "id": "610222",
   "pcode": "610200",
-  "regionName": "宜君县"
+  "name": "宜君县"
 }, {
-  "regionCode": "610300",
+  "id": "610300",
   "pcode": "610000",
-  "regionName": "宝鸡市"
+  "name": "宝鸡市"
 }, {
-  "regionCode": "610301",
+  "id": "610301",
   "pcode": "610300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "610302",
+  "id": "610302",
   "pcode": "610300",
-  "regionName": "渭滨区"
+  "name": "渭滨区"
 }, {
-  "regionCode": "610303",
+  "id": "610303",
   "pcode": "610300",
-  "regionName": "金台区"
+  "name": "金台区"
 }, {
-  "regionCode": "610304",
+  "id": "610304",
   "pcode": "610300",
-  "regionName": "陈仓区"
+  "name": "陈仓区"
 }, {
-  "regionCode": "610322",
+  "id": "610322",
   "pcode": "610300",
-  "regionName": "凤翔县"
+  "name": "凤翔县"
 }, {
-  "regionCode": "610323",
+  "id": "610323",
   "pcode": "610300",
-  "regionName": "岐山县"
+  "name": "岐山县"
 }, {
-  "regionCode": "610324",
+  "id": "610324",
   "pcode": "610300",
-  "regionName": "扶风县"
+  "name": "扶风县"
 }, {
-  "regionCode": "610326",
+  "id": "610326",
   "pcode": "610300",
-  "regionName": "眉县"
+  "name": "眉县"
 }, {
-  "regionCode": "610327",
+  "id": "610327",
   "pcode": "610300",
-  "regionName": "陇县"
+  "name": "陇县"
 }, {
-  "regionCode": "610328",
+  "id": "610328",
   "pcode": "610300",
-  "regionName": "千阳县"
+  "name": "千阳县"
 }, {
-  "regionCode": "610329",
+  "id": "610329",
   "pcode": "610300",
-  "regionName": "麟游县"
+  "name": "麟游县"
 }, {
-  "regionCode": "610330",
+  "id": "610330",
   "pcode": "610300",
-  "regionName": "凤县"
+  "name": "凤县"
 }, {
-  "regionCode": "610331",
+  "id": "610331",
   "pcode": "610300",
-  "regionName": "太白县"
+  "name": "太白县"
 }, {
-  "regionCode": "610400",
+  "id": "610400",
   "pcode": "610000",
-  "regionName": "咸阳市"
+  "name": "咸阳市"
 }, {
-  "regionCode": "610401",
+  "id": "610401",
   "pcode": "610400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "610402",
+  "id": "610402",
   "pcode": "610400",
-  "regionName": "秦都区"
+  "name": "秦都区"
 }, {
-  "regionCode": "610403",
+  "id": "610403",
   "pcode": "610400",
-  "regionName": "杨陵区"
+  "name": "杨陵区"
 }, {
-  "regionCode": "610404",
+  "id": "610404",
   "pcode": "610400",
-  "regionName": "渭城区"
+  "name": "渭城区"
 }, {
-  "regionCode": "610422",
+  "id": "610422",
   "pcode": "610400",
-  "regionName": "三原县"
+  "name": "三原县"
 }, {
-  "regionCode": "610423",
+  "id": "610423",
   "pcode": "610400",
-  "regionName": "泾阳县"
+  "name": "泾阳县"
 }, {
-  "regionCode": "610424",
+  "id": "610424",
   "pcode": "610400",
-  "regionName": "乾县"
+  "name": "乾县"
 }, {
-  "regionCode": "610425",
+  "id": "610425",
   "pcode": "610400",
-  "regionName": "礼泉县"
+  "name": "礼泉县"
 }, {
-  "regionCode": "610426",
+  "id": "610426",
   "pcode": "610400",
-  "regionName": "永寿县"
+  "name": "永寿县"
 }, {
-  "regionCode": "610427",
+  "id": "610427",
   "pcode": "610400",
-  "regionName": "彬县"
+  "name": "彬县"
 }, {
-  "regionCode": "610428",
+  "id": "610428",
   "pcode": "610400",
-  "regionName": "长武县"
+  "name": "长武县"
 }, {
-  "regionCode": "610429",
+  "id": "610429",
   "pcode": "610400",
-  "regionName": "旬邑县"
+  "name": "旬邑县"
 }, {
-  "regionCode": "610430",
+  "id": "610430",
   "pcode": "610400",
-  "regionName": "淳化县"
+  "name": "淳化县"
 }, {
-  "regionCode": "610431",
+  "id": "610431",
   "pcode": "610400",
-  "regionName": "武功县"
+  "name": "武功县"
 }, {
-  "regionCode": "610481",
+  "id": "610481",
   "pcode": "610400",
-  "regionName": "兴平市"
+  "name": "兴平市"
 }, {
-  "regionCode": "610500",
+  "id": "610500",
   "pcode": "610000",
-  "regionName": "渭南市"
+  "name": "渭南市"
 }, {
-  "regionCode": "610501",
+  "id": "610501",
   "pcode": "610500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "610502",
+  "id": "610502",
   "pcode": "610500",
-  "regionName": "临渭区"
+  "name": "临渭区"
 }, {
-  "regionCode": "610503",
+  "id": "610503",
   "pcode": "610500",
-  "regionName": "华州区"
+  "name": "华州区"
 }, {
-  "regionCode": "610522",
+  "id": "610522",
   "pcode": "610500",
-  "regionName": "潼关县"
+  "name": "潼关县"
 }, {
-  "regionCode": "610523",
+  "id": "610523",
   "pcode": "610500",
-  "regionName": "大荔县"
+  "name": "大荔县"
 }, {
-  "regionCode": "610524",
+  "id": "610524",
   "pcode": "610500",
-  "regionName": "合阳县"
+  "name": "合阳县"
 }, {
-  "regionCode": "610525",
+  "id": "610525",
   "pcode": "610500",
-  "regionName": "澄城县"
+  "name": "澄城县"
 }, {
-  "regionCode": "610526",
+  "id": "610526",
   "pcode": "610500",
-  "regionName": "蒲城县"
+  "name": "蒲城县"
 }, {
-  "regionCode": "610527",
+  "id": "610527",
   "pcode": "610500",
-  "regionName": "白水县"
+  "name": "白水县"
 }, {
-  "regionCode": "610528",
+  "id": "610528",
   "pcode": "610500",
-  "regionName": "富平县"
+  "name": "富平县"
 }, {
-  "regionCode": "610581",
+  "id": "610581",
   "pcode": "610500",
-  "regionName": "韩城市"
+  "name": "韩城市"
 }, {
-  "regionCode": "610582",
+  "id": "610582",
   "pcode": "610500",
-  "regionName": "华阴市"
+  "name": "华阴市"
 }, {
-  "regionCode": "610600",
+  "id": "610600",
   "pcode": "610000",
-  "regionName": "延安市"
+  "name": "延安市"
 }, {
-  "regionCode": "610601",
+  "id": "610601",
   "pcode": "610600",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "610602",
+  "id": "610602",
   "pcode": "610600",
-  "regionName": "宝塔区"
+  "name": "宝塔区"
 }, {
-  "regionCode": "610603",
+  "id": "610603",
   "pcode": "610600",
-  "regionName": "安塞区"
+  "name": "安塞区"
 }, {
-  "regionCode": "610621",
+  "id": "610621",
   "pcode": "610600",
-  "regionName": "延长县"
+  "name": "延长县"
 }, {
-  "regionCode": "610622",
+  "id": "610622",
   "pcode": "610600",
-  "regionName": "延川县"
+  "name": "延川县"
 }, {
-  "regionCode": "610623",
+  "id": "610623",
   "pcode": "610600",
-  "regionName": "子长县"
+  "name": "子长县"
 }, {
-  "regionCode": "610625",
+  "id": "610625",
   "pcode": "610600",
-  "regionName": "志丹县"
+  "name": "志丹县"
 }, {
-  "regionCode": "610626",
+  "id": "610626",
   "pcode": "610600",
-  "regionName": "吴起县"
+  "name": "吴起县"
 }, {
-  "regionCode": "610627",
+  "id": "610627",
   "pcode": "610600",
-  "regionName": "甘泉县"
+  "name": "甘泉县"
 }, {
-  "regionCode": "610628",
+  "id": "610628",
   "pcode": "610600",
-  "regionName": "富县"
+  "name": "富县"
 }, {
-  "regionCode": "610629",
+  "id": "610629",
   "pcode": "610600",
-  "regionName": "洛川县"
+  "name": "洛川县"
 }, {
-  "regionCode": "610630",
+  "id": "610630",
   "pcode": "610600",
-  "regionName": "宜川县"
+  "name": "宜川县"
 }, {
-  "regionCode": "610631",
+  "id": "610631",
   "pcode": "610600",
-  "regionName": "黄龙县"
+  "name": "黄龙县"
 }, {
-  "regionCode": "610632",
+  "id": "610632",
   "pcode": "610600",
-  "regionName": "黄陵县"
+  "name": "黄陵县"
 }, {
-  "regionCode": "610700",
+  "id": "610700",
   "pcode": "610000",
-  "regionName": "汉中市"
+  "name": "汉中市"
 }, {
-  "regionCode": "610701",
+  "id": "610701",
   "pcode": "610700",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "610702",
+  "id": "610702",
   "pcode": "610700",
-  "regionName": "汉台区"
+  "name": "汉台区"
 }, {
-  "regionCode": "610721",
+  "id": "610721",
   "pcode": "610700",
-  "regionName": "南郑县"
+  "name": "南郑县"
 }, {
-  "regionCode": "610722",
+  "id": "610722",
   "pcode": "610700",
-  "regionName": "城固县"
+  "name": "城固县"
 }, {
-  "regionCode": "610723",
+  "id": "610723",
   "pcode": "610700",
-  "regionName": "洋县"
+  "name": "洋县"
 }, {
-  "regionCode": "610724",
+  "id": "610724",
   "pcode": "610700",
-  "regionName": "西乡县"
+  "name": "西乡县"
 }, {
-  "regionCode": "610725",
+  "id": "610725",
   "pcode": "610700",
-  "regionName": "勉县"
+  "name": "勉县"
 }, {
-  "regionCode": "610726",
+  "id": "610726",
   "pcode": "610700",
-  "regionName": "宁强县"
+  "name": "宁强县"
 }, {
-  "regionCode": "610727",
+  "id": "610727",
   "pcode": "610700",
-  "regionName": "略阳县"
+  "name": "略阳县"
 }, {
-  "regionCode": "610728",
+  "id": "610728",
   "pcode": "610700",
-  "regionName": "镇巴县"
+  "name": "镇巴县"
 }, {
-  "regionCode": "610729",
+  "id": "610729",
   "pcode": "610700",
-  "regionName": "留坝县"
+  "name": "留坝县"
 }, {
-  "regionCode": "610730",
+  "id": "610730",
   "pcode": "610700",
-  "regionName": "佛坪县"
+  "name": "佛坪县"
 }, {
-  "regionCode": "610800",
+  "id": "610800",
   "pcode": "610000",
-  "regionName": "榆林市"
+  "name": "榆林市"
 }, {
-  "regionCode": "610801",
+  "id": "610801",
   "pcode": "610800",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "610802",
+  "id": "610802",
   "pcode": "610800",
-  "regionName": "榆阳区"
+  "name": "榆阳区"
 }, {
-  "regionCode": "610803",
+  "id": "610803",
   "pcode": "610800",
-  "regionName": "横山区"
+  "name": "横山区"
 }, {
-  "regionCode": "610821",
+  "id": "610821",
   "pcode": "610800",
-  "regionName": "神木县"
+  "name": "神木县"
 }, {
-  "regionCode": "610822",
+  "id": "610822",
   "pcode": "610800",
-  "regionName": "府谷县"
+  "name": "府谷县"
 }, {
-  "regionCode": "610824",
+  "id": "610824",
   "pcode": "610800",
-  "regionName": "靖边县"
+  "name": "靖边县"
 }, {
-  "regionCode": "610825",
+  "id": "610825",
   "pcode": "610800",
-  "regionName": "定边县"
+  "name": "定边县"
 }, {
-  "regionCode": "610826",
+  "id": "610826",
   "pcode": "610800",
-  "regionName": "绥德县"
+  "name": "绥德县"
 }, {
-  "regionCode": "610827",
+  "id": "610827",
   "pcode": "610800",
-  "regionName": "米脂县"
+  "name": "米脂县"
 }, {
-  "regionCode": "610828",
+  "id": "610828",
   "pcode": "610800",
-  "regionName": "佳县"
+  "name": "佳县"
 }, {
-  "regionCode": "610829",
+  "id": "610829",
   "pcode": "610800",
-  "regionName": "吴堡县"
+  "name": "吴堡县"
 }, {
-  "regionCode": "610830",
+  "id": "610830",
   "pcode": "610800",
-  "regionName": "清涧县"
+  "name": "清涧县"
 }, {
-  "regionCode": "610831",
+  "id": "610831",
   "pcode": "610800",
-  "regionName": "子洲县"
+  "name": "子洲县"
 }, {
-  "regionCode": "610900",
+  "id": "610900",
   "pcode": "610000",
-  "regionName": "安康市"
+  "name": "安康市"
 }, {
-  "regionCode": "610901",
+  "id": "610901",
   "pcode": "610900",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "610902",
+  "id": "610902",
   "pcode": "610900",
-  "regionName": "汉滨区"
+  "name": "汉滨区"
 }, {
-  "regionCode": "610921",
+  "id": "610921",
   "pcode": "610900",
-  "regionName": "汉阴县"
+  "name": "汉阴县"
 }, {
-  "regionCode": "610922",
+  "id": "610922",
   "pcode": "610900",
-  "regionName": "石泉县"
+  "name": "石泉县"
 }, {
-  "regionCode": "610923",
+  "id": "610923",
   "pcode": "610900",
-  "regionName": "宁陕县"
+  "name": "宁陕县"
 }, {
-  "regionCode": "610924",
+  "id": "610924",
   "pcode": "610900",
-  "regionName": "紫阳县"
+  "name": "紫阳县"
 }, {
-  "regionCode": "610925",
+  "id": "610925",
   "pcode": "610900",
-  "regionName": "岚皋县"
+  "name": "岚皋县"
 }, {
-  "regionCode": "610926",
+  "id": "610926",
   "pcode": "610900",
-  "regionName": "平利县"
+  "name": "平利县"
 }, {
-  "regionCode": "610927",
+  "id": "610927",
   "pcode": "610900",
-  "regionName": "镇坪县"
+  "name": "镇坪县"
 }, {
-  "regionCode": "610928",
+  "id": "610928",
   "pcode": "610900",
-  "regionName": "旬阳县"
+  "name": "旬阳县"
 }, {
-  "regionCode": "610929",
+  "id": "610929",
   "pcode": "610900",
-  "regionName": "白河县"
+  "name": "白河县"
 }, {
-  "regionCode": "611000",
+  "id": "611000",
   "pcode": "610000",
-  "regionName": "商洛市"
+  "name": "商洛市"
 }, {
-  "regionCode": "611001",
+  "id": "611001",
   "pcode": "611000",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "611002",
+  "id": "611002",
   "pcode": "611000",
-  "regionName": "商州区"
+  "name": "商州区"
 }, {
-  "regionCode": "611021",
+  "id": "611021",
   "pcode": "611000",
-  "regionName": "洛南县"
+  "name": "洛南县"
 }, {
-  "regionCode": "611022",
+  "id": "611022",
   "pcode": "611000",
-  "regionName": "丹凤县"
+  "name": "丹凤县"
 }, {
-  "regionCode": "611023",
+  "id": "611023",
   "pcode": "611000",
-  "regionName": "商南县"
+  "name": "商南县"
 }, {
-  "regionCode": "611024",
+  "id": "611024",
   "pcode": "611000",
-  "regionName": "山阳县"
+  "name": "山阳县"
 }, {
-  "regionCode": "611025",
+  "id": "611025",
   "pcode": "611000",
-  "regionName": "镇安县"
+  "name": "镇安县"
 }, {
-  "regionCode": "611026",
+  "id": "611026",
   "pcode": "611000",
-  "regionName": "柞水县"
+  "name": "柞水县"
 }, {
-  "regionCode": "620000",
+  "id": "620000",
   "pcode": "",
-  "regionName": "甘肃省"
+  "name": "甘肃省"
 }, {
-  "regionCode": "620100",
+  "id": "620100",
   "pcode": "620000",
-  "regionName": "兰州市"
+  "name": "兰州市"
 }, {
-  "regionCode": "620101",
+  "id": "620101",
   "pcode": "620100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "620102",
+  "id": "620102",
   "pcode": "620100",
-  "regionName": "城关区"
+  "name": "城关区"
 }, {
-  "regionCode": "620103",
+  "id": "620103",
   "pcode": "620100",
-  "regionName": "七里河区"
+  "name": "七里河区"
 }, {
-  "regionCode": "620104",
+  "id": "620104",
   "pcode": "620100",
-  "regionName": "西固区"
+  "name": "西固区"
 }, {
-  "regionCode": "620105",
+  "id": "620105",
   "pcode": "620100",
-  "regionName": "安宁区"
+  "name": "安宁区"
 }, {
-  "regionCode": "620111",
+  "id": "620111",
   "pcode": "620100",
-  "regionName": "红古区"
+  "name": "红古区"
 }, {
-  "regionCode": "620121",
+  "id": "620121",
   "pcode": "620100",
-  "regionName": "永登县"
+  "name": "永登县"
 }, {
-  "regionCode": "620122",
+  "id": "620122",
   "pcode": "620100",
-  "regionName": "皋兰县"
+  "name": "皋兰县"
 }, {
-  "regionCode": "620123",
+  "id": "620123",
   "pcode": "620100",
-  "regionName": "榆中县"
+  "name": "榆中县"
 }, {
-  "regionCode": "620200",
+  "id": "620200",
   "pcode": "620000",
-  "regionName": "嘉峪关市"
+  "name": "嘉峪关市"
 }, {
-  "regionCode": "620201",
+  "id": "620201",
   "pcode": "620200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "620300",
+  "id": "620300",
   "pcode": "620000",
-  "regionName": "金昌市"
+  "name": "金昌市"
 }, {
-  "regionCode": "620301",
+  "id": "620301",
   "pcode": "620300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "620302",
+  "id": "620302",
   "pcode": "620300",
-  "regionName": "金川区"
+  "name": "金川区"
 }, {
-  "regionCode": "620321",
+  "id": "620321",
   "pcode": "620300",
-  "regionName": "永昌县"
+  "name": "永昌县"
 }, {
-  "regionCode": "620400",
+  "id": "620400",
   "pcode": "620000",
-  "regionName": "白银市"
+  "name": "白银市"
 }, {
-  "regionCode": "620401",
+  "id": "620401",
   "pcode": "620400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "620402",
+  "id": "620402",
   "pcode": "620400",
-  "regionName": "白银区"
+  "name": "白银区"
 }, {
-  "regionCode": "620403",
+  "id": "620403",
   "pcode": "620400",
-  "regionName": "平川区"
+  "name": "平川区"
 }, {
-  "regionCode": "620421",
+  "id": "620421",
   "pcode": "620400",
-  "regionName": "靖远县"
+  "name": "靖远县"
 }, {
-  "regionCode": "620422",
+  "id": "620422",
   "pcode": "620400",
-  "regionName": "会宁县"
+  "name": "会宁县"
 }, {
-  "regionCode": "620423",
+  "id": "620423",
   "pcode": "620400",
-  "regionName": "景泰县"
+  "name": "景泰县"
 }, {
-  "regionCode": "620500",
+  "id": "620500",
   "pcode": "620000",
-  "regionName": "天水市"
+  "name": "天水市"
 }, {
-  "regionCode": "620501",
+  "id": "620501",
   "pcode": "620500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "620502",
+  "id": "620502",
   "pcode": "620500",
-  "regionName": "秦州区"
+  "name": "秦州区"
 }, {
-  "regionCode": "620503",
+  "id": "620503",
   "pcode": "620500",
-  "regionName": "麦积区"
+  "name": "麦积区"
 }, {
-  "regionCode": "620521",
+  "id": "620521",
   "pcode": "620500",
-  "regionName": "清水县"
+  "name": "清水县"
 }, {
-  "regionCode": "620522",
+  "id": "620522",
   "pcode": "620500",
-  "regionName": "秦安县"
+  "name": "秦安县"
 }, {
-  "regionCode": "620523",
+  "id": "620523",
   "pcode": "620500",
-  "regionName": "甘谷县"
+  "name": "甘谷县"
 }, {
-  "regionCode": "620524",
+  "id": "620524",
   "pcode": "620500",
-  "regionName": "武山县"
+  "name": "武山县"
 }, {
-  "regionCode": "620525",
+  "id": "620525",
   "pcode": "620500",
-  "regionName": "张家川回族自治县"
+  "name": "张家川回族自治县"
 }, {
-  "regionCode": "620600",
+  "id": "620600",
   "pcode": "620000",
-  "regionName": "武威市"
+  "name": "武威市"
 }, {
-  "regionCode": "620601",
+  "id": "620601",
   "pcode": "620600",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "620602",
+  "id": "620602",
   "pcode": "620600",
-  "regionName": "凉州区"
+  "name": "凉州区"
 }, {
-  "regionCode": "620621",
+  "id": "620621",
   "pcode": "620600",
-  "regionName": "民勤县"
+  "name": "民勤县"
 }, {
-  "regionCode": "620622",
+  "id": "620622",
   "pcode": "620600",
-  "regionName": "古浪县"
+  "name": "古浪县"
 }, {
-  "regionCode": "620623",
+  "id": "620623",
   "pcode": "620600",
-  "regionName": "天祝藏族自治县"
+  "name": "天祝藏族自治县"
 }, {
-  "regionCode": "620700",
+  "id": "620700",
   "pcode": "620000",
-  "regionName": "张掖市"
+  "name": "张掖市"
 }, {
-  "regionCode": "620701",
+  "id": "620701",
   "pcode": "620700",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "620702",
+  "id": "620702",
   "pcode": "620700",
-  "regionName": "甘州区"
+  "name": "甘州区"
 }, {
-  "regionCode": "620721",
+  "id": "620721",
   "pcode": "620700",
-  "regionName": "肃南裕固族自治县"
+  "name": "肃南裕固族自治县"
 }, {
-  "regionCode": "620722",
+  "id": "620722",
   "pcode": "620700",
-  "regionName": "民乐县"
+  "name": "民乐县"
 }, {
-  "regionCode": "620723",
+  "id": "620723",
   "pcode": "620700",
-  "regionName": "临泽县"
+  "name": "临泽县"
 }, {
-  "regionCode": "620724",
+  "id": "620724",
   "pcode": "620700",
-  "regionName": "高台县"
+  "name": "高台县"
 }, {
-  "regionCode": "620725",
+  "id": "620725",
   "pcode": "620700",
-  "regionName": "山丹县"
+  "name": "山丹县"
 }, {
-  "regionCode": "620800",
+  "id": "620800",
   "pcode": "620000",
-  "regionName": "平凉市"
+  "name": "平凉市"
 }, {
-  "regionCode": "620801",
+  "id": "620801",
   "pcode": "620800",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "620802",
+  "id": "620802",
   "pcode": "620800",
-  "regionName": "崆峒区"
+  "name": "崆峒区"
 }, {
-  "regionCode": "620821",
+  "id": "620821",
   "pcode": "620800",
-  "regionName": "泾川县"
+  "name": "泾川县"
 }, {
-  "regionCode": "620822",
+  "id": "620822",
   "pcode": "620800",
-  "regionName": "灵台县"
+  "name": "灵台县"
 }, {
-  "regionCode": "620823",
+  "id": "620823",
   "pcode": "620800",
-  "regionName": "崇信县"
+  "name": "崇信县"
 }, {
-  "regionCode": "620824",
+  "id": "620824",
   "pcode": "620800",
-  "regionName": "华亭县"
+  "name": "华亭县"
 }, {
-  "regionCode": "620825",
+  "id": "620825",
   "pcode": "620800",
-  "regionName": "庄浪县"
+  "name": "庄浪县"
 }, {
-  "regionCode": "620826",
+  "id": "620826",
   "pcode": "620800",
-  "regionName": "静宁县"
+  "name": "静宁县"
 }, {
-  "regionCode": "620900",
+  "id": "620900",
   "pcode": "620000",
-  "regionName": "酒泉市"
+  "name": "酒泉市"
 }, {
-  "regionCode": "620901",
+  "id": "620901",
   "pcode": "620900",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "620902",
+  "id": "620902",
   "pcode": "620900",
-  "regionName": "肃州区"
+  "name": "肃州区"
 }, {
-  "regionCode": "620921",
+  "id": "620921",
   "pcode": "620900",
-  "regionName": "金塔县"
+  "name": "金塔县"
 }, {
-  "regionCode": "620922",
+  "id": "620922",
   "pcode": "620900",
-  "regionName": "瓜州县"
+  "name": "瓜州县"
 }, {
-  "regionCode": "620923",
+  "id": "620923",
   "pcode": "620900",
-  "regionName": "肃北蒙古族自治县"
+  "name": "肃北蒙古族自治县"
 }, {
-  "regionCode": "620924",
+  "id": "620924",
   "pcode": "620900",
-  "regionName": "阿克塞哈萨克族自治县"
+  "name": "阿克塞哈萨克族自治县"
 }, {
-  "regionCode": "620981",
+  "id": "620981",
   "pcode": "620900",
-  "regionName": "玉门市"
+  "name": "玉门市"
 }, {
-  "regionCode": "620982",
+  "id": "620982",
   "pcode": "620900",
-  "regionName": "敦煌市"
+  "name": "敦煌市"
 }, {
-  "regionCode": "621000",
+  "id": "621000",
   "pcode": "620000",
-  "regionName": "庆阳市"
+  "name": "庆阳市"
 }, {
-  "regionCode": "621001",
+  "id": "621001",
   "pcode": "621000",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "621002",
+  "id": "621002",
   "pcode": "621000",
-  "regionName": "西峰区"
+  "name": "西峰区"
 }, {
-  "regionCode": "621021",
+  "id": "621021",
   "pcode": "621000",
-  "regionName": "庆城县"
+  "name": "庆城县"
 }, {
-  "regionCode": "621022",
+  "id": "621022",
   "pcode": "621000",
-  "regionName": "环县"
+  "name": "环县"
 }, {
-  "regionCode": "621023",
+  "id": "621023",
   "pcode": "621000",
-  "regionName": "华池县"
+  "name": "华池县"
 }, {
-  "regionCode": "621024",
+  "id": "621024",
   "pcode": "621000",
-  "regionName": "合水县"
+  "name": "合水县"
 }, {
-  "regionCode": "621025",
+  "id": "621025",
   "pcode": "621000",
-  "regionName": "正宁县"
+  "name": "正宁县"
 }, {
-  "regionCode": "621026",
+  "id": "621026",
   "pcode": "621000",
-  "regionName": "宁县"
+  "name": "宁县"
 }, {
-  "regionCode": "621027",
+  "id": "621027",
   "pcode": "621000",
-  "regionName": "镇原县"
+  "name": "镇原县"
 }, {
-  "regionCode": "621100",
+  "id": "621100",
   "pcode": "620000",
-  "regionName": "定西市"
+  "name": "定西市"
 }, {
-  "regionCode": "621101",
+  "id": "621101",
   "pcode": "621100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "621102",
+  "id": "621102",
   "pcode": "621100",
-  "regionName": "安定区"
+  "name": "安定区"
 }, {
-  "regionCode": "621121",
+  "id": "621121",
   "pcode": "621100",
-  "regionName": "通渭县"
+  "name": "通渭县"
 }, {
-  "regionCode": "621122",
+  "id": "621122",
   "pcode": "621100",
-  "regionName": "陇西县"
+  "name": "陇西县"
 }, {
-  "regionCode": "621123",
+  "id": "621123",
   "pcode": "621100",
-  "regionName": "渭源县"
+  "name": "渭源县"
 }, {
-  "regionCode": "621124",
+  "id": "621124",
   "pcode": "621100",
-  "regionName": "临洮县"
+  "name": "临洮县"
 }, {
-  "regionCode": "621125",
+  "id": "621125",
   "pcode": "621100",
-  "regionName": "漳县"
+  "name": "漳县"
 }, {
-  "regionCode": "621126",
+  "id": "621126",
   "pcode": "621100",
-  "regionName": "岷县"
+  "name": "岷县"
 }, {
-  "regionCode": "621200",
+  "id": "621200",
   "pcode": "620000",
-  "regionName": "陇南市"
+  "name": "陇南市"
 }, {
-  "regionCode": "621201",
+  "id": "621201",
   "pcode": "621200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "621202",
+  "id": "621202",
   "pcode": "621200",
-  "regionName": "武都区"
+  "name": "武都区"
 }, {
-  "regionCode": "621221",
+  "id": "621221",
   "pcode": "621200",
-  "regionName": "成县"
+  "name": "成县"
 }, {
-  "regionCode": "621222",
+  "id": "621222",
   "pcode": "621200",
-  "regionName": "文县"
+  "name": "文县"
 }, {
-  "regionCode": "621223",
+  "id": "621223",
   "pcode": "621200",
-  "regionName": "宕昌县"
+  "name": "宕昌县"
 }, {
-  "regionCode": "621224",
+  "id": "621224",
   "pcode": "621200",
-  "regionName": "康县"
+  "name": "康县"
 }, {
-  "regionCode": "621225",
+  "id": "621225",
   "pcode": "621200",
-  "regionName": "西和县"
+  "name": "西和县"
 }, {
-  "regionCode": "621226",
+  "id": "621226",
   "pcode": "621200",
-  "regionName": "礼县"
+  "name": "礼县"
 }, {
-  "regionCode": "621227",
+  "id": "621227",
   "pcode": "621200",
-  "regionName": "徽县"
+  "name": "徽县"
 }, {
-  "regionCode": "621228",
+  "id": "621228",
   "pcode": "621200",
-  "regionName": "两当县"
+  "name": "两当县"
 }, {
-  "regionCode": "622900",
+  "id": "622900",
   "pcode": "620000",
-  "regionName": "临夏回族自治州"
+  "name": "临夏回族自治州"
 }, {
-  "regionCode": "622901",
+  "id": "622901",
   "pcode": "622900",
-  "regionName": "临夏市"
+  "name": "临夏市"
 }, {
-  "regionCode": "622921",
+  "id": "622921",
   "pcode": "622900",
-  "regionName": "临夏县"
+  "name": "临夏县"
 }, {
-  "regionCode": "622922",
+  "id": "622922",
   "pcode": "622900",
-  "regionName": "康乐县"
+  "name": "康乐县"
 }, {
-  "regionCode": "622923",
+  "id": "622923",
   "pcode": "622900",
-  "regionName": "永靖县"
+  "name": "永靖县"
 }, {
-  "regionCode": "622924",
+  "id": "622924",
   "pcode": "622900",
-  "regionName": "广河县"
+  "name": "广河县"
 }, {
-  "regionCode": "622925",
+  "id": "622925",
   "pcode": "622900",
-  "regionName": "和政县"
+  "name": "和政县"
 }, {
-  "regionCode": "622926",
+  "id": "622926",
   "pcode": "622900",
-  "regionName": "东乡族自治县"
+  "name": "东乡族自治县"
 }, {
-  "regionCode": "622927",
+  "id": "622927",
   "pcode": "622900",
-  "regionName": "积石山保安族东乡族撒拉族自治县"
+  "name": "积石山保安族东乡族撒拉族自治县"
 }, {
-  "regionCode": "623000",
+  "id": "623000",
   "pcode": "620000",
-  "regionName": "甘南藏族自治州"
+  "name": "甘南藏族自治州"
 }, {
-  "regionCode": "623001",
+  "id": "623001",
   "pcode": "623000",
-  "regionName": "合作市"
+  "name": "合作市"
 }, {
-  "regionCode": "623021",
+  "id": "623021",
   "pcode": "623000",
-  "regionName": "临潭县"
+  "name": "临潭县"
 }, {
-  "regionCode": "623022",
+  "id": "623022",
   "pcode": "623000",
-  "regionName": "卓尼县"
+  "name": "卓尼县"
 }, {
-  "regionCode": "623023",
+  "id": "623023",
   "pcode": "623000",
-  "regionName": "舟曲县"
+  "name": "舟曲县"
 }, {
-  "regionCode": "623024",
+  "id": "623024",
   "pcode": "623000",
-  "regionName": "迭部县"
+  "name": "迭部县"
 }, {
-  "regionCode": "623025",
+  "id": "623025",
   "pcode": "623000",
-  "regionName": "玛曲县"
+  "name": "玛曲县"
 }, {
-  "regionCode": "623026",
+  "id": "623026",
   "pcode": "623000",
-  "regionName": "碌曲县"
+  "name": "碌曲县"
 }, {
-  "regionCode": "623027",
+  "id": "623027",
   "pcode": "623000",
-  "regionName": "夏河县"
+  "name": "夏河县"
 }, {
-  "regionCode": "630000",
+  "id": "630000",
   "pcode": "",
-  "regionName": "青海省"
+  "name": "青海省"
 }, {
-  "regionCode": "630100",
+  "id": "630100",
   "pcode": "630000",
-  "regionName": "西宁市"
+  "name": "西宁市"
 }, {
-  "regionCode": "630101",
+  "id": "630101",
   "pcode": "630100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "630102",
+  "id": "630102",
   "pcode": "630100",
-  "regionName": "城东区"
+  "name": "城东区"
 }, {
-  "regionCode": "630103",
+  "id": "630103",
   "pcode": "630100",
-  "regionName": "城中区"
+  "name": "城中区"
 }, {
-  "regionCode": "630104",
+  "id": "630104",
   "pcode": "630100",
-  "regionName": "城西区"
+  "name": "城西区"
 }, {
-  "regionCode": "630105",
+  "id": "630105",
   "pcode": "630100",
-  "regionName": "城北区"
+  "name": "城北区"
 }, {
-  "regionCode": "630121",
+  "id": "630121",
   "pcode": "630100",
-  "regionName": "大通回族土族自治县"
+  "name": "大通回族土族自治县"
 }, {
-  "regionCode": "630122",
+  "id": "630122",
   "pcode": "630100",
-  "regionName": "湟中县"
+  "name": "湟中县"
 }, {
-  "regionCode": "630123",
+  "id": "630123",
   "pcode": "630100",
-  "regionName": "湟源县"
+  "name": "湟源县"
 }, {
-  "regionCode": "630200",
+  "id": "630200",
   "pcode": "630000",
-  "regionName": "海东市"
+  "name": "海东市"
 }, {
-  "regionCode": "630202",
+  "id": "630202",
   "pcode": "630200",
-  "regionName": "乐都区"
+  "name": "乐都区"
 }, {
-  "regionCode": "630203",
+  "id": "630203",
   "pcode": "630200",
-  "regionName": "平安区"
+  "name": "平安区"
 }, {
-  "regionCode": "630222",
+  "id": "630222",
   "pcode": "630200",
-  "regionName": "民和回族土族自治县"
+  "name": "民和回族土族自治县"
 }, {
-  "regionCode": "630223",
+  "id": "630223",
   "pcode": "630200",
-  "regionName": "互助土族自治县"
+  "name": "互助土族自治县"
 }, {
-  "regionCode": "630224",
+  "id": "630224",
   "pcode": "630200",
-  "regionName": "化隆回族自治县"
+  "name": "化隆回族自治县"
 }, {
-  "regionCode": "630225",
+  "id": "630225",
   "pcode": "630200",
-  "regionName": "循化撒拉族自治县"
+  "name": "循化撒拉族自治县"
 }, {
-  "regionCode": "632200",
+  "id": "632200",
   "pcode": "630000",
-  "regionName": "海北藏族自治州"
+  "name": "海北藏族自治州"
 }, {
-  "regionCode": "632221",
+  "id": "632221",
   "pcode": "632200",
-  "regionName": "门源回族自治县"
+  "name": "门源回族自治县"
 }, {
-  "regionCode": "632222",
+  "id": "632222",
   "pcode": "632200",
-  "regionName": "祁连县"
+  "name": "祁连县"
 }, {
-  "regionCode": "632223",
+  "id": "632223",
   "pcode": "632200",
-  "regionName": "海晏县"
+  "name": "海晏县"
 }, {
-  "regionCode": "632224",
+  "id": "632224",
   "pcode": "632200",
-  "regionName": "刚察县"
+  "name": "刚察县"
 }, {
-  "regionCode": "632300",
+  "id": "632300",
   "pcode": "630000",
-  "regionName": "黄南藏族自治州"
+  "name": "黄南藏族自治州"
 }, {
-  "regionCode": "632321",
+  "id": "632321",
   "pcode": "632300",
-  "regionName": "同仁县"
+  "name": "同仁县"
 }, {
-  "regionCode": "632322",
+  "id": "632322",
   "pcode": "632300",
-  "regionName": "尖扎县"
+  "name": "尖扎县"
 }, {
-  "regionCode": "632323",
+  "id": "632323",
   "pcode": "632300",
-  "regionName": "泽库县"
+  "name": "泽库县"
 }, {
-  "regionCode": "632324",
+  "id": "632324",
   "pcode": "632300",
-  "regionName": "河南蒙古族自治县"
+  "name": "河南蒙古族自治县"
 }, {
-  "regionCode": "632500",
+  "id": "632500",
   "pcode": "630000",
-  "regionName": "海南藏族自治州"
+  "name": "海南藏族自治州"
 }, {
-  "regionCode": "632521",
+  "id": "632521",
   "pcode": "632500",
-  "regionName": "共和县"
+  "name": "共和县"
 }, {
-  "regionCode": "632522",
+  "id": "632522",
   "pcode": "632500",
-  "regionName": "同德县"
+  "name": "同德县"
 }, {
-  "regionCode": "632523",
+  "id": "632523",
   "pcode": "632500",
-  "regionName": "贵德县"
+  "name": "贵德县"
 }, {
-  "regionCode": "632524",
+  "id": "632524",
   "pcode": "632500",
-  "regionName": "兴海县"
+  "name": "兴海县"
 }, {
-  "regionCode": "632525",
+  "id": "632525",
   "pcode": "632500",
-  "regionName": "贵南县"
+  "name": "贵南县"
 }, {
-  "regionCode": "632600",
+  "id": "632600",
   "pcode": "630000",
-  "regionName": "果洛藏族自治州"
+  "name": "果洛藏族自治州"
 }, {
-  "regionCode": "632621",
+  "id": "632621",
   "pcode": "632600",
-  "regionName": "玛沁县"
+  "name": "玛沁县"
 }, {
-  "regionCode": "632622",
+  "id": "632622",
   "pcode": "632600",
-  "regionName": "班玛县"
+  "name": "班玛县"
 }, {
-  "regionCode": "632623",
+  "id": "632623",
   "pcode": "632600",
-  "regionName": "甘德县"
+  "name": "甘德县"
 }, {
-  "regionCode": "632624",
+  "id": "632624",
   "pcode": "632600",
-  "regionName": "达日县"
+  "name": "达日县"
 }, {
-  "regionCode": "632625",
+  "id": "632625",
   "pcode": "632600",
-  "regionName": "久治县"
+  "name": "久治县"
 }, {
-  "regionCode": "632626",
+  "id": "632626",
   "pcode": "632600",
-  "regionName": "玛多县"
+  "name": "玛多县"
 }, {
-  "regionCode": "632700",
+  "id": "632700",
   "pcode": "630000",
-  "regionName": "玉树藏族自治州"
+  "name": "玉树藏族自治州"
 }, {
-  "regionCode": "632701",
+  "id": "632701",
   "pcode": "632700",
-  "regionName": "玉树市"
+  "name": "玉树市"
 }, {
-  "regionCode": "632722",
+  "id": "632722",
   "pcode": "632700",
-  "regionName": "杂多县"
+  "name": "杂多县"
 }, {
-  "regionCode": "632723",
+  "id": "632723",
   "pcode": "632700",
-  "regionName": "称多县"
+  "name": "称多县"
 }, {
-  "regionCode": "632724",
+  "id": "632724",
   "pcode": "632700",
-  "regionName": "治多县"
+  "name": "治多县"
 }, {
-  "regionCode": "632725",
+  "id": "632725",
   "pcode": "632700",
-  "regionName": "囊谦县"
+  "name": "囊谦县"
 }, {
-  "regionCode": "632726",
+  "id": "632726",
   "pcode": "632700",
-  "regionName": "曲麻莱县"
+  "name": "曲麻莱县"
 }, {
-  "regionCode": "632800",
+  "id": "632800",
   "pcode": "630000",
-  "regionName": "海西蒙古族藏族自治州"
+  "name": "海西蒙古族藏族自治州"
 }, {
-  "regionCode": "632801",
+  "id": "632801",
   "pcode": "632800",
-  "regionName": "格尔木市"
+  "name": "格尔木市"
 }, {
-  "regionCode": "632802",
+  "id": "632802",
   "pcode": "632800",
-  "regionName": "德令哈市"
+  "name": "德令哈市"
 }, {
-  "regionCode": "632821",
+  "id": "632821",
   "pcode": "632800",
-  "regionName": "乌兰县"
+  "name": "乌兰县"
 }, {
-  "regionCode": "632822",
+  "id": "632822",
   "pcode": "632800",
-  "regionName": "都兰县"
+  "name": "都兰县"
 }, {
-  "regionCode": "632823",
+  "id": "632823",
   "pcode": "632800",
-  "regionName": "天峻县"
+  "name": "天峻县"
 }, {
-  "regionCode": "640000",
+  "id": "640000",
   "pcode": "",
-  "regionName": "宁夏回族自治区"
+  "name": "宁夏回族自治区"
 }, {
-  "regionCode": "640100",
+  "id": "640100",
   "pcode": "640000",
-  "regionName": "银川市"
+  "name": "银川市"
 }, {
-  "regionCode": "640101",
+  "id": "640101",
   "pcode": "640100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "640104",
+  "id": "640104",
   "pcode": "640100",
-  "regionName": "兴庆区"
+  "name": "兴庆区"
 }, {
-  "regionCode": "640105",
+  "id": "640105",
   "pcode": "640100",
-  "regionName": "西夏区"
+  "name": "西夏区"
 }, {
-  "regionCode": "640106",
+  "id": "640106",
   "pcode": "640100",
-  "regionName": "金凤区"
+  "name": "金凤区"
 }, {
-  "regionCode": "640121",
+  "id": "640121",
   "pcode": "640100",
-  "regionName": "永宁县"
+  "name": "永宁县"
 }, {
-  "regionCode": "640122",
+  "id": "640122",
   "pcode": "640100",
-  "regionName": "贺兰县"
+  "name": "贺兰县"
 }, {
-  "regionCode": "640181",
+  "id": "640181",
   "pcode": "640100",
-  "regionName": "灵武市"
+  "name": "灵武市"
 }, {
-  "regionCode": "640200",
+  "id": "640200",
   "pcode": "640000",
-  "regionName": "石嘴山市"
+  "name": "石嘴山市"
 }, {
-  "regionCode": "640201",
+  "id": "640201",
   "pcode": "640200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "640202",
+  "id": "640202",
   "pcode": "640200",
-  "regionName": "大武口区"
+  "name": "大武口区"
 }, {
-  "regionCode": "640205",
+  "id": "640205",
   "pcode": "640200",
-  "regionName": "惠农区"
+  "name": "惠农区"
 }, {
-  "regionCode": "640221",
+  "id": "640221",
   "pcode": "640200",
-  "regionName": "平罗县"
+  "name": "平罗县"
 }, {
-  "regionCode": "640300",
+  "id": "640300",
   "pcode": "640000",
-  "regionName": "吴忠市"
+  "name": "吴忠市"
 }, {
-  "regionCode": "640301",
+  "id": "640301",
   "pcode": "640300",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "640302",
+  "id": "640302",
   "pcode": "640300",
-  "regionName": "利通区"
+  "name": "利通区"
 }, {
-  "regionCode": "640303",
+  "id": "640303",
   "pcode": "640300",
-  "regionName": "红寺堡区"
+  "name": "红寺堡区"
 }, {
-  "regionCode": "640323",
+  "id": "640323",
   "pcode": "640300",
-  "regionName": "盐池县"
+  "name": "盐池县"
 }, {
-  "regionCode": "640324",
+  "id": "640324",
   "pcode": "640300",
-  "regionName": "同心县"
+  "name": "同心县"
 }, {
-  "regionCode": "640381",
+  "id": "640381",
   "pcode": "640300",
-  "regionName": "青铜峡市"
+  "name": "青铜峡市"
 }, {
-  "regionCode": "640400",
+  "id": "640400",
   "pcode": "640000",
-  "regionName": "固原市"
+  "name": "固原市"
 }, {
-  "regionCode": "640401",
+  "id": "640401",
   "pcode": "640400",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "640402",
+  "id": "640402",
   "pcode": "640400",
-  "regionName": "原州区"
+  "name": "原州区"
 }, {
-  "regionCode": "640422",
+  "id": "640422",
   "pcode": "640400",
-  "regionName": "西吉县"
+  "name": "西吉县"
 }, {
-  "regionCode": "640423",
+  "id": "640423",
   "pcode": "640400",
-  "regionName": "隆德县"
+  "name": "隆德县"
 }, {
-  "regionCode": "640424",
+  "id": "640424",
   "pcode": "640400",
-  "regionName": "泾源县"
+  "name": "泾源县"
 }, {
-  "regionCode": "640425",
+  "id": "640425",
   "pcode": "640400",
-  "regionName": "彭阳县"
+  "name": "彭阳县"
 }, {
-  "regionCode": "640500",
+  "id": "640500",
   "pcode": "640000",
-  "regionName": "中卫市"
+  "name": "中卫市"
 }, {
-  "regionCode": "640501",
+  "id": "640501",
   "pcode": "640500",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "640502",
+  "id": "640502",
   "pcode": "640500",
-  "regionName": "沙坡头区"
+  "name": "沙坡头区"
 }, {
-  "regionCode": "640521",
+  "id": "640521",
   "pcode": "640500",
-  "regionName": "中宁县"
+  "name": "中宁县"
 }, {
-  "regionCode": "640522",
+  "id": "640522",
   "pcode": "640500",
-  "regionName": "海原县"
+  "name": "海原县"
 }, {
-  "regionCode": "650000",
+  "id": "650000",
   "pcode": "",
-  "regionName": "新疆维吾尔自治区"
+  "name": "新疆维吾尔自治区"
 }, {
-  "regionCode": "650100",
+  "id": "650100",
   "pcode": "650000",
-  "regionName": "乌鲁木齐市"
+  "name": "乌鲁木齐市"
 }, {
-  "regionCode": "650101",
+  "id": "650101",
   "pcode": "650100",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "650102",
+  "id": "650102",
   "pcode": "650100",
-  "regionName": "天山区"
+  "name": "天山区"
 }, {
-  "regionCode": "650103",
+  "id": "650103",
   "pcode": "650100",
-  "regionName": "沙依巴克区"
+  "name": "沙依巴克区"
 }, {
-  "regionCode": "650104",
+  "id": "650104",
   "pcode": "650100",
-  "regionName": "新市区"
+  "name": "新市区"
 }, {
-  "regionCode": "650105",
+  "id": "650105",
   "pcode": "650100",
-  "regionName": "水磨沟区"
+  "name": "水磨沟区"
 }, {
-  "regionCode": "650106",
+  "id": "650106",
   "pcode": "650100",
-  "regionName": "头屯河区"
+  "name": "头屯河区"
 }, {
-  "regionCode": "650107",
+  "id": "650107",
   "pcode": "650100",
-  "regionName": "达坂城区"
+  "name": "达坂城区"
 }, {
-  "regionCode": "650109",
+  "id": "650109",
   "pcode": "650100",
-  "regionName": "米东区"
+  "name": "米东区"
 }, {
-  "regionCode": "650121",
+  "id": "650121",
   "pcode": "650100",
-  "regionName": "乌鲁木齐县"
+  "name": "乌鲁木齐县"
 }, {
-  "regionCode": "650200",
+  "id": "650200",
   "pcode": "650000",
-  "regionName": "克拉玛依市"
+  "name": "克拉玛依市"
 }, {
-  "regionCode": "650201",
+  "id": "650201",
   "pcode": "650200",
-  "regionName": "市辖区"
+  "name": "市辖区"
 }, {
-  "regionCode": "650202",
+  "id": "650202",
   "pcode": "650200",
-  "regionName": "独山子区"
+  "name": "独山子区"
 }, {
-  "regionCode": "650203",
+  "id": "650203",
   "pcode": "650200",
-  "regionName": "克拉玛依区"
+  "name": "克拉玛依区"
 }, {
-  "regionCode": "650204",
+  "id": "650204",
   "pcode": "650200",
-  "regionName": "白碱滩区"
+  "name": "白碱滩区"
 }, {
-  "regionCode": "650205",
+  "id": "650205",
   "pcode": "650200",
-  "regionName": "乌尔禾区"
+  "name": "乌尔禾区"
 }, {
-  "regionCode": "650400",
+  "id": "650400",
   "pcode": "650000",
-  "regionName": "吐鲁番市"
+  "name": "吐鲁番市"
 }, {
-  "regionCode": "650402",
+  "id": "650402",
   "pcode": "650400",
-  "regionName": "高昌区"
+  "name": "高昌区"
 }, {
-  "regionCode": "650421",
+  "id": "650421",
   "pcode": "650400",
-  "regionName": "鄯善县"
+  "name": "鄯善县"
 }, {
-  "regionCode": "650422",
+  "id": "650422",
   "pcode": "650400",
-  "regionName": "托克逊县"
+  "name": "托克逊县"
 }, {
-  "regionCode": "650500",
+  "id": "650500",
   "pcode": "650000",
-  "regionName": "哈密市"
+  "name": "哈密市"
 }, {
-  "regionCode": "650502",
+  "id": "650502",
   "pcode": "650500",
-  "regionName": "伊州区"
+  "name": "伊州区"
 }, {
-  "regionCode": "650521",
+  "id": "650521",
   "pcode": "650500",
-  "regionName": "巴里坤哈萨克自治县"
+  "name": "巴里坤哈萨克自治县"
 }, {
-  "regionCode": "650522",
+  "id": "650522",
   "pcode": "650500",
-  "regionName": "伊吾县"
+  "name": "伊吾县"
 }, {
-  "regionCode": "652300",
+  "id": "652300",
   "pcode": "650000",
-  "regionName": "昌吉回族自治州"
+  "name": "昌吉回族自治州"
 }, {
-  "regionCode": "652301",
+  "id": "652301",
   "pcode": "652300",
-  "regionName": "昌吉市"
+  "name": "昌吉市"
 }, {
-  "regionCode": "652302",
+  "id": "652302",
   "pcode": "652300",
-  "regionName": "阜康市"
+  "name": "阜康市"
 }, {
-  "regionCode": "652323",
+  "id": "652323",
   "pcode": "652300",
-  "regionName": "呼图壁县"
+  "name": "呼图壁县"
 }, {
-  "regionCode": "652324",
+  "id": "652324",
   "pcode": "652300",
-  "regionName": "玛纳斯县"
+  "name": "玛纳斯县"
 }, {
-  "regionCode": "652325",
+  "id": "652325",
   "pcode": "652300",
-  "regionName": "奇台县"
+  "name": "奇台县"
 }, {
-  "regionCode": "652327",
+  "id": "652327",
   "pcode": "652300",
-  "regionName": "吉木萨尔县"
+  "name": "吉木萨尔县"
 }, {
-  "regionCode": "652328",
+  "id": "652328",
   "pcode": "652300",
-  "regionName": "木垒哈萨克自治县"
+  "name": "木垒哈萨克自治县"
 }, {
-  "regionCode": "652700",
+  "id": "652700",
   "pcode": "650000",
-  "regionName": "博尔塔拉蒙古自治州"
+  "name": "博尔塔拉蒙古自治州"
 }, {
-  "regionCode": "652701",
+  "id": "652701",
   "pcode": "652700",
-  "regionName": "博乐市"
+  "name": "博乐市"
 }, {
-  "regionCode": "652702",
+  "id": "652702",
   "pcode": "652700",
-  "regionName": "阿拉山口市"
+  "name": "阿拉山口市"
 }, {
-  "regionCode": "652722",
+  "id": "652722",
   "pcode": "652700",
-  "regionName": "精河县"
+  "name": "精河县"
 }, {
-  "regionCode": "652723",
+  "id": "652723",
   "pcode": "652700",
-  "regionName": "温泉县"
+  "name": "温泉县"
 }, {
-  "regionCode": "652800",
+  "id": "652800",
   "pcode": "650000",
-  "regionName": "巴音郭楞蒙古自治州"
+  "name": "巴音郭楞蒙古自治州"
 }, {
-  "regionCode": "652801",
+  "id": "652801",
   "pcode": "652800",
-  "regionName": "库尔勒市"
+  "name": "库尔勒市"
 }, {
-  "regionCode": "652822",
+  "id": "652822",
   "pcode": "652800",
-  "regionName": "轮台县"
+  "name": "轮台县"
 }, {
-  "regionCode": "652823",
+  "id": "652823",
   "pcode": "652800",
-  "regionName": "尉犁县"
+  "name": "尉犁县"
 }, {
-  "regionCode": "652824",
+  "id": "652824",
   "pcode": "652800",
-  "regionName": "若羌县"
+  "name": "若羌县"
 }, {
-  "regionCode": "652825",
+  "id": "652825",
   "pcode": "652800",
-  "regionName": "且末县"
+  "name": "且末县"
 }, {
-  "regionCode": "652826",
+  "id": "652826",
   "pcode": "652800",
-  "regionName": "焉耆回族自治县"
+  "name": "焉耆回族自治县"
 }, {
-  "regionCode": "652827",
+  "id": "652827",
   "pcode": "652800",
-  "regionName": "和静县"
+  "name": "和静县"
 }, {
-  "regionCode": "652828",
+  "id": "652828",
   "pcode": "652800",
-  "regionName": "和硕县"
+  "name": "和硕县"
 }, {
-  "regionCode": "652829",
+  "id": "652829",
   "pcode": "652800",
-  "regionName": "博湖县"
+  "name": "博湖县"
 }, {
-  "regionCode": "652900",
+  "id": "652900",
   "pcode": "650000",
-  "regionName": "阿克苏地区"
+  "name": "阿克苏地区"
 }, {
-  "regionCode": "652901",
+  "id": "652901",
   "pcode": "652900",
-  "regionName": "阿克苏市"
+  "name": "阿克苏市"
 }, {
-  "regionCode": "652922",
+  "id": "652922",
   "pcode": "652900",
-  "regionName": "温宿县"
+  "name": "温宿县"
 }, {
-  "regionCode": "652923",
+  "id": "652923",
   "pcode": "652900",
-  "regionName": "库车县"
+  "name": "库车县"
 }, {
-  "regionCode": "652924",
+  "id": "652924",
   "pcode": "652900",
-  "regionName": "沙雅县"
+  "name": "沙雅县"
 }, {
-  "regionCode": "652925",
+  "id": "652925",
   "pcode": "652900",
-  "regionName": "新和县"
+  "name": "新和县"
 }, {
-  "regionCode": "652926",
+  "id": "652926",
   "pcode": "652900",
-  "regionName": "拜城县"
+  "name": "拜城县"
 }, {
-  "regionCode": "652927",
+  "id": "652927",
   "pcode": "652900",
-  "regionName": "乌什县"
+  "name": "乌什县"
 }, {
-  "regionCode": "652928",
+  "id": "652928",
   "pcode": "652900",
-  "regionName": "阿瓦提县"
+  "name": "阿瓦提县"
 }, {
-  "regionCode": "652929",
+  "id": "652929",
   "pcode": "652900",
-  "regionName": "柯坪县"
+  "name": "柯坪县"
 }, {
-  "regionCode": "653000",
+  "id": "653000",
   "pcode": "650000",
-  "regionName": "克孜勒苏柯尔克孜自治州"
+  "name": "克孜勒苏柯尔克孜自治州"
 }, {
-  "regionCode": "653001",
+  "id": "653001",
   "pcode": "653000",
-  "regionName": "阿图什市"
+  "name": "阿图什市"
 }, {
-  "regionCode": "653022",
+  "id": "653022",
   "pcode": "653000",
-  "regionName": "阿克陶县"
+  "name": "阿克陶县"
 }, {
-  "regionCode": "653023",
+  "id": "653023",
   "pcode": "653000",
-  "regionName": "阿合奇县"
+  "name": "阿合奇县"
 }, {
-  "regionCode": "653024",
+  "id": "653024",
   "pcode": "653000",
-  "regionName": "乌恰县"
+  "name": "乌恰县"
 }, {
-  "regionCode": "653100",
+  "id": "653100",
   "pcode": "650000",
-  "regionName": "喀什地区"
+  "name": "喀什地区"
 }, {
-  "regionCode": "653101",
+  "id": "653101",
   "pcode": "653100",
-  "regionName": "喀什市"
+  "name": "喀什市"
 }, {
-  "regionCode": "653121",
+  "id": "653121",
   "pcode": "653100",
-  "regionName": "疏附县"
+  "name": "疏附县"
 }, {
-  "regionCode": "653122",
+  "id": "653122",
   "pcode": "653100",
-  "regionName": "疏勒县"
+  "name": "疏勒县"
 }, {
-  "regionCode": "653123",
+  "id": "653123",
   "pcode": "653100",
-  "regionName": "英吉沙县"
+  "name": "英吉沙县"
 }, {
-  "regionCode": "653124",
+  "id": "653124",
   "pcode": "653100",
-  "regionName": "泽普县"
+  "name": "泽普县"
 }, {
-  "regionCode": "653125",
+  "id": "653125",
   "pcode": "653100",
-  "regionName": "莎车县"
+  "name": "莎车县"
 }, {
-  "regionCode": "653126",
+  "id": "653126",
   "pcode": "653100",
-  "regionName": "叶城县"
+  "name": "叶城县"
 }, {
-  "regionCode": "653127",
+  "id": "653127",
   "pcode": "653100",
-  "regionName": "麦盖提县"
+  "name": "麦盖提县"
 }, {
-  "regionCode": "653128",
+  "id": "653128",
   "pcode": "653100",
-  "regionName": "岳普湖县"
+  "name": "岳普湖县"
 }, {
-  "regionCode": "653129",
+  "id": "653129",
   "pcode": "653100",
-  "regionName": "伽师县"
+  "name": "伽师县"
 }, {
-  "regionCode": "653130",
+  "id": "653130",
   "pcode": "653100",
-  "regionName": "巴楚县"
+  "name": "巴楚县"
 }, {
-  "regionCode": "653131",
+  "id": "653131",
   "pcode": "653100",
-  "regionName": "塔什库尔干塔吉克自治县"
+  "name": "塔什库尔干塔吉克自治县"
 }, {
-  "regionCode": "653200",
+  "id": "653200",
   "pcode": "650000",
-  "regionName": "和田地区"
+  "name": "和田地区"
 }, {
-  "regionCode": "653201",
+  "id": "653201",
   "pcode": "653200",
-  "regionName": "和田市"
+  "name": "和田市"
 }, {
-  "regionCode": "653221",
+  "id": "653221",
   "pcode": "653200",
-  "regionName": "和田县"
+  "name": "和田县"
 }, {
-  "regionCode": "653222",
+  "id": "653222",
   "pcode": "653200",
-  "regionName": "墨玉县"
+  "name": "墨玉县"
 }, {
-  "regionCode": "653223",
+  "id": "653223",
   "pcode": "653200",
-  "regionName": "皮山县"
+  "name": "皮山县"
 }, {
-  "regionCode": "653224",
+  "id": "653224",
   "pcode": "653200",
-  "regionName": "洛浦县"
+  "name": "洛浦县"
 }, {
-  "regionCode": "653225",
+  "id": "653225",
   "pcode": "653200",
-  "regionName": "策勒县"
+  "name": "策勒县"
 }, {
-  "regionCode": "653226",
+  "id": "653226",
   "pcode": "653200",
-  "regionName": "于田县"
+  "name": "于田县"
 }, {
-  "regionCode": "653227",
+  "id": "653227",
   "pcode": "653200",
-  "regionName": "民丰县"
+  "name": "民丰县"
 }, {
-  "regionCode": "654000",
+  "id": "654000",
   "pcode": "650000",
-  "regionName": "伊犁哈萨克自治州"
+  "name": "伊犁哈萨克自治州"
 }, {
-  "regionCode": "654002",
+  "id": "654002",
   "pcode": "654000",
-  "regionName": "伊宁市"
+  "name": "伊宁市"
 }, {
-  "regionCode": "654003",
+  "id": "654003",
   "pcode": "654000",
-  "regionName": "奎屯市"
+  "name": "奎屯市"
 }, {
-  "regionCode": "654004",
+  "id": "654004",
   "pcode": "654000",
-  "regionName": "霍尔果斯市"
+  "name": "霍尔果斯市"
 }, {
-  "regionCode": "654021",
+  "id": "654021",
   "pcode": "654000",
-  "regionName": "伊宁县"
+  "name": "伊宁县"
 }, {
-  "regionCode": "654022",
+  "id": "654022",
   "pcode": "654000",
-  "regionName": "察布查尔锡伯自治县"
+  "name": "察布查尔锡伯自治县"
 }, {
-  "regionCode": "654023",
+  "id": "654023",
   "pcode": "654000",
-  "regionName": "霍城县"
+  "name": "霍城县"
 }, {
-  "regionCode": "654024",
+  "id": "654024",
   "pcode": "654000",
-  "regionName": "巩留县"
+  "name": "巩留县"
 }, {
-  "regionCode": "654025",
+  "id": "654025",
   "pcode": "654000",
-  "regionName": "新源县"
+  "name": "新源县"
 }, {
-  "regionCode": "654026",
+  "id": "654026",
   "pcode": "654000",
-  "regionName": "昭苏县"
+  "name": "昭苏县"
 }, {
-  "regionCode": "654027",
+  "id": "654027",
   "pcode": "654000",
-  "regionName": "特克斯县"
+  "name": "特克斯县"
 }, {
-  "regionCode": "654028",
+  "id": "654028",
   "pcode": "654000",
-  "regionName": "尼勒克县"
+  "name": "尼勒克县"
 }, {
-  "regionCode": "654200",
+  "id": "654200",
   "pcode": "650000",
-  "regionName": "塔城地区"
+  "name": "塔城地区"
 }, {
-  "regionCode": "654201",
+  "id": "654201",
   "pcode": "654200",
-  "regionName": "塔城市"
+  "name": "塔城市"
 }, {
-  "regionCode": "654202",
+  "id": "654202",
   "pcode": "654200",
-  "regionName": "乌苏市"
+  "name": "乌苏市"
 }, {
-  "regionCode": "654221",
+  "id": "654221",
   "pcode": "654200",
-  "regionName": "额敏县"
+  "name": "额敏县"
 }, {
-  "regionCode": "654223",
+  "id": "654223",
   "pcode": "654200",
-  "regionName": "沙湾县"
+  "name": "沙湾县"
 }, {
-  "regionCode": "654224",
+  "id": "654224",
   "pcode": "654200",
-  "regionName": "托里县"
+  "name": "托里县"
 }, {
-  "regionCode": "654225",
+  "id": "654225",
   "pcode": "654200",
-  "regionName": "裕民县"
+  "name": "裕民县"
 }, {
-  "regionCode": "654226",
+  "id": "654226",
   "pcode": "654200",
-  "regionName": "和布克赛尔蒙古自治县"
+  "name": "和布克赛尔蒙古自治县"
 }, {
-  "regionCode": "654300",
+  "id": "654300",
   "pcode": "650000",
-  "regionName": "阿勒泰地区"
+  "name": "阿勒泰地区"
 }, {
-  "regionCode": "654301",
+  "id": "654301",
   "pcode": "654300",
-  "regionName": "阿勒泰市"
+  "name": "阿勒泰市"
 }, {
-  "regionCode": "654321",
+  "id": "654321",
   "pcode": "654300",
-  "regionName": "布尔津县"
+  "name": "布尔津县"
 }, {
-  "regionCode": "654322",
+  "id": "654322",
   "pcode": "654300",
-  "regionName": "富蕴县"
+  "name": "富蕴县"
 }, {
-  "regionCode": "654323",
+  "id": "654323",
   "pcode": "654300",
-  "regionName": "福海县"
+  "name": "福海县"
 }, {
-  "regionCode": "654324",
+  "id": "654324",
   "pcode": "654300",
-  "regionName": "哈巴河县"
+  "name": "哈巴河县"
 }, {
-  "regionCode": "654325",
+  "id": "654325",
   "pcode": "654300",
-  "regionName": "青河县"
+  "name": "青河县"
 }, {
-  "regionCode": "654326",
+  "id": "654326",
   "pcode": "654300",
-  "regionName": "吉木乃县"
+  "name": "吉木乃县"
 }, {
-  "regionCode": "659000",
+  "id": "659000",
   "pcode": "650000",
-  "regionName": "自治区直辖县级行政区划"
+  "name": "自治区直辖县级行政区划"
 }, {
-  "regionCode": "659001",
+  "id": "659001",
   "pcode": "659000",
-  "regionName": "石河子市"
+  "name": "石河子市"
 }, {
-  "regionCode": "659002",
+  "id": "659002",
   "pcode": "659000",
-  "regionName": "阿拉尔市"
+  "name": "阿拉尔市"
 }, {
-  "regionCode": "659003",
+  "id": "659003",
   "pcode": "659000",
-  "regionName": "图木舒克市"
+  "name": "图木舒克市"
 }, {
-  "regionCode": "659004",
+  "id": "659004",
   "pcode": "659000",
-  "regionName": "五家渠市"
+  "name": "五家渠市"
 }, {
-  "regionCode": "659006",
+  "id": "659006",
   "pcode": "659000",
-  "regionName": "铁门关市"
+  "name": "铁门关市"
 }, {
-  "regionCode": "710000",
+  "id": "710000",
   "pcode": "",
-  "regionName": "台湾省"
+  "name": "台湾省"
 }, {
-  "regionCode": "810000",
+  "id": "810000",
   "pcode": "",
-  "regionName": "香港特别行政区"
+  "name": "香港特别行政区"
 }, {
-  "regionCode": "820000",
+  "id": "820000",
   "pcode": "",
-  "regionName": "澳门特别行政区"
+  "name": "澳门特别行政区"
 }]
-_.each(obj,function (v,k) {
-  if(v.pcode === '659000'){
-    v['"id"'] = v.regionCode
-    v['"title"'] = v.regionName
-    // v['"children"'] = []
-    delete v.regionCode
-    delete v.pcode
-    delete v.regionName
-    console.log(v)
+var objBak = [
+  { 'id': '110000', 'name': '北京市' },
+  { 'id': '110101', 'name': '东城区' },
+  { 'id': '110102', 'name': '西城区' },
+  { 'id': '110105', 'name': '朝阳区' },
+  { 'id': '110106', 'name': '丰台区' },
+  { 'id': '110107', 'name': '石景山区' },
+  { 'id': '110108', 'name': '海淀区' },
+  { 'id': '110109', 'name': '门头沟区' },
+  { 'id': '110111', 'name': '房山区' },
+  { 'id': '110112', 'name': '通州区' },
+  { 'id': '110113', 'name': '顺义区' },
+  { 'id': '110114', 'name': '昌平区' },
+  { 'id': '110115', 'name': '大兴区' },
+  { 'id': '110116', 'name': '怀柔区' },
+  { 'id': '110117', 'name': '平谷区' },
+  { 'id': '110118', 'name': '密云区' },
+  { 'id': '110119', 'name': '延庆区' },
+  { 'id': '120000', 'name': '天津市' },
+  { 'id': '120101', 'name': '和平区' },
+  { 'id': '120102', 'name': '河东区' },
+  { 'id': '120103', 'name': '河西区' },
+  { 'id': '120104', 'name': '南开区' },
+  { 'id': '120105', 'name': '河北区' },
+  { 'id': '120106', 'name': '红桥区' },
+  { 'id': '120110', 'name': '东丽区' },
+  { 'id': '120111', 'name': '西青区' },
+  { 'id': '120112', 'name': '津南区' },
+  { 'id': '120113', 'name': '北辰区' },
+  { 'id': '120114', 'name': '武清区' },
+  { 'id': '120115', 'name': '宝坻区' },
+  { 'id': '120116', 'name': '滨海新区' },
+  { 'id': '120117', 'name': '宁河区' },
+  { 'id': '120118', 'name': '静海区' },
+  { 'id': '120119', 'name': '蓟州区' },
+  { 'id': '130000', 'name': '河北省' },
+  { 'id': '130100', 'name': '石家庄市' },
+  { 'id': '130102', 'name': '长安区' },
+  { 'id': '130104', 'name': '桥西区' },
+  { 'id': '130105', 'name': '新华区' },
+  { 'id': '130107', 'name': '井陉矿区' },
+  { 'id': '130108', 'name': '裕华区' },
+  { 'id': '130109', 'name': '藁城区' },
+  { 'id': '130110', 'name': '鹿泉区' },
+  { 'id': '130111', 'name': '栾城区' },
+  { 'id': '130121', 'name': '井陉县' },
+  { 'id': '130123', 'name': '正定县' },
+  { 'id': '130125', 'name': '行唐县' },
+  { 'id': '130126', 'name': '灵寿县' },
+  { 'id': '130127', 'name': '高邑县' },
+  { 'id': '130128', 'name': '深泽县' },
+  { 'id': '130129', 'name': '赞皇县' },
+  { 'id': '130130', 'name': '无极县' },
+  { 'id': '130131', 'name': '平山县' },
+  { 'id': '130132', 'name': '元氏县' },
+  { 'id': '130133', 'name': '赵县' },
+  { 'id': '130181', 'name': '辛集市' },
+  { 'id': '130183', 'name': '晋州市' },
+  { 'id': '130184', 'name': '新乐市' },
+  { 'id': '130200', 'name': '唐山市' },
+  { 'id': '130202', 'name': '路南区' },
+  { 'id': '130203', 'name': '路北区' },
+  { 'id': '130204', 'name': '古冶区' },
+  { 'id': '130205', 'name': '开平区' },
+  { 'id': '130207', 'name': '丰南区' },
+  { 'id': '130208', 'name': '丰润区' },
+  { 'id': '130209', 'name': '曹妃甸区' },
+  { 'id': '130223', 'name': '滦县' },
+  { 'id': '130224', 'name': '滦南县' },
+  { 'id': '130225', 'name': '乐亭县' },
+  { 'id': '130227', 'name': '迁西县' },
+  { 'id': '130229', 'name': '玉田县' },
+  { 'id': '130281', 'name': '遵化市' },
+  { 'id': '130283', 'name': '迁安市' },
+  { 'id': '130300', 'name': '秦皇岛市' },
+  { 'id': '130302', 'name': '海港区' },
+  { 'id': '130303', 'name': '山海关区' },
+  { 'id': '130304', 'name': '北戴河区' },
+  { 'id': '130306', 'name': '抚宁区' },
+  { 'id': '130321', 'name': '青龙满族自治县' },
+  { 'id': '130322', 'name': '昌黎县' },
+  { 'id': '130324', 'name': '卢龙县' },
+  { 'id': '130400', 'name': '邯郸市' },
+  { 'id': '130402', 'name': '邯山区' },
+  { 'id': '130403', 'name': '丛台区' },
+  { 'id': '130404', 'name': '复兴区' },
+  { 'id': '130406', 'name': '峰峰矿区' },
+  { 'id': '130407', 'name': '肥乡区' },
+  { 'id': '130408', 'name': '永年区' },
+  { 'id': '130423', 'name': '临漳县' },
+  { 'id': '130424', 'name': '成安县' },
+  { 'id': '130425', 'name': '大名县' },
+  { 'id': '130426', 'name': '涉县' },
+  { 'id': '130427', 'name': '磁县' },
+  { 'id': '130430', 'name': '邱县' },
+  { 'id': '130431', 'name': '鸡泽县' },
+  { 'id': '130432', 'name': '广平县' },
+  { 'id': '130433', 'name': '馆陶县' },
+  { 'id': '130434', 'name': '魏县' },
+  { 'id': '130435', 'name': '曲周县' },
+  { 'id': '130481', 'name': '武安市' },
+  { 'id': '130500', 'name': '邢台市' },
+  { 'id': '130502', 'name': '桥东区' },
+  { 'id': '130503', 'name': '桥西区' },
+  { 'id': '130521', 'name': '邢台县' },
+  { 'id': '130522', 'name': '临城县' },
+  { 'id': '130523', 'name': '内丘县' },
+  { 'id': '130524', 'name': '柏乡县' },
+  { 'id': '130525', 'name': '隆尧县' },
+  { 'id': '130526', 'name': '任县' },
+  { 'id': '130527', 'name': '南和县' },
+  { 'id': '130528', 'name': '宁晋县' },
+  { 'id': '130529', 'name': '巨鹿县' },
+  { 'id': '130530', 'name': '新河县' },
+  { 'id': '130531', 'name': '广宗县' },
+  { 'id': '130532', 'name': '平乡县' },
+  { 'id': '130533', 'name': '威县' },
+  { 'id': '130534', 'name': '清河县' },
+  { 'id': '130535', 'name': '临西县' },
+  { 'id': '130581', 'name': '南宫市' },
+  { 'id': '130582', 'name': '沙河市' },
+  { 'id': '130600', 'name': '保定市' },
+  { 'id': '130602', 'name': '竞秀区' },
+  { 'id': '130606', 'name': '莲池区' },
+  { 'id': '130607', 'name': '满城区' },
+  { 'id': '130608', 'name': '清苑区' },
+  { 'id': '130609', 'name': '徐水区' },
+  { 'id': '130623', 'name': '涞水县' },
+  { 'id': '130624', 'name': '阜平县' },
+  { 'id': '130626', 'name': '定兴县' },
+  { 'id': '130627', 'name': '唐县' },
+  { 'id': '130628', 'name': '高阳县' },
+  { 'id': '130629', 'name': '容城县' },
+  { 'id': '130630', 'name': '涞源县' },
+  { 'id': '130631', 'name': '望都县' },
+  { 'id': '130632', 'name': '安新县' },
+  { 'id': '130633', 'name': '易县' },
+  { 'id': '130634', 'name': '曲阳县' },
+  { 'id': '130635', 'name': '蠡县' },
+  { 'id': '130636', 'name': '顺平县' },
+  { 'id': '130637', 'name': '博野县' },
+  { 'id': '130638', 'name': '雄县' },
+  { 'id': '130681', 'name': '涿州市' },
+  { 'id': '130682', 'name': '定州市' },
+  { 'id': '130683', 'name': '安国市' },
+  { 'id': '130684', 'name': '高碑店市' },
+  { 'id': '130700', 'name': '张家口市' },
+  { 'id': '130702', 'name': '桥东区' },
+  { 'id': '130703', 'name': '桥西区' },
+  { 'id': '130705', 'name': '宣化区' },
+  { 'id': '130706', 'name': '下花园区' },
+  { 'id': '130708', 'name': '万全区' },
+  { 'id': '130709', 'name': '崇礼区' },
+  { 'id': '130722', 'name': '张北县' },
+  { 'id': '130723', 'name': '康保县' },
+  { 'id': '130724', 'name': '沽源县' },
+  { 'id': '130725', 'name': '尚义县' },
+  { 'id': '130726', 'name': '蔚县' },
+  { 'id': '130727', 'name': '阳原县' },
+  { 'id': '130728', 'name': '怀安县' },
+  { 'id': '130730', 'name': '怀来县' },
+  { 'id': '130731', 'name': '涿鹿县' },
+  { 'id': '130732', 'name': '赤城县' },
+  { 'id': '130800', 'name': '承德市' },
+  { 'id': '130802', 'name': '双桥区' },
+  { 'id': '130803', 'name': '双滦区' },
+  { 'id': '130804', 'name': '鹰手营子矿区' },
+  { 'id': '130821', 'name': '承德县' },
+  { 'id': '130822', 'name': '兴隆县' },
+  { 'id': '130824', 'name': '滦平县' },
+  { 'id': '130825', 'name': '隆化县' },
+  { 'id': '130826', 'name': '丰宁满族自治县' },
+  { 'id': '130827', 'name': '宽城满族自治县' },
+  { 'id': '130828', 'name': '围场满族蒙古族自治县' },
+  { 'id': '130881', 'name': '平泉市' },
+  { 'id': '130900', 'name': '沧州市' },
+  { 'id': '130902', 'name': '新华区' },
+  { 'id': '130903', 'name': '运河区' },
+  { 'id': '130921', 'name': '沧县' },
+  { 'id': '130922', 'name': '青县' },
+  { 'id': '130923', 'name': '东光县' },
+  { 'id': '130924', 'name': '海兴县' },
+  { 'id': '130925', 'name': '盐山县' },
+  { 'id': '130926', 'name': '肃宁县' },
+  { 'id': '130927', 'name': '南皮县' },
+  { 'id': '130928', 'name': '吴桥县' },
+  { 'id': '130929', 'name': '献县' },
+  { 'id': '130930', 'name': '孟村回族自治县' },
+  { 'id': '130981', 'name': '泊头市' },
+  { 'id': '130982', 'name': '任丘市' },
+  { 'id': '130983', 'name': '黄骅市' },
+  { 'id': '130984', 'name': '河间市' },
+  { 'id': '131000', 'name': '廊坊市' },
+  { 'id': '131002', 'name': '安次区' },
+  { 'id': '131003', 'name': '广阳区' },
+  { 'id': '131022', 'name': '固安县' },
+  { 'id': '131023', 'name': '永清县' },
+  { 'id': '131024', 'name': '香河县' },
+  { 'id': '131025', 'name': '大城县' },
+  { 'id': '131026', 'name': '文安县' },
+  { 'id': '131028', 'name': '大厂回族自治县' },
+  { 'id': '131081', 'name': '霸州市' },
+  { 'id': '131082', 'name': '三河市' },
+  { 'id': '131100', 'name': '衡水市' },
+  { 'id': '131102', 'name': '桃城区' },
+  { 'id': '131103', 'name': '冀州区' },
+  { 'id': '131121', 'name': '枣强县' },
+  { 'id': '131122', 'name': '武邑县' },
+  { 'id': '131123', 'name': '武强县' },
+  { 'id': '131124', 'name': '饶阳县' },
+  { 'id': '131125', 'name': '安平县' },
+  { 'id': '131126', 'name': '故城县' },
+  { 'id': '131127', 'name': '景县' },
+  { 'id': '131128', 'name': '阜城县' },
+  { 'id': '131182', 'name': '深州市' },
+  { 'id': '140000', 'name': '山西省' },
+  { 'id': '140100', 'name': '太原市' },
+  { 'id': '140105', 'name': '小店区' },
+  { 'id': '140106', 'name': '迎泽区' },
+  { 'id': '140107', 'name': '杏花岭区' },
+  { 'id': '140108', 'name': '尖草坪区' },
+  { 'id': '140109', 'name': '万柏林区' },
+  { 'id': '140110', 'name': '晋源区' },
+  { 'id': '140121', 'name': '清徐县' },
+  { 'id': '140122', 'name': '阳曲县' },
+  { 'id': '140123', 'name': '娄烦县' },
+  { 'id': '140181', 'name': '古交市' },
+  { 'id': '140200', 'name': '大同市' },
+  { 'id': '140212', 'name': '新荣区' },
+  { 'id': '140213', 'name': '平城区' },
+  { 'id': '140214', 'name': '云冈区' },
+  { 'id': '140215', 'name': '云州区' },
+  { 'id': '140221', 'name': '阳高县' },
+  { 'id': '140222', 'name': '天镇县' },
+  { 'id': '140223', 'name': '广灵县' },
+  { 'id': '140224', 'name': '灵丘县' },
+  { 'id': '140225', 'name': '浑源县' },
+  { 'id': '140226', 'name': '左云县' },
+  { 'id': '140300', 'name': '阳泉市' },
+  { 'id': '140302', 'name': '城区' },
+  { 'id': '140303', 'name': '矿区' },
+  { 'id': '140311', 'name': '郊区' },
+  { 'id': '140321', 'name': '平定县' },
+  { 'id': '140322', 'name': '盂县' },
+  { 'id': '140400', 'name': '长治市' },
+  { 'id': '140402', 'name': '城区' },
+  { 'id': '140411', 'name': '郊区' },
+  { 'id': '140421', 'name': '长治县' },
+  { 'id': '140423', 'name': '襄垣县' },
+  { 'id': '140424', 'name': '屯留县' },
+  { 'id': '140425', 'name': '平顺县' },
+  { 'id': '140426', 'name': '黎城县' },
+  { 'id': '140427', 'name': '壶关县' },
+  { 'id': '140428', 'name': '长子县' },
+  { 'id': '140429', 'name': '武乡县' },
+  { 'id': '140430', 'name': '沁县' },
+  { 'id': '140431', 'name': '沁源县' },
+  { 'id': '140481', 'name': '潞城市' },
+  { 'id': '140500', 'name': '晋城市' },
+  { 'id': '140502', 'name': '城区' },
+  { 'id': '140521', 'name': '沁水县' },
+  { 'id': '140522', 'name': '阳城县' },
+  { 'id': '140524', 'name': '陵川县' },
+  { 'id': '140525', 'name': '泽州县' },
+  { 'id': '140581', 'name': '高平市' },
+  { 'id': '140600', 'name': '朔州市' },
+  { 'id': '140602', 'name': '朔城区' },
+  { 'id': '140603', 'name': '平鲁区' },
+  { 'id': '140621', 'name': '山阴县' },
+  { 'id': '140622', 'name': '应县' },
+  { 'id': '140623', 'name': '右玉县' },
+  { 'id': '140681', 'name': '怀仁市' },
+  { 'id': '140700', 'name': '晋中市' },
+  { 'id': '140702', 'name': '榆次区' },
+  { 'id': '140721', 'name': '榆社县' },
+  { 'id': '140722', 'name': '左权县' },
+  { 'id': '140723', 'name': '和顺县' },
+  { 'id': '140724', 'name': '昔阳县' },
+  { 'id': '140725', 'name': '寿阳县' },
+  { 'id': '140726', 'name': '太谷县' },
+  { 'id': '140727', 'name': '祁县' },
+  { 'id': '140728', 'name': '平遥县' },
+  { 'id': '140729', 'name': '灵石县' },
+  { 'id': '140781', 'name': '介休市' },
+  { 'id': '140800', 'name': '运城市' },
+  { 'id': '140802', 'name': '盐湖区' },
+  { 'id': '140821', 'name': '临猗县' },
+  { 'id': '140822', 'name': '万荣县' },
+  { 'id': '140823', 'name': '闻喜县' },
+  { 'id': '140824', 'name': '稷山县' },
+  { 'id': '140825', 'name': '新绛县' },
+  { 'id': '140826', 'name': '绛县' },
+  { 'id': '140827', 'name': '垣曲县' },
+  { 'id': '140828', 'name': '夏县' },
+  { 'id': '140829', 'name': '平陆县' },
+  { 'id': '140830', 'name': '芮城县' },
+  { 'id': '140881', 'name': '永济市' },
+  { 'id': '140882', 'name': '河津市' },
+  { 'id': '140900', 'name': '忻州市' },
+  { 'id': '140902', 'name': '忻府区' },
+  { 'id': '140921', 'name': '定襄县' },
+  { 'id': '140922', 'name': '五台县' },
+  { 'id': '140923', 'name': '代县' },
+  { 'id': '140924', 'name': '繁峙县' },
+  { 'id': '140925', 'name': '宁武县' },
+  { 'id': '140926', 'name': '静乐县' },
+  { 'id': '140927', 'name': '神池县' },
+  { 'id': '140928', 'name': '五寨县' },
+  { 'id': '140929', 'name': '岢岚县' },
+  { 'id': '140930', 'name': '河曲县' },
+  { 'id': '140931', 'name': '保德县' },
+  { 'id': '140932', 'name': '偏关县' },
+  { 'id': '140981', 'name': '原平市' },
+  { 'id': '141000', 'name': '临汾市' },
+  { 'id': '141002', 'name': '尧都区' },
+  { 'id': '141021', 'name': '曲沃县' },
+  { 'id': '141022', 'name': '翼城县' },
+  { 'id': '141023', 'name': '襄汾县' },
+  { 'id': '141024', 'name': '洪洞县' },
+  { 'id': '141025', 'name': '古县' },
+  { 'id': '141026', 'name': '安泽县' },
+  { 'id': '141027', 'name': '浮山县' },
+  { 'id': '141028', 'name': '吉县' },
+  { 'id': '141029', 'name': '乡宁县' },
+  { 'id': '141030', 'name': '大宁县' },
+  { 'id': '141031', 'name': '隰县' },
+  { 'id': '141032', 'name': '永和县' },
+  { 'id': '141033', 'name': '蒲县' },
+  { 'id': '141034', 'name': '汾西县' },
+  { 'id': '141081', 'name': '侯马市' },
+  { 'id': '141082', 'name': '霍州市' },
+  { 'id': '141100', 'name': '吕梁市' },
+  { 'id': '141102', 'name': '离石区' },
+  { 'id': '141121', 'name': '文水县' },
+  { 'id': '141122', 'name': '交城县' },
+  { 'id': '141123', 'name': '兴县' },
+  { 'id': '141124', 'name': '临县' },
+  { 'id': '141125', 'name': '柳林县' },
+  { 'id': '141126', 'name': '石楼县' },
+  { 'id': '141127', 'name': '岚县' },
+  { 'id': '141128', 'name': '方山县' },
+  { 'id': '141129', 'name': '中阳县' },
+  { 'id': '141130', 'name': '交口县' },
+  { 'id': '141181', 'name': '孝义市' },
+  { 'id': '141182', 'name': '汾阳市' },
+  { 'id': '150000', 'name': '内蒙古自治区' },
+  { 'id': '150100', 'name': '呼和浩特市' },
+  { 'id': '150102', 'name': '新城区' },
+  { 'id': '150103', 'name': '回民区' },
+  { 'id': '150104', 'name': '玉泉区' },
+  { 'id': '150105', 'name': '赛罕区' },
+  { 'id': '150121', 'name': '土默特左旗' },
+  { 'id': '150122', 'name': '托克托县' },
+  { 'id': '150123', 'name': '和林格尔县' },
+  { 'id': '150124', 'name': '清水河县' },
+  { 'id': '150125', 'name': '武川县' },
+  { 'id': '150200', 'name': '包头市' },
+  { 'id': '150202', 'name': '东河区' },
+  { 'id': '150203', 'name': '昆都仑区' },
+  { 'id': '150204', 'name': '青山区' },
+  { 'id': '150205', 'name': '石拐区' },
+  { 'id': '150206', 'name': '白云鄂博矿区' },
+  { 'id': '150207', 'name': '九原区' },
+  { 'id': '150221', 'name': '土默特右旗' },
+  { 'id': '150222', 'name': '固阳县' },
+  { 'id': '150223', 'name': '达尔罕茂明安联合旗' },
+  { 'id': '150300', 'name': '乌海市' },
+  { 'id': '150302', 'name': '海勃湾区' },
+  { 'id': '150303', 'name': '海南区' },
+  { 'id': '150304', 'name': '乌达区' },
+  { 'id': '150400', 'name': '赤峰市' },
+  { 'id': '150402', 'name': '红山区' },
+  { 'id': '150403', 'name': '元宝山区' },
+  { 'id': '150404', 'name': '松山区' },
+  { 'id': '150421', 'name': '阿鲁科尔沁旗' },
+  { 'id': '150422', 'name': '巴林左旗' },
+  { 'id': '150423', 'name': '巴林右旗' },
+  { 'id': '150424', 'name': '林西县' },
+  { 'id': '150425', 'name': '克什克腾旗' },
+  { 'id': '150426', 'name': '翁牛特旗' },
+  { 'id': '150428', 'name': '喀喇沁旗' },
+  { 'id': '150429', 'name': '宁城县' },
+  { 'id': '150430', 'name': '敖汉旗' },
+  { 'id': '150500', 'name': '通辽市' },
+  { 'id': '150502', 'name': '科尔沁区' },
+  { 'id': '150521', 'name': '科尔沁左翼中旗' },
+  { 'id': '150522', 'name': '科尔沁左翼后旗' },
+  { 'id': '150523', 'name': '开鲁县' },
+  { 'id': '150524', 'name': '库伦旗' },
+  { 'id': '150525', 'name': '奈曼旗' },
+  { 'id': '150526', 'name': '扎鲁特旗' },
+  { 'id': '150581', 'name': '霍林郭勒市' },
+  { 'id': '150600', 'name': '鄂尔多斯市' },
+  { 'id': '150602', 'name': '东胜区' },
+  { 'id': '150603', 'name': '康巴什区' },
+  { 'id': '150621', 'name': '达拉特旗' },
+  { 'id': '150622', 'name': '准格尔旗' },
+  { 'id': '150623', 'name': '鄂托克前旗' },
+  { 'id': '150624', 'name': '鄂托克旗' },
+  { 'id': '150625', 'name': '杭锦旗' },
+  { 'id': '150626', 'name': '乌审旗' },
+  { 'id': '150627', 'name': '伊金霍洛旗' },
+  { 'id': '150700', 'name': '呼伦贝尔市' },
+  { 'id': '150702', 'name': '海拉尔区' },
+  { 'id': '150703', 'name': '扎赉诺尔区' },
+  { 'id': '150721', 'name': '阿荣旗' },
+  { 'id': '150722', 'name': '莫力达瓦达斡尔族自治旗' },
+  { 'id': '150723', 'name': '鄂伦春自治旗' },
+  { 'id': '150724', 'name': '鄂温克族自治旗' },
+  { 'id': '150725', 'name': '陈巴尔虎旗' },
+  { 'id': '150726', 'name': '新巴尔虎左旗' },
+  { 'id': '150727', 'name': '新巴尔虎右旗' },
+  { 'id': '150781', 'name': '满洲里市' },
+  { 'id': '150782', 'name': '牙克石市' },
+  { 'id': '150783', 'name': '扎兰屯市' },
+  { 'id': '150784', 'name': '额尔古纳市' },
+  { 'id': '150785', 'name': '根河市' },
+  { 'id': '150800', 'name': '巴彦淖尔市' },
+  { 'id': '150802', 'name': '临河区' },
+  { 'id': '150821', 'name': '五原县' },
+  { 'id': '150822', 'name': '磴口县' },
+  { 'id': '150823', 'name': '乌拉特前旗' },
+  { 'id': '150824', 'name': '乌拉特中旗' },
+  { 'id': '150825', 'name': '乌拉特后旗' },
+  { 'id': '150826', 'name': '杭锦后旗' },
+  { 'id': '150900', 'name': '乌兰察布市' },
+  { 'id': '150902', 'name': '集宁区' },
+  { 'id': '150921', 'name': '卓资县' },
+  { 'id': '150922', 'name': '化德县' },
+  { 'id': '150923', 'name': '商都县' },
+  { 'id': '150924', 'name': '兴和县' },
+  { 'id': '150925', 'name': '凉城县' },
+  { 'id': '150926', 'name': '察哈尔右翼前旗' },
+  { 'id': '150927', 'name': '察哈尔右翼中旗' },
+  { 'id': '150928', 'name': '察哈尔右翼后旗' },
+  { 'id': '150929', 'name': '四子王旗' },
+  { 'id': '150981', 'name': '丰镇市' },
+  { 'id': '152200', 'name': '兴安盟' },
+  { 'id': '152201', 'name': '乌兰浩特市' },
+  { 'id': '152202', 'name': '阿尔山市' },
+  { 'id': '152221', 'name': '科尔沁右翼前旗' },
+  { 'id': '152222', 'name': '科尔沁右翼中旗' },
+  { 'id': '152223', 'name': '扎赉特旗' },
+  { 'id': '152224', 'name': '突泉县' },
+  { 'id': '152500', 'name': '锡林郭勒盟' },
+  { 'id': '152501', 'name': '二连浩特市' },
+  { 'id': '152502', 'name': '锡林浩特市' },
+  { 'id': '152522', 'name': '阿巴嘎旗' },
+  { 'id': '152523', 'name': '苏尼特左旗' },
+  { 'id': '152524', 'name': '苏尼特右旗' },
+  { 'id': '152525', 'name': '东乌珠穆沁旗' },
+  { 'id': '152526', 'name': '西乌珠穆沁旗' },
+  { 'id': '152527', 'name': '太仆寺旗' },
+  { 'id': '152528', 'name': '镶黄旗' },
+  { 'id': '152529', 'name': '正镶白旗' },
+  { 'id': '152530', 'name': '正蓝旗' },
+  { 'id': '152531', 'name': '多伦县' },
+  { 'id': '152900', 'name': '阿拉善盟' },
+  { 'id': '152921', 'name': '阿拉善左旗' },
+  { 'id': '152922', 'name': '阿拉善右旗' },
+  { 'id': '152923', 'name': '额济纳旗' },
+  { 'id': '210000', 'name': '辽宁省' },
+  { 'id': '210100', 'name': '沈阳市' },
+  { 'id': '210102', 'name': '和平区' },
+  { 'id': '210103', 'name': '沈河区' },
+  { 'id': '210104', 'name': '大东区' },
+  { 'id': '210105', 'name': '皇姑区' },
+  { 'id': '210106', 'name': '铁西区' },
+  { 'id': '210111', 'name': '苏家屯区' },
+  { 'id': '210112', 'name': '浑南区' },
+  { 'id': '210113', 'name': '沈北新区' },
+  { 'id': '210114', 'name': '于洪区' },
+  { 'id': '210115', 'name': '辽中区' },
+  { 'id': '210123', 'name': '康平县' },
+  { 'id': '210124', 'name': '法库县' },
+  { 'id': '210181', 'name': '新民市' },
+  { 'id': '210200', 'name': '大连市' },
+  { 'id': '210202', 'name': '中山区' },
+  { 'id': '210203', 'name': '西岗区' },
+  { 'id': '210204', 'name': '沙河口区' },
+  { 'id': '210211', 'name': '甘井子区' },
+  { 'id': '210212', 'name': '旅顺口区' },
+  { 'id': '210213', 'name': '金州区' },
+  { 'id': '210214', 'name': '普兰店区' },
+  { 'id': '210224', 'name': '长海县' },
+  { 'id': '210281', 'name': '瓦房店市' },
+  { 'id': '210283', 'name': '庄河市' },
+  { 'id': '210300', 'name': '鞍山市' },
+  { 'id': '210302', 'name': '铁东区' },
+  { 'id': '210303', 'name': '铁西区' },
+  { 'id': '210304', 'name': '立山区' },
+  { 'id': '210311', 'name': '千山区' },
+  { 'id': '210321', 'name': '台安县' },
+  { 'id': '210323', 'name': '岫岩满族自治县' },
+  { 'id': '210381', 'name': '海城市' },
+  { 'id': '210400', 'name': '抚顺市' },
+  { 'id': '210402', 'name': '新抚区' },
+  { 'id': '210403', 'name': '东洲区' },
+  { 'id': '210404', 'name': '望花区' },
+  { 'id': '210411', 'name': '顺城区' },
+  { 'id': '210421', 'name': '抚顺县' },
+  { 'id': '210422', 'name': '新宾满族自治县' },
+  { 'id': '210423', 'name': '清原满族自治县' },
+  { 'id': '210500', 'name': '本溪市' },
+  { 'id': '210502', 'name': '平山区' },
+  { 'id': '210503', 'name': '溪湖区' },
+  { 'id': '210504', 'name': '明山区' },
+  { 'id': '210505', 'name': '南芬区' },
+  { 'id': '210521', 'name': '本溪满族自治县' },
+  { 'id': '210522', 'name': '桓仁满族自治县' },
+  { 'id': '210600', 'name': '丹东市' },
+  { 'id': '210602', 'name': '元宝区' },
+  { 'id': '210603', 'name': '振兴区' },
+  { 'id': '210604', 'name': '振安区' },
+  { 'id': '210624', 'name': '宽甸满族自治县' },
+  { 'id': '210681', 'name': '东港市' },
+  { 'id': '210682', 'name': '凤城市' },
+  { 'id': '210700', 'name': '锦州市' },
+  { 'id': '210702', 'name': '古塔区' },
+  { 'id': '210703', 'name': '凌河区' },
+  { 'id': '210711', 'name': '太和区' },
+  { 'id': '210726', 'name': '黑山县' },
+  { 'id': '210727', 'name': '义县' },
+  { 'id': '210781', 'name': '凌海市' },
+  { 'id': '210782', 'name': '北镇市' },
+  { 'id': '210800', 'name': '营口市' },
+  { 'id': '210802', 'name': '站前区' },
+  { 'id': '210803', 'name': '西市区' },
+  { 'id': '210804', 'name': '鲅鱼圈区' },
+  { 'id': '210811', 'name': '老边区' },
+  { 'id': '210881', 'name': '盖州市' },
+  { 'id': '210882', 'name': '大石桥市' },
+  { 'id': '210900', 'name': '阜新市' },
+  { 'id': '210902', 'name': '海州区' },
+  { 'id': '210903', 'name': '新邱区' },
+  { 'id': '210904', 'name': '太平区' },
+  { 'id': '210905', 'name': '清河门区' },
+  { 'id': '210911', 'name': '细河区' },
+  { 'id': '210921', 'name': '阜新蒙古族自治县' },
+  { 'id': '210922', 'name': '彰武县' },
+  { 'id': '211000', 'name': '辽阳市' },
+  { 'id': '211002', 'name': '白塔区' },
+  { 'id': '211003', 'name': '文圣区' },
+  { 'id': '211004', 'name': '宏伟区' },
+  { 'id': '211005', 'name': '弓长岭区' },
+  { 'id': '211011', 'name': '太子河区' },
+  { 'id': '211021', 'name': '辽阳县' },
+  { 'id': '211081', 'name': '灯塔市' },
+  { 'id': '211100', 'name': '盘锦市' },
+  { 'id': '211102', 'name': '双台子区' },
+  { 'id': '211103', 'name': '兴隆台区' },
+  { 'id': '211104', 'name': '大洼区' },
+  { 'id': '211122', 'name': '盘山县' },
+  { 'id': '211200', 'name': '铁岭市' },
+  { 'id': '211202', 'name': '银州区' },
+  { 'id': '211204', 'name': '清河区' },
+  { 'id': '211221', 'name': '铁岭县' },
+  { 'id': '211223', 'name': '西丰县' },
+  { 'id': '211224', 'name': '昌图县' },
+  { 'id': '211281', 'name': '调兵山市' },
+  { 'id': '211282', 'name': '开原市' },
+  { 'id': '211300', 'name': '朝阳市' },
+  { 'id': '211302', 'name': '双塔区' },
+  { 'id': '211303', 'name': '龙城区' },
+  { 'id': '211321', 'name': '朝阳县' },
+  { 'id': '211322', 'name': '建平县' },
+  { 'id': '211324', 'name': '喀喇沁左翼蒙古族自治县' },
+  { 'id': '211381', 'name': '北票市' },
+  { 'id': '211382', 'name': '凌源市' },
+  { 'id': '211400', 'name': '葫芦岛市' },
+  { 'id': '211402', 'name': '连山区' },
+  { 'id': '211403', 'name': '龙港区' },
+  { 'id': '211404', 'name': '南票区' },
+  { 'id': '211421', 'name': '绥中县' },
+  { 'id': '211422', 'name': '建昌县' },
+  { 'id': '211481', 'name': '兴城市' },
+  { 'id': '220000', 'name': '吉林省' },
+  { 'id': '220100', 'name': '长春市' },
+  { 'id': '220102', 'name': '南关区' },
+  { 'id': '220103', 'name': '宽城区' },
+  { 'id': '220104', 'name': '朝阳区' },
+  { 'id': '220105', 'name': '二道区' },
+  { 'id': '220106', 'name': '绿园区' },
+  { 'id': '220112', 'name': '双阳区' },
+  { 'id': '220113', 'name': '九台区' },
+  { 'id': '220122', 'name': '农安县' },
+  { 'id': '220182', 'name': '榆树市' },
+  { 'id': '220183', 'name': '德惠市' },
+  { 'id': '220200', 'name': '吉林市' },
+  { 'id': '220202', 'name': '昌邑区' },
+  { 'id': '220203', 'name': '龙潭区' },
+  { 'id': '220204', 'name': '船营区' },
+  { 'id': '220211', 'name': '丰满区' },
+  { 'id': '220221', 'name': '永吉县' },
+  { 'id': '220281', 'name': '蛟河市' },
+  { 'id': '220282', 'name': '桦甸市' },
+  { 'id': '220283', 'name': '舒兰市' },
+  { 'id': '220284', 'name': '磐石市' },
+  { 'id': '220300', 'name': '四平市' },
+  { 'id': '220302', 'name': '铁西区' },
+  { 'id': '220303', 'name': '铁东区' },
+  { 'id': '220322', 'name': '梨树县' },
+  { 'id': '220323', 'name': '伊通满族自治县' },
+  { 'id': '220381', 'name': '公主岭市' },
+  { 'id': '220382', 'name': '双辽市' },
+  { 'id': '220400', 'name': '辽源市' },
+  { 'id': '220402', 'name': '龙山区' },
+  { 'id': '220403', 'name': '西安区' },
+  { 'id': '220421', 'name': '东丰县' },
+  { 'id': '220422', 'name': '东辽县' },
+  { 'id': '220500', 'name': '通化市' },
+  { 'id': '220502', 'name': '东昌区' },
+  { 'id': '220503', 'name': '二道江区' },
+  { 'id': '220521', 'name': '通化县' },
+  { 'id': '220523', 'name': '辉南县' },
+  { 'id': '220524', 'name': '柳河县' },
+  { 'id': '220581', 'name': '梅河口市' },
+  { 'id': '220582', 'name': '集安市' },
+  { 'id': '220600', 'name': '白山市' },
+  { 'id': '220602', 'name': '浑江区' },
+  { 'id': '220605', 'name': '江源区' },
+  { 'id': '220621', 'name': '抚松县' },
+  { 'id': '220622', 'name': '靖宇县' },
+  { 'id': '220623', 'name': '长白朝鲜族自治县' },
+  { 'id': '220681', 'name': '临江市' },
+  { 'id': '220700', 'name': '松原市' },
+  { 'id': '220702', 'name': '宁江区' },
+  { 'id': '220721', 'name': '前郭尔罗斯蒙古族自治县' },
+  { 'id': '220722', 'name': '长岭县' },
+  { 'id': '220723', 'name': '乾安县' },
+  { 'id': '220781', 'name': '扶余市' },
+  { 'id': '220800', 'name': '白城市' },
+  { 'id': '220802', 'name': '洮北区' },
+  { 'id': '220821', 'name': '镇赉县' },
+  { 'id': '220822', 'name': '通榆县' },
+  { 'id': '220881', 'name': '洮南市' },
+  { 'id': '220882', 'name': '大安市' },
+  { 'id': '222400', 'name': '延边朝鲜族自治州' },
+  { 'id': '222401', 'name': '延吉市' },
+  { 'id': '222402', 'name': '图们市' },
+  { 'id': '222403', 'name': '敦化市' },
+  { 'id': '222404', 'name': '珲春市' },
+  { 'id': '222405', 'name': '龙井市' },
+  { 'id': '222406', 'name': '和龙市' },
+  { 'id': '222424', 'name': '汪清县' },
+  { 'id': '222426', 'name': '安图县' },
+  { 'id': '230000', 'name': '黑龙江省' },
+  { 'id': '230100', 'name': '哈尔滨市' },
+  { 'id': '230102', 'name': '道里区' },
+  { 'id': '230103', 'name': '南岗区' },
+  { 'id': '230104', 'name': '道外区' },
+  { 'id': '230108', 'name': '平房区' },
+  { 'id': '230109', 'name': '松北区' },
+  { 'id': '230110', 'name': '香坊区' },
+  { 'id': '230111', 'name': '呼兰区' },
+  { 'id': '230112', 'name': '阿城区' },
+  { 'id': '230113', 'name': '双城区' },
+  { 'id': '230123', 'name': '依兰县' },
+  { 'id': '230124', 'name': '方正县' },
+  { 'id': '230125', 'name': '宾县' },
+  { 'id': '230126', 'name': '巴彦县' },
+  { 'id': '230127', 'name': '木兰县' },
+  { 'id': '230128', 'name': '通河县' },
+  { 'id': '230129', 'name': '延寿县' },
+  { 'id': '230183', 'name': '尚志市' },
+  { 'id': '230184', 'name': '五常市' },
+  { 'id': '230200', 'name': '齐齐哈尔市' },
+  { 'id': '230202', 'name': '龙沙区' },
+  { 'id': '230203', 'name': '建华区' },
+  { 'id': '230204', 'name': '铁锋区' },
+  { 'id': '230205', 'name': '昂昂溪区' },
+  { 'id': '230206', 'name': '富拉尔基区' },
+  { 'id': '230207', 'name': '碾子山区' },
+  { 'id': '230208', 'name': '梅里斯达斡尔族区' },
+  { 'id': '230221', 'name': '龙江县' },
+  { 'id': '230223', 'name': '依安县' },
+  { 'id': '230224', 'name': '泰来县' },
+  { 'id': '230225', 'name': '甘南县' },
+  { 'id': '230227', 'name': '富裕县' },
+  { 'id': '230229', 'name': '克山县' },
+  { 'id': '230230', 'name': '克东县' },
+  { 'id': '230231', 'name': '拜泉县' },
+  { 'id': '230281', 'name': '讷河市' },
+  { 'id': '230300', 'name': '鸡西市' },
+  { 'id': '230302', 'name': '鸡冠区' },
+  { 'id': '230303', 'name': '恒山区' },
+  { 'id': '230304', 'name': '滴道区' },
+  { 'id': '230305', 'name': '梨树区' },
+  { 'id': '230306', 'name': '城子河区' },
+  { 'id': '230307', 'name': '麻山区' },
+  { 'id': '230321', 'name': '鸡东县' },
+  { 'id': '230381', 'name': '虎林市' },
+  { 'id': '230382', 'name': '密山市' },
+  { 'id': '230400', 'name': '鹤岗市' },
+  { 'id': '230402', 'name': '向阳区' },
+  { 'id': '230403', 'name': '工农区' },
+  { 'id': '230404', 'name': '南山区' },
+  { 'id': '230405', 'name': '兴安区' },
+  { 'id': '230406', 'name': '东山区' },
+  { 'id': '230407', 'name': '兴山区' },
+  { 'id': '230421', 'name': '萝北县' },
+  { 'id': '230422', 'name': '绥滨县' },
+  { 'id': '230500', 'name': '双鸭山市' },
+  { 'id': '230502', 'name': '尖山区' },
+  { 'id': '230503', 'name': '岭东区' },
+  { 'id': '230505', 'name': '四方台区' },
+  { 'id': '230506', 'name': '宝山区' },
+  { 'id': '230521', 'name': '集贤县' },
+  { 'id': '230522', 'name': '友谊县' },
+  { 'id': '230523', 'name': '宝清县' },
+  { 'id': '230524', 'name': '饶河县' },
+  { 'id': '230600', 'name': '大庆市' },
+  { 'id': '230602', 'name': '萨尔图区' },
+  { 'id': '230603', 'name': '龙凤区' },
+  { 'id': '230604', 'name': '让胡路区' },
+  { 'id': '230605', 'name': '红岗区' },
+  { 'id': '230606', 'name': '大同区' },
+  { 'id': '230621', 'name': '肇州县' },
+  { 'id': '230622', 'name': '肇源县' },
+  { 'id': '230623', 'name': '林甸县' },
+  { 'id': '230624', 'name': '杜尔伯特蒙古族自治县' },
+  { 'id': '230700', 'name': '伊春市' },
+  { 'id': '230702', 'name': '伊春区' },
+  { 'id': '230703', 'name': '南岔区' },
+  { 'id': '230704', 'name': '友好区' },
+  { 'id': '230705', 'name': '西林区' },
+  { 'id': '230706', 'name': '翠峦区' },
+  { 'id': '230707', 'name': '新青区' },
+  { 'id': '230708', 'name': '美溪区' },
+  { 'id': '230709', 'name': '金山屯区' },
+  { 'id': '230710', 'name': '五营区' },
+  { 'id': '230711', 'name': '乌马河区' },
+  { 'id': '230712', 'name': '汤旺河区' },
+  { 'id': '230713', 'name': '带岭区' },
+  { 'id': '230714', 'name': '乌伊岭区' },
+  { 'id': '230715', 'name': '红星区' },
+  { 'id': '230716', 'name': '上甘岭区' },
+  { 'id': '230722', 'name': '嘉荫县' },
+  { 'id': '230781', 'name': '铁力市' },
+  { 'id': '230800', 'name': '佳木斯市' },
+  { 'id': '230803', 'name': '向阳区' },
+  { 'id': '230804', 'name': '前进区' },
+  { 'id': '230805', 'name': '东风区' },
+  { 'id': '230811', 'name': '郊区' },
+  { 'id': '230822', 'name': '桦南县' },
+  { 'id': '230826', 'name': '桦川县' },
+  { 'id': '230828', 'name': '汤原县' },
+  { 'id': '230881', 'name': '同江市' },
+  { 'id': '230882', 'name': '富锦市' },
+  { 'id': '230883', 'name': '抚远市' },
+  { 'id': '230900', 'name': '七台河市' },
+  { 'id': '230902', 'name': '新兴区' },
+  { 'id': '230903', 'name': '桃山区' },
+  { 'id': '230904', 'name': '茄子河区' },
+  { 'id': '230921', 'name': '勃利县' },
+  { 'id': '231000', 'name': '牡丹江市' },
+  { 'id': '231002', 'name': '东安区' },
+  { 'id': '231003', 'name': '阳明区' },
+  { 'id': '231004', 'name': '爱民区' },
+  { 'id': '231005', 'name': '西安区' },
+  { 'id': '231025', 'name': '林口县' },
+  { 'id': '231081', 'name': '绥芬河市' },
+  { 'id': '231083', 'name': '海林市' },
+  { 'id': '231084', 'name': '宁安市' },
+  { 'id': '231085', 'name': '穆棱市' },
+  { 'id': '231086', 'name': '东宁市' },
+  { 'id': '231100', 'name': '黑河市' },
+  { 'id': '231102', 'name': '爱辉区' },
+  { 'id': '231121', 'name': '嫩江县' },
+  { 'id': '231123', 'name': '逊克县' },
+  { 'id': '231124', 'name': '孙吴县' },
+  { 'id': '231181', 'name': '北安市' },
+  { 'id': '231182', 'name': '五大连池市' },
+  { 'id': '231200', 'name': '绥化市' },
+  { 'id': '231202', 'name': '北林区' },
+  { 'id': '231221', 'name': '望奎县' },
+  { 'id': '231222', 'name': '兰西县' },
+  { 'id': '231223', 'name': '青冈县' },
+  { 'id': '231224', 'name': '庆安县' },
+  { 'id': '231225', 'name': '明水县' },
+  { 'id': '231226', 'name': '绥棱县' },
+  { 'id': '231281', 'name': '安达市' },
+  { 'id': '231282', 'name': '肇东市' },
+  { 'id': '231283', 'name': '海伦市' },
+  { 'id': '232700', 'name': '大兴安岭地区' },
+  { 'id': '232701', 'name': '漠河市' },
+  { 'id': '232721', 'name': '呼玛县' },
+  { 'id': '232722', 'name': '塔河县' },
+  { 'id': '310000', 'name': '上海市' },
+  { 'id': '310101', 'name': '黄浦区' },
+  { 'id': '310104', 'name': '徐汇区' },
+  { 'id': '310105', 'name': '长宁区' },
+  { 'id': '310106', 'name': '静安区' },
+  { 'id': '310107', 'name': '普陀区' },
+  { 'id': '310109', 'name': '虹口区' },
+  { 'id': '310110', 'name': '杨浦区' },
+  { 'id': '310112', 'name': '闵行区' },
+  { 'id': '310113', 'name': '宝山区' },
+  { 'id': '310114', 'name': '嘉定区' },
+  { 'id': '310115', 'name': '浦东新区' },
+  { 'id': '310116', 'name': '金山区' },
+  { 'id': '310117', 'name': '松江区' },
+  { 'id': '310118', 'name': '青浦区' },
+  { 'id': '310120', 'name': '奉贤区' },
+  { 'id': '310151', 'name': '崇明区' },
+  { 'id': '320000', 'name': '江苏省' },
+  { 'id': '320100', 'name': '南京市' },
+  { 'id': '320102', 'name': '玄武区' },
+  { 'id': '320104', 'name': '秦淮区' },
+  { 'id': '320105', 'name': '建邺区' },
+  { 'id': '320106', 'name': '鼓楼区' },
+  { 'id': '320111', 'name': '浦口区' },
+  { 'id': '320113', 'name': '栖霞区' },
+  { 'id': '320114', 'name': '雨花台区' },
+  { 'id': '320115', 'name': '江宁区' },
+  { 'id': '320116', 'name': '六合区' },
+  { 'id': '320117', 'name': '溧水区' },
+  { 'id': '320118', 'name': '高淳区' },
+  { 'id': '320200', 'name': '无锡市' },
+  { 'id': '320205', 'name': '锡山区' },
+  { 'id': '320206', 'name': '惠山区' },
+  { 'id': '320211', 'name': '滨湖区' },
+  { 'id': '320213', 'name': '梁溪区' },
+  { 'id': '320214', 'name': '新吴区' },
+  { 'id': '320281', 'name': '江阴市' },
+  { 'id': '320282', 'name': '宜兴市' },
+  { 'id': '320300', 'name': '徐州市' },
+  { 'id': '320302', 'name': '鼓楼区' },
+  { 'id': '320303', 'name': '云龙区' },
+  { 'id': '320305', 'name': '贾汪区' },
+  { 'id': '320311', 'name': '泉山区' },
+  { 'id': '320312', 'name': '铜山区' },
+  { 'id': '320321', 'name': '丰县' },
+  { 'id': '320322', 'name': '沛县' },
+  { 'id': '320324', 'name': '睢宁县' },
+  { 'id': '320381', 'name': '新沂市' },
+  { 'id': '320382', 'name': '邳州市' },
+  { 'id': '320400', 'name': '常州市' },
+  { 'id': '320402', 'name': '天宁区' },
+  { 'id': '320404', 'name': '钟楼区' },
+  { 'id': '320411', 'name': '新北区' },
+  { 'id': '320412', 'name': '武进区' },
+  { 'id': '320413', 'name': '金坛区' },
+  { 'id': '320481', 'name': '溧阳市' },
+  { 'id': '320500', 'name': '苏州市' },
+  { 'id': '320505', 'name': '虎丘区' },
+  { 'id': '320506', 'name': '吴中区' },
+  { 'id': '320507', 'name': '相城区' },
+  { 'id': '320508', 'name': '姑苏区' },
+  { 'id': '320509', 'name': '吴江区' },
+  { 'id': '320581', 'name': '常熟市' },
+  { 'id': '320582', 'name': '张家港市' },
+  { 'id': '320583', 'name': '昆山市' },
+  { 'id': '320585', 'name': '太仓市' },
+  { 'id': '320600', 'name': '南通市' },
+  { 'id': '320602', 'name': '崇川区' },
+  { 'id': '320611', 'name': '港闸区' },
+  { 'id': '320612', 'name': '通州区' },
+  { 'id': '320623', 'name': '如东县' },
+  { 'id': '320681', 'name': '启东市' },
+  { 'id': '320682', 'name': '如皋市' },
+  { 'id': '320684', 'name': '海门市' },
+  { 'id': '320685', 'name': '海安市' },
+  { 'id': '320700', 'name': '连云港市' },
+  { 'id': '320703', 'name': '连云区' },
+  { 'id': '320706', 'name': '海州区' },
+  { 'id': '320707', 'name': '赣榆区' },
+  { 'id': '320722', 'name': '东海县' },
+  { 'id': '320723', 'name': '灌云县' },
+  { 'id': '320724', 'name': '灌南县' },
+  { 'id': '320800', 'name': '淮安市' },
+  { 'id': '320803', 'name': '淮安区' },
+  { 'id': '320804', 'name': '淮阴区' },
+  { 'id': '320812', 'name': '清江浦区' },
+  { 'id': '320813', 'name': '洪泽区' },
+  { 'id': '320826', 'name': '涟水县' },
+  { 'id': '320830', 'name': '盱眙县' },
+  { 'id': '320831', 'name': '金湖县' },
+  { 'id': '320900', 'name': '盐城市' },
+  { 'id': '320902', 'name': '亭湖区' },
+  { 'id': '320903', 'name': '盐都区' },
+  { 'id': '320904', 'name': '大丰区' },
+  { 'id': '320921', 'name': '响水县' },
+  { 'id': '320922', 'name': '滨海县' },
+  { 'id': '320923', 'name': '阜宁县' },
+  { 'id': '320924', 'name': '射阳县' },
+  { 'id': '320925', 'name': '建湖县' },
+  { 'id': '320981', 'name': '东台市' },
+  { 'id': '321000', 'name': '扬州市' },
+  { 'id': '321002', 'name': '广陵区' },
+  { 'id': '321003', 'name': '邗江区' },
+  { 'id': '321012', 'name': '江都区' },
+  { 'id': '321023', 'name': '宝应县' },
+  { 'id': '321081', 'name': '仪征市' },
+  { 'id': '321084', 'name': '高邮市' },
+  { 'id': '321100', 'name': '镇江市' },
+  { 'id': '321102', 'name': '京口区' },
+  { 'id': '321111', 'name': '润州区' },
+  { 'id': '321112', 'name': '丹徒区' },
+  { 'id': '321181', 'name': '丹阳市' },
+  { 'id': '321182', 'name': '扬中市' },
+  { 'id': '321183', 'name': '句容市' },
+  { 'id': '321200', 'name': '泰州市' },
+  { 'id': '321202', 'name': '海陵区' },
+  { 'id': '321203', 'name': '高港区' },
+  { 'id': '321204', 'name': '姜堰区' },
+  { 'id': '321281', 'name': '兴化市' },
+  { 'id': '321282', 'name': '靖江市' },
+  { 'id': '321283', 'name': '泰兴市' },
+  { 'id': '321300', 'name': '宿迁市' },
+  { 'id': '321302', 'name': '宿城区' },
+  { 'id': '321311', 'name': '宿豫区' },
+  { 'id': '321322', 'name': '沭阳县' },
+  { 'id': '321323', 'name': '泗阳县' },
+  { 'id': '321324', 'name': '泗洪县' },
+  { 'id': '330000', 'name': '浙江省' },
+  { 'id': '330100', 'name': '杭州市' },
+  { 'id': '330102', 'name': '上城区' },
+  { 'id': '330103', 'name': '下城区' },
+  { 'id': '330104', 'name': '江干区' },
+  { 'id': '330105', 'name': '拱墅区' },
+  { 'id': '330106', 'name': '西湖区' },
+  { 'id': '330108', 'name': '滨江区' },
+  { 'id': '330109', 'name': '萧山区' },
+  { 'id': '330110', 'name': '余杭区' },
+  { 'id': '330111', 'name': '富阳区' },
+  { 'id': '330112', 'name': '临安区' },
+  { 'id': '330122', 'name': '桐庐县' },
+  { 'id': '330127', 'name': '淳安县' },
+  { 'id': '330182', 'name': '建德市' },
+  { 'id': '330200', 'name': '宁波市' },
+  { 'id': '330203', 'name': '海曙区' },
+  { 'id': '330205', 'name': '江北区' },
+  { 'id': '330206', 'name': '北仑区' },
+  { 'id': '330211', 'name': '镇海区' },
+  { 'id': '330212', 'name': '鄞州区' },
+  { 'id': '330213', 'name': '奉化区' },
+  { 'id': '330225', 'name': '象山县' },
+  { 'id': '330226', 'name': '宁海县' },
+  { 'id': '330281', 'name': '余姚市' },
+  { 'id': '330282', 'name': '慈溪市' },
+  { 'id': '330300', 'name': '温州市' },
+  { 'id': '330302', 'name': '鹿城区' },
+  { 'id': '330303', 'name': '龙湾区' },
+  { 'id': '330304', 'name': '瓯海区' },
+  { 'id': '330305', 'name': '洞头区' },
+  { 'id': '330324', 'name': '永嘉县' },
+  { 'id': '330326', 'name': '平阳县' },
+  { 'id': '330327', 'name': '苍南县' },
+  { 'id': '330328', 'name': '文成县' },
+  { 'id': '330329', 'name': '泰顺县' },
+  { 'id': '330381', 'name': '瑞安市' },
+  { 'id': '330382', 'name': '乐清市' },
+  { 'id': '330400', 'name': '嘉兴市' },
+  { 'id': '330402', 'name': '南湖区' },
+  { 'id': '330411', 'name': '秀洲区' },
+  { 'id': '330421', 'name': '嘉善县' },
+  { 'id': '330424', 'name': '海盐县' },
+  { 'id': '330481', 'name': '海宁市' },
+  { 'id': '330482', 'name': '平湖市' },
+  { 'id': '330483', 'name': '桐乡市' },
+  { 'id': '330500', 'name': '湖州市' },
+  { 'id': '330502', 'name': '吴兴区' },
+  { 'id': '330503', 'name': '南浔区' },
+  { 'id': '330521', 'name': '德清县' },
+  { 'id': '330522', 'name': '长兴县' },
+  { 'id': '330523', 'name': '安吉县' },
+  { 'id': '330600', 'name': '绍兴市' },
+  { 'id': '330602', 'name': '越城区' },
+  { 'id': '330603', 'name': '柯桥区' },
+  { 'id': '330604', 'name': '上虞区' },
+  { 'id': '330624', 'name': '新昌县' },
+  { 'id': '330681', 'name': '诸暨市' },
+  { 'id': '330683', 'name': '嵊州市' },
+  { 'id': '330700', 'name': '金华市' },
+  { 'id': '330702', 'name': '婺城区' },
+  { 'id': '330703', 'name': '金东区' },
+  { 'id': '330723', 'name': '武义县' },
+  { 'id': '330726', 'name': '浦江县' },
+  { 'id': '330727', 'name': '磐安县' },
+  { 'id': '330781', 'name': '兰溪市' },
+  { 'id': '330782', 'name': '义乌市' },
+  { 'id': '330783', 'name': '东阳市' },
+  { 'id': '330784', 'name': '永康市' },
+  { 'id': '330800', 'name': '衢州市' },
+  { 'id': '330802', 'name': '柯城区' },
+  { 'id': '330803', 'name': '衢江区' },
+  { 'id': '330822', 'name': '常山县' },
+  { 'id': '330824', 'name': '开化县' },
+  { 'id': '330825', 'name': '龙游县' },
+  { 'id': '330881', 'name': '江山市' },
+  { 'id': '330900', 'name': '舟山市' },
+  { 'id': '330902', 'name': '定海区' },
+  { 'id': '330903', 'name': '普陀区' },
+  { 'id': '330921', 'name': '岱山县' },
+  { 'id': '330922', 'name': '嵊泗县' },
+  { 'id': '331000', 'name': '台州市' },
+  { 'id': '331002', 'name': '椒江区' },
+  { 'id': '331003', 'name': '黄岩区' },
+  { 'id': '331004', 'name': '路桥区' },
+  { 'id': '331022', 'name': '三门县' },
+  { 'id': '331023', 'name': '天台县' },
+  { 'id': '331024', 'name': '仙居县' },
+  { 'id': '331081', 'name': '温岭市' },
+  { 'id': '331082', 'name': '临海市' },
+  { 'id': '331083', 'name': '玉环市' },
+  { 'id': '331100', 'name': '丽水市' },
+  { 'id': '331102', 'name': '莲都区' },
+  { 'id': '331121', 'name': '青田县' },
+  { 'id': '331122', 'name': '缙云县' },
+  { 'id': '331123', 'name': '遂昌县' },
+  { 'id': '331124', 'name': '松阳县' },
+  { 'id': '331125', 'name': '云和县' },
+  { 'id': '331126', 'name': '庆元县' },
+  { 'id': '331127', 'name': '景宁畲族自治县' },
+  { 'id': '331181', 'name': '龙泉市' },
+  { 'id': '340000', 'name': '安徽省' },
+  { 'id': '340100', 'name': '合肥市' },
+  { 'id': '340102', 'name': '瑶海区' },
+  { 'id': '340103', 'name': '庐阳区' },
+  { 'id': '340104', 'name': '蜀山区' },
+  { 'id': '340111', 'name': '包河区' },
+  { 'id': '340121', 'name': '长丰县' },
+  { 'id': '340122', 'name': '肥东县' },
+  { 'id': '340123', 'name': '肥西县' },
+  { 'id': '340124', 'name': '庐江县' },
+  { 'id': '340181', 'name': '巢湖市' },
+  { 'id': '340200', 'name': '芜湖市' },
+  { 'id': '340202', 'name': '镜湖区' },
+  { 'id': '340203', 'name': '弋江区' },
+  { 'id': '340207', 'name': '鸠江区' },
+  { 'id': '340208', 'name': '三山区' },
+  { 'id': '340221', 'name': '芜湖县' },
+  { 'id': '340222', 'name': '繁昌县' },
+  { 'id': '340223', 'name': '南陵县' },
+  { 'id': '340225', 'name': '无为县' },
+  { 'id': '340300', 'name': '蚌埠市' },
+  { 'id': '340302', 'name': '龙子湖区' },
+  { 'id': '340303', 'name': '蚌山区' },
+  { 'id': '340304', 'name': '禹会区' },
+  { 'id': '340311', 'name': '淮上区' },
+  { 'id': '340321', 'name': '怀远县' },
+  { 'id': '340322', 'name': '五河县' },
+  { 'id': '340323', 'name': '固镇县' },
+  { 'id': '340400', 'name': '淮南市' },
+  { 'id': '340402', 'name': '大通区' },
+  { 'id': '340403', 'name': '田家庵区' },
+  { 'id': '340404', 'name': '谢家集区' },
+  { 'id': '340405', 'name': '八公山区' },
+  { 'id': '340406', 'name': '潘集区' },
+  { 'id': '340421', 'name': '凤台县' },
+  { 'id': '340422', 'name': '寿县' },
+  { 'id': '340500', 'name': '马鞍山市' },
+  { 'id': '340503', 'name': '花山区' },
+  { 'id': '340504', 'name': '雨山区' },
+  { 'id': '340506', 'name': '博望区' },
+  { 'id': '340521', 'name': '当涂县' },
+  { 'id': '340522', 'name': '含山县' },
+  { 'id': '340523', 'name': '和县' },
+  { 'id': '340600', 'name': '淮北市' },
+  { 'id': '340602', 'name': '杜集区' },
+  { 'id': '340603', 'name': '相山区' },
+  { 'id': '340604', 'name': '烈山区' },
+  { 'id': '340621', 'name': '濉溪县' },
+  { 'id': '340700', 'name': '铜陵市' },
+  { 'id': '340705', 'name': '铜官区' },
+  { 'id': '340706', 'name': '义安区' },
+  { 'id': '340711', 'name': '郊区' },
+  { 'id': '340722', 'name': '枞阳县' },
+  { 'id': '340800', 'name': '安庆市' },
+  { 'id': '340802', 'name': '迎江区' },
+  { 'id': '340803', 'name': '大观区' },
+  { 'id': '340811', 'name': '宜秀区' },
+  { 'id': '340822', 'name': '怀宁县' },
+  { 'id': '340824', 'name': '潜山县' },
+  { 'id': '340825', 'name': '太湖县' },
+  { 'id': '340826', 'name': '宿松县' },
+  { 'id': '340827', 'name': '望江县' },
+  { 'id': '340828', 'name': '岳西县' },
+  { 'id': '340881', 'name': '桐城市' },
+  { 'id': '341000', 'name': '黄山市' },
+  { 'id': '341002', 'name': '屯溪区' },
+  { 'id': '341003', 'name': '黄山区' },
+  { 'id': '341004', 'name': '徽州区' },
+  { 'id': '341021', 'name': '歙县' },
+  { 'id': '341022', 'name': '休宁县' },
+  { 'id': '341023', 'name': '黟县' },
+  { 'id': '341024', 'name': '祁门县' },
+  { 'id': '341100', 'name': '滁州市' },
+  { 'id': '341102', 'name': '琅琊区' },
+  { 'id': '341103', 'name': '南谯区' },
+  { 'id': '341122', 'name': '来安县' },
+  { 'id': '341124', 'name': '全椒县' },
+  { 'id': '341125', 'name': '定远县' },
+  { 'id': '341126', 'name': '凤阳县' },
+  { 'id': '341181', 'name': '天长市' },
+  { 'id': '341182', 'name': '明光市' },
+  { 'id': '341200', 'name': '阜阳市' },
+  { 'id': '341202', 'name': '颍州区' },
+  { 'id': '341203', 'name': '颍东区' },
+  { 'id': '341204', 'name': '颍泉区' },
+  { 'id': '341221', 'name': '临泉县' },
+  { 'id': '341222', 'name': '太和县' },
+  { 'id': '341225', 'name': '阜南县' },
+  { 'id': '341226', 'name': '颍上县' },
+  { 'id': '341282', 'name': '界首市' },
+  { 'id': '341300', 'name': '宿州市' },
+  { 'id': '341302', 'name': '埇桥区' },
+  { 'id': '341321', 'name': '砀山县' },
+  { 'id': '341322', 'name': '萧县' },
+  { 'id': '341323', 'name': '灵璧县' },
+  { 'id': '341324', 'name': '泗县' },
+  { 'id': '341500', 'name': '六安市' },
+  { 'id': '341502', 'name': '金安区' },
+  { 'id': '341503', 'name': '裕安区' },
+  { 'id': '341504', 'name': '叶集区' },
+  { 'id': '341522', 'name': '霍邱县' },
+  { 'id': '341523', 'name': '舒城县' },
+  { 'id': '341524', 'name': '金寨县' },
+  { 'id': '341525', 'name': '霍山县' },
+  { 'id': '341600', 'name': '亳州市' },
+  { 'id': '341602', 'name': '谯城区' },
+  { 'id': '341621', 'name': '涡阳县' },
+  { 'id': '341622', 'name': '蒙城县' },
+  { 'id': '341623', 'name': '利辛县' },
+  { 'id': '341700', 'name': '池州市' },
+  { 'id': '341702', 'name': '贵池区' },
+  { 'id': '341721', 'name': '东至县' },
+  { 'id': '341722', 'name': '石台县' },
+  { 'id': '341723', 'name': '青阳县' },
+  { 'id': '341800', 'name': '宣城市' },
+  { 'id': '341802', 'name': '宣州区' },
+  { 'id': '341821', 'name': '郎溪县' },
+  { 'id': '341822', 'name': '广德县' },
+  { 'id': '341823', 'name': '泾县' },
+  { 'id': '341824', 'name': '绩溪县' },
+  { 'id': '341825', 'name': '旌德县' },
+  { 'id': '341881', 'name': '宁国市' },
+  { 'id': '350000', 'name': '福建省' },
+  { 'id': '350100', 'name': '福州市' },
+  { 'id': '350102', 'name': '鼓楼区' },
+  { 'id': '350103', 'name': '台江区' },
+  { 'id': '350104', 'name': '仓山区' },
+  { 'id': '350105', 'name': '马尾区' },
+  { 'id': '350111', 'name': '晋安区' },
+  { 'id': '350112', 'name': '长乐区' },
+  { 'id': '350121', 'name': '闽侯县' },
+  { 'id': '350122', 'name': '连江县' },
+  { 'id': '350123', 'name': '罗源县' },
+  { 'id': '350124', 'name': '闽清县' },
+  { 'id': '350125', 'name': '永泰县' },
+  { 'id': '350128', 'name': '平潭县' },
+  { 'id': '350181', 'name': '福清市' },
+  { 'id': '350200', 'name': '厦门市' },
+  { 'id': '350203', 'name': '思明区' },
+  { 'id': '350205', 'name': '海沧区' },
+  { 'id': '350206', 'name': '湖里区' },
+  { 'id': '350211', 'name': '集美区' },
+  { 'id': '350212', 'name': '同安区' },
+  { 'id': '350213', 'name': '翔安区' },
+  { 'id': '350300', 'name': '莆田市' },
+  { 'id': '350302', 'name': '城厢区' },
+  { 'id': '350303', 'name': '涵江区' },
+  { 'id': '350304', 'name': '荔城区' },
+  { 'id': '350305', 'name': '秀屿区' },
+  { 'id': '350322', 'name': '仙游县' },
+  { 'id': '350400', 'name': '三明市' },
+  { 'id': '350402', 'name': '梅列区' },
+  { 'id': '350403', 'name': '三元区' },
+  { 'id': '350421', 'name': '明溪县' },
+  { 'id': '350423', 'name': '清流县' },
+  { 'id': '350424', 'name': '宁化县' },
+  { 'id': '350425', 'name': '大田县' },
+  { 'id': '350426', 'name': '尤溪县' },
+  { 'id': '350427', 'name': '沙县' },
+  { 'id': '350428', 'name': '将乐县' },
+  { 'id': '350429', 'name': '泰宁县' },
+  { 'id': '350430', 'name': '建宁县' },
+  { 'id': '350481', 'name': '永安市' },
+  { 'id': '350500', 'name': '泉州市' },
+  { 'id': '350502', 'name': '鲤城区' },
+  { 'id': '350503', 'name': '丰泽区' },
+  { 'id': '350504', 'name': '洛江区' },
+  { 'id': '350505', 'name': '泉港区' },
+  { 'id': '350521', 'name': '惠安县' },
+  { 'id': '350524', 'name': '安溪县' },
+  { 'id': '350525', 'name': '永春县' },
+  { 'id': '350526', 'name': '德化县' },
+  { 'id': '350527', 'name': '金门县' },
+  { 'id': '350581', 'name': '石狮市' },
+  { 'id': '350582', 'name': '晋江市' },
+  { 'id': '350583', 'name': '南安市' },
+  { 'id': '350600', 'name': '漳州市' },
+  { 'id': '350602', 'name': '芗城区' },
+  { 'id': '350603', 'name': '龙文区' },
+  { 'id': '350622', 'name': '云霄县' },
+  { 'id': '350623', 'name': '漳浦县' },
+  { 'id': '350624', 'name': '诏安县' },
+  { 'id': '350625', 'name': '长泰县' },
+  { 'id': '350626', 'name': '东山县' },
+  { 'id': '350627', 'name': '南靖县' },
+  { 'id': '350628', 'name': '平和县' },
+  { 'id': '350629', 'name': '华安县' },
+  { 'id': '350681', 'name': '龙海市' },
+  { 'id': '350700', 'name': '南平市' },
+  { 'id': '350702', 'name': '延平区' },
+  { 'id': '350703', 'name': '建阳区' },
+  { 'id': '350721', 'name': '顺昌县' },
+  { 'id': '350722', 'name': '浦城县' },
+  { 'id': '350723', 'name': '光泽县' },
+  { 'id': '350724', 'name': '松溪县' },
+  { 'id': '350725', 'name': '政和县' },
+  { 'id': '350781', 'name': '邵武市' },
+  { 'id': '350782', 'name': '武夷山市' },
+  { 'id': '350783', 'name': '建瓯市' },
+  { 'id': '350800', 'name': '龙岩市' },
+  { 'id': '350802', 'name': '新罗区' },
+  { 'id': '350803', 'name': '永定区' },
+  { 'id': '350821', 'name': '长汀县' },
+  { 'id': '350823', 'name': '上杭县' },
+  { 'id': '350824', 'name': '武平县' },
+  { 'id': '350825', 'name': '连城县' },
+  { 'id': '350881', 'name': '漳平市' },
+  { 'id': '350900', 'name': '宁德市' },
+  { 'id': '350902', 'name': '蕉城区' },
+  { 'id': '350921', 'name': '霞浦县' },
+  { 'id': '350922', 'name': '古田县' },
+  { 'id': '350923', 'name': '屏南县' },
+  { 'id': '350924', 'name': '寿宁县' },
+  { 'id': '350925', 'name': '周宁县' },
+  { 'id': '350926', 'name': '柘荣县' },
+  { 'id': '350981', 'name': '福安市' },
+  { 'id': '350982', 'name': '福鼎市' },
+  { 'id': '360000', 'name': '江西省' },
+  { 'id': '360100', 'name': '南昌市' },
+  { 'id': '360102', 'name': '东湖区' },
+  { 'id': '360103', 'name': '西湖区' },
+  { 'id': '360104', 'name': '青云谱区' },
+  { 'id': '360105', 'name': '湾里区' },
+  { 'id': '360111', 'name': '青山湖区' },
+  { 'id': '360112', 'name': '新建区' },
+  { 'id': '360121', 'name': '南昌县' },
+  { 'id': '360123', 'name': '安义县' },
+  { 'id': '360124', 'name': '进贤县' },
+  { 'id': '360200', 'name': '景德镇市' },
+  { 'id': '360202', 'name': '昌江区' },
+  { 'id': '360203', 'name': '珠山区' },
+  { 'id': '360222', 'name': '浮梁县' },
+  { 'id': '360281', 'name': '乐平市' },
+  { 'id': '360300', 'name': '萍乡市' },
+  { 'id': '360302', 'name': '安源区' },
+  { 'id': '360313', 'name': '湘东区' },
+  { 'id': '360321', 'name': '莲花县' },
+  { 'id': '360322', 'name': '上栗县' },
+  { 'id': '360323', 'name': '芦溪县' },
+  { 'id': '360400', 'name': '九江市' },
+  { 'id': '360402', 'name': '濂溪区' },
+  { 'id': '360403', 'name': '浔阳区' },
+  { 'id': '360404', 'name': '柴桑区' },
+  { 'id': '360423', 'name': '武宁县' },
+  { 'id': '360424', 'name': '修水县' },
+  { 'id': '360425', 'name': '永修县' },
+  { 'id': '360426', 'name': '德安县' },
+  { 'id': '360428', 'name': '都昌县' },
+  { 'id': '360429', 'name': '湖口县' },
+  { 'id': '360430', 'name': '彭泽县' },
+  { 'id': '360481', 'name': '瑞昌市' },
+  { 'id': '360482', 'name': '共青城市' },
+  { 'id': '360483', 'name': '庐山市' },
+  { 'id': '360500', 'name': '新余市' },
+  { 'id': '360502', 'name': '渝水区' },
+  { 'id': '360521', 'name': '分宜县' },
+  { 'id': '360600', 'name': '鹰潭市' },
+  { 'id': '360602', 'name': '月湖区' },
+  { 'id': '360603', 'name': '余江区' },
+  { 'id': '360681', 'name': '贵溪市' },
+  { 'id': '360700', 'name': '赣州市' },
+  { 'id': '360702', 'name': '章贡区' },
+  { 'id': '360703', 'name': '南康区' },
+  { 'id': '360704', 'name': '赣县区' },
+  { 'id': '360722', 'name': '信丰县' },
+  { 'id': '360723', 'name': '大余县' },
+  { 'id': '360724', 'name': '上犹县' },
+  { 'id': '360725', 'name': '崇义县' },
+  { 'id': '360726', 'name': '安远县' },
+  { 'id': '360727', 'name': '龙南县' },
+  { 'id': '360728', 'name': '定南县' },
+  { 'id': '360729', 'name': '全南县' },
+  { 'id': '360730', 'name': '宁都县' },
+  { 'id': '360731', 'name': '于都县' },
+  { 'id': '360732', 'name': '兴国县' },
+  { 'id': '360733', 'name': '会昌县' },
+  { 'id': '360734', 'name': '寻乌县' },
+  { 'id': '360735', 'name': '石城县' },
+  { 'id': '360781', 'name': '瑞金市' },
+  { 'id': '360800', 'name': '吉安市' },
+  { 'id': '360802', 'name': '吉州区' },
+  { 'id': '360803', 'name': '青原区' },
+  { 'id': '360821', 'name': '吉安县' },
+  { 'id': '360822', 'name': '吉水县' },
+  { 'id': '360823', 'name': '峡江县' },
+  { 'id': '360824', 'name': '新干县' },
+  { 'id': '360825', 'name': '永丰县' },
+  { 'id': '360826', 'name': '泰和县' },
+  { 'id': '360827', 'name': '遂川县' },
+  { 'id': '360828', 'name': '万安县' },
+  { 'id': '360829', 'name': '安福县' },
+  { 'id': '360830', 'name': '永新县' },
+  { 'id': '360881', 'name': '井冈山市' },
+  { 'id': '360900', 'name': '宜春市' },
+  { 'id': '360902', 'name': '袁州区' },
+  { 'id': '360921', 'name': '奉新县' },
+  { 'id': '360922', 'name': '万载县' },
+  { 'id': '360923', 'name': '上高县' },
+  { 'id': '360924', 'name': '宜丰县' },
+  { 'id': '360925', 'name': '靖安县' },
+  { 'id': '360926', 'name': '铜鼓县' },
+  { 'id': '360981', 'name': '丰城市' },
+  { 'id': '360982', 'name': '樟树市' },
+  { 'id': '360983', 'name': '高安市' },
+  { 'id': '361000', 'name': '抚州市' },
+  { 'id': '361002', 'name': '临川区' },
+  { 'id': '361003', 'name': '东乡区' },
+  { 'id': '361021', 'name': '南城县' },
+  { 'id': '361022', 'name': '黎川县' },
+  { 'id': '361023', 'name': '南丰县' },
+  { 'id': '361024', 'name': '崇仁县' },
+  { 'id': '361025', 'name': '乐安县' },
+  { 'id': '361026', 'name': '宜黄县' },
+  { 'id': '361027', 'name': '金溪县' },
+  { 'id': '361028', 'name': '资溪县' },
+  { 'id': '361030', 'name': '广昌县' },
+  { 'id': '361100', 'name': '上饶市' },
+  { 'id': '361102', 'name': '信州区' },
+  { 'id': '361103', 'name': '广丰区' },
+  { 'id': '361121', 'name': '上饶县' },
+  { 'id': '361123', 'name': '玉山县' },
+  { 'id': '361124', 'name': '铅山县' },
+  { 'id': '361125', 'name': '横峰县' },
+  { 'id': '361126', 'name': '弋阳县' },
+  { 'id': '361127', 'name': '余干县' },
+  { 'id': '361128', 'name': '鄱阳县' },
+  { 'id': '361129', 'name': '万年县' },
+  { 'id': '361130', 'name': '婺源县' },
+  { 'id': '361181', 'name': '德兴市' },
+  { 'id': '370000', 'name': '山东省' },
+  { 'id': '370100', 'name': '济南市' },
+  { 'id': '370102', 'name': '历下区' },
+  { 'id': '370103', 'name': '市中区' },
+  { 'id': '370104', 'name': '槐荫区' },
+  { 'id': '370105', 'name': '天桥区' },
+  { 'id': '370112', 'name': '历城区' },
+  { 'id': '370113', 'name': '长清区' },
+  { 'id': '370114', 'name': '章丘区' },
+  { 'id': '370124', 'name': '平阴县' },
+  { 'id': '370125', 'name': '济阳县' },
+  { 'id': '370126', 'name': '商河县' },
+  { 'id': '370200', 'name': '青岛市' },
+  { 'id': '370202', 'name': '市南区' },
+  { 'id': '370203', 'name': '市北区' },
+  { 'id': '370211', 'name': '黄岛区' },
+  { 'id': '370212', 'name': '崂山区' },
+  { 'id': '370213', 'name': '李沧区' },
+  { 'id': '370214', 'name': '城阳区' },
+  { 'id': '370215', 'name': '即墨区' },
+  { 'id': '370281', 'name': '胶州市' },
+  { 'id': '370283', 'name': '平度市' },
+  { 'id': '370285', 'name': '莱西市' },
+  { 'id': '370300', 'name': '淄博市' },
+  { 'id': '370302', 'name': '淄川区' },
+  { 'id': '370303', 'name': '张店区' },
+  { 'id': '370304', 'name': '博山区' },
+  { 'id': '370305', 'name': '临淄区' },
+  { 'id': '370306', 'name': '周村区' },
+  { 'id': '370321', 'name': '桓台县' },
+  { 'id': '370322', 'name': '高青县' },
+  { 'id': '370323', 'name': '沂源县' },
+  { 'id': '370400', 'name': '枣庄市' },
+  { 'id': '370402', 'name': '市中区' },
+  { 'id': '370403', 'name': '薛城区' },
+  { 'id': '370404', 'name': '峄城区' },
+  { 'id': '370405', 'name': '台儿庄区' },
+  { 'id': '370406', 'name': '山亭区' },
+  { 'id': '370481', 'name': '滕州市' },
+  { 'id': '370500', 'name': '东营市' },
+  { 'id': '370502', 'name': '东营区' },
+  { 'id': '370503', 'name': '河口区' },
+  { 'id': '370505', 'name': '垦利区' },
+  { 'id': '370522', 'name': '利津县' },
+  { 'id': '370523', 'name': '广饶县' },
+  { 'id': '370600', 'name': '烟台市' },
+  { 'id': '370602', 'name': '芝罘区' },
+  { 'id': '370611', 'name': '福山区' },
+  { 'id': '370612', 'name': '牟平区' },
+  { 'id': '370613', 'name': '莱山区' },
+  { 'id': '370634', 'name': '长岛县' },
+  { 'id': '370681', 'name': '龙口市' },
+  { 'id': '370682', 'name': '莱阳市' },
+  { 'id': '370683', 'name': '莱州市' },
+  { 'id': '370684', 'name': '蓬莱市' },
+  { 'id': '370685', 'name': '招远市' },
+  { 'id': '370686', 'name': '栖霞市' },
+  { 'id': '370687', 'name': '海阳市' },
+  { 'id': '370700', 'name': '潍坊市' },
+  { 'id': '370702', 'name': '潍城区' },
+  { 'id': '370703', 'name': '寒亭区' },
+  { 'id': '370704', 'name': '坊子区' },
+  { 'id': '370705', 'name': '奎文区' },
+  { 'id': '370724', 'name': '临朐县' },
+  { 'id': '370725', 'name': '昌乐县' },
+  { 'id': '370781', 'name': '青州市' },
+  { 'id': '370782', 'name': '诸城市' },
+  { 'id': '370783', 'name': '寿光市' },
+  { 'id': '370784', 'name': '安丘市' },
+  { 'id': '370785', 'name': '高密市' },
+  { 'id': '370786', 'name': '昌邑市' },
+  { 'id': '370800', 'name': '济宁市' },
+  { 'id': '370811', 'name': '任城区' },
+  { 'id': '370812', 'name': '兖州区' },
+  { 'id': '370826', 'name': '微山县' },
+  { 'id': '370827', 'name': '鱼台县' },
+  { 'id': '370828', 'name': '金乡县' },
+  { 'id': '370829', 'name': '嘉祥县' },
+  { 'id': '370830', 'name': '汶上县' },
+  { 'id': '370831', 'name': '泗水县' },
+  { 'id': '370832', 'name': '梁山县' },
+  { 'id': '370881', 'name': '曲阜市' },
+  { 'id': '370883', 'name': '邹城市' },
+  { 'id': '370900', 'name': '泰安市' },
+  { 'id': '370902', 'name': '泰山区' },
+  { 'id': '370911', 'name': '岱岳区' },
+  { 'id': '370921', 'name': '宁阳县' },
+  { 'id': '370923', 'name': '东平县' },
+  { 'id': '370982', 'name': '新泰市' },
+  { 'id': '370983', 'name': '肥城市' },
+  { 'id': '371000', 'name': '威海市' },
+  { 'id': '371002', 'name': '环翠区' },
+  { 'id': '371003', 'name': '文登区' },
+  { 'id': '371082', 'name': '荣成市' },
+  { 'id': '371083', 'name': '乳山市' },
+  { 'id': '371100', 'name': '日照市' },
+  { 'id': '371102', 'name': '东港区' },
+  { 'id': '371103', 'name': '岚山区' },
+  { 'id': '371121', 'name': '五莲县' },
+  { 'id': '371122', 'name': '莒县' },
+  { 'id': '371200', 'name': '莱芜市' },
+  { 'id': '371202', 'name': '莱城区' },
+  { 'id': '371203', 'name': '钢城区' },
+  { 'id': '371300', 'name': '临沂市' },
+  { 'id': '371302', 'name': '兰山区' },
+  { 'id': '371311', 'name': '罗庄区' },
+  { 'id': '371312', 'name': '河东区' },
+  { 'id': '371321', 'name': '沂南县' },
+  { 'id': '371322', 'name': '郯城县' },
+  { 'id': '371323', 'name': '沂水县' },
+  { 'id': '371324', 'name': '兰陵县' },
+  { 'id': '371325', 'name': '费县' },
+  { 'id': '371326', 'name': '平邑县' },
+  { 'id': '371327', 'name': '莒南县' },
+  { 'id': '371328', 'name': '蒙阴县' },
+  { 'id': '371329', 'name': '临沭县' },
+  { 'id': '371400', 'name': '德州市' },
+  { 'id': '371402', 'name': '德城区' },
+  { 'id': '371403', 'name': '陵城区' },
+  { 'id': '371422', 'name': '宁津县' },
+  { 'id': '371423', 'name': '庆云县' },
+  { 'id': '371424', 'name': '临邑县' },
+  { 'id': '371425', 'name': '齐河县' },
+  { 'id': '371426', 'name': '平原县' },
+  { 'id': '371427', 'name': '夏津县' },
+  { 'id': '371428', 'name': '武城县' },
+  { 'id': '371481', 'name': '乐陵市' },
+  { 'id': '371482', 'name': '禹城市' },
+  { 'id': '371500', 'name': '聊城市' },
+  { 'id': '371502', 'name': '东昌府区' },
+  { 'id': '371521', 'name': '阳谷县' },
+  { 'id': '371522', 'name': '莘县' },
+  { 'id': '371523', 'name': '茌平县' },
+  { 'id': '371524', 'name': '东阿县' },
+  { 'id': '371525', 'name': '冠县' },
+  { 'id': '371526', 'name': '高唐县' },
+  { 'id': '371581', 'name': '临清市' },
+  { 'id': '371600', 'name': '滨州市' },
+  { 'id': '371602', 'name': '滨城区' },
+  { 'id': '371603', 'name': '沾化区' },
+  { 'id': '371621', 'name': '惠民县' },
+  { 'id': '371622', 'name': '阳信县' },
+  { 'id': '371623', 'name': '无棣县' },
+  { 'id': '371625', 'name': '博兴县' },
+  { 'id': '371626', 'name': '邹平县' },
+  { 'id': '371700', 'name': '菏泽市' },
+  { 'id': '371702', 'name': '牡丹区' },
+  { 'id': '371703', 'name': '定陶区' },
+  { 'id': '371721', 'name': '曹县' },
+  { 'id': '371722', 'name': '单县' },
+  { 'id': '371723', 'name': '成武县' },
+  { 'id': '371724', 'name': '巨野县' },
+  { 'id': '371725', 'name': '郓城县' },
+  { 'id': '371726', 'name': '鄄城县' },
+  { 'id': '371728', 'name': '东明县' },
+  { 'id': '410000', 'name': '河南省' },
+  { 'id': '410100', 'name': '郑州市' },
+  { 'id': '410102', 'name': '中原区' },
+  { 'id': '410103', 'name': '二七区' },
+  { 'id': '410104', 'name': '管城回族区' },
+  { 'id': '410105', 'name': '金水区' },
+  { 'id': '410106', 'name': '上街区' },
+  { 'id': '410108', 'name': '惠济区' },
+  { 'id': '410122', 'name': '中牟县' },
+  { 'id': '410181', 'name': '巩义市' },
+  { 'id': '410182', 'name': '荥阳市' },
+  { 'id': '410183', 'name': '新密市' },
+  { 'id': '410184', 'name': '新郑市' },
+  { 'id': '410185', 'name': '登封市' },
+  { 'id': '410200', 'name': '开封市' },
+  { 'id': '410202', 'name': '龙亭区' },
+  { 'id': '410203', 'name': '顺河回族区' },
+  { 'id': '410204', 'name': '鼓楼区' },
+  { 'id': '410205', 'name': '禹王台区' },
+  { 'id': '410212', 'name': '祥符区' },
+  { 'id': '410221', 'name': '杞县' },
+  { 'id': '410222', 'name': '通许县' },
+  { 'id': '410223', 'name': '尉氏县' },
+  { 'id': '410225', 'name': '兰考县' },
+  { 'id': '410300', 'name': '洛阳市' },
+  { 'id': '410302', 'name': '老城区' },
+  { 'id': '410303', 'name': '西工区' },
+  { 'id': '410304', 'name': '瀍河回族区' },
+  { 'id': '410305', 'name': '涧西区' },
+  { 'id': '410306', 'name': '吉利区' },
+  { 'id': '410311', 'name': '洛龙区' },
+  { 'id': '410322', 'name': '孟津县' },
+  { 'id': '410323', 'name': '新安县' },
+  { 'id': '410324', 'name': '栾川县' },
+  { 'id': '410325', 'name': '嵩县' },
+  { 'id': '410326', 'name': '汝阳县' },
+  { 'id': '410327', 'name': '宜阳县' },
+  { 'id': '410328', 'name': '洛宁县' },
+  { 'id': '410329', 'name': '伊川县' },
+  { 'id': '410381', 'name': '偃师市' },
+  { 'id': '410400', 'name': '平顶山市' },
+  { 'id': '410402', 'name': '新华区' },
+  { 'id': '410403', 'name': '卫东区' },
+  { 'id': '410404', 'name': '石龙区' },
+  { 'id': '410411', 'name': '湛河区' },
+  { 'id': '410421', 'name': '宝丰县' },
+  { 'id': '410422', 'name': '叶县' },
+  { 'id': '410423', 'name': '鲁山县' },
+  { 'id': '410425', 'name': '郏县' },
+  { 'id': '410481', 'name': '舞钢市' },
+  { 'id': '410482', 'name': '汝州市' },
+  { 'id': '410500', 'name': '安阳市' },
+  { 'id': '410502', 'name': '文峰区' },
+  { 'id': '410503', 'name': '北关区' },
+  { 'id': '410505', 'name': '殷都区' },
+  { 'id': '410506', 'name': '龙安区' },
+  { 'id': '410522', 'name': '安阳县' },
+  { 'id': '410523', 'name': '汤阴县' },
+  { 'id': '410526', 'name': '滑县' },
+  { 'id': '410527', 'name': '内黄县' },
+  { 'id': '410581', 'name': '林州市' },
+  { 'id': '410600', 'name': '鹤壁市' },
+  { 'id': '410602', 'name': '鹤山区' },
+  { 'id': '410603', 'name': '山城区' },
+  { 'id': '410611', 'name': '淇滨区' },
+  { 'id': '410621', 'name': '浚县' },
+  { 'id': '410622', 'name': '淇县' },
+  { 'id': '410700', 'name': '新乡市' },
+  { 'id': '410702', 'name': '红旗区' },
+  { 'id': '410703', 'name': '卫滨区' },
+  { 'id': '410704', 'name': '凤泉区' },
+  { 'id': '410711', 'name': '牧野区' },
+  { 'id': '410721', 'name': '新乡县' },
+  { 'id': '410724', 'name': '获嘉县' },
+  { 'id': '410725', 'name': '原阳县' },
+  { 'id': '410726', 'name': '延津县' },
+  { 'id': '410727', 'name': '封丘县' },
+  { 'id': '410728', 'name': '长垣县' },
+  { 'id': '410781', 'name': '卫辉市' },
+  { 'id': '410782', 'name': '辉县市' },
+  { 'id': '410800', 'name': '焦作市' },
+  { 'id': '410802', 'name': '解放区' },
+  { 'id': '410803', 'name': '中站区' },
+  { 'id': '410804', 'name': '马村区' },
+  { 'id': '410811', 'name': '山阳区' },
+  { 'id': '410821', 'name': '修武县' },
+  { 'id': '410822', 'name': '博爱县' },
+  { 'id': '410823', 'name': '武陟县' },
+  { 'id': '410825', 'name': '温县' },
+  { 'id': '410882', 'name': '沁阳市' },
+  { 'id': '410883', 'name': '孟州市' },
+  { 'id': '410900', 'name': '濮阳市' },
+  { 'id': '410902', 'name': '华龙区' },
+  { 'id': '410922', 'name': '清丰县' },
+  { 'id': '410923', 'name': '南乐县' },
+  { 'id': '410926', 'name': '范县' },
+  { 'id': '410927', 'name': '台前县' },
+  { 'id': '410928', 'name': '濮阳县' },
+  { 'id': '411000', 'name': '许昌市' },
+  { 'id': '411002', 'name': '魏都区' },
+  { 'id': '411003', 'name': '建安区' },
+  { 'id': '411024', 'name': '鄢陵县' },
+  { 'id': '411025', 'name': '襄城县' },
+  { 'id': '411081', 'name': '禹州市' },
+  { 'id': '411082', 'name': '长葛市' },
+  { 'id': '411100', 'name': '漯河市' },
+  { 'id': '411102', 'name': '源汇区' },
+  { 'id': '411103', 'name': '郾城区' },
+  { 'id': '411104', 'name': '召陵区' },
+  { 'id': '411121', 'name': '舞阳县' },
+  { 'id': '411122', 'name': '临颍县' },
+  { 'id': '411200', 'name': '三门峡市' },
+  { 'id': '411202', 'name': '湖滨区' },
+  { 'id': '411203', 'name': '陕州区' },
+  { 'id': '411221', 'name': '渑池县' },
+  { 'id': '411224', 'name': '卢氏县' },
+  { 'id': '411281', 'name': '义马市' },
+  { 'id': '411282', 'name': '灵宝市' },
+  { 'id': '411300', 'name': '南阳市' },
+  { 'id': '411302', 'name': '宛城区' },
+  { 'id': '411303', 'name': '卧龙区' },
+  { 'id': '411321', 'name': '南召县' },
+  { 'id': '411322', 'name': '方城县' },
+  { 'id': '411323', 'name': '西峡县' },
+  { 'id': '411324', 'name': '镇平县' },
+  { 'id': '411325', 'name': '内乡县' },
+  { 'id': '411326', 'name': '淅川县' },
+  { 'id': '411327', 'name': '社旗县' },
+  { 'id': '411328', 'name': '唐河县' },
+  { 'id': '411329', 'name': '新野县' },
+  { 'id': '411330', 'name': '桐柏县' },
+  { 'id': '411381', 'name': '邓州市' },
+  { 'id': '411400', 'name': '商丘市' },
+  { 'id': '411402', 'name': '梁园区' },
+  { 'id': '411403', 'name': '睢阳区' },
+  { 'id': '411421', 'name': '民权县' },
+  { 'id': '411422', 'name': '睢县' },
+  { 'id': '411423', 'name': '宁陵县' },
+  { 'id': '411424', 'name': '柘城县' },
+  { 'id': '411425', 'name': '虞城县' },
+  { 'id': '411426', 'name': '夏邑县' },
+  { 'id': '411481', 'name': '永城市' },
+  { 'id': '411500', 'name': '信阳市' },
+  { 'id': '411502', 'name': '浉河区' },
+  { 'id': '411503', 'name': '平桥区' },
+  { 'id': '411521', 'name': '罗山县' },
+  { 'id': '411522', 'name': '光山县' },
+  { 'id': '411523', 'name': '新县' },
+  { 'id': '411524', 'name': '商城县' },
+  { 'id': '411525', 'name': '固始县' },
+  { 'id': '411526', 'name': '潢川县' },
+  { 'id': '411527', 'name': '淮滨县' },
+  { 'id': '411528', 'name': '息县' },
+  { 'id': '411600', 'name': '周口市' },
+  { 'id': '411602', 'name': '川汇区' },
+  { 'id': '411621', 'name': '扶沟县' },
+  { 'id': '411622', 'name': '西华县' },
+  { 'id': '411623', 'name': '商水县' },
+  { 'id': '411624', 'name': '沈丘县' },
+  { 'id': '411625', 'name': '郸城县' },
+  { 'id': '411626', 'name': '淮阳县' },
+  { 'id': '411627', 'name': '太康县' },
+  { 'id': '411628', 'name': '鹿邑县' },
+  { 'id': '411681', 'name': '项城市' },
+  { 'id': '411700', 'name': '驻马店市' },
+  { 'id': '411702', 'name': '驿城区' },
+  { 'id': '411721', 'name': '西平县' },
+  { 'id': '411722', 'name': '上蔡县' },
+  { 'id': '411723', 'name': '平舆县' },
+  { 'id': '411724', 'name': '正阳县' },
+  { 'id': '411725', 'name': '确山县' },
+  { 'id': '411726', 'name': '泌阳县' },
+  { 'id': '411727', 'name': '汝南县' },
+  { 'id': '411728', 'name': '遂平县' },
+  { 'id': '411729', 'name': '新蔡县' },
+  { 'id': '419001', 'name': '济源市' },
+  { 'id': '420000', 'name': '湖北省' },
+  { 'id': '420100', 'name': '武汉市' },
+  { 'id': '420102', 'name': '江岸区' },
+  { 'id': '420103', 'name': '江汉区' },
+  { 'id': '420104', 'name': '硚口区' },
+  { 'id': '420105', 'name': '汉阳区' },
+  { 'id': '420106', 'name': '武昌区' },
+  { 'id': '420107', 'name': '青山区' },
+  { 'id': '420111', 'name': '洪山区' },
+  { 'id': '420112', 'name': '东西湖区' },
+  { 'id': '420113', 'name': '汉南区' },
+  { 'id': '420114', 'name': '蔡甸区' },
+  { 'id': '420115', 'name': '江夏区' },
+  { 'id': '420116', 'name': '黄陂区' },
+  { 'id': '420117', 'name': '新洲区' },
+  { 'id': '420200', 'name': '黄石市' },
+  { 'id': '420202', 'name': '黄石港区' },
+  { 'id': '420203', 'name': '西塞山区' },
+  { 'id': '420204', 'name': '下陆区' },
+  { 'id': '420205', 'name': '铁山区' },
+  { 'id': '420222', 'name': '阳新县' },
+  { 'id': '420281', 'name': '大冶市' },
+  { 'id': '420300', 'name': '十堰市' },
+  { 'id': '420302', 'name': '茅箭区' },
+  { 'id': '420303', 'name': '张湾区' },
+  { 'id': '420304', 'name': '郧阳区' },
+  { 'id': '420322', 'name': '郧西县' },
+  { 'id': '420323', 'name': '竹山县' },
+  { 'id': '420324', 'name': '竹溪县' },
+  { 'id': '420325', 'name': '房县' },
+  { 'id': '420381', 'name': '丹江口市' },
+  { 'id': '420500', 'name': '宜昌市' },
+  { 'id': '420502', 'name': '西陵区' },
+  { 'id': '420503', 'name': '伍家岗区' },
+  { 'id': '420504', 'name': '点军区' },
+  { 'id': '420505', 'name': '猇亭区' },
+  { 'id': '420506', 'name': '夷陵区' },
+  { 'id': '420525', 'name': '远安县' },
+  { 'id': '420526', 'name': '兴山县' },
+  { 'id': '420527', 'name': '秭归县' },
+  { 'id': '420528', 'name': '长阳土家族自治县' },
+  { 'id': '420529', 'name': '五峰土家族自治县' },
+  { 'id': '420581', 'name': '宜都市' },
+  { 'id': '420582', 'name': '当阳市' },
+  { 'id': '420583', 'name': '枝江市' },
+  { 'id': '420600', 'name': '襄阳市' },
+  { 'id': '420602', 'name': '襄城区' },
+  { 'id': '420606', 'name': '樊城区' },
+  { 'id': '420607', 'name': '襄州区' },
+  { 'id': '420624', 'name': '南漳县' },
+  { 'id': '420625', 'name': '谷城县' },
+  { 'id': '420626', 'name': '保康县' },
+  { 'id': '420682', 'name': '老河口市' },
+  { 'id': '420683', 'name': '枣阳市' },
+  { 'id': '420684', 'name': '宜城市' },
+  { 'id': '420700', 'name': '鄂州市' },
+  { 'id': '420702', 'name': '梁子湖区' },
+  { 'id': '420703', 'name': '华容区' },
+  { 'id': '420704', 'name': '鄂城区' },
+  { 'id': '420800', 'name': '荆门市' },
+  { 'id': '420802', 'name': '东宝区' },
+  { 'id': '420804', 'name': '掇刀区' },
+  { 'id': '420822', 'name': '沙洋县' },
+  { 'id': '420881', 'name': '钟祥市' },
+  { 'id': '420882', 'name': '京山市' },
+  { 'id': '420900', 'name': '孝感市' },
+  { 'id': '420902', 'name': '孝南区' },
+  { 'id': '420921', 'name': '孝昌县' },
+  { 'id': '420922', 'name': '大悟县' },
+  { 'id': '420923', 'name': '云梦县' },
+  { 'id': '420981', 'name': '应城市' },
+  { 'id': '420982', 'name': '安陆市' },
+  { 'id': '420984', 'name': '汉川市' },
+  { 'id': '421000', 'name': '荆州市' },
+  { 'id': '421002', 'name': '沙市区' },
+  { 'id': '421003', 'name': '荆州区' },
+  { 'id': '421022', 'name': '公安县' },
+  { 'id': '421023', 'name': '监利县' },
+  { 'id': '421024', 'name': '江陵县' },
+  { 'id': '421081', 'name': '石首市' },
+  { 'id': '421083', 'name': '洪湖市' },
+  { 'id': '421087', 'name': '松滋市' },
+  { 'id': '421100', 'name': '黄冈市' },
+  { 'id': '421102', 'name': '黄州区' },
+  { 'id': '421121', 'name': '团风县' },
+  { 'id': '421122', 'name': '红安县' },
+  { 'id': '421123', 'name': '罗田县' },
+  { 'id': '421124', 'name': '英山县' },
+  { 'id': '421125', 'name': '浠水县' },
+  { 'id': '421126', 'name': '蕲春县' },
+  { 'id': '421127', 'name': '黄梅县' },
+  { 'id': '421181', 'name': '麻城市' },
+  { 'id': '421182', 'name': '武穴市' },
+  { 'id': '421200', 'name': '咸宁市' },
+  { 'id': '421202', 'name': '咸安区' },
+  { 'id': '421221', 'name': '嘉鱼县' },
+  { 'id': '421222', 'name': '通城县' },
+  { 'id': '421223', 'name': '崇阳县' },
+  { 'id': '421224', 'name': '通山县' },
+  { 'id': '421281', 'name': '赤壁市' },
+  { 'id': '421300', 'name': '随州市' },
+  { 'id': '421303', 'name': '曾都区' },
+  { 'id': '421321', 'name': '随县' },
+  { 'id': '421381', 'name': '广水市' },
+  { 'id': '422800', 'name': '恩施土家族苗族自治州' },
+  { 'id': '422801', 'name': '恩施市' },
+  { 'id': '422802', 'name': '利川市' },
+  { 'id': '422822', 'name': '建始县' },
+  { 'id': '422823', 'name': '巴东县' },
+  { 'id': '422825', 'name': '宣恩县' },
+  { 'id': '422826', 'name': '咸丰县' },
+  { 'id': '422827', 'name': '来凤县' },
+  { 'id': '422828', 'name': '鹤峰县' },
+  { 'id': '429004', 'name': '仙桃市' },
+  { 'id': '429005', 'name': '潜江市' },
+  { 'id': '429006', 'name': '天门市' },
+  { 'id': '429021', 'name': '神农架林区' },
+  { 'id': '430000', 'name': '湖南省' },
+  { 'id': '430100', 'name': '长沙市' },
+  { 'id': '430102', 'name': '芙蓉区' },
+  { 'id': '430103', 'name': '天心区' },
+  { 'id': '430104', 'name': '岳麓区' },
+  { 'id': '430105', 'name': '开福区' },
+  { 'id': '430111', 'name': '雨花区' },
+  { 'id': '430112', 'name': '望城区' },
+  { 'id': '430121', 'name': '长沙县' },
+  { 'id': '430181', 'name': '浏阳市' },
+  { 'id': '430182', 'name': '宁乡市' },
+  { 'id': '430200', 'name': '株洲市' },
+  { 'id': '430202', 'name': '荷塘区' },
+  { 'id': '430203', 'name': '芦淞区' },
+  { 'id': '430204', 'name': '石峰区' },
+  { 'id': '430211', 'name': '天元区' },
+  { 'id': '430221', 'name': '株洲县' },
+  { 'id': '430223', 'name': '攸县' },
+  { 'id': '430224', 'name': '茶陵县' },
+  { 'id': '430225', 'name': '炎陵县' },
+  { 'id': '430281', 'name': '醴陵市' },
+  { 'id': '430300', 'name': '湘潭市' },
+  { 'id': '430302', 'name': '雨湖区' },
+  { 'id': '430304', 'name': '岳塘区' },
+  { 'id': '430321', 'name': '湘潭县' },
+  { 'id': '430381', 'name': '湘乡市' },
+  { 'id': '430382', 'name': '韶山市' },
+  { 'id': '430400', 'name': '衡阳市' },
+  { 'id': '430405', 'name': '珠晖区' },
+  { 'id': '430406', 'name': '雁峰区' },
+  { 'id': '430407', 'name': '石鼓区' },
+  { 'id': '430408', 'name': '蒸湘区' },
+  { 'id': '430412', 'name': '南岳区' },
+  { 'id': '430421', 'name': '衡阳县' },
+  { 'id': '430422', 'name': '衡南县' },
+  { 'id': '430423', 'name': '衡山县' },
+  { 'id': '430424', 'name': '衡东县' },
+  { 'id': '430426', 'name': '祁东县' },
+  { 'id': '430481', 'name': '耒阳市' },
+  { 'id': '430482', 'name': '常宁市' },
+  { 'id': '430500', 'name': '邵阳市' },
+  { 'id': '430502', 'name': '双清区' },
+  { 'id': '430503', 'name': '大祥区' },
+  { 'id': '430511', 'name': '北塔区' },
+  { 'id': '430521', 'name': '邵东县' },
+  { 'id': '430522', 'name': '新邵县' },
+  { 'id': '430523', 'name': '邵阳县' },
+  { 'id': '430524', 'name': '隆回县' },
+  { 'id': '430525', 'name': '洞口县' },
+  { 'id': '430527', 'name': '绥宁县' },
+  { 'id': '430528', 'name': '新宁县' },
+  { 'id': '430529', 'name': '城步苗族自治县' },
+  { 'id': '430581', 'name': '武冈市' },
+  { 'id': '430600', 'name': '岳阳市' },
+  { 'id': '430602', 'name': '岳阳楼区' },
+  { 'id': '430603', 'name': '云溪区' },
+  { 'id': '430611', 'name': '君山区' },
+  { 'id': '430621', 'name': '岳阳县' },
+  { 'id': '430623', 'name': '华容县' },
+  { 'id': '430624', 'name': '湘阴县' },
+  { 'id': '430626', 'name': '平江县' },
+  { 'id': '430681', 'name': '汨罗市' },
+  { 'id': '430682', 'name': '临湘市' },
+  { 'id': '430700', 'name': '常德市' },
+  { 'id': '430702', 'name': '武陵区' },
+  { 'id': '430703', 'name': '鼎城区' },
+  { 'id': '430721', 'name': '安乡县' },
+  { 'id': '430722', 'name': '汉寿县' },
+  { 'id': '430723', 'name': '澧县' },
+  { 'id': '430724', 'name': '临澧县' },
+  { 'id': '430725', 'name': '桃源县' },
+  { 'id': '430726', 'name': '石门县' },
+  { 'id': '430781', 'name': '津市市' },
+  { 'id': '430800', 'name': '张家界市' },
+  { 'id': '430802', 'name': '永定区' },
+  { 'id': '430811', 'name': '武陵源区' },
+  { 'id': '430821', 'name': '慈利县' },
+  { 'id': '430822', 'name': '桑植县' },
+  { 'id': '430900', 'name': '益阳市' },
+  { 'id': '430902', 'name': '资阳区' },
+  { 'id': '430903', 'name': '赫山区' },
+  { 'id': '430921', 'name': '南县' },
+  { 'id': '430922', 'name': '桃江县' },
+  { 'id': '430923', 'name': '安化县' },
+  { 'id': '430981', 'name': '沅江市' },
+  { 'id': '431000', 'name': '郴州市' },
+  { 'id': '431002', 'name': '北湖区' },
+  { 'id': '431003', 'name': '苏仙区' },
+  { 'id': '431021', 'name': '桂阳县' },
+  { 'id': '431022', 'name': '宜章县' },
+  { 'id': '431023', 'name': '永兴县' },
+  { 'id': '431024', 'name': '嘉禾县' },
+  { 'id': '431025', 'name': '临武县' },
+  { 'id': '431026', 'name': '汝城县' },
+  { 'id': '431027', 'name': '桂东县' },
+  { 'id': '431028', 'name': '安仁县' },
+  { 'id': '431081', 'name': '资兴市' },
+  { 'id': '431100', 'name': '永州市' },
+  { 'id': '431102', 'name': '零陵区' },
+  { 'id': '431103', 'name': '冷水滩区' },
+  { 'id': '431121', 'name': '祁阳县' },
+  { 'id': '431122', 'name': '东安县' },
+  { 'id': '431123', 'name': '双牌县' },
+  { 'id': '431124', 'name': '道县' },
+  { 'id': '431125', 'name': '江永县' },
+  { 'id': '431126', 'name': '宁远县' },
+  { 'id': '431127', 'name': '蓝山县' },
+  { 'id': '431128', 'name': '新田县' },
+  { 'id': '431129', 'name': '江华瑶族自治县' },
+  { 'id': '431200', 'name': '怀化市' },
+  { 'id': '431202', 'name': '鹤城区' },
+  { 'id': '431221', 'name': '中方县' },
+  { 'id': '431222', 'name': '沅陵县' },
+  { 'id': '431223', 'name': '辰溪县' },
+  { 'id': '431224', 'name': '溆浦县' },
+  { 'id': '431225', 'name': '会同县' },
+  { 'id': '431226', 'name': '麻阳苗族自治县' },
+  { 'id': '431227', 'name': '新晃侗族自治县' },
+  { 'id': '431228', 'name': '芷江侗族自治县' },
+  { 'id': '431229', 'name': '靖州苗族侗族自治县' },
+  { 'id': '431230', 'name': '通道侗族自治县' },
+  { 'id': '431281', 'name': '洪江市' },
+  { 'id': '431300', 'name': '娄底市' },
+  { 'id': '431302', 'name': '娄星区' },
+  { 'id': '431321', 'name': '双峰县' },
+  { 'id': '431322', 'name': '新化县' },
+  { 'id': '431381', 'name': '冷水江市' },
+  { 'id': '431382', 'name': '涟源市' },
+  { 'id': '433100', 'name': '湘西土家族苗族自治州' },
+  { 'id': '433101', 'name': '吉首市' },
+  { 'id': '433122', 'name': '泸溪县' },
+  { 'id': '433123', 'name': '凤凰县' },
+  { 'id': '433124', 'name': '花垣县' },
+  { 'id': '433125', 'name': '保靖县' },
+  { 'id': '433126', 'name': '古丈县' },
+  { 'id': '433127', 'name': '永顺县' },
+  { 'id': '433130', 'name': '龙山县' },
+  { 'id': '440000', 'name': '广东省' },
+  { 'id': '440100', 'name': '广州市' },
+  { 'id': '440103', 'name': '荔湾区' },
+  { 'id': '440104', 'name': '越秀区' },
+  { 'id': '440105', 'name': '海珠区' },
+  { 'id': '440106', 'name': '天河区' },
+  { 'id': '440111', 'name': '白云区' },
+  { 'id': '440112', 'name': '黄埔区' },
+  { 'id': '440113', 'name': '番禺区' },
+  { 'id': '440114', 'name': '花都区' },
+  { 'id': '440115', 'name': '南沙区' },
+  { 'id': '440117', 'name': '从化区' },
+  { 'id': '440118', 'name': '增城区' },
+  { 'id': '440200', 'name': '韶关市' },
+  { 'id': '440203', 'name': '武江区' },
+  { 'id': '440204', 'name': '浈江区' },
+  { 'id': '440205', 'name': '曲江区' },
+  { 'id': '440222', 'name': '始兴县' },
+  { 'id': '440224', 'name': '仁化县' },
+  { 'id': '440229', 'name': '翁源县' },
+  { 'id': '440232', 'name': '乳源瑶族自治县' },
+  { 'id': '440233', 'name': '新丰县' },
+  { 'id': '440281', 'name': '乐昌市' },
+  { 'id': '440282', 'name': '南雄市' },
+  { 'id': '440300', 'name': '深圳市' },
+  { 'id': '440303', 'name': '罗湖区' },
+  { 'id': '440304', 'name': '福田区' },
+  { 'id': '440305', 'name': '南山区' },
+  { 'id': '440306', 'name': '宝安区' },
+  { 'id': '440307', 'name': '龙岗区' },
+  { 'id': '440308', 'name': '盐田区' },
+  { 'id': '440309', 'name': '龙华区' },
+  { 'id': '440310', 'name': '坪山区' },
+  { 'id': '440311', 'name': '光明区' },
+  { 'id': '440400', 'name': '珠海市' },
+  { 'id': '440402', 'name': '香洲区' },
+  { 'id': '440403', 'name': '斗门区' },
+  { 'id': '440404', 'name': '金湾区' },
+  { 'id': '440500', 'name': '汕头市' },
+  { 'id': '440507', 'name': '龙湖区' },
+  { 'id': '440511', 'name': '金平区' },
+  { 'id': '440512', 'name': '濠江区' },
+  { 'id': '440513', 'name': '潮阳区' },
+  { 'id': '440514', 'name': '潮南区' },
+  { 'id': '440515', 'name': '澄海区' },
+  { 'id': '440523', 'name': '南澳县' },
+  { 'id': '440600', 'name': '佛山市' },
+  { 'id': '440604', 'name': '禅城区' },
+  { 'id': '440605', 'name': '南海区' },
+  { 'id': '440606', 'name': '顺德区' },
+  { 'id': '440607', 'name': '三水区' },
+  { 'id': '440608', 'name': '高明区' },
+  { 'id': '440700', 'name': '江门市' },
+  { 'id': '440703', 'name': '蓬江区' },
+  { 'id': '440704', 'name': '江海区' },
+  { 'id': '440705', 'name': '新会区' },
+  { 'id': '440781', 'name': '台山市' },
+  { 'id': '440783', 'name': '开平市' },
+  { 'id': '440784', 'name': '鹤山市' },
+  { 'id': '440785', 'name': '恩平市' },
+  { 'id': '440800', 'name': '湛江市' },
+  { 'id': '440802', 'name': '赤坎区' },
+  { 'id': '440803', 'name': '霞山区' },
+  { 'id': '440804', 'name': '坡头区' },
+  { 'id': '440811', 'name': '麻章区' },
+  { 'id': '440823', 'name': '遂溪县' },
+  { 'id': '440825', 'name': '徐闻县' },
+  { 'id': '440881', 'name': '廉江市' },
+  { 'id': '440882', 'name': '雷州市' },
+  { 'id': '440883', 'name': '吴川市' },
+  { 'id': '440900', 'name': '茂名市' },
+  { 'id': '440902', 'name': '茂南区' },
+  { 'id': '440904', 'name': '电白区' },
+  { 'id': '440981', 'name': '高州市' },
+  { 'id': '440982', 'name': '化州市' },
+  { 'id': '440983', 'name': '信宜市' },
+  { 'id': '441200', 'name': '肇庆市' },
+  { 'id': '441202', 'name': '端州区' },
+  { 'id': '441203', 'name': '鼎湖区' },
+  { 'id': '441204', 'name': '高要区' },
+  { 'id': '441223', 'name': '广宁县' },
+  { 'id': '441224', 'name': '怀集县' },
+  { 'id': '441225', 'name': '封开县' },
+  { 'id': '441226', 'name': '德庆县' },
+  { 'id': '441284', 'name': '四会市' },
+  { 'id': '441300', 'name': '惠州市' },
+  { 'id': '441302', 'name': '惠城区' },
+  { 'id': '441303', 'name': '惠阳区' },
+  { 'id': '441322', 'name': '博罗县' },
+  { 'id': '441323', 'name': '惠东县' },
+  { 'id': '441324', 'name': '龙门县' },
+  { 'id': '441400', 'name': '梅州市' },
+  { 'id': '441402', 'name': '梅江区' },
+  { 'id': '441403', 'name': '梅县区' },
+  { 'id': '441422', 'name': '大埔县' },
+  { 'id': '441423', 'name': '丰顺县' },
+  { 'id': '441424', 'name': '五华县' },
+  { 'id': '441426', 'name': '平远县' },
+  { 'id': '441427', 'name': '蕉岭县' },
+  { 'id': '441481', 'name': '兴宁市' },
+  { 'id': '441500', 'name': '汕尾市' },
+  { 'id': '441502', 'name': '城区' },
+  { 'id': '441521', 'name': '海丰县' },
+  { 'id': '441523', 'name': '陆河县' },
+  { 'id': '441581', 'name': '陆丰市' },
+  { 'id': '441600', 'name': '河源市' },
+  { 'id': '441602', 'name': '源城区' },
+  { 'id': '441621', 'name': '紫金县' },
+  { 'id': '441622', 'name': '龙川县' },
+  { 'id': '441623', 'name': '连平县' },
+  { 'id': '441624', 'name': '和平县' },
+  { 'id': '441625', 'name': '东源县' },
+  { 'id': '441700', 'name': '阳江市' },
+  { 'id': '441702', 'name': '江城区' },
+  { 'id': '441704', 'name': '阳东区' },
+  { 'id': '441721', 'name': '阳西县' },
+  { 'id': '441781', 'name': '阳春市' },
+  { 'id': '441800', 'name': '清远市' },
+  { 'id': '441802', 'name': '清城区' },
+  { 'id': '441803', 'name': '清新区' },
+  { 'id': '441821', 'name': '佛冈县' },
+  { 'id': '441823', 'name': '阳山县' },
+  { 'id': '441825', 'name': '连山壮族瑶族自治县' },
+  { 'id': '441826', 'name': '连南瑶族自治县' },
+  { 'id': '441881', 'name': '英德市' },
+  { 'id': '441882', 'name': '连州市' },
+  { 'id': '441900', 'name': '东莞市' },
+  { 'id': '442000', 'name': '中山市' },
+  { 'id': '445100', 'name': '潮州市' },
+  { 'id': '445102', 'name': '湘桥区' },
+  { 'id': '445103', 'name': '潮安区' },
+  { 'id': '445122', 'name': '饶平县' },
+  { 'id': '445200', 'name': '揭阳市' },
+  { 'id': '445202', 'name': '榕城区' },
+  { 'id': '445203', 'name': '揭东区' },
+  { 'id': '445222', 'name': '揭西县' },
+  { 'id': '445224', 'name': '惠来县' },
+  { 'id': '445281', 'name': '普宁市' },
+  { 'id': '445300', 'name': '云浮市' },
+  { 'id': '445302', 'name': '云城区' },
+  { 'id': '445303', 'name': '云安区' },
+  { 'id': '445321', 'name': '新兴县' },
+  { 'id': '445322', 'name': '郁南县' },
+  { 'id': '445381', 'name': '罗定市' },
+  { 'id': '450000', 'name': '广西壮族自治区' },
+  { 'id': '450100', 'name': '南宁市' },
+  { 'id': '450102', 'name': '兴宁区' },
+  { 'id': '450103', 'name': '青秀区' },
+  { 'id': '450105', 'name': '江南区' },
+  { 'id': '450107', 'name': '西乡塘区' },
+  { 'id': '450108', 'name': '良庆区' },
+  { 'id': '450109', 'name': '邕宁区' },
+  { 'id': '450110', 'name': '武鸣区' },
+  { 'id': '450123', 'name': '隆安县' },
+  { 'id': '450124', 'name': '马山县' },
+  { 'id': '450125', 'name': '上林县' },
+  { 'id': '450126', 'name': '宾阳县' },
+  { 'id': '450127', 'name': '横县' },
+  { 'id': '450200', 'name': '柳州市' },
+  { 'id': '450202', 'name': '城中区' },
+  { 'id': '450203', 'name': '鱼峰区' },
+  { 'id': '450204', 'name': '柳南区' },
+  { 'id': '450205', 'name': '柳北区' },
+  { 'id': '450206', 'name': '柳江区' },
+  { 'id': '450222', 'name': '柳城县' },
+  { 'id': '450223', 'name': '鹿寨县' },
+  { 'id': '450224', 'name': '融安县' },
+  { 'id': '450225', 'name': '融水苗族自治县' },
+  { 'id': '450226', 'name': '三江侗族自治县' },
+  { 'id': '450300', 'name': '桂林市' },
+  { 'id': '450302', 'name': '秀峰区' },
+  { 'id': '450303', 'name': '叠彩区' },
+  { 'id': '450304', 'name': '象山区' },
+  { 'id': '450305', 'name': '七星区' },
+  { 'id': '450311', 'name': '雁山区' },
+  { 'id': '450312', 'name': '临桂区' },
+  { 'id': '450321', 'name': '阳朔县' },
+  { 'id': '450323', 'name': '灵川县' },
+  { 'id': '450324', 'name': '全州县' },
+  { 'id': '450325', 'name': '兴安县' },
+  { 'id': '450326', 'name': '永福县' },
+  { 'id': '450327', 'name': '灌阳县' },
+  { 'id': '450328', 'name': '龙胜各族自治县' },
+  { 'id': '450329', 'name': '资源县' },
+  { 'id': '450330', 'name': '平乐县' },
+  { 'id': '450331', 'name': '荔浦县' },
+  { 'id': '450332', 'name': '恭城瑶族自治县' },
+  { 'id': '450400', 'name': '梧州市' },
+  { 'id': '450403', 'name': '万秀区' },
+  { 'id': '450405', 'name': '长洲区' },
+  { 'id': '450406', 'name': '龙圩区' },
+  { 'id': '450421', 'name': '苍梧县' },
+  { 'id': '450422', 'name': '藤县' },
+  { 'id': '450423', 'name': '蒙山县' },
+  { 'id': '450481', 'name': '岑溪市' },
+  { 'id': '450500', 'name': '北海市' },
+  { 'id': '450502', 'name': '海城区' },
+  { 'id': '450503', 'name': '银海区' },
+  { 'id': '450512', 'name': '铁山港区' },
+  { 'id': '450521', 'name': '合浦县' },
+  { 'id': '450600', 'name': '防城港市' },
+  { 'id': '450602', 'name': '港口区' },
+  { 'id': '450603', 'name': '防城区' },
+  { 'id': '450621', 'name': '上思县' },
+  { 'id': '450681', 'name': '东兴市' },
+  { 'id': '450700', 'name': '钦州市' },
+  { 'id': '450702', 'name': '钦南区' },
+  { 'id': '450703', 'name': '钦北区' },
+  { 'id': '450721', 'name': '灵山县' },
+  { 'id': '450722', 'name': '浦北县' },
+  { 'id': '450800', 'name': '贵港市' },
+  { 'id': '450802', 'name': '港北区' },
+  { 'id': '450803', 'name': '港南区' },
+  { 'id': '450804', 'name': '覃塘区' },
+  { 'id': '450821', 'name': '平南县' },
+  { 'id': '450881', 'name': '桂平市' },
+  { 'id': '450900', 'name': '玉林市' },
+  { 'id': '450902', 'name': '玉州区' },
+  { 'id': '450903', 'name': '福绵区' },
+  { 'id': '450921', 'name': '容县' },
+  { 'id': '450922', 'name': '陆川县' },
+  { 'id': '450923', 'name': '博白县' },
+  { 'id': '450924', 'name': '兴业县' },
+  { 'id': '450981', 'name': '北流市' },
+  { 'id': '451000', 'name': '百色市' },
+  { 'id': '451002', 'name': '右江区' },
+  { 'id': '451021', 'name': '田阳县' },
+  { 'id': '451022', 'name': '田东县' },
+  { 'id': '451023', 'name': '平果县' },
+  { 'id': '451024', 'name': '德保县' },
+  { 'id': '451026', 'name': '那坡县' },
+  { 'id': '451027', 'name': '凌云县' },
+  { 'id': '451028', 'name': '乐业县' },
+  { 'id': '451029', 'name': '田林县' },
+  { 'id': '451030', 'name': '西林县' },
+  { 'id': '451031', 'name': '隆林各族自治县' },
+  { 'id': '451081', 'name': '靖西市' },
+  { 'id': '451100', 'name': '贺州市' },
+  { 'id': '451102', 'name': '八步区' },
+  { 'id': '451103', 'name': '平桂区' },
+  { 'id': '451121', 'name': '昭平县' },
+  { 'id': '451122', 'name': '钟山县' },
+  { 'id': '451123', 'name': '富川瑶族自治县' },
+  { 'id': '451200', 'name': '河池市' },
+  { 'id': '451202', 'name': '金城江区' },
+  { 'id': '451203', 'name': '宜州区' },
+  { 'id': '451221', 'name': '南丹县' },
+  { 'id': '451222', 'name': '天峨县' },
+  { 'id': '451223', 'name': '凤山县' },
+  { 'id': '451224', 'name': '东兰县' },
+  { 'id': '451225', 'name': '罗城仫佬族自治县' },
+  { 'id': '451226', 'name': '环江毛南族自治县' },
+  { 'id': '451227', 'name': '巴马瑶族自治县' },
+  { 'id': '451228', 'name': '都安瑶族自治县' },
+  { 'id': '451229', 'name': '大化瑶族自治县' },
+  { 'id': '451300', 'name': '来宾市' },
+  { 'id': '451302', 'name': '兴宾区' },
+  { 'id': '451321', 'name': '忻城县' },
+  { 'id': '451322', 'name': '象州县' },
+  { 'id': '451323', 'name': '武宣县' },
+  { 'id': '451324', 'name': '金秀瑶族自治县' },
+  { 'id': '451381', 'name': '合山市' },
+  { 'id': '451400', 'name': '崇左市' },
+  { 'id': '451402', 'name': '江州区' },
+  { 'id': '451421', 'name': '扶绥县' },
+  { 'id': '451422', 'name': '宁明县' },
+  { 'id': '451423', 'name': '龙州县' },
+  { 'id': '451424', 'name': '大新县' },
+  { 'id': '451425', 'name': '天等县' },
+  { 'id': '451481', 'name': '凭祥市' },
+  { 'id': '460000', 'name': '海南省' },
+  { 'id': '460100', 'name': '海口市' },
+  { 'id': '460105', 'name': '秀英区' },
+  { 'id': '460106', 'name': '龙华区' },
+  { 'id': '460107', 'name': '琼山区' },
+  { 'id': '460108', 'name': '美兰区' },
+  { 'id': '460200', 'name': '三亚市' },
+  { 'id': '460202', 'name': '海棠区' },
+  { 'id': '460203', 'name': '吉阳区' },
+  { 'id': '460204', 'name': '天涯区' },
+  { 'id': '460205', 'name': '崖州区' },
+  { 'id': '460300', 'name': '三沙市' },
+  { 'id': '460400', 'name': '儋州市' },
+  { 'id': '469001', 'name': '五指山市' },
+  { 'id': '469002', 'name': '琼海市' },
+  { 'id': '469005', 'name': '文昌市' },
+  { 'id': '469006', 'name': '万宁市' },
+  { 'id': '469007', 'name': '东方市' },
+  { 'id': '469021', 'name': '定安县' },
+  { 'id': '469022', 'name': '屯昌县' },
+  { 'id': '469023', 'name': '澄迈县' },
+  { 'id': '469024', 'name': '临高县' },
+  { 'id': '469025', 'name': '白沙黎族自治县' },
+  { 'id': '469026', 'name': '昌江黎族自治县' },
+  { 'id': '469027', 'name': '乐东黎族自治县' },
+  { 'id': '469028', 'name': '陵水黎族自治县' },
+  { 'id': '469029', 'name': '保亭黎族苗族自治县' },
+  { 'id': '469030', 'name': '琼中黎族苗族自治县' },
+  { 'id': '500000', 'name': '重庆市' },
+  { 'id': '500101', 'name': '万州区' },
+  { 'id': '500102', 'name': '涪陵区' },
+  { 'id': '500103', 'name': '渝中区' },
+  { 'id': '500104', 'name': '大渡口区' },
+  { 'id': '500105', 'name': '江北区' },
+  { 'id': '500106', 'name': '沙坪坝区' },
+  { 'id': '500107', 'name': '九龙坡区' },
+  { 'id': '500108', 'name': '南岸区' },
+  { 'id': '500109', 'name': '北碚区' },
+  { 'id': '500110', 'name': '綦江区' },
+  { 'id': '500111', 'name': '大足区' },
+  { 'id': '500112', 'name': '渝北区' },
+  { 'id': '500113', 'name': '巴南区' },
+  { 'id': '500114', 'name': '黔江区' },
+  { 'id': '500115', 'name': '长寿区' },
+  { 'id': '500116', 'name': '江津区' },
+  { 'id': '500117', 'name': '合川区' },
+  { 'id': '500118', 'name': '永川区' },
+  { 'id': '500119', 'name': '南川区' },
+  { 'id': '500120', 'name': '璧山区' },
+  { 'id': '500151', 'name': '铜梁区' },
+  { 'id': '500152', 'name': '潼南区' },
+  { 'id': '500153', 'name': '荣昌区' },
+  { 'id': '500154', 'name': '开州区' },
+  { 'id': '500155', 'name': '梁平区' },
+  { 'id': '500156', 'name': '武隆区' },
+  { 'id': '500229', 'name': '城口县' },
+  { 'id': '500230', 'name': '丰都县' },
+  { 'id': '500231', 'name': '垫江县' },
+  { 'id': '500233', 'name': '忠县' },
+  { 'id': '500235', 'name': '云阳县' },
+  { 'id': '500236', 'name': '奉节县' },
+  { 'id': '500237', 'name': '巫山县' },
+  { 'id': '500238', 'name': '巫溪县' },
+  { 'id': '500240', 'name': '石柱土家族自治县' },
+  { 'id': '500241', 'name': '秀山土家族苗族自治县' },
+  { 'id': '500242', 'name': '酉阳土家族苗族自治县' },
+  { 'id': '500243', 'name': '彭水苗族土家族自治县' },
+  { 'id': '510000', 'name': '四川省' },
+  { 'id': '510100', 'name': '成都市' },
+  { 'id': '510104', 'name': '锦江区' },
+  { 'id': '510105', 'name': '青羊区' },
+  { 'id': '510106', 'name': '金牛区' },
+  { 'id': '510107', 'name': '武侯区' },
+  { 'id': '510108', 'name': '成华区' },
+  { 'id': '510112', 'name': '龙泉驿区' },
+  { 'id': '510113', 'name': '青白江区' },
+  { 'id': '510114', 'name': '新都区' },
+  { 'id': '510115', 'name': '温江区' },
+  { 'id': '510116', 'name': '双流区' },
+  { 'id': '510117', 'name': '郫都区' },
+  { 'id': '510121', 'name': '金堂县' },
+  { 'id': '510129', 'name': '大邑县' },
+  { 'id': '510131', 'name': '蒲江县' },
+  { 'id': '510132', 'name': '新津县' },
+  { 'id': '510181', 'name': '都江堰市' },
+  { 'id': '510182', 'name': '彭州市' },
+  { 'id': '510183', 'name': '邛崃市' },
+  { 'id': '510184', 'name': '崇州市' },
+  { 'id': '510185', 'name': '简阳市' },
+  { 'id': '510300', 'name': '自贡市' },
+  { 'id': '510302', 'name': '自流井区' },
+  { 'id': '510303', 'name': '贡井区' },
+  { 'id': '510304', 'name': '大安区' },
+  { 'id': '510311', 'name': '沿滩区' },
+  { 'id': '510321', 'name': '荣县' },
+  { 'id': '510322', 'name': '富顺县' },
+  { 'id': '510400', 'name': '攀枝花市' },
+  { 'id': '510402', 'name': '东区' },
+  { 'id': '510403', 'name': '西区' },
+  { 'id': '510411', 'name': '仁和区' },
+  { 'id': '510421', 'name': '米易县' },
+  { 'id': '510422', 'name': '盐边县' },
+  { 'id': '510500', 'name': '泸州市' },
+  { 'id': '510502', 'name': '江阳区' },
+  { 'id': '510503', 'name': '纳溪区' },
+  { 'id': '510504', 'name': '龙马潭区' },
+  { 'id': '510521', 'name': '泸县' },
+  { 'id': '510522', 'name': '合江县' },
+  { 'id': '510524', 'name': '叙永县' },
+  { 'id': '510525', 'name': '古蔺县' },
+  { 'id': '510600', 'name': '德阳市' },
+  { 'id': '510603', 'name': '旌阳区' },
+  { 'id': '510604', 'name': '罗江区' },
+  { 'id': '510623', 'name': '中江县' },
+  { 'id': '510681', 'name': '广汉市' },
+  { 'id': '510682', 'name': '什邡市' },
+  { 'id': '510683', 'name': '绵竹市' },
+  { 'id': '510700', 'name': '绵阳市' },
+  { 'id': '510703', 'name': '涪城区' },
+  { 'id': '510704', 'name': '游仙区' },
+  { 'id': '510705', 'name': '安州区' },
+  { 'id': '510722', 'name': '三台县' },
+  { 'id': '510723', 'name': '盐亭县' },
+  { 'id': '510725', 'name': '梓潼县' },
+  { 'id': '510726', 'name': '北川羌族自治县' },
+  { 'id': '510727', 'name': '平武县' },
+  { 'id': '510781', 'name': '江油市' },
+  { 'id': '510800', 'name': '广元市' },
+  { 'id': '510802', 'name': '利州区' },
+  { 'id': '510811', 'name': '昭化区' },
+  { 'id': '510812', 'name': '朝天区' },
+  { 'id': '510821', 'name': '旺苍县' },
+  { 'id': '510822', 'name': '青川县' },
+  { 'id': '510823', 'name': '剑阁县' },
+  { 'id': '510824', 'name': '苍溪县' },
+  { 'id': '510900', 'name': '遂宁市' },
+  { 'id': '510903', 'name': '船山区' },
+  { 'id': '510904', 'name': '安居区' },
+  { 'id': '510921', 'name': '蓬溪县' },
+  { 'id': '510922', 'name': '射洪县' },
+  { 'id': '510923', 'name': '大英县' },
+  { 'id': '511000', 'name': '内江市' },
+  { 'id': '511002', 'name': '市中区' },
+  { 'id': '511011', 'name': '东兴区' },
+  { 'id': '511024', 'name': '威远县' },
+  { 'id': '511025', 'name': '资中县' },
+  { 'id': '511083', 'name': '隆昌市' },
+  { 'id': '511100', 'name': '乐山市' },
+  { 'id': '511102', 'name': '市中区' },
+  { 'id': '511111', 'name': '沙湾区' },
+  { 'id': '511112', 'name': '五通桥区' },
+  { 'id': '511113', 'name': '金口河区' },
+  { 'id': '511123', 'name': '犍为县' },
+  { 'id': '511124', 'name': '井研县' },
+  { 'id': '511126', 'name': '夹江县' },
+  { 'id': '511129', 'name': '沐川县' },
+  { 'id': '511132', 'name': '峨边彝族自治县' },
+  { 'id': '511133', 'name': '马边彝族自治县' },
+  { 'id': '511181', 'name': '峨眉山市' },
+  { 'id': '511300', 'name': '南充市' },
+  { 'id': '511302', 'name': '顺庆区' },
+  { 'id': '511303', 'name': '高坪区' },
+  { 'id': '511304', 'name': '嘉陵区' },
+  { 'id': '511321', 'name': '南部县' },
+  { 'id': '511322', 'name': '营山县' },
+  { 'id': '511323', 'name': '蓬安县' },
+  { 'id': '511324', 'name': '仪陇县' },
+  { 'id': '511325', 'name': '西充县' },
+  { 'id': '511381', 'name': '阆中市' },
+  { 'id': '511400', 'name': '眉山市' },
+  { 'id': '511402', 'name': '东坡区' },
+  { 'id': '511403', 'name': '彭山区' },
+  { 'id': '511421', 'name': '仁寿县' },
+  { 'id': '511423', 'name': '洪雅县' },
+  { 'id': '511424', 'name': '丹棱县' },
+  { 'id': '511425', 'name': '青神县' },
+  { 'id': '511500', 'name': '宜宾市' },
+  { 'id': '511502', 'name': '翠屏区' },
+  { 'id': '511503', 'name': '南溪区' },
+  { 'id': '511521', 'name': '宜宾县' },
+  { 'id': '511523', 'name': '江安县' },
+  { 'id': '511524', 'name': '长宁县' },
+  { 'id': '511525', 'name': '高县' },
+  { 'id': '511526', 'name': '珙县' },
+  { 'id': '511527', 'name': '筠连县' },
+  { 'id': '511528', 'name': '兴文县' },
+  { 'id': '511529', 'name': '屏山县' },
+  { 'id': '511600', 'name': '广安市' },
+  { 'id': '511602', 'name': '广安区' },
+  { 'id': '511603', 'name': '前锋区' },
+  { 'id': '511621', 'name': '岳池县' },
+  { 'id': '511622', 'name': '武胜县' },
+  { 'id': '511623', 'name': '邻水县' },
+  { 'id': '511681', 'name': '华蓥市' },
+  { 'id': '511700', 'name': '达州市' },
+  { 'id': '511702', 'name': '通川区' },
+  { 'id': '511703', 'name': '达川区' },
+  { 'id': '511722', 'name': '宣汉县' },
+  { 'id': '511723', 'name': '开江县' },
+  { 'id': '511724', 'name': '大竹县' },
+  { 'id': '511725', 'name': '渠县' },
+  { 'id': '511781', 'name': '万源市' },
+  { 'id': '511800', 'name': '雅安市' },
+  { 'id': '511802', 'name': '雨城区' },
+  { 'id': '511803', 'name': '名山区' },
+  { 'id': '511822', 'name': '荥经县' },
+  { 'id': '511823', 'name': '汉源县' },
+  { 'id': '511824', 'name': '石棉县' },
+  { 'id': '511825', 'name': '天全县' },
+  { 'id': '511826', 'name': '芦山县' },
+  { 'id': '511827', 'name': '宝兴县' },
+  { 'id': '511900', 'name': '巴中市' },
+  { 'id': '511902', 'name': '巴州区' },
+  { 'id': '511903', 'name': '恩阳区' },
+  { 'id': '511921', 'name': '通江县' },
+  { 'id': '511922', 'name': '南江县' },
+  { 'id': '511923', 'name': '平昌县' },
+  { 'id': '512000', 'name': '资阳市' },
+  { 'id': '512002', 'name': '雁江区' },
+  { 'id': '512021', 'name': '安岳县' },
+  { 'id': '512022', 'name': '乐至县' },
+  { 'id': '513200', 'name': '阿坝藏族羌族自治州' },
+  { 'id': '513201', 'name': '马尔康市' },
+  { 'id': '513221', 'name': '汶川县' },
+  { 'id': '513222', 'name': '理县' },
+  { 'id': '513223', 'name': '茂县' },
+  { 'id': '513224', 'name': '松潘县' },
+  { 'id': '513225', 'name': '九寨沟县' },
+  { 'id': '513226', 'name': '金川县' },
+  { 'id': '513227', 'name': '小金县' },
+  { 'id': '513228', 'name': '黑水县' },
+  { 'id': '513230', 'name': '壤塘县' },
+  { 'id': '513231', 'name': '阿坝县' },
+  { 'id': '513232', 'name': '若尔盖县' },
+  { 'id': '513233', 'name': '红原县' },
+  { 'id': '513300', 'name': '甘孜藏族自治州' },
+  { 'id': '513301', 'name': '康定市' },
+  { 'id': '513322', 'name': '泸定县' },
+  { 'id': '513323', 'name': '丹巴县' },
+  { 'id': '513324', 'name': '九龙县' },
+  { 'id': '513325', 'name': '雅江县' },
+  { 'id': '513326', 'name': '道孚县' },
+  { 'id': '513327', 'name': '炉霍县' },
+  { 'id': '513328', 'name': '甘孜县' },
+  { 'id': '513329', 'name': '新龙县' },
+  { 'id': '513330', 'name': '德格县' },
+  { 'id': '513331', 'name': '白玉县' },
+  { 'id': '513332', 'name': '石渠县' },
+  { 'id': '513333', 'name': '色达县' },
+  { 'id': '513334', 'name': '理塘县' },
+  { 'id': '513335', 'name': '巴塘县' },
+  { 'id': '513336', 'name': '乡城县' },
+  { 'id': '513337', 'name': '稻城县' },
+  { 'id': '513338', 'name': '得荣县' },
+  { 'id': '513400', 'name': '凉山彝族自治州' },
+  { 'id': '513401', 'name': '西昌市' },
+  { 'id': '513422', 'name': '木里藏族自治县' },
+  { 'id': '513423', 'name': '盐源县' },
+  { 'id': '513424', 'name': '德昌县' },
+  { 'id': '513425', 'name': '会理县' },
+  { 'id': '513426', 'name': '会东县' },
+  { 'id': '513427', 'name': '宁南县' },
+  { 'id': '513428', 'name': '普格县' },
+  { 'id': '513429', 'name': '布拖县' },
+  { 'id': '513430', 'name': '金阳县' },
+  { 'id': '513431', 'name': '昭觉县' },
+  { 'id': '513432', 'name': '喜德县' },
+  { 'id': '513433', 'name': '冕宁县' },
+  { 'id': '513434', 'name': '越西县' },
+  { 'id': '513435', 'name': '甘洛县' },
+  { 'id': '513436', 'name': '美姑县' },
+  { 'id': '513437', 'name': '雷波县' },
+  { 'id': '520000', 'name': '贵州省' },
+  { 'id': '520100', 'name': '贵阳市' },
+  { 'id': '520102', 'name': '南明区' },
+  { 'id': '520103', 'name': '云岩区' },
+  { 'id': '520111', 'name': '花溪区' },
+  { 'id': '520112', 'name': '乌当区' },
+  { 'id': '520113', 'name': '白云区' },
+  { 'id': '520115', 'name': '观山湖区' },
+  { 'id': '520121', 'name': '开阳县' },
+  { 'id': '520122', 'name': '息烽县' },
+  { 'id': '520123', 'name': '修文县' },
+  { 'id': '520181', 'name': '清镇市' },
+  { 'id': '520200', 'name': '六盘水市' },
+  { 'id': '520201', 'name': '钟山区' },
+  { 'id': '520203', 'name': '六枝特区' },
+  { 'id': '520221', 'name': '水城县' },
+  { 'id': '520281', 'name': '盘州市' },
+  { 'id': '520300', 'name': '遵义市' },
+  { 'id': '520302', 'name': '红花岗区' },
+  { 'id': '520303', 'name': '汇川区' },
+  { 'id': '520304', 'name': '播州区' },
+  { 'id': '520322', 'name': '桐梓县' },
+  { 'id': '520323', 'name': '绥阳县' },
+  { 'id': '520324', 'name': '正安县' },
+  { 'id': '520325', 'name': '道真仡佬族苗族自治县' },
+  { 'id': '520326', 'name': '务川仡佬族苗族自治县' },
+  { 'id': '520327', 'name': '凤冈县' },
+  { 'id': '520328', 'name': '湄潭县' },
+  { 'id': '520329', 'name': '余庆县' },
+  { 'id': '520330', 'name': '习水县' },
+  { 'id': '520381', 'name': '赤水市' },
+  { 'id': '520382', 'name': '仁怀市' },
+  { 'id': '520400', 'name': '安顺市' },
+  { 'id': '520402', 'name': '西秀区' },
+  { 'id': '520403', 'name': '平坝区' },
+  { 'id': '520422', 'name': '普定县' },
+  { 'id': '520423', 'name': '镇宁布依族苗族自治县' },
+  { 'id': '520424', 'name': '关岭布依族苗族自治县' },
+  { 'id': '520425', 'name': '紫云苗族布依族自治县' },
+  { 'id': '520500', 'name': '毕节市' },
+  { 'id': '520502', 'name': '七星关区' },
+  { 'id': '520521', 'name': '大方县' },
+  { 'id': '520522', 'name': '黔西县' },
+  { 'id': '520523', 'name': '金沙县' },
+  { 'id': '520524', 'name': '织金县' },
+  { 'id': '520525', 'name': '纳雍县' },
+  { 'id': '520526', 'name': '威宁彝族回族苗族自治县' },
+  { 'id': '520527', 'name': '赫章县' },
+  { 'id': '520600', 'name': '铜仁市' },
+  { 'id': '520602', 'name': '碧江区' },
+  { 'id': '520603', 'name': '万山区' },
+  { 'id': '520621', 'name': '江口县' },
+  { 'id': '520622', 'name': '玉屏侗族自治县' },
+  { 'id': '520623', 'name': '石阡县' },
+  { 'id': '520624', 'name': '思南县' },
+  { 'id': '520625', 'name': '印江土家族苗族自治县' },
+  { 'id': '520626', 'name': '德江县' },
+  { 'id': '520627', 'name': '沿河土家族自治县' },
+  { 'id': '520628', 'name': '松桃苗族自治县' },
+  { 'id': '522300', 'name': '黔西南布依族苗族自治州' },
+  { 'id': '522301', 'name': '兴义市' },
+  { 'id': '522322', 'name': '兴仁县' },
+  { 'id': '522323', 'name': '普安县' },
+  { 'id': '522324', 'name': '晴隆县' },
+  { 'id': '522325', 'name': '贞丰县' },
+  { 'id': '522326', 'name': '望谟县' },
+  { 'id': '522327', 'name': '册亨县' },
+  { 'id': '522328', 'name': '安龙县' },
+  { 'id': '522600', 'name': '黔东南苗族侗族自治州' },
+  { 'id': '522601', 'name': '凯里市' },
+  { 'id': '522622', 'name': '黄平县' },
+  { 'id': '522623', 'name': '施秉县' },
+  { 'id': '522624', 'name': '三穗县' },
+  { 'id': '522625', 'name': '镇远县' },
+  { 'id': '522626', 'name': '岑巩县' },
+  { 'id': '522627', 'name': '天柱县' },
+  { 'id': '522628', 'name': '锦屏县' },
+  { 'id': '522629', 'name': '剑河县' },
+  { 'id': '522630', 'name': '台江县' },
+  { 'id': '522631', 'name': '黎平县' },
+  { 'id': '522632', 'name': '榕江县' },
+  { 'id': '522633', 'name': '从江县' },
+  { 'id': '522634', 'name': '雷山县' },
+  { 'id': '522635', 'name': '麻江县' },
+  { 'id': '522636', 'name': '丹寨县' },
+  { 'id': '522700', 'name': '黔南布依族苗族自治州' },
+  { 'id': '522701', 'name': '都匀市' },
+  { 'id': '522702', 'name': '福泉市' },
+  { 'id': '522722', 'name': '荔波县' },
+  { 'id': '522723', 'name': '贵定县' },
+  { 'id': '522725', 'name': '瓮安县' },
+  { 'id': '522726', 'name': '独山县' },
+  { 'id': '522727', 'name': '平塘县' },
+  { 'id': '522728', 'name': '罗甸县' },
+  { 'id': '522729', 'name': '长顺县' },
+  { 'id': '522730', 'name': '龙里县' },
+  { 'id': '522731', 'name': '惠水县' },
+  { 'id': '522732', 'name': '三都水族自治县' },
+  { 'id': '530000', 'name': '云南省' },
+  { 'id': '530100', 'name': '昆明市' },
+  { 'id': '530102', 'name': '五华区' },
+  { 'id': '530103', 'name': '盘龙区' },
+  { 'id': '530111', 'name': '官渡区' },
+  { 'id': '530112', 'name': '西山区' },
+  { 'id': '530113', 'name': '东川区' },
+  { 'id': '530114', 'name': '呈贡区' },
+  { 'id': '530115', 'name': '晋宁区' },
+  { 'id': '530124', 'name': '富民县' },
+  { 'id': '530125', 'name': '宜良县' },
+  { 'id': '530126', 'name': '石林彝族自治县' },
+  { 'id': '530127', 'name': '嵩明县' },
+  { 'id': '530128', 'name': '禄劝彝族苗族自治县' },
+  { 'id': '530129', 'name': '寻甸回族彝族自治县' },
+  { 'id': '530181', 'name': '安宁市' },
+  { 'id': '530300', 'name': '曲靖市' },
+  { 'id': '530302', 'name': '麒麟区' },
+  { 'id': '530303', 'name': '沾益区' },
+  { 'id': '530304', 'name': '马龙区' },
+  { 'id': '530322', 'name': '陆良县' },
+  { 'id': '530323', 'name': '师宗县' },
+  { 'id': '530324', 'name': '罗平县' },
+  { 'id': '530325', 'name': '富源县' },
+  { 'id': '530326', 'name': '会泽县' },
+  { 'id': '530381', 'name': '宣威市' },
+  { 'id': '530400', 'name': '玉溪市' },
+  { 'id': '530402', 'name': '红塔区' },
+  { 'id': '530403', 'name': '江川区' },
+  { 'id': '530422', 'name': '澄江县' },
+  { 'id': '530423', 'name': '通海县' },
+  { 'id': '530424', 'name': '华宁县' },
+  { 'id': '530425', 'name': '易门县' },
+  { 'id': '530426', 'name': '峨山彝族自治县' },
+  { 'id': '530427', 'name': '新平彝族傣族自治县' },
+  { 'id': '530428', 'name': '元江哈尼族彝族傣族自治县' },
+  { 'id': '530500', 'name': '保山市' },
+  { 'id': '530502', 'name': '隆阳区' },
+  { 'id': '530521', 'name': '施甸县' },
+  { 'id': '530523', 'name': '龙陵县' },
+  { 'id': '530524', 'name': '昌宁县' },
+  { 'id': '530581', 'name': '腾冲市' },
+  { 'id': '530600', 'name': '昭通市' },
+  { 'id': '530602', 'name': '昭阳区' },
+  { 'id': '530621', 'name': '鲁甸县' },
+  { 'id': '530622', 'name': '巧家县' },
+  { 'id': '530623', 'name': '盐津县' },
+  { 'id': '530624', 'name': '大关县' },
+  { 'id': '530625', 'name': '永善县' },
+  { 'id': '530626', 'name': '绥江县' },
+  { 'id': '530627', 'name': '镇雄县' },
+  { 'id': '530628', 'name': '彝良县' },
+  { 'id': '530629', 'name': '威信县' },
+  { 'id': '530630', 'name': '水富县' },
+  { 'id': '530700', 'name': '丽江市' },
+  { 'id': '530702', 'name': '古城区' },
+  { 'id': '530721', 'name': '玉龙纳西族自治县' },
+  { 'id': '530722', 'name': '永胜县' },
+  { 'id': '530723', 'name': '华坪县' },
+  { 'id': '530724', 'name': '宁蒗彝族自治县' },
+  { 'id': '530800', 'name': '普洱市' },
+  { 'id': '530802', 'name': '思茅区' },
+  { 'id': '530821', 'name': '宁洱哈尼族彝族自治县' },
+  { 'id': '530822', 'name': '墨江哈尼族自治县' },
+  { 'id': '530823', 'name': '景东彝族自治县' },
+  { 'id': '530824', 'name': '景谷傣族彝族自治县' },
+  { 'id': '530825', 'name': '镇沅彝族哈尼族拉祜族自治县' },
+  { 'id': '530826', 'name': '江城哈尼族彝族自治县' },
+  { 'id': '530827', 'name': '孟连傣族拉祜族佤族自治县' },
+  { 'id': '530828', 'name': '澜沧拉祜族自治县' },
+  { 'id': '530829', 'name': '西盟佤族自治县' },
+  { 'id': '530900', 'name': '临沧市' },
+  { 'id': '530902', 'name': '临翔区' },
+  { 'id': '530921', 'name': '凤庆县' },
+  { 'id': '530922', 'name': '云县' },
+  { 'id': '530923', 'name': '永德县' },
+  { 'id': '530924', 'name': '镇康县' },
+  { 'id': '530925', 'name': '双江拉祜族佤族布朗族傣族自治县' },
+  { 'id': '530926', 'name': '耿马傣族佤族自治县' },
+  { 'id': '530927', 'name': '沧源佤族自治县' },
+  { 'id': '532300', 'name': '楚雄彝族自治州' },
+  { 'id': '532301', 'name': '楚雄市' },
+  { 'id': '532322', 'name': '双柏县' },
+  { 'id': '532323', 'name': '牟定县' },
+  { 'id': '532324', 'name': '南华县' },
+  { 'id': '532325', 'name': '姚安县' },
+  { 'id': '532326', 'name': '大姚县' },
+  { 'id': '532327', 'name': '永仁县' },
+  { 'id': '532328', 'name': '元谋县' },
+  { 'id': '532329', 'name': '武定县' },
+  { 'id': '532331', 'name': '禄丰县' },
+  { 'id': '532500', 'name': '红河哈尼族彝族自治州' },
+  { 'id': '532501', 'name': '个旧市' },
+  { 'id': '532502', 'name': '开远市' },
+  { 'id': '532503', 'name': '蒙自市' },
+  { 'id': '532504', 'name': '弥勒市' },
+  { 'id': '532523', 'name': '屏边苗族自治县' },
+  { 'id': '532524', 'name': '建水县' },
+  { 'id': '532525', 'name': '石屏县' },
+  { 'id': '532527', 'name': '泸西县' },
+  { 'id': '532528', 'name': '元阳县' },
+  { 'id': '532529', 'name': '红河县' },
+  { 'id': '532530', 'name': '金平苗族瑶族傣族自治县' },
+  { 'id': '532531', 'name': '绿春县' },
+  { 'id': '532532', 'name': '河口瑶族自治县' },
+  { 'id': '532600', 'name': '文山壮族苗族自治州' },
+  { 'id': '532601', 'name': '文山市' },
+  { 'id': '532622', 'name': '砚山县' },
+  { 'id': '532623', 'name': '西畴县' },
+  { 'id': '532624', 'name': '麻栗坡县' },
+  { 'id': '532625', 'name': '马关县' },
+  { 'id': '532626', 'name': '丘北县' },
+  { 'id': '532627', 'name': '广南县' },
+  { 'id': '532628', 'name': '富宁县' },
+  { 'id': '532800', 'name': '西双版纳傣族自治州' },
+  { 'id': '532801', 'name': '景洪市' },
+  { 'id': '532822', 'name': '勐海县' },
+  { 'id': '532823', 'name': '勐腊县' },
+  { 'id': '532900', 'name': '大理白族自治州' },
+  { 'id': '532901', 'name': '大理市' },
+  { 'id': '532922', 'name': '漾濞彝族自治县' },
+  { 'id': '532923', 'name': '祥云县' },
+  { 'id': '532924', 'name': '宾川县' },
+  { 'id': '532925', 'name': '弥渡县' },
+  { 'id': '532926', 'name': '南涧彝族自治县' },
+  { 'id': '532927', 'name': '巍山彝族回族自治县' },
+  { 'id': '532928', 'name': '永平县' },
+  { 'id': '532929', 'name': '云龙县' },
+  { 'id': '532930', 'name': '洱源县' },
+  { 'id': '532931', 'name': '剑川县' },
+  { 'id': '532932', 'name': '鹤庆县' },
+  { 'id': '533100', 'name': '德宏傣族景颇族自治州' },
+  { 'id': '533102', 'name': '瑞丽市' },
+  { 'id': '533103', 'name': '芒市' },
+  { 'id': '533122', 'name': '梁河县' },
+  { 'id': '533123', 'name': '盈江县' },
+  { 'id': '533124', 'name': '陇川县' },
+  { 'id': '533300', 'name': '怒江傈僳族自治州' },
+  { 'id': '533301', 'name': '泸水市' },
+  { 'id': '533323', 'name': '福贡县' },
+  { 'id': '533324', 'name': '贡山独龙族怒族自治县' },
+  { 'id': '533325', 'name': '兰坪白族普米族自治县' },
+  { 'id': '533400', 'name': '迪庆藏族自治州' },
+  { 'id': '533401', 'name': '香格里拉市' },
+  { 'id': '533422', 'name': '德钦县' },
+  { 'id': '533423', 'name': '维西傈僳族自治县' },
+  { 'id': '540000', 'name': '西藏自治区' },
+  { 'id': '540100', 'name': '拉萨市' },
+  { 'id': '540102', 'name': '城关区' },
+  { 'id': '540103', 'name': '堆龙德庆区' },
+  { 'id': '540104', 'name': '达孜区' },
+  { 'id': '540121', 'name': '林周县' },
+  { 'id': '540122', 'name': '当雄县' },
+  { 'id': '540123', 'name': '尼木县' },
+  { 'id': '540124', 'name': '曲水县' },
+  { 'id': '540127', 'name': '墨竹工卡县' },
+  { 'id': '540200', 'name': '日喀则市' },
+  { 'id': '540202', 'name': '桑珠孜区' },
+  { 'id': '540221', 'name': '南木林县' },
+  { 'id': '540222', 'name': '江孜县' },
+  { 'id': '540223', 'name': '定日县' },
+  { 'id': '540224', 'name': '萨迦县' },
+  { 'id': '540225', 'name': '拉孜县' },
+  { 'id': '540226', 'name': '昂仁县' },
+  { 'id': '540227', 'name': '谢通门县' },
+  { 'id': '540228', 'name': '白朗县' },
+  { 'id': '540229', 'name': '仁布县' },
+  { 'id': '540230', 'name': '康马县' },
+  { 'id': '540231', 'name': '定结县' },
+  { 'id': '540232', 'name': '仲巴县' },
+  { 'id': '540233', 'name': '亚东县' },
+  { 'id': '540234', 'name': '吉隆县' },
+  { 'id': '540235', 'name': '聂拉木县' },
+  { 'id': '540236', 'name': '萨嘎县' },
+  { 'id': '540237', 'name': '岗巴县' },
+  { 'id': '540300', 'name': '昌都市' },
+  { 'id': '540302', 'name': '卡若区' },
+  { 'id': '540321', 'name': '江达县' },
+  { 'id': '540322', 'name': '贡觉县' },
+  { 'id': '540323', 'name': '类乌齐县' },
+  { 'id': '540324', 'name': '丁青县' },
+  { 'id': '540325', 'name': '察雅县' },
+  { 'id': '540326', 'name': '八宿县' },
+  { 'id': '540327', 'name': '左贡县' },
+  { 'id': '540328', 'name': '芒康县' },
+  { 'id': '540329', 'name': '洛隆县' },
+  { 'id': '540330', 'name': '边坝县' },
+  { 'id': '540400', 'name': '林芝市' },
+  { 'id': '540402', 'name': '巴宜区' },
+  { 'id': '540421', 'name': '工布江达县' },
+  { 'id': '540422', 'name': '米林县' },
+  { 'id': '540423', 'name': '墨脱县' },
+  { 'id': '540424', 'name': '波密县' },
+  { 'id': '540425', 'name': '察隅县' },
+  { 'id': '540426', 'name': '朗县' },
+  { 'id': '540500', 'name': '山南市' },
+  { 'id': '540502', 'name': '乃东区' },
+  { 'id': '540521', 'name': '扎囊县' },
+  { 'id': '540522', 'name': '贡嘎县' },
+  { 'id': '540523', 'name': '桑日县' },
+  { 'id': '540524', 'name': '琼结县' },
+  { 'id': '540525', 'name': '曲松县' },
+  { 'id': '540526', 'name': '措美县' },
+  { 'id': '540527', 'name': '洛扎县' },
+  { 'id': '540528', 'name': '加查县' },
+  { 'id': '540529', 'name': '隆子县' },
+  { 'id': '540530', 'name': '错那县' },
+  { 'id': '540531', 'name': '浪卡子县' },
+  { 'id': '540600', 'name': '那曲市' },
+  { 'id': '540602', 'name': '色尼区' },
+  { 'id': '540621', 'name': '嘉黎县' },
+  { 'id': '540622', 'name': '比如县' },
+  { 'id': '540623', 'name': '聂荣县' },
+  { 'id': '540624', 'name': '安多县' },
+  { 'id': '540625', 'name': '申扎县' },
+  { 'id': '540626', 'name': '索县' },
+  { 'id': '540627', 'name': '班戈县' },
+  { 'id': '540628', 'name': '巴青县' },
+  { 'id': '540629', 'name': '尼玛县' },
+  { 'id': '540630', 'name': '双湖县' },
+  { 'id': '542500', 'name': '阿里地区' },
+  { 'id': '542521', 'name': '普兰县' },
+  { 'id': '542522', 'name': '札达县' },
+  { 'id': '542523', 'name': '噶尔县' },
+  { 'id': '542524', 'name': '日土县' },
+  { 'id': '542525', 'name': '革吉县' },
+  { 'id': '542526', 'name': '改则县' },
+  { 'id': '542527', 'name': '措勤县' },
+  { 'id': '610000', 'name': '陕西省' },
+  { 'id': '610100', 'name': '西安市' },
+  { 'id': '610102', 'name': '新城区' },
+  { 'id': '610103', 'name': '碑林区' },
+  { 'id': '610104', 'name': '莲湖区' },
+  { 'id': '610111', 'name': '灞桥区' },
+  { 'id': '610112', 'name': '未央区' },
+  { 'id': '610113', 'name': '雁塔区' },
+  { 'id': '610114', 'name': '阎良区' },
+  { 'id': '610115', 'name': '临潼区' },
+  { 'id': '610116', 'name': '长安区' },
+  { 'id': '610117', 'name': '高陵区' },
+  { 'id': '610118', 'name': '鄠邑区' },
+  { 'id': '610122', 'name': '蓝田县' },
+  { 'id': '610124', 'name': '周至县' },
+  { 'id': '610200', 'name': '铜川市' },
+  { 'id': '610202', 'name': '王益区' },
+  { 'id': '610203', 'name': '印台区' },
+  { 'id': '610204', 'name': '耀州区' },
+  { 'id': '610222', 'name': '宜君县' },
+  { 'id': '610300', 'name': '宝鸡市' },
+  { 'id': '610302', 'name': '渭滨区' },
+  { 'id': '610303', 'name': '金台区' },
+  { 'id': '610304', 'name': '陈仓区' },
+  { 'id': '610322', 'name': '凤翔县' },
+  { 'id': '610323', 'name': '岐山县' },
+  { 'id': '610324', 'name': '扶风县' },
+  { 'id': '610326', 'name': '眉县' },
+  { 'id': '610327', 'name': '陇县' },
+  { 'id': '610328', 'name': '千阳县' },
+  { 'id': '610329', 'name': '麟游县' },
+  { 'id': '610330', 'name': '凤县' },
+  { 'id': '610331', 'name': '太白县' },
+  { 'id': '610400', 'name': '咸阳市' },
+  { 'id': '610402', 'name': '秦都区' },
+  { 'id': '610403', 'name': '杨陵区' },
+  { 'id': '610404', 'name': '渭城区' },
+  { 'id': '610422', 'name': '三原县' },
+  { 'id': '610423', 'name': '泾阳县' },
+  { 'id': '610424', 'name': '乾县' },
+  { 'id': '610425', 'name': '礼泉县' },
+  { 'id': '610426', 'name': '永寿县' },
+  { 'id': '610428', 'name': '长武县' },
+  { 'id': '610429', 'name': '旬邑县' },
+  { 'id': '610430', 'name': '淳化县' },
+  { 'id': '610431', 'name': '武功县' },
+  { 'id': '610481', 'name': '兴平市' },
+  { 'id': '610482', 'name': '彬州市' },
+  { 'id': '610500', 'name': '渭南市' },
+  { 'id': '610502', 'name': '临渭区' },
+  { 'id': '610503', 'name': '华州区' },
+  { 'id': '610522', 'name': '潼关县' },
+  { 'id': '610523', 'name': '大荔县' },
+  { 'id': '610524', 'name': '合阳县' },
+  { 'id': '610525', 'name': '澄城县' },
+  { 'id': '610526', 'name': '蒲城县' },
+  { 'id': '610527', 'name': '白水县' },
+  { 'id': '610528', 'name': '富平县' },
+  { 'id': '610581', 'name': '韩城市' },
+  { 'id': '610582', 'name': '华阴市' },
+  { 'id': '610600', 'name': '延安市' },
+  { 'id': '610602', 'name': '宝塔区' },
+  { 'id': '610603', 'name': '安塞区' },
+  { 'id': '610621', 'name': '延长县' },
+  { 'id': '610622', 'name': '延川县' },
+  { 'id': '610623', 'name': '子长县' },
+  { 'id': '610625', 'name': '志丹县' },
+  { 'id': '610626', 'name': '吴起县' },
+  { 'id': '610627', 'name': '甘泉县' },
+  { 'id': '610628', 'name': '富县' },
+  { 'id': '610629', 'name': '洛川县' },
+  { 'id': '610630', 'name': '宜川县' },
+  { 'id': '610631', 'name': '黄龙县' },
+  { 'id': '610632', 'name': '黄陵县' },
+  { 'id': '610700', 'name': '汉中市' },
+  { 'id': '610702', 'name': '汉台区' },
+  { 'id': '610703', 'name': '南郑区' },
+  { 'id': '610722', 'name': '城固县' },
+  { 'id': '610723', 'name': '洋县' },
+  { 'id': '610724', 'name': '西乡县' },
+  { 'id': '610725', 'name': '勉县' },
+  { 'id': '610726', 'name': '宁强县' },
+  { 'id': '610727', 'name': '略阳县' },
+  { 'id': '610728', 'name': '镇巴县' },
+  { 'id': '610729', 'name': '留坝县' },
+  { 'id': '610730', 'name': '佛坪县' },
+  { 'id': '610800', 'name': '榆林市' },
+  { 'id': '610802', 'name': '榆阳区' },
+  { 'id': '610803', 'name': '横山区' },
+  { 'id': '610822', 'name': '府谷县' },
+  { 'id': '610824', 'name': '靖边县' },
+  { 'id': '610825', 'name': '定边县' },
+  { 'id': '610826', 'name': '绥德县' },
+  { 'id': '610827', 'name': '米脂县' },
+  { 'id': '610828', 'name': '佳县' },
+  { 'id': '610829', 'name': '吴堡县' },
+  { 'id': '610830', 'name': '清涧县' },
+  { 'id': '610831', 'name': '子洲县' },
+  { 'id': '610881', 'name': '神木市' },
+  { 'id': '610900', 'name': '安康市' },
+  { 'id': '610902', 'name': '汉滨区' },
+  { 'id': '610921', 'name': '汉阴县' },
+  { 'id': '610922', 'name': '石泉县' },
+  { 'id': '610923', 'name': '宁陕县' },
+  { 'id': '610924', 'name': '紫阳县' },
+  { 'id': '610925', 'name': '岚皋县' },
+  { 'id': '610926', 'name': '平利县' },
+  { 'id': '610927', 'name': '镇坪县' },
+  { 'id': '610928', 'name': '旬阳县' },
+  { 'id': '610929', 'name': '白河县' },
+  { 'id': '611000', 'name': '商洛市' },
+  { 'id': '611002', 'name': '商州区' },
+  { 'id': '611021', 'name': '洛南县' },
+  { 'id': '611022', 'name': '丹凤县' },
+  { 'id': '611023', 'name': '商南县' },
+  { 'id': '611024', 'name': '山阳县' },
+  { 'id': '611025', 'name': '镇安县' },
+  { 'id': '611026', 'name': '柞水县' },
+  { 'id': '620000', 'name': '甘肃省' },
+  { 'id': '620100', 'name': '兰州市' },
+  { 'id': '620102', 'name': '城关区' },
+  { 'id': '620103', 'name': '七里河区' },
+  { 'id': '620104', 'name': '西固区' },
+  { 'id': '620105', 'name': '安宁区' },
+  { 'id': '620111', 'name': '红古区' },
+  { 'id': '620121', 'name': '永登县' },
+  { 'id': '620122', 'name': '皋兰县' },
+  { 'id': '620123', 'name': '榆中县' },
+  { 'id': '620200', 'name': '嘉峪关市' },
+  { 'id': '620300', 'name': '金昌市' },
+  { 'id': '620302', 'name': '金川区' },
+  { 'id': '620321', 'name': '永昌县' },
+  { 'id': '620400', 'name': '白银市' },
+  { 'id': '620402', 'name': '白银区' },
+  { 'id': '620403', 'name': '平川区' },
+  { 'id': '620421', 'name': '靖远县' },
+  { 'id': '620422', 'name': '会宁县' },
+  { 'id': '620423', 'name': '景泰县' },
+  { 'id': '620500', 'name': '天水市' },
+  { 'id': '620502', 'name': '秦州区' },
+  { 'id': '620503', 'name': '麦积区' },
+  { 'id': '620521', 'name': '清水县' },
+  { 'id': '620522', 'name': '秦安县' },
+  { 'id': '620523', 'name': '甘谷县' },
+  { 'id': '620524', 'name': '武山县' },
+  { 'id': '620525', 'name': '张家川回族自治县' },
+  { 'id': '620600', 'name': '武威市' },
+  { 'id': '620602', 'name': '凉州区' },
+  { 'id': '620621', 'name': '民勤县' },
+  { 'id': '620622', 'name': '古浪县' },
+  { 'id': '620623', 'name': '天祝藏族自治县' },
+  { 'id': '620700', 'name': '张掖市' },
+  { 'id': '620702', 'name': '甘州区' },
+  { 'id': '620721', 'name': '肃南裕固族自治县' },
+  { 'id': '620722', 'name': '民乐县' },
+  { 'id': '620723', 'name': '临泽县' },
+  { 'id': '620724', 'name': '高台县' },
+  { 'id': '620725', 'name': '山丹县' },
+  { 'id': '620800', 'name': '平凉市' },
+  { 'id': '620802', 'name': '崆峒区' },
+  { 'id': '620821', 'name': '泾川县' },
+  { 'id': '620822', 'name': '灵台县' },
+  { 'id': '620823', 'name': '崇信县' },
+  { 'id': '620824', 'name': '华亭县' },
+  { 'id': '620825', 'name': '庄浪县' },
+  { 'id': '620826', 'name': '静宁县' },
+  { 'id': '620900', 'name': '酒泉市' },
+  { 'id': '620902', 'name': '肃州区' },
+  { 'id': '620921', 'name': '金塔县' },
+  { 'id': '620922', 'name': '瓜州县' },
+  { 'id': '620923', 'name': '肃北蒙古族自治县' },
+  { 'id': '620924', 'name': '阿克塞哈萨克族自治县' },
+  { 'id': '620981', 'name': '玉门市' },
+  { 'id': '620982', 'name': '敦煌市' },
+  { 'id': '621000', 'name': '庆阳市' },
+  { 'id': '621002', 'name': '西峰区' },
+  { 'id': '621021', 'name': '庆城县' },
+  { 'id': '621022', 'name': '环县' },
+  { 'id': '621023', 'name': '华池县' },
+  { 'id': '621024', 'name': '合水县' },
+  { 'id': '621025', 'name': '正宁县' },
+  { 'id': '621026', 'name': '宁县' },
+  { 'id': '621027', 'name': '镇原县' },
+  { 'id': '621100', 'name': '定西市' },
+  { 'id': '621102', 'name': '安定区' },
+  { 'id': '621121', 'name': '通渭县' },
+  { 'id': '621122', 'name': '陇西县' },
+  { 'id': '621123', 'name': '渭源县' },
+  { 'id': '621124', 'name': '临洮县' },
+  { 'id': '621125', 'name': '漳县' },
+  { 'id': '621126', 'name': '岷县' },
+  { 'id': '621200', 'name': '陇南市' },
+  { 'id': '621202', 'name': '武都区' },
+  { 'id': '621221', 'name': '成县' },
+  { 'id': '621222', 'name': '文县' },
+  { 'id': '621223', 'name': '宕昌县' },
+  { 'id': '621224', 'name': '康县' },
+  { 'id': '621225', 'name': '西和县' },
+  { 'id': '621226', 'name': '礼县' },
+  { 'id': '621227', 'name': '徽县' },
+  { 'id': '621228', 'name': '两当县' },
+  { 'id': '622900', 'name': '临夏回族自治州' },
+  { 'id': '622901', 'name': '临夏市' },
+  { 'id': '622921', 'name': '临夏县' },
+  { 'id': '622922', 'name': '康乐县' },
+  { 'id': '622923', 'name': '永靖县' },
+  { 'id': '622924', 'name': '广河县' },
+  { 'id': '622925', 'name': '和政县' },
+  { 'id': '622926', 'name': '东乡族自治县' },
+  { 'id': '622927', 'name': '积石山保安族东乡族撒拉族自治县' },
+  { 'id': '623000', 'name': '甘南藏族自治州' },
+  { 'id': '623001', 'name': '合作市' },
+  { 'id': '623021', 'name': '临潭县' },
+  { 'id': '623022', 'name': '卓尼县' },
+  { 'id': '623023', 'name': '舟曲县' },
+  { 'id': '623024', 'name': '迭部县' },
+  { 'id': '623025', 'name': '玛曲县' },
+  { 'id': '623026', 'name': '碌曲县' },
+  { 'id': '623027', 'name': '夏河县' },
+  { 'id': '630000', 'name': '青海省' },
+  { 'id': '630100', 'name': '西宁市' },
+  { 'id': '630102', 'name': '城东区' },
+  { 'id': '630103', 'name': '城中区' },
+  { 'id': '630104', 'name': '城西区' },
+  { 'id': '630105', 'name': '城北区' },
+  { 'id': '630121', 'name': '大通回族土族自治县' },
+  { 'id': '630122', 'name': '湟中县' },
+  { 'id': '630123', 'name': '湟源县' },
+  { 'id': '630200', 'name': '海东市' },
+  { 'id': '630202', 'name': '乐都区' },
+  { 'id': '630203', 'name': '平安区' },
+  { 'id': '630222', 'name': '民和回族土族自治县' },
+  { 'id': '630223', 'name': '互助土族自治县' },
+  { 'id': '630224', 'name': '化隆回族自治县' },
+  { 'id': '630225', 'name': '循化撒拉族自治县' },
+  { 'id': '632200', 'name': '海北藏族自治州' },
+  { 'id': '632221', 'name': '门源回族自治县' },
+  { 'id': '632222', 'name': '祁连县' },
+  { 'id': '632223', 'name': '海晏县' },
+  { 'id': '632224', 'name': '刚察县' },
+  { 'id': '632300', 'name': '黄南藏族自治州' },
+  { 'id': '632321', 'name': '同仁县' },
+  { 'id': '632322', 'name': '尖扎县' },
+  { 'id': '632323', 'name': '泽库县' },
+  { 'id': '632324', 'name': '河南蒙古族自治县' },
+  { 'id': '632500', 'name': '海南藏族自治州' },
+  { 'id': '632521', 'name': '共和县' },
+  { 'id': '632522', 'name': '同德县' },
+  { 'id': '632523', 'name': '贵德县' },
+  { 'id': '632524', 'name': '兴海县' },
+  { 'id': '632525', 'name': '贵南县' },
+  { 'id': '632600', 'name': '果洛藏族自治州' },
+  { 'id': '632621', 'name': '玛沁县' },
+  { 'id': '632622', 'name': '班玛县' },
+  { 'id': '632623', 'name': '甘德县' },
+  { 'id': '632624', 'name': '达日县' },
+  { 'id': '632625', 'name': '久治县' },
+  { 'id': '632626', 'name': '玛多县' },
+  { 'id': '632700', 'name': '玉树藏族自治州' },
+  { 'id': '632701', 'name': '玉树市' },
+  { 'id': '632722', 'name': '杂多县' },
+  { 'id': '632723', 'name': '称多县' },
+  { 'id': '632724', 'name': '治多县' },
+  { 'id': '632725', 'name': '囊谦县' },
+  { 'id': '632726', 'name': '曲麻莱县' },
+  { 'id': '632800', 'name': '海西蒙古族藏族自治州' },
+  { 'id': '632801', 'name': '格尔木市' },
+  { 'id': '632802', 'name': '德令哈市' },
+  { 'id': '632821', 'name': '乌兰县' },
+  { 'id': '632822', 'name': '都兰县' },
+  { 'id': '632823', 'name': '天峻县' },
+  { 'id': '640000', 'name': '宁夏回族自治区' },
+  { 'id': '640100', 'name': '银川市' },
+  { 'id': '640104', 'name': '兴庆区' },
+  { 'id': '640105', 'name': '西夏区' },
+  { 'id': '640106', 'name': '金凤区' },
+  { 'id': '640121', 'name': '永宁县' },
+  { 'id': '640122', 'name': '贺兰县' },
+  { 'id': '640181', 'name': '灵武市' },
+  { 'id': '640200', 'name': '石嘴山市' },
+  { 'id': '640202', 'name': '大武口区' },
+  { 'id': '640205', 'name': '惠农区' },
+  { 'id': '640221', 'name': '平罗县' },
+  { 'id': '640300', 'name': '吴忠市' },
+  { 'id': '640302', 'name': '利通区' },
+  { 'id': '640303', 'name': '红寺堡区' },
+  { 'id': '640323', 'name': '盐池县' },
+  { 'id': '640324', 'name': '同心县' },
+  { 'id': '640381', 'name': '青铜峡市' },
+  { 'id': '640400', 'name': '固原市' },
+  { 'id': '640402', 'name': '原州区' },
+  { 'id': '640422', 'name': '西吉县' },
+  { 'id': '640423', 'name': '隆德县' },
+  { 'id': '640424', 'name': '泾源县' },
+  { 'id': '640425', 'name': '彭阳县' },
+  { 'id': '640500', 'name': '中卫市' },
+  { 'id': '640502', 'name': '沙坡头区' },
+  { 'id': '640521', 'name': '中宁县' },
+  { 'id': '640522', 'name': '海原县' },
+  { 'id': '650000', 'name': '新疆维吾尔自治区' },
+  { 'id': '650100', 'name': '乌鲁木齐市' },
+  { 'id': '650102', 'name': '天山区' },
+  { 'id': '650103', 'name': '沙依巴克区' },
+  { 'id': '650104', 'name': '新市区' },
+  { 'id': '650105', 'name': '水磨沟区' },
+  { 'id': '650106', 'name': '头屯河区' },
+  { 'id': '650107', 'name': '达坂城区' },
+  { 'id': '650109', 'name': '米东区' },
+  { 'id': '650121', 'name': '乌鲁木齐县' },
+  { 'id': '650200', 'name': '克拉玛依市' },
+  { 'id': '650202', 'name': '独山子区' },
+  { 'id': '650203', 'name': '克拉玛依区' },
+  { 'id': '650204', 'name': '白碱滩区' },
+  { 'id': '650205', 'name': '乌尔禾区' },
+  { 'id': '650400', 'name': '吐鲁番市' },
+  { 'id': '650402', 'name': '高昌区' },
+  { 'id': '650421', 'name': '鄯善县' },
+  { 'id': '650422', 'name': '托克逊县' },
+  { 'id': '650500', 'name': '哈密市' },
+  { 'id': '650502', 'name': '伊州区' },
+  { 'id': '650521', 'name': '巴里坤哈萨克自治县' },
+  { 'id': '650522', 'name': '伊吾县' },
+  { 'id': '652300', 'name': '昌吉回族自治州' },
+  { 'id': '652301', 'name': '昌吉市' },
+  { 'id': '652302', 'name': '阜康市' },
+  { 'id': '652323', 'name': '呼图壁县' },
+  { 'id': '652324', 'name': '玛纳斯县' },
+  { 'id': '652325', 'name': '奇台县' },
+  { 'id': '652327', 'name': '吉木萨尔县' },
+  { 'id': '652328', 'name': '木垒哈萨克自治县' },
+  { 'id': '652700', 'name': '博尔塔拉蒙古自治州' },
+  { 'id': '652701', 'name': '博乐市' },
+  { 'id': '652702', 'name': '阿拉山口市' },
+  { 'id': '652722', 'name': '精河县' },
+  { 'id': '652723', 'name': '温泉县' },
+  { 'id': '652800', 'name': '巴音郭楞蒙古自治州' },
+  { 'id': '652801', 'name': '库尔勒市' },
+  { 'id': '652822', 'name': '轮台县' },
+  { 'id': '652823', 'name': '尉犁县' },
+  { 'id': '652824', 'name': '若羌县' },
+  { 'id': '652825', 'name': '且末县' },
+  { 'id': '652826', 'name': '焉耆回族自治县' },
+  { 'id': '652827', 'name': '和静县' },
+  { 'id': '652828', 'name': '和硕县' },
+  { 'id': '652829', 'name': '博湖县' },
+  { 'id': '652900', 'name': '阿克苏地区' },
+  { 'id': '652901', 'name': '阿克苏市' },
+  { 'id': '652922', 'name': '温宿县' },
+  { 'id': '652923', 'name': '库车县' },
+  { 'id': '652924', 'name': '沙雅县' },
+  { 'id': '652925', 'name': '新和县' },
+  { 'id': '652926', 'name': '拜城县' },
+  { 'id': '652927', 'name': '乌什县' },
+  { 'id': '652928', 'name': '阿瓦提县' },
+  { 'id': '652929', 'name': '柯坪县' },
+  { 'id': '653000', 'name': '克孜勒苏柯尔克孜自治州' },
+  { 'id': '653001', 'name': '阿图什市' },
+  { 'id': '653022', 'name': '阿克陶县' },
+  { 'id': '653023', 'name': '阿合奇县' },
+  { 'id': '653024', 'name': '乌恰县' },
+  { 'id': '653100', 'name': '喀什地区' },
+  { 'id': '653101', 'name': '喀什市' },
+  { 'id': '653121', 'name': '疏附县' },
+  { 'id': '653122', 'name': '疏勒县' },
+  { 'id': '653123', 'name': '英吉沙县' },
+  { 'id': '653124', 'name': '泽普县' },
+  { 'id': '653125', 'name': '莎车县' },
+  { 'id': '653126', 'name': '叶城县' },
+  { 'id': '653127', 'name': '麦盖提县' },
+  { 'id': '653128', 'name': '岳普湖县' },
+  { 'id': '653129', 'name': '伽师县' },
+  { 'id': '653130', 'name': '巴楚县' },
+  { 'id': '653131', 'name': '塔什库尔干塔吉克自治县' },
+  { 'id': '653200', 'name': '和田地区' },
+  { 'id': '653201', 'name': '和田市' },
+  { 'id': '653221', 'name': '和田县' },
+  { 'id': '653222', 'name': '墨玉县' },
+  { 'id': '653223', 'name': '皮山县' },
+  { 'id': '653224', 'name': '洛浦县' },
+  { 'id': '653225', 'name': '策勒县' },
+  { 'id': '653226', 'name': '于田县' },
+  { 'id': '653227', 'name': '民丰县' },
+  { 'id': '654000', 'name': '伊犁哈萨克自治州' },
+  { 'id': '654002', 'name': '伊宁市' },
+  { 'id': '654003', 'name': '奎屯市' },
+  { 'id': '654004', 'name': '霍尔果斯市' },
+  { 'id': '654021', 'name': '伊宁县' },
+  { 'id': '654022', 'name': '察布查尔锡伯自治县' },
+  { 'id': '654023', 'name': '霍城县' },
+  { 'id': '654024', 'name': '巩留县' },
+  { 'id': '654025', 'name': '新源县' },
+  { 'id': '654026', 'name': '昭苏县' },
+  { 'id': '654027', 'name': '特克斯县' },
+  { 'id': '654028', 'name': '尼勒克县' },
+  { 'id': '654200', 'name': '塔城地区' },
+  { 'id': '654201', 'name': '塔城市' },
+  { 'id': '654202', 'name': '乌苏市' },
+  { 'id': '654221', 'name': '额敏县' },
+  { 'id': '654223', 'name': '沙湾县' },
+  { 'id': '654224', 'name': '托里县' },
+  { 'id': '654225', 'name': '裕民县' },
+  { 'id': '654226', 'name': '和布克赛尔蒙古自治县' },
+  { 'id': '654300', 'name': '阿勒泰地区' },
+  { 'id': '654301', 'name': '阿勒泰市' },
+  { 'id': '654321', 'name': '布尔津县' },
+  { 'id': '654322', 'name': '富蕴县' },
+  { 'id': '654323', 'name': '福海县' },
+  { 'id': '654324', 'name': '哈巴河县' },
+  { 'id': '654325', 'name': '青河县' },
+  { 'id': '654326', 'name': '吉木乃县' },
+  { 'id': '659001', 'name': '石河子市' },
+  { 'id': '659002', 'name': '阿拉尔市' },
+  { 'id': '659003', 'name': '图木舒克市' },
+  { 'id': '659004', 'name': '五家渠市' },
+  { 'id': '659005', 'name': '北屯市' },
+  { 'id': '659006', 'name': '铁门关市' },
+  { 'id': '659007', 'name': '双河市' },
+  { 'id': '659008', 'name': '可克达拉市' },
+  { 'id': '659009', 'name': '昆玉市' },
+  { 'id': '710000', 'name': '台湾省' },
+  { 'id': '810000', 'name': '香港特别行政区' },
+  { 'id': '820000', 'name': '澳门特别行政区' }]
+// console.log(obj.length)
+var num = 0
+_.each(obj,function (v) {
+  if(_.filter(objBak, {'id': v.id }).length === 0){
+    if( v.name !== '市辖区' ){
+      num++
+      console.log(v)
+    }
   }
+  // console.log(_.filter(obj, v).length)
 })
+console.log(num)
+// _.each(obj,function (v,k) {
+//   if(v.pcode === '659000'){
+//     v['"id"'] = v.id
+//     v['"title"'] = v.name
+//     // v['"children"'] = []
+//     delete v.id
+//     delete v.pcode
+//     delete v.name
+//     console.log(v)
+//   }
+// })
