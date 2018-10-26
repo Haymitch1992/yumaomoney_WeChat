@@ -6,8 +6,14 @@
     </group>
     <group>
       <x-input v-model="data.amount" type="number" title="单笔金额(元)" :is-type="positive" placeholder="请输入投资金额"></x-input>
-      <div id="earns">{{data.earns}}</div>
-      <div id="term">{{data.term}}</div>
+      <div class="cascadeBox">
+        <label style="width: 8em">年化收益</label>
+        <div id="earns">{{data.earns}}</div>
+      </div>
+      <div class="cascadeBox">
+        <label style="width: 8em">投资期限</label>
+        <div id="term">{{data.term}}</div>
+      </div>
       <checklist label-position="left" :options="wayList" v-model="data.wayType"></checklist>
       <radio :options="saveList" @on-change="saveTypeChange" v-model="data.saveType"></radio>
       <x-input v-model="data.save" type="number" title="保留金额(元)" :is-type="positive" placeholder="请输入保留金额" :disabled="(data.saveType === '0')"></x-input>
@@ -48,8 +54,8 @@
         data: {
           amount: null,
           save: '',
-          earns: '年化收益',
-          term: '投资期限',
+          earns: '请选择',
+          term: '请选择',
           earnsLower: '',
           earnsCeiling: '',
           termLower: '',
@@ -148,34 +154,3 @@
     }
   }
 </script>
-
-<style>
-  #earns, #term{
-    padding: 10px 15px;
-    position: relative;
-    display: -webkit-box;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-  }
-  #earns::before, #term::before{
-    content: " ";
-    position: absolute;
-    left: 0;
-    top: 0;
-    right: 0;
-    height: 1px;
-    border-top: 1px solid #D9D9D9;
-    color: #D9D9D9;
-    -webkit-transform-origin: 0 0;
-    transform-origin: 0 0;
-    -webkit-transform: scaleY(0.5);
-    transform: scaleY(0.5);
-    left: 15px;
-  }
-  .mobileSelect .content {
-    text-indent: 0em;
-  }
-</style>
