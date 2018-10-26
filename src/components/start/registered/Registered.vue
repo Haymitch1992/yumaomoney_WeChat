@@ -6,7 +6,7 @@
                ref="refPhone" @on-change="keyDown()" placeholder="请输入手机号码"></x-input>
       <x-input :max="11" v-model="data.code" keyboard="text" title="邀请码" placeholder="选填"></x-input>
     </group>
-    <div class="pt20 ">
+    <div class="pt20">
       <div class="submit-box">
         <x-button @click.native="save" type="primary" :disabled="data.disabled">下一步</x-button>
       </div>
