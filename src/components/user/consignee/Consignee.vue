@@ -86,7 +86,7 @@
             if (k === 0) {
               address += v.title
             } else {
-              address += '至' + v.title
+              address += ' ' + v.title
             }
           })
           self.data.address = address

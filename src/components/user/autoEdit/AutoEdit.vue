@@ -100,6 +100,7 @@
         title: '年化收益',
         ensureBtnColor: '#1AAD19',
         position: [0, 0, 2],
+        connector: '至',
         wheels: [
           {
             data: self.GLOBAL.earnsJson
@@ -129,6 +130,7 @@
         title: '投资期限',
         ensureBtnColor: '#1AAD19',
         position: [0, 0, 2],
+        connector: '至',
         wheels: [
           {
             data: self.GLOBAL.termJson
