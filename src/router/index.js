@@ -142,6 +142,7 @@ export default new Router({
       children: [
         {
           path: '/',
+          name: 'lending',
           component: Lending
         },
         {
