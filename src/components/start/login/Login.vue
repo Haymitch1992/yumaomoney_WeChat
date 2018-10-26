@@ -17,7 +17,21 @@
       <div class="fr"><a href="#/start/registered">注册得福利</a></div>
     </div>
     <div class="pt100">
-      <div class="center">
+      <flexbox :gutter="0">
+        <flexbox-item></flexbox-item>
+        <flexbox-item>
+          <div class="center">
+            <div class="wechart" style="margin: 0 auto" @click="jump('/user/setting')"></div>
+          </div>
+        </flexbox-item>
+        <flexbox-item>
+          <div class="center">
+            <div class="qq" style="margin: 0 auto" @click="jump('/user/setting')"></div>
+          </div>
+        </flexbox-item>
+        <flexbox-item></flexbox-item>
+      </flexbox>
+      <div class="center pt10">
         若当前号码已不用或丢失，请联系<a href="https://www.sobot.com/chat/oldh5/index.html?sysNum=e4068d62da3b41e69a8f47a6929a6826">在线客服</a>
       </div>
     </div>
@@ -26,7 +40,7 @@
 </template>
 
 <script>
-  import { Group, Cell, XHeader, XInput, XButton, Toast } from 'vux'
+  import { Group, Cell, XHeader, XInput, XButton, Toast, Flexbox, FlexboxItem } from 'vux'
 
   export default {
     name: 'Login',
@@ -36,7 +50,9 @@
       XHeader,
       XInput,
       XButton,
-      Toast
+      Toast,
+      Flexbox,
+      FlexboxItem
     },
     data () {
       return {
@@ -69,3 +85,18 @@
     }
   }
 </script>
+
+<style>
+  .wechart {
+    background: url("../../../assets/images/wechat.png") no-repeat;
+    background-size: cover;
+    width: 30px;
+    height: 30px;
+  }
+  .qq {
+     background: url("../../../assets/images/qq.png") no-repeat;
+     background-size: cover;
+     width: 30px;
+     height: 30px;
+  }
+</style>
