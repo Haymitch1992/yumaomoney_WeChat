@@ -45,6 +45,7 @@ import Message from '../components/user/message/Message'
 import MessageDetail from '../components/user/message/MessageDetail'
 import PushSettings from '../components/user/pushSettings/PushSettings'
 import Auto from '../components/user/auto/Auto'
+import AutoEdit from '../components/user/autoEdit/AutoEdit'
 import Invited from '../components/user/invited/Invited'
 import InvitedDetail from '../components/user/invited/InvitedDetail'
 import ContactUs from '../components/user/contactUs/ContactUs'
@@ -448,7 +449,13 @@ export default new Router({
         },
         {
           path: 'auto',
+          name: 'auto',
           component: Auto
+        },
+        {
+          path: 'autoEdit',
+          name: 'autoEdit',
+          component: AutoEdit
         },
         {
           path: 'invited',
