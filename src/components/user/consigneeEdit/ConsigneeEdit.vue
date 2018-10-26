@@ -7,7 +7,7 @@
       <x-input v-model="data.postcode" :min="6" :max="6" type="number" title="邮政编码" placeholder="请输入邮政编码"></x-input>
       <div class="cascadeBox">
         <label style="width: 5em">所在区域</label>
-        <div style="width: 15em">
+        <div style="width: 75%">
           <div id="address">{{data.address}}</div>
         </div>
       </div>
