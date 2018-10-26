@@ -1,20 +1,22 @@
 <template>
   <div>
     <x-header>我的投资</x-header>
-    <tab>
+    <tab style="z-index: 20">
       <tab-item :selected="tab.tabType === 1" @on-item-click="tab.tabType = 1">融资中</tab-item>
       <tab-item :selected="tab.tabType === 2" @on-item-click="tab.tabType = 2">还款中</tab-item>
       <tab-item :selected="tab.tabType === 3" @on-item-click="tab.tabType = 3">已还清</tab-item>
     </tab>
-    <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore"
-              use-pulldown :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
-              lock-x ref="scrollerBottom" height="-48">
-      <div>
-        <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in list" :key="item.key">
-          <panel :list="item.panel" :type="item.type" @on-img-error="onImgError"></panel>
-        </group>
-      </div>
-    </scroller>
+    <div style="position: relative; top: -10px; z-index: 10;">
+      <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore"
+                use-pulldown :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
+                lock-x ref="scrollerBottom" height="-48">
+        <div>
+          <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in list" :key="item.key">
+            <panel :list="item.panel" :type="item.type" @on-img-error="onImgError"></panel>
+          </group>
+        </div>
+      </scroller>
+    </div>
   </div>
 </template>
 
