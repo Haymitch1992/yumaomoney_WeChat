@@ -8,13 +8,13 @@
       <x-input v-model="data.amount" type="number" title="单笔金额(元)" :is-type="positive" placeholder="请输入投资金额"></x-input>
       <div class="cascadeBox">
         <label style="width: 8em">年化收益</label>
-        <div style="width: 75%">
+        <div style="width: 60%">
           <div id="earns">{{data.earns}}</div>
         </div>
       </div>
       <div class="cascadeBox">
         <label style="width: 8em">投资期限</label>
-        <div style="width: 75%">
+        <div style="width: 60%">
           <div id="term">{{data.term}}</div>
         </div>
       </div>
@@ -117,7 +117,7 @@
               earns += v.title
               self.data.earnsLower = v.id
             } else {
-              earns += ' ' + v.title
+              earns += '至' + v.title
               self.data.earnsCeiling = v.id
             }
           })
@@ -146,7 +146,7 @@
               term += v.title
               self.data.termLower = v.id
             } else {
-              term += ' ' + v.title
+              term += '至' + v.title
               self.data.termCeiling = v.id
             }
           })
