@@ -8,11 +8,15 @@
       <x-input v-model="data.amount" type="number" title="单笔金额(元)" :is-type="positive" placeholder="请输入投资金额"></x-input>
       <div class="cascadeBox">
         <label style="width: 8em">年化收益</label>
-        <div id="earns">{{data.earns}}</div>
+        <div style="width: 15em">
+          <div id="earns">{{data.earns}}</div>
+        </div>
       </div>
       <div class="cascadeBox">
         <label style="width: 8em">投资期限</label>
-        <div id="term">{{data.term}}</div>
+        <div style="width: 15em">
+          <div id="term">{{data.term}}</div>
+        </div>
       </div>
       <checklist label-position="left" :options="wayList" v-model="data.wayType"></checklist>
       <radio :options="saveList" @on-change="saveTypeChange" v-model="data.saveType"></radio>
