@@ -6,12 +6,15 @@
       <tab-item :selected="tab.tabType === 2" @on-item-click="tab.tabType = 2">还款中</tab-item>
       <tab-item :selected="tab.tabType === 3" @on-item-click="tab.tabType = 3">已还清</tab-item>
     </tab>
-    <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in list" :key="item.key">
-      <panel :list="item.panel" :type="item.type" @on-img-error="onImgError"></panel>
-    </group>
-    <group title="cell demo">
-      <cell title="标的详情" value="cool" is-link link="/user/investment/investmentDetail"></cell>
-    </group>
+    <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore"
+              use-pulldown :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
+              lock-x ref="scrollerBottom" height="-48">
+      <div>
+        <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in list" :key="item.key">
+          <panel :list="item.panel" :type="item.type" @on-img-error="onImgError"></panel>
+        </group>
+      </div>
+    </scroller>
   </div>
 </template>
 
@@ -19,7 +22,27 @@
   import axios from 'axios'
   import _ from 'lodash'
   import moment from 'moment'
-  import { Group, Cell, XHeader, Tab, TabItem, Panel } from 'vux'
+  import { Group, Cell, XHeader, Tab, TabItem, Panel, Scroller } from 'vux'
+
+  const pulldownDefaultConfig = {
+    content: '下拉刷新',
+    height: 40,
+    autoRefresh: true,
+    downContent: '下拉刷新',
+    upContent: '释放后刷新',
+    loadingContent: '正在刷新...',
+    clsPrefix: 'xs-plugin-pulldown-'
+  }
+  const pullupDefaultConfig = {
+    content: '上拉加载更多',
+    pullUpHeight: 60,
+    height: 40,
+    autoRefresh: false,
+    downContent: '释放后加载',
+    upContent: '上拉加载更多',
+    loadingContent: '加载中...',
+    clsPrefix: 'xs-plugin-pullup-'
+  }
 
   export default {
     name: 'Investment',
@@ -29,19 +52,43 @@
       XHeader,
       Tab,
       TabItem,
-      Panel
+      Panel,
+      Scroller
     },
     data () {
       return {
         tab: {
           tabType: 1
         },
-        list: []
+        list: [],
+        curPage: 1,
+        swiper_index: 1,
+        pullupDefaultConfig: pullupDefaultConfig,
+        pulldownDefaultConfig: pulldownDefaultConfig
       }
     },
     methods: {
+      swiper_onIndexChange (index) {
+        this.swiper_index = index
+      },
       onImgError (item, $event) {
         console.log(item, $event)
+      },
+      /**
+       * 刷新页面
+       */
+      refresh () {
+        console.log('refresh')
+      },
+      /**
+       * 加载更多列表
+       */
+      loadMore () {
+        var self = this
+        console.log('加载更多')
+        self.$refs.scrollerBottom.donePullup()
+        self.curPage++
+        self.getList()
       },
       /**
        * 获取列表
