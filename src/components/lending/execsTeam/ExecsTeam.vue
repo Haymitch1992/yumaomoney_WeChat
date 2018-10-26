@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="execsTeam">
     <x-header :left-options="leftOptions" @on-click-back="goBack()">高管团队</x-header>
     <group>
       <div class="execs p20">
@@ -68,7 +68,7 @@
     font-size: 14px;
   }
 
-  .content{
+  .execsTeam .content{
     display: block;
     margin-block-start: 1em;
     margin-block-end: 1em;
