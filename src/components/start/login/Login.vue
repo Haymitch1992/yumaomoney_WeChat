@@ -12,9 +12,14 @@
         <x-button @click.native="login" type="primary" :disabled="data.disabled">登录</x-button>
       </div>
     </div>
-    <div class="pw50">
+    <div class="pw50 h30">
       <div class="fl"><a href="#/start/forget">忘记密码?</a></div>
       <div class="fr"><a href="#/start/registered">注册得福利</a></div>
+    </div>
+    <div class="pt100">
+      <div class="center">
+        若当前号码已不用或丢失，请联系<a href="https://www.sobot.com/chat/oldh5/index.html?sysNum=e4068d62da3b41e69a8f47a6929a6826">在线客服</a>
+      </div>
     </div>
     <toast v-model="data.toastMsg" type="warn" :time="1000" is-show-mask text="账号密码不匹配" position="middle"></toast>
   </div>
