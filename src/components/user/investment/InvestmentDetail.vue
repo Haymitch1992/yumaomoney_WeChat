@@ -1,42 +1,45 @@
 <template>
   <div>
     <x-header>标的详情</x-header>
-    <div class="vux-demo">
-      <img class="logo" src="../../../assets/images/logo.png">
-    </div>
-    <group title="cell demo">
-      <cell title="合同模板" value="cool" is-link link="/user/investment/contract"></cell>
+    <group>
+      <cell title="项目名称" value="测试好友邀请01"></cell>
+      <cell title="合同模板" is-link link="/user/investment/contract"></cell>
+      <cell title="投资时间" value="2018年10月09日 23:45:34"></cell>
+      <cell title="投资金额" value="500元"></cell>
+      <cell title="已收金额" value="0元"></cell>
+      <cell title="预计收益" value="30元"></cell>
+      <cell title="预计本息" value="530元"></cell>
+      <cell title="标的状态" value="未满标"></cell>
     </group>
+    <div class="pt20 ">
+      <div class="submit-box">
+        <x-button @click.native="goFinanceDetail" type="primary">进入标的</x-button>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-  import { Group, Cell, XHeader } from 'vux'
+  import { Group, Cell, XHeader, XButton } from 'vux'
 
   export default {
     name: 'InvestmentDetail',
     components: {
       Group,
       Cell,
-      XHeader
+      XHeader,
+      XButton
     },
     data () {
       return {
-        // note: changing this line won't causes changes
-        // with hot-reload because the reloaded component
-        // preserves its current state and we are modifying
-        // its initial state.
-        msg: 'Hello World!'
+        data: {}
+      }
+    },
+    methods: {
+      goFinanceDetail () {
+        var self = this
+        this.$router.push({name: 'financeDetail', params: self.data})
       }
     }
   }
 </script>
-
-<style>
-  .vux-demo {
-    text-align: center;
-  }
-  .logo {
-    width: 100px;
-  }
-</style>
