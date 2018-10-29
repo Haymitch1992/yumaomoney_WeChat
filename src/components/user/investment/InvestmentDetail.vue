@@ -9,7 +9,34 @@
       <cell title="已收金额" value="0元"></cell>
       <cell title="预计收益" value="30元"></cell>
       <cell title="预计本息" value="530元"></cell>
-      <cell title="标的状态" value="未满标"></cell>
+      <cell v-if="(data.time === '')" title="标的状态" :value="data.type"></cell>
+      <cell v-if="(data.time !== '')" title="满标时间" :value="data.time"></cell>
+      <x-table :cell-bordered="false" :content-bordered="false" style="font-size: 14px;background-color: #fff;">
+        <thead>
+        <tr style="background-color: #F7F7F7">
+          <th>应还时间</th>
+          <th>应还金额</th>
+          <th>状态</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+          <td>2018-09-09</td>
+          <td>利息 10元</td>
+          <td>已还款</td>
+        </tr>
+        <tr>
+          <td>2018-10-09</td>
+          <td>利息 10元</td>
+          <td>待还款</td>
+        </tr>
+        <tr>
+          <td>2018-11-09</td>
+          <td>本息 520元</td>
+          <td>待还款</td>
+        </tr>
+        </tbody>
+      </x-table>
     </group>
     <div class="pt20 ">
       <div class="submit-box">
@@ -20,7 +47,7 @@
 </template>
 
 <script>
-  import { Group, Cell, XHeader, XButton } from 'vux'
+  import { Group, Cell, XHeader, XButton, XTable } from 'vux'
 
   export default {
     name: 'InvestmentDetail',
@@ -28,11 +55,15 @@
       Group,
       Cell,
       XHeader,
-      XButton
+      XButton,
+      XTable
     },
     data () {
       return {
-        data: {}
+        data: {
+          type: '未满标',
+          time: '2018年10月09日'
+        }
       }
     },
     methods: {
