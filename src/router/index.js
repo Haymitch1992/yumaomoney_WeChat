@@ -62,9 +62,10 @@ import Safety from '../components/lending/safety/Safety'
 import Disclosure from '../components/lending/disclosure/Disclosure'
 import SakeInligting from '../components/lending/sakeInligting/SakeInligting'
 import TanKantore from '../components/lending/tanKantore/TanKantore'
-import Memorabilia from '../components/lending/memorabilia/Memorabilia'
+import Issues from '../components/lending/issues/Issues'
 import Ouditverslag from '../components/lending/ouditverslag/Ouditverslag'
 import Kwalifikasie from '../components/lending/kwalifikasie/Kwalifikasie'
+import Memorabilia from '../components/lending/memorabilia/Memorabilia'
 import ExecsTeam from '../components/lending/execsTeam/ExecsTeam'
 import GroupArchitecture from '../components/lending/groupArchitecture/GroupArchitecture'
 import Employees from '../components/lending/employees/Employees'
@@ -193,8 +194,8 @@ export default new Router({
               component: TanKantore
             },
             {
-              path: 'memorabilia',
-              component: Memorabilia
+              path: 'issues',
+              component: Issues
             },
             {
               path: 'ouditverslag',
@@ -203,6 +204,10 @@ export default new Router({
             {
               path: 'kwalifikasie',
               component: Kwalifikasie
+            },
+            {
+              path: 'memorabilia',
+              component: Memorabilia
             },
             {
               path: 'execsTeam',

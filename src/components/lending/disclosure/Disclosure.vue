@@ -10,9 +10,10 @@
     <group v-show="listType === 1">
       <cell title="工商信息" is-link link="/lending/disclosure/sakeInligting"></cell>
       <cell title="分支机构" is-link link="/lending/disclosure/tanKantore"></cell>
-      <cell title="重大事项" is-link link="/lending/disclosure/memorabilia"></cell>
+      <cell title="重大事项" is-link link="/lending/disclosure/issues"></cell>
       <cell title="审计报告" is-link link="/lending/disclosure/ouditverslag"></cell>
       <cell title="企业资质" is-link link="/lending/disclosure/kwalifikasie"></cell>
+      <cell title="大事记" is-link link="/lending/disclosure/memorabilia"></cell>
     </group>
     <group v-show="listType === 2">
       <cell title="高管团队" is-link link="/lending/disclosure/execsTeam"></cell>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header :left-options="leftOptions" @on-click-back="goBack()">大事记</x-header>
+    <x-header :left-options="leftOptions" @on-click-back="goBack()">重大事项</x-header>
     <group>
       <div class="table-box">
         <x-table full-bordered>
