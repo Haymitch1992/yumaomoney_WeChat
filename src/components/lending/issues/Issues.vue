@@ -40,7 +40,7 @@
   import { Group, XHeader, XTable } from 'vux'
 
   export default {
-    name: 'Memorabilia',
+    name: 'Issues',
     components: {
       Group,
       XHeader,
