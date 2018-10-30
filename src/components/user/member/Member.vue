@@ -222,7 +222,7 @@
                 </div>
                 <div class="giftContent fl">
                   <div class="h20">免费提现</div>
-                  <div class="h20 pt10">4次</div>
+                  <div class="h20 pt10">7次</div>
                 </div>
               </div>
               <div style="height: 70px">
@@ -257,8 +257,7 @@
                   <div class="levelSpecial6"></div>
                 </div>
                 <div class="giftContent fl">
-                  <div class="h20">节日专属好礼(线下)</div>
-                  <div class="h20 pt10">每月28日50元专属投资红包</div>
+                  <div class="h50">节日专属好礼(线下)</div>
                 </div>
               </div>
             </div>
