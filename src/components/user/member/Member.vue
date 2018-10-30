@@ -32,9 +32,9 @@
           <div class="center pv15 vipList" :class="{ vipActive: (level===6) }" @click="changeLevel(6)">VIP6</div>
         </flexbox-item>
         <flexbox-item>
-          <div style="background: #75c6ac">
-            <div class="vipTop">
-              <div class="vipTitle center">{{levelName}}</div>
+          <div>
+            <div :class="'level'+level">
+              <div class="vipTitle center"></div>
             </div>
           </div>
           <div class="vipBottom">
@@ -141,12 +141,35 @@
     border-left: 3px solid #09BB07;
     color: #09BB07;
   }
-  .vipTop {
+  .level0 {
     background: url("../../../assets/images/level0.png") no-repeat center center;
     background-size: contain;
   }
+  .level1 {
+    background: url("../../../assets/images/level1.png") no-repeat center center;
+    background-size: contain;
+  }
+  .level2 {
+    background: url("../../../assets/images/level2.png") no-repeat center center;
+    background-size: contain;
+  }
+  .level3 {
+    background: url("../../../assets/images/level3.png") no-repeat center center;
+    background-size: contain;
+  }
+  .level4 {
+    background: url("../../../assets/images/level4.png") no-repeat center center;
+    background-size: contain;
+  }
+  .level5 {
+    background: url("../../../assets/images/level5.png") no-repeat center center;
+    background-size: contain;
+  }
+  .level6 {
+    background: url("../../../assets/images/level6.png") no-repeat center center;
+    background-size: contain;
+  }
   .vipTitle {
-    padding-top: 30px;
     height: 160px;
     line-height: 160px;
   }
