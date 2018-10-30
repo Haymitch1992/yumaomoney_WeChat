@@ -87,5 +87,6 @@ yumaomoney_WeChat
 * [输入框验证](https://blog.csdn.net/honnyee/article/details/80691445)
 * [声明公共方法](https://blog.csdn.net/sinat_17775997/article/details/78341907?locationNum=9&fps=1)
 * [声明公共变量](https://www.jianshu.com/p/7547ff8760c3)
+* [全局声明第三方插件](https://www.jb51.net/article/121740.htm)
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
