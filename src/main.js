@@ -10,10 +10,13 @@ import 'vue-fullpage/vue-fullpage.css'
 import VueFullpage from 'vue-fullpage'
 import VueClipboard from 'vue-clipboard2'
 import VueCookies from 'vue-cookies'
+import axios from 'axios'
 Vue.use(Util)
 Vue.use(VueFullpage)
 Vue.use(VueClipboard)
 Vue.use(VueCookies)
+
+Vue.prototype.$http = axios
 
 FastClick.attach(document.body)
 
