@@ -27,6 +27,28 @@ npm run e2e
 npm test
 ```
 
+## 目录结构
+
+```
+src
+├── assets              # 静态资源
+│   ├── images          # 图片资源
+│   └── style           # 公共样式
+├── components          # 组件目录
+│   ├── container       # 公共模板(配置层级路由使用)
+│   ├── events          # 活动
+│   ├── lending         # 项目(首页)
+│   ├── start           # 起始页
+│   ├── tool            # 全局变量
+│   └── user            # 我的
+├── router              # 路由配置
+│   └── index.js        # 配置文件
+├── util                # 公共方法
+│   └── util.js         # 配置文件
+├── App.vue             # 入口文件
+└── main.js             # 公共配置文件
+```
+
 ## 参考资料
 
 * [router配置位置](https://www.cnblogs.com/padding1015/p/7884861.html)
