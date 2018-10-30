@@ -9,7 +9,7 @@
       <v-chart
         ref="demo"
         :data="incomeData">
-        <v-bar />
+        <v-bar :colors="gradient" />
         <v-tooltip :show-item-marker="false" />
       </v-chart>
     </group>
@@ -32,6 +32,11 @@
     },
     data () {
       return {
+        gradient: [
+          [0, '#ffc12c'],
+          [0.5, '#ff5151'],
+          [1, '#5980ff']
+        ],
         incomeData: [
           { name: '银行活期', 年利率: 0.3 },
           { name: '银行定期', 年利率: 1.5 },

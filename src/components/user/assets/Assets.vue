@@ -32,8 +32,8 @@
           <v-scale x :tick-count="3" />
           <v-scale y :min="0" />
           <v-tooltip :show-item-marker="false" show-x-value />
-          <v-area />
-          <v-line />
+          <v-area shape="smooth" :colors="gradient" />
+          <v-line shape="smooth" :colors="gradient" />
         </v-chart>
       </group>
     </group>
@@ -92,6 +92,11 @@
             return val * 100
           }
         },
+        gradient: [
+          [0, '#ffc12c'],
+          [0.5, '#ff5151'],
+          [1, '#5980ff']
+        ],
         genderMap,
         genderOptions: {
           layout: 'horizontal',

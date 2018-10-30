@@ -31,8 +31,8 @@
         <v-scale x :tick-count="3" />
         <v-scale y :min="0" />
         <v-tooltip :show-item-marker="false" show-x-value />
-        <v-area />
-        <v-line />
+        <v-area shape="smooth" :colors="gradient" />
+        <v-line shape="smooth" :colors="gradient" />
       </v-chart>
     </group>
 
@@ -56,7 +56,7 @@
       <v-chart
         ref="demo"
         :data="incomeData">
-        <v-bar />
+        <v-bar :colors="gradient" />
         <v-tooltip :show-item-marker="false" />
       </v-chart>
     </group>
@@ -84,7 +84,7 @@
       <v-chart
         ref="demo"
         :data="userData">
-        <v-bar />
+        <v-bar :colors="gradient" />
         <v-tooltip :show-item-marker="false" />
       </v-chart>
     </group>
@@ -93,7 +93,7 @@
       <v-chart
         ref="demo"
         :data="ageData">
-        <v-bar />
+        <v-bar :colors="gradient" />
         <v-tooltip :show-item-marker="false" />
       </v-chart>
     </group>
@@ -148,6 +148,11 @@
           preventGoBack: true
         },
         data: {},
+        gradient: [
+          [0, '#ffc12c'],
+          [0.5, '#ff5151'],
+          [1, '#5980ff']
+        ],
         lendingData: [
           { date: '2015-01', value: 901500 },
           { date: '2015-02', value: 4719200 },
