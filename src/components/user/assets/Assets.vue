@@ -14,7 +14,7 @@
       <v-chart :data="genderData">
         <v-tooltip disabled/>
         <v-scale y :options="yOptions" />
-        <v-pie :radius="1" :inner-radius="0.6" series-field="name" :colors="['#3aacf2','#86d9f3','#a7e7ff','#aee7ff','#ccefff']" />
+        <v-pie :radius="1" :inner-radius="0.6" series-field="name" :colors="['#ff5151','#ffc12c','#ff5b77','#5980ff','#66e0ff']" />
         <v-legend :options="genderOptions" />
         <v-guide type="html" :options="htmlOptions" ref="child"/>
       </v-chart>
