@@ -127,8 +127,6 @@
     created () {
       var self = this
       self.getList()
-      console.log(self.$http)
-      console.log(self)
     }
   }
 </script>
