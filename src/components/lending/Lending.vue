@@ -33,7 +33,6 @@
 </template>
 
 <script>
-  import axios from 'axios'
   import _ from 'lodash'
   import { XHeader, Swiper, Grid, GridItem, Group, Card, Panel, XProgress, Scroller } from 'vux'
 
@@ -123,7 +122,7 @@
        */
       getList () {
         var self = this
-        axios.get(process.env.BASE_API + '/financeJson.do', {params: { 'curPage': self.curPage }})
+        self.$http.get(process.env.BASE_API + '/financeJson.do', {params: { 'curPage': self.curPage }})
           .then(function (res) {
             _.each(res.data, function (v, k) {
               var item = {

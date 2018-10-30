@@ -14,7 +14,6 @@
 </template>
 
 <script>
-  import axios from 'axios'
   import _ from 'lodash'
   import moment from 'moment'
   import { Group, XHeader, Cell, Scroller, Divider } from 'vux'
@@ -70,7 +69,7 @@
           return
         }
         self.parmes.type = false
-        axios.get(process.env.BASE_API + '/queryNewsListPage.do', {params: { 'paramMap.PageNum': self.parmes.pageNum + 1, 'paramMap.PageSize': self.parmes.pageSize }})
+        self.$http.get(process.env.BASE_API + '/queryNewsListPage.do', {params: { 'paramMap.PageNum': self.parmes.pageNum + 1, 'paramMap.PageSize': self.parmes.pageSize }})
           .then(function (res) {
             self.parmes.pageNum++
             _.each(res.data, function (v) {

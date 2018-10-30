@@ -54,7 +54,6 @@
 </template>
 
 <script>
-  import axios from 'axios'
   import moment from 'moment'
 //  import $ from 'jquery'
   import { Group, Cell, XHeader, Tab, TabItem, VChart, VTooltip, VScale, VPie, VLine, VArea, VLegend, VGuide } from 'vux'
@@ -164,7 +163,7 @@
        */
       getData () {
         var self = this
-        axios.post(process.env.BASE_API + '/operationalDataInit.do?t=' + new Date().getTime(), null)
+        self.$http.post(process.env.BASE_API + '/operationalDataInit.do?t=' + new Date().getTime(), null)
           .then(function (res) {
             self.data = res.data
             self.data.time = moment(self.data.saveDate).format('YYYY-MM-DD')

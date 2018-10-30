@@ -13,7 +13,6 @@
 </template>
 
 <script>
-  import axios from 'axios'
   import qs from 'qs'
   import { Group, XHeader, XInput } from 'vux'
   export default {
@@ -33,7 +32,7 @@
     methods: {
       getDetail () {
         var self = this
-        axios.post(process.env.BASE_API + '/callcenterAnswer.do?shoveDate' + new Date().getTime(), qs.stringify({ 'id': self.id }))
+        self.$http.post(process.env.BASE_API + '/callcenterAnswer.do?shoveDate' + new Date().getTime(), qs.stringify({ 'id': self.id }))
           .then(function (res) {
             self.detail = res.data
           })
