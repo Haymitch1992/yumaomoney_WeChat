@@ -19,7 +19,7 @@
         </div>
         <div class="card-middle">
           <div class="fl card-left">
-            <div class="left-title">8888.00元</div>
+            <div class="left-title">8888元</div>
           </div>
           <div class="fr card-right">
             <div class="right-title">未使用</div>
@@ -45,7 +45,7 @@
         </div>
         <div class="card-middle">
           <div class="fl card-left">
-            <div class="left-title">8888.00元</div>
+            <div class="left-title">8888元</div>
           </div>
           <div class="fr card-right">
             <div class="right-title">未使用</div>
@@ -71,7 +71,7 @@
         </div>
         <div class="card-middle">
           <div class="fl card-left">
-            <div class="left-title">8888.00元</div>
+            <div class="left-title">8888元</div>
           </div>
           <div class="fr card-right">
             <div class="right-title">未使用</div>
@@ -100,7 +100,7 @@
         </div>
         <div class="card-middle">
           <div class="fl card-left">
-            <div class="left-title">8888.00元</div>
+            <div class="left-title">8888元</div>
           </div>
           <div class="fr card-right">
             <div class="right-title">已使用</div>
@@ -126,7 +126,7 @@
         </div>
         <div class="card-middle">
           <div class="fl card-left">
-            <div class="left-title">8888.00元</div>
+            <div class="left-title">8888元</div>
           </div>
           <div class="fr card-right">
             <div class="right-title">已使用</div>
@@ -152,7 +152,7 @@
         </div>
         <div class="card-middle">
           <div class="fl card-left">
-            <div class="left-title">8888.00元</div>
+            <div class="left-title">8888元</div>
           </div>
           <div class="fr card-right">
             <div class="right-title">已使用</div>
@@ -181,7 +181,7 @@
         </div>
         <div class="card-middle">
           <div class="fl card-left">
-            <div class="left-title">8888.00元</div>
+            <div class="left-title">8888元</div>
           </div>
           <div class="fr card-right">
             <div class="right-title">已过期</div>
@@ -207,7 +207,7 @@
         </div>
         <div class="card-middle">
           <div class="fl card-left">
-            <div class="left-title">8888.00元</div>
+            <div class="left-title">8888元</div>
           </div>
           <div class="fr card-right">
             <div class="right-title">已过期</div>
@@ -233,7 +233,7 @@
         </div>
         <div class="card-middle">
           <div class="fl card-left">
-            <div class="left-title">8888.00元</div>
+            <div class="left-title">8888元</div>
           </div>
           <div class="fr card-right">
             <div class="right-title">已过期</div>
