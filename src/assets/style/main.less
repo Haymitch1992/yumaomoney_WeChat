@@ -1,5 +1,5 @@
 body {
-  background-color: #fbf9fe;
+  background-color: #f8f8f8;
 }
 .fl {
   float: left;
@@ -161,12 +161,21 @@ body {
 /**优惠券、体验金卡片样式**/
 .coupons-card {
   position: relative;
-  margin: 15px;
-  height: 150px;
+  margin: 0 15px 15px;
+  height: 100px;
   padding-top: 0px;
   border-radius: 15px;
-  background: #f2f2f2;
+  background: url("../images/coupons.png") no-repeat;
+  background-size: cover;
   font-size: 12px;
+}
+.coupons-card-used {
+  background: url("../images/couponsUsed.png") no-repeat;
+  background-size: cover;
+}
+.coupons-card-expired {
+  background: url("../images/couponsExpired.png") no-repeat;
+  background-size: cover;
 }
 .coupons-card-shadow {
   position: absolute;
@@ -196,44 +205,109 @@ body {
   padding-left: 60%;
   text-align: center;
   width: 40%;
-  height: 50px;
-  line-height: 50px;
+  height: 20px;
+  line-height: 20px;
 }
 .coupons-card .card-middle {
-  height: 50px;
+  height: 40px;
 }
 .coupons-card .card-bottom {
-  height: 50px;
+  height: 40px;
 }
 .coupons-card .card-left {
-  width: 60%;
-  height: 50px;
+  width: 45%;
+  height: 40px;
 }
 .coupons-card .card-right {
-  width: 40%;
-  height: 50px;
+  width: 55%;
+  height: 40px;
 }
 .coupons-card .left-title {
-  height: 50px;
-  line-height: 50px;
-  padding-left: 15px;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 30px;
   font-size: 35px;
-  font-weight: 700;
+  color: #fff;
 }
 .coupons-card .left-content {
-  height: 50px;
-  line-height: 50px;
+  height: 40px;
+  line-height: 40px;
   padding-left: 15px;
+  color: #fff;
 }
 .coupons-card .right-title {
-  height: 50px;
-  line-height: 50px;
-  padding-right: 15px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 15px;
+  font-size: 14px;
 }
 .coupons-card .right-content {
-  height: 50px;
-  line-height: 50px;
-  padding-right: 15px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 16px;
+  overflow: hidden;
+  color: #808080;
+}
+.experience-card {
+  position: relative;
+  margin: 0 15px 15px;
+  height: 200px;
+  padding: 0 30px;
+  border-radius: 15px;
+  color: #f9dbdd;
+  background: url("../images/experience.png") no-repeat 100%;
+  background-size: cover;
+  font-size: 12px;
+}
+.experience-card-expired {
+  position: relative;
+  margin: 0 15px 15px;
+  height: 200px;
+  padding: 0 30px;
+  border-radius: 15px;
+  color: #eee;
+  background: url("../images/experienceExpired.png") no-repeat 100%;
+  background-size: cover;
+  font-size: 12px;
+}
+.experience-card .card-title {
+  text-align: center;
+  height: 80px;
+  line-height: 80px;
+}
+.experience-card .card-title .card-left {
+  text-align: center;
+  font-size: 24px;
+}
+.experience-card .card-title .card-right {
+  text-align: center;
+  font-size: 18px;
+}
+.experience-card .card-middle {
+  text-align: center;
+  height: 60px;
+  line-height: 60px;
+}
+.experience-card .card-middle .left-title {
+  font-size: 35px;
+  color: #fff;
+}
+.experience-card .card-middle .card-right {
+  margin: 15px 10px;
+  padding: 0 10px;
+  border: 1px solid #f9dbdd;
+  border-radius: 25px;
+  font-size: 16px;
+  height: 30px;
+  line-height: 30px;
+}
+.experience-card-expired .card-middle .card-right {
+  border: 1px solid #eee;
+}
+.experience-card .card-bottom {
+  height: 60px;
+  line-height: 60px;
+  font-size: 10px;
 }
 /**级联选择器样式**/
 .cascadeBox {

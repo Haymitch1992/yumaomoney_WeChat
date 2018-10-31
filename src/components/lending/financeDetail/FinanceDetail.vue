@@ -444,4 +444,10 @@
     bottom: 0;
     width: 100%;
   }
+  .finance .weui-wepay-flow__li_done .weui-wepay-flow__state {
+    background-color: #ed4e49;
+  }
+  .finance .weui-wepay-flow__process {
+    background-color: #ed4e49;
+  }
 </style>
