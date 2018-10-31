@@ -23,7 +23,7 @@
     <group title="VIP会员等级">
       <flexbox :gutter="0">
         <flexbox-item :span="3">
-          <div style="padding-bottom: 200px">
+          <div style="border-left: 3px solid #ed4e49;margin-bottom: 200px;margin-right: 10px">
             <div class="center pv15 vipList" :class="{ vipActive: (level===0) }" @click="changeLevel(0)">VIP0</div>
             <div class="center pv15 vipList" :class="{ vipActive: (level===1) }" @click="changeLevel(1)">VIP1</div>
             <div class="center pv15 vipList" :class="{ vipActive: (level===2) }" @click="changeLevel(2)">VIP2</div>
@@ -339,11 +339,19 @@
 
 <style>
   .vipList {
-    border-left: 3px solid #EBEBEB;
+    border: 1px solid #EBEBEB;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top: 0;
+    border-left: 0;
+    box-sizing: border-box;
+    background: #fff;
+    color: #ed4e49;
   }
   .vipActive {
-    border-left: 3px solid #09BB07;
-    color: #09BB07;
+    box-sizing: border-box;
+    background: #ed4e49;
+    color: #fff;
   }
   .level0 {
     background: url("../../../assets/images/level0.png") no-repeat center center;
