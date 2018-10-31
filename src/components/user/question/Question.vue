@@ -2,10 +2,7 @@
   <div>
     <x-header>风险测评</x-header>
     <div class="pt20 center">您的风险承受能力是</div>
-    <div class="pt10 center">{{userType}}</div>
-    <div class="pt20 center">
-      <img class="questionLogo" src="../../../assets/images/result.png">
-    </div>
+    <div class="questionBox">{{userType}}</div>
     <div class="p20">{{detail}}<b>{{detailEnd}}</b></div>
     <div class="pt20" v-if="(num>0)">
       <div class="submit-box">
@@ -63,5 +60,15 @@
 <style>
   .questionLogo {
     width: 100%;
+  }
+  .questionBox {
+    background: url("../../../assets/images/question.png") no-repeat;
+    background-size: cover;
+    width: 150px;
+    height: 150px;
+    line-height: 150px;
+    text-align: center;
+    margin: 10px auto 0;
+    color: #fff;
   }
 </style>

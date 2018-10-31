@@ -88,5 +88,7 @@ yumaomoney_WeChat
 * [VUE 全局变量的几种实现方式](https://www.jianshu.com/p/7547ff8760c3)
 * [在vue项目中如何定义全局变量全局函数](https://blog.csdn.net/sinat_17775997/article/details/78341907?locationNum=9&fps=1)
 * [全局声明第三方插件](https://www.jb51.net/article/121740.htm)
+* [vux修改主题配色](https://www.jianshu.com/p/936c2a2481f8)
+* [vux如何修改主题配色](https://segmentfault.com/q/1010000008365249?sort=created)
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
