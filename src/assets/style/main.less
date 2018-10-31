@@ -162,11 +162,21 @@ body {
 .coupons-card {
   position: relative;
   margin: 15px;
-  height: 150px;
+  height: 100px;
   padding-top: 0px;
   border-radius: 15px;
   background: #f2f2f2;
+  background: url("../images/coupons.png") no-repeat;
+  background-size: cover;
   font-size: 12px;
+}
+.coupons-card-used {
+  background: url("../images/couponsUsed.png") no-repeat;
+  background-size: cover;
+}
+.coupons-card-expired {
+  background: url("../images/couponsExpired.png") no-repeat;
+  background-size: cover;
 }
 .coupons-card-shadow {
   position: absolute;
@@ -196,44 +206,48 @@ body {
   padding-left: 60%;
   text-align: center;
   width: 40%;
-  height: 50px;
-  line-height: 50px;
+  height: 20px;
+  line-height: 20px;
 }
 .coupons-card .card-middle {
-  height: 50px;
+  height: 40px;
 }
 .coupons-card .card-bottom {
-  height: 50px;
+  height: 40px;
 }
 .coupons-card .card-left {
-  width: 60%;
-  height: 50px;
+  width: 45%;
+  height: 40px;
 }
 .coupons-card .card-right {
-  width: 40%;
-  height: 50px;
+  width: 55%;
+  height: 40px;
 }
 .coupons-card .left-title {
-  height: 50px;
-  line-height: 50px;
-  padding-left: 15px;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 30px;
   font-size: 35px;
-  font-weight: 700;
+  color: #fff;
 }
 .coupons-card .left-content {
-  height: 50px;
-  line-height: 50px;
+  height: 40px;
+  line-height: 40px;
   padding-left: 15px;
+  color: #fff;
 }
 .coupons-card .right-title {
-  height: 50px;
-  line-height: 50px;
-  padding-right: 15px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 15px;
+  font-size: 14px;
 }
 .coupons-card .right-content {
-  height: 50px;
-  line-height: 50px;
-  padding-right: 15px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 16px;
+  overflow: hidden;
+  color: #808080;
 }
 /**级联选择器样式**/
 .cascadeBox {
