@@ -76,7 +76,7 @@ import Repayment from '../components/lending/repayment/Repayment'
 import PayNotice from '../components/lending/payNotice/PayNotice'
 import MediaReport from '../components/lending/mediaReport/MediaReport'
 import NoticeDetail from '../components/lending/noticeDetail/NoticeDetail'
-
+import ProjectList from '../components/projectList/ProjectList'
 Vue.use(Router)
 
 export default new Router({
@@ -137,6 +137,11 @@ export default new Router({
           ]
         }
       ]
+    },
+    {
+      path: '/projectList',
+      name: 'projectList',
+      component: ProjectList
     },
     {
       path: '/lending',
