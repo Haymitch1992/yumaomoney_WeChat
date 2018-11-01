@@ -5,12 +5,12 @@
       <!--<x-header :left-options='{showBack: false}' class="header-fixed">在线活动</x-header>-->
     <!--</div>-->
     <div style="margin: 10px;overflow: hidden;" v-for="item in list">
-      <masker style="border-radius: 2px;">
-        <div class="m-img" :style="{backgroundImage: 'url(' + item.img + ')'}"></div>
+      <masker style="border-radius: 2px;" @click.native="go(item.wechatlink)">
+        <div class="m-img" :style="{backgroundImage: 'url(' + href + item.wechatBanner + ')'}"></div>
         <div slot="content" class="m-title">
           {{item.title}}
           <br/>
-          <span class="m-time">{{item.time}}</span>
+          <span class="m-time">{{item.endTime}}</span>
         </div>
       </masker>
     </div>
@@ -29,43 +29,39 @@
     },
     data () {
       return {
-        list: [
-          {
-            title: '新手闯关 步步生金',
-            img: require('@/assets/images/banner/banner-wechat-002.jpg'),
-            time: '2018-05-01'
-          },
-          {
-            title: '抢标有礼 标标返现',
-            img: require('@/assets/images/banner/banner-wechat-003.jpg'),
-            time: '2018-05-18'
-          }, {
-            title: '用户交易总额 突破7亿元',
-            img: require('@/assets/images/banner/banner-wechat-004.png'),
-            time: '2018-06-18'
-          }, {
-            title: '传统二十四节气 & 小暑',
-            img: require('@/assets/images/banner/banner-wechat-001.png'),
-            time: '2018-07-07'
-          }, {
-            title: '七七事变 81周年',
-            img: require('@/assets/images/banner/banner-wechat-002.png'),
-            time: '2018-07-07'
-          }, {
-            title: '八一建军 91周年',
-            img: require('@/assets/images/banner/banner-wechat-006.png'),
-            time: '2018-08-01'
-          }, {
-            title: '传统二十四节气 & 立秋',
-            img: require('@/assets/images/banner/banner-wechat-007.png'),
-            time: '2018-08-07'
-          }, {
-            title: '新版APP 亮点',
-            img: require('@/assets/images/banner/banner-wechat-008.png'),
-            time: '2018-09-01'
-          }
-        ]
+        href: '',
+        list: []
       }
+    },
+    methods: {
+      go (link) {
+        var self = this
+        window.location.href = self.href + link
+      },
+      getList () {
+        var self = this
+        self.$http.get(process.env.BASE_API + '/jsonData/activity.json')
+          .then(function (res) {
+            self.list = res.data
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+      },
+      init () {
+        var self = this
+        self.href = window.location.origin
+        /**
+         * TODO 本地测试环境调试使用 正式环境部署需删除
+         * @type {string}
+         */
+        self.href = 'http://39.107.59.233'
+        self.getList()
+      }
+    },
+    created () {
+      var self = this
+      self.init()
     }
   }
 </script>
