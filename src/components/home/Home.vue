@@ -98,7 +98,7 @@
   import { XHeader, Swiper, Grid, GridItem, Group, Card, Panel, XProgress } from 'vux'
 
   export default {
-    name: 'Lending',
+    name: 'Home',
     components: {
       XHeader,
       Swiper,

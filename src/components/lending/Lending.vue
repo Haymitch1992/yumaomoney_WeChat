@@ -6,7 +6,7 @@
     <!--</div>-->
     <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore"
               use-pulldown :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
-              lock-x ref="scrollerBottom" height="-48">
+              lock-x ref="scrollerBottom" height="-48" style="top: -10px;">
       <div>
         <!--项目列表-->
         <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in list" :key="item.key">
