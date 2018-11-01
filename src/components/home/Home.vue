@@ -77,13 +77,13 @@
             <grid-item link="/user/aboutMe" label="了解鱼猫" key="0">
               <img slot="icon" src="../../assets/images/aboutMe.png">
             </grid-item>
-            <grid-item link="/lending/safety" label="安全保障" key="1">
+            <grid-item link="/home/safety" label="安全保障" key="1">
               <img slot="icon" src="../../assets/images/active.png">
             </grid-item>
             <grid-item link="http://a.app.qq.com/o/simple.jsp?pkgname=com.ionicframework.yumao958693" label="app下载" key="2">
               <img slot="icon" src="../../assets/images/appDown.png">
             </grid-item>
-            <grid-item link="/lending/disclosure" label="信息披露" key="3">
+            <grid-item link="/home/disclosure" label="信息披露" key="3">
               <img slot="icon" src="../../assets/images/linkme.png">
             </grid-item>
           </grid>
