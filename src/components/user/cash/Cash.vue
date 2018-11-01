@@ -1,19 +1,19 @@
 <template>
-  <div>
+  <div class="cash">
     <x-header>提现</x-header>
     <group label-width="4.5em" label-margin-right="2em" label-align="right">
       <panel :list="bankList" type="1" @on-img-error="onImgError"></panel>
+      <div class="cashBox">
+        <div class="">余额:{{data.balanceBak}}元</div>
+        <x-input v-model="data.cash" :is-type="moreThan100" placeholder="单笔提现不小于100元"></x-input>
+      </div>
+      <div class="cashBox">
+        <div >手续费:1元</div>
+        <div v-if="(data.cash>=100)&&(data.cash<=data.balance)">到账金额:{{data.cash-1}}元</div>
+        <div v-if="(data.cash<100)||(data.cash>data.balance)">到账金额:0元</div>
+      </div>
     </group>
-    <group>
-      <div class="cell-box">余额:{{data.balanceBak}}元</div>
-      <x-input title="提现金额(元)" v-model="data.cash" :is-type="moreThan100" placeholder="单笔提现不小于100元"></x-input>
-    </group>
-    <group>
-      <div class="cell-box">手续费:1元</div>
-      <div class="cell-box" v-if="(data.cash>=100)&&(data.cash<=data.balance)">到账金额:{{data.cash-1}}元</div>
-      <div class="cell-box" v-if="(data.cash<100)||(data.cash>data.balance)">到账金额:0元</div>
-    </group>
-    <div style="padding:15px 50px;">
+    <div style="margin: 50px auto 0; width: 94%;">
       <x-button @click.native="iconType = 'success'" type="primary">提交</x-button>
     </div>
   </div>
@@ -177,7 +177,7 @@
       init () {
         var self = this
         self.bankList.push(self.banks[self.data.type][0])
-        var num = ' 尾号' + self.data.num
+        var num = '<span class="bankNum">尾号' + self.data.num+'</span>'
         self.bankList[0].title += num
         self.data.balanceBak = self.data.balance.toFixed(2)
       }
@@ -188,4 +188,61 @@
     }
   }
 </script>
+<style lang="less">
+  .cash{
+    .vux-header{
+      background: #fff;
+    }
+    .vux-header-title-area, .vux-header .vux-header-title{
+      color: #666;
+    }
+    .vux-header .vux-header-left .left-arrow:before{
+      border: 1px solid #666;
+      border-width: 1px 0 0 1px;
+    }
+    .vux-header-back{
+      opacity: 0;
+    }
+    .weui-cells{
+      margin-top:0;
+    }
+    .weui-media-box{
+      padding:10px 10px 20px;
+    }
+    .bankNum{
+      font-size: 14px;
+      color: #666;
+      margin-left:6px;
+    }
+    .weui-media-box__title{
+      line-height: 30px;
+      position: relative;
+      top:-6px;
+    }
+    .weui-input{
+      font-size:14px;
+    }
+    .weui-panel:after{
+      border-bottom: none;
+    }
+    .cashBox{
+      width:90%;
+      margin:0 auto;
+      border-top:1px solid #eee;
+      font-size: 14px;
+      line-height: 34px;
+      padding:10px 0;
+      .weui-cell:before{
+        border: none;
+      }
+    }
+    .weui-btn{
+      line-height: 2.5;
+    }
+    .weui-panel:before{
+      border-top:0;
+    }
+
+  }
+</style>
 

@@ -8,7 +8,7 @@
         </div>
         <div class="userContent fl">
           <div class="h30">小猫钓鱼 <span class="vipStatus " :class="'v'+level">VIP{{level}}</span></div>
-          <div class="h30 f14">当前等级超过了50%的鱼猫小伙伴</div>
+          <div class="h30 f14">当前等级超过了50%的小伙伴</div>
         </div>
       </div>
       <!--进度条-->
