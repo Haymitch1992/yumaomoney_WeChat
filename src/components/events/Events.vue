@@ -35,8 +35,7 @@
     },
     methods: {
       go (link) {
-        var self = this
-        window.location.href = self.href + link
+        window.location.href = link
       },
       getList () {
         var self = this
