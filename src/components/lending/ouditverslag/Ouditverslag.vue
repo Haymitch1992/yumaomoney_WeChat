@@ -31,16 +31,16 @@
         list: [
           {
             title: '查看详情',
-            img: require('@/assets/images/sjbg-2017.jpeg'),
+            img: require('@/assets/images/sjbg-2017.png'),
             link: 'https://www.yumaomoney.com/integrated/report_2017.pdf'
           },
           {
             title: '查看详情',
-            img: require('@/assets/images/sjbg-2016.jpg'),
+            img: require('@/assets/images/sjbg-2016.png'),
             link: 'https://www.yumaomoney.com/integrated/report_2016.pdf'
           }, {
             title: '查看详情',
-            img: require('@/assets/images/sjbg-2015.jpg'),
+            img: require('@/assets/images/sjbg-2015.png'),
             link: 'https://www.yumaomoney.com/integrated/report_2015.pdf'
           }
         ]
@@ -56,7 +56,7 @@
 
 <style>
   .m-img {
-    padding-bottom: 65%;
+    padding-bottom: 37%;
     display: block;
     position: relative;
     max-width: 100%;
