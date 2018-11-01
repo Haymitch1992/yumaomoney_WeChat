@@ -1,14 +1,13 @@
 <template>
-  <div>
+  <div class="recharge">
     <x-header>充值</x-header>
     <group label-width="4.5em" label-margin-right="2em" label-align="right">
       <panel :list="bankList" type="1" @on-img-error="onImgError"></panel>
-    </group>
-    <group>
-      <x-input title="充值金额(元)" v-model="data.cash" :is-type="moreThan100" placeholder="请输入充值金额"></x-input>
-    </group>
-    <group>
-      <div class="cell-box">充值后余额:{{data.balance+Math.floor(data.cash)}}元</div>
+      <div class="cashBox">
+        <div>金额</div>
+        <x-input  v-model="data.cash" :is-type="moreThan100" placeholder="请输入充值金额"></x-input>
+      </div>
+      <div class="cashBox">充值后:{{data.balance+Math.floor(data.cash)}}元</div>
     </group>
     <div class="submit-box">
       <x-button @click.native="iconType = 'success'" type="primary">确定</x-button>
@@ -170,7 +169,7 @@
       init () {
         var self = this
         self.bankList.push(self.banks[self.data.type][0])
-        var num = ' 尾号' + self.data.num
+        var num = '<span class = "bankNum">尾号' + self.data.num + '</span>'
         self.bankList[0].title += num
         self.data.balanceBak = self.data.balance.toFixed(2)
       }
@@ -181,3 +180,63 @@
     }
   }
 </script>
+<style lang="less">
+  .recharge{
+    font-size: 14px;
+    color: #666;
+    .cashBox {
+      width: 90%;
+      margin: 0 auto;
+      border-top: 1px solid #eee;
+      font-size: 14px;
+      line-height: 34px;
+      padding: 10px 0;
+    }
+    .weui-cell:before{
+        border: none;
+    }
+    .vux-header{
+      background: #fff;
+    }
+    .vux-header-title-area, .vux-header .vux-header-title{
+      color: #666;
+    }
+    .vux-header .vux-header-left .left-arrow:before{
+      border: 1px solid #666;
+      border-width: 1px 0 0 1px;
+    }
+    .vux-header-back{
+      opacity: 0;
+    }
+    .weui-media-box{
+      padding:10px 10px 20px;
+    }
+    .bankNum{
+      font-size: 14px;
+      color: #666;
+      margin-left:6px;
+    }
+    .weui-media-box__title{
+      line-height: 30px;
+      position: relative;
+      top:-6px;
+    }
+    .weui-cells{
+      margin-top:0;
+    }
+    .weui-cell{
+      padding: 0;
+    }
+    .weui-panel:after{
+      border-bottom:0;
+    }
+    .weui-panel:before{
+      border-top:0;
+    }
+    .submit-box{
+      padding: 0;
+      width: 94%;
+      margin:50px auto 30px;
+    }
+  }
+</style>

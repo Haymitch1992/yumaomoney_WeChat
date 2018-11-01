@@ -177,7 +177,7 @@
       init () {
         var self = this
         self.bankList.push(self.banks[self.data.type][0])
-        var num = '<span class="bankNum">尾号' + self.data.num+'</span>'
+        var num = '<span class = "bankNum">尾号' + self.data.num + '</span>'
         self.bankList[0].title += num
         self.data.balanceBak = self.data.balance.toFixed(2)
       }
@@ -236,6 +236,7 @@
         border: none;
       }
     }
+
     .weui-btn{
       line-height: 2.5;
     }
