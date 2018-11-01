@@ -1,8 +1,9 @@
 <template>
   <div>
-    <!--<x-header>个人中心</x-header>-->
+
     <!--背景图-->
     <div class="center-bg">
+      <x-header>个人中心</x-header>
       <!--状态信息-->
       <div class="header">
         <div class="fl">
@@ -67,18 +68,24 @@
 
 <style lang="less">
   .center-bg{
-    height:150px;
+    height:200px;
     background: #F6F6F6 url("../../../assets/images/center-bg.jpg") no-repeat 0 -60px;
     background-size:cover;
-    padding:60px 20px 0;
+    .vux-header{
+      background: transparent;
+    }
+    .vux-header .vux-header-left .vux-header-back{
+      opacity: 0;
+    }
     .header {
       height: 150px;
-      width: 100%;
+      width: 94%;
+      margin:0 auto;
       background: #fff;
-      padding:40px 30px;
+      padding:40px 0;
       box-sizing: border-box;
       .userContent {
-        margin-left:24px;
+        margin-left:10px;
         margin-top:4px;
       }
     }
@@ -93,7 +100,8 @@
     }
   }
   .operation{
-    padding:0 20px;
+    width: 94%;
+    margin:0 auto;
     .weui-cell{
       padding:14px;
       font-size:16px;
@@ -111,6 +119,7 @@
     height: 70px;
     border-radius: 35px;
     box-sizing: border-box;
+    margin-left:20px;
   }
   .mini-card {
     padding: 4px 8px;
@@ -120,8 +129,9 @@
     margin-right:6px;
   }
   .submit-box{
-    padding:0 20px;
-    margin-top:30px;
+    width:94%;
+    margin:30px auto 0;
+    padding:0;
     .weui-btn{
       line-height: 2.5;
     }
