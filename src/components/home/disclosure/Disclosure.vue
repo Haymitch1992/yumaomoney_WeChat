@@ -55,7 +55,7 @@
     },
     methods: {
       goBack () {
-        this.$router.push({path: '/lending'})
+        this.$router.push({path: '/home'})
       },
       getFrom () {
         var self = this

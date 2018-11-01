@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <router-view></router-view>
-    <div class="footer-box" v-if="$route.path === '/events' || $route.path === '/lending' || $route.path === '/user'">
+    <div class="footer-box" v-if="$route.path === '/events' || $route.path === '/home' || $route.path === '/user'">
       <tabbar class="footer-fixed">
-        <tabbar-item link="/lending" :selected="$route.path === '/lending'">
+        <tabbar-item link="/lending" :selected="$route.path === '/home'">
           <img slot="icon" src="./assets/images/foot-tz.png">
           <img slot="icon-active" src="./assets/images/foot-tz-active.png">
           <span slot="label">首页</span>

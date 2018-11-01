@@ -36,11 +36,11 @@
       goBack () {
         var self = this
         if (self.item.typeid === '11') {
-          self.$router.push({path: '/lending/disclosure/repayment'})
+          self.$router.push({path: '/home/disclosure/repayment'})
         } else if (self.item.typeid === '10') {
-          self.$router.push({path: '/lending/disclosure/payNotice'})
+          self.$router.push({path: '/home/disclosure/payNotice'})
         } else if (self.item.typeid === '8') {
-          self.$router.push({path: '/lending/disclosure/mediaReport'})
+          self.$router.push({path: '/home/disclosure/mediaReport'})
         }
       },
       getList () {

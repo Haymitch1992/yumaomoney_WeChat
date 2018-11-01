@@ -53,7 +53,7 @@
         if (self.data.phone.length !== 11) {
           self.data.toastMsg = true
         } else {
-          self.$router.push({name: 'lending', params: {data: self.data}})
+          self.$router.push({name: 'home', params: {data: self.data}})
         }
       },
       keyDown () {

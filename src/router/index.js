@@ -53,30 +53,30 @@ import Help from '../components/user/help/Help'
 import HelpDetail from '../components/user/help/HelpDetail'
 import Feedback from '../components/user/feedback/Feedback'
 import Events from '../components/events/Events'
+import Home from '../components/home/Home'
+import FinanceDetail from '../components/home/financeDetail/FinanceDetail'
+import Calculator from '../components/home/calculator/Calculator'
+import CalculatorDetail from '../components/home/calculator/CalculatorDetail'
+import ConfirmInvestment from '../components/home/confirmInvestment/ConfirmInvestment'
+import Safety from '../components/home/safety/Safety'
+import Disclosure from '../components/home/disclosure/Disclosure'
+import SakeInligting from '../components/home/sakeInligting/SakeInligting'
+import TanKantore from '../components/home/tanKantore/TanKantore'
+import Issues from '../components/home/issues/Issues'
+import Ouditverslag from '../components/home/ouditverslag/Ouditverslag'
+import Kwalifikasie from '../components/home/kwalifikasie/Kwalifikasie'
+import Memorabilia from '../components/home/memorabilia/Memorabilia'
+import ExecsTeam from '../components/home/execsTeam/ExecsTeam'
+import GroupArchitecture from '../components/home/groupArchitecture/GroupArchitecture'
+import Employees from '../components/home/employees/Employees'
+import OperationData from '../components/home/operationData/OperationData'
+import OperationReport from '../components/home/operationReport/OperationReport'
+import WebsiteNotice from '../components/home/websiteNotice/WebsiteNotice'
+import Repayment from '../components/home/repayment/Repayment'
+import PayNotice from '../components/home/payNotice/PayNotice'
+import MediaReport from '../components/home/mediaReport/MediaReport'
+import NoticeDetail from '../components/home/noticeDetail/NoticeDetail'
 import Lending from '../components/lending/Lending'
-import FinanceDetail from '../components/lending/financeDetail/FinanceDetail'
-import Calculator from '../components/lending/calculator/Calculator'
-import CalculatorDetail from '../components/lending/calculator/CalculatorDetail'
-import ConfirmInvestment from '../components/lending/confirmInvestment/ConfirmInvestment'
-import Safety from '../components/lending/safety/Safety'
-import Disclosure from '../components/lending/disclosure/Disclosure'
-import SakeInligting from '../components/lending/sakeInligting/SakeInligting'
-import TanKantore from '../components/lending/tanKantore/TanKantore'
-import Issues from '../components/lending/issues/Issues'
-import Ouditverslag from '../components/lending/ouditverslag/Ouditverslag'
-import Kwalifikasie from '../components/lending/kwalifikasie/Kwalifikasie'
-import Memorabilia from '../components/lending/memorabilia/Memorabilia'
-import ExecsTeam from '../components/lending/execsTeam/ExecsTeam'
-import GroupArchitecture from '../components/lending/groupArchitecture/GroupArchitecture'
-import Employees from '../components/lending/employees/Employees'
-import OperationData from '../components/lending/operationData/OperationData'
-import OperationReport from '../components/lending/operationReport/OperationReport'
-import WebsiteNotice from '../components/lending/websiteNotice/WebsiteNotice'
-import Repayment from '../components/lending/repayment/Repayment'
-import PayNotice from '../components/lending/payNotice/PayNotice'
-import MediaReport from '../components/lending/mediaReport/MediaReport'
-import NoticeDetail from '../components/lending/noticeDetail/NoticeDetail'
-import ProjectList from '../components/projectList/ProjectList'
 Vue.use(Router)
 
 export default new Router({
@@ -139,18 +139,18 @@ export default new Router({
       ]
     },
     {
-      path: '/projectList',
-      name: 'projectList',
-      component: ProjectList
+      path: '/lending',
+      name: 'lending',
+      component: Lending
     },
     {
-      path: '/lending',
+      path: '/Home',
       component: Container,
       children: [
         {
           path: '/',
-          name: 'lending',
-          component: Lending
+          name: 'home',
+          component: Home
         },
         {
           path: 'financeDetail',
