@@ -140,17 +140,12 @@ export default new Router({
     },
     {
       path: '/lending',
-      name: 'lending',
-      component: Lending
-    },
-    {
-      path: '/Home',
       component: Container,
       children: [
         {
           path: '/',
-          name: 'home',
-          component: Home
+          name: 'lending',
+          component: Lending
         },
         {
           path: 'financeDetail',
@@ -176,6 +171,17 @@ export default new Router({
         {
           path: 'confirmInvestment',
           component: ConfirmInvestment
+        }
+      ]
+    },
+    {
+      path: '/Home',
+      component: Container,
+      children: [
+        {
+          path: '/',
+          name: 'home',
+          component: Home
         },
         {
           path: 'safety',

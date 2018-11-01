@@ -6,7 +6,7 @@
     </div>
     <group title="cell demo">
       <cell title="引导页" value="cool" is-link link="/start/gesture"></cell>
-      <cell title="首页" value="cool" is-link link="/lending"></cell>
+      <cell title="首页" value="cool" is-link link="/home"></cell>
     </group>
   </div>
 </template>
