@@ -111,22 +111,7 @@
     },
     data () {
       return {
-        swiper_list: [
-          {
-            url: 'javascript:',
-            img: 'http://39.107.59.233/activity/banner-wechat-008.png',
-            title: '新版APP 亮点'
-          }, {
-            url: 'javascript:',
-            img: 'http://39.107.59.233/activity/banner-wechat-003.jpg',
-            title: '鱼猫新手专享'
-          }, {
-            url: 'javascript:',
-            img: 'http://39.107.59.233/activity/banner-wechat-004.png',
-            title: '用户交易总额 突破7亿元',
-            fallbackImg: 'https://ww1.sinaimg.cn/large/663d3650gy1fq66vw50iwj20ff0aaaci.jpg'
-          }
-        ],
+        swiper_list: [],
         notice_list: [
           {
             url: 'a',
@@ -141,7 +126,9 @@
             title: '鱼猫金服快捷支付限额表3'
           }
         ],
-        swiper_index: 1
+        list: [],
+        swiper_index: 0,
+        num: 0
       }
     },
     methods: {
@@ -152,12 +139,27 @@
         console.log(item, $event)
       },
       /**
-       * 刷新页面
+       * 获取轮播列表
        */
-
-      /**
-       * 加载更多列表
-       */
+      getSwiperList () {
+        var self = this
+        self.$http.get(process.env.BASE_API + '/jsonData/activity.json')
+          .then(function (res) {
+            self.swiper_list = []
+            _.each(res.data, function (v) {
+              var item = {
+                img: 'https://www.yumaomoney.com' + v.wechatBanner,
+                title: v.title,
+                url: v.wechatlink
+              }
+              self.swiper_list.push(item)
+              self.num++
+            })
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+      },
       /**
        * 获取列表
        */
@@ -198,6 +200,7 @@
     created () {
       var self = this
       self.getList()
+      self.getSwiperList()
     }
   }
 </script>
