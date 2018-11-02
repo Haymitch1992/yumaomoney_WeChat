@@ -27,8 +27,6 @@
 
 <script>
   import { Group, Cell, XHeader, XInput, Selector, Datetime, Checklist, Radio, XButton, CheckIcon, XSwitch, XAddress } from 'vux'
-  import MobileSelect from 'mobile-select'
-  import _ from 'lodash'
 
   export default {
     name: 'Auto',
@@ -87,6 +85,10 @@
       },
       autoCheck () {
         var self = this
+        self.data.earnsLower = Math.floor(self.data.earns[0])
+        self.data.earnsCeiling = Math.floor(self.data.earns[1])
+        self.data.termLower = Math.floor(self.data.term[0])
+        self.data.termCeiling = Math.floor(self.data.term[1])
         console.log(self.data)
       },
       onShadowChange (ids, names) {
