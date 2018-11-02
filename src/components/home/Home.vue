@@ -141,8 +141,6 @@
             title: '鱼猫金服快捷支付限额表3'
           }
         ],
-        list: [],
-        curPage: 1,
         swiper_index: 1
       }
     },

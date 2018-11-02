@@ -58,6 +58,7 @@
     data () {
       return {
         list: [],
+        curPage: 1,
         pullupDefaultConfig: pullupDefaultConfig,
         pulldownDefaultConfig: pulldownDefaultConfig
       }
