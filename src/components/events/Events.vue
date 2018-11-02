@@ -19,6 +19,7 @@
 
 <script>
   import { Group, Cell, XHeader, Masker } from 'vux'
+  import _ from 'lodash'
   export default {
     name: 'Events',
     components: {
@@ -41,7 +42,7 @@
         var self = this
         self.$http.get(process.env.BASE_API + '/jsonData/activity.json')
           .then(function (res) {
-            self.list = res.data
+            self.list = _.filter(res.data, {'status': '1'})
           })
           .catch(function (error) {
             console.log(error)
