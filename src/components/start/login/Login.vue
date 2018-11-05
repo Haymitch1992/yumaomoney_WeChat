@@ -8,7 +8,7 @@
                ref="refPassword" @on-change="keyDown()" placeholder="含字母和数字8-16位字符" required></x-input>
       <x-input v-model="data.code" :min="4" :max="4" type="text" title="验证码" ref="refCode"
                @on-change="keyDown()" placeholder="请输入验证码" required>
-        <img slot="right-full-height" src="http://39.107.59.233/shoveeims/imageCode.do?pageId=userlogin">
+        <img slot="right-full-height" :src="data.codeUrl" @click="switchCode">
       </x-input>
     </group>
     <div class="pt20">
@@ -49,6 +49,7 @@
           phone: '13683266113',
           password: 'ym123456',
           code: '1234',
+          codeUrl: 'http://39.107.59.233/shoveeims/imageCode.do?pageId=userlogin',
           disabled: false,
           toastType: false,
           toastMsg: ''
@@ -115,6 +116,11 @@
         } else {
           self.data.disabled = true
         }
+      },
+      switchCode () {
+        var self = this
+        var timenow = new Date()
+        self.data.codeUrl = 'http://39.107.59.233/shoveeims/imageCode.do?pageId=userlogin&d=' + timenow
       }
     }
   }
