@@ -127,6 +127,11 @@
 </script>
 
 <style>
+  .login .vux-x-input-has-right-full {
+    padding-top: 0;
+    padding-right: 0;
+    padding-bottom: 0;
+  }
   .login .vux-x-input-right-full {
     display: inline-block;
   }
