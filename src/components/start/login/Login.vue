@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="login">
     <x-header>登录</x-header>
     <group>
       <x-input :max="11" v-model="data.phone" keyboard="number" title="手机号"
@@ -125,3 +125,9 @@
     }
   }
 </script>
+
+<style>
+  .login .vux-x-input-right-full {
+    display: inline-block;
+  }
+</style>
