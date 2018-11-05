@@ -8,7 +8,7 @@
                ref="refPassword" @on-change="keyDown()" placeholder="含字母和数字8-16位字符" required></x-input>
       <x-input v-model="data.code" :min="4" :max="4" type="text" title="验证码" ref="refCode"
                @on-change="keyDown()" placeholder="请输入验证码" required>
-        <img slot="right-full-height" src="https://ws1.sinaimg.cn/large/663d3650gy1fq684go3glj203m01hmwy.jpg">
+        <img slot="right-full-height" src="http://39.107.59.233/shoveeims/imageCode.do?pageId=userlogin">
       </x-input>
     </group>
     <div class="pt20">
@@ -25,7 +25,7 @@
         若当前号码已不用或丢失，请联系<a href="https://www.sobot.com/chat/oldh5/index.html?sysNum=e4068d62da3b41e69a8f47a6929a6826">在线客服</a>
       </div>
     </div>
-    <toast v-model="data.toastMsg" type="warn" :time="1000" is-show-mask text="账号密码不匹配" position="middle"></toast>
+    <toast v-model="data.toastType" type="warn" :time="1000" is-show-mask :text="data.toastMsg" position="middle"></toast>
   </div>
 </template>
 
@@ -46,11 +46,12 @@
     data () {
       return {
         data: {
-          phone: '',
-          password: '',
+          phone: '13683266113',
+          password: 'ym123456',
           code: '1234',
           disabled: false,
-          toastMsg: false
+          toastType: false,
+          toastMsg: ''
         }
       }
     },
@@ -58,26 +59,46 @@
       login () {
         var self = this
         if (self.data.phone.length !== 11) {
-          self.data.toastMsg = true
+          self.data.toastMsg = '账号密码不匹配'
+          self.data.toastType = true
         } else {
-//          self.$router.push({name: 'home', params: {data: self.data}})
-//          var params = {
-//            paramMap : {
-//              pageId : 'userlogin',
-//              email : self.data.phone,
-//              password : self.data.password,
-//              code :  self.data.code
-//            }
-//          }
           var param = {}
           param['paramMap.pageId'] = 'userlogin'
           param['paramMap.email'] = self.data.phone
           param['paramMap.password'] = self.data.password
           param['paramMap.code'] = self.data.code
-          param['paramMap.afterLoginUrl'] = '{session.afterLoginUrl}'
+          param['paramMap.afterLoginUrl'] = ''
           self.$http.post(process.env.BASE_API + '/logining.do', qs.stringify(param))
             .then(function (res) {
-              self.detail = res.data
+              console.log(res.data)
+              if (res.data === 1) {
+                self.data.toastMsg = '成功登陆!'
+                self.data.toastType = true
+              } else if (res.data === 2) {
+                self.data.toastMsg = '验证码不正确!'
+                self.data.toastType = true
+              } else if (res.data === 3) {
+                self.data.toastMsg = '用户名或密码错误!'
+                self.data.toastType = true
+              } else if (res.data === 4) {
+                self.data.toastMsg = '该用户已被禁用!'
+                self.data.toastType = true
+              } else if (res.data === 5) {
+                self.data.toastMsg = '该用户已被限制登录，请于三小时以后登录!'
+                self.data.toastType = true
+              } else if (res.data === 7) {
+                self.data.toastMsg = '该用户账号出现异常，请联系客服人员进行更新!'
+                self.data.toastType = true
+              } else if (res.data === 41) {
+                self.data.toastMsg = '存管用户编号异常, 请联系客服人员!'
+                self.data.toastType = true
+              } else if (res.data === 42) {
+                self.data.toastMsg = '存管用户不存在, 本地账户异常!'
+                self.data.toastType = true
+              } else if (res.data === 43) {
+                self.data.toastMsg = '存管用户资金异常, 请联系客服人员!'
+                self.data.toastType = true
+              }
             })
             .catch(function (error) {
               console.log(error)
