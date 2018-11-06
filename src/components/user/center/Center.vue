@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <!--背景图-->
     <div class="center-bg">
       <x-header>个人中心</x-header>
@@ -110,7 +109,6 @@
       font-size: 14px;
     }
   }
-
 
   .user {
     background: #FE9494 url("../../../assets/images/icon/user-icon_13.png") no-repeat;
