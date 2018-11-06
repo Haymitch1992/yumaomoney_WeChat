@@ -14,6 +14,11 @@
         </div>
       </masker>
     </div>
+    <div style="margin: 10px;overflow: hidden;">
+      <masker style="border-radius: 2px;" :opacity="0">
+        <div class="m-img" :style="{backgroundImage: 'url(' + href + msg.wechatBanner + ')'}"></div>
+      </masker>
+    </div>
   </div>
 </template>
 
@@ -31,7 +36,16 @@
     data () {
       return {
         href: '',
-        list: []
+        list: [],
+        msg: {
+          moreText: '关于活动详情可咨询400-887-4777',
+          moreText2: '更多精彩内容请随时关注鱼猫金服官方微信平台',
+          moreText3: '鱼猫金服拥有活动最终的解释权',
+          startTime: '2018年5月31日',
+          status: '1',
+          title: '温馨提示',
+          wechatBanner: '/activity/banner-wechat-000.png'
+        }
       }
     },
     methods: {
@@ -98,6 +112,12 @@
     font-size: 12px;
     padding-top: 4px;
     border-top: 1px solid #f0f0f0;
+    display: inline-block;
+    margin-top: 5px;
+  }
+
+  .m-text {
+    font-size: 12px;
     display: inline-block;
     margin-top: 5px;
   }
