@@ -91,20 +91,32 @@ export default new Router({
       children: [
         {
           path: '/',
-          component: Start
+          component: Start,
+          meta: {
+            isLogin: false
+          }
         },
         {
           path: 'gesture',
-          component: Gesture
+          component: Gesture,
+          meta: {
+            isLogin: false
+          }
         },
         {
           path: 'guide',
-          component: Guide
+          component: Guide,
+          meta: {
+            isLogin: false
+          }
         },
         {
           path: 'login',
           name: 'login',
-          component: Login
+          component: Login,
+          meta: {
+            isLogin: false
+          }
         },
         {
           path: 'registered',
@@ -112,12 +124,18 @@ export default new Router({
           children: [
             {
               path: '/',
-              component: Registered
+              component: Registered,
+              meta: {
+                isLogin: false
+              }
             },
             {
               path: 'registeredDetail',
               name: 'registeredDetail',
-              component: RegisteredDetail
+              component: RegisteredDetail,
+              meta: {
+                isLogin: false
+              }
             }
           ]
         },
@@ -127,12 +145,18 @@ export default new Router({
           children: [
             {
               path: '/',
-              component: Forget
+              component: Forget,
+              meta: {
+                isLogin: false
+              }
             },
             {
               path: 'reset',
               name: 'reset',
-              component: Reset
+              component: Reset,
+              meta: {
+                isLogin: false
+              }
             }
           ]
         }
@@ -145,12 +169,18 @@ export default new Router({
         {
           path: '/',
           name: 'lending',
-          component: Lending
+          component: Lending,
+          meta: {
+            isLogin: false
+          }
         },
         {
           path: 'financeDetail',
           name: 'financeDetail',
-          component: FinanceDetail
+          component: FinanceDetail,
+          meta: {
+            isLogin: true
+          }
         },
         {
           path: 'calculator',
@@ -159,18 +189,27 @@ export default new Router({
             {
               path: '/',
               name: 'calculator',
-              component: Calculator
+              component: Calculator,
+              meta: {
+                isLogin: true
+              }
             },
             {
               path: 'calculatorDetail',
               name: 'calculatorDetail',
-              component: CalculatorDetail
+              component: CalculatorDetail,
+              meta: {
+                isLogin: true
+              }
             }
           ]
         },
         {
           path: 'confirmInvestment',
-          component: ConfirmInvestment
+          component: ConfirmInvestment,
+          meta: {
+            isLogin: true
+          }
         }
       ]
     },
@@ -181,11 +220,17 @@ export default new Router({
         {
           path: '/',
           name: 'home',
-          component: Home
+          component: Home,
+          meta: {
+            isLogin: false
+          }
         },
         {
           path: 'safety',
-          component: Safety
+          component: Safety,
+          meta: {
+            isLogin: false
+          }
         },
         {
           path: 'disclosure',
@@ -194,72 +239,123 @@ export default new Router({
             {
               path: '/',
               name: 'disclosure',
-              component: Disclosure
+              component: Disclosure,
+              meta: {
+                isLogin: false
+              }
             },
             {
               path: 'sakeInligting',
-              component: SakeInligting
+              component: SakeInligting,
+              meta: {
+                isLogin: false
+              }
             },
             {
               path: 'tanKantore',
-              component: TanKantore
+              component: TanKantore,
+              meta: {
+                isLogin: false
+              }
             },
             {
               path: 'issues',
-              component: Issues
+              component: Issues,
+              meta: {
+                isLogin: false
+              }
             },
             {
               path: 'ouditverslag',
-              component: Ouditverslag
+              component: Ouditverslag,
+              meta: {
+                isLogin: false
+              }
             },
             {
               path: 'kwalifikasie',
-              component: Kwalifikasie
+              component: Kwalifikasie,
+              meta: {
+                isLogin: false
+              }
             },
             {
               path: 'memorabilia',
-              component: Memorabilia
+              component: Memorabilia,
+              meta: {
+                isLogin: false
+              }
             },
             {
               path: 'execsTeam',
-              component: ExecsTeam
+              component: ExecsTeam,
+              meta: {
+                isLogin: false
+              }
             },
             {
               path: 'groupArchitecture',
-              component: GroupArchitecture
+              component: GroupArchitecture,
+              meta: {
+                isLogin: false
+              }
             },
             {
               path: 'employees',
-              component: Employees
+              component: Employees,
+              meta: {
+                isLogin: false
+              }
             },
             {
               path: 'operationData',
-              component: OperationData
+              component: OperationData,
+              meta: {
+                isLogin: false
+              }
             },
             {
               path: 'operationReport',
-              component: OperationReport
+              component: OperationReport,
+              meta: {
+                isLogin: false
+              }
             },
             {
               path: 'websiteNotice',
-              component: WebsiteNotice
+              component: WebsiteNotice,
+              meta: {
+                isLogin: false
+              }
             },
             {
               path: 'repayment',
-              component: Repayment
+              component: Repayment,
+              meta: {
+                isLogin: false
+              }
             },
             {
               path: 'payNotice',
-              component: PayNotice
+              component: PayNotice,
+              meta: {
+                isLogin: false
+              }
             },
             {
               path: 'mediaReport',
-              component: MediaReport
+              component: MediaReport,
+              meta: {
+                isLogin: false
+              }
             },
             {
               path: 'noticeDetail',
               name: 'noticeDetail',
-              component: NoticeDetail
+              component: NoticeDetail,
+              meta: {
+                isLogin: false
+              }
             }
           ]
         }
@@ -267,7 +363,10 @@ export default new Router({
     },
     {
       path: '/events',
-      component: Events
+      component: Events,
+      meta: {
+        isLogin: false
+      }
     },
     {
       path: '/user',
@@ -275,11 +374,17 @@ export default new Router({
       children: [
         {
           path: '/',
-          component: User
+          component: User,
+          meta: {
+            isLogin: true
+          }
         },
         {
           path: 'aboutMe',
-          component: AboutMe
+          component: AboutMe,
+          meta: {
+            isLogin: true
+          }
         },
         {
           path: 'center',
@@ -287,23 +392,38 @@ export default new Router({
           children: [
             {
               path: '/',
-              component: Center
+              component: Center,
+              meta: {
+                isLogin: true
+              }
             },
             {
               path: 'member',
-              component: Member
+              component: Member,
+              meta: {
+                isLogin: true
+              }
             },
             {
               path: 'changeNumber',
-              component: ChangeNumber
+              component: ChangeNumber,
+              meta: {
+                isLogin: true
+              }
             },
             {
               path: 'changeCard',
-              component: ChangeCard
+              component: ChangeCard,
+              meta: {
+                isLogin: true
+              }
             },
             {
               path: 'question',
-              component: Question
+              component: Question,
+              meta: {
+                isLogin: true
+              }
             }
           ]
         },
@@ -313,7 +433,10 @@ export default new Router({
           children: [
             {
               path: '/',
-              component: Setting
+              component: Setting,
+              meta: {
+                isLogin: true
+              }
             },
             {
               path: 'safe',
@@ -321,29 +444,47 @@ export default new Router({
               children: [
                 {
                   path: '/',
-                  component: Safe
+                  component: Safe,
+                  meta: {
+                    isLogin: true
+                  }
                 },
                 {
                   path: 'setGesture',
-                  component: SetGesture
+                  component: SetGesture,
+                  meta: {
+                    isLogin: true
+                  }
                 },
                 {
                   path: 'reviseGesture',
-                  component: ReviseGesture
+                  component: ReviseGesture,
+                  meta: {
+                    isLogin: true
+                  }
                 },
                 {
                   path: 'reviseLogin',
-                  component: ReviseLogin
+                  component: ReviseLogin,
+                  meta: {
+                    isLogin: true
+                  }
                 },
                 {
                   path: 'reviseDeal',
-                  component: ReviseDeal
+                  component: ReviseDeal,
+                  meta: {
+                    isLogin: true
+                  }
                 }
               ]
             },
             {
               path: 'thirdParty',
-              component: ThirdParty
+              component: ThirdParty,
+              meta: {
+                isLogin: true
+              }
             },
             {
               path: 'address',
@@ -351,17 +492,26 @@ export default new Router({
               children: [
                 {
                   path: '/',
-                  component: Address
+                  component: Address,
+                  meta: {
+                    isLogin: true
+                  }
                 },
                 {
                   path: 'consignee',
                   name: 'consignee',
-                  component: Consignee
+                  component: Consignee,
+                  meta: {
+                    isLogin: true
+                  }
                 },
                 {
                   path: 'consigneeEdit',
                   name: 'consigneeEdit',
-                  component: ConsigneeEdit
+                  component: ConsigneeEdit,
+                  meta: {
+                    isLogin: true
+                  }
                 }
               ]
             },
@@ -371,23 +521,38 @@ export default new Router({
               children: [
                 {
                   path: '/',
-                  component: About
+                  component: About,
+                  meta: {
+                    isLogin: true
+                  }
                 },
                 {
                   path: 'introduced',
-                  component: Introduced
+                  component: Introduced,
+                  meta: {
+                    isLogin: true
+                  }
                 },
                 {
                   path: 'score',
-                  component: Score
+                  component: Score,
+                  meta: {
+                    isLogin: true
+                  }
                 },
                 {
                   path: 'statement',
-                  component: Statement
+                  component: Statement,
+                  meta: {
+                    isLogin: true
+                  }
                 },
                 {
                   path: 'agreement',
-                  component: Agreement
+                  component: Agreement,
+                  meta: {
+                    isLogin: true
+                  }
                 }
               ]
             }
@@ -396,15 +561,24 @@ export default new Router({
         {
           path: 'assets',
           name: 'assets',
-          component: Assets
+          component: Assets,
+          meta: {
+            isLogin: true
+          }
         },
         {
           path: 'cash',
-          component: Cash
+          component: Cash,
+          meta: {
+            isLogin: true
+          }
         },
         {
           path: 'recharge',
-          component: Recharge
+          component: Recharge,
+          meta: {
+            isLogin: true
+          }
         },
         {
           path: 'investment',
@@ -412,37 +586,61 @@ export default new Router({
           children: [
             {
               path: '/',
-              component: Investment
+              component: Investment,
+              meta: {
+                isLogin: true
+              }
             },
             {
               path: 'investmentDetail',
-              component: InvestmentDetail
+              component: InvestmentDetail,
+              meta: {
+                isLogin: true
+              }
             },
             {
               path: 'contract',
-              component: Contract
+              component: Contract,
+              meta: {
+                isLogin: true
+              }
             }
           ]
         },
         {
           path: 'calendar',
-          component: Calendar
+          component: Calendar,
+          meta: {
+            isLogin: true
+          }
         },
         {
           path: 'note',
-          component: Note
+          component: Note,
+          meta: {
+            isLogin: true
+          }
         },
         {
           path: 'calendar',
-          component: Calendar
+          component: Calendar,
+          meta: {
+            isLogin: true
+          }
         },
         {
           path: 'coupons',
-          component: Coupons
+          component: Coupons,
+          meta: {
+            isLogin: true
+          }
         },
         {
           path: 'experience',
-          component: Experience
+          component: Experience,
+          meta: {
+            isLogin: true
+          }
         },
         {
           path: 'message',
@@ -450,28 +648,43 @@ export default new Router({
           children: [
             {
               path: '/',
-              component: Message
+              component: Message,
+              meta: {
+                isLogin: true
+              }
             },
             {
               path: 'messageDetail',
-              component: MessageDetail
+              component: MessageDetail,
+              meta: {
+                isLogin: true
+              }
             },
             {
               path: 'pushSettings',
               name: 'pushSettings',
-              component: PushSettings
+              component: PushSettings,
+              meta: {
+                isLogin: true
+              }
             }
           ]
         },
         {
           path: 'auto',
           name: 'auto',
-          component: Auto
+          component: Auto,
+          meta: {
+            isLogin: true
+          }
         },
         {
           path: 'autoEdit',
           name: 'autoEdit',
-          component: AutoEdit
+          component: AutoEdit,
+          meta: {
+            isLogin: true
+          }
         },
         {
           path: 'invited',
@@ -479,12 +692,18 @@ export default new Router({
           children: [
             {
               path: '/',
-              component: Invited
+              component: Invited,
+              meta: {
+                isLogin: true
+              }
             },
             {
               path: 'invitedDetail',
               name: 'invitedDetail',
-              component: InvitedDetail
+              component: InvitedDetail,
+              meta: {
+                isLogin: true
+              }
             }
           ]
         },
@@ -494,20 +713,32 @@ export default new Router({
           children: [
             {
               path: '/',
-              component: ContactUs
+              component: ContactUs,
+              meta: {
+                isLogin: true
+              }
             },
             {
               path: 'help',
-              component: Help
+              component: Help,
+              meta: {
+                isLogin: true
+              }
             },
             {
               path: 'helpDetail',
               name: 'helpDetail',
-              component: HelpDetail
+              component: HelpDetail,
+              meta: {
+                isLogin: true
+              }
             },
             {
               path: 'feedback',
-              component: Feedback
+              component: Feedback,
+              meta: {
+                isLogin: true
+              }
             }
           ]
         }
@@ -515,3 +746,39 @@ export default new Router({
     }
   ]
 })
+
+// Router.beforeEach((to, from, next) => {
+//   // 获取用户登录成功后储存的登录标志
+//   let getFlag = localStorage.getItem('Flag')
+//   // 如果登录标志存在且为isLogin，即用户已登录
+//   if (getFlag === 'isLogin') {
+//     // 设置vuex登录状态为已登录
+//     store.state.isLogin = true
+//     next()
+//     // 如果已登录，还想想进入登录注册界面，则定向回首页
+//     if (!to.meta.isLogin) {
+//       // iViewUi友好提示
+//       iView.Message.error('请先退出登录')
+//       next({
+//         path: '/home'
+//       })
+//     }
+//     // 如果登录标志不存在，即未登录
+//   } else {
+//     // 用户想进入需要登录的页面，则定向回登录界面
+//     if (to.meta.isLogin) {
+//       next({
+//         path: '/login'
+//       })
+//       // iViewUi友好提示
+//       iView.Message.info('请先登录')
+//       // 用户进入无需登录的界面，则跳转继续
+//     } else {
+//       next()
+//     }
+//   }
+// })
+//
+// Router.afterEach(route => {
+//   window.scroll(0, 0)
+// })

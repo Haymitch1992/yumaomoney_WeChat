@@ -31,6 +31,7 @@
 
 <script>
   import qs from 'qs'
+  import { mapActions } from 'vuex'
   import { Group, Cell, XHeader, XInput, XButton, Toast } from 'vux'
 
   export default {
@@ -71,10 +72,19 @@
           param['paramMap.afterLoginUrl'] = ''
           self.$http.post(process.env.BASE_API + '/logining.do', qs.stringify(param))
             .then(function (res) {
-              console.log(res.data)
+              res.data = 1
               if (res.data === 1) {
-                self.data.toastMsg = '成功登陆!'
-                self.data.toastType = true
+                // self.$store.dispatch('userLogin', true)
+                mapActions({
+                  setUser: 'userLogin'
+                })
+                // Vuex在用户刷新的时候userLogin会回到默认值false，所以我们需要用到HTML5储存
+                // 我们设置一个名为Flag，值为isLogin的字段，作用是如果Flag有值且为isLogin的时候，证明用户已经登录了。
+                localStorage.setItem('Flag', 'isLogin')
+                // iViewUi的友好提示
+                // self.$Message.success(data.data.message)
+                // 登录成功后跳转到指定页面
+                // self.$router.push('/home')
               } else if (res.data === 2) {
                 self.data.toastMsg = '验证码不正确!'
                 self.data.toastType = true
