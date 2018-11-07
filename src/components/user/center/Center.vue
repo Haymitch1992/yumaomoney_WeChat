@@ -30,7 +30,7 @@
     </div>
     <div class="pt20 ">
       <div class="submit-box">
-        <x-button @click.native="iconType = 'success'" type="primary">安全退出</x-button>
+        <x-button @click.native="logout" type="primary">安全退出</x-button>
       </div>
     </div>
   </div>
@@ -56,6 +56,12 @@
       init () {
         var self = this
         self.href = window.location.origin
+      },
+      logout () {
+        var self = this
+        window.localStorage.clear()
+        window.sessionStorage.clear()
+        self.$router.push('/home')
       }
     },
     created () {
