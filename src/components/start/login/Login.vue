@@ -74,7 +74,7 @@
             .then(function (res) {
               res.data = 1
               if (res.data === 1) {
-                // self.$store.dispatch('userLogin', true)
+                self.$store.dispatch('userLogin', true)
                 mapActions({
                   setUser: 'userLogin'
                 })
@@ -84,7 +84,7 @@
                 // iViewUi的友好提示
                 // self.$Message.success(data.data.message)
                 // 登录成功后跳转到指定页面
-                // self.$router.push('/home')
+                self.$router.push('/home')
               } else if (res.data === 2) {
                 self.data.toastMsg = '验证码不正确!'
                 self.data.toastType = true

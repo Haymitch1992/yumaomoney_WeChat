@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+// import store from '../store/index'
 import Container from '../components/container/Container'
 import Start from '../components/start/Start'
 import Gesture from '../components/start/gesture/Gesture'
@@ -145,18 +146,12 @@ export default new Router({
           children: [
             {
               path: '/',
-              component: Forget,
-              meta: {
-                isLogin: false
-              }
+              component: Forget
             },
             {
               path: 'reset',
               name: 'reset',
-              component: Reset,
-              meta: {
-                isLogin: false
-              }
+              component: Reset
             }
           ]
         }
@@ -169,18 +164,12 @@ export default new Router({
         {
           path: '/',
           name: 'lending',
-          component: Lending,
-          meta: {
-            isLogin: false
-          }
+          component: Lending
         },
         {
           path: 'financeDetail',
           name: 'financeDetail',
-          component: FinanceDetail,
-          meta: {
-            isLogin: true
-          }
+          component: FinanceDetail
         },
         {
           path: 'calculator',
@@ -220,17 +209,11 @@ export default new Router({
         {
           path: '/',
           name: 'home',
-          component: Home,
-          meta: {
-            isLogin: false
-          }
+          component: Home
         },
         {
           path: 'safety',
-          component: Safety,
-          meta: {
-            isLogin: false
-          }
+          component: Safety
         },
         {
           path: 'disclosure',
@@ -239,123 +222,72 @@ export default new Router({
             {
               path: '/',
               name: 'disclosure',
-              component: Disclosure,
-              meta: {
-                isLogin: false
-              }
+              component: Disclosure
             },
             {
               path: 'sakeInligting',
-              component: SakeInligting,
-              meta: {
-                isLogin: false
-              }
+              component: SakeInligting
             },
             {
               path: 'tanKantore',
-              component: TanKantore,
-              meta: {
-                isLogin: false
-              }
+              component: TanKantore
             },
             {
               path: 'issues',
-              component: Issues,
-              meta: {
-                isLogin: false
-              }
+              component: Issues
             },
             {
               path: 'ouditverslag',
-              component: Ouditverslag,
-              meta: {
-                isLogin: false
-              }
+              component: Ouditverslag
             },
             {
               path: 'kwalifikasie',
-              component: Kwalifikasie,
-              meta: {
-                isLogin: false
-              }
+              component: Kwalifikasie
             },
             {
               path: 'memorabilia',
-              component: Memorabilia,
-              meta: {
-                isLogin: false
-              }
+              component: Memorabilia
             },
             {
               path: 'execsTeam',
-              component: ExecsTeam,
-              meta: {
-                isLogin: false
-              }
+              component: ExecsTeam
             },
             {
               path: 'groupArchitecture',
-              component: GroupArchitecture,
-              meta: {
-                isLogin: false
-              }
+              component: GroupArchitecture
             },
             {
               path: 'employees',
-              component: Employees,
-              meta: {
-                isLogin: false
-              }
+              component: Employees
             },
             {
               path: 'operationData',
-              component: OperationData,
-              meta: {
-                isLogin: false
-              }
+              component: OperationData
             },
             {
               path: 'operationReport',
-              component: OperationReport,
-              meta: {
-                isLogin: false
-              }
+              component: OperationReport
             },
             {
               path: 'websiteNotice',
-              component: WebsiteNotice,
-              meta: {
-                isLogin: false
-              }
+              component: WebsiteNotice
             },
             {
               path: 'repayment',
-              component: Repayment,
-              meta: {
-                isLogin: false
-              }
+              component: Repayment
             },
             {
               path: 'payNotice',
-              component: PayNotice,
-              meta: {
-                isLogin: false
-              }
+              component: PayNotice
             },
             {
               path: 'mediaReport',
-              component: MediaReport,
-              meta: {
-                isLogin: false
-              }
+              component: MediaReport
             },
             {
               path: 'noticeDetail',
               name: 'noticeDetail',
-              component: NoticeDetail,
-              meta: {
-                isLogin: false
-              }
+              component: NoticeDetail
             }
           ]
         }
@@ -363,10 +295,7 @@ export default new Router({
     },
     {
       path: '/events',
-      component: Events,
-      meta: {
-        isLogin: false
-      }
+      component: Events
     },
     {
       path: '/user',
@@ -381,10 +310,7 @@ export default new Router({
         },
         {
           path: 'aboutMe',
-          component: AboutMe,
-          meta: {
-            isLogin: true
-          }
+          component: AboutMe
         },
         {
           path: 'center',
@@ -746,39 +672,3 @@ export default new Router({
     }
   ]
 })
-
-// Router.beforeEach((to, from, next) => {
-//   // 获取用户登录成功后储存的登录标志
-//   let getFlag = localStorage.getItem('Flag')
-//   // 如果登录标志存在且为isLogin，即用户已登录
-//   if (getFlag === 'isLogin') {
-//     // 设置vuex登录状态为已登录
-//     store.state.isLogin = true
-//     next()
-//     // 如果已登录，还想想进入登录注册界面，则定向回首页
-//     if (!to.meta.isLogin) {
-//       // iViewUi友好提示
-//       iView.Message.error('请先退出登录')
-//       next({
-//         path: '/home'
-//       })
-//     }
-//     // 如果登录标志不存在，即未登录
-//   } else {
-//     // 用户想进入需要登录的页面，则定向回登录界面
-//     if (to.meta.isLogin) {
-//       next({
-//         path: '/login'
-//       })
-//       // iViewUi友好提示
-//       iView.Message.info('请先登录')
-//       // 用户进入无需登录的界面，则跳转继续
-//     } else {
-//       next()
-//     }
-//   }
-// })
-//
-// Router.afterEach(route => {
-//   window.scroll(0, 0)
-// })

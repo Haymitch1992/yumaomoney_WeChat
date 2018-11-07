@@ -92,5 +92,7 @@ yumaomoney_WeChat
 * [vux如何修改主题配色](https://segmentfault.com/q/1010000008365249?sort=created)
 * [vux登录注册并保持登录状态](https://blog.csdn.net/sinat_17775997/article/details/83450620)
 * [vux登录注册并保持登录状态](https://segmentfault.com/a/1190000005780326)
+* [报错处理：router is not defined](https://segmentfault.com/q/1010000014461113)
+
 
 For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
