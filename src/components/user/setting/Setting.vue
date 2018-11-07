@@ -26,8 +26,10 @@
     },
     methods: {
       handleClear () {
+        var self = this
         window.localStorage.clear()
         window.sessionStorage.clear()
+        self.$router.push('/home')
       }
     }
   }

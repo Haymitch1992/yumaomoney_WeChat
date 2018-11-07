@@ -72,7 +72,7 @@
             <h5>传真：010-67043722</h5>
           </div>
           <div style="padding:15px 50px;">
-            <x-button link="/reg" type="primary">立即注册</x-button>
+            <x-button link="/start/registered" type="primary">立即注册</x-button>
           </div>
         </div>
       </group>
