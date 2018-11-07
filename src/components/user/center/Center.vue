@@ -59,8 +59,8 @@
       },
       logout () {
         var self = this
-        window.localStorage.clear()
-        window.sessionStorage.clear()
+        window.localStorage.removeItem('Flag')
+        self.$store.dispatch('setUser', false)
         self.$router.push('/home')
       }
     },
