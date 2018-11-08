@@ -9,13 +9,19 @@
 
         <!--官方公告-->
         <div class="notice">
-          <span class="noticeIcon"></span>
-          <ul class="noticeList" ref="noticeList">
-            <li v-for="item in notice_list">
-              <a :href="item.url">{{item.title}}</a>
-            </li>
-          </ul>
-          <span class="noticeMore"></span>
+          <flexbox>
+            <flexbox-item :span="1/8">
+              <span class="noticeIcon"></span>
+            </flexbox-item>
+            <flexbox-item>
+              <marquee>
+                <marquee-item v-for="item in notice_list" :key="item.id" :link="item.url" class="align-middle">{{item.title}}</marquee-item>
+              </marquee>
+            </flexbox-item>
+            <flexbox-item :span="1/8">
+              <span class="noticeMore"></span>
+            </flexbox-item>
+          </flexbox>
         </div>
         <!--项目展示-->
         <div class="borrowList">
@@ -95,7 +101,7 @@
 
 <script>
   import _ from 'lodash'
-  import { XHeader, Swiper, Grid, GridItem, Group, Card, Panel, XProgress } from 'vux'
+  import { XHeader, Swiper, Grid, GridItem, Group, Card, Panel, XProgress, Marquee, MarqueeItem, Flexbox, FlexboxItem } from 'vux'
 
   export default {
     name: 'Home',
@@ -107,21 +113,28 @@
       Group,
       Card,
       Panel,
-      XProgress
+      XProgress,
+      Marquee,
+      MarqueeItem,
+      Flexbox,
+      FlexboxItem
     },
     data () {
       return {
         swiper_list: [],
         notice_list: [
           {
+            id: '1',
             url: 'a',
             title: '鱼猫金服快捷支付限额表1'
           },
           {
+            id: '2',
             url: 'b',
             title: '鱼猫金服快捷支付限额表2'
           },
           {
+            id: '3',
             url: 'b',
             title: '鱼猫金服快捷支付限额表3'
           }
@@ -217,7 +230,6 @@
 .borrowList{
   margin-top:6px;
   background: #fff;
-
   font-size: 12px;
   .borrow-item{
     width: 100%;
@@ -350,21 +362,6 @@
     background-size: cover;
     display: block;
     float: left;
-    margin-top: 10px;
-  }
-  .noticeList{
-    list-style: none;
-    float: left;
-    position: relative;
-    top:0;
-    li{
-      font-size: 14px;
-      color: #666;
-      padding-left:10px;
-      a{
-        color: #666;
-      }
-    }
   }
   .noticeMore{
     width:22px;
@@ -373,7 +370,6 @@
     background-size: cover;
     display: block;
     float: right;
-    margin-top: 10px;
   }
 }
 
