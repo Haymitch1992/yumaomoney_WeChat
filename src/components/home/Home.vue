@@ -10,7 +10,7 @@
         <!--官方公告-->
         <div class="notice">
           <flexbox>
-            <flexbox-item :span="1/8">
+            <flexbox-item :span="1/12">
               <span class="noticeIcon"></span>
             </flexbox-item>
             <flexbox-item>
@@ -18,7 +18,7 @@
                 <marquee-item v-for="item in notice_list" :key="item.id" :link="item.url" class="align-middle">{{item.title}}</marquee-item>
               </marquee>
             </flexbox-item>
-            <flexbox-item :span="1/8">
+            <flexbox-item :span="1/12">
               <span class="noticeMore"></span>
             </flexbox-item>
           </flexbox>
