@@ -11,7 +11,7 @@
         <div class="userContent fl">
           <div class="h30">188****6369</div>
           <div class="h30 ">
-            <span class="mini-card textA">VIP0</span>
+            <span class="mini-card vipStatus" :class="'v'+level">VIP{{level}}</span>
             <span class="mini-card textB">已实名</span>
             <span class="mini-card textC">已开通存管</span>
           </div>
@@ -49,7 +49,8 @@
     },
     data () {
       return {
-        href: ''
+        href: '',
+        level: 1
       }
     },
     methods: {
@@ -94,8 +95,33 @@
         margin-top:4px;
       }
     }
-    .textA{
-      background: #CCCCCC;
+    .vipStatus.v0{
+      background: #C2C9D3;
+      color: #666;
+    }
+    .vipStatus.v1{
+      background: #F6C2AC;
+      color: #8A6556;
+    }
+    .vipStatus.v2{
+      background: #C2C9D3;
+      color: #666;
+    }
+    .vipStatus.v3{
+      background: #E0B56C;
+      color: #946D31;
+    }
+    .vipStatus.v4{
+      background: #f1eded;
+      color: #919192;
+    }
+    .vipStatus.v5{
+      background: #F8CBAA;
+      color: #946D31;
+    }
+    .vipStatus.v6{
+      background: #2D2D2D;
+      color: #FCD4AF;
     }
     .textB{
       background: #FE9494;
