@@ -48,9 +48,9 @@
       <div class="balanceRow">
         <grid :show-lr-borders="false" >
             <div class="m10 f14 fl">账户余额：<span v-show="active">2000000.23</span><span v-show="!active">****</span>元</div>
-            <div class="m10 f14 fr textC" @click="jump('/user/recharge')">充值</div>
+          <div class="m10 f14 fr" @click="jump('/user/cash')">提现</div>
             <div class="splitLine fr"></div>
-            <div class="m10 f14 fr" @click="jump('/user/cash')">提现</div>
+          <div class="m10 f14 fr textC" @click="jump('/user/recharge')">充值</div>
         </grid>
       </div>
       <grid :show-lr-borders="false" >
