@@ -9,7 +9,9 @@
     <group  v-show="list.listType === 1" label-width="4.5em" label-margin-right="2em" label-align="right">
       <div class="totalAssetsBox">
         <div class="center">总收益</div>
-        <div class="center totalAssetTitle">{{data.totalAssets}}元</div>
+        <div class="center totalAssetTitle">
+          <countup :start-val="10" :end-val="data.totalAssets" :duration="1" :decimals="2" class="title"></countup>元
+        </div>
       </div>
       <v-chart :data="genderData">
         <v-tooltip disabled/>
@@ -22,7 +24,7 @@
     <group v-show="list.listType === 2">
       <div class="assetsBox">
         <div>昨日预估收益(元)</div>
-        <div class="title">{{list.assetsAll}}</div>
+        <countup :start-val="1" :end-val="list.assetsAll" :duration="1" :decimals="2" class="title"></countup>
       </div>
       <cell title="标的" :value="list.subject"></cell>
       <cell title="体验金" :value="list.experience"></cell>
@@ -41,7 +43,7 @@
       <group>
         <div class="assetsBox">
           <div>累计收益(元)</div>
-          <div class="title">{{list.assetsAll}}</div>
+          <countup :start-val="1" :end-val="list.assetsAll" :duration="1" :decimals="2" class="title"></countup>
         </div>
         <cell title="标的" :value="list.subject"></cell>
         <cell title="体验金" :value="list.experience"></cell>
@@ -55,8 +57,7 @@
 
 <script>
   import moment from 'moment'
-//  import $ from 'jquery'
-  import { Group, Cell, XHeader, Tab, TabItem, VChart, VTooltip, VScale, VPie, VLine, VArea, VLegend, VGuide } from 'vux'
+  import { Group, Cell, XHeader, Tab, TabItem, VChart, VTooltip, VScale, VPie, VLine, VArea, VLegend, VGuide, Countup } from 'vux'
 
   const genderMap = {}
 
@@ -75,13 +76,16 @@
       VLine,
       VArea,
       VLegend,
-      VGuide
+      VGuide,
+      Countup
     },
     data () {
       return {
-        data: {},
+        data: {
+          totalAssets: 1000
+        },
         list: {
-          assetsAll: '1023.15',
+          assetsAll: 1023.15,
           subject: '1011.20',
           experience: '11.20',
           totalAssets: null,
@@ -178,7 +182,7 @@
             self.data.periodThree = parseFloat(self.data.periodThree) + 22300
             self.data.periodFour = parseFloat(self.data.periodFour) + 5100
             self.data.totalAssets = self.data.periodOne + self.data.periodTwo + self.data.periodThree * 2 + self.data.periodFour
-            self.data.totalAssets = parseFloat(self.data.totalAssets).toFixed(2)
+            self.data.totalAssets = parseFloat(self.data.totalAssets).toFixed(2) * 1
             self.initChart()
           })
           .catch(function (error) {
