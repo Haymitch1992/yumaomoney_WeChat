@@ -63,7 +63,7 @@
       </div>
     </group>
     <group>
-      <cell title="红包" value="共3个红包" is-link></cell>
+      <popup-picker title="红包" :data="redData.data" v-model="redData.value" @on-show="onShow" @on-hide="onHide" @on-change="onChange" :placeholder="redData.msg"></popup-picker>
       <tab>
         <tab-item :selected="tab.tabType === 1" @on-item-click="tab.tabType = 1">项目介绍</tab-item>
         <tab-item :selected="tab.tabType === 2" @on-item-click="tab.tabType = 2">企业信息</tab-item>
@@ -375,7 +375,7 @@
 </template>
 
 <script>
-  import { Group, Cell, XHeader, XButton, XProgress, Box, Flexbox, FlexboxItem, Flow, FlowState, FlowLine, Tab, TabItem, XTable, Grid, GridItem, GroupTitle } from 'vux'
+  import { Group, Cell, XHeader, XButton, XProgress, Box, Flexbox, FlexboxItem, Flow, FlowState, FlowLine, Tab, TabItem, XTable, Grid, GridItem, GroupTitle, PopupPicker } from 'vux'
 
   export default {
     name: 'FinanceDetail',
@@ -396,11 +396,17 @@
       XTable,
       Grid,
       GridItem,
-      GroupTitle
+      GroupTitle,
+      PopupPicker
     },
     data () {
       return {
         data: {},
+        redData: {
+          msg: '共3个红包',
+          data: [['红包1', '红包2', '红包3', '红包4', '不使用']],
+          list: ''
+        },
         tab: {
           tabType: 1
         }
