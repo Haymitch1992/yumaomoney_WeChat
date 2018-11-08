@@ -8,11 +8,13 @@
         <div class="fr" @click="goEdit(item)"><div class="edit fl"></div>编辑</div>
       </div>
     </group>
+    <actionsheet v-model="data.deleteType" :menus="deleteMmenus" @on-click-menu="click" @on-click-menu-delete="onDelete" show-cancel></actionsheet>
+    <toast type="success" v-model="data.showSuccess">成功删除</toast>
   </div>
 </template>
 
 <script>
-  import { Group, Cell, XHeader, Panel } from 'vux'
+  import { Group, Cell, XHeader, Panel, Actionsheet, Toast } from 'vux'
 
   export default {
     name: 'Address',
@@ -20,10 +22,17 @@
       Group,
       Cell,
       XHeader,
-      Panel
+      Panel,
+      Actionsheet,
+      Toast
     },
     data () {
       return {
+        data: {
+          deleteType: false,
+          showSuccess: false,
+          deleteItem: []
+        },
         list: [
           {
             panel: [{
@@ -41,7 +50,11 @@
             }],
             type: '4'
           }
-        ]
+        ],
+        deleteMmenus: {
+          'title.noop': '确定删除么？',
+          delete: '<span style="color:red">确定</span>'
+        }
       }
     },
     methods: {
@@ -58,7 +71,18 @@
         })
       },
       deleteItem (item) {
-        console.log(item)
+        var self = this
+        self.data.deleteType = true
+        self.data.deleteItem = item
+      },
+      click (key) {
+        var self = this
+        console.log(key)
+        console.log(self.data.deleteItem)
+      },
+      onDelete () {
+        var self = this
+        self.data.showSuccess = true
       }
     }
   }
