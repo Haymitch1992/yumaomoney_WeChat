@@ -424,6 +424,15 @@
         self.data = self.$route.params.data || {}
         console.log(self.data)
       },
+      onChange (val) {
+        console.log('val change', val)
+      },
+      onShow () {
+        console.log('on show')
+      },
+      onHide (type) {
+        console.log('on hide', type)
+      },
       init () {
         var self = this
         self.getFrom()
