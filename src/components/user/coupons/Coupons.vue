@@ -8,180 +8,66 @@
     </tab>
     <div v-if="list.listType === 1">
       <group title="未使用红包共5个，共计499元"></group>
-      <div class="coupons-card">
+      <div class="coupons-card" v-for="item in data.coupons">
         <div class="card-title"></div>
         <div class="card-middle">
           <div class="fl card-left">
-            <div class="left-title">50元</div>
+            <div class="left-title">{{item.money}}</div>
           </div>
           <div class="fr card-right">
-            <div class="right-title">使用范围: 全部标的</div>
+            <div class="right-title">使用范围: {{item.range}}</div>
           </div>
         </div>
         <div class="card-bottom">
           <div class="fl card-left">
-            <div class="left-content">投资: 5000抵50元</div>
+            <div class="left-content">投资: {{item.terms}}</div>
           </div>
           <div class="fr card-right">
-            <div class="right-content">有效期: 2018-08-08 09:15:00</div>
-          </div>
-        </div>
-      </div>
-      <div class="coupons-card">
-        <div class="card-title"></div>
-        <div class="card-middle">
-          <div class="fl card-left">
-            <div class="left-title">50元</div>
-          </div>
-          <div class="fr card-right">
-            <div class="right-title">使用范围: 全部标的</div>
-          </div>
-        </div>
-        <div class="card-bottom">
-          <div class="fl card-left">
-            <div class="left-content">投资: 5000抵50元</div>
-          </div>
-          <div class="fr card-right">
-            <div class="right-content">有效期: 2018-08-08 09:15:00</div>
-          </div>
-        </div>
-      </div>
-      <div class="coupons-card">
-        <div class="card-title"></div>
-        <div class="card-middle">
-          <div class="fl card-left">
-            <div class="left-title">50元</div>
-          </div>
-          <div class="fr card-right">
-            <div class="right-title">使用范围: 全部标的</div>
-          </div>
-        </div>
-        <div class="card-bottom">
-          <div class="fl card-left">
-            <div class="left-content">投资: 5000抵50元</div>
-          </div>
-          <div class="fr card-right">
-            <div class="right-content">有效期: 2018-08-08 09:15:00</div>
+            <div class="right-content">有效期: {{item.time}}</div>
           </div>
         </div>
       </div>
     </div>
     <div v-if="list.listType === 2">
       <group :gutter="37"></group>
-      <div class="coupons-card coupons-card-used">
+      <div class="coupons-card coupons-card-used" v-for="item in data.couponsUsed">
         <div class="card-title"></div>
         <div class="card-middle">
           <div class="fl card-left">
-            <div class="left-title">50元</div>
+            <div class="left-title">{{item.money}}</div>
           </div>
           <div class="fr card-right">
-            <div class="right-title">使用范围: 全部标的</div>
+            <div class="right-title">使用范围: {{item.range}}</div>
           </div>
         </div>
         <div class="card-bottom">
           <div class="fl card-left">
-            <div class="left-content">投资: 5000抵50元</div>
+            <div class="left-content">投资: {{item.terms}}</div>
           </div>
           <div class="fr card-right">
-            <div class="right-content">有效期: 2018-08-08 09:15:00</div>
-          </div>
-        </div>
-      </div>
-      <div class="coupons-card coupons-card-used">
-        <div class="card-title"></div>
-        <div class="card-middle">
-          <div class="fl card-left">
-            <div class="left-title">50元</div>
-          </div>
-          <div class="fr card-right">
-            <div class="right-title">使用范围: 全部标的</div>
-          </div>
-        </div>
-        <div class="card-bottom">
-          <div class="fl card-left">
-            <div class="left-content">投资: 5000抵50元</div>
-          </div>
-          <div class="fr card-right">
-            <div class="right-content">有效期: 2018-08-08 09:15:00</div>
-          </div>
-        </div>
-      </div>
-      <div class="coupons-card coupons-card-used">
-        <div class="card-title"></div>
-        <div class="card-middle">
-          <div class="fl card-left">
-            <div class="left-title">50元</div>
-          </div>
-          <div class="fr card-right">
-            <div class="right-title">使用范围: 全部标的</div>
-          </div>
-        </div>
-        <div class="card-bottom">
-          <div class="fl card-left">
-            <div class="left-content">投资: 5000抵50元</div>
-          </div>
-          <div class="fr card-right">
-            <div class="right-content">有效期: 2018-08-08 09:15:00</div>
+            <div class="right-content">有效期: {{item.time}}</div>
           </div>
         </div>
       </div>
     </div>
     <div v-if="list.listType === 3">
       <group :gutter="37"></group>
-      <div class="coupons-card coupons-card-expired">
+      <div class="coupons-card coupons-card-expired" v-for="item in data.couponsExpired">
         <div class="card-title"></div>
         <div class="card-middle">
           <div class="fl card-left">
-            <div class="left-title">50元</div>
+            <div class="left-title">{{item.money}}</div>
           </div>
           <div class="fr card-right">
-            <div class="right-title">使用范围: 全部标的</div>
+            <div class="right-title">使用范围: {{item.range}}</div>
           </div>
         </div>
         <div class="card-bottom">
           <div class="fl card-left">
-            <div class="left-content">投资: 5000抵50元</div>
+            <div class="left-content">投资: {{item.terms}}</div>
           </div>
           <div class="fr card-right">
-            <div class="right-content">有效期: 2018-08-08 09:15:00</div>
-          </div>
-        </div>
-      </div>
-      <div class="coupons-card coupons-card-expired">
-        <div class="card-title"></div>
-        <div class="card-middle">
-          <div class="fl card-left">
-            <div class="left-title">50元</div>
-          </div>
-          <div class="fr card-right">
-            <div class="right-title">使用范围: 全部标的</div>
-          </div>
-        </div>
-        <div class="card-bottom">
-          <div class="fl card-left">
-            <div class="left-content">投资: 5000抵50元</div>
-          </div>
-          <div class="fr card-right">
-            <div class="right-content">有效期: 2018-08-08 09:15:00</div>
-          </div>
-        </div>
-      </div>
-      <div class="coupons-card coupons-card-expired">
-        <div class="card-title"></div>
-        <div class="card-middle">
-          <div class="fl card-left">
-            <div class="left-title">50元</div>
-          </div>
-          <div class="fr card-right">
-            <div class="right-title">使用范围: 全部标的</div>
-          </div>
-        </div>
-        <div class="card-bottom">
-          <div class="fl card-left">
-            <div class="left-content">投资: 5000抵50元</div>
-          </div>
-          <div class="fr card-right">
-            <div class="right-content">有效期: 2018-08-08 09:15:00</div>
+            <div class="right-content">有效期: {{item.time}}</div>
           </div>
         </div>
       </div>
@@ -203,6 +89,68 @@
     },
     data () {
       return {
+        data: {
+          coupons: [
+            {
+              money: '50元',
+              range: '全部标的',
+              terms: '5000抵50元',
+              time: '2018-08-08 09:15:00'
+            },
+            {
+              money: '50元',
+              range: '全部标的',
+              terms: '5000抵50元',
+              time: '2018-08-08 09:15:00'
+            },
+            {
+              money: '50元',
+              range: '全部标的',
+              terms: '5000抵50元',
+              time: '2018-08-08 09:15:00'
+            }
+          ],
+          couponsUsed: [
+            {
+              money: '50元',
+              range: '全部标的',
+              terms: '5000抵50元',
+              time: '2018-08-08 09:15:00'
+            },
+            {
+              money: '50元',
+              range: '全部标的',
+              terms: '5000抵50元',
+              time: '2018-08-08 09:15:00'
+            },
+            {
+              money: '50元',
+              range: '全部标的',
+              terms: '5000抵50元',
+              time: '2018-08-08 09:15:00'
+            }
+          ],
+          couponsExpired: [
+            {
+              money: '50元',
+              range: '全部标的',
+              terms: '5000抵50元',
+              time: '2018-08-08 09:15:00'
+            },
+            {
+              money: '50元',
+              range: '全部标的',
+              terms: '5000抵50元',
+              time: '2018-08-08 09:15:00'
+            },
+            {
+              money: '50元',
+              range: '全部标的',
+              terms: '5000抵50元',
+              time: '2018-08-08 09:15:00'
+            }
+          ]
+        },
         list: {
           listType: 1
         }
