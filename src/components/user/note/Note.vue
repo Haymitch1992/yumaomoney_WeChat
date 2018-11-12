@@ -9,14 +9,10 @@
       <tab-item :selected="tab.tabType === 5" @on-item-click="tab.tabType = 5">其他</tab-item>
     </tab>
     <group title="成功充值：123456789.45元" v-if="tab.tabType === 1">
-      <cell title="+10000.00元" inline-desc='2017-12-23 16:00:00' value="网银充值"></cell>
-      <cell title="+20000.00元" inline-desc='2017-12-23 16:00:00' value="快捷充值"></cell>
-      <cell title="+10000.00元" inline-desc='2017-12-23 16:00:00' value="网银充值"></cell>
+      <cell :title="item.title" :inline-desc='item.time' :value="item.value" :key="item.id" v-for="item in data.recharge"></cell>
     </group>
     <group title="累计提现成功：123456789.45元" v-if="tab.tabType === 2">
-      <cell title="-10000.00元" inline-desc='2017-12-23 16:00:00' value="T+1"></cell>
-      <cell title="-20000.00元" inline-desc='2017-12-23 16:00:00' value="T+0"></cell>
-      <cell title="-10000.00元" inline-desc='2017-12-23 16:00:00' value="提现失败"></cell>
+      <cell :title="item.title" :inline-desc='item.time' :value="item.value" :key="item.id" v-for="item in data.cash"></cell>
     </group>
     <div v-if="tab.tabType === 3">
       <group title="累计提现成功：123456789.45元" label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in list" :key="item.key" v-if="item.index === 0">
@@ -27,15 +23,10 @@
       </group>
     </div>
     <group title="已收还款：123456789.45元" v-if="tab.tabType === 4">
-      <cell title="+10000.00元" inline-desc='2017-12-23 16:00:00' value="项目名称 本金"></cell>
-      <cell title="+20000.00元" inline-desc='2017-12-23 16:00:00' value="项目名称 还息3/3"></cell>
-      <cell title="+10000.00元" inline-desc='2017-12-23 16:00:00' value="项目名称 还息3/2"></cell>
-      <cell title="+10000.00元" inline-desc='2017-12-23 16:00:00' value="项目名称 还息3/1"></cell>
+      <cell :title="item.title" :inline-desc='item.time' :value="item.value" :key="item.id" v-for="item in data.repayment"></cell>
     </group>
     <group title="累计收益：123456789.45元" v-if="tab.tabType === 5">
-      <cell title="10000.00元" inline-desc='2017-12-23 16:00:00' value="体验金利息"></cell>
-      <cell title="20000.00元" inline-desc='2017-12-23 16:00:00' value="邀请奖励"></cell>
-      <cell title="10000.00元" inline-desc='2017-12-23 16:00:00' value="逾期罚息"></cell>
+      <cell :title="item.title" :inline-desc='item.time' :value="item.value" :key="item.id" v-for="item in data.other"></cell>
     </group>
   </div>
 </template>
@@ -60,7 +51,96 @@
         tab: {
           tabType: 1
         },
-        list: []
+        list: [],
+        data: {
+          recharge: [
+            {
+              id: '1',
+              title: '+10000.00元',
+              time: '2017-12-23 16:00:00',
+              value: '网银充值'
+            },
+            {
+              id: '2',
+              title: '+20000.00元',
+              time: '2017-12-23 16:00:00',
+              value: '快捷充值'
+            },
+            {
+              id: '3',
+              title: '+10000.00元',
+              time: '2017-12-23 16:00:00',
+              value: '网银充值'
+            }
+          ],
+          cash: [
+            {
+              id: '1',
+              title: '-10000.00元',
+              time: '2017-12-23 16:00:00',
+              value: 'T+1'
+            },
+            {
+              id: '2',
+              title: '-20000.00元',
+              time: '2017-12-23 16:00:00',
+              value: 'T+0'
+            },
+            {
+              id: '3',
+              title: '-10000.00元',
+              time: '2017-12-23 16:00:00',
+              value: '提现失败'
+            }
+          ],
+          invest: [],
+          repayment: [
+            {
+              id: '1',
+              title: '+10000.00元',
+              time: '2017-12-23 16:00:00',
+              value: '项目名称 本金'
+            },
+            {
+              id: '2',
+              title: '+20000.00元',
+              time: '2017-12-23 16:00:00',
+              value: '项目名称 还息3/3'
+            },
+            {
+              id: '3',
+              title: '+10000.00元',
+              time: '2017-12-23 16:00:00',
+              value: '项目名称 还息3/2'
+            },
+            {
+              id: '4',
+              title: '+10000.00元',
+              time: '2017-12-23 16:00:00',
+              value: '项目名称 还息3/1'
+            }
+          ],
+          other: [
+            {
+              id: '1',
+              title: '10000.00元',
+              time: '2017-12-23 16:00:00',
+              value: '体验金利息'
+            },
+            {
+              id: '2',
+              title: '20000.00元',
+              time: '2017-12-23 16:00:00',
+              value: '邀请奖励'
+            },
+            {
+              id: '3',
+              title: '10000.00元',
+              time: '2017-12-23 16:00:00',
+              value: '逾期罚息'
+            }
+          ]
+        }
       }
     },
     methods: {
