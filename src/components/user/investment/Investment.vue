@@ -133,7 +133,8 @@
           })
       },
       goBack () {
-        this.$router.push({name: 'user'})
+        var self = this
+        self.$router.push('/user')
       },
       init () {
         var self = this
