@@ -15,7 +15,7 @@
         <p class="dialog-title">点击复制按钮，分享给好友吧!</p>
         <x-textarea :max="200" name="detail" :show-counter="false" v-model="detail" :height="150"></x-textarea>
         <div>
-          <x-button type="primary" v-clipboard:copy="detail" v-clipboard:success="onCopy" v-clipboard:error="onError">复制</x-button>
+          <x-button class="copyBtn" type="primary" v-clipboard:copy="detail" v-clipboard:success="onCopy" v-clipboard:error="onError">复制</x-button>
         </div>
       </x-dialog>
     </div>
@@ -164,5 +164,8 @@
   .invited .popupFull {
     width:100%;
     height:100%;
+  }
+  .invited .copyBtn {
+    border-radius: 3px;
   }
 </style>
