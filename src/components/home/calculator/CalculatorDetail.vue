@@ -66,7 +66,7 @@
         var self = this
         self.data = self.$route.params.data
         self.$cookies.set('calculatorData', self.data, '1d')
-        self.incomeData[3].sales = self.data.earnsCeiling
+        self.incomeData[3].年利率 = self.data.earnsCeiling
       },
       init () {
         var self = this
