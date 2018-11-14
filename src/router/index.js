@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import store from '../store/index'
 import Container from '../components/container/Container'
 import Start from '../components/start/Start'
 import Gesture from '../components/start/gesture/Gesture'
