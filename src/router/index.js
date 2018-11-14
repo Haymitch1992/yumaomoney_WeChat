@@ -146,12 +146,18 @@ export default new Router({
           children: [
             {
               path: '/',
-              component: Forget
+              component: Forget,
+              meta: {
+                isLogin: false
+              }
             },
             {
               path: 'reset',
               name: 'reset',
-              component: Reset
+              component: Reset,
+              meta: {
+                isLogin: false
+              }
             }
           ]
         }
