@@ -45,7 +45,7 @@
                 <dd>借款金额</dd>
               </dl>
               <div class="b-r">
-                <a href="/financeDetail.do?id=1209" class="borrow-btn">立即赚钱</a>
+                <a href="/#/lending/financeDetail?id=1209" class="borrow-btn">立即赚钱</a>
               </div>
             </div>
             <p class="earnings">万元出借预期收益<span class="margin-span">366.68</span>元</p>
@@ -70,7 +70,7 @@
                 <dd>借款金额</dd>
               </dl>
               <div class="b-r">
-                <a href="/financeDetail.do?id=1209" class="borrow-btn">立即赚钱</a>
+                <a href="/#/lending/financeDetail?id=1209" class="borrow-btn">立即赚钱</a>
               </div>
             </div>
             <p class="earnings">万元出借预期收益<span class="margin-span">366.68</span>元</p>
