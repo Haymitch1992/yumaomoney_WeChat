@@ -310,6 +310,7 @@ export default new Router({
       children: [
         {
           path: '/',
+          name: 'user',
           component: User,
           meta: {
             isLogin: true

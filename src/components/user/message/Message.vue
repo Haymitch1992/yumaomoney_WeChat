@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header :right-options="{showMore: true}" @on-click-more="goSetting()">通知中心</x-header>
+    <x-header :left-options="leftOptions" @on-click-back="goBack()" :right-options="{showMore: true}" @on-click-more="goSetting()">通知中心</x-header>
     <tab>
       <tab-item :selected="list.listType === 0" @on-item-click="changeTab(0)">全部</tab-item>
       <tab-item :selected="list.listType === 1" @on-item-click="changeTab(1)">系统</tab-item>
@@ -30,6 +30,9 @@
     },
     data () {
       return {
+        leftOptions: {
+          preventGoBack: true
+        },
         data: [
           {
             id: '1',
@@ -120,6 +123,9 @@
           name: `pushSettings`,
           params: {}
         })
+      },
+      goBack () {
+        this.$router.push({name: 'user'})
       },
       init () {
         var self = this

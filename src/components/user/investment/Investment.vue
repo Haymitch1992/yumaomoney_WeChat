@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header>我的投资</x-header>
+    <x-header :left-options="leftOptions" @on-click-back="goBack()">我的投资</x-header>
     <tab style="z-index: 20">
       <tab-item :selected="list.listType === 1" @on-item-click="list.listType = 1">融资中</tab-item>
       <tab-item :selected="list.listType === 2" @on-item-click="list.listType = 2">还款中</tab-item>
@@ -58,6 +58,9 @@
     },
     data () {
       return {
+        leftOptions: {
+          preventGoBack: true
+        },
         list: {
           listType: 1
         },
@@ -128,6 +131,9 @@
           .catch(function (error) {
             console.log(error)
           })
+      },
+      goBack () {
+        this.$router.push({name: 'user'})
       },
       init () {
         var self = this
