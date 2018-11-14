@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header>信息详情</x-header>
+    <x-header :left-options="leftOptions" @on-click-back="goBack()">信息详情</x-header>
     <group>
       <cell title="理财投资成功报告" value="2018-10-9 23:23:23"></cell>
       <cell-form-preview :list="list"></cell-form-preview>
@@ -21,6 +21,9 @@
     },
     data () {
       return {
+        leftOptions: {
+          preventGoBack: true
+        },
         list: [
           {
             label: '您投资的借款[气泡袋应收账款转让项目],',
@@ -49,17 +52,24 @@
             label: '实得总额:',
             value: '￥329.00元'
           }
-        ]
+        ],
+        data: {}
       }
+    },
+    methods: {
+      goBack () {
+        var self = this
+        this.$router.push({name: 'message', params: {listType: self.data.listType}})
+      },
+      init () {
+        var self = this
+        self.data = self.$route.params
+        console.log(self.data)
+      }
+    },
+    created () {
+      var self = this
+      self.init()
     }
   }
 </script>
-
-<style>
-  .vux-demo {
-    text-align: center;
-  }
-  .logo {
-    width: 100px;
-  }
-</style>

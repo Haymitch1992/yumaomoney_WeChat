@@ -582,12 +582,14 @@ export default new Router({
             {
               path: '/',
               component: Message,
+              name: 'message',
               meta: {
                 isLogin: true
               }
             },
             {
               path: 'messageDetail',
+              name: 'messageDetail',
               component: MessageDetail,
               meta: {
                 isLogin: true
