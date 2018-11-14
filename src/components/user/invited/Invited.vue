@@ -9,7 +9,7 @@
       </div>
     </div>
     <div>
-      <x-dialog v-model="shareType" class="dialog-demo">
+      <x-dialog v-model="shareType" class="dialog-demo" hide-on-blur>
         <p class="dialog-title">复制链接邀请好友</p>
         <span class="dialog-title"></span>
         <p class="dialog-title">点击复制按钮，分享给好友吧!</p>
