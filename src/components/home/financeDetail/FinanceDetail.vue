@@ -35,7 +35,7 @@
       </div>
     </group>
     <group>
-      <cell title="服务介绍" is-link></cell>
+      <cell title="服务介绍" is-link link="/lending/introduction"></cell>
       <flow>
         <flow-state state="1" is-done>
           <span slot="title">投资 08.16</span>

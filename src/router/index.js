@@ -58,6 +58,7 @@ import Home from '../components/home/Home'
 import FinanceDetail from '../components/home/financeDetail/FinanceDetail'
 import Calculator from '../components/home/calculator/Calculator'
 import CalculatorDetail from '../components/home/calculator/CalculatorDetail'
+import Introduction from '../components/home/introduction/Introduction'
 import ConfirmInvestment from '../components/home/confirmInvestment/ConfirmInvestment'
 import Safety from '../components/home/safety/Safety'
 import Disclosure from '../components/home/disclosure/Disclosure'
@@ -192,6 +193,13 @@ export default new Router({
               }
             }
           ]
+        },
+        {
+          path: 'introduction',
+          component: Introduction,
+          meta: {
+            isLogin: true
+          }
         },
         {
           path: 'confirmInvestment',
