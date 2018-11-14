@@ -131,7 +131,7 @@
       },
       init () {
         var self = this
-        self.list.listType = self.$route.params.listType ? self.$route.params.listType : 0
+        self.list.listType = self.$route.params.listType ? self.$route.params.listType : 1
         self.getList()
       }
     },
