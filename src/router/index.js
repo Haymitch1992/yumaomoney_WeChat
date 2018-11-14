@@ -520,12 +520,14 @@ export default new Router({
             {
               path: '/',
               component: Investment,
+              name: 'investment',
               meta: {
                 isLogin: true
               }
             },
             {
               path: 'investmentDetail',
+              name: 'investmentDetail',
               component: InvestmentDetail,
               meta: {
                 isLogin: true

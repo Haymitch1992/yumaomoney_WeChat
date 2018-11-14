@@ -2,17 +2,17 @@
   <div>
     <x-header>我的投资</x-header>
     <tab style="z-index: 20">
-      <tab-item :selected="tab.tabType === 1" @on-item-click="tab.tabType = 1">融资中</tab-item>
-      <tab-item :selected="tab.tabType === 2" @on-item-click="tab.tabType = 2">还款中</tab-item>
-      <tab-item :selected="tab.tabType === 3" @on-item-click="tab.tabType = 3">已还清</tab-item>
+      <tab-item :selected="list.listType === 1" @on-item-click="list.listType = 1">融资中</tab-item>
+      <tab-item :selected="list.listType === 2" @on-item-click="list.listType = 2">还款中</tab-item>
+      <tab-item :selected="list.listType === 3" @on-item-click="list.listType = 3">已还清</tab-item>
     </tab>
     <div style="position: relative; top: -10px; z-index: 10;">
       <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore"
                 use-pulldown :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
         <div>
-          <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in list" :key="item.key">
-            <panel :list="item.panel" :type="item.type" @on-img-error="onImgError"></panel>
+          <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in data" :key="item.key">
+            <panel :list="item.panel" :type="item.type" @on-img-error="onImgError" @click.native="goDetail(item)"></panel>
           </group>
         </div>
       </scroller>
@@ -58,10 +58,10 @@
     },
     data () {
       return {
-        tab: {
-          tabType: 1
+        list: {
+          listType: 1
         },
-        list: [],
+        data: [],
         curPage: 1,
         swiper_index: 1,
         pullupDefaultConfig: pullupDefaultConfig,
@@ -92,6 +92,13 @@
         self.getList()
       },
       /**
+       * 查看详情
+       */
+      goDetail (item) {
+        var self = this
+        this.$router.push({name: 'investmentDetail', params: {listType: self.list.listType, item: item}})
+      },
+      /**
        * 获取列表
        */
       getList () {
@@ -107,7 +114,6 @@
                   {
                     title: v.borrowTitle,
                     desc: '投资金额:' + v.borrowAmount + ' 期限：' + v.deadline,
-                    url: '/user/investment/investmentDetail?id=149',
                     meta: {
                       source: '年利率',
                       date: '7% + ' + (parseInt(v.annualRate) - 7) + '%',
@@ -116,17 +122,22 @@
                   }
                 ]
               }
-              self.list.push(item)
+              self.data.push(item)
             })
           })
           .catch(function (error) {
             console.log(error)
           })
+      },
+      init () {
+        var self = this
+        self.list.listType = self.$route.params.listType ? self.$route.params.listType : 0
+        self.getList()
       }
     },
     created () {
       var self = this
-      self.getList()
+      self.init()
     }
   }
 </script>

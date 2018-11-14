@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header>标的详情</x-header>
+    <x-header :left-options="leftOptions" @on-click-back="goBack()">标的详情</x-header>
     <group>
       <cell title="项目名称" value="测试好友邀请01"></cell>
       <cell title="合同模板" is-link link="/user/investment/contract"></cell>
@@ -60,17 +60,33 @@
     },
     data () {
       return {
+        leftOptions: {
+          preventGoBack: true
+        },
         data: {
           type: '未满标',
           time: '2018年10月09日'
-        }
+        },
+        dataBak: {}
       }
     },
     methods: {
       goFinanceDetail () {
         var self = this
         this.$router.push({name: 'financeDetail', params: self.data})
+      },
+      goBack () {
+        var self = this
+        this.$router.push({name: 'investment', params: {listType: self.dataBak.listType}})
+      },
+      init () {
+        var self = this
+        self.dataBak = self.$route.params
       }
+    },
+    created () {
+      var self = this
+      self.init()
     }
   }
 </script>

@@ -123,8 +123,8 @@
       },
       init () {
         var self = this
-        self.listType = self.$route.params.listType ? self.$route.params.listType : 0
-        self.changeTab(self.listType)
+        self.list.listType = self.$route.params.listType ? self.$route.params.listType : 0
+        self.changeTab(self.list.listType)
       }
     },
     created () {
