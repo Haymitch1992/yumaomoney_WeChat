@@ -1,26 +1,28 @@
 <template>
   <div>
     <x-header>服务介绍</x-header>
-    <div class="vux-demo">
-      <img class="logo" src="../../../assets/images/logo.png">
-    </div>
-    <group title="cell demo">
-      <cell title="第一" value="cool" is-link></cell>
-      <cell title="第二" value="cool" is-link></cell>
-      <cell title="第三" value="cool" is-link></cell>
+    <group>
+      <cell title="还款方式" value="按月付息，到期还本"></cell>
+      <cell title="标的性质" value="信用借款"></cell>
+      <cell title="截止日期" value="2018-12-18"></cell>
+      <cell title="剩余天数">
+        <clocker time="2018-12-18"></clocker>
+      </cell>
+      <cell title="借款人状态" value="企业生产经营正常"></cell>
     </group>
   </div>
 </template>
 
 <script>
-  import { Group, Cell, XHeader } from 'vux'
+  import { Group, Cell, XHeader, Clocker } from 'vux'
 
   export default {
     name: 'Introduction',
     components: {
       Group,
       Cell,
-      XHeader
+      XHeader,
+      Clocker
     },
     data () {
       return {
@@ -33,12 +35,3 @@
     }
   }
 </script>
-
-<style>
-  .vux-demo {
-    text-align: center;
-  }
-  .logo {
-    width: 100px;
-  }
-</style>
