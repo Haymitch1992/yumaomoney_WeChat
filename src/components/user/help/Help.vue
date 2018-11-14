@@ -95,7 +95,7 @@
       },
       getResult (val) {
         var self = this
-        if(val){
+        if (val) {
           self.$refs.search.setBlur()
           var reg = RegExp(val)
           self.data = _.filter(self.data, function (o) { return o.title.match(reg) })
@@ -105,7 +105,7 @@
       },
       onSubmit (val) {
         var self = this
-        if(val){
+        if (val) {
           self.$refs.search.setBlur()
           var reg = RegExp(val)
           self.data = _.filter(self.data, function (o) { return o.title.match(reg) })
