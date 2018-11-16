@@ -14,10 +14,10 @@
       <group label-width="4.5em" label-margin-right="2em" label-align="right">
         <grid :show-lr-borders="false" >
           <grid-item label="运营时间" key="0">
-            <span class="grid-center">3年8个月</span>
+            <span class="grid-center">{{data.timeYears}}年{{data.timeMonths}}个月</span>
           </grid-item>
           <grid-item label="用户投资总额" key="1">
-            <span class="grid-center">7.76亿元</span>
+            <span class="grid-center">{{data.investAmount}}亿元</span>
           </grid-item>
         </grid>
         <grid :show-lr-borders="false" >
@@ -81,6 +81,7 @@
 </template>
 
 <script>
+  import moment from 'moment'
   import { Group, Cell, XHeader, Masker, Grid, GridItem, Scroller, XButton } from 'vux'
   export default {
     name: 'aboutMe',
@@ -127,8 +128,32 @@
             msg2: '定期回访',
             key: '5'
           }
-        ]
+        ],
+        data: {}
       }
+    },
+    methods: {
+      getData () {
+        var self = this
+        self.$http.post(process.env.BASE_API + '/operationalDataInit.do?t=' + new Date().getTime(), null)
+          .then(function (res) {
+            self.data = res.data
+            self.data.investAmount = (self.data.investAmount / 100000000).toFixed(2)
+            self.data.timeYears = moment(self.data.saveDate).diff('2015-01-28', 'years')
+            self.data.timeMonths = moment(self.data.saveDate).diff('2015-01-28', 'months') % 12
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+      },
+      init () {
+        var self = this
+        self.getData()
+      }
+    },
+    created () {
+      var self = this
+      self.init()
     }
   }
 </script>

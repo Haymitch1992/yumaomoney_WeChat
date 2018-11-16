@@ -38,11 +38,6 @@
           preventGoBack: true
         }
       }
-    },
-    methods: {
-      goBack () {
-        this.$router.push({path: '/user'})
-      }
     }
   }
 </script>
