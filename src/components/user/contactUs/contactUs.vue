@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header>客服与反馈</x-header>
+    <x-header :left-options="leftOptions" @on-click-back="goBack()">客服与反馈</x-header>
 
     <group label-width="4.5em" label-margin-right="2em" label-align="right">
       <div class="ph-20">
@@ -34,6 +34,14 @@
     },
     data () {
       return {
+        leftOptions: {
+          preventGoBack: true
+        }
+      }
+    },
+    methods: {
+      goBack () {
+        this.$router.push({path: '/user'})
       }
     }
   }
