@@ -16,12 +16,13 @@
         ref="search"></search>
     </div>
     <group >
-      <cell :title="item.title" is-link :key="item.id" v-for="item in data" @click.native="goHelpDetail(item.id, item.title)"></cell>
+      <cell :title="item.question" is-link :key="item.questionId" v-for="item in data" @click.native="goHelpDetail(item.questionId, item.question)"></cell>
     </group>
   </div>
 </template>
 
 <script>
+  import qs from 'qs'
   import _ from 'lodash'
   import { Group, Cell, XHeader, Search } from 'vux'
   export default {
@@ -35,44 +36,7 @@
     data () {
       return {
         data: [],
-        list: [
-          {
-            id: '75',
-            title: '为什么要开通银行存管账户？'
-          },
-          {
-            id: '76',
-            title: '如何开通银行存管账户？'
-          },
-          {
-            id: '77',
-            title: '为什么我的存管账户开通失败？'
-          },
-          {
-            id: '116',
-            title: '开户成功后，身份证号码可以更换吗？'
-          },
-          {
-            id: '117',
-            title: '一个账户可以绑定几张卡？'
-          },
-          {
-            id: '118',
-            title: '如何设置交易密码？'
-          },
-          {
-            id: '119',
-            title: '交易密码设置规则？'
-          },
-          {
-            id: '120',
-            title: '如何修改交易密码？'
-          },
-          {
-            id: '121',
-            title: '如何更新银行预留手机号？'
-          }
-        ],
+        list: [],
         value: '',
         results: []
       }
@@ -87,6 +51,17 @@
           }
         })
       },
+      getList () {
+        var self = this
+        self.$http.post(process.env.BASE_API + '/callcenter.do?shoveDate' + new Date().getTime(), qs.stringify({ 'cid': '-1', 'pageSize': '1000' }))
+          .then(function (res) {
+            self.list = res.data.questions
+            self.data = self.list
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+      },
       setFocus () {
         this.$refs.search.setFocus()
       },
@@ -98,7 +73,7 @@
         if (val) {
           self.$refs.search.setBlur()
           var reg = RegExp(val)
-          self.data = _.filter(self.data, function (o) { return o.title.match(reg) })
+          self.data = _.filter(self.data, function (o) { return o.question.match(reg) })
         } else {
           self.data = self.list
         }
@@ -108,7 +83,7 @@
         if (val) {
           self.$refs.search.setBlur()
           var reg = RegExp(val)
-          self.data = _.filter(self.data, function (o) { return o.title.match(reg) })
+          self.data = _.filter(self.data, function (o) { return o.question.match(reg) })
         } else {
           self.data = self.list
         }
@@ -122,7 +97,7 @@
       },
       init () {
         var self = this
-        self.data = self.list
+        self.getList()
       }
     },
     created () {
