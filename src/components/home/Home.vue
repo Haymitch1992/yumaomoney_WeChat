@@ -19,10 +19,8 @@
                 <!--<marquee-item v-for="item in notice_list" :key="item.id" :link="href+'/frontNewsDetails.do?id='+item.id" class="align-middle">{{item.title}}</marquee-item>-->
               </marquee>
             </flexbox-item>
-            <flexbox-item :span="1/12">
-              <a href="/#/home/disclosure/websiteNotice">
+            <flexbox-item :span="1/12" @click.native="goList()">
                 <span class="noticeMore"></span>
-              </a>
             </flexbox-item>
           </flexbox>
         </div>
@@ -211,6 +209,14 @@
           .catch(function (error) {
             console.log(error)
           })
+      },
+      /**
+       * 前往消息列表
+       */
+      goList () {
+        var self = this
+        console.log(1)
+        self.$router.push({path: '/home/disclosure/websiteNotice'})
       },
       /**
        * 前往消息详情
