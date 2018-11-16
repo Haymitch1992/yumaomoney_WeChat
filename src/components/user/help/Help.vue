@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header>帮助中心</x-header>
+    <x-header :left-options="leftOptions" @on-click-back="goBack()">帮助中心</x-header>
     <div style="height: 40px">
       <search
         @result-click="resultClick"
@@ -35,6 +35,9 @@
     },
     data () {
       return {
+        leftOptions: {
+          preventGoBack: true
+        },
         data: [],
         list: [],
         value: '',
@@ -43,24 +46,35 @@
     },
     methods: {
       goHelpDetail (id, title) {
-        this.$router.push({
+        var self = this
+        self.$router.push({
           name: `helpDetail`,
           params: {
             id: id,
-            title: title
+            title: title,
+            data: {
+              data: self.data,
+              list: self.list,
+              value: self.value
+            }
           }
         })
       },
       getList () {
         var self = this
-        self.$http.post(process.env.BASE_API + '/callcenter.do?shoveDate' + new Date().getTime(), qs.stringify({ 'cid': '-1', 'pageSize': '1000' }))
-          .then(function (res) {
-            self.list = res.data.questions
-            self.data = self.list
-          })
-          .catch(function (error) {
-            console.log(error)
-          })
+        if (self.list.length === 0) {
+          self.$http.post(process.env.BASE_API + '/callcenter.do?shoveDate' + new Date().getTime(), qs.stringify({ 'cid': '-1', 'pageSize': '1000' }))
+            .then(function (res) {
+              self.list = res.data.questions
+              self.data = self.list
+            })
+            .catch(function (error) {
+              console.log(error)
+            })
+        }
+      },
+      goBack () {
+        this.$router.push({path: '/user/contactUs'})
       },
       setFocus () {
         this.$refs.search.setFocus()
@@ -97,6 +111,11 @@
       },
       init () {
         var self = this
+        if (self.$route.params.data) {
+          self.data = self.$route.params.data.data ? self.$route.params.data.data : []
+          self.list = self.$route.params.data.list ? self.$route.params.data.list : []
+          self.value = self.$route.params.data.value ? self.$route.params.data.value : ''
+        }
         self.getList()
       }
     },

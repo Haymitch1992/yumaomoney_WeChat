@@ -1,6 +1,6 @@
 <template>
   <div>
-    <x-header>详情</x-header>
+    <x-header :left-options="leftOptions" @on-click-back="goBack()">详情</x-header>
     <group>
       <div class="helpTitle">问：{{title}}</div>
     </group>
@@ -24,9 +24,13 @@
     },
     data () {
       return {
+        leftOptions: {
+          preventGoBack: true
+        },
         id: '',
         title: '',
-        detail: ''
+        detail: '',
+        data: []
       }
     },
     methods: {
@@ -40,10 +44,15 @@
             console.log(error)
           })
       },
+      goBack () {
+        var self = this
+        this.$router.push({name: 'help', params: {data: self.data}})
+      },
       init () {
         var self = this
         self.id = self.$route.params.id
         self.title = self.$route.params.title
+        self.data = self.$route.params.data
         self.getDetail()
       }
     },
