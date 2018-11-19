@@ -10,7 +10,7 @@
         <!--官方公告-->
         <div class="notice">
           <flexbox>
-            <flexbox-item :span="1/12">
+            <flexbox-item :span="1/12"  @click.native="show = true">
               <span class="noticeIcon"></span>
             </flexbox-item>
             <flexbox-item>
@@ -95,6 +95,7 @@
             </grid-item>
           </grid>
         </div>
+        <alert v-model="show" title="登录失效" @on-show="onShow" @on-hide="onHide">请重新登录</alert>
       </div>
 
   </div>
@@ -103,7 +104,7 @@
 <script>
   import _ from 'lodash'
   import moment from 'moment'
-  import { XHeader, Swiper, Grid, GridItem, Group, Card, Panel, XProgress, Marquee, MarqueeItem, Flexbox, FlexboxItem } from 'vux'
+  import { XHeader, Swiper, Grid, GridItem, Group, Card, Panel, XProgress, Marquee, MarqueeItem, Flexbox, FlexboxItem, AlertModule, Alert } from 'vux'
 
   export default {
     name: 'Home',
@@ -119,7 +120,9 @@
       Marquee,
       MarqueeItem,
       Flexbox,
-      FlexboxItem
+      FlexboxItem,
+      AlertModule,
+      Alert
     },
     data () {
       return {
@@ -129,7 +132,8 @@
         notice_list: [],
         list: [],
         swiper_index: 0,
-        num: 0
+        num: 0,
+        show: false
       }
     },
     methods: {
@@ -138,6 +142,18 @@
       },
       onImgError (item, $event) {
         console.log(item, $event)
+      },
+      /**
+       * 登录失效跳转
+       */
+      onHide () {
+        var self = this
+        window.localStorage.removeItem('Flag')
+        self.$store.dispatch('setUser', false)
+        self.$router.push('/start/login')
+      },
+      onShow () {
+        console.log('on show')
       },
       /**
        * 获取轮播列表
@@ -166,7 +182,9 @@
        */
       getNoticeList () {
         var self = this
-        self.$http.get(process.env.BASE_API + '/queryNewsListPage.do', {params: { 'paramMap.PageNum': 1, 'paramMap.PageSize': 5 }})
+        // 测试存储cookie
+        // self.$cookies.set('ymCookieUK', '123456789')
+        self.$http.get(process.env.BASE_API + '/queryNewsListPage.do', {headers: {'X-AUTH-TOKEN': '123'}, params: { 'paramMap.PageNum': 1, 'paramMap.PageSize': 5 }})
           .then(function (res) {
             _.each(res.data, function (v) {
               v.publishTime = moment(v.publishTime).format('YYYY-MM-DD')
@@ -215,7 +233,6 @@
        */
       goList () {
         var self = this
-        console.log(1)
         self.$router.push({path: '/home/disclosure/websiteNotice'})
       },
       /**
