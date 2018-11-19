@@ -15,11 +15,12 @@
             </flexbox-item>
             <flexbox-item>
               <marquee>
-                <marquee-item v-for="item in notice_list" :key="item.id" :link="item.url" class="align-middle">{{item.title}}</marquee-item>
+                <marquee-item v-for="item in notice_list" :key="item.id" @click.native="goDetail(item)" class="align-middle">{{item.title}}</marquee-item>
+                <!--<marquee-item v-for="item in notice_list" :key="item.id" :link="href+'/frontNewsDetails.do?id='+item.id" class="align-middle">{{item.title}}</marquee-item>-->
               </marquee>
             </flexbox-item>
-            <flexbox-item :span="1/12">
-              <span class="noticeMore"></span>
+            <flexbox-item :span="1/12" @click.native="goList()">
+                <span class="noticeMore"></span>
             </flexbox-item>
           </flexbox>
         </div>
@@ -101,6 +102,7 @@
 
 <script>
   import _ from 'lodash'
+  import moment from 'moment'
   import { XHeader, Swiper, Grid, GridItem, Group, Card, Panel, XProgress, Marquee, MarqueeItem, Flexbox, FlexboxItem } from 'vux'
 
   export default {
@@ -121,24 +123,10 @@
     },
     data () {
       return {
+        href: '',
+        data: [],
         swiper_list: [],
-        notice_list: [
-          {
-            id: '1',
-            url: 'a',
-            title: '鱼猫金服快捷支付限额表1'
-          },
-          {
-            id: '2',
-            url: 'b',
-            title: '鱼猫金服快捷支付限额表2'
-          },
-          {
-            id: '3',
-            url: 'b',
-            title: '鱼猫金服快捷支付限额表3'
-          }
-        ],
+        notice_list: [],
         list: [],
         swiper_index: 0,
         num: 0
@@ -168,6 +156,23 @@
               self.swiper_list.push(item)
               self.num++
             })
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+      },
+      /**
+       * 获取轮播列表
+       */
+      getNoticeList () {
+        var self = this
+        self.$http.get(process.env.BASE_API + '/queryNewsListPage.do', {params: { 'paramMap.PageNum': 1, 'paramMap.PageSize': 5 }})
+          .then(function (res) {
+            _.each(res.data, function (v) {
+              v.publishTime = moment(v.publishTime).format('YYYY-MM-DD')
+              self.notice_list.push(v)
+            })
+            console.log(self.notice_list)
           })
           .catch(function (error) {
             console.log(error)
@@ -205,6 +210,21 @@
             console.log(error)
           })
       },
+      /**
+       * 前往消息列表
+       */
+      goList () {
+        var self = this
+        console.log(1)
+        self.$router.push({path: '/home/disclosure/websiteNotice'})
+      },
+      /**
+       * 前往消息详情
+       */
+      goDetail (item) {
+        var self = this
+        window.location = self.href + '/frontNewsDetails.do?id=' + item.id
+      },
       goto (item) {
         var self = this
         self.$router.push({name: 'financeDetail', params: {data: item}})
@@ -212,8 +232,10 @@
     },
     created () {
       var self = this
+      self.href = window.location.origin
       self.getList()
       self.getSwiperList()
+      self.getNoticeList()
     }
   }
 </script>

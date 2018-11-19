@@ -663,6 +663,7 @@ export default new Router({
             },
             {
               path: 'help',
+              name: 'help',
               component: Help,
               meta: {
                 isLogin: true
