@@ -4,6 +4,17 @@ body {
 a {
   color: #586C94;
 }
+
+.clearfloat{
+  zoom: 1;
+}
+.clearfloat:after{
+  display: block;
+  clear: both;
+  content: '';
+  visibility: hidden;
+}
+
 .fl {
   float: left;
 }

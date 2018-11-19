@@ -224,7 +224,7 @@
   .detailsInfo{
     width: 94%;
     margin:20px auto ;
-    padding-bottom: 30px;
+    padding-bottom: 20px;
   }
   .detailsInfo table{
     width: 100%;
