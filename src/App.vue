@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <router-view></router-view>
-    <div class="footer-box" v-if="$route.path === '/home' || $route.path === '/events' || $route.path === '/lending' || $route.path === '/user'">
+    <div class="footer-box" v-if="$route.path === '/home' || $route.path === '/events' || $route.path === '/lending' ||
+     $route.path === '/user' || $route.path === '/Home' || $route.path === '/Events' || $route.path === '/Lending' ||
+      $route.path === '/User'">
       <tabbar class="footer-fixed">
         <tabbar-item link="/home" :selected="$route.path === '/home'">
           <img slot="icon" src="./assets/images/foot-tz.png">
