@@ -166,7 +166,8 @@
        */
       getNoticeList () {
         var self = this
-        self.$http.get(process.env.BASE_API + '/queryNewsListPage.do', {params: { 'paramMap.PageNum': 1, 'paramMap.PageSize': 5 }})
+        console.log(self.$cookies.get('test'))
+        self.$http.get(process.env.BASE_API + '/queryNewsListPage.do', {headers: {'X-AUTH-TOKEN': '123'}, params: { 'paramMap.PageNum': 1, 'paramMap.PageSize': 5 }})
           .then(function (res) {
             _.each(res.data, function (v) {
               v.publishTime = moment(v.publishTime).format('YYYY-MM-DD')
