@@ -217,7 +217,6 @@
        */
       goList () {
         var self = this
-        console.log(1)
         self.$router.push({path: '/home/disclosure/websiteNotice'})
       },
       /**
