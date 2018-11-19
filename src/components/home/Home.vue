@@ -166,7 +166,8 @@
        */
       getNoticeList () {
         var self = this
-        console.log(self.$cookies.get('test'))
+        // 测试存储cookie
+        // self.$cookies.set('ymCookieUK', '123456789')
         self.$http.get(process.env.BASE_API + '/queryNewsListPage.do', {headers: {'X-AUTH-TOKEN': '123'}, params: { 'paramMap.PageNum': 1, 'paramMap.PageSize': 5 }})
           .then(function (res) {
             _.each(res.data, function (v) {
