@@ -1,12 +1,40 @@
 <template>
   <div class="invited">
-    <x-header><a slot="right" @click="goTo()">我的邀请</a>邀请好友</x-header>
-    <div class="pt20 ">
-      <div class="submit-box">
-        <x-button @click.native="shareType = true" type="primary">邀请好友</x-button>
-        <x-button @click.native="sweepType = true" type="primary">扫码邀请</x-button>
-        <x-button @click.native="rulesType = true" type="primary">活动规则</x-button>
+    <x-header><a slot="right" @click="goTo()">转入</a>邀请奖励</x-header>
+    <div class="center pt20 f24">邀请列表</div>
+    <div class="pw20 h20">
+      <div class="fl">累计邀请:23人</div>
+      <div class="fr">累计返现:55元</div>
+    </div>
+    <group>
+      <div class="p15 f12">
+        <x-table full-bordered>
+          <thead>
+          <tr>
+            <th>受邀用户</th>
+            <th>状态</th>
+            <th>获得奖励</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr>
+            <td>13******672</td>
+            <td>已投资</td>
+            <td>2元</td>
+          </tr>
+          <tr>
+            <td>13******673</td>
+            <td>已注册</td>
+            <td>2元</td>
+          </tr>
+          </tbody>
+        </x-table>
       </div>
+    </group>
+    <div class="submit-box">
+      <x-button @click.native="shareType = true" type="primary">邀请好友</x-button>
+      <x-button @click.native="sweepType = true" type="primary">扫码邀请</x-button>
+      <x-button @click.native="rulesType = true" type="primary">活动规则</x-button>
     </div>
     <div>
       <x-dialog v-model="shareType" class="dialog-demo" hide-on-blur>
