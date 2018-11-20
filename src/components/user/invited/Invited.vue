@@ -151,7 +151,7 @@
       },
       goTo () {
         this.$router.push({
-          name: `invitedDetail`,
+          name: `into`,
           params: {}
         })
       },
