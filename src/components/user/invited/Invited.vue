@@ -1,31 +1,40 @@
 <template>
   <div class="invited">
     <x-header><a slot="right" @click="goTo()">转入</a>邀请奖励</x-header>
-    <div class="center pt20 f24">邀请列表</div>
-    <div class="pw20 h20">
-      <div class="fl">累计邀请:23人</div>
-      <div class="fr">累计返现:55元</div>
+    <div style="background: #ed4e49; color: #fff">
+      <div class="center pt20 f24">邀请列表</div>
+      <div class="pw20 h50">
+        <div class="fl">首投奖励:30元</div>
+        <div class="fr">出借奖励:55元</div>
+      </div>
     </div>
     <group>
-      <div class="p15 f12">
+      <cell title="累计邀请：2人"></cell>
+      <div class="pb20 f12">
         <x-table full-bordered>
           <thead>
           <tr>
             <th>受邀用户</th>
-            <th>状态</th>
-            <th>获得奖励</th>
+            <th>首投金额</th>
+            <th>奖励金额</th>
+            <th>出借金额</th>
+            <th>奖励金额</th>
           </tr>
           </thead>
           <tbody>
           <tr>
             <td>13******672</td>
-            <td>已投资</td>
-            <td>2元</td>
+            <td>1000.00</td>
+            <td>2.00</td>
+            <td>1000.00</td>
+            <td>2.00</td>
           </tr>
           <tr>
             <td>13******673</td>
-            <td>已注册</td>
-            <td>2元</td>
+            <td>1000.00</td>
+            <td>2.00</td>
+            <td>1000.00</td>
+            <td>2.00</td>
           </tr>
           </tbody>
         </x-table>
