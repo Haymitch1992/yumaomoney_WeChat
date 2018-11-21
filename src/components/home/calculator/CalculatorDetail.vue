@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="calculator">
     <x-header>收益计算器</x-header>
     <group>
       <cell title="计算结果"></cell>
@@ -86,3 +86,8 @@
     }
   }
 </script>
+<style lang="less">
+  .calculator{
+    background: #fff;
+  }
+</style>

@@ -2,6 +2,7 @@
   <div class="finance">
     <div class="finance-top">
       <x-header><a slot="right" @click="goTo()">收益计算器</a>标的详情</x-header>
+      <div class="limit-time">限购时间 00天00时00分00秒</div>
       <group class="">
         <div class="p10 f14">YM01-HSBL-2018-2006</div>
         <flexbox>
@@ -30,6 +31,11 @@
             <div class="center">剩余可投(元)</div>
           </div>
         </div>
+        <flexbox class="flex-1">
+          <flexbox-item><div class="flex-demo">银行存管</div></flexbox-item>
+          <flexbox-item><div class="flex-demo">优质项目</div></flexbox-item>
+          <flexbox-item><div class="flex-demo">资金透明</div></flexbox-item>
+        </flexbox>
       </group>
     </div>
     <div class="finance-main">
@@ -68,9 +74,7 @@
           <div class="f12">现在投资，1天后（含投资当天）开始计息，持有满7天后结束计息，退出后一次还本付息。</div>
         </div>
       </group>
-      <group>
-        <popup-picker title="优惠券" :data="redData.data" v-model="redData.value" @on-show="onShow" @on-hide="onHide" @on-change="onChange" :placeholder="redData.msg"></popup-picker>
-      </group>
+
       <group>
         <tab>
           <tab-item :selected="tab.tabType === 1" @on-item-click="tab.tabType = 1">项目介绍</tab-item>
@@ -136,8 +140,7 @@
           </div>
           <div v-if="tab.tabType === 2">
             <div class="p15 pb0">
-              <div>核心企业</div>
-              <div>上市公司 高新技术企业 ISO质量体系认证</div>
+              <div class="title">核心企业</div>
             </div>
             <div class="table-box">
               <x-table full-bordered>
@@ -273,10 +276,10 @@
               </x-table>
             </div>
           </div>
-          <div v-if="tab.tabType === 3">
+          <div v-if="tab.tabType === 3" class="invest-list">
             <x-table :cell-bordered="false" :content-bordered="false" style="font-size: 14px;background-color: #fff;">
               <thead>
-              <tr style="background-color: #F7F7F7">
+              <tr>
                 <th>用户</th>
                 <th>金额</th>
                 <th>时间</th>
@@ -324,18 +327,12 @@
           <div v-if="tab.tabType === 4">
             <div class="p15">
               <div class="title">产品介绍</div>
-              <div>
+              <div class="l24">
                 核心企业贷是由鱼猫金服推出的供应链金融借贷产品，鱼猫金服挑选资产优秀、商誉良好、背景雄厚的央企、国企、上市公司、新三板企业、
                 地方龙头企业作为核心企业开展合作，围绕企业上下游有借款需求的企业进行金融服务。借款企业凭借与核心企业真实的贸易与合作背景，
                 向鱼猫金服申请借款，借款到期后，由核心企业与借款企业构成双重还款保障。
               </div>
               <div class="title">还款保障</div>
-              <!--<div class="pb5 center" style="height: 250px">-->
-                <!--<img src="https://www.yumaomoney.com/upload/proImgInfo/20181012/1539322391949_SFZ.png" width="45%">-->
-                <!--<img src="https://www.yumaomoney.com/upload/proImgInfo/20181012/1539322391949_SFZ.png" width="45%">-->
-                <!--<img src="https://www.yumaomoney.com/upload/proImgInfo/20181012/1539322391949_SFZ.png" width="45%">-->
-                <!--<img src="https://www.yumaomoney.com/upload/proImgInfo/20181012/1539322391949_SFZ.png" width="45%">-->
-              <!--</div>-->
               <div class="pb5">
                 <grid :cols="2" :show-lr-borders="false" :show-vertical-dividers="false">
                   <grid-item :key="1"><img src="https://www.yumaomoney.com/upload/proImgInfo/20181012/1539322391949_SFZ.png" width="100%" alt=""></grid-item>
@@ -345,29 +342,29 @@
                 </grid>
               </div>
               <div class="title">产品介绍</div>
-              <div class="pb5">
+              <div class="pb5 l24">
                 1、借款企业提交借款申请，由鱼猫金服风控部门线下进行业务审核。
                 鱼猫金服风控部门根据本公司《借款企业准入标准》确定借款企业是否满足平台借款基本条件；
               </div>
-              <div class="pb5">
+              <div class="pb5 l24">
                 2、根据鱼猫金服《借款企业应提供的资料清单》，让借款企业提供相应企业资料及贸易合同资料，
                 并结合大数据风控系统进行全面审核，确定借款企业资料是否真实，贸易是否真实；
               </div>
-              <div class="pb5">
+              <div class="pb5 l24">
                 3、根据《鱼猫金服尽职调查提纲》要点内容，到借款企业进行实地尽职调查，了解借款企业的一些具体情况，
                 包括但不限于确定借款企业经营场所是否真实存在，生产经营是否一切正常，公司成立以来主要发展阶段，
                 及每一阶段变化发展的原因，公司董事会的构成，等一些详细的信息。一旦审核通过，
                 借款企业发起借款项目上线申请，通过鱼猫金服网站平台发布标的信息；
               </div>
-              <div class="pb5">
+              <div class="pb5 l24">
                 4、当借款企业和出借用户签订相应借贷协议，且借款项目满标以后，
                 鱼猫金服会将出借用户的出借资金通过资金存管银行转入借款企业的银行资金存管账户中完成资金划转；
               </div>
-              <div class="pb5">
+              <div class="pb5 l24">
                 5、根据合同协议规定的还款方式，提前一星期提醒借款企业做好归还当期应还款项目的准备，还款当日再次提醒还款，
                 并通过大数据风控系统对借款企业信息进行实时监控，且不定期到借款企业进行尽调回访；
               </div>
-              <div class="pb5">
+              <div class="pb5 l24">
                 6、根据合同协议规定的还款方式，到期归还本金利息。
               </div>
             </div>
@@ -377,17 +374,48 @@
     <div class="fixBox"></div>
     <div class="fixBottom">
       <div class="submit-box">
-        <x-button type="primary" link="/lending/confirmInvestment">立即赚钱</x-button>
+        <x-button type="primary"  @click.native="show13=true">立即赚钱</x-button>
       </div>
+    </div>
+    <div v-transfer-dom >
+      <popup v-model="show13" position="bottom" max-height="50%" >
+        <div class="transfer-title">确认加入</div>
+        <div>
+          <div class="line-1">
+            <span>金额</span>
+            <span class="fr">可用余额：<span class="red-money">0.00</span> 元 <a @click="goRechange('/user/recharge')">转入</a></span>
+          </div>
+          <div class="line-2">
+            <group >
+              <x-input title="" placeholder="100元起投"></x-input>
+            </group>
+          </div>
+          <div class="line-3">
+            <span>预期收益：<span class="red-money">22.10</span> 元</span>
+          </div>
+        </div>
+        <group>
+          <cell title="优惠券" value="共3张可用"></cell>
+        </group>
+        <div class="check-box">
+          <check-icon :value.sync="demo2" type="plain"> 我已阅读并同意 《风险提示书》 《CA证书签署授权委托书》</check-icon>
+        </div>
+        <div style="padding: 15px;">
+          <x-button @click.native="" type="primary">确认加入</x-button>
+        </div>
+      </popup>
     </div>
   </div>
 </template>
 
 <script>
-  import { Group, Cell, XHeader, XButton, XProgress, Box, Flexbox, FlexboxItem, Flow, FlowState, FlowLine, Tab, TabItem, XTable, Grid, GridItem, GroupTitle, PopupPicker } from 'vux'
+  import { Group, Cell, XHeader, XButton, XProgress, Box, Flexbox, FlexboxItem, Flow, FlowState, FlowLine, Tab, TabItem, XTable, Grid, GridItem, GroupTitle, PopupPicker, Popup, TransferDom, CheckIcon, XInput } from 'vux'
 
   export default {
     name: 'FinanceDetail',
+    directives: {
+      TransferDom
+    },
     components: {
       Group,
       Cell,
@@ -406,56 +434,55 @@
       Grid,
       GridItem,
       GroupTitle,
-      PopupPicker
+      PopupPicker,
+      Popup,
+      CheckIcon,
+      XInput
     },
     data () {
       return {
+        demo2: false,
+        show13: false,
         progress: 30,
-        redData: {
-          msg: '共3个红包',
-          data: [['红包1', '红包2', '红包3', '红包4', '不使用']],
-          list: ''
-        },
         tab: {
           tabType: 1
         }
       }
     },
     methods: {
+      goRechange (path) {
+        this.$router.push({path: path})
+      },
       goTo () {
         this.$router.push({
           name: `calculator`,
           params: {}
         })
-      },
-      getFrom () {
-        var self = this
-        self.data = self.$route.params.data || {}
-        console.log(self.data)
-      },
-      onChange (val) {
-        console.log('val change', val)
-      },
-      onShow () {
-        console.log('on show')
-      },
-      onHide (type) {
-        console.log('on hide', type)
-      },
-      init () {
-        var self = this
-        self.getFrom()
       }
     },
     created () {
-      var self = this
-      self.init()
     }
   }
 </script>
 
 <style lang="less">
   .finance-top{
+    .flex-1{
+      background: #fff;
+      .flex-demo{
+        color: #999;
+        text-align: center;
+        font-size: 12px;
+        line-height: 30px;
+      }
+    }
+    .limit-time{
+      background: #fff8c1;
+      color: #ff6d6e;
+      font-size: 12px;
+      text-align: center;
+      line-height: 20px;
+    }
     background: #FF6D6E;
     .vux-header{
       background: transparent;
@@ -606,7 +633,7 @@
     .l24{
       line-height: 24px;
       padding-bottom:14px;
-      font-size: 14px;
+      font-size: 13px;
     }
     .rule{
       div:first-child{
@@ -643,6 +670,28 @@
     .vux-tab-ink-bar{
       background-color: #ff6d6e;
     }
+    .vux-table.vux-table-bordered:before{
+      border-left: none;
+    }
+    .vux-table td:after, .vux-table th:after{
+      border: none;
+    }
+    .table-box table tbody tr td:first-child{
+      color: #333;
+    }
+    .table-box table tbody tr td:first-child:after{
+      height: 70%;
+      background: #ddd;
+      top: 15%;
+    }
+    .invest-list{
+      .vux-table td:before, .vux-table th:before{
+        border-bottom: none;
+      }
+      .vux-table td{
+        font-size: 12px;
+      }
+    }
   }
   .finance{
     .submit-box{
@@ -652,5 +701,62 @@
       background: #FF3E3F;
       border-radius: 0;
     }
+
   }
+  .vux-popup-dialog{
+    background: #fff !important;
+    .weui-cell{
+      font-size: 14px;
+      padding: 10px 15px;
+    }
+    .transfer-title{
+      text-align: center;
+      background: #fff;
+      border-bottom: 1px solid #f5f5f5;
+      font-size:16px;
+      line-height: 40px;
+      margin-bottom: 10px;
+    }
+    .weui-icon-circle{
+      font-size: 16px;
+    }
+    .weui-icon-success-circle{
+      font-size: 16px;
+    }
+    .vux-check-icon > span{
+      font-size: 12px;
+      color: #666;
+    }
+    .check-box{
+      padding:10px 15px 30px 15px;
+    }
+    .weui-input{
+      height: 2.5em;
+      line-height: 2.5em;
+      background: #f5f5f5;
+      padding-left: 10px;
+      box-sizing: border-box;
+    }
+    .weui-cells{
+      margin-top:0;
+
+    }
+    .weui-cells:before{
+      border:none;
+    }
+    .weui-cells:after{
+      border:none;
+    }
+    .line-1, .line-3{
+      font-size: 14px;
+      line-height: 30px;
+      padding:0 15px;
+      color: #666;
+    }
+    .red-money{
+      color: #ff6a6a;
+    }
+  }
+
+
 </style>
