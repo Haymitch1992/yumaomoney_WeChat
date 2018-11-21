@@ -2,7 +2,7 @@
   <div class="invited">
     <x-header><a slot="right" @click="goTo()">转入</a>邀请奖励</x-header>
     <div style="background: #ed4e49; color: #fff">
-      <div class="center pt20 f24">邀请列表</div>
+      <div class="center pt20 f24">累计奖励:85元</div>
       <div class="pw20 h50">
         <div class="fl">首投奖励:30元</div>
         <div class="fr">出借奖励:55元</div>
