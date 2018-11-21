@@ -47,7 +47,7 @@ import PushSettings from '../components/user/pushSettings/PushSettings'
 import Auto from '../components/user/auto/Auto'
 import AutoEdit from '../components/user/autoEdit/AutoEdit'
 import Invited from '../components/user/invited/Invited'
-import InvitedDetail from '../components/user/invited/InvitedDetail'
+import Into from '../components/user/into/Into'
 import ContactUs from '../components/user/contactUs/ContactUs'
 import Help from '../components/user/help/Help'
 import HelpDetail from '../components/user/help/HelpDetail'
@@ -641,9 +641,9 @@ export default new Router({
               }
             },
             {
-              path: 'invitedDetail',
-              name: 'invitedDetail',
-              component: InvitedDetail,
+              path: 'into',
+              name: 'into',
+              component: Into,
               meta: {
                 isLogin: true
               }

@@ -44,7 +44,7 @@
   import { Group, Cell, XHeader, Tab, TabItem, Panel, XInput, XButton } from 'vux'
 
   export default {
-    name: 'InvitedDetail',
+    name: 'Into',
     components: {
       Group,
       Cell,
