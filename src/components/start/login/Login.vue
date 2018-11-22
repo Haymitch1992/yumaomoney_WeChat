@@ -46,7 +46,7 @@
     data () {
       return {
         data: {
-          phone: '13683266113',
+          phone: '13683266118',
           password: 'ym123456',
           code: '',
           codeUrl: '',

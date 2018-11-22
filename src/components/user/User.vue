@@ -131,7 +131,7 @@
         this.$router.push({name: name, params: {listType: params}})
       },
       init () {
-        let self = this
+        var self = this
         self.$http.post(process.env.BASE_API + '/apihome.do', null)
           .then(function (res) {
             /**
@@ -143,8 +143,7 @@
               self.$router.push('/start/login')
             } else {
               self.data = res.data.data
-              self.data.homeMap.usernameBak = self.data.homeMap.username.substr(0,3)+"****"+data.homeMap.username.substr(7)
-              console.log(res.data)
+              self.data.homeMap.usernameBak = self.data.homeMap.username.substr(0, 3) + '****' + self.data.homeMap.username.substr(7)
             }
           })
           .catch(function (error) {
