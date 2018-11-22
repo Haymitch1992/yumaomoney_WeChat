@@ -106,7 +106,8 @@
     },
     data () {
       return {
-        active: false
+        active: false,
+        data: {}
       }
     },
     methods: {
@@ -115,7 +116,22 @@
       },
       jumpParams (name, params) {
         this.$router.push({name: name, params: {listType: params}})
+      },
+      init () {
+        let self = this
+        self.$http.post(process.env.BASE_API + '/apihome.do', null)
+          .then(function (res) {
+            self.data = res.data
+            console.log(res.data)
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
       }
+    },
+    created () {
+      var self = this
+      self.init()
     }
   }
 </script>

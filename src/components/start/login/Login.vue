@@ -48,8 +48,8 @@
         data: {
           phone: '13683266113',
           password: 'ym123456',
-          code: '1234',
-          codeUrl: 'http://39.107.59.233/shoveeims/imageCode.do?pageId=userlogin',
+          code: '',
+          codeUrl: '',
           disabled: false,
           toastType: false,
           toastMsg: ''
@@ -68,11 +68,10 @@
           param['paramMap.email'] = self.data.phone
           param['paramMap.password'] = self.data.password
           param['paramMap.code'] = self.data.code
-          param['paramMap.afterLoginUrl'] = ''
-          self.$http.post(process.env.BASE_API + '/logining.do', qs.stringify(param))
+          self.$http.post(process.env.BASE_API + '/apilogin.do', qs.stringify(param))
             .then(function (res) {
-              res.data = 1
-              if (res.data === 1) {
+              if (res.data.code === 1) {
+                self.$http.defaults.headers.tokenClientkey = res.data.tokenClientkey
                 self.$store.dispatch('setUser', true)
                 // Vuex在用户刷新的时候userLogin会回到默认值false，所以我们需要用到HTML5储存
                 // 我们设置一个名为Flag，值为isLogin的字段，作用是如果Flag有值且为isLogin的时候，证明用户已经登录了。
@@ -81,29 +80,20 @@
                 // self.$Message.success(data.data.message)
                 // 登录成功后跳转到指定页面
                 self.$router.push('/home')
-              } else if (res.data === 2) {
+              } else if (res.data.code === 2) {
                 self.data.toastMsg = '验证码不正确!'
                 self.data.toastType = true
-              } else if (res.data === 3) {
+              } else if (res.data.code === 3) {
                 self.data.toastMsg = '用户名或密码错误!'
                 self.data.toastType = true
-              } else if (res.data === 4) {
+              } else if (res.data.code === 4) {
                 self.data.toastMsg = '该用户已被禁用!'
                 self.data.toastType = true
-              } else if (res.data === 5) {
+              } else if (res.data.code === 5) {
                 self.data.toastMsg = '该用户已被限制登录，请于三小时以后登录!'
                 self.data.toastType = true
-              } else if (res.data === 7) {
+              } else if (res.data.code === 7) {
                 self.data.toastMsg = '该用户账号出现异常，请联系客服人员进行更新!'
-                self.data.toastType = true
-              } else if (res.data === 41) {
-                self.data.toastMsg = '存管用户编号异常, 请联系客服人员!'
-                self.data.toastType = true
-              } else if (res.data === 42) {
-                self.data.toastMsg = '存管用户不存在, 本地账户异常!'
-                self.data.toastType = true
-              } else if (res.data === 43) {
-                self.data.toastMsg = '存管用户资金异常, 请联系客服人员!'
                 self.data.toastType = true
               }
             })
@@ -128,6 +118,10 @@
         var timenow = new Date()
         self.data.codeUrl = 'http://39.107.59.233/shoveeims/imageCode.do?pageId=userlogin&d=' + timenow
       }
+    },
+    created () {
+      var self = this
+      self.switchCode()
     }
   }
 </script>
