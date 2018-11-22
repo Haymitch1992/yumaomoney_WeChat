@@ -121,6 +121,14 @@
         let self = this
         self.$http.post(process.env.BASE_API + '/apihome.do', null)
           .then(function (res) {
+            /**
+             * 验证登录是否失效
+             */
+            if (res.data === 'noLogin') {
+              window.localStorage.removeItem('Flag')
+              self.$store.dispatch('setUser', false)
+              self.$router.push('/start/login')
+            }
             self.data = res.data
             console.log(res.data)
           })
