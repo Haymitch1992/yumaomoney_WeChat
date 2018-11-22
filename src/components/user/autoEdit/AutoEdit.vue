@@ -103,7 +103,7 @@
     },
     mounted () {
       var self = this
-      self.data.earnsData = self.GLOBAL.earnsJson
+      self.data.earnsData = 4
       self.data.termData = self.GLOBAL.termJson
     }
   }

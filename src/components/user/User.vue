@@ -4,11 +4,18 @@
       <div class="header">
         <div class="header-top">
           <div class="fl">
-            <div class="user" @click="jump('/user/center')"></div>
+            <img class="user" :src="origin+'/'+data.homeMap.personalHead" @click="jump('/user/center')" v-if="data.homeMap.personalHead !== ''">
+            <img class="user" :src="origin+'/images/default-img.jpg'" @click="jump('/user/center')" v-if="data.homeMap.personalHead === ''">
           </div>
           <div class="userContent fl">
-            <div class="h30">188****6369</div>
-            <div class="h30">未开户</div>
+            <div class="h30">{{data.homeMap.usernameBak}}</div>
+            <div class="h30" v-show="data.cgtStatus === '0'">待开户</div>
+            <div class="h30" v-show="data.cgtStatus === '2'">审核中</div>
+            <div class="h30" v-show="data.cgtStatus === '3'">已退回</div>
+            <div class="h30" v-show="data.cgtStatus === '4'">已拒绝</div>
+            <div class="h30" v-show="data.cgtStatus === '5'">待激活</div>
+            <div class="h30" v-show="data.cgtStatus === '15'">待绑卡</div>
+            <div class="h30" v-show="data.cgtStatus === '20'">开户成功</div>
           </div>
           <div class="fr">
             <div>
@@ -29,14 +36,14 @@
           </flexbox-item>
           <flexbox-item>
             <div class=" middleItem" @click="jumpParams('assets', 2)">
-              <div class="center f20" v-show="active">315.01</div>
+              <div class="center f20" v-show="active">{{data.accmountStatisMap.hasPayInterest}}</div>
               <div class="center f20" v-show="!active">****</div>
               <div class="center f14 mT4">累计收益</div>
             </div>
           </flexbox-item>
           <flexbox-item>
             <div class="" @click="jumpParams('assets', 3)">
-              <div class="center f20" v-show="active">2132.63</div>
+              <div class="center f20" v-show="active">{{data.accmountStatisMap.accountSum}}</div>
               <div class="center f20" v-show="!active">****</div>
               <div class="center f14 mT4">当前总资产</div>
             </div>
@@ -47,7 +54,7 @@
     <group>
       <div class="balanceRow">
         <grid :show-lr-borders="false" >
-            <div class="m10 f14 fl">账户余额：<span v-show="active">2000000.23</span><span v-show="!active">****</span>元</div>
+            <div class="m10 f14 fl">账户余额：<span v-show="active">{{data.accmountStatisMap.usableAmount}}</span><span v-show="!active">****</span>元</div>
           <div class="m10 f14 fr" @click="jump('/user/cash')">提现</div>
             <div class="splitLine fr"></div>
           <div class="m10 f14 fr textC" @click="jump('/user/recharge')">充值</div>
@@ -107,7 +114,13 @@
     data () {
       return {
         active: false,
-        data: {}
+        data: {
+          homeMap: {
+            personalHead: ''
+          },
+          accmountStatisMap: {}
+        },
+        origin: ''
       }
     },
     methods: {
@@ -128,9 +141,11 @@
               window.localStorage.removeItem('Flag')
               self.$store.dispatch('setUser', false)
               self.$router.push('/start/login')
+            } else {
+              self.data = res.data.data
+              self.data.homeMap.usernameBak = self.data.homeMap.username.substr(0,3)+"****"+data.homeMap.username.substr(7)
+              console.log(res.data)
             }
-            self.data = res.data
-            console.log(res.data)
           })
           .catch(function (error) {
             console.log(error)
@@ -139,6 +154,7 @@
     },
     created () {
       var self = this
+      self.origin = self.GLOBAL.origin
       self.init()
     }
   }

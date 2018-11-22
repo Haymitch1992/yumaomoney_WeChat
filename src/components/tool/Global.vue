@@ -559,6 +559,7 @@
     '#FF2D2D',
     '#ADADAD'
   ]
+  const origin = window.location.origin
   const colorListLength = 20
   function getRandColor () {
     var tem = Math.round(Math.random() * colorListLength)
@@ -567,6 +568,7 @@
   export default {
     earnsJson,
     termJson,
+    origin,
     getRandColor
   }
 </script>

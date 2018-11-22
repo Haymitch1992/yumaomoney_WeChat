@@ -6,7 +6,7 @@
     <!--</div>-->
     <div style="margin: 10px;overflow: hidden;" v-for="item in list">
       <masker style="border-radius: 2px;" @click.native="go(item.wechatlink)">
-        <div class="m-img" :style="{backgroundImage: 'url(' + href + item.wechatBanner + ')'}"></div>
+        <div class="m-img" :style="{backgroundImage: 'url(' + origin + item.wechatBanner + ')'}"></div>
         <div slot="content" class="m-title">
           {{item.title}}
           <br/>
@@ -16,7 +16,7 @@
     </div>
     <div style="margin: 10px;overflow: hidden;">
       <masker style="border-radius: 2px;" :opacity="0">
-        <div class="m-img" :style="{backgroundImage: 'url(' + href + msg.wechatBanner + ')'}"></div>
+        <div class="m-img" :style="{backgroundImage: 'url(' + origin + msg.wechatBanner + ')'}"></div>
       </masker>
     </div>
   </div>
@@ -35,7 +35,7 @@
     },
     data () {
       return {
-        href: '',
+        origin: '',
         list: [],
         msg: {
           moreText: '关于活动详情可咨询400-887-4777',
@@ -64,12 +64,12 @@
       },
       init () {
         var self = this
-        self.href = window.location.origin
-        /**
-         * TODO 本地测试环境调试使用 正式环境部署需删除
-         * @type {string}
-         */
-        self.href = 'http://39.107.59.233'
+        self.origin = self.GLOBAL.origin
+//        /**
+//         * TODO 本地测试环境调试使用 正式环境部署需删除
+//         * @type {string}
+//         */
+//        self.href = 'http://39.107.59.233'
         self.getList()
       }
     },

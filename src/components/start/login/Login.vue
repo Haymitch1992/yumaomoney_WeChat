@@ -70,7 +70,7 @@
           param['paramMap.code'] = self.data.code
           self.$http.post(process.env.BASE_API + '/apilogin.do', qs.stringify(param))
             .then(function (res) {
-              if (res.data.code === 1) {
+              if (res.data.code === '1') {
                 self.$http.defaults.headers.tokenClientkey = res.data.tokenClientkey
                 self.$store.dispatch('setUser', true)
                 // Vuex在用户刷新的时候userLogin会回到默认值false，所以我们需要用到HTML5储存
@@ -80,19 +80,19 @@
                 // self.$Message.success(data.data.message)
                 // 登录成功后跳转到指定页面
                 self.$router.push('/home')
-              } else if (res.data.code === 2) {
+              } else if (res.data.code === '2') {
                 self.data.toastMsg = '验证码不正确!'
                 self.data.toastType = true
-              } else if (res.data.code === 3) {
+              } else if (res.data.code === '3') {
                 self.data.toastMsg = '用户名或密码错误!'
                 self.data.toastType = true
-              } else if (res.data.code === 4) {
+              } else if (res.data.code === '4') {
                 self.data.toastMsg = '该用户已被禁用!'
                 self.data.toastType = true
-              } else if (res.data.code === 5) {
+              } else if (res.data.code === '5') {
                 self.data.toastMsg = '该用户已被限制登录，请于三小时以后登录!'
                 self.data.toastType = true
-              } else if (res.data.code === 7) {
+              } else if (res.data.code === '7') {
                 self.data.toastMsg = '该用户账号出现异常，请联系客服人员进行更新!'
                 self.data.toastType = true
               }
