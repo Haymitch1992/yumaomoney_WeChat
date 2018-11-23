@@ -12,7 +12,7 @@
         <div class="userContent fl">
           <div class="h30">{{data.homeMap.usernameBak}}</div>
           <div class="h30 ">
-            <span class="mini-card vipStatus" :class="'v'+level">VIP{{level}}</span>
+            <span class="mini-card vipStatus" :class="'v'+data.homeMap.vip">VIP{{data.homeMap.vip}}</span>
             <span class="mini-card textB">已实名</span>
             <span class="mini-card textC">已开通存管</span>
           </div>
@@ -100,6 +100,20 @@
           .catch(function (error) {
             console.log(error)
           })
+        self.$http.post(process.env.BASE_API + '/queryBankInfoInit.do?shoveDate' + new Date().getTime(), null)
+          .then(function (res) {
+            /**
+             * 验证登录是否失效
+             */
+            if (res.data === 'noLogin') {
+              self.noLoginShow = true
+            } else {
+              console.log(res.data)
+            }
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
       }
     },
     created () {
@@ -133,31 +147,31 @@
         margin-top:4px;
       }
     }
-    .vipStatus.v0{
+    .vipStatus.v1{
       background: #C2C9D3;
       color: #666;
     }
-    .vipStatus.v1{
+    .vipStatus.v2{
       background: #F6C2AC;
       color: #8A6556;
     }
-    .vipStatus.v2{
+    .vipStatus.v3{
       background: #C2C9D3;
       color: #666;
     }
-    .vipStatus.v3{
+    .vipStatus.v4{
       background: #E0B56C;
       color: #946D31;
     }
-    .vipStatus.v4{
+    .vipStatus.v5{
       background: #f1eded;
       color: #919192;
     }
-    .vipStatus.v5{
+    .vipStatus.v6{
       background: #F8CBAA;
       color: #946D31;
     }
-    .vipStatus.v6{
+    .vipStatus.v7{
       background: #2D2D2D;
       color: #FCD4AF;
     }

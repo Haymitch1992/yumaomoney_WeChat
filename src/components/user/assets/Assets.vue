@@ -24,7 +24,7 @@
     <group v-show="list.listType === 2">
       <div class="assetsBox">
         <div>上月收益(元)</div>
-        <countup :start-val="1" :end-val="list.assetsAll" :duration="1" :decimals="2" class="title"></countup>
+        <countup :start-val="1" :end-val="data.lastMonthRevenue" :duration="1" :decimals="2" class="title"></countup>
       </div>
       <cell title="标的" :value="list.subject"></cell>
       <cell title="体验金" :value="list.experience"></cell>
@@ -43,7 +43,7 @@
       <group>
         <div class="assetsBox">
           <div>累计收益(元)</div>
-          <countup :start-val="1" :end-val="data.hasPayInterest" :duration="1" :decimals="2" class="title"></countup>
+          <countup :start-val="1" :end-val="data.totalRevenue" :duration="1" :decimals="2" class="title"></countup>
         </div>
         <cell title="标的" :value="list.subject"></cell>
         <cell title="体验金" :value="list.experience"></cell>
@@ -87,13 +87,12 @@
         homeData: {},
         data: {
           accountSum: 0,
-          hasPayInterest: 0
+          totalRevenue: 0,
+          lastMonthRevenue: 0
         },
         list: {
-          assetsAll: 1023.15,
           subject: '1011.20',
           experience: '11.20',
-          hasPayInterest: null,
           listType: 1
         },
         yOptions: {
@@ -193,7 +192,8 @@
               self.data.freezeAmount = parseFloat(self.homeData.accmountStatisMap.freezeAmount)
               self.data.otherEarnAmount = parseFloat(self.homeData.accmountStatisMap.otherEarnAmount)
               self.data.accountSum = parseFloat(self.homeData.accmountStatisMap.accountSum)
-              self.data.hasPayInterest = parseFloat(self.homeData.accmountStatisMap.hasPayInterest)
+              self.data.totalRevenue = parseFloat(self.homeData.totalRevenue)
+              self.data.lastMonthRevenue = parseFloat(self.homeData.lastMonthRevenue)
               self.initChart()
             }
           })

@@ -36,14 +36,14 @@
           </flexbox-item>
           <flexbox-item>
             <div class=" middleItem" @click="jumpParams('assets', 2)">
-              <div class="center f20" v-show="active">2132.63</div>
+              <div class="center f20" v-show="active">{{data.lastMonthRevenue}}</div>
               <div class="center f20" v-show="!active">****</div>
               <div class="center f14 mT4">上月收益</div>
             </div>
           </flexbox-item>
           <flexbox-item>
             <div class="" @click="jumpParams('assets', 3)">
-              <div class="center f20" v-show="active">{{data.accmountStatisMap.hasPayInterest}}</div>
+              <div class="center f20" v-show="active">{{data.totalRevenue}}</div>
               <div class="center f20" v-show="!active">****</div>
               <div class="center f14 mT4">累计收益</div>
             </div>
