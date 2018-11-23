@@ -94,11 +94,12 @@
         </grid-item>
       </grid>
     </group>
+    <alert v-model="show" title="登录失效" @on-show="onShow" @on-hide="onHide">请重新登录</alert>
   </div>
 </template>
 
 <script>
-  import { Group, Grid, GridItem, Cell, XHeader, Flexbox, FlexboxItem } from 'vux'
+  import { Group, Grid, GridItem, Cell, XHeader, Flexbox, FlexboxItem, AlertModule, Alert} from 'vux'
 
   export default {
     name: 'UserHome',
@@ -109,7 +110,9 @@
       Cell,
       XHeader,
       Flexbox,
-      FlexboxItem
+      FlexboxItem,
+      AlertModule,
+      Alert
     },
     data () {
       return {
@@ -120,7 +123,8 @@
           },
           accmountStatisMap: {}
         },
-        origin: ''
+        origin: '',
+        show: false
       }
     },
     methods: {
@@ -130,6 +134,18 @@
       jumpParams (name, params) {
         this.$router.push({name: name, params: {listType: params}})
       },
+      /**
+       * 登录失效跳转
+       */
+      onHide () {
+        var self = this
+        window.localStorage.removeItem('Flag')
+        self.$store.dispatch('setUser', false)
+        self.$router.push('/start/login')
+      },
+      onShow () {
+        console.log('on show')
+      },
       init () {
         var self = this
         self.$http.post(process.env.BASE_API + '/apihome.do', null)
@@ -138,9 +154,7 @@
              * 验证登录是否失效
              */
             if (res.data === 'noLogin') {
-              window.localStorage.removeItem('Flag')
-              self.$store.dispatch('setUser', false)
-              self.$router.push('/start/login')
+              self.show = true
             } else {
               self.data = res.data.data
               self.data.homeMap.usernameBak = self.data.homeMap.username.substr(0, 3) + '****' + self.data.homeMap.username.substr(7)
