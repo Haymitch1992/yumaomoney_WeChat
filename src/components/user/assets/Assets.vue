@@ -3,14 +3,14 @@
     <x-header>资产明细</x-header>
     <tab>
       <tab-item :selected="list.listType === 1" @on-item-click="list.listType = 1">总资产</tab-item>
-      <tab-item :selected="list.listType === 2" @on-item-click="list.listType = 2">昨日收益</tab-item>
+      <tab-item :selected="list.listType === 2" @on-item-click="list.listType = 2">上月收益</tab-item>
       <tab-item :selected="list.listType === 3" @on-item-click="list.listType = 3">累计收益</tab-item>
     </tab>
     <group  v-show="list.listType === 1" label-width="4.5em" label-margin-right="2em" label-align="right">
       <div class="totalAssetsBox">
-        <div class="center">总收益</div>
+        <div class="center">总资产</div>
         <div class="center totalAssetTitle">
-          <countup :start-val="10" :end-val="data.hasPayInterest" :duration="1" :decimals="2" class="title"></countup>元
+          <countup :start-val="10" :end-val="data.accountSum" :duration="1" :decimals="2" class="title"></countup>元
         </div>
       </div>
       <v-chart :data="genderData">
@@ -23,13 +23,13 @@
     </group>
     <group v-show="list.listType === 2">
       <div class="assetsBox">
-        <div>昨日预估收益(元)</div>
+        <div>上月收益(元)</div>
         <countup :start-val="1" :end-val="list.assetsAll" :duration="1" :decimals="2" class="title"></countup>
       </div>
       <cell title="标的" :value="list.subject"></cell>
       <cell title="体验金" :value="list.experience"></cell>
 
-      <group title="近7天收益走势(元/天)" label-width="4.5em" label-margin-right="2em" label-align="right">
+      <group title="近半年收益走势(元/月)" label-width="4.5em" label-margin-right="2em" label-align="right">
         <v-chart :data="trendData" prevent-default>
           <v-scale x :tick-count="3" />
           <v-scale y :min="0" />
@@ -43,7 +43,7 @@
       <group>
         <div class="assetsBox">
           <div>累计收益(元)</div>
-          <countup :start-val="1" :end-val="list.assetsAll" :duration="1" :decimals="2" class="title"></countup>
+          <countup :start-val="1" :end-val="data.hasPayInterest" :duration="1" :decimals="2" class="title"></countup>
         </div>
         <cell title="标的" :value="list.subject"></cell>
         <cell title="体验金" :value="list.experience"></cell>
@@ -84,11 +84,10 @@
     },
     data () {
       return {
-        homeData: {
-
-        },
+        homeData: {},
         data: {
-          hasPayInterest: 1000
+          accountSum: 0,
+          hasPayInterest: 0
         },
         list: {
           assetsAll: 1023.15,
@@ -131,14 +130,14 @@
              </div>`
         },
         trendData: [
-          { date: '08-02', value: 12 },
-          { date: '08-03', value: 13 },
-          { date: '08-04', value: 14 },
-          { date: '08-05', value: 16 },
-          { date: '08-06', value: 17 },
-          { date: '08-07', value: 17 },
-          { date: '08-08', value: 19 }
-        ],
+          { date: '2018.02', value: 12 },
+          { date: '2018.03', value: 13 },
+          { date: '2018.04', value: 14 },
+          { date: '2018.05', value: 16 },
+          { date: '2018.06', value: 17 },
+          { date: '2018.07', value: 17 },
+          { date: '2018.08', value: 19 }
+        ],A
         noLoginShow: false
       }
     },
@@ -193,6 +192,7 @@
               self.data.forPayInterest = parseFloat(self.homeData.accmountStatisMap.forPayInterest)
               self.data.freezeAmount = parseFloat(self.homeData.accmountStatisMap.freezeAmount)
               self.data.otherEarnAmount = parseFloat(self.homeData.accmountStatisMap.otherEarnAmount)
+              self.data.accountSum = parseFloat(self.homeData.accmountStatisMap.accountSum)
               self.data.hasPayInterest = parseFloat(self.homeData.accmountStatisMap.hasPayInterest)
               self.initChart()
             }
