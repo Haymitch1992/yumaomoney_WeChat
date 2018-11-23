@@ -155,9 +155,9 @@
         var self = this
         self.genderData = [
           { name: '可用余额:', percent: self.data.usableAmount, a: '1' },
-          { name: '代收本金:', percent: self.data.forPayPrincipal, a: '1' },
-          { name: '代收收益:', percent: self.data.forPayInterest, a: '1' },
-          { name: '代收奖励:', percent: self.data.freezeAmount, a: '1' },
+          { name: '待收本金:', percent: self.data.forPayPrincipal, a: '1' },
+          { name: '待收收益:', percent: self.data.forPayInterest, a: '1' },
+          { name: '待收奖励:', percent: self.data.freezeAmount, a: '1' },
           { name: '冻结金额:', percent: self.data.otherEarnAmount, a: '1' }
         ]
         self.initMap()
