@@ -57,6 +57,7 @@
 </template>
 
 <script>
+  import _ from 'lodash'
   import moment from 'moment'
   import { Group, Cell, XHeader, Tab, TabItem, VChart, VTooltip, VScale, VPie, VLine, VArea, VLegend, VGuide, Countup, AlertModule, Alert } from 'vux'
 
@@ -194,6 +195,10 @@
               self.data.accountSum = parseFloat(self.homeData.accmountStatisMap.accountSum)
               self.data.totalRevenue = parseFloat(self.homeData.totalRevenue)
               self.data.lastMonthRevenue = parseFloat(self.homeData.lastMonthRevenue)
+              self.trendData = []
+              _.each(self.homeData.sixMonthRevenue, function (v, k) {
+                self.trendData.unshift({date: k, value: v})
+              })
               self.initChart()
             }
           })
