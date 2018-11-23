@@ -52,7 +52,7 @@
         <cell title="累计投资" :value="list.experience"></cell>
       </group>
     </div>
-    <alert v-model="noLoginShow" title="登录失效" @on-show="onShow" @on-hide="onHide">请重新登录</alert>
+    <alert v-model="noLoginShow" title="登录失效" @on-show="onShow" @on-hide="logout">请重新登录</alert>
   </div>
 </template>
 
@@ -137,7 +137,7 @@
           { date: '2018.06', value: 17 },
           { date: '2018.07', value: 17 },
           { date: '2018.08', value: 19 }
-        ],A
+        ],
         noLoginShow: false
       }
     },
@@ -204,7 +204,7 @@
       /**
        * 登录失效跳转
        */
-      onHide () {
+      logout () {
         var self = this
         window.localStorage.removeItem('Flag')
         self.$store.dispatch('setUser', false)

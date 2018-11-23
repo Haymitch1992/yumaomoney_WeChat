@@ -6,10 +6,11 @@
       <!--状态信息-->
       <div class="header">
         <div class="fl">
-          <div class="user"></div>
+          <img class="user" :src="origin+'/'+data.homeMap.personalHead" v-if="data.homeMap.personalHead !== ''">
+          <img class="user" :src="origin+'/images/default-img.jpg'" v-if="data.homeMap.personalHead === ''">
         </div>
         <div class="userContent fl">
-          <div class="h30">188****6369</div>
+          <div class="h30">{{data.homeMap.usernameBak}}</div>
           <div class="h30 ">
             <span class="mini-card vipStatus" :class="'v'+level">VIP{{level}}</span>
             <span class="mini-card textB">已实名</span>
@@ -22,22 +23,23 @@
     <div class="operation">
       <group>
         <cell title="会员中心" is-link link="/user/center/member"></cell>
-        <cell title="实名认证" value="王**（110*******0016）"></cell>
-        <cell title="手机号" value="136****2672" is-link link="/user/center/changeNumber"></cell>
+        <cell title="实名认证" :value="data.homeMap.realNameBak+'('+data.homeMap.idNoBak+')'"></cell>
+        <cell title="手机号" :value="data.homeMap.usernameBak" is-link link="/user/center/changeNumber"></cell>
         <cell title="银行卡" value="已绑定" is-link link="/user/center/changeCard"></cell>
         <cell title="风险测评" value="保守型" is-link link="/user/center/question"></cell>
       </group>
     </div>
     <div class="pt20 ">
       <div class="submit-box">
-        <x-button @click.native="logout" type="primary">安全退出</x-button>
+        <x-button @click.native="logout('home')" type="primary">安全退出</x-button>
       </div>
     </div>
+    <alert v-model="noLoginShow" title="登录失效" @on-show="onShow" @on-hide="logout('login')">请重新登录</alert>
   </div>
 </template>
 
 <script>
-  import { Group, Cell, XHeader, XButton } from 'vux'
+  import { Group, Cell, XHeader, XButton, AlertModule, Alert } from 'vux'
 
   export default {
     name: 'Center',
@@ -45,28 +47,64 @@
       Group,
       Cell,
       XHeader,
-      XButton
+      XButton,
+      AlertModule,
+      Alert
     },
     data () {
       return {
         href: '',
-        level: 1
+        level: 1,
+        origin: '',
+        noLoginShow: false,
+        data: {
+          homeMap: {
+            personalHead: ''
+          }
+        }
       }
     },
     methods: {
-      init () {
-        var self = this
-        self.href = window.location.origin
-      },
-      logout () {
+      logout (type) {
         var self = this
         window.localStorage.removeItem('Flag')
         self.$store.dispatch('setUser', false)
-        self.$router.push('/home')
+        if (type==='home') {
+          self.$router.push('/home')
+        } else if (type==='login') {
+          self.$router.push('/start/login')
+        }
+      },
+      onShow () {
+        console.log('on show')
+      },
+      init () {
+        var self = this
+        self.href = window.location.origin
+        self.$http.post(process.env.BASE_API + '/apihome.do', null)
+          .then(function (res) {
+            /**
+             * 验证登录是否失效
+             */
+            if (res.data === 'noLogin') {
+              self.noLoginShow = true
+            } else {
+              self.data = res.data.data
+              self.data.homeMap.usernameBak = self.data.homeMap.username.substr(0, 3) + '****' + self.data.homeMap.username.substr(7)
+              self.data.homeMap.idNoBak = self.data.homeMap.idNo
+              let idNoRuten = self.data.homeMap.idNo.substring(3,14);
+              self.data.homeMap.idNoBak = self.data.homeMap.idNoBak.replace(idNoRuten,'*******')
+              self.data.homeMap.realNameBak = self.data.homeMap.realName.substr(0, 1) + '**'
+            }
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
       }
     },
     created () {
       var self = this
+      self.origin = self.GLOBAL.origin
       self.init()
     }
   }
