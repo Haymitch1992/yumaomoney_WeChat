@@ -10,7 +10,7 @@
       <div class="totalAssetsBox">
         <div class="center">总收益</div>
         <div class="center totalAssetTitle">
-          <countup :start-val="10" :end-val="data.totalAssets" :duration="1" :decimals="2" class="title"></countup>元
+          <countup :start-val="10" :end-val="data.hasPayInterest" :duration="1" :decimals="2" class="title"></countup>元
         </div>
       </div>
       <v-chart :data="genderData">
@@ -52,12 +52,13 @@
         <cell title="累计投资" :value="list.experience"></cell>
       </group>
     </div>
+    <alert v-model="noLoginShow" title="登录失效" @on-show="onShow" @on-hide="onHide">请重新登录</alert>
   </div>
 </template>
 
 <script>
   import moment from 'moment'
-  import { Group, Cell, XHeader, Tab, TabItem, VChart, VTooltip, VScale, VPie, VLine, VArea, VLegend, VGuide, Countup } from 'vux'
+  import { Group, Cell, XHeader, Tab, TabItem, VChart, VTooltip, VScale, VPie, VLine, VArea, VLegend, VGuide, Countup, AlertModule, Alert } from 'vux'
 
   const genderMap = {}
 
@@ -77,18 +78,23 @@
       VArea,
       VLegend,
       VGuide,
-      Countup
+      Countup,
+      AlertModule,
+      Alert
     },
     data () {
       return {
+        homeData: {
+
+        },
         data: {
-          totalAssets: 1000
+          hasPayInterest: 1000
         },
         list: {
           assetsAll: 1023.15,
           subject: '1011.20',
           experience: '11.20',
-          totalAssets: null,
+          hasPayInterest: null,
           listType: 1
         },
         yOptions: {
@@ -132,7 +138,8 @@
           { date: '08-06', value: 17 },
           { date: '08-07', value: 17 },
           { date: '08-08', value: 19 }
-        ]
+        ],
+        noLoginShow: false
       }
     },
     methods: {
@@ -149,11 +156,11 @@
       initChart () {
         var self = this
         self.genderData = [
-          { name: '可用余额:', percent: self.data.periodOne, a: '1' },
-          { name: '代收本金:', percent: self.data.periodTwo, a: '1' },
-          { name: '代收收益:', percent: self.data.periodThree, a: '1' },
-          { name: '代收奖励:', percent: self.data.periodFour, a: '1' },
-          { name: '冻结金额:', percent: self.data.periodThree, a: '1' }
+          { name: '可用余额:', percent: self.data.usableAmount, a: '1' },
+          { name: '代收本金:', percent: self.data.forPayPrincipal, a: '1' },
+          { name: '代收收益:', percent: self.data.forPayInterest, a: '1' },
+          { name: '代收奖励:', percent: self.data.freezeAmount, a: '1' },
+          { name: '冻结金额:', percent: self.data.otherEarnAmount, a: '1' }
         ]
         self.initMap()
       },
@@ -172,22 +179,39 @@
        */
       getData () {
         var self = this
-        self.$http.post(process.env.BASE_API + '/operationalDataInit.do?t=' + new Date().getTime(), null)
+        self.$http.post(process.env.BASE_API + '/apihome.do', null)
           .then(function (res) {
-            self.data = res.data
-            self.data.time = moment(self.data.saveDate).format('YYYY-MM-DD')
-            self.data.timeRelative = moment(self.data.saveDate).diff('2015-01-28', 'days')
-            self.data.periodOne = parseFloat(self.data.periodOne) + 1000000
-            self.data.periodTwo = parseFloat(self.data.periodTwo) + 222500
-            self.data.periodThree = parseFloat(self.data.periodThree) + 22300
-            self.data.periodFour = parseFloat(self.data.periodFour) + 5100
-            self.data.totalAssets = self.data.periodOne + self.data.periodTwo + self.data.periodThree * 2 + self.data.periodFour
-            self.data.totalAssets = parseFloat(self.data.totalAssets).toFixed(2) * 1
-            self.initChart()
+            /**
+             * 验证登录是否失效
+             */
+            if (res.data === 'noLogin') {
+              self.noLoginShow = true
+            } else {
+              self.homeData = res.data.data
+              self.data.usableAmount = parseFloat(self.homeData.accmountStatisMap.usableAmount)
+              self.data.forPayPrincipal = parseFloat(self.homeData.accmountStatisMap.forPayPrincipal)
+              self.data.forPayInterest = parseFloat(self.homeData.accmountStatisMap.forPayInterest)
+              self.data.freezeAmount = parseFloat(self.homeData.accmountStatisMap.freezeAmount)
+              self.data.otherEarnAmount = parseFloat(self.homeData.accmountStatisMap.otherEarnAmount)
+              self.data.hasPayInterest = parseFloat(self.homeData.accmountStatisMap.hasPayInterest)
+              self.initChart()
+            }
           })
           .catch(function (error) {
             console.log(error)
           })
+      },
+      /**
+       * 登录失效跳转
+       */
+      onHide () {
+        var self = this
+        window.localStorage.removeItem('Flag')
+        self.$store.dispatch('setUser', false)
+        self.$router.push('/start/login')
+      },
+      onShow () {
+        console.log('on show')
       },
       /**
        * 初始化

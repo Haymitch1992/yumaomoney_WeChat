@@ -94,7 +94,7 @@
         </grid-item>
       </grid>
     </group>
-    <alert v-model="show" title="登录失效" @on-show="onShow" @on-hide="onHide">请重新登录</alert>
+    <alert v-model="noLoginShow" title="登录失效" @on-show="onShow" @on-hide="onHide">请重新登录</alert>
   </div>
 </template>
 
@@ -124,7 +124,7 @@
           accmountStatisMap: {}
         },
         origin: '',
-        show: false
+        noLoginShow: false
       }
     },
     methods: {
@@ -154,7 +154,7 @@
              * 验证登录是否失效
              */
             if (res.data === 'noLogin') {
-              self.show = true
+              self.noLoginShow = true
             } else {
               self.data = res.data.data
               self.data.homeMap.usernameBak = self.data.homeMap.username.substr(0, 3) + '****' + self.data.homeMap.username.substr(7)
