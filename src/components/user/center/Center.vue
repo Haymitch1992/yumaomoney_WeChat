@@ -12,7 +12,7 @@
         <div class="userContent fl">
           <div class="h30">{{data.homeMap.usernameBak}}</div>
           <div class="h30 ">
-            <span class="mini-card vipStatus" :class="'v'+data.homeMap.vip">VIP{{data.homeMap.vip}}</span>
+            <span class="mini-card vipStatus" :class="'v'+data.homeMap.vipStatus">VIP{{data.homeMap.vipStatus * 1 + 1}}</span>
             <span class="mini-card textB">已实名</span>
             <span class="mini-card textC">已开通存管</span>
           </div>
