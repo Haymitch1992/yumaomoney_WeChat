@@ -72,6 +72,7 @@
             .then(function (res) {
               if (res.data.code === '1') {
                 self.$http.defaults.headers.tokenClientkey = res.data.tokenClientkey
+                self.$cookies.set('tokenClientkey', res.data.tokenClientkey, '1d')
                 self.$store.dispatch('setUser', true)
                 // Vuex在用户刷新的时候userLogin会回到默认值false，所以我们需要用到HTML5储存
                 // 我们设置一个名为Flag，值为isLogin的字段，作用是如果Flag有值且为isLogin的时候，证明用户已经登录了。

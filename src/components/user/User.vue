@@ -148,6 +148,9 @@
       },
       init () {
         var self = this
+        if ((self.$http.defaults.headers.tokenClientkey === undefined) && self.$cookies.get('tokenClientkey')) {
+          self.$http.defaults.headers.tokenClientkey = self.$cookies.get('tokenClientkey')
+        }
         self.$http.post(process.env.BASE_API + '/apihome.do', null)
           .then(function (res) {
             /**

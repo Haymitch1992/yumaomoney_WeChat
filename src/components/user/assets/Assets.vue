@@ -26,9 +26,9 @@
         <div>上月收益(元)</div>
         <countup :start-val="1" :end-val="data.lastMonthRevenue" :duration="1" :decimals="2" class="title"></countup>
       </div>
-      <cell title="标的" :value="list.subject"></cell>
-      <cell title="体验金" :value="list.experience"></cell>
-
+      <cell title="平台奖励" :value="data.lastMonthRewardAmount"></cell>
+      <cell title="邀请奖励" :value="data.lastMonthRecommendAmount"></cell>
+      <cell title="出借收益" :value="data.lastMonthPayInterest"></cell>
       <group title="近半年收益走势(元/月)" label-width="4.5em" label-margin-right="2em" label-align="right">
         <v-chart :data="trendData" prevent-default>
           <v-scale x :tick-count="3" />
@@ -45,11 +45,11 @@
           <div>累计收益(元)</div>
           <countup :start-val="1" :end-val="data.totalRevenue" :duration="1" :decimals="2" class="title"></countup>
         </div>
-        <cell title="标的" :value="list.subject"></cell>
-        <cell title="体验金" :value="list.experience"></cell>
       </group>
-      <group  v-show="list.listType === 3">
-        <cell title="累计投资" :value="list.experience"></cell>
+      <group>
+        <cell title="平台奖励" :value="data.allrewardAmount"></cell>
+        <cell title="邀请奖励" :value="data.allrecommendAmount"></cell>
+        <cell title="出借收益" :value="data.allPayInterest "></cell>
       </group>
     </div>
     <alert v-model="noLoginShow" title="登录失效" @on-show="onShow" @on-hide="logout">请重新登录</alert>
@@ -89,11 +89,15 @@
         data: {
           accountSum: 0,
           totalRevenue: 0,
-          lastMonthRevenue: 0
+          lastMonthRevenue: 0,
+          lastMonthRewardAmount: '0.00',
+          lastMonthRecommendAmount: '0.00',
+          lastMonthPayInterest: '0.00',
+          allrewardAmount: '0.00',
+          allrecommendAmount: '0.00',
+          allPayInterest: '0.00'
         },
         list: {
-          subject: '1011.20',
-          experience: '11.20',
           listType: 1
         },
         yOptions: {
@@ -178,6 +182,9 @@
        */
       getData () {
         var self = this
+        if ((self.$http.defaults.headers.tokenClientkey === undefined) && self.$cookies.get('tokenClientkey')) {
+          self.$http.defaults.headers.tokenClientkey = self.$cookies.get('tokenClientkey')
+        }
         self.$http.post(process.env.BASE_API + '/apihome.do', null)
           .then(function (res) {
             /**
@@ -186,7 +193,7 @@
             if (res.data === 'noLogin') {
               self.noLoginShow = true
             } else {
-              self.homeData = res.data.data
+              self.homeData = _.cloneDeep(res.data.data)
               self.data.usableAmount = parseFloat(self.homeData.accmountStatisMap.usableAmount)
               self.data.forPayPrincipal = parseFloat(self.homeData.accmountStatisMap.forPayPrincipal)
               self.data.forPayInterest = parseFloat(self.homeData.accmountStatisMap.forPayInterest)
@@ -194,7 +201,12 @@
               self.data.otherEarnAmount = parseFloat(self.homeData.accmountStatisMap.otherEarnAmount)
               self.data.accountSum = parseFloat(self.homeData.accmountStatisMap.accountSum)
               self.data.totalRevenue = parseFloat(self.homeData.totalRevenue)
-              self.data.lastMonthRevenue = parseFloat(self.homeData.lastMonthRevenue)
+              self.data.lastMonthRewardAmount = parseFloat(self.homeData.lastMonthDetail.lastMonthRewardAmount).toFixed(2)
+              self.data.lastMonthRecommendAmount = parseFloat(self.homeData.lastMonthDetail.lastMonthRecommendAmount).toFixed(2)
+              self.data.lastMonthPayInterest = parseFloat(self.homeData.lastMonthDetail.lastMonthPayInterest).toFixed(2)
+              self.data.allrewardAmount = parseFloat(self.homeData.allDetail.allrewardAmount).toFixed(2)
+              self.data.allrecommendAmount = parseFloat(self.homeData.allDetail.allrecommendAmount).toFixed(2)
+              self.data.allPayInterest = parseFloat(self.homeData.allDetail.allPayInterest).toFixed(2)
               self.trendData = []
               _.each(self.homeData.sixMonthRevenue, function (v, k) {
                 self.trendData.unshift({date: k, value: v})
