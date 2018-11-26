@@ -69,6 +69,7 @@
         var self = this
         window.localStorage.removeItem('Flag')
         self.$store.dispatch('setUser', false)
+        self.$cookies.remove('tokenClientkey')
         if (type==='home') {
           self.$router.push('/home')
         } else if (type==='login') {
@@ -78,12 +79,11 @@
       onShow () {
         console.log('on show')
       },
-      init () {
+      /**
+       * 获取数据
+       */
+      getData () {
         var self = this
-        self.href = window.location.origin
-        if ((self.$http.defaults.headers.tokenClientkey === undefined) && self.$cookies.get('tokenClientkey')) {
-          self.$http.defaults.headers.tokenClientkey = self.$cookies.get('tokenClientkey')
-        }
         self.$http.post(process.env.BASE_API + '/apihome.do', null)
           .then(function (res) {
             /**
@@ -117,6 +117,15 @@
           .catch(function (error) {
             console.log(error)
           })
+
+      },
+      init () {
+        var self = this
+        self.href = window.location.origin
+        if ((self.$http.defaults.headers.tokenClientkey === undefined) && self.$cookies.get('tokenClientkey')) {
+          self.$http.defaults.headers.tokenClientkey = self.$cookies.get('tokenClientkey')
+        }
+        self.getData()
       }
     },
     created () {
