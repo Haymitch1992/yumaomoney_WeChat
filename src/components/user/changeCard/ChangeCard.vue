@@ -15,11 +15,12 @@
         </div>
       </popup>
     </div>
+    <alert v-model="noLoginShow" title="登录失效" @on-show="onShow" @on-hide="logout('login')">请重新登录</alert>
   </div>
 </template>
 
 <script>
-  import { TransferDom, Group, Cell, XHeader, Panel, Popup, XButton } from 'vux'
+  import { TransferDom, Group, Cell, XHeader, Panel, Popup, XButton, AlertModule, Alert } from 'vux'
 
   export default {
     name: 'ChangeCard',
@@ -32,111 +33,113 @@
       XHeader,
       Panel,
       Popup,
-      XButton
+      XButton,
+      AlertModule,
+      Alert
     },
     data () {
       return {
         data: {
-          type: 'BOB',
-          num: '5415',
           cash: '',
           balance: 10000
         },
+        noLoginShow: false,
         show: false,
         bankList: [],
+        bankJson: [],
         banks: {
-          ABC: [
+          ABOC: [
             {
               src: 'http://39.107.59.233/images/wechat/banks/ABC-icon.png',
               title: '中国农业银行',
-              desc: '单笔限额100万元，单日限额200万元'
+              desc: '单笔限额100万元，单日限额500万元'
             }
           ],
-          BCM: [
+          COMM: [
             {
               src: 'http://39.107.59.233/images/wechat/banks/BCM-icon.png',
               title: '交通银行',
-              desc: '单笔限额100万元，单日限额200万元'
+              desc: '单笔限额100万元，单日限额100万元'
             }
           ],
-          BOB: [
+          BJCN: [
             {
               src: 'http://39.107.59.233/images/wechat/banks/BOB-icon.png',
               title: '北京银行',
-              desc: '单笔限额100万元，单日限额200万元'
+              desc: '单笔限额100万元，单日限额100万元'
             }
           ],
-          BOC: [
+          BKCH: [
             {
               src: 'http://39.107.59.233/images/wechat/banks/BOC-icon.png',
               title: '中国银行',
-              desc: '单笔限额100万元，单日限额200万元'
+              desc: '单笔限额5万元，单日限额5万元'
             }
           ],
-          CCB: [
+          PCBC: [
             {
               src: 'http://39.107.59.233/images/wechat/banks/CCB-icon.png',
               title: '中国建设银行',
               desc: '单笔限额100万元，单日限额200万元'
             }
           ],
-          CEB: [
+          EVER: [
             {
               src: 'http://39.107.59.233/images/wechat/banks/CEB-icon.png',
               title: '中国光大银行',
-              desc: '单笔限额100万元，单日限额200万元'
+              desc: '单笔限额50万元，单日限额50万元'
             }
           ],
-          CIB: [
+          FJIB: [
             {
               src: 'http://39.107.59.233/images/wechat/banks/CIB-icon.png',
               title: '兴业银行',
-              desc: '单笔限额100万元，单日限额200万元'
+              desc: '单笔限额100万元，单日限额100万元'
             }
           ],
-          CITIC: [
+          CIBK: [
             {
               src: 'http://39.107.59.233/images/wechat/banks/CITIC-icon.png',
               title: '中信银行',
-              desc: '单笔限额100万元，单日限额200万元'
+              desc: '单笔限额40万元，单日限额100万元'
             }
           ],
-          CMB: [
+          CMBC: [
             {
               src: 'http://39.107.59.233/images/wechat/banks/CMB-icon.png',
               title: '招商银行',
               desc: '单笔限额100万元，单日限额200万元'
             }
           ],
-          CGB: [
+          GDBK: [
             {
               src: 'http://39.107.59.233/images/wechat/banks/CGB-icon.png',
               title: '广发银行',
               desc: '单笔限额100万元，单日限额200万元'
             }
           ],
-          HXB: [
+          HXBK: [
             {
               src: 'http://39.107.59.233/images/wechat/banks/HXB-icon.png',
               title: '华夏银行',
               desc: '单笔限额100万元，单日限额200万元'
             }
           ],
-          ICBC: [
+          ICBK: [
             {
               src: 'http://39.107.59.233/images/wechat/banks/ICBC-icon.png',
               title: '中国工商银行',
               desc: '单笔限额100万元，单日限额200万元'
             }
           ],
-          CMBC: [
+          MSBC: [
             {
               src: 'http://39.107.59.233/images/wechat/banks/CMBC-icon.png',
               title: '中国民生银行',
               desc: '单笔限额100万元，单日限额200万元'
             }
           ],
-          PABC: [
+          SZDB: [
             {
               src: 'http://39.107.59.233/images/wechat/banks/PABC-icon.png',
               title: '平安银行',
@@ -164,12 +167,53 @@
       onImgError (item, $event) {
         console.log(item, $event)
       },
+      /**
+       * 获取数据
+       */
+      getData () {
+        var self = this
+        self.$http.post(process.env.BASE_API + '/apihome.do', null)
+          .then(function (res) {
+            /**
+             * 验证登录是否失效
+             */
+            if (res.data === 'noLogin') {
+              self.noLoginShow = true
+            } else {
+              console.log(res.data.data)
+              self.bankList.push(self.banks[res.data.data.bankMap.bankcode][0])
+              var num = ' 尾号' + res.data.data.bankMap.cardNo.substr(-4)
+              self.bankList[0].title += num
+              self.data.balanceBak = self.data.balance.toFixed(2)
+            }
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+      },
+      /**
+       * 获取银行列表
+       */
+      getJson () {
+        var self = this
+        self.$http.post(process.env.BASE_API + '/jsonData/bank_kj.json', null)
+          .then(function (res) {
+            self.bankJson = res.data
+            _.each(self.bankJson, function (v) {
+              self.banks[v.BankName][0].desc = `单笔限额${v.once}元，单日限额${v.day}元`
+            })
+            self.getData()
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+      },
       init () {
         var self = this
-        self.bankList.push(self.banks[self.data.type][0])
-        var num = ' 尾号' + self.data.num
-        self.bankList[0].title += num
-        self.data.balanceBak = self.data.balance.toFixed(2)
+        if ((self.$http.defaults.headers.tokenClientkey === undefined) && self.$cookies.get('tokenClientkey')) {
+          self.$http.defaults.headers.tokenClientkey = self.$cookies.get('tokenClientkey')
+        }
+        self.getJson()
       }
     },
     created () {

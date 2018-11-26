@@ -109,21 +109,6 @@
           .catch(function (error) {
             console.log(error)
           })
-        self.$http.post(process.env.BASE_API + '/queryBankInfoInit.do?shoveDate' + new Date().getTime(), null)
-          .then(function (res) {
-            /**
-             * 验证登录是否失效
-             */
-            if (res.data === 'noLogin') {
-              self.noLoginShow = true
-            } else {
-              console.log(res.data)
-            }
-          })
-          .catch(function (error) {
-            console.log(error)
-          })
-
       },
       init () {
         var self = this
