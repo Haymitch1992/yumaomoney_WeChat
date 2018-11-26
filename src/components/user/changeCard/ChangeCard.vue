@@ -207,6 +207,16 @@
             console.log(error)
           })
       },
+      /**
+       * 登录失效跳转
+       */
+      logout () {
+        var self = this
+        window.localStorage.removeItem('Flag')
+        self.$store.dispatch('setUser', false)
+        self.$cookies.remove('tokenClientkey')
+        self.$router.push('/start/login')
+      },
       init () {
         var self = this
         if ((self.$http.defaults.headers.tokenClientkey === undefined) && self.$cookies.get('tokenClientkey')) {

@@ -242,6 +242,7 @@
         var self = this
         window.localStorage.removeItem('Flag')
         self.$store.dispatch('setUser', false)
+        self.$cookies.remove('tokenClientkey')
         self.$router.push('/start/login')
       },
       onShow () {
