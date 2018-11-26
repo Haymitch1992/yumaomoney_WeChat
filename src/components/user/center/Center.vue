@@ -25,8 +25,12 @@
         <cell title="会员中心" is-link link="/user/center/member"></cell>
         <cell title="实名认证" :value="data.homeMap.realNameBak+'('+data.homeMap.idNoBak+')'"></cell>
         <cell title="手机号" :value="data.homeMap.usernameBak" is-link link="/user/center/changeNumber"></cell>
-        <cell title="银行卡" value="已绑定" is-link link="/user/center/changeCard"></cell>
-        <cell title="风险测评" value="保守型" is-link link="/user/center/question"></cell>
+        <cell title="银行卡" value="未绑定" is-link v-if="(data.bankMap === '')"></cell>
+        <cell title="银行卡" :value="data.bankMap.cardStatus === '1' ? '已绑定' : data.bankMap.cardStatus === '2' ? '申请中' : '未绑定'"
+              is-link link="/user/center/changeCard" v-if="(data.bankMap !== '')"></cell>
+        <cell title="风险测评" value="未评测" is-link link="/user/center/question" v-show="(data.QuestionnaireMap.retKey === 'NotAnsweringQuestions')"></cell>
+        <cell title="风险测评" :value="(data.QuestionnaireMap.scoreStatus === '1') ? '保守型' : (data.QuestionnaireMap.scoreStatus === '2') ? '稳健型' : '进取型'"
+              is-link link="/user/center/question" v-show="(data.QuestionnaireMap.retKey === 'AnsweringQuestions')"></cell>
       </group>
     </div>
     <div class="pt20 ">
@@ -60,7 +64,9 @@
         data: {
           homeMap: {
             personalHead: ''
-          }
+          },
+          bankMap: {},
+          QuestionnaireMap: {}
         }
       }
     },

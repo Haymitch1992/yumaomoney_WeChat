@@ -36,7 +36,7 @@
           </flexbox-item>
           <flexbox-item>
             <div class=" middleItem" @click="jumpParams('assets', 2)">
-              <div class="center f20" v-show="active">{{data.lastMonthRevenue}}</div>
+              <div class="center f20" v-show="active">{{data.lastMonthDetails.lastMonthRevenue}}</div>
               <div class="center f20" v-show="!active">****</div>
               <div class="center f14 mT4">上月收益</div>
             </div>
@@ -121,7 +121,8 @@
           homeMap: {
             personalHead: ''
           },
-          accmountStatisMap: {}
+          accmountStatisMap: {},
+          lastMonthDetails: {}
         },
         origin: '',
         noLoginShow: false

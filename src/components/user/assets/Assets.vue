@@ -134,13 +134,12 @@
              </div>`
         },
         trendData: [
-          { date: '2018.02', value: 12 },
-          { date: '2018.03', value: 13 },
-          { date: '2018.04', value: 14 },
-          { date: '2018.05', value: 16 },
-          { date: '2018.06', value: 17 },
-          { date: '2018.07', value: 17 },
-          { date: '2018.08', value: 19 }
+          { date: '2018-01-01', value: 0 },
+          { date: '2018-02-01', value: 0 },
+          { date: '2018-03-01', value: 0 },
+          { date: '2018-04-01', value: 0 },
+          { date: '2018-05-01', value: 0 },
+          { date: '2018-06-01', value: 0 }
         ],
         noLoginShow: false
       }
@@ -178,6 +177,30 @@
         })
       },
       /**
+       * 获取半年数据
+       */
+      getSixMonthData () {
+        var self = this
+        self.$http.post(process.env.BASE_API + '/sixMonthRevenue.do', null)
+          .then(function (res) {
+            /**
+             * 验证登录是否失效
+             */
+            if (res.data === 'noLogin') {
+              self.noLoginShow = true
+            } else {
+              self.trendData = []
+              _.each(res.data.data.sixMonthRevenue, function (v, k) {
+                self.trendData.unshift({date: k, value: v})
+              })
+              self.initChart()
+            }
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+      },
+      /**
        * 获取数据
        */
       getData () {
@@ -198,17 +221,14 @@
               self.data.otherEarnAmount = parseFloat(self.homeData.accmountStatisMap.otherEarnAmount)
               self.data.accountSum = parseFloat(self.homeData.accmountStatisMap.accountSum)
               self.data.totalRevenue = parseFloat(self.homeData.totalRevenue)
-              self.data.lastMonthRewardAmount = parseFloat(self.homeData.lastMonthDetail.lastMonthRewardAmount).toFixed(2)
-              self.data.lastMonthRecommendAmount = parseFloat(self.homeData.lastMonthDetail.lastMonthRecommendAmount).toFixed(2)
-              self.data.lastMonthPayInterest = parseFloat(self.homeData.lastMonthDetail.lastMonthPayInterest).toFixed(2)
+              self.data.lastMonthRevenue = parseFloat(self.homeData.lastMonthDetails.lastMonthDetail)
+              self.data.lastMonthRewardAmount = parseFloat(self.homeData.lastMonthDetails.lastMonthDetail.lastMonthRewardAmount).toFixed(2)
+              self.data.lastMonthRecommendAmount = parseFloat(self.homeData.lastMonthDetails.lastMonthDetail.lastMonthRecommendAmount).toFixed(2)
+              self.data.lastMonthPayInterest = parseFloat(self.homeData.lastMonthDetails.lastMonthDetail.lastMonthPayInterest).toFixed(2)
               self.data.allrewardAmount = parseFloat(self.homeData.allDetail.allrewardAmount).toFixed(2)
               self.data.allrecommendAmount = parseFloat(self.homeData.allDetail.allrecommendAmount).toFixed(2)
               self.data.allPayInterest = parseFloat(self.homeData.allDetail.allPayInterest).toFixed(2)
-              self.trendData = []
-              _.each(self.homeData.sixMonthRevenue, function (v, k) {
-                self.trendData.unshift({date: k, value: v})
-              })
-              self.initChart()
+              self.getSixMonthData()
             }
           })
           .catch(function (error) {
