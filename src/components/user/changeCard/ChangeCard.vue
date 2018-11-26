@@ -180,7 +180,6 @@
             if (res.data === 'noLogin') {
               self.noLoginShow = true
             } else {
-              console.log(res.data.data)
               self.bankList.push(self.banks[res.data.data.bankMap.bankcode][0])
               var num = ' 尾号' + res.data.data.bankMap.cardNo.substr(-4)
               self.bankList[0].title += num
