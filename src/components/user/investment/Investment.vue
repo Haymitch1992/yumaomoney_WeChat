@@ -6,7 +6,29 @@
       <tab-item :selected="list.listType === 2" @on-item-click="list.listType = 2">还款中</tab-item>
       <tab-item :selected="list.listType === 3" @on-item-click="list.listType = 3">已还清</tab-item>
     </tab>
-    <div style="position: relative; top: -10px; z-index: 10;">
+    <div style="position: relative; top: -10px; z-index: 10;" v-show="list.listType === 1">
+      <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore"
+                use-pulldown :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
+                lock-x ref="scrollerBottom" height="-48">
+        <div>
+          <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in data" :key="item.key">
+            <panel :list="item.panel" :type="item.type" @on-img-error="onImgError" @click.native="goDetail(item)"></panel>
+          </group>
+        </div>
+      </scroller>
+    </div>
+    <div style="position: relative; top: -10px; z-index: 10;" v-show="list.listType === 2">
+      <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore"
+                use-pulldown :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
+                lock-x ref="scrollerBottom" height="-48">
+        <div>
+          <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in data" :key="item.key">
+            <panel :list="item.panel" :type="item.type" @on-img-error="onImgError" @click.native="goDetail(item)"></panel>
+          </group>
+        </div>
+      </scroller>
+    </div>
+    <div style="position: relative; top: -10px; z-index: 10;" v-show="list.listType === 3">
       <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore"
                 use-pulldown :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
