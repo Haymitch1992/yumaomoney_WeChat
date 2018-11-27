@@ -73,14 +73,20 @@
     methods: {
       logout (type) {
         var self = this
-        window.localStorage.removeItem('Flag')
-        self.$store.dispatch('setUser', false)
-        self.$cookies.remove('tokenClientkey')
-        if (type==='home') {
-          self.$router.push('/home')
-        } else if (type==='login') {
-          self.$router.push('/start/login')
-        }
+        self.$http.post(process.env.BASE_API + '/apilogout.do', null)
+          .then(function () {
+            window.localStorage.removeItem('Flag')
+            self.$store.dispatch('setUser', false)
+            self.$cookies.remove('tokenClientkey')
+            if (type==='home') {
+              self.$router.push('/home')
+            } else if (type==='login') {
+              self.$router.push('/start/login')
+            }
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
       },
       onShow () {
         console.log('on show')
