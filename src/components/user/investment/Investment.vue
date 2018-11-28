@@ -6,38 +6,42 @@
       <tab-item :selected="list.listType === 2" @on-item-click="list.listType = 2">还款中</tab-item>
       <tab-item :selected="list.listType === 3" @on-item-click="list.listType = 3">已还清</tab-item>
     </tab>
-    <div style="position: relative; top: -10px; z-index: 10;" v-show="list.listType === 1">
-      <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-scroll-bottom="loadMore"
-                :use-pulldown="!borrowTenderType" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
+    <div style="position: relative; top: -10px; z-index: 10;" :class="{ minContainer: (dataTender.length<5) }" v-show="list.listType === 1">
+      <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-scroll-bottom="loadMore('Tender')"
+                :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
         <div>
-          <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in data" :key="item.key">
+          <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in dataTender" :key="item.key">
             <panel :list="item.panel" :type="item.type" @on-img-error="onImgError" @click.native="goDetail(item)"></panel>
           </group>
-          <divider v-show="borrowTenderType">没有更多数据了~</divider>
-          <load-more v-show="!borrowTenderType" tip="加载中"></load-more>
+          <divider v-show="typeTender">没有更多数据了~</divider>
+          <load-more v-show="!typeTender" tip="加载中"></load-more>
         </div>
       </scroller>
     </div>
-    <div style="position: relative; top: -10px; z-index: 10;" v-show="list.listType === 2">
-      <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore"
+    <div style="position: relative; top: -10px; z-index: 10;" :class="{ minContainer: (dataRecycle.length<5) }" v-show="list.listType === 2">
+      <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore('Recycle')"
                 use-pulldown :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
         <div>
-          <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in data" :key="item.key">
+          <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in dataRecycle" :key="item.key">
             <panel :list="item.panel" :type="item.type" @on-img-error="onImgError" @click.native="goDetail(item)"></panel>
           </group>
+          <divider v-show="typeRecycle">没有更多数据了~</divider>
+          <load-more v-show="!typeRecycle" tip="加载中"></load-more>
         </div>
       </scroller>
     </div>
-    <div style="position: relative; top: -10px; z-index: 10;" v-show="list.listType === 3">
-      <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore"
+    <div style="position: relative; top: -10px; z-index: 10;" :class="{ minContainer: (dataRecycled.length<5) }" v-show="list.listType === 3">
+      <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore('Recycled')"
                 use-pulldown :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
         <div>
-          <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in data" :key="item.key">
+          <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in dataRecycled" :key="item.key">
             <panel :list="item.panel" :type="item.type" @on-img-error="onImgError" @click.native="goDetail(item)"></panel>
           </group>
+          <divider v-show="typeRecycled">没有更多数据了~</divider>
+          <load-more v-show="!typeRecycled" tip="加载中"></load-more>
         </div>
       </scroller>
     </div>
@@ -94,10 +98,16 @@
           listType: 1
         },
         onFetching: false,
-        data: [],
-        borrowTenderType: false,
+        dataTender: [],
+        dataRecycle: [],
+        dataRecycled: [],
+        typeTender: false,
+        typeRecycle: false,
+        typeRecycled: false,
         noLoginShow: false,
-        curPageBorrowTender: 1,
+        curPageTender: 1,
+        curPageRecycle: 1,
+        curPageRecycled: 1,
         swiper_index: 1,
         pullupDefaultConfig: pullupDefaultConfig,
         pulldownDefaultConfig: pulldownDefaultConfig
@@ -128,17 +138,26 @@
       },
       /**
        * 加载更多列表
+       * type: 加载列表类型(Tender/Recycle/Recycled)
        */
-      loadMore () {
+      loadMore (type) {
         var self = this
         if (self.onFetching) {
+          // do something
         } else {
           self.onFetching = true
           setTimeout(() => {
-            console.log('加载更多')
             self.$refs.scrollerBottom.donePullup()
-            self.curPageBorrowTender++
-            self.getBorrowTenderInList()
+            if(type === 'Tender'){
+              self.curPageTender++
+              self.getTenderList()
+            } else if (type === 'Recycle') {
+              self.curPageRecycle++
+              self.getRecycleList()
+            } else if (type === 'Recycled') {
+              self.curPageRecycled++
+              self.getRecycledList()
+            }
             self.onFetching = false
           }, 2000)
         }
@@ -151,17 +170,17 @@
         this.$router.push({name: 'investmentDetail', params: {listType: self.list.listType, item: item}})
       },
       /**
-       * 获取列表
+       * 获取招标中的投资列表
        */
-      getBorrowTenderInList () {
+      getTenderList () {
         var self = this
-        if (self.borrowTenderType === false) {
-          self.$http.get(process.env.BASE_API + '/apihomeBorrowTenderInList.do', {params: { 'curPage': self.curPageBorrowTender }})
+        if (self.typeTender === false) {
+          self.$http.get(process.env.BASE_API + '/apihomeBorrowTenderInList.do', {params: { 'curPage': self.curPageTender }})
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
               } else if (res.data.data === '') {
-                self.borrowTenderType = true
+                self.typeTender = true
               } else {
                 _.each(res.data.data, function (v, k) {
                   var item = {
@@ -171,19 +190,103 @@
                     panel: [
                       {
                         title: v.borrowTitle,
-                        desc: '投资金额:' + v.borrowAmount + ' 期限：' + v.deadline,
+                        desc: '投资金额:' + v.investAmount + ' 期限：' + v.deadline,
                         meta: {
                           source: '年利率',
                           date: '7% + ' + (parseInt(v.annualRate) - 7) + '%',
-                          other: '投资时间： ' + moment(v.investTime, 'YY-MM-DD hh:mm:ss').format('YYYY-MM-DD HH:mm:ss')
+                          other: '投资时间： ' + moment(v.investTime, 'YY-MM-DD hh:mm:ss').format('YYYY-MM-DD hh:mm:ss')
                         }
                       }
                     ]
                   }
-                  self.data.push(item)
+                  self.dataTender.push(item)
                 })
                 if (res.data.data.length < 10) {
-                  self.borrowTenderType = true
+                  self.typeTender = true
+                }
+              }
+            })
+            .catch(function (error) {
+              console.log(error)
+            })
+        }
+      },
+      /**
+       * 获取还款中的投资列表
+       */
+      getRecycleList () {
+        var self = this
+        if (self.typeRecycle === false) {
+          self.$http.get(process.env.BASE_API + '/apihomeBorrowRecycleList.do', {params: { 'curPage': self.curPageRecycle }})
+            .then(function (res) {
+              if (res.data === 'noLogin') {
+                self.noLoginShow = true
+              } else if (res.data.data === '') {
+                self.typeRecycle = true
+              } else {
+                _.each(res.data.data, function (v, k) {
+                  var item = {
+                    key: v.id,
+                    type: '4',
+                    progress: parseInt(v.progress),
+                    panel: [
+                      {
+                        title: v.borrowTitle,
+                        desc: '投资金额:' + v.realAmount + ' 期限：' + v.deadline,
+                        meta: {
+                          source: '年利率',
+                          date: '7% + ' + (parseInt(v.annualRate) - 7) + '%',
+                          other: '投资时间： ' + moment(v.investTime, 'YY-MM-DD hh:mm:ss').format('YYYY-MM-DD hh:mm:ss')
+                        }
+                      }
+                    ]
+                  }
+                  self.dataRecycle.push(item)
+                })
+                if (res.data.data.length < 10) {
+                  self.typeRecycle = true
+                }
+              }
+            })
+            .catch(function (error) {
+              console.log(error)
+            })
+        }
+      },
+      /**
+       * 获取已还清的投资列表
+       */
+      getRecycledList () {
+        var self = this
+        if (self.typeRecycled === false) {
+          self.$http.get(process.env.BASE_API + '/apihomeBorrowRecycledList.do', {params: { 'curPage': self.curPageRecycled }})
+            .then(function (res) {
+              if (res.data === 'noLogin') {
+                self.noLoginShow = true
+              } else if (res.data.data === '') {
+                self.typeRecycled = true
+              } else {
+                _.each(res.data.data, function (v, k) {
+                  var item = {
+                    key: v.id,
+                    type: '4',
+                    progress: parseInt(v.progress),
+                    panel: [
+                      {
+                        title: v.borrowTitle,
+                        desc: '投资金额:' + v.realAmount + ' 期限：' + v.deadline,
+                        meta: {
+                          source: '年利率',
+                          date: '7% + ' + (parseInt(v.annualRate) - 7) + '%',
+                          other: '投资时间： ' + moment(v.investTime, 'YY-MM-DD hh:mm:ss').format('YYYY-MM-DD hh:mm:ss')
+                        }
+                      }
+                    ]
+                  }
+                  self.dataRecycled.push(item)
+                })
+                if (res.data.data.length < 10) {
+                  self.typeRecycled = true
                 }
               }
             })
@@ -202,7 +305,9 @@
           self.$http.defaults.headers.tokenClientkey = self.$cookies.get('tokenClientkey')
         }
         self.list.listType = self.$route.params.listType ? self.$route.params.listType : 1
-        self.getBorrowTenderInList()
+        self.getTenderList()
+        self.getRecycleList()
+        self.getRecycledList()
       }
     },
     created () {
@@ -214,6 +319,9 @@
 <style lang="less">
   .investment .vux-divider {
     padding: 5vh 0;
+  }
+  .investment .minContainer .xs-container {
+    height: 95vh;
   }
 </style>
 
