@@ -190,7 +190,7 @@
                     panel: [
                       {
                         title: v.borrowTitle,
-                        desc: '投资金额:' + v.investAmount + ' 期限：' + v.deadline,
+                        desc: '投资金额:' + v.investAmount + ' 期限：' + v.deadline + `${v.isDayThe === 1 ? '个月' : '天'}`,
                         meta: {
                           source: '年利率',
                           date: '7% + ' + (parseInt(v.annualRate) - 7) + '%',
@@ -232,11 +232,11 @@
                     panel: [
                       {
                         title: v.borrowTitle,
-                        desc: '投资金额:' + v.realAmount + ' 期限：' + v.deadline,
+                        desc: '投资金额:' + v.realAmount + ' 期限：' + v.deadline + `${v.isDayThe === 1 ? '个月' : '天'}`,
                         meta: {
                           source: '年利率',
                           date: '7% + ' + (parseInt(v.annualRate) - 7) + '%',
-                          other: '投资时间： ' + moment(v.investTime, 'YY-MM-DD hh:mm:ss').format('YYYY-MM-DD hh:mm:ss')
+                          other: '满标时间： ' + moment(v.auditTime, 'YYYY-MM-DD').format('YYYY-MM-DD hh:mm:ss')
                         }
                       }
                     ]
@@ -274,11 +274,11 @@
                     panel: [
                       {
                         title: v.borrowTitle,
-                        desc: '投资金额:' + v.realAmount + ' 期限：' + v.deadline,
+                        desc: '投资金额:' + v.realAmount + ' 期限：' + v.deadline + `${v.isDayThe === 1 ? '个月' : '天'}`,
                         meta: {
                           source: '年利率',
                           date: '7% + ' + (parseInt(v.annualRate) - 7) + '%',
-                          other: '投资时间： ' + moment(v.investTime, 'YY-MM-DD hh:mm:ss').format('YYYY-MM-DD hh:mm:ss')
+                          other: '还清时间： ' + moment(v.auditTime, 'YYYY-MM-DD').format('YYYY-MM-DD hh:mm:ss')
                         }
                       }
                     ]
