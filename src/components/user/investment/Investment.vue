@@ -148,7 +148,7 @@
           self.onFetching = true
           setTimeout(() => {
             self.$refs.scrollerBottom.donePullup()
-            if(type === 'Tender'){
+            if (type === 'Tender') {
               self.curPageTender++
               self.getTenderList()
             } else if (type === 'Recycle') {
