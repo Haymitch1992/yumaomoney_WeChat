@@ -66,7 +66,7 @@
                :padding="[20, 'auto']">
         <v-tooltip disabled />
         <v-scale y :options="yOptions" />
-        <v-pie :radius="0.85":inner-radius="0.7" series-field="name" :colors="['#ff5151','#ffc12c','#ff5b77','#5980ff','#66e0ff']" />
+        <v-pie :radius="0.85":inner-radius="0.7" series-field="name" :colors="['#ff5151','#ffc12c','#c550ff','#5980ff','#66e0ff']" />
         <v-legend :options="cycleOptions" />
       </v-chart>
     </group>
@@ -75,7 +75,7 @@
       <v-chart :data="platformData">
         <v-scale y :options="yOptions" />
         <v-tooltip disabled />
-        <v-pie :radius="0.85" series-field="name" :colors="['#ff5151','#ffc12c','#ff5b77','#5980ff','#66e0ff']" />
+        <v-pie :radius="0.85" series-field="name" :colors="['#ff5151','#ffc12c','#c550ff','#5980ff','#66e0ff']" />
         <v-legend :options="platformOptions" />
       </v-chart>
     </group>
@@ -104,7 +104,7 @@
         :padding="[20, 'auto']">
         <v-tooltip disabled />
         <v-scale y :options="yOptions" />
-        <v-pie :radius="0.85" :inner-radius="0.7" series-field="name" :colors="['#ff5151','#ffc12c','#ff5b77','#5980ff','#66e0ff']" />
+        <v-pie :radius="0.85" :inner-radius="0.7" series-field="name" :colors="['#ff5151','#ffc12c','#c550ff','#5980ff','#66e0ff']" />
         <v-legend :options="genderOptions" />
       </v-chart>
     </group>

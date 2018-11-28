@@ -10,13 +10,13 @@
       <div class="totalAssetsBox">
         <div class="center">总资产</div>
         <div class="center totalAssetTitle">
-          <countup :start-val="10" :end-val="data.accountSum" :duration="1" :decimals="2" class="title"></countup>元
+          <countup :end-val="data.accountSum" :duration="1" :decimals="2" class="title"></countup>元
         </div>
       </div>
       <v-chart :data="genderData">
         <v-tooltip disabled/>
         <v-scale y :options="yOptions" />
-        <v-pie :radius="1" :inner-radius="0.6" series-field="name" :colors="['#ff5151','#ffc12c','#ff5b77','#5980ff','#66e0ff']" />
+        <v-pie :radius="1" :inner-radius="0.6" series-field="name" :colors="['#ff5151','#ffc12c','#c550ff','#5980ff','#66e0ff']" />
         <v-legend :options="genderOptions" />
         <v-guide type="html" :options="htmlOptions" ref="child"/>
       </v-chart>
@@ -24,7 +24,7 @@
     <group v-show="list.listType === 2">
       <div class="assetsBox">
         <div>上月收益(元)</div>
-        <countup :start-val="1" :end-val="data.lastMonthRevenue" :duration="1" :decimals="2" class="title"></countup>
+        <countup :end-val="data.lastMonthRevenue" :duration="1" :decimals="2" class="title"></countup>
       </div>
       <cell title="平台奖励" :value="data.lastMonthRewardAmount"></cell>
       <cell title="邀请奖励" :value="data.lastMonthRecommendAmount"></cell>
@@ -43,7 +43,7 @@
       <group>
         <div class="assetsBox">
           <div>累计收益(元)</div>
-          <countup :start-val="1" :end-val="data.totalRevenue" :duration="1" :decimals="2" class="title"></countup>
+          <countup :end-val="data.totalRevenue" :duration="1" :decimals="2" class="title"></countup>
         </div>
       </group>
       <group>
