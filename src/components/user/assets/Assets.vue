@@ -58,7 +58,6 @@
 
 <script>
   import _ from 'lodash'
-  import moment from 'moment'
   import { Group, Cell, XHeader, Tab, TabItem, VChart, VTooltip, VScale, VPie, VLine, VArea, VLegend, VGuide, Countup, AlertModule, Alert } from 'vux'
 
   const genderMap = {}

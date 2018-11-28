@@ -78,9 +78,9 @@
             window.localStorage.removeItem('Flag')
             self.$store.dispatch('setUser', false)
             self.$cookies.remove('tokenClientkey')
-            if (type==='home') {
+            if (type === 'home') {
               self.$router.push('/home')
-            } else if (type==='login') {
+            } else if (type === 'login') {
               self.$router.push('/start/login')
             }
           })
@@ -107,8 +107,8 @@
               self.data = res.data.data
               self.data.homeMap.usernameBak = self.data.homeMap.username.substr(0, 3) + '****' + self.data.homeMap.username.substr(7)
               self.data.homeMap.idNoBak = self.data.homeMap.idNo
-              let idNoRuten = self.data.homeMap.idNo.substring(3,14);
-              self.data.homeMap.idNoBak = self.data.homeMap.idNoBak.replace(idNoRuten,'*******')
+              let idNoRuten = self.data.homeMap.idNo.substring(3, 14)
+              self.data.homeMap.idNoBak = self.data.homeMap.idNoBak.replace(idNoRuten, '*******')
               self.data.homeMap.realNameBak = self.data.homeMap.realName.substr(0, 1) + '**'
             }
           })

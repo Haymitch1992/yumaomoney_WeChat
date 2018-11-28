@@ -20,6 +20,7 @@
 </template>
 
 <script>
+  import _ from 'lodash'
   import { TransferDom, Group, Cell, XHeader, Panel, Popup, XButton, AlertModule, Alert } from 'vux'
 
   export default {

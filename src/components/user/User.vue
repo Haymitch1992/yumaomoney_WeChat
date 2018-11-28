@@ -99,7 +99,7 @@
 </template>
 
 <script>
-  import { Group, Grid, GridItem, Cell, XHeader, Flexbox, FlexboxItem, AlertModule, Alert} from 'vux'
+  import { Group, Grid, GridItem, Cell, XHeader, Flexbox, FlexboxItem, AlertModule, Alert } from 'vux'
 
   export default {
     name: 'UserHome',
