@@ -228,12 +228,11 @@
                 _.each(res.data.data, function (v, k) {
                   var item = {
                     id: v.id,
-                    title: `+${v.sum}元`,
+                    title: `+${v.handleSum}元`,
                     time: moment(v.recordTime.time).format('YYYY-MM-DD hh:mm:ss'),
                     value: '网银充值'
                   }
                   self.data.recharge.push(item)
-                  console.log(self.data.recharge)
                 })
                 if (res.data.data.length < 10) {
                   self.parm.recharge = true
@@ -258,25 +257,15 @@
               } else if (res.data.data === '') {
                 self.parm.cash = true
               } else {
-//                _.each(res.data.data, function (v, k) {
-//                  var item = {
-//                    key: v.id,
-//                    type: '4',
-//                    progress: parseInt(v.progress),
-//                    panel: [
-//                      {
-//                        title: v.borrowTitle,
-//                        desc: '投资金额:' + v.investAmount + ' 期限：' + v.deadline + `${v.isDayThe === 1 ? '个月' : '天'}`,
-//                        meta: {
-//                          source: '年利率',
-//                          date: '7% + ' + (parseInt(v.annualRate) - 7) + '%',
-//                          other: '投资时间： ' + moment(v.investTime, 'YYYY-MM-DD').format('YYYY-MM-DD')
-//                        }
-//                      }
-//                    ]
-//                  }
-//                  self.dataTender.push(item)
-//                })
+                _.each(res.data.data, function (v, k) {
+                  var item = {
+                    id: v.id,
+                    title: `+${v.handleSum}元`,
+                    time: moment(v.recordTime.time).format('YYYY-MM-DD hh:mm:ss'),
+                    value: 'T+1'
+                  }
+                  self.data.cash.push(item)
+                })
                 if (res.data.data.length < 10) {
                   self.parm.cash = true
                 }
