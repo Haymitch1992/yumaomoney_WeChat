@@ -194,7 +194,7 @@
                         meta: {
                           source: '年利率',
                           date: '7% + ' + (parseInt(v.annualRate) - 7) + '%',
-                          other: '投资时间： ' + moment(v.investTime, 'YY-MM-DD hh:mm:ss').format('YYYY-MM-DD hh:mm:ss')
+                          other: '投资时间： ' + moment(v.investTime, 'YYYY-MM-DD').format('YYYY-MM-DD')
                         }
                       }
                     ]
@@ -236,7 +236,7 @@
                         meta: {
                           source: '年利率',
                           date: '7% + ' + (parseInt(v.annualRate) - 7) + '%',
-                          other: '满标时间： ' + moment(v.auditTime, 'YYYY-MM-DD').format('YYYY-MM-DD hh:mm:ss')
+                          other: '满标时间： ' + moment(v.auditTime, 'YYYY-MM-DD').format('YYYY-MM-DD')
                         }
                       }
                     ]
@@ -278,7 +278,7 @@
                         meta: {
                           source: '年利率',
                           date: '7% + ' + (parseInt(v.annualRate) - 7) + '%',
-                          other: '还清时间： ' + moment(v.auditTime, 'YYYY-MM-DD').format('YYYY-MM-DD hh:mm:ss')
+                          other: '还清时间： ' + moment(v.auditTime, 'YYYY-MM-DD').format('YYYY-MM-DD')
                         }
                       }
                     ]
