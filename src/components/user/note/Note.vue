@@ -19,8 +19,16 @@
         </div>
       </scroller>
     </group>
-    <group title="累计提现成功：123456789.45元" v-if="tab.tabType === 2">
-      <cell :title="item.title" :inline-desc='item.time' :value="item.value" :key="item.id" v-for="item in data.cash"></cell>
+    <group :class="{ minContainer: (data.cash.length<5) }" title="累计提现成功：123456789.45元" v-if="tab.tabType === 2">
+      <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-scroll-bottom="loadMore('Cash')"
+                :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
+                lock-x ref="scrollerBottom" height="-48">
+        <div>
+          <cell :title="item.title" :inline-desc='item.time' :value="item.value" :key="item.id" v-for="item in data.cash"></cell>
+          <divider v-show="parm.cash">没有更多数据了~</divider>
+          <load-more v-show="!parm.cash" tip="加载中"></load-more>
+        </div>
+      </scroller>
     </group>
     <div v-if="tab.tabType === 3">
       <group title="累计提现成功：123456789.45元" label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in list" :key="item.key" v-if="item.index === 0">
@@ -87,26 +95,7 @@
         },
         list: [],
         data: {
-          recharge: [
-            {
-              id: '1',
-              title: '+10000.00元',
-              time: '2017-12-23 16:00:00',
-              value: '网银充值'
-            },
-            {
-              id: '2',
-              title: '+20000.00元',
-              time: '2017-12-23 16:00:00',
-              value: '快捷充值'
-            },
-            {
-              id: '3',
-              title: '+10000.00元',
-              time: '2017-12-23 16:00:00',
-              value: '网银充值'
-            }
-          ],
+          recharge: [],
           cash: [
             {
               id: '1',
@@ -177,7 +166,9 @@
         },
         parm: {
           recharge: false,
-          curPageRecharge: 1
+          curPageRecharge: 1,
+          cash: false,
+          curPageCash: 1
         },
         noLoginShow: false,
         pullupDefaultConfig: pullupDefaultConfig,
@@ -213,12 +204,9 @@
             if (type === 'Recharge') {
               self.parm.curPageRecharge++
               self.getRechargeList()
-            } else if (type === 'Recycle') {
-              self.curPageRecycle++
-              self.getRecycleList()
-            } else if (type === 'Recycled') {
-              self.curPageRecycled++
-              self.getRecycledList()
+            } else if (type === 'Cash') {
+              self.curPageCash++
+              self.getCashList()
             }
             self.onFetching = false
           }, 2000)
@@ -236,6 +224,39 @@
                 self.noLoginShow = true
               } else if (res.data.data === '') {
                 self.parm.recharge = true
+              } else {
+                _.each(res.data.data, function (v, k) {
+                  var item = {
+                    id: v.id,
+                    title: `+${v.sum}元`,
+                    time: moment(v.recordTime.time).format('YYYY-MM-DD hh:mm:ss'),
+                    value: '网银充值'
+                  }
+                  self.data.recharge.push(item)
+                  console.log(self.data.recharge)
+                })
+                if (res.data.data.length < 10) {
+                  self.parm.recharge = true
+                }
+              }
+            })
+            .catch(function (error) {
+              console.log(error)
+            })
+        }
+      },
+      /**
+       * 获取提现列表
+       */
+      getCashList () {
+        var self = this
+        if (self.parm.cash === false) {
+          self.$http.get(process.env.BASE_API + '/apiqueryFundrecordList.do', {params: { 'pageNum': self.parm.curPageCash, 'momeyType': '冻结提现金额' }})
+            .then(function (res) {
+              if (res.data === 'noLogin') {
+                self.noLoginShow = true
+              } else if (res.data.data === '') {
+                self.parm.cash = true
               } else {
 //                _.each(res.data.data, function (v, k) {
 //                  var item = {
@@ -257,7 +278,49 @@
 //                  self.dataTender.push(item)
 //                })
                 if (res.data.data.length < 10) {
-                  self.parm.recharge = true
+                  self.parm.cash = true
+                }
+              }
+            })
+            .catch(function (error) {
+              console.log(error)
+            })
+        }
+      },
+      /**
+       * 获取提现列表
+       */
+      getCashList () {
+        var self = this
+        if (self.parm.cash === false) {
+          self.$http.get(process.env.BASE_API + '/apiqueryFundrecordList.do', {params: { 'pageNum': self.parm.curPageCash, 'momeyType': '冻结提现金额' }})
+            .then(function (res) {
+              if (res.data === 'noLogin') {
+                self.noLoginShow = true
+              } else if (res.data.data === '') {
+                self.parm.cash = true
+              } else {
+//                _.each(res.data.data, function (v, k) {
+//                  var item = {
+//                    key: v.id,
+//                    type: '4',
+//                    progress: parseInt(v.progress),
+//                    panel: [
+//                      {
+//                        title: v.borrowTitle,
+//                        desc: '投资金额:' + v.investAmount + ' 期限：' + v.deadline + `${v.isDayThe === 1 ? '个月' : '天'}`,
+//                        meta: {
+//                          source: '年利率',
+//                          date: '7% + ' + (parseInt(v.annualRate) - 7) + '%',
+//                          other: '投资时间： ' + moment(v.investTime, 'YYYY-MM-DD').format('YYYY-MM-DD')
+//                        }
+//                      }
+//                    ]
+//                  }
+//                  self.dataTender.push(item)
+//                })
+                if (res.data.data.length < 10) {
+                  self.parm.cash = true
                 }
               }
             })
@@ -305,6 +368,7 @@
           self.$http.defaults.headers.tokenClientkey = self.$cookies.get('tokenClientkey')
         }
         self.getRechargeList()
+        self.getCashList()
       }
     },
     created () {
