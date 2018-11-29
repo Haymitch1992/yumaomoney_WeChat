@@ -313,7 +313,7 @@
     }
   }
 </script>
-<style>
+<style lang="less">
   .note .vux-divider {
     padding: 5vh 0;
   }
