@@ -107,32 +107,7 @@
           recharge: [],
           cash: [],
           invest: [],
-          repayment: [
-            {
-              id: '1',
-              title: '+10000.00元',
-              time: '2017-12-23 16:00:00',
-              value: '项目名称 本金'
-            },
-            {
-              id: '2',
-              title: '+20000.00元',
-              time: '2017-12-23 16:00:00',
-              value: '项目名称 还息3/3'
-            },
-            {
-              id: '3',
-              title: '+10000.00元',
-              time: '2017-12-23 16:00:00',
-              value: '项目名称 还息3/2'
-            },
-            {
-              id: '4',
-              title: '+10000.00元',
-              time: '2017-12-23 16:00:00',
-              value: '项目名称 还息3/1'
-            }
-          ],
+          repayment: [],
           other: [
             {
               id: '1',
@@ -330,9 +305,9 @@
                 _.each(res.data.data, function (v) {
                   var item = {
                     id: v.id,
-                    title: `-${v.handleSum}元`,
+                    title: `+${v.handleSum}元`,
                     time: moment(v.recordTime.time).format('YYYY-MM-DD hh:mm:ss'),
-                    value: 'T+1'
+                    value: '项目名称 还息3/1'
                   }
                   self.data.repayment.push(item)
                 })
