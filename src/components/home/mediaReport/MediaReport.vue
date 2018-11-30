@@ -8,8 +8,8 @@
           <span slot="title" class="cell-overflow-xl">{{item.title}}</span>
         </cell>
       </group>
-      <divider v-show="(parmes.pageNum === parmes.pageNext)">没有更多了</divider>
-      <load-more v-show="(parmes.pageNum !== parmes.pageTotal)" tip="加载中"></load-more>
+      <divider v-show="(parmes.pageNum === parmes.pageNext)">没有更多数据了~</divider>
+      <load-more v-show="(parmes.pageNum !== parmes.pageNext)" tip="加载中"></load-more>
     </scroller>
   </div>
 </template>
