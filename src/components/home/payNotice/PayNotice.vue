@@ -9,6 +9,7 @@
         </cell>
       </group>
       <divider v-show="(parmes.pageNum === parmes.pageNext)">没有更多了</divider>
+      <load-more v-show="(parmes.pageNum !== parmes.pageTotal)" tip="加载中"></load-more>
     </scroller>
   </div>
 </template>
@@ -16,7 +17,7 @@
 <script>
   import _ from 'lodash'
   import $ from 'jquery'
-  import { Group, XHeader, Cell, Scroller, Divider } from 'vux'
+  import { Group, XHeader, Cell, Scroller, LoadMore, Divider } from 'vux'
 
   const pullupDefaultConfig = {
     content: '上拉加载更多',
@@ -36,6 +37,7 @@
       XHeader,
       Cell,
       Scroller,
+      LoadMore,
       Divider
     },
     data () {
