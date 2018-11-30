@@ -69,7 +69,7 @@
           return
         }
         self.parmes.type = false
-        self.$http.post(process.env.BASE_API + '/queryNewsListPage.do', {params: { 'paramMap.PageNum': self.parmes.pageNum + 1, 'paramMap.PageSize': self.parmes.pageSize }})
+        self.$http.get(process.env.BASE_API + '/queryNewsListPage.do', {params: { 'paramMap.PageNum': self.parmes.pageNum + 1, 'paramMap.PageSize': self.parmes.pageSize }})
           .then(function (res) {
             self.parmes.pageNum++
             _.each(res.data, function (v) {
