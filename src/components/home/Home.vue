@@ -201,7 +201,7 @@
        */
       getList () {
         var self = this
-        self.$http.post(process.env.BASE_API + '/financeJson.do', {params: { 'curPage': self.curPage }})
+        self.$http.get(process.env.BASE_API + '/financeJson.do', {params: { 'curPage': self.curPage }})
           .then(function (res) {
             _.each(res.data, function (v, k) {
               var item = {
