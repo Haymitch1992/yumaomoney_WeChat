@@ -8,50 +8,68 @@
       <tab-item :selected="tab.tabType === 4" @on-item-click="tab.tabType = 4">还款记录</tab-item>
       <tab-item :selected="tab.tabType === 5" @on-item-click="tab.tabType = 5">其他</tab-item>
     </tab>
-    <group :class="{ minContainer: (data.recharge.length<10) }" title="成功充值：123456789.45元" v-if="tab.tabType === 1">
+    <div :class="{ minContainer: (data.recharge.length<10) }" v-if="tab.tabType === 1">
       <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-scroll-bottom="loadMore('Recharge')"
                 :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
         <div>
-          <cell :title="item.title" :inline-desc='item.time' :value="item.value" :key="item.id" v-for="item in data.recharge"></cell>
+          <group title="成功充值：123456789.45元">
+                <cell :title="item.title" :inline-desc='item.time' :value="item.value" :key="item.id" v-for="item in data.recharge"></cell>
+          </group>
           <divider v-show="parm.recharge">没有更多数据了~</divider>
           <load-more v-show="!parm.recharge" tip="加载中"></load-more>
         </div>
       </scroller>
-    </group>
-    <group :class="{ minContainer: (data.cash.length<10) }" title="累计提现成功：123456789.45元" v-if="tab.tabType === 2">
+    </div>
+    <div :class="{ minContainer: (data.cash.length<10) }" v-if="tab.tabType === 2">
       <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-scroll-bottom="loadMore('Cash')"
                 :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
         <div>
-          <cell :title="item.title" :inline-desc='item.time' :value="item.value" :key="item.id" v-for="item in data.cash"></cell>
+          <group title="累计提现成功：123456789.45元">
+            <cell :title="item.title" :inline-desc='item.time' :value="item.value" :key="item.id" v-for="item in data.cash"></cell>
+          </group>
           <divider v-show="parm.cash">没有更多数据了~</divider>
           <load-more v-show="!parm.cash" tip="加载中"></load-more>
         </div>
       </scroller>
-    </group>
-    <div v-if="tab.tabType === 3">
-      <group title="累计提现成功：123456789.45元" label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in data.invest" :key="item.key" v-if="item.index === 0">
-        <panel :list="item.panel" :type="item.type" @on-img-error="onImgError" ></panel>
-      </group>
-      <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in data.invest" :key="item.key" v-if="item.index !== 0">
-        <panel :list="item.panel" :type="item.type" @on-img-error="onImgError"></panel>
-      </group>
     </div>
-    <group :class="{ minContainer: (data.repayment.length<10) }"  title="已收还款：123456789.45元" v-if="tab.tabType === 4">
+    <div :class="{ minContainer: (data.invest.length<6) }" v-if="tab.tabType === 3">
+      <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-scroll-bottom="loadMore('Invest')"
+                :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
+                lock-x ref="scrollerBottom" height="-48">
+        <div>
+          <group title="累计提现成功：123456789.45元" label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in data.invest" :key="item.key" v-if="item.index === 0">
+            <panel :list="item.panel" :type="item.type" @on-img-error="onImgError" ></panel>
+          </group>
+          <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in data.invest" :key="item.key" v-if="item.index !== 0">
+            <panel :list="item.panel" :type="item.type" @on-img-error="onImgError"></panel>
+          </group>
+          <divider v-show="parm.invest">没有更多数据了~</divider>
+          <load-more v-show="!parm.invest" tip="加载中"></load-more>
+        </div>
+      </scroller>
+    </div>
+    <div :class="{ minContainer: (data.repayment.length<10) }" v-if="tab.tabType === 4">
       <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-scroll-bottom="loadMore('Recharge')"
                 :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
         <div>
-          <cell :title="item.title" :inline-desc='item.time' :value="item.value" :key="item.id" v-for="item in data.repayment"></cell>
+          <group title="已收还款：123456789.45元">
+            <cell :title="item.title" :inline-desc='item.time' :value="item.value" :key="item.id" v-for="item in data.repayment"></cell>
+          </group>
           <divider v-show="parm.repayment">没有更多数据了~</divider>
           <load-more v-show="!parm.repayment" tip="加载中"></load-more>
         </div>
       </scroller>
-    </group>
-    <group title="累计收益：123456789.45元" v-if="tab.tabType === 5">
-      <cell :title="item.title" :inline-desc='item.time' :value="item.value" :key="item.id" v-for="item in data.other"></cell>
-    </group>
+    </div>
+    <div :class="{ minContainer: (data.other.length<10) }" v-if="tab.tabType === 5">
+      <group title="累计收益：123456789.45元">
+        <cell :title="item.title" :inline-desc='item.time' :value="item.value" :key="item.id" v-for="item in data.other"></cell>
+      </group>
+      <divider v-show="parm.other">没有更多数据了~</divider>
+      <load-more v-show="!parm.other" tip="加载中"></load-more>
+    </div>
     <alert v-model="noLoginShow" title="登录失效" @on-show="onShow" @on-hide="logout">请重新登录</alert>
   </div>
 </template>
@@ -137,7 +155,9 @@
           invest: false,
           curPageInvest: 1,
           repayment: false,
-          curPageRepayment: 1
+          curPageRepayment: 1,
+          other: false,
+          curPageOther: 1
         },
         noLoginShow: false,
         pullupDefaultConfig: pullupDefaultConfig,
@@ -176,6 +196,9 @@
             } else if (type === 'Cash') {
               self.curPageCash++
               self.getCashList()
+            } else if (type === 'Invest') {
+              self.curPageInvest++
+              self.getInvestList()
             } else if (type === 'Repayment') {
               self.curPageRepayment++
               self.getRepaymentList()
