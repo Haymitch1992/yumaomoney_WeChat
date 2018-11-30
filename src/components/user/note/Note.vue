@@ -232,7 +232,7 @@
       getCashList () {
         var self = this
         if (self.parm.cash === false) {
-          self.$http.post(process.env.BASE_API + '/apiqueryFundrecordList.do',  qs.stringify({ 'pageNum': self.parm.curPageCash, 'pageSize': '10', 'momeyType': '冻结提现金额' }))
+          self.$http.post(process.env.BASE_API + '/apiqueryFundrecordList.do', qs.stringify({ 'pageNum': self.parm.curPageCash, 'pageSize': '10', 'momeyType': '冻结提现金额' }))
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
