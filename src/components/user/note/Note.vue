@@ -31,15 +31,23 @@
       </scroller>
     </group>
     <div v-if="tab.tabType === 3">
-      <group title="累计提现成功：123456789.45元" label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in list" :key="item.key" v-if="item.index === 0">
+      <group title="累计提现成功：123456789.45元" label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in data.invest" :key="item.key" v-if="item.index === 0">
         <panel :list="item.panel" :type="item.type" @on-img-error="onImgError" ></panel>
       </group>
-      <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in list" :key="item.key" v-if="item.index !== 0">
+      <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in data.invest" :key="item.key" v-if="item.index !== 0">
         <panel :list="item.panel" :type="item.type" @on-img-error="onImgError"></panel>
       </group>
     </div>
-    <group title="已收还款：123456789.45元" v-if="tab.tabType === 4">
-      <cell :title="item.title" :inline-desc='item.time' :value="item.value" :key="item.id" v-for="item in data.repayment"></cell>
+    <group :class="{ minContainer: (data.repayment.length<10) }"  title="已收还款：123456789.45元" v-if="tab.tabType === 4">
+      <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-scroll-bottom="loadMore('Recharge')"
+                :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
+                lock-x ref="scrollerBottom" height="-48">
+        <div>
+          <cell :title="item.title" :inline-desc='item.time' :value="item.value" :key="item.id" v-for="item in data.repayment"></cell>
+          <divider v-show="parm.repayment">没有更多数据了~</divider>
+          <load-more v-show="!parm.repayment" tip="加载中"></load-more>
+        </div>
+      </scroller>
     </group>
     <group title="累计收益：123456789.45元" v-if="tab.tabType === 5">
       <cell :title="item.title" :inline-desc='item.time' :value="item.value" :key="item.id" v-for="item in data.other"></cell>
@@ -193,6 +201,9 @@
             } else if (type === 'Cash') {
               self.curPageCash++
               self.getCashList()
+            } else if (type === 'Repayment') {
+              self.curPageRepayment++
+              self.getRepaymentList()
             }
             self.onFetching = false
           }, 2000)
@@ -275,25 +286,24 @@
               } else if (res.data.data === '') {
                 self.parm.invest = true
               } else {
-//                _.each(res.data.data, function (v, k) {
-//                  var item = {
-//                    key: v.id,
-//                    type: '4',
-//                    progress: parseInt(v.progress),
-//                    panel: [
-//                      {
-//                        title: v.borrowTitle,
-//                        desc: '投资金额:' + v.investAmount + ' 期限：' + v.deadline + `${v.isDayThe === 1 ? '个月' : '天'}`,
-//                        meta: {
-//                          source: '年利率',
-//                          date: '7% + ' + (parseInt(v.annualRate) - 7) + '%',
-//                          other: '投资时间： ' + moment(v.investTime, 'YYYY-MM-DD').format('YYYY-MM-DD')
-//                        }
-//                      }
-//                    ]
-//                  }
-//                  self.dataTender.push(item)
-//                })
+                _.each(res.data.data, function (v) {
+                  var item = {
+                    key: v.id,
+                    type: '4',
+                    panel: [
+                      {
+                        title: v.borrowTitle,
+                        desc: '投资金额:' + v.handleSum + ' 期限：' + v.deadline + `${v.isDayThe === 1 ? '个月' : '天'}`,
+                        meta: {
+                          source: '年利率',
+                          date: '7% + ' + (parseInt(v.annualRate) - 7) + '%',
+                          other: '投资时间： ' + moment(v.recordTime).format('YYYY-MM-DD hh:mm:ss')
+                        }
+                      }
+                    ]
+                  }
+                  self.data.invest.push(item)
+                })
                 if (res.data.data.length < 10) {
                   self.parm.invest = true
                 }
