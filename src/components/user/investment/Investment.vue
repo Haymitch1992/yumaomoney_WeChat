@@ -279,7 +279,7 @@
                         meta: {
                           source: '年利率',
                           date: '7% + ' + (parseInt(v.annualRate) - 7) + '%',
-                          other: '还清时间： ' + moment(v.auditTime, 'YYYY-MM-DD').format('YYYY-MM-DD')
+                          other: '还清时间： ' + moment(v.realRepayDate, 'YYYY-MM-DD').format('YYYY-MM-DD')
                         }
                       }
                     ]

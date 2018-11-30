@@ -150,7 +150,11 @@
           recharge: false,
           curPageRecharge: 1,
           cash: false,
-          curPageCash: 1
+          curPageCash: 1,
+          invest: false,
+          curPageInvest: 1,
+          repayment: false,
+          curPageRepayment: 1
         },
         noLoginShow: false,
         pullupDefaultConfig: pullupDefaultConfig,
@@ -259,17 +263,17 @@
         }
       },
       /**
-       * 获取提现列表
+       * 获取出借列表
        */
-      getCash2List () {
+      getInvestList () {
         var self = this
-        if (self.parm.cash === false) {
-          self.$http.post(process.env.BASE_API + '/apiqueryFundrecordList.do', {params: { 'pageNum': self.parm.curPageCash, 'momeyType': '冻结提现金额' }})
+        if (self.parm.invest === false) {
+          self.$http.post(process.env.BASE_API + '/apiqueryFundrecordList.do', qs.stringify({ 'pageNum': self.parm.curPageInvest, 'momeyType': '冻结投标金额' }))
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
               } else if (res.data.data === '') {
-                self.parm.cash = true
+                self.parm.invest = true
               } else {
 //                _.each(res.data.data, function (v, k) {
 //                  var item = {
@@ -291,7 +295,39 @@
 //                  self.dataTender.push(item)
 //                })
                 if (res.data.data.length < 10) {
-                  self.parm.cash = true
+                  self.parm.invest = true
+                }
+              }
+            })
+            .catch(function (error) {
+              console.log(error)
+            })
+        }
+      },
+      /**
+       * 获取还款列表
+       */
+      getRepaymentList () {
+        var self = this
+        if (self.parm.repayment === false) {
+          self.$http.post(process.env.BASE_API + '/apiqueryFundrecordList.do', qs.stringify({ 'pageNum': self.parm.curPageRepayment, 'momeyType': '投资收到还款' }))
+            .then(function (res) {
+              if (res.data === 'noLogin') {
+                self.noLoginShow = true
+              } else if (res.data.data === '') {
+                self.parm.repayment = true
+              } else {
+                _.each(res.data.data, function (v) {
+                  var item = {
+                    id: v.id,
+                    title: `-${v.handleSum}元`,
+                    time: moment(v.recordTime.time).format('YYYY-MM-DD hh:mm:ss'),
+                    value: 'T+1'
+                  }
+                  self.data.repayment.push(item)
+                })
+                if (res.data.data.length < 10) {
+                  self.parm.repayment = true
                 }
               }
             })
@@ -307,6 +343,8 @@
         }
         self.getRechargeList()
         self.getCashList()
+        self.getInvestList()
+        self.getRepaymentList()
       }
     },
     created () {
