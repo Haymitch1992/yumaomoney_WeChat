@@ -207,7 +207,7 @@
               } else if (res.data.data === '') {
                 self.parm.recharge = true
               } else {
-                _.each(res.data.data, function (v, k) {
+                _.each(res.data.data, function (v) {
                   var item = {
                     id: v.id,
                     title: `+${v.handleSum}元`,
@@ -239,7 +239,7 @@
               } else if (res.data.data === '') {
                 self.parm.cash = true
               } else {
-                _.each(res.data.data, function (v, k) {
+                _.each(res.data.data, function (v) {
                   var item = {
                     id: v.id,
                     title: `-${v.handleSum}元`,
@@ -299,39 +299,6 @@
               console.log(error)
             })
         }
-      },
-      /**
-       * 获取列表
-       */
-      getList () {
-        var self = this
-        self.$http.get(process.env.BASE_API + '/financeJson.do', {params: { 'curPage': self.curPage }})
-          .then(function (res) {
-            _.each(res.data, function (v, k) {
-              var item = {
-                index: k,
-                key: v.id,
-                type: '4',
-                progress: parseInt(v.progress),
-                panel: [
-                  {
-                    title: v.borrowTitle,
-                    desc: '投资金额:' + v.borrowAmount + ' 期限：' + v.deadline,
-                    url: '/user/investment/investmentDetail?id=149',
-                    meta: {
-                      source: '年利率',
-                      date: '7% + ' + (parseInt(v.annualRate) - 7) + '%',
-                      other: '投资时间： ' + moment(v.autoBidEnableTime, 'YY-MM-DD hh:mm:ss').format('YYYY-MM-DD HH:mm:ss')
-                    }
-                  }
-                ]
-              }
-              self.list.push(item)
-            })
-          })
-          .catch(function (error) {
-            console.log(error)
-          })
       },
       init () {
         var self = this

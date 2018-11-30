@@ -182,8 +182,6 @@
        */
       getNoticeList () {
         var self = this
-        // 测试存储cookie
-        // self.$cookies.set('ymCookieUK', '123456789')
         self.$http.get(process.env.BASE_API + '/queryNewsListPage.do', {headers: {'X-AUTH-TOKEN': '123'}, params: { 'paramMap.PageNum': 1, 'paramMap.PageSize': 5 }})
           .then(function (res) {
             _.each(res.data, function (v) {
@@ -203,7 +201,7 @@
         var self = this
         self.$http.get(process.env.BASE_API + '/financeJson.do', {params: { 'curPage': self.curPage }})
           .then(function (res) {
-            _.each(res.data, function (v, k) {
+            _.each(res.data, function (v) {
               var item = {
                 data: v,
                 key: v.id,

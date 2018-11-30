@@ -107,7 +107,7 @@
               if (res.data === '') {
                 self.lending = true
               } else {
-                _.each(res.data, function (v, k) {
+                _.each(res.data, function (v) {
                   var item = {
                     data: v,
                     key: v.id,

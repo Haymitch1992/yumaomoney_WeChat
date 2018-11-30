@@ -183,7 +183,7 @@
               } else if (res.data.data === '') {
                 self.typeTender = true
               } else {
-                _.each(res.data.data, function (v, k) {
+                _.each(res.data.data, function (v) {
                   var item = {
                     key: v.id,
                     type: '4',
@@ -225,7 +225,7 @@
               } else if (res.data.data === '') {
                 self.typeRecycle = true
               } else {
-                _.each(res.data.data, function (v, k) {
+                _.each(res.data.data, function (v) {
                   var item = {
                     key: v.id,
                     type: '4',
@@ -267,7 +267,7 @@
               } else if (res.data.data === '') {
                 self.typeRecycled = true
               } else {
-                _.each(res.data.data, function (v, k) {
+                _.each(res.data.data, function (v) {
                   var item = {
                     key: v.id,
                     type: '4',
