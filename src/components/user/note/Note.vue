@@ -218,7 +218,7 @@
       getRechargeList () {
         var self = this
         if (self.parm.recharge === false) {
-          self.$http.get(process.env.BASE_API + '/apiqueryFundrecordList.do', {params: { 'pageNum': self.parm.curPageRecharge, 'momeyType': '存管通' }})
+          self.$http.post(process.env.BASE_API + '/apiqueryFundrecordList.do', {params: { 'pageNum': self.parm.curPageRecharge, 'momeyType': '存管通' }})
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
@@ -250,7 +250,7 @@
       getCashList () {
         var self = this
         if (self.parm.cash === false) {
-          self.$http.get(process.env.BASE_API + '/apiqueryFundrecordList.do', {params: { 'pageNum': self.parm.curPageCash, 'momeyType': '冻结提现金额' }})
+          self.$http.post(process.env.BASE_API + '/apiqueryFundrecordList.do', {params: { 'pageNum': self.parm.curPageCash, 'momeyType': '冻结提现金额' }})
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
@@ -279,10 +279,10 @@
       /**
        * 获取提现列表
        */
-      getCashList () {
+      getCash2List () {
         var self = this
         if (self.parm.cash === false) {
-          self.$http.get(process.env.BASE_API + '/apiqueryFundrecordList.do', {params: { 'pageNum': self.parm.curPageCash, 'momeyType': '冻结提现金额' }})
+          self.$http.post(process.env.BASE_API + '/apiqueryFundrecordList.do', {params: { 'pageNum': self.parm.curPageCash, 'momeyType': '冻结提现金额' }})
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
@@ -323,7 +323,7 @@
        */
       getList () {
         var self = this
-        self.$http.get(process.env.BASE_API + '/financeJson.do', {params: { 'curPage': self.curPage }})
+        self.$http.post(process.env.BASE_API + '/financeJson.do', {params: { 'curPage': self.curPage }})
           .then(function (res) {
             _.each(res.data, function (v, k) {
               var item = {

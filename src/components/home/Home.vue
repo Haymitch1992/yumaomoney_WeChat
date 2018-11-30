@@ -160,7 +160,7 @@
        */
       getSwiperList () {
         var self = this
-        self.$http.get(process.env.BASE_API + '/jsonData/activity.json')
+        self.$http.post(process.env.BASE_API + '/jsonData/activity.json')
           .then(function (res) {
             self.swiper_list = []
             _.each(res.data, function (v) {
@@ -184,7 +184,7 @@
         var self = this
         // 测试存储cookie
         // self.$cookies.set('ymCookieUK', '123456789')
-        self.$http.get(process.env.BASE_API + '/queryNewsListPage.do', {headers: {'X-AUTH-TOKEN': '123'}, params: { 'paramMap.PageNum': 1, 'paramMap.PageSize': 5 }})
+        self.$http.post(process.env.BASE_API + '/queryNewsListPage.do', {headers: {'X-AUTH-TOKEN': '123'}, params: { 'paramMap.PageNum': 1, 'paramMap.PageSize': 5 }})
           .then(function (res) {
             _.each(res.data, function (v) {
               v.publishTime = moment(v.publishTime).format('YYYY-MM-DD')
@@ -201,7 +201,7 @@
        */
       getList () {
         var self = this
-        self.$http.get(process.env.BASE_API + '/financeJson.do', {params: { 'curPage': self.curPage }})
+        self.$http.post(process.env.BASE_API + '/financeJson.do', {params: { 'curPage': self.curPage }})
           .then(function (res) {
             _.each(res.data, function (v, k) {
               var item = {

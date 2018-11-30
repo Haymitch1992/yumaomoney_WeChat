@@ -54,7 +54,7 @@
       },
       getList () {
         var self = this
-        self.$http.get(process.env.BASE_API + '/jsonData/activity.json')
+        self.$http.post(process.env.BASE_API + '/jsonData/activity.json')
           .then(function (res) {
             self.list = _.filter(res.data, {'status': '1'})
           })

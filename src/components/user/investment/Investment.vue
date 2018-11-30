@@ -175,7 +175,7 @@
       getTenderList () {
         var self = this
         if (self.typeTender === false) {
-          self.$http.get(process.env.BASE_API + '/apihomeBorrowTenderInList.do', {params: { 'curPage': self.curPageTender }})
+          self.$http.post(process.env.BASE_API + '/apihomeBorrowTenderInList.do', {params: { 'curPage': self.curPageTender }})
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
@@ -217,7 +217,7 @@
       getRecycleList () {
         var self = this
         if (self.typeRecycle === false) {
-          self.$http.get(process.env.BASE_API + '/apihomeBorrowRecycleList.do', {params: { 'curPage': self.curPageRecycle }})
+          self.$http.post(process.env.BASE_API + '/apihomeBorrowRecycleList.do', {params: { 'curPage': self.curPageRecycle }})
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
@@ -259,7 +259,7 @@
       getRecycledList () {
         var self = this
         if (self.typeRecycled === false) {
-          self.$http.get(process.env.BASE_API + '/apihomeBorrowRecycledList.do', {params: { 'curPage': self.curPageRecycled }})
+          self.$http.post(process.env.BASE_API + '/apihomeBorrowRecycledList.do', {params: { 'curPage': self.curPageRecycled }})
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
