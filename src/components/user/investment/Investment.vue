@@ -50,6 +50,7 @@
 </template>
 
 <script>
+  import qs from 'qs'
   import _ from 'lodash'
   import moment from 'moment'
   import { Group, Cell, XHeader, Tab, TabItem, Panel, Scroller, LoadMore, Divider, AlertModule, Alert } from 'vux'
@@ -175,7 +176,7 @@
       getTenderList () {
         var self = this
         if (self.typeTender === false) {
-          self.$http.post(process.env.BASE_API + '/apihomeBorrowTenderInList.do', {params: { 'curPage': self.curPageTender }})
+          self.$http.post(process.env.BASE_API + '/apihomeBorrowTenderInList.do', qs.stringify({ 'curPage': self.curPageTender }))
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
@@ -217,7 +218,7 @@
       getRecycleList () {
         var self = this
         if (self.typeRecycle === false) {
-          self.$http.post(process.env.BASE_API + '/apihomeBorrowRecycleList.do', {params: { 'curPage': self.curPageRecycle }})
+          self.$http.post(process.env.BASE_API + '/apihomeBorrowRecycleList.do', qs.stringify({ 'curPage': self.curPageRecycle }))
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
@@ -259,7 +260,7 @@
       getRecycledList () {
         var self = this
         if (self.typeRecycled === false) {
-          self.$http.post(process.env.BASE_API + '/apihomeBorrowRecycledList.do', {params: { 'curPage': self.curPageRecycled }})
+          self.$http.post(process.env.BASE_API + '/apihomeBorrowRecycledList.do', qs.stringify({ 'curPage': self.curPageRecycled }))
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true

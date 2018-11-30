@@ -8,7 +8,7 @@
       <tab-item :selected="tab.tabType === 4" @on-item-click="tab.tabType = 4">还款记录</tab-item>
       <tab-item :selected="tab.tabType === 5" @on-item-click="tab.tabType = 5">其他</tab-item>
     </tab>
-    <group :class="{ minContainer: (data.recharge.length<5) }" title="成功充值：123456789.45元" v-if="tab.tabType === 1">
+    <group :class="{ minContainer: (data.recharge.length<10) }" title="成功充值：123456789.45元" v-if="tab.tabType === 1">
       <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-scroll-bottom="loadMore('Recharge')"
                 :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
@@ -19,7 +19,7 @@
         </div>
       </scroller>
     </group>
-    <group :class="{ minContainer: (data.cash.length<5) }" title="累计提现成功：123456789.45元" v-if="tab.tabType === 2">
+    <group :class="{ minContainer: (data.cash.length<10) }" title="累计提现成功：123456789.45元" v-if="tab.tabType === 2">
       <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-scroll-bottom="loadMore('Cash')"
                 :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
@@ -49,6 +49,7 @@
 </template>
 
 <script>
+  import qs from 'qs'
   import _ from 'lodash'
   import moment from 'moment'
   import { Group, Cell, XHeader, Tab, TabItem, Panel, Scroller, LoadMore, Divider, AlertModule, Alert } from 'vux'
@@ -96,26 +97,7 @@
         list: [],
         data: {
           recharge: [],
-          cash: [
-            {
-              id: '1',
-              title: '-10000.00元',
-              time: '2017-12-23 16:00:00',
-              value: 'T+1'
-            },
-            {
-              id: '2',
-              title: '-20000.00元',
-              time: '2017-12-23 16:00:00',
-              value: 'T+0'
-            },
-            {
-              id: '3',
-              title: '-10000.00元',
-              time: '2017-12-23 16:00:00',
-              value: '提现失败'
-            }
-          ],
+          cash: [],
           invest: [],
           repayment: [
             {
@@ -218,7 +200,7 @@
       getRechargeList () {
         var self = this
         if (self.parm.recharge === false) {
-          self.$http.post(process.env.BASE_API + '/apiqueryFundrecordList.do', {params: { 'pageNum': self.parm.curPageRecharge, 'momeyType': '存管通' }})
+          self.$http.post(process.env.BASE_API + '/apiqueryFundrecordList.do', qs.stringify({ 'pageNum': self.parm.curPageRecharge, 'pageSize': '10', 'momeyType': '存管通' }))
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
@@ -250,7 +232,7 @@
       getCashList () {
         var self = this
         if (self.parm.cash === false) {
-          self.$http.post(process.env.BASE_API + '/apiqueryFundrecordList.do', {params: { 'pageNum': self.parm.curPageCash, 'momeyType': '冻结提现金额' }})
+          self.$http.post(process.env.BASE_API + '/apiqueryFundrecordList.do',  qs.stringify({ 'pageNum': self.parm.curPageCash, 'pageSize': '10', 'momeyType': '冻结提现金额' }))
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
@@ -260,7 +242,7 @@
                 _.each(res.data.data, function (v, k) {
                   var item = {
                     id: v.id,
-                    title: `+${v.handleSum}元`,
+                    title: `-${v.handleSum}元`,
                     time: moment(v.recordTime.time).format('YYYY-MM-DD hh:mm:ss'),
                     value: 'T+1'
                   }
