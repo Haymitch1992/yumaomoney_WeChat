@@ -202,7 +202,7 @@
                     id: v.id,
                     title: `+${v.handleSum}元`,
                     time: moment(v.recordTime.time).format('YYYY-MM-DD hh:mm:ss'),
-                    value: '网银充值'
+                    value: v.fundMode
                   }
                   self.data.recharge.push(item)
                 })
