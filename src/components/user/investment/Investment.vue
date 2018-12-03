@@ -185,6 +185,7 @@
               } else {
                 _.each(res.data.data, function (v) {
                   var item = {
+                    data: v,
                     key: v.id,
                     id: v.borrowId,
                     type: '4',
@@ -227,6 +228,7 @@
               } else {
                 _.each(res.data.data, function (v) {
                   var item = {
+                    data: v,
                     key: v.id,
                     id: v.borrowId,
                     type: '4',
@@ -269,6 +271,7 @@
               } else {
                 _.each(res.data.data, function (v) {
                   var item = {
+                    data: v,
                     key: v.id,
                     id: v.borrowId,
                     type: '4',

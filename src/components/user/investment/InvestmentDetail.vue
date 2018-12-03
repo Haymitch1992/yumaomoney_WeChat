@@ -2,13 +2,13 @@
   <div>
     <x-header :left-options="leftOptions" @on-click-back="goBack()">标的详情</x-header>
     <group>
-      <cell title="项目名称" value="测试好友邀请01"></cell>
+      <cell title="项目名称" :value="data.title"></cell>
       <cell title="合同模板" is-link link="/user/investment/contract"></cell>
-      <cell title="投资时间" value="2018年10月09日 23:45:34"></cell>
-      <cell title="投资金额" value="500元"></cell>
-      <cell title="已收金额" value="0元"></cell>
-      <cell title="预计收益" value="30元"></cell>
-      <cell title="预计本息" value="530元"></cell>
+      <cell title="投资时间" :value="data.investTime"></cell>
+      <cell title="投资金额" :value="`${data.investAmount}元`"></cell>
+      <cell title="已收金额" :value="`${data.receivedAmount}元`"></cell>
+      <cell title="预计收益" :value="`${data.interest}元`"></cell>
+      <cell title="预计本息" :value="`${data.investAmount * 1 + data.interest * 1}元`"></cell>
       <cell v-if="(data.time === '')" title="标的状态" :value="data.type"></cell>
       <cell v-if="(data.time !== '')" title="满标时间" :value="data.time"></cell>
       <x-table :cell-bordered="false" :content-bordered="false" style="font-size: 14px;background-color: #fff;">
@@ -64,6 +64,11 @@
           preventGoBack: true
         },
         data: {
+          title: '',
+          investTime: '',
+          investAmount: '0',
+          receivedAmount: '0',
+          interest: '0',
           type: '未满标',
           time: '2018年10月09日'
         },
@@ -77,12 +82,55 @@
       },
       goBack () {
         var self = this
-        this.$router.push({name: 'investment', params: {listType: self.dataBak.listType}})
+        self.$router.push({name: 'investment', params: {listType: self.dataBak.listType}})
+      },
+      /**
+       * 获取招标中的投资详情
+       */
+      getTenderDetail () {
+        var self = this
+        self.data.title = self.dataBak.item.data.borrowTitle
+        self.data.investTime = self.dataBak.item.data.investTime
+        self.data.investAmount = self.dataBak.item.data.investAmount
+        self.data.receivedAmount = '0'
+        self.data.time = ''
+      },
+      /**
+       * 获取还款中的投资详情
+       */
+      gettRecycleDetail () {
+        var self = this
+        self.data.title = self.dataBak.item.data.borrowTitle
+        self.data.investTime = self.dataBak.item.data.investTime
+        self.data.investAmount = self.dataBak.item.data.investAmount
+        self.data.receivedAmount = '0'
+        self.data.time = ''
+      },
+      /**
+       * 获取还款中的投资详情
+       */
+      gettRecycledDetail () {
+        var self = this
+        self.data.title = self.dataBak.item.data.borrowTitle
+        self.data.investTime = self.dataBak.item.data.investTime
+        self.data.investAmount = self.dataBak.item.data.investAmount
+        self.data.receivedAmount = '0'
+        self.data.time = ''
       },
       init () {
         var self = this
-        self.dataBak = self.$route.params
-        console.log(self.dataBak.item)
+        if (self.$route.params.item === undefined) {
+          self.$router.push({name: 'investment'})
+        } else {
+          self.dataBak = self.$route.params
+          if (self.dataBak.listType === 1) {
+            self.getTenderDetail()
+          } else if (self.dataBak.listType === 2) {
+            self.gettRecycleDetail()
+          } else {
+            self.gettRecycledDetail()
+          }
+        }
       }
     },
     created () {
