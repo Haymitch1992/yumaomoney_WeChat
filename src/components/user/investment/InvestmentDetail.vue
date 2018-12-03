@@ -82,6 +82,7 @@
       init () {
         var self = this
         self.dataBak = self.$route.params
+        console.log(self.dataBak.item)
       }
     },
     created () {

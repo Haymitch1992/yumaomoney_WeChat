@@ -186,8 +186,8 @@
                 _.each(res.data.data, function (v) {
                   var item = {
                     key: v.id,
+                    id: v.borrowId,
                     type: '4',
-                    progress: parseInt(v.progress),
                     panel: [
                       {
                         title: v.borrowTitle,
@@ -228,8 +228,8 @@
                 _.each(res.data.data, function (v) {
                   var item = {
                     key: v.id,
+                    id: v.borrowId,
                     type: '4',
-                    progress: parseInt(v.progress),
                     panel: [
                       {
                         title: v.borrowTitle,
@@ -270,8 +270,8 @@
                 _.each(res.data.data, function (v) {
                   var item = {
                     key: v.id,
+                    id: v.borrowId,
                     type: '4',
-                    progress: parseInt(v.progress),
                     panel: [
                       {
                         title: v.borrowTitle,
