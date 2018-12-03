@@ -46,6 +46,7 @@
 </template>
 
 <script>
+  import qs from 'qs'
   import { Group, Cell, XHeader, XButton, XTable } from 'vux'
 
   export default {
@@ -118,6 +119,17 @@
         self.data.time = ''
         self.data.typeTitle = '满标时间'
         self.data.typeValue = self.dataBak.item.time
+        self.$http.post(process.env.BASE_API + '/apihomeBorrowForpayDetail.do', qs.stringify({ 'id': self.dataBak.item.data.id, 'iid': self.dataBak.item.data.key }))
+          .then(function (res) {
+            if (res.data === 'noLogin') {
+              self.noLoginShow = true
+            } else {
+              console.log(res.data)
+            }
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
       },
       /**
        * 获取已还清的投资详情
@@ -137,6 +149,17 @@
         self.data.time = ''
         self.data.typeTitle = '满标时间'
         self.data.typeValue = self.dataBak.item.time
+        self.$http.post(process.env.BASE_API + '/apihomeBorrowHaspayDetail.do', qs.stringify({ 'id': self.dataBak.item.data.id, 'iid': self.dataBak.item.data.key }))
+          .then(function (res) {
+            if (res.data === 'noLogin') {
+              self.noLoginShow = true
+            } else {
+              console.log(res.data)
+            }
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
       },
       init () {
         var self = this
