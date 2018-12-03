@@ -220,7 +220,8 @@
                     id: v.id,
                     title: `${v.fundMode === '冻结提现金额' ? '-' : v.fundMode === '冻结投标金额' ? '-' : '+'}${v.handleSum}元`,
                     time: moment(v.recordTime.time).format('YYYY-MM-DD hh:mm:ss'),
-                    value: `${v.fundMode === '存管通' ? '充值' : v.fundMode === '冻结提现金额' ? '提现' : v.fundMode === '冻结投标金额' ? '投资' : v.fundMode === '投资收到还款' ? '还款' : '其他'}`
+                    value: `${v.fundMode === '存管通' ? '充值' : v.fundMode === '冻结提现金额' ? '提现' : v.fundMode === '冻结投标金额' ?
+                      '投资' : v.fundMode === '投资收到还款' ? '还款' : v.fundMode === '返还提现金额' ? '提现失败' : '其他'}`
                   }
                   self.data.all.push(item)
                 })
