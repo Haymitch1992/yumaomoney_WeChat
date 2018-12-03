@@ -126,7 +126,6 @@
         tab: {
           tabType: 1
         },
-        list: [],
         data: {
           recharge: [],
           cash: [],
