@@ -89,9 +89,15 @@
        */
       getTenderDetail () {
         var self = this
+        console.log(self.dataBak.item.data)
         self.data.title = self.dataBak.item.data.borrowTitle
         self.data.investTime = self.dataBak.item.data.investTime
         self.data.investAmount = self.dataBak.item.data.investAmount
+        if (self.dataBak.item.data.isDayThe === 1) {
+          self.data.interest = (self.dataBak.item.data.investAmount * (self.dataBak.item.data.annualRate / 100) * (self.dataBak.item.data.deadline / 12)).toFixed(2)
+        } else {
+          self.data.interest = (self.dataBak.item.data.investAmount * (self.dataBak.item.data.annualRate / 100) * (self.dataBak.item.data.deadline / 360)).toFixed(2)
+        }
         self.data.receivedAmount = '0'
         self.data.time = ''
       },
