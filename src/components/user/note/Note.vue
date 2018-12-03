@@ -8,7 +8,7 @@
       <tab-item :selected="tab.tabType === 4" @on-item-click="tab.tabType = 4">出借记录</tab-item>
       <tab-item :selected="tab.tabType === 5" @on-item-click="tab.tabType = 5">还款记录</tab-item>
     </tab>
-    <div :class="{ minContainer: (data.all.length<10) }" v-if="tab.tabType === 1">
+    <div :class="{ minContainer: (data.all.length<10) }" v-show="tab.tabType === 1">
       <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-scroll-bottom="loadMore('All')"
                 :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
@@ -21,7 +21,7 @@
         </div>
       </scroller>
     </div>
-    <div :class="{ minContainer: (data.recharge.length<10) }" v-if="tab.tabType === 2">
+    <div :class="{ minContainer: (data.recharge.length<10) }" v-show="tab.tabType === 2">
       <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-scroll-bottom="loadMore('Recharge')"
                 :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
@@ -34,7 +34,7 @@
         </div>
       </scroller>
     </div>
-    <div :class="{ minContainer: (data.cash.length<10) }" v-if="tab.tabType === 3">
+    <div :class="{ minContainer: (data.cash.length<10) }" v-show="tab.tabType === 3">
       <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-scroll-bottom="loadMore('Cash')"
                 :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
@@ -47,7 +47,7 @@
         </div>
       </scroller>
     </div>
-    <div :class="{ minContainer: (data.invest.length<5) }" v-if="tab.tabType === 4">
+    <div :class="{ minContainer: (data.invest.length<5) }" v-show="tab.tabType === 4">
       <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-scroll-bottom="loadMore('Invest')"
                 :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
@@ -63,7 +63,7 @@
         </div>
       </scroller>
     </div>
-    <div :class="{ minContainer: (data.repayment.length<10) }" v-if="tab.tabType === 5">
+    <div :class="{ minContainer: (data.repayment.length<10) }" v-show="tab.tabType === 5">
       <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-scroll-bottom="loadMore('Recharge')"
                 :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
