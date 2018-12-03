@@ -26,7 +26,7 @@
                 :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
         <div>
-          <group title="成功充值：0.00元">
+          <group :title="`成功充值：${parm.sumRecharge}元`">
                 <cell :title="item.title" :inline-desc='item.time' :value="item.value" :key="item.id" v-for="item in data.recharge"></cell>
           </group>
           <divider v-show="parm.recharge">没有更多数据了~</divider>
@@ -39,7 +39,7 @@
                 :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
         <div>
-          <group title="累计提现成功：0.00元">
+          <group :title="`累计提现成功：${parm.sumCash}元`">
             <cell :title="item.title" :inline-desc='item.time' :value="item.value" :key="item.id" v-for="item in data.cash"></cell>
           </group>
           <divider v-show="parm.cash">没有更多数据了~</divider>
@@ -52,7 +52,7 @@
                 :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
         <div>
-          <group title="累计提现成功：0.00元" label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in data.invest" :key="item.key" v-if="item.index === 0">
+          <group :title="`累计提现成功：${parm.sumInvest}元`" label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in data.invest" :key="item.key" v-if="item.index === 0">
             <panel :list="item.panel" :type="item.type" @on-img-error="onImgError" ></panel>
           </group>
           <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in data.invest" :key="item.key" v-if="item.index !== 0">
@@ -68,7 +68,7 @@
                 :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
         <div>
-          <group title="已收还款：0.00元">
+          <group :title="`已收还款：${parm.sumRepayment}元`">
             <cell :title="item.title" :inline-desc='item.time' :value="item.value" :key="item.id" v-for="item in data.repayment"></cell>
           </group>
           <divider v-show="parm.repayment">没有更多数据了~</divider>
@@ -135,16 +135,21 @@
           all: []
         },
         parm: {
+          all: false,
+          curPageAll: 1,
+          sumAll: '0',
           recharge: false,
           curPageRecharge: 1,
+          sumRecharge: '0',
           cash: false,
           curPageCash: 1,
+          sumCash: '0',
           invest: false,
           curPageInvest: 1,
+          sumInvest: '0',
           repayment: false,
           curPageRepayment: 1,
-          all: false,
-          curPageAll: 1
+          sumRepayment: '0'
         },
         noLoginShow: false,
         pullupDefaultConfig: pullupDefaultConfig,
@@ -198,6 +203,39 @@
         }
       },
       /**
+       * 获取全部列表
+       */
+      getList () {
+        var self = this
+        if (self.parm.all === false) {
+          self.$http.post(process.env.BASE_API + '/apiqueryFundrecordList.do', qs.stringify({ 'pageNum': self.parm.curPageAll, 'pageSize': '10' }))
+            .then(function (res) {
+              if (res.data === 'noLogin') {
+                self.noLoginShow = true
+              } else if (res.data.data === '') {
+                self.parm.all = true
+              } else {
+                self.parm.sumAll = res.data.fundsum
+                _.each(res.data.data, function (v) {
+                  var item = {
+                    id: v.id,
+                    title: `${v.fundMode === '冻结提现金额' ? '-' : v.fundMode === '冻结投标金额' ? '-' : '+'}${v.handleSum}元`,
+                    time: moment(v.recordTime.time).format('YYYY-MM-DD hh:mm:ss'),
+                    value: `${v.fundMode === '存管通' ? '充值' : v.fundMode === '冻结提现金额' ? '提现' : v.fundMode === '冻结投标金额' ? '投资' : v.fundMode === '投资收到还款' ? '还款' : '其他'}`
+                  }
+                  self.data.all.push(item)
+                })
+                if (res.data.data.length < 10) {
+                  self.parm.all = true
+                }
+              }
+            })
+            .catch(function (error) {
+              console.log(error)
+            })
+        }
+      },
+      /**
        * 获取充值列表
        */
       getRechargeList () {
@@ -210,6 +248,7 @@
               } else if (res.data.data === '') {
                 self.parm.recharge = true
               } else {
+                self.parm.sumRecharge = res.data.fundsum
                 _.each(res.data.data, function (v) {
                   var item = {
                     id: v.id,
@@ -242,6 +281,7 @@
               } else if (res.data.data === '') {
                 self.parm.cash = true
               } else {
+                self.parm.sumCash = res.data.fundsum
                 _.each(res.data.data, function (v) {
                   var item = {
                     id: v.id,
@@ -274,6 +314,7 @@
               } else if (res.data.data === '') {
                 self.parm.invest = true
               } else {
+                self.parm.sumInvest = res.data.fundsum
                 _.each(res.data.data, function (v, k) {
                   var item = {
                     index: k + (self.parm.curPageInvest - 1) * 5,
@@ -316,6 +357,7 @@
               } else if (res.data.data === '') {
                 self.parm.repayment = true
               } else {
+                self.parm.sumRepayment = res.data.fundsum
                 _.each(res.data.data, function (v) {
                   var item = {
                     id: v.id,
@@ -335,48 +377,16 @@
             })
         }
       },
-      /**
-       * 获取全部列表
-       */
-      getList () {
-        var self = this
-        if (self.parm.all === false) {
-          self.$http.post(process.env.BASE_API + '/apiqueryFundrecordList.do', qs.stringify({ 'pageNum': self.parm.curPageAll, 'pageSize': '10' }))
-            .then(function (res) {
-              if (res.data === 'noLogin') {
-                self.noLoginShow = true
-              } else if (res.data.data === '') {
-                self.parm.all = true
-              } else {
-                _.each(res.data.data, function (v) {
-                  var item = {
-                    id: v.id,
-                    title: `${v.fundMode === '冻结提现金额' ? '-' : v.fundMode === '冻结投标金额' ? '-' : '+'}${v.handleSum}元`,
-                    time: moment(v.recordTime.time).format('YYYY-MM-DD hh:mm:ss'),
-                    value: `${v.fundMode === '存管通' ? '充值' : v.fundMode === '冻结提现金额' ? '提现' : v.fundMode === '冻结投标金额' ? '投资' : v.fundMode === '投资收到还款' ? '还款' : '其他'}`
-                  }
-                  self.data.all.push(item)
-                })
-                if (res.data.data.length < 10) {
-                  self.parm.all = true
-                }
-              }
-            })
-            .catch(function (error) {
-              console.log(error)
-            })
-        }
-      },
       init () {
         var self = this
         if ((self.$http.defaults.headers.tokenClientkey === undefined) && self.$cookies.get('tokenClientkey')) {
           self.$http.defaults.headers.tokenClientkey = self.$cookies.get('tokenClientkey')
         }
+        self.getList()
         self.getRechargeList()
         self.getCashList()
         self.getInvestList()
         self.getRepaymentList()
-        self.getList()
       }
     },
     created () {
