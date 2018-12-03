@@ -33,7 +33,7 @@
               is-link link="/user/center/question" v-show="(data.QuestionnaireMap.retKey === 'AnsweringQuestions')"></cell>
       </group>
     </div>
-    <div class="pt20 ">
+    <div class="pt20">
       <div class="submit-box">
         <x-button @click.native="logout('home')" type="primary">安全退出</x-button>
       </div>

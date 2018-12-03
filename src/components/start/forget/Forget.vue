@@ -9,7 +9,7 @@
         <x-button slot="right" type="primary" mini @click.native="sendCode" :disabled="data.sendCodeType">发送验证码 {{data.time}}</x-button>
       </x-input>
     </group>
-    <div class="pt20 ">
+    <div class="pt20">
       <div class="submit-box">
         <x-button @click.native="save" type="primary" :disabled="data.disabled">下一步</x-button>
       </div>

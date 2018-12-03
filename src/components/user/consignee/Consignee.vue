@@ -12,7 +12,7 @@
     <div class="p15">
       <check-icon :value.sync="data.default" type="plain">设为默认收货地址</check-icon>
     </div>
-    <div class="pt20 ">
+    <div class="pt20">
       <div class="submit-box">
         <x-button @click.native="save" type="primary">保存</x-button>
       </div>

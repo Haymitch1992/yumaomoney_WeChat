@@ -17,7 +17,7 @@
     <div class="pt20 center">
       <check-icon :value.sync="data.agreement" type="plain">已阅读并同意《鱼猫金服自动投标协议》</check-icon>
     </div>
-    <div class="pt20 ">
+    <div class="pt20">
       <div class="submit-box">
         <x-button @click.native="autoCheck" type="primary" :disabled="!data.agreement">开启自动投标</x-button>
       </div>

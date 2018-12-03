@@ -7,7 +7,7 @@
       <x-input v-model="data.newCodeBak" :min="8" :max="16" type="password" title="确认密码"
                :is-type="positive" ref="refnewCodeBak" @on-change="keyDown('refnewCodeBak')" placeholder="含字母和数字8-16位字符" required></x-input>
     </group>
-    <div class="pt20 ">
+    <div class="pt20">
       <div class="submit-box">
         <x-button @click.native="save" type="primary" :disabled="data.disabled">提交</x-button>
       </div>

@@ -15,7 +15,7 @@
       <cell title="投资期限" value="1至5个月"></cell>
       <cell title="年化收益" value="还本付息，到期还本"></cell>
     </group>
-    <div class="pt20 ">
+    <div class="pt20">
       <div class="submit-box">
         <x-button @click.native="change" type="primary">修改规则</x-button>
       </div>

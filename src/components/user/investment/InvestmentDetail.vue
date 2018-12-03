@@ -37,9 +37,9 @@
         </tbody>
       </x-table>
     </group>
-    <div class="pt20 ">
+    <div class="pt20">
       <div class="submit-box">
-        <x-button @click.native="goFinanceDetail" type="primary">进入标的</x-button>
+        <x-button @click.native="goFinanceDetail" type="primary" :disabled="dataBak.listType === 3">{{(dataBak.listType === 3) ? '标的已结清' :'进入标的'}}</x-button>
       </div>
     </div>
   </div>
@@ -120,7 +120,7 @@
         self.data.typeValue = self.dataBak.item.time
       },
       /**
-       * 获取还款中的投资详情
+       * 获取已还清的投资详情
        */
       getRecycledDetail () {
         var self = this
@@ -133,7 +133,7 @@
         } else {
           self.data.interest = ((self.dataBak.item.data.realAmount * ((self.dataBak.item.data.annualRate / 100) / 360)).toFixed(2) * self.dataBak.item.data.deadline).toFixed(2)
         }
-        self.data.receivedAmount = '0'
+        self.data.receivedAmount = self.dataBak.item.data.realAmount
         self.data.time = ''
         self.data.typeTitle = '满标时间'
         self.data.typeValue = self.dataBak.item.time
