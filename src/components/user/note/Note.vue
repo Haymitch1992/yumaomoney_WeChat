@@ -3,9 +3,9 @@
     <x-header>资金记录</x-header>
     <tab>
       <tab-item :selected="tab.tabType === 1" @on-item-click="tab.tabType = 1">全部</tab-item>
-      <tab-item :selected="tab.tabType === 2" @on-item-click="tab.tabType = 2">充值记录</tab-item>
-      <tab-item :selected="tab.tabType === 3" @on-item-click="tab.tabType = 3">提现记录</tab-item>
-      <tab-item :selected="tab.tabType === 4" @on-item-click="tab.tabType = 4">投资记录</tab-item>
+      <tab-item :selected="tab.tabType === 2" @on-item-click="tab.tabType = 2">转入记录</tab-item>
+      <tab-item :selected="tab.tabType === 3" @on-item-click="tab.tabType = 3">转出记录</tab-item>
+      <tab-item :selected="tab.tabType === 4" @on-item-click="tab.tabType = 4">出借记录</tab-item>
       <tab-item :selected="tab.tabType === 5" @on-item-click="tab.tabType = 5">还款记录</tab-item>
     </tab>
     <div :class="{ minContainer: (data.all.length<10) }" v-if="tab.tabType === 1">
@@ -26,7 +26,7 @@
                 :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
         <div>
-          <group :title="`成功充值：${parm.sumRecharge}元`">
+          <group :title="`累计转入：${parm.sumRecharge}元`">
                 <cell :title="item.title" :inline-desc='item.time' :value="item.value" :key="item.id" v-for="item in data.recharge"></cell>
           </group>
           <divider v-show="parm.recharge">没有更多数据了~</divider>
@@ -39,7 +39,7 @@
                 :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
         <div>
-          <group :title="`累计提现成功：${parm.sumCash}元`">
+          <group :title="`累计转出：${parm.sumCash}元`">
             <cell :title="item.title" :inline-desc='item.time' :value="item.value" :key="item.id" v-for="item in data.cash"></cell>
           </group>
           <divider v-show="parm.cash">没有更多数据了~</divider>
@@ -52,7 +52,7 @@
                 :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
         <div>
-          <group :title="`累计提现成功：${parm.sumInvest}元`" label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in data.invest" :key="item.key" v-if="item.index === 0">
+          <group :title="`累计出借：${parm.sumInvest}元`" label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in data.invest" :key="item.key" v-if="item.index === 0">
             <panel :list="item.panel" :type="item.type" @on-img-error="onImgError" ></panel>
           </group>
           <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in data.invest" :key="item.key" v-if="item.index !== 0">
@@ -136,19 +136,19 @@
         parm: {
           all: false,
           curPageAll: 1,
-          sumAll: '0',
+          sumAll: '0.00',
           recharge: false,
           curPageRecharge: 1,
-          sumRecharge: '0',
+          sumRecharge: '0.00',
           cash: false,
           curPageCash: 1,
-          sumCash: '0',
+          sumCash: '0.00',
           invest: false,
           curPageInvest: 1,
-          sumInvest: '0',
+          sumInvest: '0.00',
           repayment: false,
           curPageRepayment: 1,
-          sumRepayment: '0'
+          sumRepayment: '0.00'
         },
         noLoginShow: false,
         pullupDefaultConfig: pullupDefaultConfig,
