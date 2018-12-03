@@ -9,8 +9,7 @@
       <cell title="已收金额" :value="`${data.receivedAmount}元`"></cell>
       <cell title="预计收益" :value="`${data.interest}元`"></cell>
       <cell title="预计本息" :value="`${data.investAmount * 1 + data.interest * 1}元`"></cell>
-      <cell v-if="(data.time === '')" title="标的状态" :value="data.type"></cell>
-      <cell v-if="(data.time !== '')" title="满标时间" :value="data.time"></cell>
+      <cell :title="data.typeTitle" :value="data.typeValue"></cell>
       <x-table :cell-bordered="false" :content-bordered="false" style="font-size: 14px;background-color: #fff;">
         <thead>
         <tr style="background-color: #F7F7F7">
@@ -69,8 +68,8 @@
           investAmount: '0',
           receivedAmount: '0',
           interest: '0',
-          type: '未满标',
-          time: '2018年10月09日'
+          typeTitle: '标的状态',
+          typeValue: '未满标'
         },
         dataBak: {}
       }
@@ -89,39 +88,55 @@
        */
       getTenderDetail () {
         var self = this
-        console.log(self.dataBak.item.data)
         self.data.title = self.dataBak.item.data.borrowTitle
         self.data.investTime = self.dataBak.item.data.investTime
         self.data.investAmount = self.dataBak.item.data.investAmount
         if (self.dataBak.item.data.isDayThe === 1) {
-          self.data.interest = (self.dataBak.item.data.investAmount * (self.dataBak.item.data.annualRate / 100) * (self.dataBak.item.data.deadline / 12)).toFixed(2)
+          self.data.interest = ((self.dataBak.item.data.investAmount * ((self.dataBak.item.data.annualRate / 100) / 12)).toFixed(2) * self.dataBak.item.data.deadline).toFixed(2)
         } else {
-          self.data.interest = (self.dataBak.item.data.investAmount * (self.dataBak.item.data.annualRate / 100) * (self.dataBak.item.data.deadline / 360)).toFixed(2)
+          self.data.interest = ((self.dataBak.item.data.investAmount * ((self.dataBak.item.data.annualRate / 100) / 360)).toFixed(2) * self.dataBak.item.data.deadline).toFixed(2)
         }
         self.data.receivedAmount = '0'
         self.data.time = ''
+        self.data.typeTitle = '标的状态'
+        self.data.typeValue = '未满标'
       },
       /**
        * 获取还款中的投资详情
        */
-      gettRecycleDetail () {
+      getRecycleDetail () {
         var self = this
         self.data.title = self.dataBak.item.data.borrowTitle
-        self.data.investTime = self.dataBak.item.data.investTime
-        self.data.investAmount = self.dataBak.item.data.investAmount
+        self.data.investTime = self.dataBak.item.data.auditTime
+        self.data.investAmount = self.dataBak.item.data.realAmount
+        if (self.dataBak.item.data.isDayThe === 1) {
+          self.data.interest = ((self.dataBak.item.data.realAmount * ((self.dataBak.item.data.annualRate / 100) / 12)).toFixed(2) * self.dataBak.item.data.deadline).toFixed(2)
+        } else {
+          self.data.interest = ((self.dataBak.item.data.realAmount * ((self.dataBak.item.data.annualRate / 100) / 360)).toFixed(2) * self.dataBak.item.data.deadline).toFixed(2)
+        }
         self.data.receivedAmount = '0'
         self.data.time = ''
+        self.data.typeTitle = '满标时间'
+        self.data.typeValue = self.dataBak.item.time
       },
       /**
        * 获取还款中的投资详情
        */
-      gettRecycledDetail () {
+      getRecycledDetail () {
         var self = this
+        console.log(self.dataBak.item)
         self.data.title = self.dataBak.item.data.borrowTitle
-        self.data.investTime = self.dataBak.item.data.investTime
-        self.data.investAmount = self.dataBak.item.data.investAmount
+        self.data.investTime = self.dataBak.item.data.realRepayDate
+        self.data.investAmount = self.dataBak.item.data.realAmount
+        if (self.dataBak.item.data.isDayThe === 1) {
+          self.data.interest = ((self.dataBak.item.data.realAmount * ((self.dataBak.item.data.annualRate / 100) / 12)).toFixed(2) * self.dataBak.item.data.deadline).toFixed(2)
+        } else {
+          self.data.interest = ((self.dataBak.item.data.realAmount * ((self.dataBak.item.data.annualRate / 100) / 360)).toFixed(2) * self.dataBak.item.data.deadline).toFixed(2)
+        }
         self.data.receivedAmount = '0'
         self.data.time = ''
+        self.data.typeTitle = '满标时间'
+        self.data.typeValue = self.dataBak.item.time
       },
       init () {
         var self = this
@@ -132,9 +147,9 @@
           if (self.dataBak.listType === 1) {
             self.getTenderDetail()
           } else if (self.dataBak.listType === 2) {
-            self.gettRecycleDetail()
+            self.getRecycleDetail()
           } else {
-            self.gettRecycledDetail()
+            self.getRecycledDetail()
           }
         }
       }

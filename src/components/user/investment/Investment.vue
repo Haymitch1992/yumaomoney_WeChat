@@ -187,6 +187,7 @@
                   var item = {
                     data: v,
                     key: v.id,
+                    time: moment(v.investTime, 'YYYY-MM-DD').format('YYYY-MM-DD'),
                     id: v.borrowId,
                     type: '4',
                     panel: [
@@ -230,6 +231,7 @@
                   var item = {
                     data: v,
                     key: v.id,
+                    time: moment(v.auditTime, 'YYYY-MM-DD').format('YYYY-MM-DD'),
                     id: v.borrowId,
                     type: '4',
                     panel: [
@@ -273,6 +275,7 @@
                   var item = {
                     data: v,
                     key: v.id,
+                    time: moment(v.realRepayDate, 'YYYY-MM-DD').format('YYYY-MM-DD'),
                     id: v.borrowId,
                     type: '4',
                     panel: [
