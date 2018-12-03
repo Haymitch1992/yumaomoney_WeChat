@@ -2,18 +2,31 @@
   <div class="note">
     <x-header>资金记录</x-header>
     <tab>
-      <tab-item :selected="tab.tabType === 1" @on-item-click="tab.tabType = 1">充值记录</tab-item>
-      <tab-item :selected="tab.tabType === 2" @on-item-click="tab.tabType = 2">提现记录</tab-item>
-      <tab-item :selected="tab.tabType === 3" @on-item-click="tab.tabType = 3">投资记录</tab-item>
-      <tab-item :selected="tab.tabType === 4" @on-item-click="tab.tabType = 4">还款记录</tab-item>
-      <tab-item :selected="tab.tabType === 5" @on-item-click="tab.tabType = 5">其他</tab-item>
+      <tab-item :selected="tab.tabType === 1" @on-item-click="tab.tabType = 1">全部</tab-item>
+      <tab-item :selected="tab.tabType === 2" @on-item-click="tab.tabType = 2">充值记录</tab-item>
+      <tab-item :selected="tab.tabType === 3" @on-item-click="tab.tabType = 3">提现记录</tab-item>
+      <tab-item :selected="tab.tabType === 4" @on-item-click="tab.tabType = 4">投资记录</tab-item>
+      <tab-item :selected="tab.tabType === 5" @on-item-click="tab.tabType = 5">还款记录</tab-item>
     </tab>
-    <div :class="{ minContainer: (data.recharge.length<10) }" v-if="tab.tabType === 1">
+    <div :class="{ minContainer: (data.all.length<10) }" v-if="tab.tabType === 1">
+      <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-scroll-bottom="loadMore('All')"
+                :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
+                lock-x ref="scrollerBottom" height="-48">
+        <div>
+          <group :gutter="10">
+            <cell :title="item.title" :inline-desc='item.time' :value="item.value" :key="item.id" v-for="item in data.all"></cell>
+          </group>
+          <divider v-show="parm.all">没有更多数据了~</divider>
+          <load-more v-show="!parm.all" tip="加载中"></load-more>
+        </div>
+      </scroller>
+    </div>
+    <div :class="{ minContainer: (data.recharge.length<10) }" v-if="tab.tabType === 2">
       <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-scroll-bottom="loadMore('Recharge')"
                 :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
         <div>
-          <group title="成功充值：123456789.45元">
+          <group title="成功充值：0.00元">
                 <cell :title="item.title" :inline-desc='item.time' :value="item.value" :key="item.id" v-for="item in data.recharge"></cell>
           </group>
           <divider v-show="parm.recharge">没有更多数据了~</divider>
@@ -21,12 +34,12 @@
         </div>
       </scroller>
     </div>
-    <div :class="{ minContainer: (data.cash.length<10) }" v-if="tab.tabType === 2">
+    <div :class="{ minContainer: (data.cash.length<10) }" v-if="tab.tabType === 3">
       <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-scroll-bottom="loadMore('Cash')"
                 :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
         <div>
-          <group title="累计提现成功：123456789.45元">
+          <group title="累计提现成功：0.00元">
             <cell :title="item.title" :inline-desc='item.time' :value="item.value" :key="item.id" v-for="item in data.cash"></cell>
           </group>
           <divider v-show="parm.cash">没有更多数据了~</divider>
@@ -34,12 +47,12 @@
         </div>
       </scroller>
     </div>
-    <div :class="{ minContainer: (data.invest.length<6) }" v-if="tab.tabType === 3">
+    <div :class="{ minContainer: (data.invest.length<5) }" v-if="tab.tabType === 4">
       <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-scroll-bottom="loadMore('Invest')"
                 :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
         <div>
-          <group title="累计提现成功：123456789.45元" label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in data.invest" :key="item.key" v-if="item.index === 0">
+          <group title="累计提现成功：0.00元" label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in data.invest" :key="item.key" v-if="item.index === 0">
             <panel :list="item.panel" :type="item.type" @on-img-error="onImgError" ></panel>
           </group>
           <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in data.invest" :key="item.key" v-if="item.index !== 0">
@@ -50,25 +63,18 @@
         </div>
       </scroller>
     </div>
-    <div :class="{ minContainer: (data.repayment.length<10) }" v-if="tab.tabType === 4">
+    <div :class="{ minContainer: (data.repayment.length<10) }" v-if="tab.tabType === 5">
       <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-scroll-bottom="loadMore('Recharge')"
                 :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
         <div>
-          <group title="已收还款：123456789.45元">
+          <group title="已收还款：0.00元">
             <cell :title="item.title" :inline-desc='item.time' :value="item.value" :key="item.id" v-for="item in data.repayment"></cell>
           </group>
           <divider v-show="parm.repayment">没有更多数据了~</divider>
           <load-more v-show="!parm.repayment" tip="加载中"></load-more>
         </div>
       </scroller>
-    </div>
-    <div :class="{ minContainer: (data.other.length<10) }" v-if="tab.tabType === 5">
-      <group title="累计收益：123456789.45元">
-        <cell :title="item.title" :inline-desc='item.time' :value="item.value" :key="item.id" v-for="item in data.other"></cell>
-      </group>
-      <divider v-show="parm.other">没有更多数据了~</divider>
-      <load-more v-show="!parm.other" tip="加载中"></load-more>
     </div>
     <alert v-model="noLoginShow" title="登录失效" @on-show="onShow" @on-hide="logout">请重新登录</alert>
   </div>
@@ -126,26 +132,7 @@
           cash: [],
           invest: [],
           repayment: [],
-          other: [
-            {
-              id: '1',
-              title: '10000.00元',
-              time: '2017-12-23 16:00:00',
-              value: '体验金利息'
-            },
-            {
-              id: '2',
-              title: '20000.00元',
-              time: '2017-12-23 16:00:00',
-              value: '邀请奖励'
-            },
-            {
-              id: '3',
-              title: '10000.00元',
-              time: '2017-12-23 16:00:00',
-              value: '逾期罚息'
-            }
-          ]
+          all: []
         },
         parm: {
           recharge: false,
@@ -156,8 +143,8 @@
           curPageInvest: 1,
           repayment: false,
           curPageRepayment: 1,
-          other: false,
-          curPageOther: 1
+          all: false,
+          curPageAll: 1
         },
         noLoginShow: false,
         pullupDefaultConfig: pullupDefaultConfig,
@@ -180,7 +167,7 @@
       },
       /**
        * 加载更多列表
-       * type: 加载列表类型(Tender/Recycle/Recycled)
+       * type: 加载列表类型(Recharge/Cash/Invest/Repayment)
        */
       loadMore (type) {
         var self = this
@@ -194,14 +181,17 @@
               self.parm.curPageRecharge++
               self.getRechargeList()
             } else if (type === 'Cash') {
-              self.curPageCash++
+              self.parm.curPageCash++
               self.getCashList()
             } else if (type === 'Invest') {
-              self.curPageInvest++
+              self.parm.curPageInvest++
               self.getInvestList()
             } else if (type === 'Repayment') {
-              self.curPageRepayment++
+              self.parm.curPageRepayment++
               self.getRepaymentList()
+            } else if (type === 'All') {
+              self.parm.curPageAll++
+              self.getList()
             }
             self.onFetching = false
           }, 2000)
@@ -277,15 +267,16 @@
       getInvestList () {
         var self = this
         if (self.parm.invest === false) {
-          self.$http.post(process.env.BASE_API + '/apiqueryFundrecordList.do', qs.stringify({ 'pageNum': self.parm.curPageInvest, 'momeyType': '冻结投标金额' }))
+          self.$http.post(process.env.BASE_API + '/apiqueryFundrecordList.do', qs.stringify({ 'pageNum': self.parm.curPageInvest, 'momeyType': '冻结投标金额', pageSize: '5' }))
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
               } else if (res.data.data === '') {
                 self.parm.invest = true
               } else {
-                _.each(res.data.data, function (v) {
+                _.each(res.data.data, function (v, k) {
                   var item = {
+                    index: k + (self.parm.curPageInvest - 1) * 5,
                     key: v.id,
                     type: '4',
                     panel: [
@@ -295,14 +286,14 @@
                         meta: {
                           source: '年利率',
                           date: '7% + ' + (parseInt(v.annualRate) - 7) + '%',
-                          other: '投资时间： ' + moment(v.recordTime).format('YYYY-MM-DD hh:mm:ss')
+                          other: '投资时间： ' + moment(v.recordTime.time).format('YYYY-MM-DD hh:mm:ss')
                         }
                       }
                     ]
                   }
                   self.data.invest.push(item)
                 })
-                if (res.data.data.length < 10) {
+                if (res.data.data.length < 5) {
                   self.parm.invest = true
                 }
               }
@@ -318,7 +309,7 @@
       getRepaymentList () {
         var self = this
         if (self.parm.repayment === false) {
-          self.$http.post(process.env.BASE_API + '/apiqueryFundrecordList.do', qs.stringify({ 'pageNum': self.parm.curPageRepayment, 'momeyType': '投资收到还款' }))
+          self.$http.post(process.env.BASE_API + '/apiqueryFundrecordList.do', qs.stringify({ 'pageNum': self.parm.curPageRepayment, 'pageSize': '10', 'momeyType': '投资收到还款' }))
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
@@ -344,6 +335,38 @@
             })
         }
       },
+      /**
+       * 获取全部列表
+       */
+      getList () {
+        var self = this
+        if (self.parm.all === false) {
+          self.$http.post(process.env.BASE_API + '/apiqueryFundrecordList.do', qs.stringify({ 'pageNum': self.parm.curPageAll, 'pageSize': '10' }))
+            .then(function (res) {
+              if (res.data === 'noLogin') {
+                self.noLoginShow = true
+              } else if (res.data.data === '') {
+                self.parm.all = true
+              } else {
+                _.each(res.data.data, function (v) {
+                  var item = {
+                    id: v.id,
+                    title: `${v.fundMode === '冻结提现金额' ? '-' : v.fundMode === '冻结投标金额' ? '-' : '+'}${v.handleSum}元`,
+                    time: moment(v.recordTime.time).format('YYYY-MM-DD hh:mm:ss'),
+                    value: `${v.fundMode === '存管通' ? '充值' : v.fundMode === '冻结提现金额' ? '提现' : v.fundMode === '冻结投标金额' ? '投资' : v.fundMode === '投资收到还款' ? '还款' : '其他'}`
+                  }
+                  self.data.all.push(item)
+                })
+                if (res.data.data.length < 10) {
+                  self.parm.all = true
+                }
+              }
+            })
+            .catch(function (error) {
+              console.log(error)
+            })
+        }
+      },
       init () {
         var self = this
         if ((self.$http.defaults.headers.tokenClientkey === undefined) && self.$cookies.get('tokenClientkey')) {
@@ -353,6 +376,7 @@
         self.getCashList()
         self.getInvestList()
         self.getRepaymentList()
+        self.getList()
       }
     },
     created () {
