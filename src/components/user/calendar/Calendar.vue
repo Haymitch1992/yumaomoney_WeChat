@@ -145,6 +145,7 @@
         this.currentMonth = val.month
         this.todaySum = 0
         this.showArr = []
+        this.onChange('')
         document.getElementsByClassName('calendar-month-txt')[0].innerHTML = this.currentYear + '年' + this.currentMonth + '月'
         // 发出请求
         this.getInfo(this.currentMonth, this.currentYear)
