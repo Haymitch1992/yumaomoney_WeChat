@@ -141,7 +141,6 @@
       },
       onViewChange (val, count) {
         console.log('on view change', val, count)
-        this.getCalendarData(val.month, val.year)
         this.currentYear = val.year
         this.currentMonth = val.month
         document.getElementsByClassName('calendar-month-txt')[0].innerHTML = this.currentYear + '年' + this.currentMonth + '月'
