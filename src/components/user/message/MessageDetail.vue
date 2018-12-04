@@ -1,8 +1,8 @@
 <template>
   <div>
-    <x-header :left-options="leftOptions" @on-click-back="goBack()">信息详情</x-header>
+    <x-header>信息详情</x-header>
     <group>
-      <cell title="理财投资成功报告" value="2018-10-9 23:23:23"></cell>
+      <cell :title="data.item.title" :value="data.item.time"></cell>
       <cell-form-preview :list="list"></cell-form-preview>
     </group>
   </div>
@@ -21,9 +21,6 @@
     },
     data () {
       return {
-        leftOptions: {
-          preventGoBack: true
-        },
         list: [
           {
             label: '您投资的借款[气泡袋应收账款转让项目],',
@@ -57,10 +54,6 @@
       }
     },
     methods: {
-      goBack () {
-        var self = this
-        this.$router.push({name: 'message', params: {listType: self.data.listType}})
-      },
       init () {
         var self = this
         self.data = self.$route.params
