@@ -132,6 +132,7 @@
         this.showArr = []
         console.log('on-change', val)
         this.todaySum = 0
+        this.showArr = []
         for (let i = 0; i < this.infoObject.length; i++) {
           if (this.infoObject[i].repayDate === val) {
             this.showArr.push(this.infoObject[i])
@@ -143,9 +144,6 @@
         console.log('on view change', val, count)
         this.currentYear = val.year
         this.currentMonth = val.month
-        this.todaySum = 0
-        this.showArr = []
-        this.onChange('')
         document.getElementsByClassName('calendar-month-txt')[0].innerHTML = this.currentYear + '年' + this.currentMonth + '月'
         // 发出请求
         this.getInfo(this.currentMonth, this.currentYear)
@@ -170,6 +168,7 @@
               self.buildSlotFn = (line, index, data) => {
                 return arr.indexOf(data.formatedDate) !== -1 ? '<div style="font-size:12px;text-align:center;line-height: 4px;height: 8px;"><span style="display:inline-block;width:5px;height:5px;background-color:red;border-radius:50%;"></span></div>' : '<div style="height:8px;"></div>'
               }
+              self.onChange(self.value)
             }
           })
           .catch(function (error) {
