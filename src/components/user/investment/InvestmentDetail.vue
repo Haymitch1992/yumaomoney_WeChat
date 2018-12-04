@@ -124,7 +124,7 @@
         self.data.time = ''
         self.data.typeTitle = '满标时间'
         self.data.typeValue = self.dataBak.item.time
-        self.$http.post(process.env.BASE_API + '/apihomeBorrowForpayDetail.do', qs.stringify({ 'id': self.dataBak.item.data.borrowId, 'iid': self.dataBak.item.data.id }))
+        self.$http.post(process.env.BASE_API + '/apihomeBorrowForpayDetail.do', qs.stringify({ 'id': self.dataBak.item.borrowId, 'iid': self.dataBak.item.id }))
           .then(function (res) {
             if (res.data === 'noLogin') {
               self.noLoginShow = true
@@ -153,13 +153,12 @@
         self.data.time = ''
         self.data.typeTitle = '满标时间'
         self.data.typeValue = self.dataBak.item.time
-        console.log(self.dataBak.item.data)
-        self.$http.post(process.env.BASE_API + '/apihomeBorrowHaspayDetail.do', qs.stringify({ 'id': self.dataBak.item.data.borrowId, 'iid': self.dataBak.item.data.id }))
+        self.$http.post(process.env.BASE_API + '/apihomeBorrowHaspayDetail.do', qs.stringify({ 'id': self.dataBak.item.borrowId, 'iid': self.dataBak.item.id }))
           .then(function (res) {
             if (res.data === 'noLogin') {
               self.noLoginShow = true
             } else {
-              console.log(res.data)
+              self.data.tableData = res.data
             }
           })
           .catch(function (error) {

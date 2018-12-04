@@ -232,7 +232,7 @@
                     data: v,
                     borrowId: v.borrowId,
                     time: moment(v.auditTime, 'YYYY-MM-DD').format('YYYY-MM-DD'),
-                    id: v.bid,
+                    id: v.id,
                     type: '4',
                     panel: [
                       {
@@ -276,7 +276,7 @@
                     data: v,
                     borrowId: v.borrowId,
                     time: moment(v.realRepayDate, 'YYYY-MM-DD').format('YYYY-MM-DD'),
-                    id: v.id,
+                    id: v.bid,
                     type: '4',
                     panel: [
                       {
