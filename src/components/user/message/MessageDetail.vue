@@ -64,6 +64,7 @@
       init () {
         var self = this
         self.data = self.$route.params
+        console.log(self.data)
       }
     },
     created () {

@@ -132,9 +132,12 @@
             })
         }
       },
+      /**
+       * 查看详情
+       */
       goDetail (item) {
         var self = this
-        self.$router.push({name: 'messageDetail', params: {id: item.id}})
+        self.$router.push({name: 'messageDetail', params: {item: item}})
       },
       goSetting () {
         this.$router.push({name: `pushSettings`, params: {}})
