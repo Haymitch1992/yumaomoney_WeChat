@@ -10,7 +10,7 @@
       </div>
     </div>
     <div class="p20 center">您今年还有{{data.QuestionnaireMap.modifyCount}}次机会</div>
-    <alert v-model="noLoginShow" title="登录失效" @on-show="onShow" @on-hide="logout">请重新登录</alert>
+    <alert v-model="noLoginShow" title="登录失效" @on-hide="logout">请重新登录</alert>
   </div>
 </template>
 

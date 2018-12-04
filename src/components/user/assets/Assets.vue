@@ -52,7 +52,7 @@
         <cell title="出借收益" :value="data.allPayInterest "></cell>
       </group>
     </div>
-    <alert v-model="noLoginShow" title="登录失效" @on-show="onShow" @on-hide="logout">请重新登录</alert>
+    <alert v-model="noLoginShow" title="登录失效" @on-hide="logout">请重新登录</alert>
   </div>
 </template>
 
@@ -243,9 +243,6 @@
         self.$store.dispatch('setUser', false)
         self.$cookies.remove('tokenClientkey')
         self.$router.push('/start/login')
-      },
-      onShow () {
-        console.log('on show')
       },
       /**
        * 初始化

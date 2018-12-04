@@ -38,7 +38,7 @@
         <x-button @click.native="logout('home')" type="primary">安全退出</x-button>
       </div>
     </div>
-    <alert v-model="noLoginShow" title="登录失效" @on-show="onShow" @on-hide="logout('login')">请重新登录</alert>
+    <alert v-model="noLoginShow" title="登录失效" @on-hide="logout('login')">请重新登录</alert>
   </div>
 </template>
 
@@ -87,9 +87,6 @@
           .catch(function (error) {
             console.log(error)
           })
-      },
-      onShow () {
-        console.log('on show')
       },
       /**
        * 获取数据
