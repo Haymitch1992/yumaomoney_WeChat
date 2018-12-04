@@ -59,71 +59,7 @@
         leftOptions: {
           preventGoBack: true
         },
-        data: [
-          {
-            id: '1',
-            type: 1,
-            title: '用户还款资金收入报告',
-            link: '/user/message/messageDetail',
-            time: '2018-10-09 23:23:23'
-          },
-          {
-            id: '2',
-            type: 1,
-            title: '理财投资成功报告',
-            link: '/user/message/messageDetail',
-            time: '2018-10-09 23:23:23'
-          },
-          {
-            id: '3',
-            type: 2,
-            title: '用户还款资金收入报告',
-            link: '/user/message/messageDetail',
-            time: '2018-10-09 23:23:23'
-          },
-          {
-            id: '4',
-            type: 2,
-            title: '用户还款资金收入报告',
-            link: '/user/message/messageDetail',
-            time: '2018-10-09 23:23:23'
-          },
-          {
-            id: '5',
-            type: 2,
-            title: '用户还款资金收入报告',
-            link: '/user/message/messageDetail',
-            time: '2018-10-09 23:23:23'
-          },
-          {
-            id: '6',
-            type: 2,
-            title: '用户还款资金收入报告',
-            link: '/user/message/messageDetail',
-            time: '2018-10-09 23:23:23'
-          },
-          {
-            id: '7',
-            type: 3,
-            title: '用户还款资金收入报告',
-            link: '/user/message/messageDetail',
-            time: '2018-10-09 23:23:23'
-          },
-          {
-            id: '8',
-            type: 3,
-            title: '用户还款资金收入报告',
-            link: '/user/message/messageDetail',
-            time: '2018-10-09 23:23:23'
-          },
-          {
-            id: '9',
-            type: 3,
-            title: '用户还款资金收入报告',
-            link: '/user/message/messageDetail',
-            time: '2018-10-09 23:23:23'
-          }
-        ],
+        data: [],
         curPage: 1,
         type: false,
         noLoginShow: false,
@@ -171,6 +107,7 @@
         if (self.type === false) {
           self.$http.post(process.env.BASE_API + '/apiquerySysMails.do', qs.stringify({ 'pageNum': self.curPage, 'pageSize': '10' }))
             .then(function (res) {
+              console.log(res)
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
               } else if (res.data.data === '') {
@@ -179,8 +116,9 @@
                 _.each(res.data.data, function (v) {
                   var item = {
                     id: v.id,
-                    title: 'XXX',
-                    time: moment(v.recordTime.time).format('YYYY-MM-DD hh:mm:ss')
+                    title: v.mailTitle,
+                    time: moment(v.sendTime.time).format('YYYY-MM-DD hh:mm:ss'),
+                    data: v
                   }
                   self.data.push(item)
                 })
@@ -194,9 +132,12 @@
             })
         }
       },
+      /**
+       * 查看详情
+       */
       goDetail (item) {
         var self = this
-        self.$router.push({name: 'messageDetail', params: {id: item.id}})
+        self.$router.push({name: 'messageDetail', params: {item: item}})
       },
       goSetting () {
         this.$router.push({name: `pushSettings`, params: {}})
