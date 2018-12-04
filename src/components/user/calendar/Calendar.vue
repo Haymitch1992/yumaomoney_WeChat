@@ -55,6 +55,7 @@
 </template>
 
 <script>
+  import qs from 'qs'
   import { Group, Cell, XHeader, InlineCalendar, XSwitch, Radio, XButton, Divider } from 'vux'
 
   export default {
@@ -116,6 +117,22 @@
       }
     },
     methods: {
+      getCalendarData (month, year) {
+        var self = this
+        self.$http.post(process.env.BASE_API + '/apipaymentsCalendar.do', qs.stringify({ 'month': month, 'year': year }))
+          .then(function (res) {
+            if (res.data === 'noLogin') {
+              console.log('未登录')
+            } else if (res.data.data === '') {
+              console.log('没有数据')
+            } else {
+              console.log(res.data)
+            }
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+      },
       prepayment: function (prepayTime, prepayStatus) {
         console.log(prepayTime, prepayStatus)
         if (prepayStatus === 1) {
@@ -140,6 +157,7 @@
       },
       onViewChange (val, count) {
         console.log('on view change', val, count)
+        this.getCalendarData(val.month, val.year)
         this.currentYear = val.year
         this.currentMonth = val.month
         document.getElementsByClassName('calendar-month-txt')[0].innerHTML = this.currentYear + '年' + this.currentMonth + '月'
