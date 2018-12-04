@@ -1,9 +1,9 @@
 <template>
   <div class="message">
-    <x-header :left-options="leftOptions" @on-click-back="goBack()" :right-options="{showMore: true}" @on-click-more="goSetting()">通知中心</x-header>
+    <x-header :left-options="leftOptions" @on-click-back="goBack()" :right-options="{showMore: true}" @on-click-more="goSetting()" style="z-index: 10">通知中心</x-header>
     <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-scroll-bottom="loadMore()"
               :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
-              lock-x ref="scrollerBottom" height="-10">
+              lock-x ref="scrollerBottom" height="-48" style="top: -10px;">
       <div>
         <group>
           <cell :title="item.title" :inline-desc='item.time' is-link :key="item.id" v-for="item in data" @click.native="goDetail(item)"></cell>
