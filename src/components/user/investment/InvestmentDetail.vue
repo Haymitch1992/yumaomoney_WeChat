@@ -95,100 +95,6 @@
         self.$router.push('/start/login')
       },
       /**
-       * 获取招标中的投资详情
-       */
-//      getTenderDetail () {
-//        var self = this
-//        self.data.title = self.dataBak.item.data.borrowTitle
-//        if (self.dataBak.item.data.isDayThe === 1) {
-//          self.data.interest = ((self.dataBak.item.data.investAmount * ((self.dataBak.item.data.annualRate / 100) / 12)).toFixed(2) * self.dataBak.item.data.deadline).toFixed(2)
-//        } else {
-//          self.data.interest = ((self.dataBak.item.data.investAmount * ((self.dataBak.item.data.annualRate / 100) / 360)).toFixed(2) * self.dataBak.item.data.deadline).toFixed(2)
-//        }
-//        self.data.time = ''
-//        self.data.investTime = self.dataBak.item.data.investTime
-//        self.data.investAmount = self.dataBak.item.data.investAmount
-//        self.data.receivedAmount = 0
-//        self.data.typeTitle = '标的状态'
-//        self.data.typeValue = '未满标'
-//      },
-      /**
-       * 获取还款中的投资详情
-       */
-//      getRecycleDetail () {
-//        var self = this
-//        self.data.title = self.dataBak.item.data.borrowTitle
-//        if (self.dataBak.item.data.isDayThe === 1) {
-//          self.data.interest = ((self.dataBak.item.data.realAmount * ((self.dataBak.item.data.annualRate / 100) / 12)).toFixed(2) * self.dataBak.item.data.deadline).toFixed(2)
-//        } else {
-//          self.data.interest = ((self.dataBak.item.data.realAmount * ((self.dataBak.item.data.annualRate / 100) / 360)).toFixed(2) * self.dataBak.item.data.deadline).toFixed(2)
-//        }
-//        self.data.time = ''
-//
-//        self.data.investTime = self.dataBak.item.data.auditTime
-//        self.data.investAmount = self.dataBak.item.data.realAmount
-//        self.data.receivedAmount = 0
-//        self.data.typeTitle = '满标时间'
-//        self.data.typeValue = self.dataBak.item.time
-//
-//        self.$http.post(process.env.BASE_API + '/apihomeBorrowForpayDetail.do', qs.stringify({ 'id': self.dataBak.item.borrowId, 'iid': self.dataBak.item.id }))
-//          .then(function (res) {
-//            if (res.data === 'noLogin') {
-//              self.noLoginShow = true
-//            } else {
-//              self.data.tableData = res.data
-//              self.data.receivedAmountLengthAll = self.data.tableData.length
-//              _.each(self.data.tableData, function (v) {
-//                if (v.repayStatus === 2) {
-//                  self.data.receivedAmount += (v.forpayInterest * 1) + (v.forpayPrincipal * 1)
-//                  self.data.receivedAmountLength += 1
-//                }
-//              })
-//            }
-//          })
-//          .catch(function (error) {
-//            console.log(error)
-//          })
-//      },
-      /**
-       * 获取已还清的投资详情
-       */
-//      getRecycledDetail () {
-//        var self = this
-//        self.data.title = self.dataBak.item.data.borrowTitle
-//        if (self.dataBak.item.data.isDayThe === 1) {
-//          self.data.interest = ((self.dataBak.item.data.realAmount * ((self.dataBak.item.data.annualRate / 100) / 12)).toFixed(2) * self.dataBak.item.data.deadline).toFixed(2)
-//        } else {
-//          self.data.interest = ((self.dataBak.item.data.realAmount * ((self.dataBak.item.data.annualRate / 100) / 360)).toFixed(2) * self.dataBak.item.data.deadline).toFixed(2)
-//        }
-//        self.data.time = ''
-//
-//        self.data.investTime = self.dataBak.item.data.realRepayDate
-//        self.data.investAmount = self.dataBak.item.data.realAmount
-//        self.data.receivedAmount = self.dataBak.item.data.realAmount
-//        self.data.typeTitle = '满标时间'
-//        self.data.typeValue = self.dataBak.item.time
-//
-//        self.$http.post(process.env.BASE_API + '/apihomeBorrowHaspayDetail.do', qs.stringify({ 'id': self.dataBak.item.borrowId, 'iid': self.dataBak.item.id }))
-//          .then(function (res) {
-//            if (res.data === 'noLogin') {
-//              self.noLoginShow = true
-//            } else {
-//              self.data.tableData = res.data
-//              self.data.receivedAmountLengthAll = self.data.tableData.length
-//              _.each(self.data.tableData, function (v) {
-//                if (v.repayStatus === 2) {
-//                  self.data.receivedAmount += (v.forpayInterest * 1) + (v.forpayPrincipal * 1)
-//                  self.data.receivedAmountLength += 1
-//                }
-//              })
-//            }
-//          })
-//          .catch(function (error) {
-//            console.log(error)
-//          })
-//      },
-      /**
        * 初始化投资详情
        */
       initDetail (type) {
@@ -264,13 +170,6 @@
         } else {
           self.dataBak = self.$route.params
           self.initDetail(self.dataBak.listType)
-//          if (self.dataBak.listType === 1) {
-//            self.getTenderDetail()
-//          } else if (self.dataBak.listType === 2) {
-//            self.getRecycleDetail()
-//          } else {
-//            self.getRecycledDetail()
-//          }
         }
       }
     },
