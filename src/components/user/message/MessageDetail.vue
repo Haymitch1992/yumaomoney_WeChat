@@ -4,7 +4,7 @@
     <group>
       <cell :title="data.item.title" :value="data.item.time"></cell>
       <cell-form-preview :list="list"></cell-form-preview>
-      <div v-html="data.item.data.mailContent">
+      <div class="messageDetail" v-html="data.item.data.mailContent">
         {{data.item.data.mailContent}}
       </div>
     </group>
@@ -24,35 +24,7 @@
     },
     data () {
       return {
-        list: [
-          {
-            label: '您投资的借款[气泡袋应收账款转让项目],',
-            value: ''
-          },
-          {
-            label: '第[1/4]期还款已经完成.',
-            value: ''
-          },
-          {
-            label: '本期应得总额:',
-            value: '￥329.00元'
-          }, {
-            label: '其中本金部分为:',
-            value: '￥300.00元'
-          }, {
-            label: '利息部分:',
-            value: '￥29.00元'
-          }, {
-            label: '实得逾期罚息:',
-            value: '￥0.00元'
-          }, {
-            label: '扣除投资管理费:',
-            value: '￥0.00元'
-          }, {
-            label: '实得总额:',
-            value: '￥329.00元'
-          }
-        ],
+        list: [],
         data: {}
       }
     },
@@ -69,3 +41,11 @@
     }
   }
 </script>
+<style>
+  .messageDetail{
+    padding: 10px 15px;
+    color: #999;
+    font-size: .9em;
+    line-height: 2;
+  }
+</style>
