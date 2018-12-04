@@ -4,6 +4,9 @@
     <group>
       <cell :title="data.item.title" :value="data.item.time"></cell>
       <cell-form-preview :list="list"></cell-form-preview>
+      <div v-html="data.item.data.mailContentmailContent">
+        {{data.item.data.mailContentmailContent}}
+      </div>
     </group>
   </div>
 </template>
