@@ -169,7 +169,7 @@
       getList () {
         var self = this
         if (self.type === false) {
-          self.$http.post(process.env.BASE_API + '/apiqueryFundrecordList.do', qs.stringify({ 'pageNum': self.curPage, 'pageSize': '10' }))
+          self.$http.post(process.env.BASE_API + '/apiquerySendMails.do', qs.stringify({ 'pageNum': self.curPage, 'pageSize': '10' }))
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
