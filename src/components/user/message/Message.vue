@@ -59,15 +59,7 @@
         leftOptions: {
           preventGoBack: true
         },
-        data: [
-          {
-            id: '9',
-            type: 3,
-            title: '用户还款资金收入报告',
-            link: '/user/message/messageDetail',
-            time: '2018-10-09 23:23:23'
-          }
-        ],
+        data: [],
         curPage: 1,
         type: false,
         noLoginShow: false,
