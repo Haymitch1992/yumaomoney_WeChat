@@ -31,8 +31,11 @@
     methods: {
       init () {
         var self = this
-        self.data = self.$route.params
-        console.log(self.data)
+        if (!self.$route.params.item) {
+          self.$router.push({name: 'message'})
+        } else {
+          self.data = self.$route.params
+        }
       }
     },
     created () {
@@ -43,7 +46,7 @@
 </script>
 <style>
   .messageDetail{
-    padding: 10px 15px;
+    padding: 0px 10px 15px;
     color: #999;
     font-size: .9em;
     line-height: 2;
