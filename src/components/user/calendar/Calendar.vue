@@ -117,22 +117,6 @@
       }
     },
     methods: {
-      getCalendarData (month, year) {
-        var self = this
-        self.$http.post(process.env.BASE_API + '/apipaymentsCalendar.do', qs.stringify({ 'month': month, 'year': year }))
-          .then(function (res) {
-            if (res.data === 'noLogin') {
-              console.log('未登录')
-            } else if (res.data.data === '') {
-              console.log('没有数据')
-            } else {
-              console.log(res.data)
-            }
-          })
-          .catch(function (error) {
-            console.log(error)
-          })
-      },
       prepayment: function (prepayTime, prepayStatus) {
         console.log(prepayTime, prepayStatus)
         if (prepayStatus === 1) {
@@ -162,23 +146,33 @@
         this.currentMonth = val.month
         document.getElementsByClassName('calendar-month-txt')[0].innerHTML = this.currentYear + '年' + this.currentMonth + '月'
         // 发出请求
-        this.getInfo(this.currentYear, this.currentMonth)
+        this.getInfo(this.currentMonth, this.currentYear)
       },
-      getInfo (year, month) {
-        if (month === 10) {
-          this.jsonStr = '[{"realRepayDate":null,"borrowTitle":"贸易通 YM01-TDBL-2018-1","forpayInterest":2750,"repayStatus":1,"forpayPrincipal":0,"manage":0,"repayPeriod":"4/6","principalBalance":300000,"isLate":1,"username":"qycs1213","isWebRepay":1,"repayDate":"2018-10-03","earn":2750,"lateDay":0,"forFI":0},{"realRepayDate":"2018-08-27","borrowTitle":"测试项目","forpayInterest":116.67,"repayStatus":2,"forpayPrincipal":30000,"manage":0,"repayPeriod":"2/2","principalBalance":0,"isLate":1,"username":"15810540479","isWebRepay":1,"repayDate":"2018-10-03","earn":116.67,"lateDay":0,"forFI":0},{"realRepayDate":null,"borrowTitle":"贸易通 YM01-TDBL-2018-1","forpayInterest":91.67,"repayStatus":1,"forpayPrincipal":0,"manage":0,"repayPeriod":"4/6","principalBalance":10000,"isLate":1,"username":"qycs1213","isWebRepay":1,"repayDate":"2018-10-03","earn":91.67,"lateDay":0,"forFI":0},{"realRepayDate":null,"borrowTitle":"贸易通YM01-TDBL-2018-01","forpayInterest":7.5,"repayStatus":1,"forpayPrincipal":0,"manage":0,"repayPeriod":"4/6","principalBalance":1000,"isLate":1,"username":"qycs1213","isWebRepay":1,"repayDate":"2018-10-07","earn":7.5,"lateDay":0,"forFI":0},{"realRepayDate":null,"borrowTitle":"贸易通YM01-TDBL-2018-01","forpayInterest":7.5,"repayStatus":1,"forpayPrincipal":0,"manage":0,"repayPeriod":"4/6","principalBalance":1000,"isLate":1,"username":"qycs1213","isWebRepay":1,"repayDate":"2018-10-07","earn":7.5,"lateDay":0,"forFI":0},{"realRepayDate":null,"borrowTitle":"贸易通YM01-TDBL-2018-01","forpayInterest":7.5,"repayStatus":1,"forpayPrincipal":0,"manage":0,"repayPeriod":"4/6","principalBalance":1000,"isLate":1,"username":"qycs1213","isWebRepay":1,"repayDate":"2018-10-07","earn":7.5,"lateDay":0,"forFI":0},{"realRepayDate":null,"borrowTitle":"YM01-A-0902","forpayInterest":82.2,"repayStatus":1,"forpayPrincipal":0,"manage":0,"repayPeriod":"2/5","principalBalance":10000,"isLate":1,"username":"13812340063","isWebRepay":1,"repayDate":"2018-10-13","earn":82.2,"lateDay":0,"forFI":0},{"realRepayDate":null,"borrowTitle":"YM01-A-0902","forpayInterest":82.19,"repayStatus":1,"forpayPrincipal":0,"manage":0,"repayPeriod":"2/5","principalBalance":10000,"isLate":1,"username":"13812340063","isWebRepay":1,"repayDate":"2018-10-13","earn":82.19,"lateDay":0,"forFI":0},{"realRepayDate":null,"borrowTitle":"YM01-A-0902","forpayInterest":82.19,"repayStatus":1,"forpayPrincipal":0,"manage":0,"repayPeriod":"2/5","principalBalance":10000,"isLate":1,"username":"13812340063","isWebRepay":1,"repayDate":"2018-10-13","earn":82.19,"lateDay":0,"forFI":0},{"realRepayDate":null,"borrowTitle":"YM01-A-0902","forpayInterest":82.19,"repayStatus":1,"forpayPrincipal":0,"manage":0,"repayPeriod":"2/5","principalBalance":10000,"isLate":1,"username":"13812340063","isWebRepay":1,"repayDate":"2018-10-13","earn":82.19,"lateDay":0,"forFI":0},{"realRepayDate":null,"borrowTitle":"YM01-A-0912","forpayInterest":93.42,"repayStatus":1,"forpayPrincipal":0,"manage":0,"repayPeriod":"2/3","principalBalance":10000,"isLate":1,"username":"13812340063","isWebRepay":1,"repayDate":"2018-10-13","earn":93.42,"lateDay":0,"forFI":0},{"realRepayDate":null,"borrowTitle":"YM01-A-0902","forpayInterest":82.19,"repayStatus":1,"forpayPrincipal":0,"manage":0,"repayPeriod":"2/5","principalBalance":10000,"isLate":1,"username":"13812340063","isWebRepay":1,"repayDate":"2018-10-13","earn":82.19,"lateDay":0,"forFI":0},{"realRepayDate":"2018-08-16","borrowTitle":"YMJF-XBT-0815","forpayInterest":300,"repayStatus":2,"forpayPrincipal":0,"manage":0,"repayPeriod":"2/4","principalBalance":30000,"isLate":1,"username":"13812340056","isWebRepay":1,"repayDate":"2018-10-18","earn":300,"lateDay":0,"forFI":0},{"realRepayDate":null,"borrowTitle":"YM01-A-0912","forpayInterest":24.11,"repayStatus":1,"forpayPrincipal":10000,"manage":0,"repayPeriod":"3/3","principalBalance":0,"isLate":1,"username":"13812340063","isWebRepay":1,"repayDate":"2018-10-21","earn":24.11,"lateDay":0,"forFI":0}]'
-        }
-        let arr = []
+      getInfo (month, year) {
         var self = this
-        this.infoObject = JSON.parse(this.jsonStr)
-        self.monthSum = 0
-        for (let i = 0; i < self.infoObject.length; i++) {
-          arr[i] = self.infoObject[i].repayDate
-          self.monthSum = self.infoObject[i].earn + self.infoObject[i].forpayPrincipal // 本月回款 = 利息 + 本金
-        }
-        this.buildSlotFn = (line, index, data) => {
-          return arr.indexOf(data.formatedDate) !== -1 ? '<div style="font-size:12px;text-align:center;line-height: 4px;height: 8px;"><span style="display:inline-block;width:5px;height:5px;background-color:red;border-radius:50%;"></span></div>' : '<div style="height:8px;"></div>'
-        }
+        self.$http.post(process.env.BASE_API + '/apipaymentsCalendar.do', qs.stringify({ 'month': month, 'year': year }))
+          .then(function (res) {
+            if (res.data === 'noLogin') {
+              console.log('未登录')
+            } else if (res.data.data === '') {
+              console.log('没有数据')
+            } else {
+              console.log(res.data)
+              let arr = []
+              self.infoObject = res.data
+              self.monthSum = 0
+              for (let i = 0; i < self.infoObject.length; i++) {
+                arr[i] = self.infoObject[i].repayDate
+                self.monthSum = self.infoObject[i].earn + self.infoObject[i].forpayPrincipal // 本月回款 = 利息 + 本金
+              }
+              this.buildSlotFn = (line, index, data) => {
+                return arr.indexOf(data.formatedDate) !== -1 ? '<div style="font-size:12px;text-align:center;line-height: 4px;height: 8px;"><span style="display:inline-block;width:5px;height:5px;background-color:red;border-radius:50%;"></span></div>' : '<div style="height:8px;"></div>'
+              }
+            }
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
       }
     }
   }
