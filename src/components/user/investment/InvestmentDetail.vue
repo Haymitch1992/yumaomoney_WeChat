@@ -19,20 +19,10 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>2018-09-09</td>
-          <td>利息 10元</td>
-          <td>已还款</td>
-        </tr>
-        <tr>
-          <td>2018-10-09</td>
-          <td>利息 10元</td>
-          <td>待还款</td>
-        </tr>
-        <tr>
-          <td>2018-11-09</td>
-          <td>本息 520元</td>
-          <td>待还款</td>
+        <tr v-for="item in data.tableData">
+          <td>{{item.repayDate}}</td>
+          <td>{{`${(item.forpayPrincipal === 0) ? '利息' : '本息'} ${item.forpayInterest * 1 + item.forpayPrincipal * 1}`}}</td>
+          <td>{{`${(item.repayStatus === 1) ? '待还款' : '已还款'}`}}</td>
         </tr>
         </tbody>
       </x-table>
@@ -42,12 +32,13 @@
         <x-button @click.native="goFinanceDetail" type="primary" :disabled="dataBak.listType === 3">{{(dataBak.listType === 3) ? '标的已结清' :'进入标的'}}</x-button>
       </div>
     </div>
+    <alert v-model="noLoginShow" title="登录失效" @on-hide="logout">请重新登录</alert>
   </div>
 </template>
 
 <script>
   import qs from 'qs'
-  import { Group, Cell, XHeader, XButton, XTable } from 'vux'
+  import { Group, Cell, XHeader, XButton, XTable, AlertModule, Alert } from 'vux'
 
   export default {
     name: 'InvestmentDetail',
@@ -56,7 +47,9 @@
       Cell,
       XHeader,
       XButton,
-      XTable
+      XTable,
+      AlertModule,
+      Alert
     },
     data () {
       return {
@@ -70,8 +63,10 @@
           receivedAmount: '0',
           interest: '0',
           typeTitle: '标的状态',
-          typeValue: '未满标'
+          typeValue: '未满标',
+          tableData: []
         },
+        noLoginShow: false,
         dataBak: {}
       }
     },
@@ -83,6 +78,16 @@
       goBack () {
         var self = this
         self.$router.push({name: 'investment', params: {listType: self.dataBak.listType}})
+      },
+      /**
+       * 登录失效跳转
+       */
+      logout () {
+        var self = this
+        window.localStorage.removeItem('Flag')
+        self.$store.dispatch('setUser', false)
+        self.$cookies.remove('tokenClientkey')
+        self.$router.push('/start/login')
       },
       /**
        * 获取招标中的投资详情
@@ -119,12 +124,12 @@
         self.data.time = ''
         self.data.typeTitle = '满标时间'
         self.data.typeValue = self.dataBak.item.time
-        self.$http.post(process.env.BASE_API + '/apihomeBorrowForpayDetail.do', qs.stringify({ 'id': self.dataBak.item.data.id, 'iid': self.dataBak.item.data.key }))
+        self.$http.post(process.env.BASE_API + '/apihomeBorrowForpayDetail.do', qs.stringify({ 'id': self.dataBak.item.data.borrowId, 'iid': self.dataBak.item.data.id }))
           .then(function (res) {
             if (res.data === 'noLogin') {
               self.noLoginShow = true
             } else {
-              console.log(res.data)
+              self.data.tableData = res.data
             }
           })
           .catch(function (error) {
@@ -136,7 +141,6 @@
        */
       getRecycledDetail () {
         var self = this
-        console.log(self.dataBak.item)
         self.data.title = self.dataBak.item.data.borrowTitle
         self.data.investTime = self.dataBak.item.data.realRepayDate
         self.data.investAmount = self.dataBak.item.data.realAmount
@@ -149,7 +153,8 @@
         self.data.time = ''
         self.data.typeTitle = '满标时间'
         self.data.typeValue = self.dataBak.item.time
-        self.$http.post(process.env.BASE_API + '/apihomeBorrowHaspayDetail.do', qs.stringify({ 'id': self.dataBak.item.data.id, 'iid': self.dataBak.item.data.key }))
+        console.log(self.dataBak.item.data)
+        self.$http.post(process.env.BASE_API + '/apihomeBorrowHaspayDetail.do', qs.stringify({ 'id': self.dataBak.item.data.borrowId, 'iid': self.dataBak.item.data.id }))
           .then(function (res) {
             if (res.data === 'noLogin') {
               self.noLoginShow = true

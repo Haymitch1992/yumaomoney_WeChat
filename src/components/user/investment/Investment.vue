@@ -11,7 +11,7 @@
                 :use-pulldown="!typeTender" :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
         <div>
-          <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in dataTender" :key="item.key">
+          <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in dataTender" :key="item.id">
             <panel :list="item.panel" :type="item.type" @on-img-error="onImgError" @click.native="goDetail(item)"></panel>
           </group>
           <divider v-show="typeTender">没有更多数据了~</divider>
@@ -24,7 +24,7 @@
                 use-pulldown :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
         <div>
-          <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in dataRecycle" :key="item.key">
+          <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in dataRecycle" :key="item.id">
             <panel :list="item.panel" :type="item.type" @on-img-error="onImgError" @click.native="goDetail(item)"></panel>
           </group>
           <divider v-show="typeRecycle">没有更多数据了~</divider>
@@ -37,7 +37,7 @@
                 use-pulldown :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
         <div>
-          <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in dataRecycled" :key="item.key">
+          <group label-width="4.5em" label-margin-right="2em" label-align="right" v-for="item in dataRecycled" :key="item.id">
             <panel :list="item.panel" :type="item.type" @on-img-error="onImgError" @click.native="goDetail(item)"></panel>
           </group>
           <divider v-show="typeRecycled">没有更多数据了~</divider>
@@ -45,7 +45,7 @@
         </div>
       </scroller>
     </div>
-    <alert v-model="noLoginShow" title="登录失效" @on-show="onShow" @on-hide="logout">请重新登录</alert>
+    <alert v-model="noLoginShow" title="登录失效" @on-hide="logout">请重新登录</alert>
   </div>
 </template>
 
@@ -186,9 +186,9 @@
                 _.each(res.data.data, function (v) {
                   var item = {
                     data: v,
-                    key: v.id,
+                    borrowId: v.borrowId,
                     time: moment(v.investTime, 'YYYY-MM-DD').format('YYYY-MM-DD'),
-                    id: v.borrowId,
+                    id: v.id,
                     type: '4',
                     panel: [
                       {
@@ -230,9 +230,9 @@
                 _.each(res.data.data, function (v) {
                   var item = {
                     data: v,
-                    key: v.id,
+                    borrowId: v.borrowId,
                     time: moment(v.auditTime, 'YYYY-MM-DD').format('YYYY-MM-DD'),
-                    id: v.borrowId,
+                    id: v.bid,
                     type: '4',
                     panel: [
                       {
@@ -274,9 +274,9 @@
                 _.each(res.data.data, function (v) {
                   var item = {
                     data: v,
-                    key: v.id,
+                    borrowId: v.borrowId,
                     time: moment(v.realRepayDate, 'YYYY-MM-DD').format('YYYY-MM-DD'),
-                    id: v.borrowId,
+                    id: v.id,
                     type: '4',
                     panel: [
                       {
