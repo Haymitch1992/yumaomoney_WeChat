@@ -15,7 +15,7 @@
     <div>
       <popup v-model="popupShow" height="100%">
         <div class="popupFull">
-          <x-header :left-options="{showBack: false}">>信息详情</x-header>
+          <x-header :left-options="{showBack: false}">信息详情</x-header>
           <div class="p10">
             <group>
               <cell :title="item.title" :value="item.time"></cell>
