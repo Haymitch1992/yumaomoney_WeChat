@@ -12,12 +12,17 @@
         <load-more v-show="!type" tip="加载中"></load-more>
       </div>
     </scroller>
+    <div>
+      <popup v-model="popupShow" position="bottom" should-scroll-top-on-show>
+        <toggle-text @click.native="popupShow = false" scrollable class="vux-scrollable"></toggle-text>
+      </popup>
+    </div>
     <alert v-model="noLoginShow" title="登录失效" @on-hide="logout">请重新登录</alert>
   </div>
 </template>
 
 <script>
-  import { Group, Cell, XHeader, Scroller, LoadMore, Divider, AlertModule, Alert } from 'vux'
+  import { Group, Cell, XHeader, Scroller, LoadMore, Divider, AlertModule, Alert, Popup } from 'vux'
   import qs from 'qs'
   import _ from 'lodash'
   import moment from 'moment'
@@ -52,7 +57,8 @@
       LoadMore,
       Divider,
       AlertModule,
-      Alert
+      Alert,
+      Popup
     },
     data () {
       return {
@@ -62,6 +68,7 @@
         data: [],
         curPage: 1,
         type: false,
+        popupShow: false,
         noLoginShow: false,
         pullupDefaultConfig: pullupDefaultConfig,
         pulldownDefaultConfig: pulldownDefaultConfig
@@ -137,7 +144,9 @@
        */
       goDetail (item) {
         var self = this
-        self.$router.push({name: 'messageDetail', params: {item: item}})
+        self.popupShow = true
+        console.log(item)
+//        self.$router.push({name: 'messageDetail', params: {item: item}})
       },
       goSetting () {
         this.$router.push({name: `pushSettings`, params: {}})
