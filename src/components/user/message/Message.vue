@@ -16,15 +16,13 @@
       <popup v-model="popupShow" height="100%">
         <div class="popupFull">
           <x-header :left-options="{showBack: false}">信息详情</x-header>
-          <div class="p10">
-            <group>
-              <cell :title="item.title" :value="item.time"></cell>
-              <cell-form-preview :list="list"></cell-form-preview>
-              <div class="messageDetail" v-html="item.data.mailContent">
-                {{item.data.mailContent}}
+          <group>
+            <cell :title="item.title" :value="item.time"></cell>
+            <cell-form-preview :list="list"></cell-form-preview>
+            <div class="messageDetail" v-html="item.data.mailContent">
+              {{item.data.mailContent}}
             </div>
-            </group>
-          </div>
+          </group>
           <div class="pt20">
             <div class="submit-box">
               <x-button @click.native="popupShow = false" type="primary">关闭</x-button>
