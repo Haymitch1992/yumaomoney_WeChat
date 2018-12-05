@@ -80,7 +80,13 @@
           preventGoBack: true
         },
         data: [],
-        item: {},
+        item: {
+          item: {
+            title: '---',
+            time: '---',
+            data: {}
+          }
+        },
         curPage: 1,
         type: false,
         popupShow: false,
