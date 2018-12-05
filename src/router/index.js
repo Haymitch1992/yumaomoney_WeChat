@@ -42,7 +42,6 @@ import Note from '../components/user/note/Note'
 import Coupons from '../components/user/coupons/Coupons'
 import Experience from '../components/user/experience/Experience'
 import Message from '../components/user/message/Message'
-import MessageDetail from '../components/user/message/MessageDetail'
 import PushSettings from '../components/user/pushSettings/PushSettings'
 import Auto from '../components/user/auto/Auto'
 import AutoEdit from '../components/user/autoEdit/AutoEdit'
@@ -591,14 +590,6 @@ export default new Router({
               path: '/',
               component: Message,
               name: 'message',
-              meta: {
-                isLogin: true
-              }
-            },
-            {
-              path: 'messageDetail',
-              name: 'messageDetail',
-              component: MessageDetail,
               meta: {
                 isLogin: true
               }
