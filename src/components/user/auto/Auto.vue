@@ -4,6 +4,12 @@
     <group>
       <x-switch title="自动投标状态" v-model="data.autoType"></x-switch>
     </group>
+    <div>
+      <form id="cancle_invest" action="cgt/cancelAuthorizationUser.do" method="post">
+        <input type="hidden" name="authList" value="TENDER" />
+        <input type="submit" value="授权">
+      </form>
+    </div>
     <group>
       <cell title="单笔投资金额" value="10000.00"></cell>
       <cell title="保留账户金额" value="10000.00"></cell>
