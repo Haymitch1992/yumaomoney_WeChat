@@ -197,4 +197,10 @@
   .message .minContainer .xs-container {
     height: 95vh;
   }
+  .messageDetail{
+    padding: 0px 10px 15px;
+    color: #999;
+    font-size: .9em;
+    line-height: 2;
+  }
 </style>
