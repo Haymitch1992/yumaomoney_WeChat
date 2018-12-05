@@ -12,12 +12,30 @@
         <load-more v-show="!type" tip="加载中"></load-more>
       </div>
     </scroller>
+    <div>
+      <popup v-model="popupShow" height="100%">
+        <div class="popupFull">
+          <group>
+            <cell :title="item.item.title" :value="item.item.time"></cell>
+            <cell-form-preview :list="list"></cell-form-preview>
+            <div class="messageDetail" v-html="item.item.data.mailContent">
+              {{item.item.data.mailContent}}
+            </div>
+          </group>
+          <div class="pt20">
+            <div class="submit-box">
+              <x-button @click.native="popupShow = false" type="primary">关闭</x-button>
+            </div>
+          </div>
+        </div>
+      </popup>
+    </div>
     <alert v-model="noLoginShow" title="登录失效" @on-hide="logout">请重新登录</alert>
   </div>
 </template>
 
 <script>
-  import { Group, Cell, XHeader, Scroller, LoadMore, Divider, AlertModule, Alert } from 'vux'
+  import { Group, Cell, XHeader, Scroller, LoadMore, Divider, AlertModule, Alert, Popup, CellFormPreview } from 'vux'
   import qs from 'qs'
   import _ from 'lodash'
   import moment from 'moment'
@@ -52,7 +70,9 @@
       LoadMore,
       Divider,
       AlertModule,
-      Alert
+      Alert,
+      Popup,
+      CellFormPreview
     },
     data () {
       return {
@@ -60,8 +80,16 @@
           preventGoBack: true
         },
         data: [],
+        item: {
+          item: {
+            title: '---',
+            time: '---',
+            data: {}
+          }
+        },
         curPage: 1,
         type: false,
+        popupShow: false,
         noLoginShow: false,
         pullupDefaultConfig: pullupDefaultConfig,
         pulldownDefaultConfig: pulldownDefaultConfig
@@ -137,7 +165,9 @@
        */
       goDetail (item) {
         var self = this
-        self.$router.push({name: 'messageDetail', params: {item: item}})
+        self.popupShow = true
+        self.item = item
+//        self.$router.push({name: 'messageDetail', params: {item: item}})
       },
       goSetting () {
         this.$router.push({name: `pushSettings`, params: {}})
