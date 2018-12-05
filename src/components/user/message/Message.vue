@@ -15,13 +15,14 @@
     <div>
       <popup v-model="popupShow" height="100%">
         <div class="popupFull">
-          <group>
-            <cell :title="item.item.title" :value="item.item.time"></cell>
-            <cell-form-preview :list="list"></cell-form-preview>
-            <div class="messageDetail" v-html="item.item.data.mailContent">
-              {{item.item.data.mailContent}}
-            </div>
-          </group>
+          {{item}}
+          <!--<group>-->
+            <!--<cell :title="item.item.title" :value="item.item.time"></cell>-->
+            <!--<cell-form-preview :list="list"></cell-form-preview>-->
+            <!--<div class="messageDetail" v-html="item.item.data.mailContent">-->
+              <!--{{item.item.data.mailContent}}-->
+            <!--</div>-->
+          <!--</group>-->
           <div class="pt20">
             <div class="submit-box">
               <x-button @click.native="popupShow = false" type="primary">关闭</x-button>
@@ -178,6 +179,9 @@
       },
       init () {
         var self = this
+        if ((self.$http.defaults.headers.tokenClientkey === undefined) && self.$cookies.get('tokenClientkey')) {
+          self.$http.defaults.headers.tokenClientkey = self.$cookies.get('tokenClientkey')
+        }
         self.getList()
       }
     },
