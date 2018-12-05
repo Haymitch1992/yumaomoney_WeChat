@@ -24,6 +24,7 @@
 </template>
 
 <script>
+  import qs from 'qs'
   import { Group, Cell, XHeader, XInput, Selector, Datetime, Checklist, Radio, XButton, CheckIcon, XSwitch } from 'vux'
 
   export default {
@@ -106,7 +107,7 @@
         var self = this
         self.status = true
       },
-      getInfo (month, year) {
+      getInfo () {
         var self = this
         self.$http.post(process.env.BASE_API + '/apigetAutomaticBidMap.do')
           .then(function (res) {
@@ -115,7 +116,18 @@
             } else if (res.data.data === '') {
               console.log('没有数据')
             } else {
-              console.log(res.data)
+              // 若未授权 跳转新网授权 成功的回调页面 设置自动投标参数
+              // 若已授权 判断是否设置过 如果没有 跳转设置自动投标参数
+              // 否则 留在当前页面
+              if (res.data.data.status === '0') {
+                self.$http.post('/cgt/authorizationUser.do', qs.stringify({ 'authList': 'TENDER' }))
+                  .then(function (res) {
+                    console.log(res)
+                  })
+                  .catch(function (error) {
+                    console.log(error)
+                  })
+              }
             }
           })
           .catch(function (error) {
@@ -126,6 +138,7 @@
     created () {
       var self = this
       self.getInfo()
+      // 初始化的时候获取 自动投标状态
     }
   }
 </script>
