@@ -2,14 +2,20 @@
   <div>
     <x-header>修改登录密码</x-header>
     <group>
-      <x-input v-model="data.code" :min="8" :max="16" type="password" title="原密码 " placeholder="请输入原密码"
-               ref="refcode" @on-change="keyDown()" required></x-input>
+      <x-input class="weui-vcode" v-model="data.code" :min="4" :max="4" type="text" title="短信验证码"
+               placeholder="请输入短信验证码" ref="refCode" @on-change="keyDown()" required>
+        <x-button slot="right" type="primary" mini @click.native="sendCode" :disabled="data.sendCodeType">重新发送验证码 {{data.time}}</x-button>
+      </x-input>
+    </group>
+    <group>
+      <x-input v-model="data.oldCode" :min="8" :max="16" type="password" title="原密码 " placeholder="请输入原密码"
+               ref="refOldCode" @on-change="keyDown()" required></x-input>
     </group>
     <group>
       <x-input v-model="data.newCode" :min="8" :max="16" type="password" title="新密码 "
-               :is-type="positive" ref="refnewCode" @on-change="keyDown()" placeholder="含字母和数字8-16位字符" required></x-input>
+               :is-type="positive" ref="refNewCode" @on-change="keyDown()" placeholder="含字母和数字8-16位字符" required></x-input>
       <x-input v-model="data.newCodeBak" :min="8" :max="16" type="password" title="确认密码"
-               :is-type="positive" ref="refnewCodeBak" @on-change="keyDown()" placeholder="含字母和数字8-16位字符" required></x-input>
+               :is-type="positive" ref="refNewCodeBak" @on-change="keyDown()" placeholder="含字母和数字8-16位字符" required></x-input>
     </group>
     <div class="pt20">
       <div class="submit-box">
@@ -38,8 +44,11 @@
       return {
         data: {
           code: '',
+          oldCode: '',
           newCode: '',
           newCodeBak: '',
+          time: 60,
+          sendCodeType: false,
           disabled: true,
           toastSame: false,
           toastDifferent: false
@@ -63,6 +72,31 @@
       }
     },
     methods: {
+      /**
+       * 获取验证码
+       */
+      sendCode () {
+        var self = this
+        self.data.time = 60
+        self.data.sendCodeType = true
+        self.time()
+        console.log('发送验证码')
+      },
+      /**
+       * 倒计时
+       */
+      time () {
+        var self = this
+        setTimeout(function () {
+          if (self.data.time === 1) {
+            self.data.time = ''
+            self.data.sendCodeType = false
+          } else if (self.data.time > 1) {
+            self.data.time--
+            self.time()
+          }
+        }, 1000)
+      },
       save () {
         var self = this
         if (self.data.code === self.data.newCode) {
@@ -75,15 +109,23 @@
       },
       keyDown () {
         var self = this
-        if (self.$refs.refcode.valid === true && self.data.code !== '' &&
-          self.$refs.refnewCode.valid === true && self.data.newCode !== '' &&
-          self.$refs.refnewCodeBak.valid === true && self.data.newCodeBak !== ''
+        if (self.$refs.refOldCode.valid === true && self.data.oldCode !== '' &&
+          self.$refs.refNewCode.valid === true && self.data.newCode !== '' &&
+          self.$refs.refNewCodeBak.valid === true && self.data.newCodeBak !== ''
         ) {
           self.data.disabled = false
         } else {
           self.data.disabled = true
         }
+      },
+      init () {
+        var self = this
+        self.sendCode()
       }
+    },
+    created () {
+      var self = this
+      self.init()
     }
   }
 </script>
