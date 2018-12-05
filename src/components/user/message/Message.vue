@@ -15,14 +15,13 @@
     <div>
       <popup v-model="popupShow" height="100%">
         <div class="popupFull">
-          {{item}}
-          <!--<group>-->
-            <!--<cell :title="item.item.title" :value="item.item.time"></cell>-->
-            <!--<cell-form-preview :list="list"></cell-form-preview>-->
-            <!--<div class="messageDetail" v-html="item.item.data.mailContent">-->
-              <!--{{item.item.data.mailContent}}-->
-            <!--</div>-->
-          <!--</group>-->
+          <group>
+            <cell :title="item.title" :value="item.time"></cell>
+            <cell-form-preview :list="list"></cell-form-preview>
+            <div class="messageDetail" v-html="item.data.mailContent">
+              {{item.data.mailContent}}
+            </div>
+          </group>
           <div class="pt20">
             <div class="submit-box">
               <x-button @click.native="popupShow = false" type="primary">关闭</x-button>
@@ -36,7 +35,7 @@
 </template>
 
 <script>
-  import { Group, Cell, XHeader, Scroller, LoadMore, Divider, AlertModule, Alert, Popup, CellFormPreview } from 'vux'
+  import { Group, Cell, XHeader, Scroller, LoadMore, Divider, AlertModule, Alert, Popup, CellFormPreview, XButton } from 'vux'
   import qs from 'qs'
   import _ from 'lodash'
   import moment from 'moment'
@@ -73,7 +72,8 @@
       AlertModule,
       Alert,
       Popup,
-      CellFormPreview
+      CellFormPreview,
+      XButton
     },
     data () {
       return {
@@ -82,11 +82,9 @@
         },
         data: [],
         item: {
-          item: {
-            title: '---',
-            time: '---',
-            data: {}
-          }
+          title: '---',
+          time: '---',
+          data: {}
         },
         curPage: 1,
         type: false,
