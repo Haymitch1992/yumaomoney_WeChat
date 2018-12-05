@@ -105,7 +105,27 @@
       autoCheck () {
         var self = this
         self.status = true
+      },
+      getInfo (month, year) {
+        var self = this
+        self.$http.post(process.env.BASE_API + '/apigetAutomaticBidMap.do')
+          .then(function (res) {
+            if (res.data === 'noLogin') {
+              console.log('未登录')
+            } else if (res.data.data === '') {
+              console.log('没有数据')
+            } else {
+              console.log(res.data)
+            }
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
       }
+    },
+    created () {
+      var self = this
+      self.getInfo()
     }
   }
 </script>
