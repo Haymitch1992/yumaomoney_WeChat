@@ -1,25 +1,34 @@
 <template>
   <div>
     <x-header>修改登录密码</x-header>
-    <group>
-      <x-input class="weui-vcode" v-model="data.code" :min="4" :max="4" type="text" title="短信验证码"
-               placeholder="请输入短信验证码" ref="refCode" @on-change="keyDown()" required>
-        <x-button slot="right" type="primary" mini @click.native="sendCode" :disabled="data.sendCodeType">重新发送验证码 {{data.time}}</x-button>
-      </x-input>
-    </group>
-    <group>
-      <x-input v-model="data.oldCode" :min="8" :max="16" type="password" title="原密码 " placeholder="请输入原密码"
-               ref="refOldCode" @on-change="keyDown()" required></x-input>
-    </group>
-    <group>
-      <x-input v-model="data.newCode" :min="8" :max="16" type="password" title="新密码 "
-               :is-type="positive" ref="refNewCode" @on-change="keyDown()" placeholder="含字母和数字8-16位字符" required></x-input>
-      <x-input v-model="data.newCodeBak" :min="8" :max="16" type="password" title="确认密码"
-               :is-type="positive" ref="refNewCodeBak" @on-change="keyDown()" placeholder="含字母和数字8-16位字符" required></x-input>
-    </group>
-    <div class="pt20">
-      <div class="submit-box">
-        <x-button @click.native="save" type="primary" :disabled="data.disabled">修改登录密码</x-button>
+    <div v-if="data.type === 1">
+      <group>
+        <x-input class="weui-vcode" v-model="data.code" :min="4" :max="4" type="text" title="短信验证码"
+                 placeholder="请输入短信验证码" ref="refCode" @on-change="keyDownCode()" required>
+          <x-button slot="right" type="primary" mini @click.native="sendCode" :disabled="data.sendCodeType">重新发送验证码 {{data.time}}</x-button>
+        </x-input>
+      </group>
+      <div class="pt20">
+        <div class="submit-box">
+          <x-button @click.native="checkCode" type="primary" :disabled="data.disabledCode">提交验证码</x-button>
+        </div>
+      </div>
+    </div>
+    <div v-if="data.type === 2">
+      <group>
+        <x-input v-model="data.oldCode" :min="8" :max="16" type="password" title="原密码 " placeholder="请输入原密码"
+                 ref="refOldCode" @on-change="keyDown()" required></x-input>
+      </group>
+      <group>
+        <x-input v-model="data.newCode" :min="8" :max="16" type="password" title="新密码 "
+                 :is-type="positive" ref="refNewCode" @on-change="keyDown()" placeholder="含字母和数字8-16位字符" required></x-input>
+        <x-input v-model="data.newCodeBak" :min="8" :max="16" type="password" title="确认密码"
+                 :is-type="positive" ref="refNewCodeBak" @on-change="keyDown()" placeholder="含字母和数字8-16位字符" required></x-input>
+      </group>
+      <div class="pt20">
+        <div class="submit-box">
+          <x-button @click.native="save" type="primary" :disabled="data.disabled">修改登录密码</x-button>
+        </div>
       </div>
     </div>
     <toast v-model="data.toastCallBack" type="warn" :time="1000" is-show-mask :text="data.msgPhoneCheck" position="middle"></toast>
@@ -53,8 +62,10 @@
           newCode: '',
           newCodeBak: '',
           time: 60,
+          type: 1,
           sendCodeType: false,
           disabled: true,
+          disabledCode: true,
           noLoginShow: false,
           toastSame: false,
           toastDifferent: false,
@@ -99,8 +110,11 @@
           .then(function (res) {
             if (res.data === 'noLogin') {
               self.data.noLoginShow = true
-            } else {
+            } else if (res.data.code === '1') {
               self.phoneCheck(res.data)
+            } else if (res.data.code === '-1') {
+              self.data.toastCallBack = true
+              self.data.msgPhoneCheck = '初始化失败'
             }
           })
           .catch(function (error) {
@@ -112,7 +126,7 @@
        */
       phoneCheck (data) {
         var self = this
-        self.$http.post(process.env.BASE_API + '/phoneCheck.do', qs.stringify({'phone': data.data.bindingPhone}))
+        self.$http.post(process.env.BASE_API + '/apiphoneCheck.do', qs.stringify({'phone': data.data.bindingPhone}))
           .then(function (res) {
             if (res.data === 'noLogin') {
               self.noLoginShow = true
@@ -135,17 +149,36 @@
         self.data.time = 60
         self.data.sendCodeType = true
         self.time()
-        var param = {}
-        param['paramMap.phone'] = data.phone
-        self.$http.post(process.env.BASE_API + '/sendSMS.do', qs.stringify(param))
+        self.$http.post(process.env.BASE_API + '/apiSendSMS.do', qs.stringify({'phone': data.phone}))
           .then(function (res) {
             if (res.data === 'noLogin') {
               self.noLoginShow = true
-            } else if (res.data.ret === '1') {
+            } else if (res.data === '1') {
               console.log(res.data)
-            } else if (res.data.ret === '2') {
+            } else if (res.data === '2') {
               self.data.toastCallBack = true
               self.data.msgPhoneCheck = '手机验证码发送失败'
+            }
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+      },
+      /**
+       * 提交验证码
+       */
+      checkCode () {
+        var self = this
+        self.$http.post(process.env.BASE_API + '/apicheckUserAnswer.do', qs.stringify({'code': self.data.code}))
+          .then(function (res) {
+            if (res.data === 'noLogin') {
+              self.noLoginShow = true
+            } else if (res.data.code === '1') {
+              console.log(res.data)
+              self.data.type = 2
+            } else if (res.data.code === '-1') {
+              self.data.toastCallBack = true
+              self.data.msgPhoneCheck = '手机验证码验证失败'
             }
           })
           .catch(function (error) {
@@ -169,12 +202,21 @@
       },
       save () {
         var self = this
-        if (self.data.code === self.data.newCode) {
+        if (self.data.oldCode === self.data.newCode) {
           self.data.toastSame = true
         } else if (self.data.newCode !== self.data.newCodeBak) {
           self.data.toastDifferent = true
         } else {
           console.log(self.data)
+        }
+      },
+      keyDownCode () {
+        var self = this
+        if (self.$refs.refCode.valid === true && self.data.code !== ''
+        ) {
+          self.data.disabledCode = false
+        } else {
+          self.data.disabledCode = true
         }
       },
       keyDown () {
