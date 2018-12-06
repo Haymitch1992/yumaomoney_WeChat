@@ -2,27 +2,36 @@
   <div>
     <x-header>修改登录密码</x-header>
     <group>
-      <x-input v-model="data.code" :min="8" :max="16" type="password" title="原密码 " placeholder="请输入原密码"
-               ref="refcode" @on-change="keyDown()" required></x-input>
+      <x-input class="weui-vcode" v-model="data.code" :min="4" :max="4" type="text" title="短信验证码"
+               placeholder="请输入短信验证码" ref="refCode" @on-change="keyDown()" required>
+        <x-button slot="right" type="primary" mini @click.native="sendCode" :disabled="data.sendCodeType">重新发送验证码 {{data.time}}</x-button>
+      </x-input>
+    </group>
+    <group>
+      <x-input v-model="data.oldCode" :min="8" :max="16" type="password" title="原密码 " placeholder="请输入原密码"
+               ref="refOldCode" @on-change="keyDown()" required></x-input>
     </group>
     <group>
       <x-input v-model="data.newCode" :min="8" :max="16" type="password" title="新密码 "
-               :is-type="positive" ref="refnewCode" @on-change="keyDown()" placeholder="含字母和数字8-16位字符" required></x-input>
+               :is-type="positive" ref="refNewCode" @on-change="keyDown()" placeholder="含字母和数字8-16位字符" required></x-input>
       <x-input v-model="data.newCodeBak" :min="8" :max="16" type="password" title="确认密码"
-               :is-type="positive" ref="refnewCodeBak" @on-change="keyDown()" placeholder="含字母和数字8-16位字符" required></x-input>
+               :is-type="positive" ref="refNewCodeBak" @on-change="keyDown()" placeholder="含字母和数字8-16位字符" required></x-input>
     </group>
     <div class="pt20">
       <div class="submit-box">
         <x-button @click.native="save" type="primary" :disabled="data.disabled">修改登录密码</x-button>
       </div>
     </div>
+    <toast v-model="data.toastCallBack" type="warn" :time="1000" is-show-mask :text="data.msgPhoneCheck" position="middle"></toast>
     <toast v-model="data.toastSame" type="warn" :time="1000" is-show-mask text="新密码与原密码不能相同" position="middle"></toast>
     <toast v-model="data.toastDifferent" type="warn" :time="1000" is-show-mask text="两次密码不相同" position="middle"></toast>
+    <alert v-model="data.noLoginShow" title="登录失效" @on-hide="logout">请重新登录</alert>
   </div>
 </template>
 
 <script>
-  import { Group, Cell, XHeader, XInput, XButton, Toast } from 'vux'
+  import { Group, Cell, XHeader, XInput, XButton, Toast, AlertModule, Alert } from 'vux'
+  import qs from 'qs'
 
   export default {
     name: 'ReviseLogin',
@@ -32,17 +41,25 @@
       XHeader,
       XInput,
       XButton,
-      Toast
+      Toast,
+      AlertModule,
+      Alert
     },
     data () {
       return {
         data: {
           code: '',
+          oldCode: '',
           newCode: '',
           newCodeBak: '',
+          time: 60,
+          sendCodeType: false,
           disabled: true,
+          noLoginShow: false,
           toastSame: false,
-          toastDifferent: false
+          toastDifferent: false,
+          toastCallBack: false,
+          msgPhoneCheck: false
         },
         positive: function (value) {
           if (value.search(/[0-9]/) === -1) {
@@ -63,6 +80,93 @@
       }
     },
     methods: {
+      /**
+       * 登录失效跳转
+       */
+      logout () {
+        var self = this
+        window.localStorage.removeItem('Flag')
+        self.$store.dispatch('setUser', false)
+        self.$cookies.remove('tokenClientkey')
+        self.$router.push('/start/login')
+      },
+      /**
+       * 初始化
+       */
+      getQuestion () {
+        var self = this
+        self.$http.post(process.env.BASE_API + '/apigetQuestion.do', null)
+          .then(function (res) {
+            if (res.data === 'noLogin') {
+              self.data.noLoginShow = true
+            } else {
+              self.phoneCheck(res.data)
+            }
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+      },
+      /**
+       * 验证手机号
+       */
+      phoneCheck (data) {
+        var self = this
+        self.$http.post(process.env.BASE_API + '/phoneCheck.do', qs.stringify({'phone': data.data.bindingPhone}))
+          .then(function (res) {
+            if (res.data === 'noLogin') {
+              self.noLoginShow = true
+            } else if (res.data.ret === '1') {
+              self.sendCode(res.data)
+            } else if (res.data.ret === '-1') {
+              self.data.toastCallBack = true
+              self.data.msgPhoneCheck = '绑定手机号异常'
+            }
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+      },
+      /**
+       * 获取验证码
+       */
+      sendCode (data) {
+        var self = this
+        self.data.time = 60
+        self.data.sendCodeType = true
+        self.time()
+        var param = {}
+        param['paramMap.phone'] = data.phone
+        self.$http.post(process.env.BASE_API + '/sendSMS.do', qs.stringify(param))
+          .then(function (res) {
+            if (res.data === 'noLogin') {
+              self.noLoginShow = true
+            } else if (res.data.ret === '1') {
+              console.log(res.data)
+            } else if (res.data.ret === '2') {
+              self.data.toastCallBack = true
+              self.data.msgPhoneCheck = '手机验证码发送失败'
+            }
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+      },
+      /**
+       * 倒计时
+       */
+      time () {
+        var self = this
+        setTimeout(function () {
+          if (self.data.time === 1) {
+            self.data.time = ''
+            self.data.sendCodeType = false
+          } else if (self.data.time > 1) {
+            self.data.time--
+            self.time()
+          }
+        }, 1000)
+      },
       save () {
         var self = this
         if (self.data.code === self.data.newCode) {
@@ -75,15 +179,26 @@
       },
       keyDown () {
         var self = this
-        if (self.$refs.refcode.valid === true && self.data.code !== '' &&
-          self.$refs.refnewCode.valid === true && self.data.newCode !== '' &&
-          self.$refs.refnewCodeBak.valid === true && self.data.newCodeBak !== ''
+        if (self.$refs.refOldCode.valid === true && self.data.oldCode !== '' &&
+          self.$refs.refNewCode.valid === true && self.data.newCode !== '' &&
+          self.$refs.refNewCodeBak.valid === true && self.data.newCodeBak !== ''
         ) {
           self.data.disabled = false
         } else {
           self.data.disabled = true
         }
+      },
+      init () {
+        var self = this
+        if ((self.$http.defaults.headers.tokenClientkey === undefined) && self.$cookies.get('tokenClientkey')) {
+          self.$http.defaults.headers.tokenClientkey = self.$cookies.get('tokenClientkey')
+        }
+        self.getQuestion()
       }
+    },
+    created () {
+      var self = this
+      self.init()
     }
   }
 </script>
