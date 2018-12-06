@@ -224,7 +224,7 @@
                 self.data.msgPhoneCheck = '账号异常'
               } else if (res.data.code === '6') {
                 self.data.toastCallBack = true
-                self.data.msgPhoneCheck = '交易密码不能与登录密码一致'
+                self.data.msgPhoneCheck = '新密码不能与旧密码一致'
               } else if (res.data.code === '7') {
                 console.log('修改成功')
               }
