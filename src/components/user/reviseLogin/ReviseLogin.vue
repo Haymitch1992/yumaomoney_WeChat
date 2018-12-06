@@ -35,6 +35,7 @@
     <toast v-model="data.toastSame" type="warn" :time="1000" is-show-mask text="新密码与原密码不能相同" position="middle"></toast>
     <toast v-model="data.toastDifferent" type="warn" :time="1000" is-show-mask text="两次密码不相同" position="middle"></toast>
     <alert v-model="data.noLoginShow" title="登录失效" @on-hide="logout">请重新登录</alert>
+    <alert v-model="data.changeCodeShow" title="修改成功" @on-hide="logout">请重新登录</alert>
   </div>
 </template>
 
@@ -67,6 +68,7 @@
           disabled: true,
           disabledCode: true,
           noLoginShow: false,
+          changeCodeShow: false,
           toastSame: false,
           toastDifferent: false,
           toastCallBack: false,
@@ -195,9 +197,6 @@
         } else if (self.data.newCode !== self.data.newCodeBak) {
           self.data.toastDifferent = true
         } else {
-          /**
-           * 提交新密码
-           */
           var parmes = {}
           parmes.oldPassword = self.data.oldCode
           parmes.newPassword = self.data.newCode
@@ -226,7 +225,7 @@
                 self.data.toastCallBack = true
                 self.data.msgPhoneCheck = '新密码不能与旧密码一致'
               } else if (res.data === 7) {
-                console.log('修改成功')
+                self.changeCodeShow = true
               }
             })
             .catch(function (error) {
