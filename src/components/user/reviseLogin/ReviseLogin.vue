@@ -131,7 +131,7 @@
         self.$http.post(process.env.BASE_API + '/apiphoneCheck.do', qs.stringify({'phone': data.data.bindingPhone}))
           .then(function (res) {
             if (res.data === 'noLogin') {
-              self.noLoginShow = true
+              self.data.noLoginShow = true
             } else if (res.data.ret === '1') {
               self.sendCode(res.data)
             } else if (res.data.ret === '-1') {
@@ -154,7 +154,7 @@
         self.$http.post(process.env.BASE_API + '/apiSendSMS.do', qs.stringify({'phone': data.phone}))
           .then(function (res) {
             if (res.data === 'noLogin') {
-              self.noLoginShow = true
+              self.data.noLoginShow = true
             } else if (res.data === '1') {
               console.log(res.data)
             } else if (res.data === '2') {
@@ -174,7 +174,7 @@
         self.$http.post(process.env.BASE_API + '/apicheckUserAnswer.do', qs.stringify({'code': self.data.code}))
           .then(function (res) {
             if (res.data === 'noLogin') {
-              self.noLoginShow = true
+              self.data.noLoginShow = true
             } else if (res.data.code === '1') {
               console.log(res.data)
               self.data.type = 2
@@ -205,7 +205,7 @@
           self.$http.post(process.env.BASE_API + '/apiupdateLoginPass.do', qs.stringify(parmes))
             .then(function (res) {
               if (res.data === 'noLogin') {
-                self.noLoginShow = true
+                self.data.noLoginShow = true
               } else if (res.data === 1) {
                 self.data.toastCallBack = true
                 self.data.msgPhoneCheck = '新密码、确认新密码不一致'
@@ -225,7 +225,7 @@
                 self.data.toastCallBack = true
                 self.data.msgPhoneCheck = '新密码不能与旧密码一致'
               } else if (res.data === 8) {
-                self.changeCodeShow = true
+                self.data.changeCodeShow = true
               }
             })
             .catch(function (error) {
