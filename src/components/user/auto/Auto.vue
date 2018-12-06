@@ -164,6 +164,7 @@
               } else {
                 self.pageNum = 'B'
               }
+              console.log(self.pageNum)
             }
           })
           .catch(function (error) {
