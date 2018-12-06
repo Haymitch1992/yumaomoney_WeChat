@@ -186,6 +186,55 @@
           })
       },
       /**
+       * 提交新密码
+       */
+      save () {
+        var self = this
+        if (self.data.oldCode === self.data.newCode) {
+          self.data.toastSame = true
+        } else if (self.data.newCode !== self.data.newCodeBak) {
+          self.data.toastDifferent = true
+        } else {
+          /**
+           * 提交新密码
+           */
+          var parmes = {}
+          parmes.oldPassword = self.data.oldCode
+          parmes.newPassword = self.data.newCode
+          parmes.confirmPassword = self.data.newCodeBak
+          parmes.type = 'login'
+          self.$http.post(process.env.BASE_API + '/apiupdateLoginPass.do', qs.stringify(parmes))
+            .then(function (res) {
+              if (res.data === 'noLogin') {
+                self.noLoginShow = true
+              } else if (res.data.code === '1') {
+                self.data.toastCallBack = true
+                self.data.msgPhoneCheck = '新密码、确认新密码不一致'
+              } else if (res.data.code === '2') {
+                self.data.toastCallBack = true
+                self.data.msgPhoneCheck = '旧密码输入错误'
+              } else if (res.data.code === '3') {
+                self.data.toastCallBack = true
+                self.data.msgPhoneCheck = '变更失败'
+              } else if (res.data.code === '4') {
+                self.data.toastCallBack = true
+                self.data.msgPhoneCheck = '新密码长度<6或>20'
+              } else if (res.data.code === '5') {
+                self.data.toastCallBack = true
+                self.data.msgPhoneCheck = '账号异常'
+              } else if (res.data.code === '6') {
+                self.data.toastCallBack = true
+                self.data.msgPhoneCheck = '新密码不能与旧密码一致'
+              } else if (res.data.code === '7') {
+                console.log('修改成功')
+              }
+            })
+            .catch(function (error) {
+              console.log(error)
+            })
+        }
+      },
+      /**
        * 倒计时
        */
       time () {
@@ -199,16 +248,6 @@
             self.time()
           }
         }, 1000)
-      },
-      save () {
-        var self = this
-        if (self.data.oldCode === self.data.newCode) {
-          self.data.toastSame = true
-        } else if (self.data.newCode !== self.data.newCodeBak) {
-          self.data.toastDifferent = true
-        } else {
-          console.log(self.data)
-        }
       },
       keyDownCode () {
         var self = this
