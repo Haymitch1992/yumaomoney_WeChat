@@ -35,6 +35,7 @@
     <toast v-model="data.toastSame" type="warn" :time="1000" is-show-mask text="新密码与原密码不能相同" position="middle"></toast>
     <toast v-model="data.toastDifferent" type="warn" :time="1000" is-show-mask text="两次密码不相同" position="middle"></toast>
     <alert v-model="data.noLoginShow" title="登录失效" @on-hide="logout">请重新登录</alert>
+    <alert v-model="data.changeCodeShow" title="修改成功" @on-hide="logout">请重新登录</alert>
   </div>
 </template>
 
@@ -67,6 +68,7 @@
           disabled: true,
           disabledCode: true,
           noLoginShow: false,
+          changeCodeShow: false,
           toastSame: false,
           toastDifferent: false,
           toastCallBack: false,
@@ -129,7 +131,7 @@
         self.$http.post(process.env.BASE_API + '/apiphoneCheck.do', qs.stringify({'phone': data.data.bindingPhone}))
           .then(function (res) {
             if (res.data === 'noLogin') {
-              self.noLoginShow = true
+              self.data.noLoginShow = true
             } else if (res.data.ret === '1') {
               self.sendCode(res.data)
             } else if (res.data.ret === '-1') {
@@ -152,7 +154,7 @@
         self.$http.post(process.env.BASE_API + '/apiSendSMS.do', qs.stringify({'phone': data.phone}))
           .then(function (res) {
             if (res.data === 'noLogin') {
-              self.noLoginShow = true
+              self.data.noLoginShow = true
             } else if (res.data === '1') {
               console.log(res.data)
             } else if (res.data === '2') {
@@ -172,7 +174,7 @@
         self.$http.post(process.env.BASE_API + '/apicheckUserAnswer.do', qs.stringify({'code': self.data.code}))
           .then(function (res) {
             if (res.data === 'noLogin') {
-              self.noLoginShow = true
+              self.data.noLoginShow = true
             } else if (res.data.code === '1') {
               console.log(res.data)
               self.data.type = 2
@@ -195,9 +197,6 @@
         } else if (self.data.newCode !== self.data.newCodeBak) {
           self.data.toastDifferent = true
         } else {
-          /**
-           * 提交新密码
-           */
           var parmes = {}
           parmes.oldPassword = self.data.oldCode
           parmes.newPassword = self.data.newCode
@@ -206,27 +205,27 @@
           self.$http.post(process.env.BASE_API + '/apiupdateLoginPass.do', qs.stringify(parmes))
             .then(function (res) {
               if (res.data === 'noLogin') {
-                self.noLoginShow = true
-              } else if (res.data.code === '1') {
+                self.data.noLoginShow = true
+              } else if (res.data === 1) {
                 self.data.toastCallBack = true
                 self.data.msgPhoneCheck = '新密码、确认新密码不一致'
-              } else if (res.data.code === '2') {
+              } else if (res.data === 2) {
                 self.data.toastCallBack = true
                 self.data.msgPhoneCheck = '旧密码输入错误'
-              } else if (res.data.code === '3') {
+              } else if (res.data === 3) {
                 self.data.toastCallBack = true
                 self.data.msgPhoneCheck = '变更失败'
-              } else if (res.data.code === '4') {
+              } else if (res.data === 4) {
                 self.data.toastCallBack = true
                 self.data.msgPhoneCheck = '新密码长度<6或>20'
-              } else if (res.data.code === '5') {
+              } else if (res.data === 5) {
                 self.data.toastCallBack = true
                 self.data.msgPhoneCheck = '账号异常'
-              } else if (res.data.code === '6') {
+              } else if (res.data === 6) {
                 self.data.toastCallBack = true
                 self.data.msgPhoneCheck = '新密码不能与旧密码一致'
-              } else if (res.data.code === '7') {
-                console.log('修改成功')
+              } else if (res.data === 8) {
+                self.data.changeCodeShow = true
               }
             })
             .catch(function (error) {
