@@ -207,25 +207,25 @@
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
-              } else if (res.data === '1') {
+              } else if (res.data === 1) {
                 self.data.toastCallBack = true
                 self.data.msgPhoneCheck = '新密码、确认新密码不一致'
-              } else if (res.data === '2') {
+              } else if (res.data === 2) {
                 self.data.toastCallBack = true
                 self.data.msgPhoneCheck = '旧密码输入错误'
-              } else if (res.data === '3') {
+              } else if (res.data === 3) {
                 self.data.toastCallBack = true
                 self.data.msgPhoneCheck = '变更失败'
-              } else if (res.data === '4') {
+              } else if (res.data === 4) {
                 self.data.toastCallBack = true
                 self.data.msgPhoneCheck = '新密码长度<6或>20'
-              } else if (res.data === '5') {
+              } else if (res.data === 5) {
                 self.data.toastCallBack = true
                 self.data.msgPhoneCheck = '账号异常'
-              } else if (res.data === '6') {
+              } else if (res.data === 6) {
                 self.data.toastCallBack = true
                 self.data.msgPhoneCheck = '新密码不能与旧密码一致'
-              } else if (res.data === '7') {
+              } else if (res.data === 7) {
                 console.log('修改成功')
               }
             })
