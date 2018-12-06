@@ -1,7 +1,7 @@
 <template>
   <div class="auto-invest">
     <x-header>自动投标</x-header>
-    <div class="" v-if="pageNum === 'A'">
+    <div v-if="pageNum === 'A'">
       <!--未授权-->
       <div class="no-accredit"></div>
       <form id="cancle_invest" action="/cgt/authorizationUser.do" method="post">
@@ -9,7 +9,7 @@
         <input type="submit" value="授权自动投标" class="go-accredit">
       </form>
     </div>
-    <div v-if="pageNum === 'B'">
+    <div v-else-if="pageNum === 'B'">
       <!--已授权-->
       <group>
         <x-switch title="自动投标状态" prevent-default v-model="data.autoType" @click.native="changeStatus"></x-switch>
@@ -174,6 +174,9 @@
     },
     created () {
       var self = this
+      if ((self.$http.defaults.headers.tokenClientkey === undefined) && self.$cookies.get('tokenClientkey')) {
+        self.$http.defaults.headers.tokenClientkey = self.$cookies.get('tokenClientkey')
+      }
       self.getInfo()
       // 初始化的时候获取 自动投标状态
     }
