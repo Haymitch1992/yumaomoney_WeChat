@@ -12,7 +12,7 @@
     <div v-if="pageNum === 'B'">
       <!--已授权-->
       <group>
-        <x-switch title="自动投标状态" v-model="data.autoType" @click.native="changeStatus"></x-switch>
+        <x-switch title="自动投标状态" prevent-default v-model="data.autoType" @click.native="changeStatus"></x-switch>
       </group>
       <group>
         <cell title="单笔投资金额" value="10000.00"></cell>
@@ -35,6 +35,7 @@
 </template>
 
 <script>
+  import qs from 'qs'
   import { Group, Cell, XHeader, XInput, Selector, Datetime, Checklist, Radio, XButton, CheckIcon, XSwitch } from 'vux'
 
   export default {
@@ -105,15 +106,19 @@
       }
     },
     methods: {
-      changeStatus () {
+      changeStatus (newVal, oldVal) {
         var self = this
+        console.log(newVal, oldVal)
+        this.$vux.loading.show({
+          text: 'in processing'
+        })
         var s = ''
-        if(self.autoType){
-            s = 1
-        }else{
-            s = 99
+        if (self.autoType) {
+          s = 1
+        } else {
+          s = 99
         }
-        self.$http.post(process.env.BASE_API + '/apiautomaticBidSet.do', qs.stringify({ 's': s}))
+        self.$http.post(process.env.BASE_API + '/apiautomaticBidSet.do', qs.stringify({ 's': s }))
           .then(function (res) {
             if (res.data === 'noLogin') {
               console.log('未登录')
@@ -121,6 +126,8 @@
               console.log('没有数据')
             } else {
               console.log(res.data)
+              self.$vux.loading.hide()
+              self.autoType = newVal
             }
           })
           .catch(function (error) {
@@ -152,7 +159,7 @@
               // 若未授权 跳转新网授权 成功的回调页面 设置自动投标参数
               // 若已授权 判断是否设置过 如果没有 跳转设置自动投标参数
               // 否则 留在当前页面
-              if (res.data.data.status === '0') {
+              if (res.data.data.status === 0) {
                 self.pageNum = 'A'
               } else {
                 self.pageNum = 'B'
