@@ -224,7 +224,7 @@
               } else if (res.data === 6) {
                 self.data.toastCallBack = true
                 self.data.msgPhoneCheck = '新密码不能与旧密码一致'
-              } else if (res.data === 7) {
+              } else if (res.data === 8) {
                 self.changeCodeShow = true
               }
             })
