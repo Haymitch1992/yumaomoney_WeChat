@@ -1,31 +1,34 @@
 <template>
   <div class="auto-invest">
     <x-header>自动投标</x-header>
-    <group>
-      <x-switch title="自动投标状态" v-model="data.autoType"></x-switch>
-    </group>
-    <div class="" v-if="pageNum === '1'">
-
+    <div class="" v-if="pageNum === 'A'">
+      <!--未授权-->
       <div class="no-accredit"></div>
       <form id="cancle_invest" action="/cgt/authorizationUser.do" method="post">
         <input type="hidden" name="authList" value="TENDER" />
-        <input type="submit" value="授权" class="go-accredit">
+        <input type="submit" value="授权自动投标" class="go-accredit">
       </form>
     </div>
-    <group>
-      <cell title="单笔投资金额" value="10000.00"></cell>
-      <cell title="保留账户金额" value="10000.00"></cell>
-      <cell title="授权金额" value="10000.00"></cell>
-      <cell title="授权期限" value="2019年08月9日"></cell>
-    </group>
-    <group>
-      <cell title="年化收益" value="10%至15%"></cell>
-      <cell title="投资期限" value="1至5个月"></cell>
-      <cell title="年化收益" value="还本付息，到期还本"></cell>
-    </group>
-    <div class="pt20">
-      <div class="submit-box">
-        <x-button @click.native="change" type="primary">修改规则</x-button>
+    <div v-if="pageNum === 'B'">
+      <!--已授权-->
+      <group>
+        <x-switch title="自动投标状态" v-model="data.autoType" @click.native="changeStatus"></x-switch>
+      </group>
+      <group>
+        <cell title="单笔投资金额" value="10000.00"></cell>
+        <cell title="保留账户金额" value="10000.00"></cell>
+        <cell title="授权金额" value="10000.00"></cell>
+        <cell title="授权期限" value="2019年08月9日"></cell>
+      </group>
+      <group>
+        <cell title="年化收益" value="10%至15%"></cell>
+        <cell title="投资期限" value="1至5个月"></cell>
+        <cell title="年化收益" value="还本付息，到期还本"></cell>
+      </group>
+      <div class="pt20">
+        <div class="submit-box">
+          <x-button @click.native="change" type="primary">修改规则</x-button>
+        </div>
       </div>
     </div>
   </div>
@@ -102,6 +105,28 @@
       }
     },
     methods: {
+      changeStatus () {
+        var self = this
+        var s = ''
+        if(self.autoType){
+            s = 1
+        }else{
+            s = 99
+        }
+        self.$http.post(process.env.BASE_API + '/apiautomaticBidSet.do', qs.stringify({ 's': s}))
+          .then(function (res) {
+            if (res.data === 'noLogin') {
+              console.log('未登录')
+            } else if (res.data.data === '') {
+              console.log('没有数据')
+            } else {
+              console.log(res.data)
+            }
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+      },
       change () {
         var self = this
         this.$router.push({name: 'autoEdit', params: self.data})
@@ -128,9 +153,9 @@
               // 若已授权 判断是否设置过 如果没有 跳转设置自动投标参数
               // 否则 留在当前页面
               if (res.data.data.status === '0') {
-                self.pageNum = '1'
+                self.pageNum = 'A'
               } else {
-                self.pageNum = '2'
+                self.pageNum = 'B'
               }
             }
           })
@@ -149,7 +174,7 @@
 <style lang="less">
   .auto-invest{
     .no-accredit{
-      background: #f5f5f5;
+      background: #eee;
       height: 200px;
       width: 100%;
       margin:20px 0;
@@ -163,6 +188,7 @@
       background: #E64340;
       color: #fff;
       border-radius: 6px;
+      border: none;
     }
   }
 </style>
