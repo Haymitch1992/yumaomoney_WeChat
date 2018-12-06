@@ -1,9 +1,17 @@
 <template>
-  <div>
+  <div class="auto-invest">
     <x-header>自动投标</x-header>
     <group>
       <x-switch title="自动投标状态" v-model="data.autoType"></x-switch>
     </group>
+    <div class="" v-if="pageNum === '1'">
+
+      <div class="no-accredit"></div>
+      <form id="cancle_invest" action="/cgt/authorizationUser.do" method="post">
+        <input type="hidden" name="authList" value="TENDER" />
+        <input type="submit" value="授权" class="go-accredit">
+      </form>
+    </div>
     <group>
       <cell title="单笔投资金额" value="10000.00"></cell>
       <cell title="保留账户金额" value="10000.00"></cell>
@@ -24,7 +32,6 @@
 </template>
 
 <script>
-  import qs from 'qs'
   import { Group, Cell, XHeader, XInput, Selector, Datetime, Checklist, Radio, XButton, CheckIcon, XSwitch } from 'vux'
 
   export default {
@@ -55,7 +62,8 @@
           wayType: [],
           saveType: '0',
           agreement: false,
-          autoType: false
+          autoType: false,
+          pageNum: ''
         },
         earnsList: [
           {key: '8', value: '8%'},
@@ -120,13 +128,9 @@
               // 若已授权 判断是否设置过 如果没有 跳转设置自动投标参数
               // 否则 留在当前页面
               if (res.data.data.status === '0') {
-                self.$http.post('/cgt/authorizationUser.do', qs.stringify({ 'authList': 'TENDER' }))
-                  .then(function (res) {
-                    console.log(res)
-                  })
-                  .catch(function (error) {
-                    console.log(error)
-                  })
+                self.pageNum = '1'
+              } else {
+                self.pageNum = '2'
               }
             }
           })
@@ -142,3 +146,23 @@
     }
   }
 </script>
+<style lang="less">
+  .auto-invest{
+    .no-accredit{
+      background: #f5f5f5;
+      height: 200px;
+      width: 100%;
+      margin:20px 0;
+    }
+    .go-accredit{
+      display: block;
+      width: 94%;
+      height: 40px;
+      line-height: 40px;
+      margin: 0 auto;
+      background: #E64340;
+      color: #fff;
+      border-radius: 6px;
+    }
+  }
+</style>
