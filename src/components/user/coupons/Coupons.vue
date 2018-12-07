@@ -223,7 +223,8 @@
               } else if (res.data.data === undefind) {
                 self.type.coupons = true
               } else {
-                sele.Coupons
+                self.totalNumCoupons = res.data.TotalPageNum
+                self.totalAmountCoupons = res.data.totalAmount
                 _.each(res.data.data, function (v) {
                   var item = {
                     id: v.id,
@@ -253,6 +254,8 @@
               } else if (res.data.data === undefind) {
                 self.type.couponsUsed = true
               } else {
+                self.totalNumCouponsUsed = res.data.TotalPageNum
+                self.totalAmountCouponsUsed = res.data.totalAmount
                 _.each(res.data.data, function (v) {
                   var item = {
                     id: v.id,
@@ -282,6 +285,8 @@
               } else if (res.data.data === undefind) {
                 self.type.couponsExpired = true
               } else {
+                self.totalNumCouponsExpired = res.data.TotalPageNum
+                self.totalAmountCouponsExpired = res.data.totalAmount
                 _.each(res.data.data, function (v) {
                   var item = {
                     id: v.id,
