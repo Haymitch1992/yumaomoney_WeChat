@@ -220,10 +220,10 @@
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
-              } else if (res.data.data === undefind) {
+              } else if (res.data.data === undefined) {
                 self.type.coupons = true
               } else {
-                self.totalNumCoupons = res.data.TotalPageNum
+                self.totalNumCoupons = res.data.TotalNum
                 self.totalAmountCoupons = res.data.totalAmount
                 _.each(res.data.data, function (v) {
                   var item = {
@@ -251,10 +251,10 @@
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
-              } else if (res.data.data === undefind) {
+              } else if (res.data.data === undefined) {
                 self.type.couponsUsed = true
               } else {
-                self.totalNumCouponsUsed = res.data.TotalPageNum
+                self.totalNumCouponsUsed = res.data.TotalNum
                 self.totalAmountCouponsUsed = res.data.totalAmount
                 _.each(res.data.data, function (v) {
                   var item = {
@@ -282,10 +282,10 @@
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
-              } else if (res.data.data === undefind) {
+              } else if (res.data.data === undefined) {
                 self.type.couponsExpired = true
               } else {
-                self.totalNumCouponsExpired = res.data.TotalPageNum
+                self.totalNumCouponsExpired = res.data.TotalNum
                 self.totalAmountCouponsExpired = res.data.totalAmount
                 _.each(res.data.data, function (v) {
                   var item = {
