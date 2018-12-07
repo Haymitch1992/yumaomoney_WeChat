@@ -6,7 +6,7 @@
       <tab-item :selected="list.listType === 2" @on-item-click="list.listType = 2">上月收益</tab-item>
       <tab-item :selected="list.listType === 3" @on-item-click="list.listType = 3">累计收益</tab-item>
     </tab>
-    <group  v-show="list.listType === 1" label-width="4.5em" label-margin-right="2em" label-align="right">
+    <group v-show="list.listType === 1" label-width="4.5em" label-margin-right="2em" label-align="right">
       <div class="totalAssetsBox">
         <div class="center">总资产</div>
         <div class="center totalAssetTitle">

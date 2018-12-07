@@ -6,7 +6,7 @@
       <tab-item :selected="list.listType === 2" @on-item-click="list.listType = 2">已使用</tab-item>
       <tab-item :selected="list.listType === 3" @on-item-click="list.listType = 3">已过期</tab-item>
     </tab>
-    <div v-if="list.listType === 1">
+    <div v-show="list.listType === 1">
       <group :gutter="37"></group>
       <div class="experience-card" v-for="item in data.experience">
         <div class="card-title">
@@ -35,7 +35,7 @@
         </div>
       </div>
     </div>
-    <div v-if="list.listType === 2">
+    <div v-show="list.listType === 2">
       <group :gutter="37"></group>
       <div class="experience-card" v-for="item in data.experienceUsed">
         <div class="card-title">
@@ -64,7 +64,7 @@
         </div>
       </div>
     </div>
-    <div v-if="list.listType === 3">
+    <div v-show="list.listType === 3">
       <group :gutter="37"></group>
       <div class="experience-card experience-card-expired" v-for="item in data.experienceExpired">
         <div class="card-title">
