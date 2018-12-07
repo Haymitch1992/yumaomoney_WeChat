@@ -41,7 +41,7 @@
                 use-pulldown :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
         <div>
-          <group :title="`未使用红包共${totalNumCouponsUsed}个，共计${totalAmountCouponsUsed}元`"></group>
+          <group :title="`已使用红包共${totalNumCouponsUsed}个，共计${totalAmountCouponsUsed}元`"></group>
           <div class="coupons-card coupons-card-used" v-for="item in data.couponsUsed">
             <div class="card-title"></div>
             <div class="card-middle">
@@ -71,7 +71,7 @@
                 use-pulldown :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
         <div>
-          <group :title="`未使用红包共${totalNumCouponsExpired}个，共计${totalAmountCouponsExpired}元`"></group>
+          <group :title="`已过期红包共${totalNumCouponsExpired}个，共计${totalAmountCouponsExpired}元`"></group>
           <div class="coupons-card coupons-card-expired" v-for="item in data.couponsExpired">
             <div class="card-title"></div>
             <div class="card-middle">
