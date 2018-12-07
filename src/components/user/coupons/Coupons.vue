@@ -100,6 +100,7 @@
 </template>
 
 <script>
+  import qs from 'qs'
   import { Group, Cell, XHeader, Tab, TabItem, Scroller, LoadMore, Divider, AlertModule, Alert } from 'vux'
 
   const pulldownDefaultConfig = {
