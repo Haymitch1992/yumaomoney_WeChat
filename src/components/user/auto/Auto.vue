@@ -2,7 +2,7 @@
 <template>
   <div class="auto-invest">
     <x-header>自动投标</x-header>
-    <div v-if="pageNum === 'A'">
+    <div v-if="data.pageNum === 'A'">
       <!--未授权-->
       <div class="no-accredit"></div>
       <form id="cancle_invest" action="/cgt/authorizationUser.do" method="post">
@@ -10,7 +10,7 @@
         <input type="submit" value="授权自动投标" class="go-accredit">
       </form>
     </div>
-    <div >
+    <div v-if="data.pageNum === 'B'">
       <!--已授权-->
       <group>
         <x-switch title="自动投标状态" prevent-default v-model="data.autoType" @on-click="changeStatus"></x-switch>
@@ -36,9 +36,9 @@
 </template>
 
 <script>
-  import qs from 'qs'Group, Cell, XHeader, XInput, Selector, Datetime, Checklist, Radio, XButton, CheckIcon, XSwitch } from 'vux'
+  import qs from 'qs'
+  import { Group, Cell, XHeader, XInput, Selector, Datetime, Checklist, Radio, XButton, CheckIcon, XSwitch } from 'vux'
 
-  import {
   export default {
     name: 'Auto',
     components: {
@@ -128,7 +128,7 @@
             } else {
               if (res.data.msg === '自动投标状态变更成功') {
                 self.data.autoType = newVal
-              }else{
+              } else {
                 self.data.autoType = oldVal
               }
               self.$vux.loading.hide()
@@ -164,11 +164,10 @@
               // 若已授权 判断是否设置过 如果没有 跳转设置自动投标参数
               // 否则 留在当前页面
               if (res.data.data.status === 0) {
-                self.pageNum = 'A'
+                self.data.pageNum = 'A'
               } else {
-                self.pageNum = 'B'
+                self.data.pageNum = 'B'
               }
-              console.log(self.pageNum)
             }
           })
           .catch(function (error) {
