@@ -1,5 +1,5 @@
 <template>
-  <div class="login">
+  <div class="login login-box">
     <x-header>登录</x-header>
     <group>
       <x-input :max="11" v-model="data.phone" keyboard="number" title="手机号"
@@ -16,11 +16,11 @@
         <x-button @click.native="login" type="primary" :disabled="data.disabled">登录</x-button>
       </div>
     </div>
-    <div class="pw50 h30">
+    <div class="h30 link-box">
       <div class="fl"><a href="#/start/forget">忘记密码?</a></div>
       <div class="fr"><a href="#/start/registered">注册得福利</a></div>
     </div>
-    <div class="pt100">
+    <div class="bottom-text">
       <div class="center pt10">
         若当前号码已不用或丢失，请联系<a href="https://www.sobot.com/chat/oldh5/index.html?sysNum=e4068d62da3b41e69a8f47a6929a6826">在线客服</a>
       </div>
@@ -128,13 +128,61 @@
   }
 </script>
 
-<style>
-  .login .vux-x-input-has-right-full {
-    padding-top: 0;
-    padding-right: 0;
-    padding-bottom: 0;
-  }
-  .login .vux-x-input-right-full {
-    display: inline-block;
+<style lang="less">
+  .login-box{
+    .vux-x-input-right-full img{
+      height: 30px;
+      border:1px solid #ddd;
+      width: 80px;
+    }
+    .weui-cells{
+      margin-top: 4em;
+      background: transparent;
+    }
+    vux-x-input-has-right-full {
+      padding-top: 0;
+      padding-right: 0;
+      padding-bottom: 0;
+    }
+    vux-x-input-right-full {
+      display: inline-block;
+      float: right;
+    }
+    .vux-header{
+      background: #fff;
+    }
+    .vux-header-title-area, .vux-header .vux-header-title{
+      color: #333;
+    }
+    .vux-header .vux-header-left .vux-header-back{
+      visibility: hidden;
+    }
+    .vux-header .vux-header-left .left-arrow:before{
+      border: 1px solid #333;
+      border-width: 1px 0 0 1px;
+    }
+    .weui-btn{
+      border: 0;
+    }
+    .link-box a{
+      font-size: 14px;
+    }
+    .weui-label{
+      font-size: 14px;
+    }
+    .weui-input{
+      color: #666;
+      font-size: 14px;
+    }
+    .bottom-text{
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      font-size: 14px;
+      color: #666;
+    }
+    .link-box{
+      padding: 2em 80px 0;
+    }
   }
 </style>

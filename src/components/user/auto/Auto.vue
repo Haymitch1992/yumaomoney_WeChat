@@ -17,15 +17,14 @@
         <x-switch title="自动投标状态" prevent-default v-model="data.autoType" @on-click="changeStatus"></x-switch>
       </group>
       <group>
-        <cell title="单笔投资金额" value="10000.00"></cell>
-        <cell title="保留账户金额" value="10000.00"></cell>
-        <cell title="授权金额" value="10000.00"></cell>
-        <cell title="授权期限" value="2019年08月9日"></cell>
+        <cell title="单笔投资金额" :value="data.bidAmount + '元'"></cell>
+        <cell title="保留账户金额" :value="data.remandAmount + '元'"></cell>
+        <cell title="授权金额" :value="data.amount + '元'"></cell>
+        <cell title="授权期限" :value="data.effectivedate"></cell>
       </group>
       <group>
-        <cell title="年化收益" value="10%至15%"></cell>
-        <cell title="投资期限" value="1至5个月"></cell>
-        <cell title="年化收益" value="还本付息，到期还本"></cell>
+        <cell title="最长投资期限" :value="data.deadlineEnd + '个月'"></cell>
+        <cell title="最低年化收益" :value="data.rateStart + '%'"></cell>
       </group>
       <div class="pt20">
         <div class="submit-box">
@@ -59,46 +58,14 @@
       return {
         data: {
           amount: null,
-          save: '',
-          earns: '年化收益',
-          earnsLower: '11',
-          earnsCeiling: '11',
-          termCeiling: '4',
-          termLower: '6',
-          wayType: [],
-          saveType: '0',
-          agreement: false,
-          autoType: false,
+          effectivedate: '',
+          rateStart: '', // 最低年化收益
+          deadlineEnd: '', // 最长投资期限
+          bidAmount: '', // 单笔投资金额
+          remandAmount: '', // 保留金额
+          autoType: '',
           pageNum: ''
         },
-        earnsList: [
-          {key: '8', value: '8%'},
-          {key: '9', value: '9%'},
-          {key: '10', value: '10%'},
-          {key: '11', value: '11%'},
-          {key: '12', value: '12%'},
-          {key: '13', value: '13%'},
-          {key: '14', value: '14%'}
-        ],
-        termList: [
-          {key: '1', value: '1月'},
-          {key: '2', value: '2月'},
-          {key: '3', value: '3月'},
-          {key: '4', value: '4月'},
-          {key: '5', value: '5月'},
-          {key: '6', value: '6月'},
-          {key: '7', value: '7月'},
-          {key: '8', value: '8月'},
-          {key: '9', value: '9月'},
-          {key: '10', value: '10月'},
-          {key: '11', value: '11月'},
-          {key: '12', value: '12月'}
-        ],
-        wayList: [ {key: '1', value: '还款方式:按月分析，到期还本'} ],
-        saveList: [
-          {key: '0', value: '无需保留金额'},
-          {key: '1', value: '需保留金额'}
-        ],
         positive: function (value) {
           return {
             valid: value >= 0,
@@ -167,6 +134,17 @@
               if (res.data.data.status === '0') {
                 self.data.pageNum = 'A'
               } else {
+                self.data.rateStart = res.data.data.rateStart
+                self.data.deadlineEnd = res.data.data.deadlineEnd
+                self.data.effectivedate = res.data.data.effectivedate
+                self.data.amount = res.data.data.amount
+                self.data.bidAmount = res.data.data.bidAmount
+                self.data.remandAmount = res.data.data.remandAmount
+                if (res.data.data.bidStatus === '1') {
+                  self.data.autoType = true
+                } else {
+                  self.data.autoType = false
+                }
                 self.data.pageNum = 'B'
               }
             }
@@ -188,6 +166,19 @@
 </script>
 <style lang="less">
   .auto-invest{
+    .vux-header{
+      background: #fff;
+    }
+    .vux-header-title-area, .vux-header .vux-header-title{
+      color: #333;
+    }
+    .vux-header .vux-header-left .vux-header-back{
+      visibility: hidden;
+    }
+    .vux-header .vux-header-left .left-arrow:before{
+      border: 1px solid #333;
+      border-width: 1px 0 0 1px;
+    }
     .no-accredit{
       width: 100%;
       margin: 20px 0 40px;
@@ -211,6 +202,22 @@
       border-radius: 6px;
       border: none;
       font-size: 16px;
+    }
+    .weui-cells{
+      margin-top: 1em;
+    }
+    .weui-cell{
+      font-size: 14px;
+      padding: 15px;
+    }
+    .weui-label{
+      width: 9em !important;
+    }
+    .submit-box{
+      width: 100%;
+    }
+    .weui-btn{
+      border-radius: 0;
     }
   }
 </style>
