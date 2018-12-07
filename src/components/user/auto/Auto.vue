@@ -190,23 +190,27 @@
   .auto-invest{
     .no-accredit{
       width: 100%;
-      padding:30px 0 20px;
+      margin: 20px 0 40px;
+      padding-top: 50px;
+      padding-bottom: 20px;
+      background: #fff;
       img{
         display: block;
-        width: 70%;
+        width: 50%;
         margin:0 auto;
       }
     }
     .go-accredit{
       display: block;
-      width: 94%;
-      height: 40px;
-      line-height: 40px;
+      width: 90%;
+      height: 44px;
+      line-height: 44px;
       margin: 0 auto;
       background: #E64340;
       color: #fff;
       border-radius: 6px;
       border: none;
+      font-size: 16px;
     }
   }
 </style>
