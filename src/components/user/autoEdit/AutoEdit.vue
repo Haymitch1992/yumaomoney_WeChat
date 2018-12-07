@@ -2,17 +2,14 @@
   <div>
     <x-header>自动投标</x-header>
     <group>
-      <cell title="银行授权状态" value="取消授权"></cell>
+      <cell title="银行授权状态" value="已授权"></cell>
     </group>
     <group>
-      <x-input v-model="data.amount" type="number" title="单笔金额(元)" :is-type="positive" placeholder="请输入投资金额"></x-input>
-      <x-address @on-hide="logHide" @on-show="logShow" title="年化收益" v-model="data.earns" :list="data.earnsData"
-                 @on-shadow-change="onShadowChange" placeholder="请选择范围" :show.sync="data.showEarns"></x-address>
-      <x-address @on-hide="logHide" @on-show="logShow" title="投资期限" v-model="data.term" :list="data.termData"
-                 @on-shadow-change="onShadowChange" placeholder="请选择范围" :show.sync="data.showTerm"></x-address>
-      <checklist label-position="left" :options="wayList" v-model="data.wayType"></checklist>
-      <radio :options="saveList" @on-change="saveTypeChange" v-model="data.saveType"></radio>
-      <x-input v-model="data.save" type="number" title="保留金额(元)" :is-type="positive" placeholder="请输入保留金额" :disabled="(data.saveType === '0')"></x-input>
+      <x-input v-model="data.amount" type="number" title="单笔金额(元)" :is-type="positive" placeholder="请输入单笔出借金额"></x-input>
+      <x-input v-model="data.earns" type="number" title="最低年化收益" :is-type="positive" placeholder="请输入最低年化收益"></x-input>
+      <x-input v-model="data.term" type="number" title="最长投资期限" :is-type="positive" placeholder="请输入最长投资期限"></x-input>
+      <x-switch title="设置保留金额" v-model="data.retain"></x-switch>
+      <x-input v-if="data.retain" v-model="data.save" type="number" title="保留金额(元)" :is-type="positive" placeholder="请输入保留金额" :disabled="(data.saveType === '0')"></x-input>
     </group>
     <div class="pt20 center">
       <check-icon :value.sync="data.agreement" type="plain">已阅读并同意《鱼猫金服自动投标协议》</check-icon>
@@ -26,7 +23,7 @@
 </template>
 
 <script>
-  import { Group, Cell, XHeader, XInput, Selector, Datetime, Checklist, Radio, XButton, CheckIcon, XSwitch, XAddress } from 'vux'
+  import { Group, Cell, XHeader, XInput, Selector, Radio, XButton, CheckIcon, XSwitch } from 'vux'
 
   export default {
     name: 'Auto',
@@ -36,13 +33,10 @@
       XHeader,
       XInput,
       Selector,
-      Datetime,
-      Checklist,
       Radio,
       XButton,
       CheckIcon,
-      XSwitch,
-      XAddress
+      XSwitch
     },
     data () {
       return {
@@ -62,13 +56,9 @@
           wayType: [],
           saveType: '0',
           agreement: false,
-          autoType: false
+          autoType: false,
+          retain: false
         },
-        wayList: [ {key: '1', value: '还款方式:按月分析，到期还本'} ],
-        saveList: [
-          {key: '0', value: '无需保留金额'},
-          {key: '1', value: '需保留金额'}
-        ],
         positive: function (value) {
           return {
             valid: value >= 0,
@@ -78,11 +68,6 @@
       }
     },
     methods: {
-      saveTypeChange (val, label) {
-        var self = this
-        self.data.save = ''
-        console.log('change', val, label)
-      },
       autoCheck () {
         var self = this
         self.data.earnsLower = Math.floor(self.data.earns[0])
