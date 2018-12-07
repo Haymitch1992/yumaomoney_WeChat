@@ -115,9 +115,6 @@
       }
     },
     methods: {
-      swiper_onIndexChange (index) {
-        this.swiper_index = index
-      },
       onImgError (item, $event) {
         console.log(item, $event)
       },
