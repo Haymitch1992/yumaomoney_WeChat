@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../../../../dist/throttle.css">
 <template>
   <div class="auto-invest">
     <x-header>自动投标</x-header>
@@ -9,10 +10,10 @@
         <input type="submit" value="授权自动投标" class="go-accredit">
       </form>
     </div>
-    <div v-else-if="pageNum === 'B'">
+    <div >
       <!--已授权-->
       <group>
-        <x-switch title="自动投标状态" prevent-default v-model="data.autoType" @click.native="changeStatus"></x-switch>
+        <x-switch title="自动投标状态" prevent-default v-model="data.autoType" @on-click="changeStatus"></x-switch>
       </group>
       <group>
         <cell title="单笔投资金额" value="10000.00"></cell>
@@ -35,9 +36,9 @@
 </template>
 
 <script>
-  import qs from 'qs'
-  import { Group, Cell, XHeader, XInput, Selector, Datetime, Checklist, Radio, XButton, CheckIcon, XSwitch } from 'vux'
+  import qs from 'qs'Group, Cell, XHeader, XInput, Selector, Datetime, Checklist, Radio, XButton, CheckIcon, XSwitch } from 'vux'
 
+  import {
   export default {
     name: 'Auto',
     components: {
@@ -109,14 +110,14 @@
       changeStatus (newVal, oldVal) {
         var self = this
         console.log(newVal, oldVal)
-        this.$vux.loading.show({
-          text: 'in processing'
+        self.$vux.loading.show({
+          text: '正在提交...'
         })
         var s = ''
-        if (self.autoType) {
-          s = 1
-        } else {
+        if (self.data.autoType) {
           s = 99
+        } else {
+          s = 1
         }
         self.$http.post(process.env.BASE_API + '/apiautomaticBidSet.do', qs.stringify({ 's': s }))
           .then(function (res) {
@@ -125,9 +126,12 @@
             } else if (res.data.data === '') {
               console.log('没有数据')
             } else {
-              console.log(res.data)
+              if (res.data.msg === '自动投标状态变更成功') {
+                self.data.autoType = newVal
+              }else{
+                self.data.autoType = oldVal
+              }
               self.$vux.loading.hide()
-              self.autoType = newVal
             }
           })
           .catch(function (error) {

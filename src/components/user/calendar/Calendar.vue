@@ -163,7 +163,7 @@
               self.monthSum = 0
               for (let i = 0; i < self.infoObject.length; i++) {
                 arr[i] = self.infoObject[i].repayDate
-                self.monthSum = self.infoObject[i].earn + self.infoObject[i].forpayPrincipal // 本月回款 = 利息 + 本金
+                self.monthSum += self.infoObject[i].earn + self.infoObject[i].forpayPrincipal // 本月回款 = 利息 + 本金
               }
               self.buildSlotFn = (line, index, data) => {
                 return arr.indexOf(data.formatedDate) !== -1 ? '<div style="font-size:12px;text-align:center;line-height: 4px;height: 8px;"><span style="display:inline-block;width:5px;height:5px;background-color:red;border-radius:50%;"></span></div>' : '<div style="height:8px;"></div>'

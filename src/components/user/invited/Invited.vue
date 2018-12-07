@@ -60,7 +60,7 @@
       <x-dialog v-model="sweepType" class="dialog-demo" hide-on-blur>
         <div class="img-box">
           <!--<img src="https://ws1.sinaimg.cn/large/663d3650gy1fq6824ur1dj20ia0pydlm.jpg" style="max-width:100%">-->
-          <img src="../../../assets/images/invited.png" style="max-width:100%">
+          <!--<img src="../../../assets/images/invited.png" style="max-width:100%">-->
         </div>
         <div @click="sweepType=false">
           <span class="vux-close"></span>
