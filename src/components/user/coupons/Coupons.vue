@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="coupons">
     <x-header>优惠券</x-header>
     <tab>
       <tab-item :selected="list.listType === 1" @on-item-click="list.listType = 1">未使用</tab-item>
@@ -322,3 +322,11 @@
     }
   }
 </script>
+<style lang="less">
+  .coupons .vux-divider {
+    padding: 5vh 0;
+  }
+  .coupons .minContainer .xs-container {
+    height: 95vh;
+  }
+</style>
