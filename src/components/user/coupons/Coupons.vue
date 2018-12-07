@@ -6,7 +6,7 @@
       <tab-item :selected="list.listType === 2" @on-item-click="list.listType = 2">已使用</tab-item>
       <tab-item :selected="list.listType === 3" @on-item-click="list.listType = 3">已过期</tab-item>
     </tab>
-    <div v-if="list.listType === 1">
+    <div v-show="list.listType === 1">
       <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore('Coupons')"
                 use-pulldown :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
@@ -36,7 +36,7 @@
         </div>
       </scroller>
     </div>
-    <div v-if="list.listType === 2">
+    <div v-show="list.listType === 2">
       <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore('CouponsUsed')"
                 use-pulldown :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
@@ -66,7 +66,7 @@
         </div>
       </scroller>
     </div>
-    <div v-if="list.listType === 3">
+    <div v-show="list.listType === 3">
       <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore('CouponsExpired')"
                 use-pulldown :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
