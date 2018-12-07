@@ -6,7 +6,7 @@
       <tab-item :selected="list.listType === 2" @on-item-click="list.listType = 2">已使用</tab-item>
       <tab-item :selected="list.listType === 3" @on-item-click="list.listType = 3">已过期</tab-item>
     </tab>
-    <div v-show="list.listType === 1">
+    <div :class="{ minContainer: (data.coupons.length<5) }" v-show="list.listType === 1">
       <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore('Coupons')"
                 use-pulldown :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
@@ -36,7 +36,7 @@
         </div>
       </scroller>
     </div>
-    <div v-show="list.listType === 2">
+    <div :class="{ minContainer: (data.couponsUsed.length<5) }" v-show="list.listType === 2">
       <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore('CouponsUsed')"
                 use-pulldown :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
@@ -66,7 +66,7 @@
         </div>
       </scroller>
     </div>
-    <div v-show="list.listType === 3">
+    <div :class="{ minContainer: (data.couponsExpired.length<5) }" v-show="list.listType === 3">
       <scroller use-pullup :pullup-config="pullupDefaultConfig" @on-pullup-loading="loadMore('CouponsExpired')"
                 use-pulldown :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
@@ -210,7 +210,7 @@
       getCouponsList () {
         var self = this
         if (self.type.coupons === false) {
-          self.$http.post(process.env.BASE_API + '/apihomeRewardManagementUnusedList.do', qs.stringify({ 'pageNum': self.curPageCoupons, 'pageSize': '10' }))
+          self.$http.post(process.env.BASE_API + '/apihomeRewardManagementUnusedList.do', qs.stringify({ 'pageNum': self.curPageCoupons, 'pageSize': '5' }))
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
@@ -226,7 +226,7 @@
                   }
                   self.data.coupons.push(item)
                 })
-                if (res.data.data.length < 10) {
+                if (res.data.data.length < 5) {
                   self.type.coupons = true
                 }
               }
@@ -239,7 +239,7 @@
       getCouponsUsedList () {
         var self = this
         if (self.type.couponsUsed === false) {
-          self.$http.post(process.env.BASE_API + '/apihomeRewardManagementUsedList.do', qs.stringify({ 'pageNum': self.curPageCouponsUsed, 'pageSize': '10' }))
+          self.$http.post(process.env.BASE_API + '/apihomeRewardManagementUsedList.do', qs.stringify({ 'pageNum': self.curPageCouponsUsed, 'pageSize': '5' }))
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
@@ -255,7 +255,7 @@
                   }
                   self.data.couponsUsed.push(item)
                 })
-                if (res.data.data.length < 10) {
+                if (res.data.data.length < 5) {
                   self.type.couponsUsed = true
                 }
               }
@@ -268,7 +268,7 @@
       getCouponsExpiredList () {
         var self = this
         if (self.type.couponsExpired === false) {
-          self.$http.post(process.env.BASE_API + '/apihomeRewardManagementOvertimeList.do', qs.stringify({ 'pageNum': self.curPageCouponsExpired, 'pageSize': '10' }))
+          self.$http.post(process.env.BASE_API + '/apihomeRewardManagementOvertimeList.do', qs.stringify({ 'pageNum': self.curPageCouponsExpired, 'pageSize': '5' }))
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
@@ -284,7 +284,7 @@
                   }
                   self.data.couponsExpired.push(item)
                 })
-                if (res.data.data.length < 10) {
+                if (res.data.data.length < 5) {
                   self.type.couponsExpired = true
                 }
               }
