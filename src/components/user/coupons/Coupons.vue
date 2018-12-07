@@ -239,7 +239,7 @@
       getCouponsUsedList () {
         var self = this
         if (self.type.couponsUsed === false) {
-          self.$http.post(process.env.BASE_API + '/apihomeRewardManagementUnusedList.do', qs.stringify({ 'pageNum': self.curPageCouponsUsed, 'pageSize': '10' }))
+          self.$http.post(process.env.BASE_API + '/apihomeRewardManagementUsedList.do', qs.stringify({ 'pageNum': self.curPageCouponsUsed, 'pageSize': '10' }))
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
@@ -268,7 +268,7 @@
       getCouponsExpiredList () {
         var self = this
         if (self.type.couponsExpired === false) {
-          self.$http.post(process.env.BASE_API + '/apihomeRewardManagementUnusedList.do', qs.stringify({ 'pageNum': self.curPageCouponsExpired, 'pageSize': '10' }))
+          self.$http.post(process.env.BASE_API + '/apihomeRewardManagementOvertimeList.do', qs.stringify({ 'pageNum': self.curPageCouponsExpired, 'pageSize': '10' }))
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
