@@ -11,7 +11,7 @@
                 use-pulldown :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
         <div>
-          <group title="未使用红包共5个，共计499元"></group>
+          <group :title="`未使用红包共${totalNumCoupons}个，共计${totalAmountCoupons}元`"></group>
           <div class="coupons-card" v-for="item in data.coupons">
             <div class="card-title"></div>
             <div class="card-middle">
@@ -41,7 +41,7 @@
                 use-pulldown :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
         <div>
-          <group title="已使用红包共5个，共计499元"></group>
+          <group :title="`未使用红包共${totalNumCouponsUsed}个，共计${totalAmountCouponsUsed}元`"></group>
           <div class="coupons-card coupons-card-used" v-for="item in data.couponsUsed">
             <div class="card-title"></div>
             <div class="card-middle">
@@ -71,7 +71,7 @@
                 use-pulldown :pulldown-config="pulldownDefaultConfig" @on-pulldown-loading="refresh"
                 lock-x ref="scrollerBottom" height="-48">
         <div>
-          <group title="已过期红包共5个，共计499元"></group>
+          <group :title="`未使用红包共${totalNumCouponsExpired}个，共计${totalAmountCouponsExpired}元`"></group>
           <div class="coupons-card coupons-card-expired" v-for="item in data.couponsExpired">
             <div class="card-title"></div>
             <div class="card-middle">
@@ -144,6 +144,12 @@
         curPageCoupons: 1,
         curPageCouponsUsed: 1,
         curPageCouponsExpired: 1,
+        totalNumCoupons: 0,
+        totalNumCouponsUsed: 0,
+        totalNumCouponsExpired: 0,
+        totalAmountCoupons: 0,
+        totalAmountCouponsUsed: 0,
+        totalAmountCouponsExpired: 0,
         type: {
           coupons: false,
           couponsUsed: false,
@@ -214,9 +220,10 @@
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
-              } else if (res.data.data === '') {
+              } else if (res.data.data === undefind) {
                 self.type.coupons = true
               } else {
+                sele.Coupons
                 _.each(res.data.data, function (v) {
                   var item = {
                     id: v.id,
@@ -243,7 +250,7 @@
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
-              } else if (res.data.data === '') {
+              } else if (res.data.data === undefind) {
                 self.type.couponsUsed = true
               } else {
                 _.each(res.data.data, function (v) {
@@ -272,7 +279,7 @@
             .then(function (res) {
               if (res.data === 'noLogin') {
                 self.noLoginShow = true
-              } else if (res.data.data === '') {
+              } else if (res.data.data === undefind) {
                 self.type.couponsExpired = true
               } else {
                 _.each(res.data.data, function (v) {
