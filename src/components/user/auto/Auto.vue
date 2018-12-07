@@ -1,4 +1,3 @@
-<link rel="stylesheet" href="../../../../dist/throttle.css">
 <template>
   <div class="auto-invest">
     <x-header>自动投标</x-header>
