@@ -3,7 +3,9 @@
     <x-header>自动投标</x-header>
     <div v-if="data.pageNum === 'A'">
       <!--未授权-->
-      <div class="no-accredit"></div>
+      <div class="no-accredit">
+        <img src="../../../assets/images/auto-invest.png" alt="未授权自动投标" >
+      </div>
       <form id="cancle_invest" action="/cgt/authorizationUser.do" method="post">
         <input type="hidden" name="authList" value="TENDER" />
         <input type="submit" value="授权自动投标" class="go-accredit">
@@ -162,7 +164,7 @@
               // 若未授权 跳转新网授权 成功的回调页面 设置自动投标参数
               // 若已授权 判断是否设置过 如果没有 跳转设置自动投标参数
               // 否则 留在当前页面
-              if (res.data.data.status === 0) {
+              if (res.data.data.status === '0') {
                 self.data.pageNum = 'A'
               } else {
                 self.data.pageNum = 'B'
@@ -187,10 +189,13 @@
 <style lang="less">
   .auto-invest{
     .no-accredit{
-      background: #eee;
-      height: 200px;
       width: 100%;
-      margin:20px 0;
+      padding:30px 0 20px;
+      img{
+        display: block;
+        width: 70%;
+        margin:0 auto;
+      }
     }
     .go-accredit{
       display: block;
