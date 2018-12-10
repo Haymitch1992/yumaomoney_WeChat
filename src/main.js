@@ -13,14 +13,12 @@ import VueFullpage from 'vue-fullpage'
 import VueClipboard from 'vue-clipboard2'
 import VueCookies from 'vue-cookies'
 import axios from 'axios'
-import { LoadingPlugin, ToastPlugin } from 'vux'
+
 Vue.use(Vuex)
 Vue.use(Util)
 Vue.use(VueFullpage)
 Vue.use(VueClipboard)
 Vue.use(VueCookies)
-Vue.use(LoadingPlugin)
-Vue.use(ToastPlugin)
 
 Vue.prototype.$http = axios
 
