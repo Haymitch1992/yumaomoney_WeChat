@@ -96,6 +96,7 @@
         </div>
       </scroller>
     </div>
+    <alert v-model="noLoginShow" title="登录失效" @on-hide="logout">请重新登录</alert>
   </div>
 </template>
 
@@ -140,6 +141,7 @@
     },
     data () {
       return {
+        noLoginShow: false,
         onFetching: false,
         curPageCoupons: 1,
         curPageCouponsUsed: 1,
