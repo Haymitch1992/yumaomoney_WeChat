@@ -25,7 +25,7 @@
           </thead>
           <tbody>
           <tr v-for="item in dataList">
-            <td>{{item.username}}</td>
+            <td>{{item.username | desensitization}}</td>
             <td>{{item.firstMoney}}</td>
             <td>{{item.rewardAmount}}</td>
           </tr>
@@ -139,6 +139,12 @@
         copyError: false,
         detail: '我携手鱼猫金服给你送来104元现金，和我一起乐享钱程！https://www.yumaomoney.com/reg.do?istarget=1&id=13688888888',
         dataList: []
+      }
+    },
+    filters: {
+      desensitization: function (value) {
+        if (value) return ''
+        return value.slice(0,2)+ '***' +value.slice(-2)
       }
     },
     methods: {
