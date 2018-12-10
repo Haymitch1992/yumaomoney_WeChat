@@ -3,7 +3,7 @@
     <div class="invited-top">
       <x-header><a slot="right" @click="goTo()">转入</a>邀请奖励</x-header>
       <div>
-        <div class="center pt40 f24">累计奖励:85元</div>
+        <div class="invited-num pt40 f24">累计奖励:85元</div>
         <div class="center-box h50">
           <div class="fl">首投奖励:30元</div>
           <div class="fr">出借奖励:55元</div>
@@ -12,6 +12,8 @@
     </div>
     <group>
       <cell title="累计邀请：2人"></cell>
+    </group>
+    <group>
       <div class="pb20 f12">
         <x-table full-bordered>
           <thead>
@@ -190,18 +192,37 @@
       background: -o-linear-gradient(#FD7879, #FE4141); /* Opera 11.1 - 12.0 */
       background: -moz-linear-gradient(#FD7879, #FE4141); /* Firefox 3.6 - 15 */
       background: linear-gradient(#FD7879, #FE4141); /* 标准的语法（必须放在最后） */
+      color: #fff;
     }
     .vux-header{
       background: transparent;
     }
     .center-box{
-      border: 1px solid #f5f5f5;
       height: 60px;
       line-height: 60px;
     }
     .center-box>div{
       width: 50%;
       text-align: center;
+      border: 1px solid #e69393;
+      box-sizing: border-box;
+      border-bottom: 0;
+    }
+    .center-box>div:last-child{
+      border-left: 0;
+    }
+    .invited-num{
+      padding: 20px 0 30px;
+    }
+    .vux-table th{
+      background: #FF4747;
+      color: #fff;
+    }
+    .vux-table td:before, .vux-table th:before{
+      border-bottom: 1px solid #fd5050;
+    }
+    .vux-table td:after, .vux-table th:after{
+      border-bottom: 1px solid #fd5050;
     }
   }
   .dialog-demo {
