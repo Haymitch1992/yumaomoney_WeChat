@@ -12,7 +12,7 @@
     <group>
       <x-input v-model="data.bidAmount" type="number" title="单笔金额(元)" :is-type="positive" placeholder="请输入单笔出借金额"></x-input>
       <x-input v-model="data.rateStart" type="number" title="最低年化收益(%)" :is-type="positive" placeholder="请输入最低年化收益"></x-input>
-      <x-input v-model="data.deadlineStart" type="number" title="最长投资期限(月)" :is-type="positive" placeholder="请输入最长投资期限"></x-input>
+      <x-input v-model="data.deadlineEnd" type="number" title="最长投资期限(月)" :is-type="positive" placeholder="请输入最长投资期限"></x-input>
       <x-switch title="设置保留金额" v-model="data.retain"></x-switch>
       <x-input v-if="data.retain" v-model="data.remandAmount" type="number" title="保留金额(元)" :is-type="positive" placeholder="请输入保留金额" ></x-input>
     </group>
