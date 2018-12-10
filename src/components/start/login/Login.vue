@@ -134,8 +134,13 @@
   .login-box{
     height: 100vh;
     background: #fff;
-    .weui-cells:after{
+    .weui-cells:before{
       content: normal;
+    }
+    .weui-cells:after{
+      background: #FF3333;
+      right: 15px;
+      left: 15px;
     }
     .pd20{
       .weui-cell{
@@ -201,6 +206,9 @@
       width: 100%;
       font-size: 14px;
       color: #666;
+      a{
+        color: #FF3333;
+      }
     }
     .link-box{
       padding: 2em 80px 0;
