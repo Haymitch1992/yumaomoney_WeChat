@@ -132,6 +132,7 @@
         window.localStorage.removeItem('Flag')
         self.$store.dispatch('setUser', false)
         self.$cookies.remove('tokenClientkey')
+        self.$cookies.remove('apiHomeData')
         self.$router.push('/start/login')
       },
       /**

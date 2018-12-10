@@ -181,6 +181,7 @@
             if (res.data === 'noLogin') {
               self.noLoginShow = true
             } else {
+              self.$cookies.set('apiHomeData', res.data.data, '1d')
               self.bankList.push(self.banks[res.data.data.bankMap.bankcode][0])
               var num = ' 尾号' + res.data.data.bankMap.cardNo.substr(-4)
               self.bankList[0].title += num
@@ -216,10 +217,17 @@
         window.localStorage.removeItem('Flag')
         self.$store.dispatch('setUser', false)
         self.$cookies.remove('tokenClientkey')
+        self.$cookies.remove('apiHomeData')
         self.$router.push('/start/login')
       },
       init () {
         var self = this
+        if (self.$cookies.get('apiHomeData')) {
+          self.bankList.push(self.banks[self.$cookies.get('apiHomeData').bankMap.bankcode][0])
+          var num = ' 尾号' + res.data.data.bankMap.cardNo.substr(-4)
+          self.bankList[0].title += num
+          self.data.balanceBak = self.data.balance.toFixed(2)
+        }
         if ((self.$http.defaults.headers.tokenClientkey === undefined) && self.$cookies.get('tokenClientkey')) {
           self.$http.defaults.headers.tokenClientkey = self.$cookies.get('tokenClientkey')
         }

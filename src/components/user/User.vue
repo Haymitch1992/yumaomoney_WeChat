@@ -160,7 +160,7 @@
               self.noLoginShow = true
             } else {
               self.data = res.data.data
-              self.$cookies.set('apiHomeData', self.data, '1d')
+              self.$cookies.set('apiHomeData', res.data.data, '1d')
               self.data.homeMap.usernameBak = self.data.homeMap.username.substr(0, 3) + '****' + self.data.homeMap.username.substr(7)
             }
           })
@@ -172,6 +172,7 @@
         var self = this
         if (self.$cookies.get('apiHomeData')) {
           self.data = self.$cookies.get('apiHomeData')
+          self.data.homeMap.usernameBak = self.data.homeMap.username.substr(0, 3) + '****' + self.data.homeMap.username.substr(7)
         }
         if ((self.$http.defaults.headers.tokenClientkey === undefined) && self.$cookies.get('tokenClientkey')) {
           self.$http.defaults.headers.tokenClientkey = self.$cookies.get('tokenClientkey')
