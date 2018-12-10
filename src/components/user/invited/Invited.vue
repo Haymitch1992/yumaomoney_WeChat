@@ -149,17 +149,17 @@
     filters: {
       desensitization: function (value) {
         if (value) return ''
-        return value.slice(0,2)+ '***' +value.slice(-2)
+        return value.slice(0,2) + '***' + value.slice(-2)
       },
-      toReward: function(value){
+      toReward: function (value) {
         if (!value) return '0'
-        if (value==10){
+        if (value === 10) {
           return 40
-        }else if(value==30){
+        } else if (value === 30) {
           return 50
-        }else if(value==60){
+        } else if (value === 60) {
           return 50
-        }else{
+        } else {
           return 0
         }
       }
@@ -167,23 +167,23 @@
     methods: {
       // 计算数据
       repairDate: function (data) {
-        for (var i=0;i<data.length;i++) {
+        for (var i = 0; i < data.length; i++) {
           // 出借好友累加
-          if(data[i].firstInvestFlag==1&&data[i].rewardAmount!=0){
-            this.invitedNum += 1;
+          if (data[ i ].firstInvestFlag === 1 && data[ i ].rewardAmount !== 0) {
+            this.invitedNum += 1
           }
           // 获得奖励累加
-          if(data[i].receiveStatus==1){
-            this.invitedMoney += data[i].rewardAmount;
+          if (data[ i ].receiveStatus === 1) {
+            this.invitedMoney += data[ i ].rewardAmount
           }
           // 投资红包累加
-          if(data[i].receiveStatus==1){
-            if(data[i].rewardAmount === 10){
-              this.invitedReward += 40;
-            }else if(data[i].rewardAmount === 30){
-              this.invitedReward += 50;
-            }else if(data[i].rewardAmount === 60){
-              this.invitedReward += 50;
+          if (data[ i ].receiveStatus === 1) {
+            if (data[ i ].rewardAmount === 10) {
+              this.invitedReward += 40
+            } else if (data[ i ].rewardAmount === 30) {
+              this.invitedReward += 50
+            } else if (data[ i ].rewardAmount === 60) {
+              this.invitedReward += 50
             }
           }
         }
