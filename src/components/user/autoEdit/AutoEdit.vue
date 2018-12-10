@@ -1,6 +1,6 @@
 <template>
   <div class="autoEdit">
-    <x-header>自动投标</x-header>
+    <x-header @on-click-back="goBack()">自动投标</x-header>
     <group>
       <cell title="银行授权状态（已授权）" >
         <form id="cancle_invest" action="/cgt/cancelAuthorizationUser.do" method="post">
@@ -60,7 +60,7 @@
           wayType: [],
           saveType: '0',
           agreement: false,
-          retain: false,
+          retain: false
         },
         checkBidAmount: function (value) {
           return {
@@ -83,12 +83,16 @@
         checkRemandAmount: function (value) {
           return {
             valid: value % 100 === 0 && value >= 0,
-            msg: '单笔金额需大于0'
+            msg: '单笔金额为100的整数倍'
           }
         }
       }
     },
     methods: {
+      goBack () {
+        var self = this
+        self.$router.push('/user/auto')
+      },
       autoCheck () {
         var self = this
         if (!this.$refs.bidAmount.valid) {

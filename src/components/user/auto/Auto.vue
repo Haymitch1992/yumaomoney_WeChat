@@ -1,6 +1,6 @@
 <template>
   <div class="auto-invest">
-    <x-header>自动投标</x-header>
+    <x-header @on-click-back="goBack()">自动投标</x-header>
     <div v-if="data.pageNum === 'A'">
       <!--未授权-->
       <div class="no-accredit">
@@ -105,6 +105,10 @@
           .catch(function (error) {
             console.log(error)
           })
+      },
+      goBack () {
+        var self = this
+        self.$router.push('/user')
       },
       change () {
         var self = this
