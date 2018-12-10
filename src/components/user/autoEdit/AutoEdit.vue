@@ -67,26 +67,26 @@
         },
         checkBidAmount: function (value) {
           return {
-            valid: value % 100 === 0 && value > 0 && value <= 200000,
-            msg: '单笔金额为100的整数倍且不能超过20万'
+            valid: value % 100 === 0 && value >= 100 && value <= 200000,
+            msg: '请输入大于100-200000之间的金额 '
           }
         },
         checkRateStart: function (value) {
           return {
-            valid: value % 1 === 0 && value > 4 && value <= 10,
-            msg: '建议最低年化收益4-10'
+            valid: value % 1 === 0 && value >= 1 && value <= 8,
+            msg: '最低年化收益1-8'
           }
         },
         checkDeadlineEnd: function (value) {
           return {
-            valid: value % 1 === 0 && value > 0 && value <= 12,
-            msg: '最长投资期限1-12个月'
+            valid: value % 1 === 0 && value >= 1 && value <= 12,
+            msg: '投资期限为1-12个月'
           }
         },
         checkRemandAmount: function (value) {
           return {
-            valid: value % 100 === 0 && value > 0,
-            msg: '单笔金额为100的整数倍'
+            valid: value % 1 === 0 && value > 0,
+            msg: '保留金额为需大于零的整数'
           }
         }
       }
@@ -133,7 +133,7 @@
         } else {
           remandNum = self.data.remandAmount
         }
-        self.$http.post(process.env.BASE_API + '/apiautomaticBidModify.do', qs.stringify({ 'bidAmount': self.data.bidAmount, 'rateStart': self.data.rateStart, 'rateEnd': 15, 'deadlineStart': 1, 'deadlineEnd': self.data.deadlineEnd, 'remandAmount': remandNum, 'borrowWay': 3 }))
+        self.$http.post(process.env.BASE_API + '/apiautomaticBidModify.do', qs.stringify({ 'bidAmount': self.data.bidAmount, 'rateStart': self.data.rateStart, 'rateEnd': 16, 'deadlineStart': 1, 'deadlineEnd': self.data.deadlineEnd, 'remandAmount': remandNum, 'borrowWay': 3 }))
           .then(function (res) {
             if (res.data === 'noLogin') {
               self.$router.push('/start/login')

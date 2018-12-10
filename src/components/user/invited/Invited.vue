@@ -123,6 +123,7 @@
 </template>
 
 <script>
+  import qs from 'qs'
   import { Group, Cell, XHeader, XButton, XDialog, Popup, XTable, XTextarea, Toast } from 'vux'
 
   export default {
@@ -140,7 +141,7 @@
     },
     data () {
       return {
-        sTime: '2018-06-27 18:00:00', // 好友邀请查询起始时间
+        sTime: '2016-06-27 18:00:00', // 好友邀请查询起始时间
         eTime: '2019-09-01 18:00:00', // 好友邀请查询截止时间
         shareType: false,
         sweepType: false,
@@ -158,10 +159,10 @@
           .then(function (res) {
             if (res.data === 'noLogin') {
               self.$router.push('/start/login')
-            } else if (res.data.data === '') {
-              console.log('没有数据')
+            } else if (res.data.returnVal === 'nouser') {
+              console.log('没有进行好友邀请')
             } else {
-              //循环展示邀请列表
+              // 循环展示邀请列表
               console.log(res.data)
             }
           })
