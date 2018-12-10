@@ -1,6 +1,6 @@
 <template>
   <div class="auto-invest">
-    <x-header @on-click-back="goBack()">自动投标</x-header>
+    <x-header :left-options="leftOptions" @on-click-back="goBack()">自动投标</x-header>
     <div v-if="data.pageNum === 'A'">
       <!--未授权-->
       <div class="no-accredit">
@@ -56,6 +56,9 @@
     },
     data () {
       return {
+        leftOptions: {
+          preventGoBack: true
+        },
         data: {
           amount: null,
           effectivedate: '',

@@ -1,11 +1,13 @@
 <template>
   <div class="invited">
-    <x-header><a slot="right" @click="goTo()">转入</a>邀请奖励</x-header>
-    <div style="background: #ed4e49; color: #fff">
-      <div class="center pt20 f24">累计奖励:85元</div>
-      <div class="pw20 h50">
-        <div class="fl">首投奖励:30元</div>
-        <div class="fr">出借奖励:55元</div>
+    <div class="invited-top">
+      <x-header><a slot="right" @click="goTo()">转入</a>邀请奖励</x-header>
+      <div>
+        <div class="center pt40 f24">累计奖励:85元</div>
+        <div class="center-box h50">
+          <div class="fl">首投奖励:30元</div>
+          <div class="fr">出借奖励:55元</div>
+        </div>
       </div>
     </div>
     <group>
@@ -179,7 +181,29 @@
 
 <style lang="less" scoped>
   @import '~vux/src/styles/close';
-
+  .invited{
+    height: 100vh;
+    background: #fff;
+    .invited-top{
+      background: #FD7879;
+      background: -webkit-linear-gradient(#FD7879, #FE4141); /* Safari 5.1 - 6.0 */
+      background: -o-linear-gradient(#FD7879, #FE4141); /* Opera 11.1 - 12.0 */
+      background: -moz-linear-gradient(#FD7879, #FE4141); /* Firefox 3.6 - 15 */
+      background: linear-gradient(#FD7879, #FE4141); /* 标准的语法（必须放在最后） */
+    }
+    .vux-header{
+      background: transparent;
+    }
+    .center-box{
+      border: 1px solid #f5f5f5;
+      height: 60px;
+      line-height: 60px;
+    }
+    .center-box>div{
+      width: 50%;
+      text-align: center;
+    }
+  }
   .dialog-demo {
     .weui-dialog{
       border-radius: 8px;

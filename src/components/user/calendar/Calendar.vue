@@ -175,6 +175,12 @@
             console.log(error)
           })
       }
+    },
+    created () {
+      var self = this
+      if ((self.$http.defaults.headers.tokenClientkey === undefined) && self.$cookies.get('tokenClientkey')) {
+        self.$http.defaults.headers.tokenClientkey = self.$cookies.get('tokenClientkey')
+      }
     }
   }
 </script>

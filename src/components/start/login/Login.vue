@@ -165,12 +165,7 @@
       margin-top: 4em;
       background: transparent;
     }
-    vux-x-input-has-right-full {
-      padding-top: 0;
-      padding-right: 0;
-      padding-bottom: 0;
-    }
-    vux-x-input-right-full {
+    .vux-x-input-right-full {
       display: inline-block;
       float: right;
     }

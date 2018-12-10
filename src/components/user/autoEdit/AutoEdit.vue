@@ -1,6 +1,6 @@
 <template>
   <div class="autoEdit">
-    <x-header @on-click-back="goBack()">自动投标</x-header>
+    <x-header :left-options="leftOptions" @on-click-back="goBack()">自动投标</x-header>
     <group>
       <cell title="银行授权状态（已授权）" >
         <form id="cancle_invest" action="/cgt/cancelAuthorizationUser.do" method="post">
@@ -46,6 +46,9 @@
     },
     data () {
       return {
+        leftOptions: {
+          preventGoBack: true
+        },
         data: {
           bidAmount: '',  // 单笔出借金额
           rateStart: '', // 最低年化收益
