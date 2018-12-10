@@ -143,6 +143,7 @@
         window.localStorage.removeItem('Flag')
         self.$store.dispatch('setUser', false)
         self.$cookies.remove('tokenClientkey')
+        self.$cookies.remove('apiHomeData')
         self.$router.push('/start/login')
       },
       /**
@@ -159,6 +160,7 @@
               self.noLoginShow = true
             } else {
               self.data = res.data.data
+              self.$cookies.set('apiHomeData', self.data, '1d')
               self.data.homeMap.usernameBak = self.data.homeMap.username.substr(0, 3) + '****' + self.data.homeMap.username.substr(7)
             }
           })
@@ -168,6 +170,9 @@
       },
       init () {
         var self = this
+        if (self.$cookies.get('apiHomeData')) {
+          self.data = self.$cookies.get('apiHomeData')
+        }
         if ((self.$http.defaults.headers.tokenClientkey === undefined) && self.$cookies.get('tokenClientkey')) {
           self.$http.defaults.headers.tokenClientkey = self.$cookies.get('tokenClientkey')
         }
