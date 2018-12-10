@@ -1,15 +1,19 @@
 <template>
   <div class="invited">
-    <x-header><a slot="right" @click="goTo()">转入</a>邀请奖励</x-header>
-    <div style="background: #ed4e49; color: #fff">
-      <div class="center pt20 f24">累计奖励:85元</div>
-      <div class="pw20 h50">
-        <div class="fl">首投奖励:30元</div>
-        <div class="fr">出借奖励:55元</div>
+    <div class="invited-top">
+      <x-header><a slot="right" @click="goTo()">转入</a>邀请奖励</x-header>
+      <div>
+        <div class="invited-num pt40 f22">累计奖励:85元</div>
+        <div class="center-box h50">
+          <div class="fl">首投奖励:30元</div>
+          <div class="fr">出借奖励:55元</div>
+        </div>
       </div>
     </div>
     <group>
       <cell title="累计邀请：2人"></cell>
+    </group>
+    <group>
       <div class="pb20 f12">
         <x-table full-bordered>
           <thead>
@@ -136,6 +140,8 @@
     },
     data () {
       return {
+        sTime: '2018-06-27 18:00:00', // 好友邀请查询起始时间
+        eTime: '2019-09-01 18:00:00', // 好友邀请查询截止时间
         shareType: false,
         sweepType: false,
         rulesType: false,
@@ -145,6 +151,24 @@
       }
     },
     methods: {
+      // 页面初始化数据
+      getInfo () {
+        var self = this
+        self.$http.post(process.env.BASE_API + '/apirecommendInit.do', qs.stringify({ 'sTime': self.sTime, 'eTime': self.eTime }))
+          .then(function (res) {
+            if (res.data === 'noLogin') {
+              self.$router.push('/start/login')
+            } else if (res.data.data === '') {
+              console.log('没有数据')
+            } else {
+              //循环展示邀请列表
+              console.log(res.data)
+            }
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+      },
       // 复制成功
       onCopy (e) {
         var self = this
@@ -172,14 +196,67 @@
           self.copyError = true
         }
       }
+    },
+    created () {
+      var self = this
+      if ((self.$http.defaults.headers.tokenClientkey === undefined) && self.$cookies.get('tokenClientkey')) {
+        self.$http.defaults.headers.tokenClientkey = self.$cookies.get('tokenClientkey')
+      }
+      this.getInfo()
     }
   }
 </script>
 
 
-<style lang="less" scoped>
+<style lang="less">
   @import '~vux/src/styles/close';
+  .invited{
+    height: 100vh;
+    background: #fff;
+    .invited-top{
+      background: #FD7879;
+      background: -webkit-linear-gradient(#FD7879, #FE4141); /* Safari 5.1 - 6.0 */
+      background: -o-linear-gradient(#FD7879, #FE4141); /* Opera 11.1 - 12.0 */
+      background: -moz-linear-gradient(#FD7879, #FE4141); /* Firefox 3.6 - 15 */
+      background: linear-gradient(#FD7879, #FE4141); /* 标准的语法（必须放在最后） */
+      color: #fff;
+    }
+    .vux-header{
+      background: transparent;
+    }
+    .center-box{
+      height: 60px;
+      line-height: 60px;
+    }
+    .center-box>div{
+      width: 50%;
+      text-align: center;
+      border: 1px solid #e69393;
+      box-sizing: border-box;
+      border-bottom: 0;
+    }
+    .center-box>div:last-child{
+      border-left: 0;
+    }
+    .invited-num{
+      padding: 20px 0 30px;
+      text-align: center;
+      font-size: 22px;
+    }
+    .vux-table th{
+      background: #FF4747;
+      color: #fff;
+    }
+    .vux-table td:before, .vux-table th:before{
+      border-bottom: 1px solid #fd5050;
+    }
+    .vux-table td:after, .vux-table th:after{
+      border-bottom: 1px solid #fd5050;
+    }
+    .weui-cells{
 
+    }
+  }
   .dialog-demo {
     .weui-dialog{
       border-radius: 8px;

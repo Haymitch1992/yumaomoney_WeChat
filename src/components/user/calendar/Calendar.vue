@@ -153,7 +153,7 @@
         self.$http.post(process.env.BASE_API + '/apipaymentsCalendar.do', qs.stringify({ 'month': month, 'year': year }))
           .then(function (res) {
             if (res.data === 'noLogin') {
-              console.log('未登录')
+              self.$router.push('/start/login')
             } else if (res.data.data === '') {
               console.log('没有数据')
             } else {
@@ -174,6 +174,12 @@
           .catch(function (error) {
             console.log(error)
           })
+      }
+    },
+    created () {
+      var self = this
+      if ((self.$http.defaults.headers.tokenClientkey === undefined) && self.$cookies.get('tokenClientkey')) {
+        self.$http.defaults.headers.tokenClientkey = self.$cookies.get('tokenClientkey')
       }
     }
   }

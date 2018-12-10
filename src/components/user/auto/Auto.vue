@@ -1,6 +1,6 @@
 <template>
   <div class="auto-invest">
-    <x-header>自动投标</x-header>
+    <x-header :left-options="leftOptions" @on-click-back="goBack()">自动投标</x-header>
     <div v-if="data.pageNum === 'A'">
       <!--未授权-->
       <div class="no-accredit">
@@ -56,6 +56,9 @@
     },
     data () {
       return {
+        leftOptions: {
+          preventGoBack: true
+        },
         data: {
           amount: null,
           effectivedate: '',
@@ -106,6 +109,10 @@
             console.log(error)
           })
       },
+      goBack () {
+        var self = this
+        self.$router.push('/user')
+      },
       change () {
         var self = this
         this.$router.push({name: 'autoEdit', params: self.data})
@@ -124,7 +131,7 @@
         self.$http.post(process.env.BASE_API + '/apigetAutomaticBidMap.do')
           .then(function (res) {
             if (res.data === 'noLogin') {
-              console.log('未登录')
+              self.$router.push('/start/login')
             } else if (res.data.data === '') {
               console.log('没有数据')
             } else {
