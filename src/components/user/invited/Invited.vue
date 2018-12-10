@@ -3,15 +3,15 @@
     <div class="invited-top">
       <x-header><a slot="right" @click="goTo()">转入</a>邀请奖励</x-header>
       <div>
-        <div class="invited-num pt40 f22">累计奖励:85元</div>
+        <div class="invited-num pt40 f22">累计奖励:{{invitedMoney + invitedReward}}元</div>
         <div class="center-box h50">
-          <div class="fl">首投奖励:30元</div>
-          <div class="fr">出借奖励:55元</div>
+          <div class="fl">首投奖励:{{invitedMoney}}元</div>
+          <div class="fr">出借奖励:{{invitedReward}}元</div>
         </div>
       </div>
     </div>
     <group>
-      <cell title="累计邀请：2人"></cell>
+      <cell title="累计邀请：{{invitedNum}}人"></cell>
     </group>
     <group>
       <div class="pb20 f12">
@@ -21,6 +21,7 @@
             <th>受邀用户</th>
             <th>首投金额</th>
             <th>奖励金额</th>
+            <th>红包金额</th>
           </tr>
           </thead>
           <tbody>
@@ -28,6 +29,7 @@
             <td>{{item.username | desensitization}}</td>
             <td>{{item.firstMoney}}</td>
             <td>{{item.rewardAmount}}</td>
+            <td>{{item.rewardAmount | toReward}}</td>
           </tr>
           </tbody>
         </x-table>
@@ -138,16 +140,54 @@
         copySuccess: false,
         copyError: false,
         detail: '我携手鱼猫金服给你送来104元现金，和我一起乐享钱程！https://www.yumaomoney.com/reg.do?istarget=1&id=13688888888',
-        dataList: []
+        dataList: [],
+        invitedNum: 0,
+        invitedMoney: 0,
+        invitedReward: 0
       }
     },
     filters: {
       desensitization: function (value) {
         if (value) return ''
         return value.slice(0,2)+ '***' +value.slice(-2)
+      },
+      toReward: function(value){
+        if (!value) return '0'
+        if (value==10){
+          return 40
+        }else if(value==30){
+          return 50
+        }else if(value==60){
+          return 50
+        }else{
+          return 0
+        }
       }
     },
     methods: {
+      // 计算数据
+      repairDate: function (data) {
+        for (var i=0;i<data.length;i++) {
+          // 出借好友累加
+          if(data[i].firstInvestFlag==1&&data[i].rewardAmount!=0){
+            this.invitedNum += 1;
+          }
+          // 获得奖励累加
+          if(data[i].receiveStatus==1){
+            this.invitedMoney += data[i].rewardAmount;
+          }
+          // 投资红包累加
+          if(data[i].receiveStatus==1){
+            if(data[i].rewardAmount === 10){
+              this.invitedReward += 40;
+            }else if(data[i].rewardAmount === 30){
+              this.invitedReward += 50;
+            }else if(data[i].rewardAmount === 60){
+              this.invitedReward += 50;
+            }
+          }
+        }
+      },
       // 页面初始化数据
       getInfo () {
         var self = this
