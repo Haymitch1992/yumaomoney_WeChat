@@ -2,10 +2,12 @@
   <div class="login login-box">
     <x-header>登录</x-header>
     <group>
-      <x-input :max="11" v-model="data.phone" keyboard="number" title="手机号"
-               ref="refPhone" @on-change="keyDown()" laceholder="请输入手机号码"></x-input>
-      <x-input v-model="data.password" :min="8" :max="16" type="password" title="密码 "
-               ref="refPassword" @on-change="keyDown()" placeholder="含字母和数字8-16位字符" required></x-input>
+      <div class="pd20">
+        <x-input :max="11" v-model="data.phone" keyboard="number" title="手机号"
+                 ref="refPhone" @on-change="keyDown()" laceholder="请输入手机号码"></x-input>
+        <x-input v-model="data.password" :min="8" :max="16" type="password" title="密码 "
+                 ref="refPassword" @on-change="keyDown()" placeholder="含字母和数字8-16位字符" required></x-input>
+      </div>
       <x-input v-model="data.code" :min="4" :max="4" type="text" title="验证码" ref="refCode"
                @on-change="keyDown()" placeholder="请输入验证码" required>
         <img slot="right-full-height" :src="data.codeUrl" @click="switchCode">
@@ -130,10 +132,29 @@
 
 <style lang="less">
   .login-box{
+    height: 100vh;
+    background: #fff;
+    .weui-cells:after{
+      content: normal;
+    }
+    .pd20{
+      .weui-cell{
+        padding: 20px 15px;
+      }
+    }
+    .weui-cell:before{
+      border-top: 1px solid #FF3333;
+      right: 15px;
+    }
+    .weui-btn:after{
+      border: none;
+    }
     .vux-x-input-right-full img{
       height: 30px;
       border:1px solid #ddd;
       width: 80px;
+      position: relative;
+      top: 6px;
     }
     .weui-cells{
       margin-top: 4em;
