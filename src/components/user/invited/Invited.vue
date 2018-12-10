@@ -3,7 +3,7 @@
     <div class="invited-top">
       <x-header><a slot="right" @click="goTo()">转入</a>邀请奖励</x-header>
       <div>
-        <div class="invited-num pt40 f24">累计奖励:85元</div>
+        <div class="invited-num pt40 f22">累计奖励:85元</div>
         <div class="center-box h50">
           <div class="fl">首投奖励:30元</div>
           <div class="fr">出借奖励:55元</div>
@@ -140,6 +140,8 @@
     },
     data () {
       return {
+        sTime: '2018-06-27 18:00:00', // 好友邀请查询起始时间
+        eTime: '2019-09-01 18:00:00', // 好友邀请查询截止时间
         shareType: false,
         sweepType: false,
         rulesType: false,
@@ -149,6 +151,24 @@
       }
     },
     methods: {
+      // 页面初始化数据
+      getInfo () {
+        var self = this
+        self.$http.post(process.env.BASE_API + '/apirecommendInit.do', qs.stringify({ 'sTime': self.sTime, 'eTime': self.eTime }))
+          .then(function (res) {
+            if (res.data === 'noLogin') {
+              self.$router.push('/start/login')
+            } else if (res.data.data === '') {
+              console.log('没有数据')
+            } else {
+              //循环展示邀请列表
+              console.log(res.data)
+            }
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
+      },
       // 复制成功
       onCopy (e) {
         var self = this
@@ -176,12 +196,19 @@
           self.copyError = true
         }
       }
+    },
+    created () {
+      var self = this
+      if ((self.$http.defaults.headers.tokenClientkey === undefined) && self.$cookies.get('tokenClientkey')) {
+        self.$http.defaults.headers.tokenClientkey = self.$cookies.get('tokenClientkey')
+      }
+      this.getInfo()
     }
   }
 </script>
 
 
-<style lang="less" scoped>
+<style lang="less">
   @import '~vux/src/styles/close';
   .invited{
     height: 100vh;
@@ -213,6 +240,8 @@
     }
     .invited-num{
       padding: 20px 0 30px;
+      text-align: center;
+      font-size: 22px;
     }
     .vux-table th{
       background: #FF4747;
@@ -223,6 +252,9 @@
     }
     .vux-table td:after, .vux-table th:after{
       border-bottom: 1px solid #fd5050;
+    }
+    .weui-cells{
+
     }
   }
   .dialog-demo {
