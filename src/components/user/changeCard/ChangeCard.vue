@@ -224,7 +224,7 @@
         var self = this
         if (self.$cookies.get('apiHomeData')) {
           self.bankList.push(self.banks[self.$cookies.get('apiHomeData').bankMap.bankcode][0])
-          var num = ' 尾号' + res.data.data.bankMap.cardNo.substr(-4)
+          var num = ' 尾号' + self.$cookies.get('apiHomeData').bankMap.cardNo.substr(-4)
           self.bankList[0].title += num
           self.data.balanceBak = self.data.balance.toFixed(2)
         }
