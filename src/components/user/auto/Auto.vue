@@ -140,7 +140,7 @@
                 self.data.amount = res.data.data.amount
                 self.data.bidAmount = res.data.data.bidAmount
                 self.data.remandAmount = res.data.data.remandAmount
-                if (res.data.data.bidStatus === '1') {
+                if (res.data.data.bidStatus === '2') {
                   self.data.autoType = true
                 } else {
                   self.data.autoType = false

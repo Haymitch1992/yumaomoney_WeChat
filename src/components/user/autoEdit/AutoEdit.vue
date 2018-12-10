@@ -77,7 +77,7 @@
       setInfo () {
         var remandNum = ''
         var self = this
-        if (self.data.retain) {
+        if (!self.data.retain) {
           remandNum = 0
         } else {
           remandNum = self.data.remandAmount
