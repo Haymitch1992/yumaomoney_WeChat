@@ -29,7 +29,7 @@
 
 <script>
   import qs from 'qs'
-  import { Group, Cell, XHeader, XInput, Selector, Radio, XButton, CheckIcon, XSwitch, Toast } from 'vux'
+  import { Group, Cell, XHeader, XInput, Selector, Radio, XButton, CheckIcon, XSwitch } from 'vux'
 
   export default {
     name: 'Auto',
@@ -42,8 +42,7 @@
       Radio,
       XButton,
       CheckIcon,
-      XSwitch,
-      Toast
+      XSwitch
     },
     data () {
       return {

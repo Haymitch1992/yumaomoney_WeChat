@@ -37,7 +37,7 @@
 
 <script>
   import qs from 'qs'
-  import { Group, Cell, XHeader, XInput, Selector, Datetime, Checklist, Radio, XButton, CheckIcon, XSwitch, InlineLoading } from 'vux'
+  import { Group, Cell, XHeader, XInput, Selector, Datetime, Checklist, Radio, XButton, CheckIcon, XSwitch } from 'vux'
 
   export default {
     name: 'Auto',
@@ -52,8 +52,7 @@
       Radio,
       XButton,
       CheckIcon,
-      XSwitch,
-      InlineLoading
+      XSwitch
     },
     data () {
       return {
