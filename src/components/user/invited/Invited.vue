@@ -21,24 +21,13 @@
             <th>受邀用户</th>
             <th>首投金额</th>
             <th>奖励金额</th>
-            <th>出借金额</th>
-            <th>奖励金额</th>
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td>13******672</td>
-            <td>1000.00</td>
-            <td>2.00</td>
-            <td>1000.00</td>
-            <td>2.00</td>
-          </tr>
-          <tr>
-            <td>13******673</td>
-            <td>1000.00</td>
-            <td>2.00</td>
-            <td>1000.00</td>
-            <td>2.00</td>
+          <tr v-for="item in dataList">
+            <td>{{item.username}}</td>
+            <td>{{item.firstMoney}}</td>
+            <td>{{item.rewardAmount}}</td>
           </tr>
           </tbody>
         </x-table>
@@ -148,7 +137,8 @@
         rulesType: false,
         copySuccess: false,
         copyError: false,
-        detail: '我携手鱼猫金服给你送来104元现金，和我一起乐享钱程！https://www.yumaomoney.com/reg.do?istarget=1&id=13688888888'
+        detail: '我携手鱼猫金服给你送来104元现金，和我一起乐享钱程！https://www.yumaomoney.com/reg.do?istarget=1&id=13688888888',
+        dataList: []
       }
     },
     methods: {
@@ -164,6 +154,7 @@
             } else {
               // 循环展示邀请列表
               console.log(res.data)
+              self.dataList = res.data
             }
           })
           .catch(function (error) {
