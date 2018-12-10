@@ -10,11 +10,11 @@
       </cell>
     </group>
     <group>
-      <x-input v-model="data.bidAmount" type="number" title="单笔金额(元)" :is-type="positive" placeholder="请输入单笔出借金额"></x-input>
-      <x-input v-model="data.rateStart" type="number" title="最低年化收益(%)" :is-type="positive" placeholder="请输入最低年化收益"></x-input>
-      <x-input v-model="data.deadlineEnd" type="number" title="最长投资期限(月)" :is-type="positive" placeholder="请输入最长投资期限"></x-input>
+      <x-input v-model="data.bidAmount" type="number" title="单笔金额(元)" ref="bidAmount" :is-type="checkBidAmount" placeholder="请输入单笔出借金额"></x-input>
+      <x-input v-model="data.rateStart" type="number" title="最低年化收益(%)" ref="rateStart" :is-type="checkRateStart" placeholder="请输入最低年化收益"></x-input>
+      <x-input v-model="data.deadlineEnd" type="number" title="最长投资期限(月)" ref="deadlineEnd" :is-type="checkDeadlineEnd" placeholder="请输入最长投资期限"></x-input>
       <x-switch title="设置保留金额" v-model="data.retain"></x-switch>
-      <x-input v-if="data.retain" v-model="data.remandAmount" type="number" title="保留金额(元)" :is-type="positive" placeholder="请输入保留金额" ></x-input>
+      <x-input v-if="data.retain" v-model="data.remandAmount" type="number" ref="remandAmount" title="保留金额(元)" :is-type="checkRemandAmount" placeholder="请输入保留金额" ></x-input>
     </group>
     <div class="pt20 center agreement-box">
       <check-icon :value.sync="data.agreement" type="plain">已阅读并同意 <a href="">《鱼猫金服自动投标协议》</a></check-icon>
@@ -60,11 +60,29 @@
           wayType: [],
           saveType: '0',
           agreement: false,
-          retain: false
+          retain: false,
         },
-        positive: function (value) {
+        checkBidAmount: function (value) {
           return {
-            valid: value >= 0,
+            valid: value % 100 === 0 && value >= 0 && value <= 200000,
+            msg: '单笔金额为100的整数倍且不能超过20万'
+          }
+        },
+        checkRateStart: function (value) {
+          return {
+            valid: value % 1 === 0 && value >= 0 && value <= 12,
+            msg: '年化收益为不超过12的整数'
+          }
+        },
+        checkDeadlineEnd: function (value) {
+          return {
+            valid: value % 1 === 0 && value >= 0 && value <= 12,
+            msg: '最长投资期限不能超过12个整数月'
+          }
+        },
+        checkRemandAmount: function (value) {
+          return {
+            valid: value % 100 === 0 && value >= 0,
             msg: '单笔金额需大于0'
           }
         }
@@ -72,6 +90,32 @@
     },
     methods: {
       autoCheck () {
+        var self = this
+        if (!this.$refs.bidAmount.valid) {
+          self.$vux.toast.show({
+            text: '输入有误',
+            type: 'cancel'
+          })
+          return
+        } else if (!this.$refs.rateStart.valid) {
+          self.$vux.toast.show({
+            text: '输入有误',
+            type: 'cancel'
+          })
+          return
+        } else if (!this.$refs.deadlineEnd.valid) {
+          self.$vux.toast.show({
+            text: '输入有误',
+            type: 'cancel'
+          })
+          return
+        } else if (this.data.retain && !this.$refs.remandAmount.valid) {
+          self.$vux.toast.show({
+            text: '输入有误',
+            type: 'cancel'
+          })
+          return
+        }
         this.setInfo()
       },
       setInfo () {
@@ -109,15 +153,6 @@
           .catch(function (error) {
             console.log(error)
           })
-      },
-      onShadowChange (ids, names) {
-        console.log(ids, names)
-      },
-      logHide (str) {
-        console.log('on-hide', str)
-      },
-      logShow () {
-        console.log('on-show')
       }
     },
     created () {
