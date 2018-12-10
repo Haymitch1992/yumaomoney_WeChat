@@ -212,6 +212,7 @@
             if (res.data === 'noLogin') {
               self.noLoginShow = true
             } else {
+              self.$cookies.set('apiHomeData', res.data.data, '1d')
               self.homeData = _.cloneDeep(res.data.data)
               self.data.usableAmount = parseFloat(self.homeData.accmountStatisMap.usableAmount)
               self.data.forPayPrincipal = parseFloat(self.homeData.accmountStatisMap.forPayPrincipal)
@@ -242,6 +243,7 @@
         window.localStorage.removeItem('Flag')
         self.$store.dispatch('setUser', false)
         self.$cookies.remove('tokenClientkey')
+        self.$cookies.remove('apiHomeData')
         self.$router.push('/start/login')
       },
       /**
@@ -249,6 +251,23 @@
        */
       init () {
         var self = this
+        if (self.$cookies.get('apiHomeData')) {
+          self.homeData = _.cloneDeep(self.$cookies.get('apiHomeData'))
+          self.data.usableAmount = parseFloat(self.homeData.accmountStatisMap.usableAmount)
+          self.data.forPayPrincipal = parseFloat(self.homeData.accmountStatisMap.forPayPrincipal)
+          self.data.forPayInterest = parseFloat(self.homeData.accmountStatisMap.forPayInterest)
+          self.data.freezeAmount = parseFloat(self.homeData.accmountStatisMap.freezeAmount)
+          self.data.otherEarnAmount = parseFloat(self.homeData.accmountStatisMap.otherEarnAmount)
+          self.data.accountSum = parseFloat(self.homeData.accmountStatisMap.accountSum)
+          self.data.totalRevenue = parseFloat(self.homeData.totalRevenue)
+          self.data.lastMonthRevenue = parseFloat(self.homeData.lastMonthDetails.lastMonthDetail)
+          self.data.lastMonthRewardAmount = parseFloat(self.homeData.lastMonthDetails.lastMonthDetail.lastMonthRewardAmount).toFixed(2)
+          self.data.lastMonthRecommendAmount = parseFloat(self.homeData.lastMonthDetails.lastMonthDetail.lastMonthRecommendAmount).toFixed(2)
+          self.data.lastMonthPayInterest = parseFloat(self.homeData.lastMonthDetails.lastMonthDetail.lastMonthPayInterest).toFixed(2)
+          self.data.allrewardAmount = parseFloat(self.homeData.allDetail.allrewardAmount).toFixed(2)
+          self.data.allrecommendAmount = parseFloat(self.homeData.allDetail.allrecommendAmount).toFixed(2)
+          self.data.allPayInterest = parseFloat(self.homeData.allDetail.allPayInterest).toFixed(2)
+        }
         if ((self.$http.defaults.headers.tokenClientkey === undefined) && self.$cookies.get('tokenClientkey')) {
           self.$http.defaults.headers.tokenClientkey = self.$cookies.get('tokenClientkey')
         }

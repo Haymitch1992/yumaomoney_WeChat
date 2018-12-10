@@ -78,6 +78,7 @@
             window.localStorage.removeItem('Flag')
             self.$store.dispatch('setUser', false)
             self.$cookies.remove('tokenClientkey')
+            self.$cookies.remove('apiHomeData')
             if (type === 'home') {
               self.$router.push('/home')
             } else if (type === 'login') {
@@ -102,6 +103,7 @@
               self.noLoginShow = true
             } else {
               self.data = res.data.data
+              self.$cookies.set('apiHomeData', res.data.data, '1d')
               self.data.homeMap.usernameBak = self.data.homeMap.username.substr(0, 3) + '****' + self.data.homeMap.username.substr(7)
               self.data.homeMap.idNoBak = self.data.homeMap.idNo
               let idNoRuten = self.data.homeMap.idNo.substring(3, 14)
@@ -116,6 +118,14 @@
       init () {
         var self = this
         self.href = window.location.origin
+        if (self.$cookies.get('apiHomeData')) {
+          self.data = self.$cookies.get('apiHomeData')
+          self.data.homeMap.usernameBak = self.data.homeMap.username.substr(0, 3) + '****' + self.data.homeMap.username.substr(7)
+          self.data.homeMap.idNoBak = self.data.homeMap.idNo
+          let idNoRuten = self.data.homeMap.idNo.substring(3, 14)
+          self.data.homeMap.idNoBak = self.data.homeMap.idNoBak.replace(idNoRuten, '*******')
+          self.data.homeMap.realNameBak = self.data.homeMap.realName.substr(0, 1) + '**'
+        }
         if ((self.$http.defaults.headers.tokenClientkey === undefined) && self.$cookies.get('tokenClientkey')) {
           self.$http.defaults.headers.tokenClientkey = self.$cookies.get('tokenClientkey')
         }
