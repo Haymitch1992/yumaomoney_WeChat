@@ -67,25 +67,25 @@
         },
         checkBidAmount: function (value) {
           return {
-            valid: value % 100 === 0 && value >= 0 && value <= 200000,
+            valid: value % 100 === 0 && value > 0 && value <= 200000,
             msg: '单笔金额为100的整数倍且不能超过20万'
           }
         },
         checkRateStart: function (value) {
           return {
-            valid: value % 1 === 0 && value >= 0 && value <= 12,
-            msg: '年化收益为不超过12的整数'
+            valid: value % 1 === 0 && value > 4 && value <= 10,
+            msg: '建议最低年化收益4-10'
           }
         },
         checkDeadlineEnd: function (value) {
           return {
-            valid: value % 1 === 0 && value >= 0 && value <= 12,
-            msg: '最长投资期限不能超过12个整数月'
+            valid: value % 1 === 0 && value > 0 && value <= 12,
+            msg: '最长投资期限1-12个月'
           }
         },
         checkRemandAmount: function (value) {
           return {
-            valid: value % 100 === 0 && value >= 0,
+            valid: value % 100 === 0 && value > 0,
             msg: '单笔金额为100的整数倍'
           }
         }
@@ -136,7 +136,7 @@
         self.$http.post(process.env.BASE_API + '/apiautomaticBidModify.do', qs.stringify({ 'bidAmount': self.data.bidAmount, 'rateStart': self.data.rateStart, 'rateEnd': 15, 'deadlineStart': 1, 'deadlineEnd': self.data.deadlineEnd, 'remandAmount': remandNum, 'borrowWay': 3 }))
           .then(function (res) {
             if (res.data === 'noLogin') {
-              console.log('未登录')
+              self.$router.push('/start/login')
             } else if (res.data.data === '') {
               console.log('没有数据')
             } else {

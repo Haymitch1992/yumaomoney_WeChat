@@ -131,7 +131,7 @@
         self.$http.post(process.env.BASE_API + '/apigetAutomaticBidMap.do')
           .then(function (res) {
             if (res.data === 'noLogin') {
-              console.log('未登录')
+              self.$router.push('/start/login')
             } else if (res.data.data === '') {
               console.log('没有数据')
             } else {
