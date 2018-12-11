@@ -11,7 +11,7 @@
       </div>
     </div>
     <group>
-      <cell title="累计邀请：{{invitedNum}}人"></cell>
+      <cell :title="'累计邀请：'+ invitedNum + '人'"></cell>
     </group>
     <group>
       <div class="pb20 f12">
@@ -148,8 +148,8 @@
     },
     filters: {
       desensitization: function (value) {
-        if (value) return ''
-        return value.slice(0,2) + '***' + value.slice(-2)
+        if (!value) return ''
+        return value.slice(0, 2) + '***' + value.slice(-2)
       },
       toReward: function (value) {
         if (!value) return '0'
