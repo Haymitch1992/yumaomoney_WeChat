@@ -2,18 +2,18 @@
   <div>
     <x-header>推送设置</x-header>
     <group title="站内信通知">
-      <x-switch title="收到还款" prevent-default v-model="data.msgRepayment" @on-click="msgRepaymentFuc"></x-switch>
-      <x-switch title="融资成功" prevent-default v-model="data.msgFinancing" @on-click="msgFinancingFuc"></x-switch>
-      <x-switch title="充值成功" prevent-default v-model="data.msgRecharge" @on-click="msgRechargeFuc"></x-switch>
+      <x-switch title="收到还款" prevent-default v-model="data.messageReceive" @on-click="msgRepaymentFuc"></x-switch>
+      <x-switch title="融资成功" prevent-default v-model="data.messageBorrow" @on-click="msgBorrowFuc"></x-switch>
+      <x-switch title="充值成功" prevent-default v-model="data.messageRecharge" @on-click="msgRechargeFuc"></x-switch>
       <x-switch title="资金变化" prevent-default v-model="data.msgChange" @on-click="msgChangeFuc"></x-switch>
-      <x-switch title="提现成功" prevent-default v-model="data.msgCash" @on-click="msgCashFuc"></x-switch>
+      <x-switch title="提现成功" prevent-default v-model="data.messageDeposit" @on-click="msgDepositFuc"></x-switch>
     </group>
     <group title="短信通知">
-      <x-switch title="收到还款" prevent-default v-model="data.smsRepayment" @on-click="smsRepaymentFuc"></x-switch>
-      <x-switch title="融资成功" prevent-default v-model="data.smsFinancing" @on-click="smsFinancingFuc"></x-switch>
-      <x-switch title="充值成功" prevent-default v-model="data.smsRecharge" @on-click="smsRechargeFuc"></x-switch>
-      <x-switch title="资金变化" prevent-default v-model="data.smsChange" @on-click="smsChangeFuc"></x-switch>
-      <x-switch title="提现成功" prevent-default v-model="data.smsCash" @on-click="smsCashFuc"></x-switch>
+      <x-switch title="收到还款" prevent-default v-model="data.smsRepayment" @on-click="noteReceiveFuc"></x-switch>
+      <x-switch title="融资成功" prevent-default v-model="data.smsFinancing" @on-click="noteBorrowFuc"></x-switch>
+      <x-switch title="充值成功" prevent-default v-model="data.smsRecharge" @on-click="noteRechargeFuc"></x-switch>
+      <x-switch title="资金变化" prevent-default v-model="data.smsChange" @on-click="noteChangeFuc"></x-switch>
+      <x-switch title="提现成功" prevent-default v-model="data.smsCash" @on-click="noteDepositFuc"></x-switch>
     </group>
     <alert v-model="noLoginShow" title="登录失效" @on-hide="logout">请重新登录</alert>
   </div>
@@ -34,16 +34,16 @@
     data () {
       return {
         data: {
-          msgRepayment: false,
-          msgFinancing: false,
-          msgRecharge: false,
-          msgChange: false,
-          msgCash: false,
-          smsRepayment: false,
-          smsFinancing: false,
-          smsRecharge: false,
-          smsChange: false,
-          smsCash: false
+          messageReceive: false,
+          messageBorrow: false,
+          messageRecharge: false,
+          messageChange: false,
+          messageDeposit: false,
+          noteReceive: false,
+          noteBorrow: false,
+          noteRecharge: false,
+          noteChange: false,
+          noteDeposit: false
         },
         dataBak: {
           msg: {},
@@ -69,45 +69,45 @@
       /**
        * 点击触发方法列表
        */
-      msgRepaymentFuc (newVal, oldVal) {
+      msgReceiveFuc (newVal, oldVal) {
         var self = this
-        self.submitMsg(newVal, oldVal, 'msgRepayment')
+        self.submitMsg(newVal, oldVal, 'messageReceive')
       },
-      msgFinancingFuc (newVal, oldVal) {
+      msgBorrowFuc (newVal, oldVal) {
         var self = this
-        self.submitMsg(newVal, oldVal, 'msgFinancing')
+        self.submitMsg(newVal, oldVal, 'messageBorrow')
       },
       msgRechargeFuc (newVal, oldVal) {
         var self = this
-        self.submitMsg(newVal, oldVal, 'msgRecharge')
+        self.submitMsg(newVal, oldVal, 'messageRecharge')
       },
       msgChangeFuc (newVal, oldVal) {
         var self = this
-        self.submitMsg(newVal, oldVal, 'msgChange')
+        self.submitMsg(newVal, oldVal, 'messageChange')
       },
-      msgCashFuc (newVal, oldVal) {
+      msgDepositFuc (newVal, oldVal) {
         var self = this
-        self.submitMsg(newVal, oldVal, 'msgCash')
+        self.submitMsg(newVal, oldVal, 'messageDeposit')
       },
-      smsRepaymentFuc (newVal, oldVal) {
+      noteReceiveFuc (newVal, oldVal) {
         var self = this
-        self.submitMsg(newVal, oldVal, 'smsRepayment')
+        self.submitMsg(newVal, oldVal, 'noteReceive')
       },
-      smsFinancingFuc (newVal, oldVal) {
+      noteBorrowFuc (newVal, oldVal) {
         var self = this
-        self.submitMsg(newVal, oldVal, 'smsFinancing')
+        self.submitMsg(newVal, oldVal, 'noteBorrow')
       },
-      smsRechargeFuc (newVal, oldVal) {
+      noteRechargeFuc (newVal, oldVal) {
         var self = this
-        self.submitMsg(newVal, oldVal, 'smsRecharge')
+        self.submitMsg(newVal, oldVal, 'noteRecharge')
       },
-      smsChangeFuc (newVal, oldVal) {
+      noteChangeFuc (newVal, oldVal) {
         var self = this
-        self.submitMsg(newVal, oldVal, 'smsChange')
+        self.submitMsg(newVal, oldVal, 'noteChange')
       },
-      smsCashFuc (newVal, oldVal) {
+      noteDepositFuc (newVal, oldVal) {
         var self = this
-        self.submitMsg(newVal, oldVal, 'smsCash')
+        self.submitMsg(newVal, oldVal, 'noteDeposit')
       },
       /**
        * 提交站内信设置
@@ -142,16 +142,16 @@
               self.dataBak.msg = res.data.data[0]
               self.dataBak.mail = res.data.data[1]
               self.dataBak.sms = res.data.data[2]
-              self.data.msgRepayment = (self.dataBak.msg.reciveRepayEnable === 2)
-              self.data.msgFinancing = (self.dataBak.msg.loanSucEnable === 2)
-              self.data.msgRecharge = (self.dataBak.msg.rechargeSucEnable === 2)
-              self.data.msgChange = (self.dataBak.msg.capitalChangeEnable === 2)
-              self.data.msgCash = (self.dataBak.msg.showSucEnable === 2)
-              self.data.smsRepayment = (self.dataBak.sms.reciveRepayEnable === 2)
-              self.data.smsFinancing = (self.dataBak.sms.loanSucEnable === 2)
-              self.data.smsRecharge = (self.dataBak.sms.rechargeSucEnable === 2)
-              self.data.smsChange = (self.dataBak.sms.capitalChangeEnable === 2)
-              self.data.smsCash = (self.dataBak.sms.showSucEnable === 2)
+              self.data.messageReceive = (self.dataBak.msg.reciveRepayEnable === 2)
+              self.data.messageBorrow = (self.dataBak.msg.loanSucEnable === 2)
+              self.data.messageRecharge = (self.dataBak.msg.rechargeSucEnable === 2)
+              self.data.messageChange = (self.dataBak.msg.capitalChangeEnable === 2)
+              self.data.messageDeposit = (self.dataBak.msg.showSucEnable === 2)
+              self.data.noteReceive = (self.dataBak.sms.reciveRepayEnable === 2)
+              self.data.noteBorrow = (self.dataBak.sms.loanSucEnable === 2)
+              self.data.noteRecharge = (self.dataBak.sms.rechargeSucEnable === 2)
+              self.data.noteChange = (self.dataBak.sms.capitalChangeEnable === 2)
+              self.data.noteDeposit = (self.dataBak.sms.showSucEnable === 2)
             }
           })
           .catch(function (error) {
