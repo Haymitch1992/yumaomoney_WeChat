@@ -34,16 +34,16 @@
     data () {
       return {
         data: {
-          msgRepayment: true,
-          msgFinancing: true,
-          msgRecharge: true,
-          msgChange: true,
-          msgCash: true,
-          smsRepayment: true,
-          smsFinancing: true,
-          smsRecharge: true,
-          smsChange: true,
-          smsCash: true
+          msgRepayment: false,
+          msgFinancing: false,
+          msgRecharge: false,
+          msgChange: false,
+          msgCash: false,
+          smsRepayment: false,
+          smsFinancing: false,
+          smsRecharge: false,
+          smsChange: false,
+          smsCash: false
         },
         dataBak: {
           msg: {},
