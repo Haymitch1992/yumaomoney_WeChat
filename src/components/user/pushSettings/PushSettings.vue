@@ -2,18 +2,18 @@
   <div>
     <x-header>推送设置</x-header>
     <group title="站内信通知">
-      <x-switch title="收到还款" prevent-default v-model="data.messages.repayment	" @on-click="submitMsg('repayment', data.messages.repayment	)"></x-switch>
-      <x-switch title="融资成功" prevent-default v-model="data.messages.financing" @on-click="submitMsg('financing', data.messages.financing)"></x-switch>
-      <x-switch title="充值成功" prevent-default v-model="data.messages.recharge" @on-click="submitMsg('recharge', data.messages.recharge)"></x-switch>
-      <x-switch title="资金变化" prevent-default v-model="data.messages.change" @on-click="submitMsg('change', data.messages.change)"></x-switch>
-      <x-switch title="提现成功" prevent-default v-model="data.messages.cash" @on-click="submitMsg('cash', data.messages.cash)"></x-switch>
+      <x-switch title="收到还款" prevent-default v-model="data.msgRepayment" @on-click="submitMsg('repayment', data.msgRepayment)"></x-switch>
+      <x-switch title="融资成功" prevent-default v-model="data.msgFinancing" @on-click="submitMsg('financing', data.msgFinancing)"></x-switch>
+      <x-switch title="充值成功" prevent-default v-model="data.msgRecharge" @on-click="submitMsg('recharge', data.msgRecharge)"></x-switch>
+      <x-switch title="资金变化" prevent-default v-model="data.msgChange" @on-click="submitMsg('change', data.msgChange)"></x-switch>
+      <x-switch title="提现成功" prevent-default v-model="data.msgCash" @on-click="submitMsg('cash', data.msgCash)"></x-switch>
     </group>
     <group title="短信通知">
-      <x-switch title="收到还款" prevent-default v-model="data.sms.repayment" @on-click="submitSms('repayment', data.sms.repayment)"></x-switch>
-      <x-switch title="融资成功" prevent-default v-model="data.sms.financing" @on-click="submitSms('financing', data.sms.financing)"></x-switch>
-      <x-switch title="充值成功" prevent-default v-model="data.sms.recharge" @on-click="submitSms('recharge', data.sms.recharge)"></x-switch>
-      <x-switch title="资金变化" prevent-default v-model="data.sms.change" @on-click="submitSms('change', data.sms.change)"></x-switch>
-      <x-switch title="提现成功" prevent-default v-model="data.sms.cash" @on-click="submitSms('cash', data.sms.cash)"></x-switch>
+      <x-switch title="收到还款" prevent-default v-model="data.smsRepayment" @on-click="submitSms('repayment', data.msgRepayment)"></x-switch>
+      <x-switch title="融资成功" prevent-default v-model="data.smsFinancing" @on-click="submitSms('financing', data.smsFinancing)"></x-switch>
+      <x-switch title="充值成功" prevent-default v-model="data.smsRecharge" @on-click="submitSms('recharge', data.smsRecharge)"></x-switch>
+      <x-switch title="资金变化" prevent-default v-model="data.smsChange" @on-click="submitSms('change', data.smsChange)"></x-switch>
+      <x-switch title="提现成功" prevent-default v-model="data.smsCash" @on-click="submitSms('cash', data.smsCash)"></x-switch>
     </group>
     <alert v-model="noLoginShow" title="登录失效" @on-hide="logout">请重新登录</alert>
   </div>
@@ -34,20 +34,16 @@
     data () {
       return {
         data: {
-          messages: {
-            repayment: true,
-            financing: true,
-            recharge: true,
-            change: true,
-            cash: true
-          },
-          sms: {
-            repayment: true,
-            financing: true,
-            recharge: true,
-            change: true,
-            cash: true
-          }
+          msgRepayment: true,
+          msgFinancing: true,
+          msgRecharge: true,
+          msgChange: true,
+          msgCash: true,
+          smsRepayment: true,
+          smsFinancing: true,
+          smsRecharge: true,
+          smsChange: true,
+          smsCash: true
         },
         noLoginShow: false
       }
@@ -64,12 +60,57 @@
         self.$cookies.remove('apiHomeData')
         self.$router.push('/start/login')
       },
-      submitMsg (type, value) {
-        console.log(type, value)
+      /**
+       * 提交站内信设置
+       * @param type
+       * @param value
+       */
+      submitMsg (type, value, newVal, oldVal) {
+        console.log(type, value, newVal, oldVal)
+        this.$vux.loading.show({
+          text: 'in processing'
+        })
+        setTimeout(() => {
+          this.$vux.loading.hide()
+          this.value2 = newVal
+        }, 1000)
       },
-      submitSms (type, value) {
-        console.log(type, value)
+      /**
+       * 提交短信设置
+       * @param type
+       * @param value
+       */
+      submitSms (type, value, newVal, oldVal) {
+        console.log(type, value, newVal, oldVal)
+        this.$vux.loading.show({
+          text: 'in processing'
+        })
+        setTimeout(() => {
+          this.$vux.loading.hide()
+          this.value2 = newVal
+        }, 1000)
+      },
+      /**
+       * 获取设置数据
+       */
+      getData () {
+        console.log('获取设置数据')
+      },
+      init () {
+        var self = this
+        if (self.$cookies.get('apiHomeData')) {
+          self.data = self.$cookies.get('apiHomeData')
+          self.data.homeMap.usernameBak = self.data.homeMap.username.substr(0, 3) + '****' + self.data.homeMap.username.substr(7)
+        }
+        if ((self.$http.defaults.headers.tokenClientkey === undefined) && self.$cookies.get('tokenClientkey')) {
+          self.$http.defaults.headers.tokenClientkey = self.$cookies.get('tokenClientkey')
+        }
+        self.getData()
       }
+    },
+    created () {
+      var self = this
+      self.init()
     }
   }
 </script>
