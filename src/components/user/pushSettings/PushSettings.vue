@@ -21,6 +21,7 @@
 
 <script>
   import { Group, XSwitch, XHeader, AlertModule, Alert } from 'vux'
+  import qs from 'qs'
 
   export default {
     name: 'PushSettings',
@@ -118,12 +119,23 @@
         self.$vux.loading.show({
           text: '保存中'
         })
-        setTimeout(() => {
-          self.$vux.loading.hide()
-          console.log(type)
-          self.data[type] = newVal
-          console.log(self.data)
-        }, 1000)
+        var params = self.data
+        params[type] = newVal
+        self.$http.post(process.env.BASE_API + '/apiaddNotesSetting.do', qs.stringify(params))
+          .then(function (res) {
+            console.log(res)
+            if (res.data === 'noLogin') {
+              self.noLoginShow = true
+            } else if (res.data.data === '') {
+              self.type = true
+            } else {
+              self.$vux.loading.hide()
+              self.data[type] = newVal
+            }
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
       },
       /**
        * 获取设置数据
