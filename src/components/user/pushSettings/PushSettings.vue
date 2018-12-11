@@ -45,6 +45,7 @@
           smsChange: true,
           smsCash: true
         },
+        dataBak: {},
         noLoginShow: false,
         type: ''
       }
@@ -124,7 +125,22 @@
        * 获取设置数据
        */
       getData () {
-        console.log('获取设置数据')
+        var self = this
+        self.$http.post(process.env.BASE_API + '/apiqueryNotesSettingInit.do', null)
+          .then(function (res) {
+            /**
+             * 验证登录是否失效
+             */
+            if (res.data === 'noLogin') {
+              self.noLoginShow = true
+            } else {
+              self.dataBak = res.data.data
+              console.log(self.dataBak)
+            }
+          })
+          .catch(function (error) {
+            console.log(error)
+          })
       },
       init () {
         var self = this
