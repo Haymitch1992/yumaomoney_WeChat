@@ -13,7 +13,6 @@
     <group>
       <cell :title="'累计邀请：'+ invitedNum + '人'"></cell>
     </group>
-    <div>累计邀请：{{invitedNum}} 人</div>
     <group>
       <div class="pb20 f12">
         <x-table full-bordered>

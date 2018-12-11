@@ -9,7 +9,9 @@
         <cell title="待领取金额" :value="list[0].value + list[1].value"></cell>
         <cell-form-preview :list="list"></cell-form-preview>
       </group>
-      <x-button type="warn" @click.native="receiveRewardBatch">领取奖励</x-button>
+      <group>
+        <x-button type="warn" @click.native="receiveRewardBatch">领取奖励</x-button>
+      </group>
     </div>
   </div>
 </template>
