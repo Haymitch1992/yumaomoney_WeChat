@@ -56,14 +56,10 @@
         <div class="img-box">
           <!--<img src="https://ws1.sinaimg.cn/large/663d3650gy1fq6824ur1dj20ia0pydlm.jpg" style="max-width:100%">-->
           <!--<img src="../../../assets/images/invited.png" style="max-width:100%">-->
-          <img src="https://www.yumaomoney.com/activity/20180626/img/qr-code-bg.jpg" alt="好友邀请二维码">
-          <div id="imgBox" ref="imgBox" class="middle-box" ></div>
-            <div class="middle-box" style="display: none;">
-            <img src="/activity/20180626/img/qr-code-bg.jpg" width="100%" alt="">
-            <div class="faceToface">
-              <div id="qrcode" ref="qrcode"></div>
-            </div>
+          <div class="qrcode-bg">
+            <qrcode value="https://www.yumaomoney.com" type="img"></qrcode>
           </div>
+
         </div>
         <div @click="sweepType=false">
           <span class="vux-close"></span>
@@ -123,7 +119,7 @@
 
 <script>
   import qs from 'qs'
-  import { Group, Cell, XHeader, XButton, XDialog, Popup, XTable, XTextarea, Toast } from 'vux'
+  import { Group, Cell, XHeader, XButton, XDialog, Popup, XTable, XTextarea, Qrcode } from 'vux'
 
   export default {
     name: 'Invited',
@@ -136,7 +132,7 @@
       Popup,
       XTable,
       XTextarea,
-      Toast
+      Qrcode
     },
     data () {
       return {
