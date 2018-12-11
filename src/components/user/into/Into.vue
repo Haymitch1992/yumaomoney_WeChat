@@ -15,6 +15,7 @@
 </template>
 
 <script>
+  import qs from 'qs'
   import { Group, Cell, XHeader, Tab, TabItem, Panel, XInput, XButton, CellFormPreview } from 'vux'
 
   export default {
@@ -55,9 +56,7 @@
               console.log('没有进行好友邀请')
             } else {
               // 循环展示邀请列表
-              self.dataList = res.data
-              self.repairDate(res.data)
-              for (var i = 0; i<res.data.length; i++) {
+              for (var i = 0; i < res.data.length; i++) {
                 if (res.data[i].receiveStatus === 0) {
                   self.list[0].value += res.data[i].rewardAmount
                   if (res.data[i].rewardAmount === 10) {
@@ -91,11 +90,11 @@
           })
           .catch(function (error) {
             console.log(error)
-        })
+          })
       }
     },
     created () {
-      this.getInfo ()
+      this.getInfo()
     }
   }
 </script>
