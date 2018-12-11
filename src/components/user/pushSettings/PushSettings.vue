@@ -45,7 +45,11 @@
           smsChange: true,
           smsCash: true
         },
-        dataBak: {},
+        dataBak: {
+          messages: {},
+          mail: {},
+          sms: {}
+        },
         noLoginShow: false,
         type: ''
       }
@@ -134,7 +138,10 @@
             if (res.data === 'noLogin') {
               self.noLoginShow = true
             } else {
-              self.dataBak = res.data.data
+              console.log(res.data.data)
+              self.dataBak.messages = res.data.data[0]
+              self.dataBak.mail = res.data.data[0]
+              self.dataBak.sms = res.data.data[0]
               console.log(self.dataBak)
             }
           })
