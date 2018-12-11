@@ -46,7 +46,7 @@
           smsCash: true
         },
         dataBak: {
-          messages: {},
+          msg: {},
           mail: {},
           sms: {}
         },
@@ -134,15 +134,24 @@
           .then(function (res) {
             /**
              * 验证登录是否失效
+             * data[0]:站内信；data[1]:邮件；data[2]:短信。(与后台确认过)
              */
             if (res.data === 'noLogin') {
               self.noLoginShow = true
             } else {
-              console.log(res.data.data)
-              self.dataBak.messages = res.data.data[0]
+              self.dataBak.msg = res.data.data[0]
               self.dataBak.mail = res.data.data[1]
               self.dataBak.sms = res.data.data[2]
-              console.log(self.dataBak)
+              self.data.msgRepayment = (self.dataBak.msg.reciveRepayEnable === 2)
+              self.data.msgFinancing = (self.dataBak.msg.loanSucEnable === 2)
+              self.data.msgRecharge = (self.dataBak.msg.rechargeSucEnable === 2)
+              self.data.msgChange = (self.dataBak.msg.capitalChangeEnable === 2)
+              self.data.msgCash = (self.dataBak.msg.showSucEnable === 2)
+              self.data.smsRepayment = (self.dataBak.sms.reciveRepayEnable === 2)
+              self.data.smsFinancing = (self.dataBak.sms.loanSucEnable === 2)
+              self.data.smsRecharge = (self.dataBak.sms.rechargeSucEnable === 2)
+              self.data.smsChange = (self.dataBak.sms.capitalChangeEnable === 2)
+              self.data.smsCash = (self.dataBak.sms.showSucEnable === 2)
             }
           })
           .catch(function (error) {
