@@ -2,18 +2,18 @@
   <div>
     <x-header>推送设置</x-header>
     <group title="站内信通知">
-      <x-switch title="收到还款" prevent-default v-model="data.messages.repayment	" @on-click="submitMsg('repayment', data.messages.repayment	)"></x-switch>
-      <x-switch title="融资成功" prevent-default v-model="data.messages.financing" @on-click="submitMsg('financing', data.messages.financing)"></x-switch>
-      <x-switch title="充值成功" prevent-default v-model="data.messages.recharge" @on-click="submitMsg('recharge', data.messages.recharge)"></x-switch>
-      <x-switch title="资金变化" prevent-default v-model="data.messages.change" @on-click="submitMsg('change', data.messages.change)"></x-switch>
-      <x-switch title="提现成功" prevent-default v-model="data.messages.cash" @on-click="submitMsg('cash', data.messages.cash)"></x-switch>
+      <x-switch title="收到还款" prevent-default v-model="data.msgRepayment" @on-click="submitMsg('repayment', data.messages.repayment)"></x-switch>
+      <x-switch title="融资成功" prevent-default v-model="data.msgFinancing" @on-click="submitMsg('financing', data.messages.financing)"></x-switch>
+      <x-switch title="充值成功" prevent-default v-model="data.msgRecharge" @on-click="submitMsg('recharge', data.messages.recharge)"></x-switch>
+      <x-switch title="资金变化" prevent-default v-model="data.msgChange" @on-click="submitMsg('change', data.messages.change)"></x-switch>
+      <x-switch title="提现成功" prevent-default v-model="data.msgCash" @on-click="submitMsg('cash', data.messages.cash)"></x-switch>
     </group>
     <group title="短信通知">
-      <x-switch title="收到还款" prevent-default v-model="data.sms.repayment" @on-click="submitSms('repayment', data.sms.repayment)"></x-switch>
-      <x-switch title="融资成功" prevent-default v-model="data.sms.financing" @on-click="submitSms('financing', data.sms.financing)"></x-switch>
-      <x-switch title="充值成功" prevent-default v-model="data.sms.recharge" @on-click="submitSms('recharge', data.sms.recharge)"></x-switch>
-      <x-switch title="资金变化" prevent-default v-model="data.sms.change" @on-click="submitSms('change', data.sms.change)"></x-switch>
-      <x-switch title="提现成功" prevent-default v-model="data.sms.cash" @on-click="submitSms('cash', data.sms.cash)"></x-switch>
+      <x-switch title="收到还款" prevent-default v-model="data.smsRepayment" @on-click="submitSms('repayment', data.sms.repayment)"></x-switch>
+      <x-switch title="融资成功" prevent-default v-model="data.smsFinancing" @on-click="submitSms('financing', data.sms.financing)"></x-switch>
+      <x-switch title="充值成功" prevent-default v-model="data.smsRecharge" @on-click="submitSms('recharge', data.sms.recharge)"></x-switch>
+      <x-switch title="资金变化" prevent-default v-model="data.smsChange" @on-click="submitSms('change', data.sms.change)"></x-switch>
+      <x-switch title="提现成功" prevent-default v-model="data.smsCash" @on-click="submitSms('cash', data.sms.cash)"></x-switch>
     </group>
     <alert v-model="noLoginShow" title="登录失效" @on-hide="logout">请重新登录</alert>
   </div>
@@ -34,20 +34,16 @@
     data () {
       return {
         data: {
-          messages: {
-            repayment: true,
-            financing: true,
-            recharge: true,
-            change: true,
-            cash: true
-          },
-          sms: {
-            repayment: true,
-            financing: true,
-            recharge: true,
-            change: true,
-            cash: true
-          }
+          msgRepayment: true,
+          msgFinancing: true,
+          msgRecharge: true,
+          msgChange: true,
+          msgCash: true,
+          smsRepayment: true,
+          smsFinancing: true,
+          smsRecharge: true,
+          smsChange: true,
+          smsCash: true
         },
         noLoginShow: false
       }
