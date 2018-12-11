@@ -140,8 +140,8 @@
             } else {
               console.log(res.data.data)
               self.dataBak.messages = res.data.data[0]
-              self.dataBak.mail = res.data.data[0]
-              self.dataBak.sms = res.data.data[0]
+              self.dataBak.mail = res.data.data[1]
+              self.dataBak.sms = res.data.data[2]
               console.log(self.dataBak)
             }
           })
