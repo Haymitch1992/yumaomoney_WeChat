@@ -13,6 +13,7 @@
     <group>
       <cell :title="'累计邀请：'+ invitedNum + '人'"></cell>
     </group>
+    <div>累计邀请：{{invitedNum}} 人</div>
     <group>
       <div class="pb20 f12">
         <x-table full-bordered>
@@ -169,20 +170,20 @@
       repairDate: function (data) {
         for (var i = 0; i < data.length; i++) {
           // 出借好友累加
-          if (data[ i ].firstInvestFlag === 1 && data[ i ].rewardAmount !== 0) {
+          if (data[i].firstInvestFlag === 1 && data[i].rewardAmount !== 0) {
             this.invitedNum += 1
           }
           // 获得奖励累加
-          if (data[ i ].receiveStatus === 1) {
-            this.invitedMoney += data[ i ].rewardAmount
+          if (data[i].receiveStatus === 1) {
+            this.invitedMoney += data[i].rewardAmount
           }
           // 投资红包累加
-          if (data[ i ].receiveStatus === 1) {
-            if (data[ i ].rewardAmount === 10) {
+          if (data[i].receiveStatus === 1) {
+            if (data[i].rewardAmount === 10) {
               this.invitedReward += 40
-            } else if (data[ i ].rewardAmount === 30) {
+            } else if (data[i].rewardAmount === 30) {
               this.invitedReward += 50
-            } else if (data[ i ].rewardAmount === 60) {
+            } else if (data[i].rewardAmount === 60) {
               this.invitedReward += 50
             }
           }
@@ -199,8 +200,8 @@
               console.log('没有进行好友邀请')
             } else {
               // 循环展示邀请列表
-              console.log(res.data)
               self.dataList = res.data
+              self.repairDate(res.data)
             }
           })
           .catch(function (error) {
@@ -251,6 +252,9 @@
   .invited{
     height: 100vh;
     background: #fff;
+    .vux-label, .weui-cell__ft .weui-loading{
+      font-size: 16px;
+    }
     .invited-top{
       background: #FD7879;
       background: -webkit-linear-gradient(#FD7879, #FE4141); /* Safari 5.1 - 6.0 */
