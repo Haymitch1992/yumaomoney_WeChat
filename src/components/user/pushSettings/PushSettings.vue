@@ -64,12 +64,57 @@
         self.$cookies.remove('apiHomeData')
         self.$router.push('/start/login')
       },
-      submitMsg (type, value) {
-        console.log(type, value)
+      /**
+       * 提交站内信设置
+       * @param type
+       * @param value
+       */
+      submitMsg (type, value, newVal, oldVal) {
+        console.log(type, value, newVal, oldVal)
+        this.$vux.loading.show({
+          text: 'in processing'
+        })
+        setTimeout(() => {
+          this.$vux.loading.hide()
+          this.value2 = newVal
+        }, 1000)
       },
-      submitSms (type, value) {
-        console.log(type, value)
+      /**
+       * 提交短信设置
+       * @param type
+       * @param value
+       */
+      submitSms (type, value, newVal, oldVal) {
+        console.log(type, value, newVal, oldVal)
+        this.$vux.loading.show({
+          text: 'in processing'
+        })
+        setTimeout(() => {
+          this.$vux.loading.hide()
+          this.value2 = newVal
+        }, 1000)
+      },
+      /**
+       * 获取设置数据
+       */
+      getData () {
+        console.log('获取设置数据')
+      },
+      init () {
+        var self = this
+        if (self.$cookies.get('apiHomeData')) {
+          self.data = self.$cookies.get('apiHomeData')
+          self.data.homeMap.usernameBak = self.data.homeMap.username.substr(0, 3) + '****' + self.data.homeMap.username.substr(7)
+        }
+        if ((self.$http.defaults.headers.tokenClientkey === undefined) && self.$cookies.get('tokenClientkey')) {
+          self.$http.defaults.headers.tokenClientkey = self.$cookies.get('tokenClientkey')
+        }
+        self.getData()
       }
+    },
+    created () {
+      var self = this
+      self.init()
     }
   }
 </script>
