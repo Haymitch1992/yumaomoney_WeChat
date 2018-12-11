@@ -2,18 +2,18 @@
   <div>
     <x-header>推送设置</x-header>
     <group title="站内信通知">
-      <x-switch title="收到还款" prevent-default v-model="data.messageReceive" @on-click="msgRepaymentFuc"></x-switch>
+      <x-switch title="收到还款" prevent-default v-model="data.messageReceive" @on-click="msgReceiveFuc"></x-switch>
       <x-switch title="融资成功" prevent-default v-model="data.messageBorrow" @on-click="msgBorrowFuc"></x-switch>
       <x-switch title="充值成功" prevent-default v-model="data.messageRecharge" @on-click="msgRechargeFuc"></x-switch>
-      <x-switch title="资金变化" prevent-default v-model="data.msgChange" @on-click="msgChangeFuc"></x-switch>
+      <x-switch title="资金变化" prevent-default v-model="data.messageChange" @on-click="msgChangeFuc"></x-switch>
       <x-switch title="提现成功" prevent-default v-model="data.messageDeposit" @on-click="msgDepositFuc"></x-switch>
     </group>
     <group title="短信通知">
-      <x-switch title="收到还款" prevent-default v-model="data.smsRepayment" @on-click="noteReceiveFuc"></x-switch>
-      <x-switch title="融资成功" prevent-default v-model="data.smsFinancing" @on-click="noteBorrowFuc"></x-switch>
-      <x-switch title="充值成功" prevent-default v-model="data.smsRecharge" @on-click="noteRechargeFuc"></x-switch>
-      <x-switch title="资金变化" prevent-default v-model="data.smsChange" @on-click="noteChangeFuc"></x-switch>
-      <x-switch title="提现成功" prevent-default v-model="data.smsCash" @on-click="noteDepositFuc"></x-switch>
+      <x-switch title="收到还款" prevent-default v-model="data.noteReceive" @on-click="noteReceiveFuc"></x-switch>
+      <x-switch title="融资成功" prevent-default v-model="data.noteBorrow" @on-click="noteBorrowFuc"></x-switch>
+      <x-switch title="充值成功" prevent-default v-model="data.noteRecharge" @on-click="noteRechargeFuc"></x-switch>
+      <x-switch title="资金变化" prevent-default v-model="data.noteChange" @on-click="noteChangeFuc"></x-switch>
+      <x-switch title="提现成功" prevent-default v-model="data.noteDeposit" @on-click="noteDepositFuc"></x-switch>
     </group>
     <alert v-model="noLoginShow" title="登录失效" @on-hide="logout">请重新登录</alert>
   </div>
@@ -119,8 +119,10 @@
         self.$vux.loading.show({
           text: '保存中'
         })
+        console.log(self.data)
         var params = self.data
         params[type] = newVal
+        console.log(params)
         self.$http.post(process.env.BASE_API + '/apiaddNotesSetting.do', qs.stringify(params))
           .then(function (res) {
             console.log(res)
@@ -154,6 +156,8 @@
               self.dataBak.msg = res.data.data[0]
               self.dataBak.mail = res.data.data[1]
               self.dataBak.sms = res.data.data[2]
+              console.log(self.dataBak.msg)
+              console.log(self.dataBak.sms)
               self.data.messageReceive = (self.dataBak.msg.reciveRepayEnable === 2)
               self.data.messageBorrow = (self.dataBak.msg.loanSucEnable === 2)
               self.data.messageRecharge = (self.dataBak.msg.rechargeSucEnable === 2)
