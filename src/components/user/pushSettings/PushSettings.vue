@@ -78,6 +78,7 @@
        * @param type
        */
       submitMsg (newVal, oldVal, type) {
+        var self = this
         console.log(newVal, oldVal, type)
         console.log(self.type)
         this.$vux.loading.show({
