@@ -6,11 +6,11 @@
     <!-- 待领取红包-->
     <div>
       <group>
-        <cell title="待领取金额" :value="list[0].value + list[1].value"></cell>
+        <cell title="待领取金额" :value="list[0].value + list[1].value "></cell>
         <cell-form-preview :list="list"></cell-form-preview>
       </group>
       <group>
-        <x-button type="warn" @click.native="receiveRewardBatch">领取奖励</x-button>
+        <x-button type="warn" @click.native="receiveRewardBatch" :disabled="list[0].value === 0">领取奖励</x-button>
       </group>
     </div>
   </div>
@@ -86,8 +86,17 @@
             } else if (res.data.returnVal === 'nouser') {
               console.log('没有进行好友邀请')
             } else {
-              // 循环展示邀请列表
-              console.log(res.data)
+              if (res.data.returnVal === 'success') {
+                self.$vux.toast.show({
+                  text: '领取成功',
+                  type: 'success'
+                })
+              } else {
+                self.$vux.toast.show({
+                  text: '领取失败',
+                  type: 'cancel'
+                })
+              }
             }
           })
           .catch(function (error) {
