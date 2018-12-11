@@ -2,7 +2,7 @@
   <div>
     <x-header>推送设置</x-header>
     <group title="站内信通知">
-      <x-switch title="收到还款" prevent-default v-model="data.msgRepayment" @on-click="msgRepaymentFuc, getEvent($event)"></x-switch>
+      <x-switch title="收到还款" prevent-default v-model="data.msgRepayment" @click.native="getThis('repayment')" @on-click="msgRepaymentFuc"></x-switch>
       <x-switch title="融资成功" prevent-default v-model="data.msgFinancing" @on-click="msgFinancingFuc"></x-switch>
       <x-switch title="充值成功" prevent-default v-model="data.msgRecharge" @on-click="submitMsg('recharge', data.msgRecharge)"></x-switch>
       <x-switch title="资金变化" prevent-default v-model="data.msgChange" @on-click="submitMsg('change', data.msgChange)"></x-switch>
@@ -45,7 +45,8 @@
           smsChange: true,
           smsCash: true
         },
-        noLoginShow: false
+        noLoginShow: false,
+        type: ''
       }
     },
     methods: {
@@ -60,6 +61,10 @@
         self.$cookies.remove('apiHomeData')
         self.$router.push('/start/login')
       },
+      getThis (type) {
+        var self = this
+        self.type = type
+      },
       msgRepaymentFuc (newVal, oldVal) {
         var self = this
         self.submitMsg(newVal, oldVal, 'repayment')
@@ -68,15 +73,13 @@
         var self = this
         self.submitMsg(newVal, oldVal, 'financing')
       },
-      getEvent (event) {
-        console.log(event)
-      },
       /**
        * 提交站内信设置
        * @param type
        */
       submitMsg (newVal, oldVal, type) {
         console.log(newVal, oldVal, type)
+        console.log(self.type)
         this.$vux.loading.show({
           text: 'in processing'
         })
