@@ -61,9 +61,11 @@
         self.$router.push('/start/login')
       },
       msgRepaymentFuc (newVal, oldVal) {
+        var self = this
         self.submitMsg(newVal, oldVal, 'repayment')
       },
       msgFinancingFuc (newVal, oldVal) {
+        var self = this
         self.submitMsg(newVal, oldVal, 'financing')
       },
       getEvent (event) {
@@ -80,7 +82,7 @@
         })
         setTimeout(() => {
           this.$vux.loading.hide()
-          this.value2 = value
+          this.value2 = newVal
         }, 1000)
       },
       /**
