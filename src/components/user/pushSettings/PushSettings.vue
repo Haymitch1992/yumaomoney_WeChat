@@ -60,13 +60,13 @@
         self.$cookies.remove('apiHomeData')
         self.$router.push('/start/login')
       },
-      msgRepaymentFuc(newVal, oldVal){
+      msgRepaymentFuc (newVal, oldVal) {
         self.submitMsg(newVal, oldVal, 'repayment')
       },
-      msgFinancingFuc(newVal, oldVal){
+      msgFinancingFuc (newVal, oldVal) {
         self.submitMsg(newVal, oldVal, 'financing')
       },
-      getEvent(event){
+      getEvent (event) {
         console.log(event)
       },
       /**
