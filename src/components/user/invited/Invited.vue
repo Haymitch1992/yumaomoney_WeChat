@@ -54,12 +54,9 @@
     <div>
       <x-dialog v-model="sweepType" class="dialog-demo" hide-on-blur>
         <div class="img-box">
-          <!--<img src="https://ws1.sinaimg.cn/large/663d3650gy1fq6824ur1dj20ia0pydlm.jpg" style="max-width:100%">-->
-          <!--<img src="../../../assets/images/invited.png" style="max-width:100%">-->
           <div class="qrcode-bg">
-            <qrcode value="https://www.yumaomoney.com" type="img"></qrcode>
+            <qrcode :value="'https://www.yumaomoney.com/reg.do?istarget=1&type=1&id='+userName" type="img"></qrcode>
           </div>
-
         </div>
         <div @click="sweepType=false">
           <span class="vux-close"></span>
@@ -147,7 +144,8 @@
         dataList: [],
         invitedNum: 0,
         invitedMoney: 0,
-        invitedReward: 0
+        invitedReward: 0,
+        userName: ''
       }
     },
     filters: {
@@ -169,42 +167,6 @@
       }
     },
     methods: {
-      invite: function () {
-        this.$refs.qrcode.innerHTML = ''
-        this.$refs.qrcode.qrcode('123')
-      },
-      // 合成图像
-      pintu: function () {
-        var data = ['/activity/20180626/img/qr-code-bg.jpg']
-        var base64 = []
-        var Mycanvas = document.createElement('canvas')
-        var ct = Mycanvas.getContext('2d')
-        var len = data.length
-        Mycanvas.width = 720     // 应为模板的宽
-        Mycanvas.height = 1280    // 应为模板的高
-        ct.rect(0, 0, Mycanvas.width, Mycanvas.height)
-        ct.fillStyle = '#fff'
-        ct.fill()
-        function draw (n) {
-          if (n < len) {
-            var img = new Image()
-            img.crossOrigin = 'Anonymous' // 解决跨域
-            img.src = data[n]
-            console.log(data[n])
-            img.onload = function () {
-              ct.drawImage(this, 0, 0, 720, 1280)
-              // var canvas = $('#qrcode canvas')[0]
-              var canvas = this.$refs.qrcode
-              ct.drawImage(canvas, 190, 570, 340, 340)
-              draw(n + 1)
-            }
-          } else {
-            base64.push(Mycanvas.toDataURL('image/png'))
-            this.$refs.imgBox.innerHTML = '<img width="100%" src="' + base64[0] + '">'
-          }
-        }
-        draw(0)
-      },
       // 计算数据
       repairDate: function (data) {
         for (var i = 0; i < data.length; i++) {
@@ -273,6 +235,15 @@
         } else if (type === 'error') {
           self.copyError = true
         }
+      },
+      getUserName () {
+        var self = this
+        if (self.$cookies.get('apiHomeData')) {
+          self.data = self.$cookies.get('apiHomeData')
+          self.userName = self.data.homeMap.username
+        } else {
+          console.log('登录状态失效')
+        }
       }
     },
     created () {
@@ -281,6 +252,8 @@
         self.$http.defaults.headers.tokenClientkey = self.$cookies.get('tokenClientkey')
       }
       this.getInfo()
+      // 获取个人信息
+      this.getUserName()
     }
   }
 </script>
@@ -334,8 +307,22 @@
     .vux-table td:after, .vux-table th:after{
       border-bottom: 1px solid #fd5050;
     }
-    .weui-cells{
-
+    .qrcode-bg{
+      width: 300px;
+      background: url(/activity/20180626/img/qr-code-bg.jpg) no-repeat;
+      background-size: cover;
+      height: 530px;
+      position: relative;
+      img{
+        height: 160px;
+        width: 160px;
+        position: absolute;
+        bottom: 140px;
+        left: 70px;
+      }
+    }
+    .dialog-demo .weui-dialog{
+      padding-bottom: 0;
     }
   }
   .dialog-demo {
