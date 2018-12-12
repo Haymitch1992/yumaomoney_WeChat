@@ -70,8 +70,8 @@
               <x-table full-bordered>
                 <thead>
                 <tr>
-                  <th>好友首投金额(元)</th>
-                  <th>我的奖励(元)</th>
+                  <th>好友首投金额</th>
+                  <th>我的奖励</th>
                 </tr>
                 </thead>
                 <tbody>
