@@ -1,7 +1,7 @@
 <template>
   <div class="invited">
     <div class="invited-top">
-      <x-header><a slot="right" @click="goTo()">转入</a>邀请奖励</x-header>
+      <x-header><a slot="right" @click="goTo()">领取</a>邀请奖励</x-header>
       <div>
         <div class="invited-num pt40 f22">累计奖励:{{invitedMoney + invitedReward}}元</div>
         <div class="center-box h50">
@@ -14,7 +14,7 @@
       <cell :title="'累计邀请：'+ invitedNum + '人'"></cell>
     </group>
     <group>
-      <div class="pb20 f12">
+      <div class="pb20 f12 over-box">
         <x-table full-bordered>
           <thead>
           <tr>
@@ -36,16 +36,14 @@
       </div>
     </group>
     <div class="submit-box">
-      <x-button @click.native="shareType = true" plain type="primary">邀请好友</x-button>
-      <x-button @click.native="sweepType = true" plain type="primary">扫码邀请</x-button>
-      <x-button @click.native="rulesType = true" plain type="primary">活动规则</x-button>
+      <x-button :gradients="['#FF2719', '#FF61AD']" @click.native="shareType = true">邀请好友</x-button>
+      <x-button :gradients="['#FF2719', '#FF61AD']" @click.native="sweepType = true">扫码邀请</x-button>
+      <x-button :gradients="['#FF2719', '#FF61AD']" @click.native="rulesType = true">活动规则</x-button>
     </div>
     <div>
       <x-dialog v-model="shareType" class="dialog-demo" hide-on-blur>
         <p class="dialog-title">复制链接邀请好友</p>
-        <span class="dialog-title"></span>
-        <p class="dialog-title">点击复制按钮，分享给好友吧!</p>
-        <x-textarea :max="200" name="detail" :show-counter="false" v-model="detail" :height="150"></x-textarea>
+        <x-textarea :max="200" name="detail" :show-counter="false" v-model="detail" ></x-textarea>
         <div>
           <x-button class="copyBtn" type="primary" v-clipboard:copy="detail" v-clipboard:success="onCopy" v-clipboard:error="onError">复制</x-button>
         </div>
@@ -140,7 +138,7 @@
         rulesType: false,
         copySuccess: false,
         copyError: false,
-        detail: '我携手鱼猫金服给你送来104元现金，和我一起乐享钱程！https://www.yumaomoney.com/reg.do?istarget=1&id=13688888888',
+        detail: '',
         dataList: [],
         invitedNum: 0,
         invitedMoney: 0,
@@ -241,6 +239,7 @@
         if (self.$cookies.get('apiHomeData')) {
           self.data = self.$cookies.get('apiHomeData')
           self.userName = self.data.homeMap.username
+          self.detail = '我携手鱼猫金服给你送来104元现金，和我一起乐享钱程！https://www.yumaomoney.com/reg.do?istarget=1&id=' + self.data.homeMap.username
         } else {
           console.log('登录状态失效')
         }
@@ -267,10 +266,22 @@
     .vux-label, .weui-cell__ft .weui-loading{
       font-size: 16px;
     }
+    .weui-textarea{
+      margin:20px 0;
+    }
+    .over-box{
+      max-height: 120px;
+      overflow-y: auto;
+    }
+    .dialog-demo .dialog-title{
+      font-size: 14px;
+      line-height: 40px;
+    }
     .rule-title{
-      font-size: 20px;
+      font-size: 18px;
       border-bottom: 1px solid #f5f5f5;
       line-height: 40px;
+      text-align: center;
     }
     .rule-text{
       line-height: 30px;
