@@ -267,7 +267,9 @@
       font-size: 16px;
     }
     .weui-textarea{
-      margin:20px 0;
+      margin: 14px 0;
+      line-height: 30px;
+      font-size: 12px;
     }
     .over-box{
       max-height: 120px;
