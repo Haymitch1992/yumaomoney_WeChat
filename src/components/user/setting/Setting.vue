@@ -4,7 +4,7 @@
     <group>
       <cell title="账户与安全" is-link link="/user/setting/safe"></cell>
       <cell title="三方账号管理" is-link link="/user/setting/thirdParty"></cell>
-      <cell title="地址管理" is-link link="/user/setting/address"></cell>
+      <!--<cell title="地址管理" is-link link="/user/setting/address"></cell>-->
       <cell title="关于" is-link link="/user/setting/about"></cell>
       <cell title="清除缓存" @click.native="handleClear"></cell>
     </group>
