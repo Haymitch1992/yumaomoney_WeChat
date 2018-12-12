@@ -70,29 +70,29 @@
         <grid-item link="/user/note" label="资金记录" key="2">
           <img slot="icon" src="../../assets/images/icon/icon-note.png">
         </grid-item>
-      </grid>
-      <grid :show-lr-borders="false" >
-        <grid-item link="/user/coupons" label="优惠券" key="0">
+        <grid-item link="/user/coupons" label="优惠券" key="3">
           <img slot="icon" src="../../assets/images/icon/icon-coupons.png">
         </grid-item>
-        <grid-item link="/user/experience" label="体验金" key="1">
-          <img slot="icon" src="../../assets/images/icon/icon-experience.png">
-        </grid-item>
-        <grid-item link="/user/auto" label="自动投标" key="2">
-          <img slot="icon" src="../../assets/images/icon/icon-auto.png">
-        </grid-item>
       </grid>
       <grid :show-lr-borders="false" >
-        <grid-item link="/user/invited" label="邀请好友" key="0">
+        <grid-item link="/user/auto" label="自动投标" key="0">
+          <img slot="icon" src="../../assets/images/icon/icon-auto.png">
+        </grid-item>
+        <grid-item link="/user/invited" label="邀请好友" key="1">
           <img slot="icon" src="../../assets/images/icon/icon-invited.png">
         </grid-item>
-        <grid-item link="/user/message" label="我的消息" key="1">
+        <grid-item link="/user/message" label="我的消息" key="2">
           <img slot="icon" src="../../assets/images/icon/icon-message.png">
         </grid-item>
-        <grid-item link="/user/contactUs" label="客服与反馈" key="2">
+        <grid-item link="/user/contactUs" label="客服与反馈" key="3">
           <img slot="icon" src="../../assets/images/icon/icon-contactUs.png">
         </grid-item>
       </grid>
+      <!--<grid :show-lr-borders="false" >-->
+        <!--<grid-item link="/user/experience" label="体验金" key="0">-->
+          <!--<img slot="icon" src="../../assets/images/icon/icon-experience.png">-->
+        <!--</grid-item>-->
+      <!--</grid>-->
     </group>
     <alert v-model="noLoginShow" title="登录失效" @on-hide="logout">请重新登录</alert>
   </div>
