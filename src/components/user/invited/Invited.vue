@@ -239,7 +239,7 @@
         if (self.$cookies.get('apiHomeData')) {
           self.data = self.$cookies.get('apiHomeData')
           self.userName = self.data.homeMap.username
-          self.detail = '我携手鱼猫金服给你送来104元现金，和我一起乐享钱程！https://www.yumaomoney.com/reg.do?istarget=1&id=' + self.data.homeMap.username
+          self.detail = '我携手鱼猫金服给你送来106.88元现金，和我一起乐享钱程！https://www.yumaomoney.com/reg.do?istarget=1&id=' + self.data.homeMap.username
         } else {
           console.log('登录状态失效')
         }
