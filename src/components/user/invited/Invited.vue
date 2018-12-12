@@ -65,7 +65,7 @@
       <popup v-model="rulesType" height="100%">
         <div class="popupFull">
           <group>
-            <div class="rule-title">活动规则 </div>
+            <div class="rule-title">活动规则</div>
             <div class="p15 f12">
               <x-table full-bordered>
                 <thead>
