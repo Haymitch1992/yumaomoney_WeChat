@@ -36,9 +36,9 @@
       </div>
     </group>
     <div class="submit-box">
-      <x-button @click.native="shareType = true" type="primary">邀请好友</x-button>
-      <x-button @click.native="sweepType = true" type="primary">扫码邀请</x-button>
-      <x-button @click.native="rulesType = true" type="primary">活动规则</x-button>
+      <x-button @click.native="shareType = true" plain type="primary">邀请好友</x-button>
+      <x-button @click.native="sweepType = true" plain type="primary">扫码邀请</x-button>
+      <x-button @click.native="rulesType = true" plain type="primary">活动规则</x-button>
     </div>
     <div>
       <x-dialog v-model="shareType" class="dialog-demo" hide-on-blur>
@@ -67,7 +67,7 @@
       <popup v-model="rulesType" height="100%">
         <div class="popupFull">
           <group>
-            <div class="center f24 pt20">活动规则</div>
+            <div class="rule-title">活动规则</div>
             <div class="p15 f12">
               <x-table full-bordered>
                 <thead>
@@ -92,8 +92,8 @@
                 </tbody>
               </x-table>
             </div>
-            <div class="p20 f12">
-              *温馨提示
+            <div class="p20 f12 rule-text">
+              <h4>*温馨提示</h4>
               <div>1.您邀请的单个好友首次出借达到相应的金额（出借标的不限），您即可获得相应的现金及红包奖励。</div>
               <div>2.现金奖励于个人中心——好友邀请奖励中领取，可直接提现。</div>
               <div>3.红包奖励于个人中心—好友邀请奖励中领取，有效期为30天，使用比例为1%，出借可抵现。</div>
@@ -266,6 +266,21 @@
     background: #fff;
     .vux-label, .weui-cell__ft .weui-loading{
       font-size: 16px;
+    }
+    .rule-title{
+      font-size: 20px;
+      border-bottom: 1px solid #f5f5f5;
+      line-height: 40px;
+    }
+    .rule-text{
+      line-height: 30px;
+      h4{
+        font-size: 16px;
+        color: #e2c841;
+      }
+    }
+    .weui-dialog{
+      width: 300px;
     }
     .invited-top{
       background: #FD7879;
