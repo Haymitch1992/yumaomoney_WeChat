@@ -17,7 +17,7 @@
     <group label-width="4.5em" label-margin-right="2em" label-align="right">
       <cell title="帮助中心" is-link link="/user/contactUs/help"></cell>
       <cell title="在线客服" is-link link="https://www.sobot.com/chat/oldh5/index.html?sysNum=e4068d62da3b41e69a8f47a6929a6826"></cell>
-      <cell title="意见反馈" value="您的意见对我们很重要" is-link link="/user/contactUs/feedback"></cell>
+      <!--<cell title="意见反馈" value="您的意见对我们很重要" is-link link="/user/contactUs/feedback"></cell>-->
     </group>
   </div>
 </template>
